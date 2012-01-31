@@ -22,6 +22,7 @@ public class xctrailreportActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 
 		trailInfo = loadTrailInfo();
+		loadReports(trailInfo);
 		printTrailInfo(trailInfo);
 
 	}
@@ -46,7 +47,16 @@ public class xctrailreportActivity extends ListActivity {
 			names.add(info.getName());
 		}
 
-		this.setListAdapter(new ArrayAdapter<String>(this, R.layout.listentry, names));
+		this.setListAdapter(new ArrayAdapter<String>(this, R.layout.listentry,
+				names));
 
+	}
+
+	private void loadReports(List<TrailInfo> trailInfo) {
+		CompoundReportRetriever retriever = new CompoundReportRetriever();
+
+		for (TrailInfo info : trailInfo) {
+			info.setReports(retriever.getReports(info));
+		}
 	}
 }

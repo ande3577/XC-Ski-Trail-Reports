@@ -19,6 +19,11 @@
  */
 package org.dsanderson;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.dsanderson.TrailReport;
+
 /**
  * 
  */
@@ -30,6 +35,8 @@ public class TrailInfo {
 	String skinnyskiSearchTerm = "";
 	String skinnyskiUrl = "";
 	String threeRiversSearchTerm = "";
+	double distance = 0;
+	List<TrailReport> reports = new ArrayList<TrailReport>();
 
 	public void setName(String name) {
 		this.name = name;
@@ -86,11 +93,26 @@ public class TrailInfo {
 	public String getThreeRiversSearchTerm() {
 		return threeRiversSearchTerm;
 	}
-	
-	public TrailInfo copy()
-	{
+
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
+
+	public double getDistance() {
+		return distance;
+	}
+
+	public void setReports(List<TrailReport> reports) {
+		reports.addAll(reports);
+	}
+
+	public List<TrailReport> getReports() {
+		return reports;
+	}
+
+	public TrailInfo copy() {
 		TrailInfo newCopy = new TrailInfo();
-		
+
 		newCopy.name = name;
 		newCopy.city = city;
 		newCopy.state = state;
@@ -98,7 +120,9 @@ public class TrailInfo {
 		newCopy.skinnyskiSearchTerm = skinnyskiSearchTerm;
 		newCopy.skinnyskiUrl = skinnyskiUrl;
 		newCopy.threeRiversSearchTerm = threeRiversSearchTerm;
-		
+		newCopy.distance = distance;
+		newCopy.reports.addAll(reports);
+
 		return newCopy;
 	}
 

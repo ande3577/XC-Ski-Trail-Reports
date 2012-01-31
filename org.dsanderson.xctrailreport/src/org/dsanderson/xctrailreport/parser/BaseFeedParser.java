@@ -1,14 +1,10 @@
 package org.dsanderson.xctrailreport.parser;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.dsanderson.TrailInfo;
-import org.xml.sax.InputSource;
 
 import android.sax.Element;
 import android.sax.EndElementListener;
