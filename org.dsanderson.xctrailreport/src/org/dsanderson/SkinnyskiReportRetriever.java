@@ -21,9 +21,12 @@ package org.dsanderson;
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.http.util.ByteArrayBuffer;
 
 /**
  * 
@@ -43,30 +46,58 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
 	public List<TrailReport> getReports(TrailInfo trailInfo) {
-		if (!connected) {
-			return null;
+		List<TrailReport> trailReports = new ArrayList<TrailReport>();
+		if (connected) {
+			parseHtml(trailReports, trailInfo);
 		}
-
-		return null;
+		return trailReports;
 	}
 
 	private boolean connect() {
-		InputStream in;
 		pageSource = "";
 		boolean retVal = false;
 		try {
 			URL url = new URL("http://skinnyski.com/trails/reports.asp");
-			URLConnection urlConnection = url.openConnection();
-			urlConnection.setConnectTimeout(2000);
-			urlConnection.setReadTimeout(2000);
-			in = new BufferedInputStream(urlConnection.getInputStream());
-			if (in.read(pageSource.getBytes()) > 0) {
+			HttpURLConnection urlConnection = (HttpURLConnection) url
+					.openConnection();
+
+			InputStream in = new BufferedInputStream(
+					urlConnection.getInputStream());
+
+			byte b[] = new byte[in.available()];
+			if (in.read(b) > 0) {
+				String newString = new String(b);
+				pageSource = newString;
 				retVal = true;
 			}
-			in.close();
+			urlConnection.disconnect();
 		} catch (Exception e) {
-			return false;
+			// TODO: handle exception
 		}
+
 		return retVal;
 	}
+
+	private void parseHtml(List<TrailReport> trailReports, TrailInfo trailInfo) {
+		String matches[] = pageSource.split(trailInfo.getSkinnyskiSearchTerm());
+		if (matches.length > 2) {
+			TrailReport newReport = new TrailReport();
+			for (int i = 1; i < matches.length; i++) {
+				String dateMatches[] = matches[i - 1].split("<b>");
+				if (dateMatches.length > 0) {
+					String date = dateMatches[dateMatches.length - 1];
+					date = date.split("<a", 1)[0];
+					newReport.setDate(date);
+				}
+
+				String items[] = matches[i].split("<br>", 4);
+				newReport.setSummary(items[0].trim());
+				newReport.setDetail(items[1].trim());
+				String author = items[2].split("<li>", 1)[0].trim();
+				newReport.setAuthor(author);
+			}
+		}
+
+	}
+
 }
