@@ -7,12 +7,12 @@ import java.util.List;
 import org.dsanderson.xctrailreport.R;
 import org.dsanderson.xctrailreport.parser.BaseFeedParser;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 
-public class xctrailreportActivity extends Activity {
+public class xctrailreportActivity extends ListActivity {
 
 	private List<TrailInfo> trailInfo;
 
@@ -20,7 +20,6 @@ public class xctrailreportActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
 
 		trailInfo = loadTrailInfo();
 		printTrailInfo(trailInfo);
@@ -46,6 +45,8 @@ public class xctrailreportActivity extends Activity {
 		for (TrailInfo info : trailInfo) {
 			names.add(info.getName());
 		}
+
+		this.setListAdapter(new ArrayAdapter<String>(this, R.layout.listentry, names));
 
 	}
 }
