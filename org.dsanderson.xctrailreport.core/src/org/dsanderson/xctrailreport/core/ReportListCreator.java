@@ -19,11 +19,28 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import java.io.InputStream;
 import java.util.List;
+import org.dsanderson.xctrailreport.core.TrailInfo;
 
 /**
  * 
  */
-public interface IReportRetriever {
-	abstract void getReports(List<TrailInfo> trailInfo);
+public class ReportListCreator {
+	private IAbstractFactory factory;
+
+	public ReportListCreator(IAbstractFactory factory) {
+		this.factory = factory;
+	}
+
+	public List<TrailInfo> getTrailInfoReports(InputStream inputStream) {
+		ITrailInfoParser parser = factory.getTrailInfoParser();
+		parser.SetInputStream(inputStream);
+		parser.parse();
+		List<TrailInfo> trailInfos = parser.getTrailInfo();
+		IReportRetriever reportRetriever = factory.getReportRetriever();
+		reportRetriever.getReports(trailInfos);
+		return trailInfos;
+	}
+
 }

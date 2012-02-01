@@ -19,11 +19,17 @@
  */
 package org.dsanderson.xctrailreport.core;
 
-import java.util.List;
-
 /**
  * 
  */
-public interface IReportRetriever {
-	abstract void getReports(List<TrailInfo> trailInfo);
+public interface IUserSettingsSource {
+	public abstract void loadUserSettings();
+	
+	public abstract void saveUserSettings();
+	
+	public abstract UserSettings getUserSettings();
+	
+	public abstract void setUserSettings(UserSettings userSettings);
+	
+	
 }

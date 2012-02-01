@@ -19,11 +19,18 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import java.io.InputStream;
 import java.util.List;
 
 /**
  * 
  */
-public interface IReportRetriever {
-	abstract void getReports(List<TrailInfo> trailInfo);
+public interface ITrailInfoParser {
+	
+	public abstract void parse();
+	
+	public abstract void SetInputStream(InputStream inputStream);
+	
+	public abstract List<TrailInfo> getTrailInfo();
+
 }

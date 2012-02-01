@@ -19,11 +19,19 @@
  */
 package org.dsanderson.xctrailreport.core;
 
-import java.util.List;
-
 /**
  * 
  */
-public interface IReportRetriever {
-	abstract void getReports(List<TrailInfo> trailInfo);
+public interface IAbstractFactory {
+	
+	public abstract ITrailInfoParser getTrailInfoParser();
+	
+	public abstract INetConnection getNetConnection();
+	
+	public abstract ILocation getLocation();
+	
+	public abstract IUserSettingsSource getUserSettingsSource();
+	
+	public abstract IReportRetriever getReportRetriever();
+	
 }

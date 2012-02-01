@@ -23,7 +23,6 @@ import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.core.IReportRetriever;
@@ -47,12 +46,10 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 	 * 
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
-	public List<TrailReport> getReports(TrailInfo trailInfo) {
-		List<TrailReport> trailReports = new ArrayList<TrailReport>();
+	public void getReports(List<TrailInfo> trailInfos) {
 		if (connected) {
-			parseHtml(trailReports, trailInfo);
+			parseHtml(trailInfos);
 		}
-		return trailReports;
 	}
 
 	private boolean connect() {
@@ -80,26 +77,28 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 		return retVal;
 	}
 
-	private void parseHtml(List<TrailReport> trailReports, TrailInfo trailInfo) {
-		String matches[] = pageSource.split(trailInfo.getSkinnyskiSearchTerm());
-		if (matches.length > 2) {
-			TrailReport newReport = new TrailReport();
-			for (int i = 1; i < matches.length; i++) {
-				String dateMatches[] = matches[i - 1].split("<b>");
-				if (dateMatches.length > 0) {
-					String date = dateMatches[dateMatches.length - 1];
-					date = date.split("<a", 1)[0];
-					newReport.setDate(date);
-				}
+	private void parseHtml(List<TrailInfo> trailInfos) {
+		for (TrailInfo info : trailInfos) {
+			String matches[] = pageSource.split(info.getSkinnyskiSearchTerm());
+			if (matches.length > 1) {
+				TrailReport newReport = new TrailReport();
+				for (int i = 1; i < matches.length; i++) {
+					String dateMatches[] = matches[i - 1].split("<b>");
+					if (dateMatches.length > 0) {
+						String date = dateMatches[dateMatches.length - 1];
+						date = date.split("<a", 1)[0];
+						newReport.setDate(date);
+					}
 
-				String items[] = matches[i].split("<br>", 4);
-				newReport.setSummary(items[0].trim());
-				newReport.setDetail(items[1].trim());
-				String author = items[2].split("<li>", 1)[0].trim();
-				newReport.setAuthor(author);
-			}
-		}
+					String items[] = matches[i].split("<br>", 4);
+					newReport.setSummary(items[0].trim());
+					newReport.setDetail(items[1].trim());
+					String author = items[2].split("<li>", 1)[0].trim();
+					newReport.setAuthor(author);
+				} // for matches
+			} // if (matches.length > 2)
+		} // for TrailInfos
 
-	}
+	} // parseHtml
 
 }

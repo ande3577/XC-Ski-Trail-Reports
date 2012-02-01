@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.R;
+import org.dsanderson.xctrailreport.core.ReportListCreator;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 
 import android.app.ListActivity;
@@ -15,6 +16,8 @@ import android.widget.ArrayAdapter;
 public class xctrailreportActivity extends ListActivity {
 
 	private List<TrailInfo> trailInfo;
+	
+	private TrailReportFactory factory = new TrailReportFactory();
 
 	/** Called when the activity is first created. */
 	@Override
@@ -22,9 +25,7 @@ public class xctrailreportActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 
 		trailInfo = loadTrailInfo();
-		loadReports(trailInfo);
 		printTrailInfo(trailInfo);
-
 	}
 
 	private List<TrailInfo> loadTrailInfo() {
@@ -32,8 +33,8 @@ public class xctrailreportActivity extends ListActivity {
 		try {
 			InputStream inputStream = getResources().openRawResource(
 					R.raw.trail_info);
-			BaseFeedParser parser = new BaseFeedParser(inputStream);
-			trailInfo = parser.parse();
+			ReportListCreator listCreator = new ReportListCreator(factory);
+			trailInfo = listCreator.getTrailInfoReports(inputStream);
 		} catch (Exception e) {
 			Log.e("XCTrailReports", e.getMessage(), e);
 		}
@@ -52,11 +53,4 @@ public class xctrailreportActivity extends ListActivity {
 
 	}
 
-	private void loadReports(List<TrailInfo> trailInfo) {
-		CompoundReportRetriever retriever = new CompoundReportRetriever();
-
-		for (TrailInfo info : trailInfo) {
-			info.setReports(retriever.getReports(info));
-		}
-	}
 }

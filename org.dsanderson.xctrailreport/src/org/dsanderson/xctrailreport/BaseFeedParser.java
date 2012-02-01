@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.core.TrailInfo;
+import org.dsanderson.xctrailreport.core.ITrailInfoParser;
 
 import android.sax.Element;
 import android.sax.EndElementListener;
@@ -12,7 +13,7 @@ import android.sax.EndTextElementListener;
 import android.sax.RootElement;
 import android.util.Xml;
 
-public class BaseFeedParser {
+public class BaseFeedParser implements ITrailInfoParser {
 	InputStream inputStream;
 
 	// names of the XML tags
@@ -28,15 +29,16 @@ public class BaseFeedParser {
 
 	static final String THREE_RIVERS_SEARCH_TERM = "threeRiversSearchTerm";
 
-	public BaseFeedParser(InputStream inputStream) {
-		this.inputStream = inputStream;
+	List<TrailInfo> trailInfo = new ArrayList<TrailInfo>();
+
+	public BaseFeedParser() {
 	}
 
 	protected InputStream getInputStream() {
 		return inputStream;
 	}
 
-	public List<TrailInfo> parse() {
+	public void parse() {
 		final TrailInfo currentMessage = new TrailInfo();
 		RootElement root = new RootElement(TRAIL_INFO);
 		final List<TrailInfo> messages = new ArrayList<TrailInfo>();
@@ -94,6 +96,21 @@ public class BaseFeedParser {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-		return messages;
+		trailInfo = messages;
+	}
+
+	public List<TrailInfo> getTrailInfo() {
+		return trailInfo;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ITrailInfoParser#SetInputStream(java
+	 * .io.InputStream)
+	 */
+	public void SetInputStream(InputStream inputStream) {
+		this.inputStream = inputStream;
 	}
 }

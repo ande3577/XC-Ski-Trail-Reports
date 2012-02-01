@@ -17,15 +17,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport;
+package org.dsanderson.xctrailreport.application;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.TrailInfo;
-import org.dsanderson.xctrailreport.core.TrailReport;
-import org.dsanderson.xctrailreport.skinnyski.SkinnyskiReportRetriever;
 
 /**
  * 
@@ -35,7 +33,11 @@ public class CompoundReportRetriever implements IReportRetriever {
 	List<IReportRetriever> reportRetrievers = new ArrayList<IReportRetriever>();
 
 	public CompoundReportRetriever() {
-		reportRetrievers.add(new SkinnyskiReportRetriever());
+	}
+	
+	public void addRetriever(IReportRetriever reportRetriever)
+	{
+		reportRetrievers.add(reportRetriever);
 	}
 
 	/*
@@ -43,13 +45,11 @@ public class CompoundReportRetriever implements IReportRetriever {
 	 * 
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
-	public List<TrailReport> getReports(TrailInfo trailInfo) {
-		List<TrailReport> trailReports = new ArrayList<TrailReport>();
-
+	@Override
+	public void getReports(List<TrailInfo> trailInfo) {
 		for (int i = 0; i < reportRetrievers.size(); i++) {
-			trailReports.addAll(reportRetrievers.get(i).getReports(trailInfo));
+			reportRetrievers.get(i).getReports(trailInfo);
 		}
-		return trailReports;
 	}
 
 }
