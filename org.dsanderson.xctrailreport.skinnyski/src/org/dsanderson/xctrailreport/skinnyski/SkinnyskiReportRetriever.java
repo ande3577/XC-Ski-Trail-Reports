@@ -20,11 +20,10 @@
 package org.dsanderson.xctrailreport.skinnyski;
 
 import java.io.BufferedInputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.List;
 
+import org.dsanderson.xctrailreport.core.IAbstractFactory;
+import org.dsanderson.xctrailreport.core.INetConnection;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
@@ -35,10 +34,10 @@ import org.dsanderson.xctrailreport.core.TrailReport;
 public class SkinnyskiReportRetriever implements IReportRetriever {
 
 	String pageSource = "";
-	boolean connected = false;
+	IAbstractFactory factory;
 
-	public SkinnyskiReportRetriever() {
-		connected = connect();
+	public SkinnyskiReportRetriever(IAbstractFactory factory) {
+		this.factory = factory;
 	}
 
 	/*
@@ -47,58 +46,68 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
 	public void getReports(List<TrailInfo> trailInfos) {
-		if (connected) {
-			parseHtml(trailInfos);
-		}
+		parseHtml(trailInfos);
 	}
 
 	private boolean connect() {
 		pageSource = "";
 		boolean retVal = false;
 		try {
-			URL url = new URL("http://skinnyski.com/trails/reports.asp");
-			HttpURLConnection urlConnection = (HttpURLConnection) url
-					.openConnection();
+			INetConnection netConnection = factory.getNetConnection();
+			if (!netConnection
+					.connect("http://skinnyski.com/trails/reports.asp"))
+				return false;
 
-			InputStream in = new BufferedInputStream(
-					urlConnection.getInputStream());
+			BufferedInputStream in = new BufferedInputStream(
+					netConnection.getInputStream());
 
-			byte b[] = new byte[in.available()];
-			if (in.read(b) > 0) {
+			byte b[] = new byte[200000];
+
+			while (in.read(b) > 0 && pageSource.lastIndexOf("<\\HTML>") == -1) {
 				String newString = new String(b);
-				pageSource = newString;
+				pageSource += newString;
 				retVal = true;
 			}
-			urlConnection.disconnect();
+			netConnection.disconnect();
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.err.println(e);
+			retVal = false;
 		}
-
 		return retVal;
 	}
 
 	private void parseHtml(List<TrailInfo> trailInfos) {
-		for (TrailInfo info : trailInfos) {
-			String matches[] = pageSource.split(info.getSkinnyskiSearchTerm());
-			if (matches.length > 1) {
-				TrailReport newReport = new TrailReport();
-				for (int i = 1; i < matches.length; i++) {
-					String dateMatches[] = matches[i - 1].split("<b>");
-					if (dateMatches.length > 0) {
-						String date = dateMatches[dateMatches.length - 1];
-						date = date.split("<a", 1)[0];
-						newReport.setDate(date);
-					}
+		if (connect()) {
+			for (TrailInfo info : trailInfos) {
+				String matches[] = pageSource.split(info
+						.getSkinnyskiSearchTerm());
+				if (matches.length > 1) {
+					TrailReport newReport = new TrailReport();
+					for (int i = 1; i < matches.length; i++) {
+						String dateMatches[] = matches[i - 1].split("<b>");
+						if (dateMatches.length > 0) {
+							String date = dateMatches[dateMatches.length - 1];
+							date = date.substring(0, date.indexOf('-')).trim();
+							newReport.setDate(date);
+						}
 
-					String items[] = matches[i].split("<br>", 4);
-					newReport.setSummary(items[0].trim());
-					newReport.setDetail(items[1].trim());
-					String author = items[2].split("<li>", 1)[0].trim();
-					newReport.setAuthor(author);
-				} // for matches
-			} // if (matches.length > 2)
-		} // for TrailInfos
+						String items[] = matches[i].split("<br>", 4);
+						if (items.length == 4) {
+							newReport.setSummary(items[1].trim());
+							newReport.setDetail(items[2].trim());
+							String author = items[3];
+							author = author
+									.substring(0, author.indexOf("<li>"));
+							author = author.replace("(", "").replace(")", "")
+									.trim();
+							newReport.setAuthor(author);
+						}
+						info.getReports().add(newReport);
+					} // for matches
+				} // if (matches.length > 2)
+			} // for TrailInfos
 
+		} // if (connect())
 	} // parseHtml
 
 }

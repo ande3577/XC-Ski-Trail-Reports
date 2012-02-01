@@ -34,6 +34,7 @@ import org.dsanderson.xctrailreport.skinnyski.SkinnyskiReportRetriever;
 public class TrailReportFactory implements IAbstractFactory {
 	BaseFeedParser parser = null;
 	CompoundReportRetriever reportRetriever = null;
+	UrlConnection netConnection = null;
 
 	/*
 	 * (non-Javadoc)
@@ -55,8 +56,11 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getNetConnection()
 	 */
 	public INetConnection getNetConnection() {
-		// TODO Auto-generated method stub
-		return null;
+		if (netConnection == null)
+		{
+			netConnection = new UrlConnection();
+		}
+		return netConnection;
 	}
 
 	/*
@@ -90,7 +94,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	public IReportRetriever getReportRetriever() {
 		if (reportRetriever == null) {
 			reportRetriever = new CompoundReportRetriever();
-			reportRetriever.addRetriever(new SkinnyskiReportRetriever());
+			reportRetriever.addRetriever(new SkinnyskiReportRetriever(this));
 		}
 		return reportRetriever;
 	}

@@ -106,6 +106,10 @@ public class TrailInfo {
 		reports.addAll(reports);
 	}
 
+	public void addReport(TrailReport report) {
+		reports.add(report);
+	}
+
 	public List<TrailReport> getReports() {
 		return reports;
 	}
