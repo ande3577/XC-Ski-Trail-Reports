@@ -17,13 +17,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson;
-
-import java.util.List;
+package org.dsanderson.xctrailreport.pctest;
 
 /**
  * 
  */
-public interface IReportRetriever {
-	abstract List<TrailReport> getReports(TrailInfo trailInfo);
+public class PcTest {
+
 }

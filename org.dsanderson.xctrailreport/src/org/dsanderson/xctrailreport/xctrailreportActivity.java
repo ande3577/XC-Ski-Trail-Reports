@@ -1,11 +1,11 @@
-package org.dsanderson;
+package org.dsanderson.xctrailreport;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.R;
-import org.dsanderson.xctrailreport.parser.BaseFeedParser;
+import org.dsanderson.xctrailreport.core.TrailInfo;
 
 import android.app.ListActivity;
 import android.os.Bundle;

@@ -17,12 +17,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson;
+package org.dsanderson.xctrailreport.core;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.dsanderson.TrailReport;
+import org.dsanderson.xctrailreport.core.TrailReport;
 
 /**
  * 

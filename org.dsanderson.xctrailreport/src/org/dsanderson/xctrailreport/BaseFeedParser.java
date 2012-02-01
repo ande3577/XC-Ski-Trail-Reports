@@ -1,10 +1,10 @@
-package org.dsanderson.xctrailreport.parser;
+package org.dsanderson.xctrailreport;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.dsanderson.TrailInfo;
+import org.dsanderson.xctrailreport.core.TrailInfo;
 
 import android.sax.Element;
 import android.sax.EndElementListener;
@@ -13,7 +13,6 @@ import android.sax.RootElement;
 import android.util.Xml;
 
 public class BaseFeedParser {
-
 	InputStream inputStream;
 
 	// names of the XML tags
