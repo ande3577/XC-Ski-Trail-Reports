@@ -19,14 +19,18 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import java.io.BufferedReader;
+
 /**
  * 
  */
 public interface INetConnection {
 	public abstract boolean connect(String address);
 
-	public abstract String getString();
+	public abstract BufferedReader getReader();
 	
+	public abstract String getString();
+
 	public abstract void disconnect();
 
 }

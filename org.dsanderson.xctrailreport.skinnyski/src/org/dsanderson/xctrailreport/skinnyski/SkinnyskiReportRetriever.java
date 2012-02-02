@@ -19,6 +19,7 @@
  */
 package org.dsanderson.xctrailreport.skinnyski;
 
+import java.io.BufferedReader;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
@@ -50,6 +51,7 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 	private void parseHtml(List<TrailInfo> trailInfos) {
 		INetConnection netConnection = factory.getNetConnection();
 		if (netConnection.connect("http://skinnyski.com/trails/reports.asp")) {
+			BufferedReader reader = netConnection.getReader();
 			String pageSource = netConnection.getString();
 			for (TrailInfo info : trailInfos) {
 				String matches[] = pageSource.split(info

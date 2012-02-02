@@ -19,6 +19,8 @@
  */
 package org.dsanderson.xctrailreport;
 
+import java.io.BufferedReader;
+
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IDirectionsSource;
 import org.dsanderson.xctrailreport.core.INetConnection;
@@ -63,11 +65,13 @@ public class DirectionsSource implements IDirectionsSource {
 			String directionsString = netConnection.getString();
 
 			try {
-				JSONObject json = new JSONObject(directionsString);
+				JSONObject json = new JSONObject();
 
-				JSONObject routesObject = json.getJSONObject("routes");
+				JSONObject routesObject = json.getJSONArray("routes")
+						.getJSONObject(0);
 
-				JSONObject legsObject = routesObject.getJSONObject("legs");
+				JSONObject legsObject = routesObject.getJSONArray("legs")
+						.getJSONObject(0);
 
 				JSONObject distanceObject = legsObject
 						.getJSONObject("distance");
@@ -79,6 +83,7 @@ public class DirectionsSource implements IDirectionsSource {
 						.getJSONObject("duration");
 				int durationSeconds = durationObject.getInt("value");
 				duration = (double) durationSeconds / 60;
+				successful = true;
 
 			} catch (Exception e) {
 				successful = false;

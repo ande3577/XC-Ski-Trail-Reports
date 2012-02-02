@@ -19,8 +19,8 @@
  */
 package org.dsanderson.xctrailreport;
 
-import java.io.BufferedInputStream;
-import java.io.InputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -30,7 +30,8 @@ import org.dsanderson.xctrailreport.core.INetConnection;
  * 
  */
 public class UrlConnection implements INetConnection {
-	String string = "";
+	BufferedReader reader;
+	String string = null;
 
 	HttpURLConnection urlConnection = null;
 
@@ -42,20 +43,12 @@ public class UrlConnection implements INetConnection {
 	public boolean connect(String address) {
 		boolean retVal = true;
 		try {
+			string = null;
 			URL url = new URL(address);
 			urlConnection = (HttpURLConnection) url.openConnection();
-			InputStream inputStream = new BufferedInputStream(
-					urlConnection.getInputStream());
+			reader = new BufferedReader(new InputStreamReader(
+					urlConnection.getInputStream()));
 
-			BufferedInputStream in = new BufferedInputStream(inputStream);
-
-			byte b[] = new byte[200000];
-
-			while (in.read(b) > 0) {
-				String newString = new String(b);
-				string += newString;
-				retVal = true;
-			}
 			disconnect();
 
 		} catch (Exception e) {
@@ -70,8 +63,8 @@ public class UrlConnection implements INetConnection {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.INetConnection#getInputStream()
 	 */
-	public String getString() {
-		return string;
+	public BufferedReader getReader() {
+		return reader;
 	}
 
 	/*
@@ -84,6 +77,26 @@ public class UrlConnection implements INetConnection {
 			urlConnection.disconnect();
 		}
 		urlConnection = null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.xctrailreport.core.INetConnection#getString()
+	 */
+	public String getString() {
+		// if we've already received the string
+		if (string == null) {
+			String line;
+			try {
+				while ((line = reader.readLine()) != null) {
+					string += line + "\r\n";
+				}
+			} catch (Exception e) {
+				string = null;
+			}
+		}
+		return string;
 	}
 
 }
