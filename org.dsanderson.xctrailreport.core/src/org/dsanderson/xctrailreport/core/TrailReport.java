@@ -75,6 +75,7 @@ public class TrailReport {
 		newReport.author = author;
 		newReport.date = date;
 		newReport.detail = detail;
+		newReport.source = source;
 		return newReport;
 	}
 }
