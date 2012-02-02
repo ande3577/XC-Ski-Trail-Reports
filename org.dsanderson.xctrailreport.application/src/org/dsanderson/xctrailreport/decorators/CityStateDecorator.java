@@ -45,7 +45,8 @@ public class CityStateDecorator extends TrailInfoDecorator {
 		if (trailInfo.getState().length() > 0
 				&& (trailInfo.getState().length() > 0))
 			text += ", ";
-		
+		text += trailInfo.getState();
+
 		newTextItem.setText(text);
 
 		if (next() != null) {
