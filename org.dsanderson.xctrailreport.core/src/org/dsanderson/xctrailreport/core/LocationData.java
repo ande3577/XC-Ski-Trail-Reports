@@ -22,18 +22,24 @@ package org.dsanderson.xctrailreport.core;
 /**
  * 
  */
-public interface IAbstractFactory {
+public class LocationData {
+	private double latitude = 0;
+	private double longitude = 0;
 
-	public ITrailInfoParser getTrailInfoParser();
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
 
-	public INetConnection getNetConnection();
+	public double getLatitude() {
+		return latitude;
+	}
 
-	public ILocationSource getLocation();
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
 
-	public IUserSettingsSource getUserSettingsSource();
-
-	public IReportRetriever getReportRetriever();
-
-	public TrailInfoDecorator getTrailInfoDecorators();
+	public double getLongitude() {
+		return longitude;
+	}
 
 }

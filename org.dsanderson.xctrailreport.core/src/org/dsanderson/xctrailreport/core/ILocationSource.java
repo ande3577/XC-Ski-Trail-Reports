@@ -22,9 +22,9 @@ package org.dsanderson.xctrailreport.core;
 /**
  * 
  */
-public interface ILocation {
+public interface ILocationSource {
 	public abstract void updateLocation();
 	
-	public abstract String getLocation();
+	public abstract LocationData getLocation();
 	
 }

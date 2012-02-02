@@ -21,7 +21,7 @@ package org.dsanderson.xctrailreport;
 
 import org.dsanderson.xctrailreport.application.CompoundReportRetriever;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
-import org.dsanderson.xctrailreport.core.ILocation;
+import org.dsanderson.xctrailreport.core.ILocationSource;
 import org.dsanderson.xctrailreport.core.INetConnection;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.ITrailInfoParser;
@@ -78,7 +78,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getLocation()
 	 */
-	public ILocation getLocation() {
+	public ILocationSource getLocation() {
 		// TODO Auto-generated method stub
 		return null;
 	}
