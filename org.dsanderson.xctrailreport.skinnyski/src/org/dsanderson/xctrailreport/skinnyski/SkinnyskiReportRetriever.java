@@ -20,6 +20,7 @@
 package org.dsanderson.xctrailreport.skinnyski;
 
 import java.io.BufferedReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
@@ -48,43 +49,174 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 		parseHtml(trailInfos);
 	}
 
+	private enum ReportReadState_t {
+		WAIT_FOR_START_OF_LIST, READ_DATE_AND_NAME, READ_SUMMARY_AND_DETAIL, READ_AUTHOR
+	}
+
 	private void parseHtml(List<TrailInfo> trailInfos) {
 		INetConnection netConnection = factory.getNetConnection();
 		if (netConnection.connect("http://skinnyski.com/trails/reports.asp")) {
-			BufferedReader reader = netConnection.getReader();
-			String pageSource = netConnection.getString();
-			for (TrailInfo info : trailInfos) {
-				String matches[] = pageSource.split(info
-						.getSkinnyskiSearchTerm());
-				if (matches.length > 1) {
-					TrailReport newReport = new TrailReport();
+			try {
+				BufferedReader reader = netConnection.getReader();
+				String line;
 
-					for (int i = 1; i < matches.length; i++) {
-						String dateMatches[] = matches[i - 1].split("<b>");
-						if (dateMatches.length > 0) {
-							String date = dateMatches[dateMatches.length - 1];
-							date = date.substring(0, date.indexOf('-')).trim();
-							newReport.setDate(date);
+				ReportReadState_t readState = ReportReadState_t.WAIT_FOR_START_OF_LIST;
+				TrailReport newTrailReport = null;
+				String reportName = null;
+
+				while ((line = reader.readLine()) != null) {
+					if (line.startsWith("<li>")) { // start of report
+						newTrailReport = new TrailReport();
+						reportName = "";
+					} else if (newTrailReport == null) { // still waiting for
+															// start of report
+						// do nothing if new trail report is null
+					} else if (line.startsWith("<img")) {
+						// ignore images
+					} else if (line.startsWith("<b>") && newTrailReport != null) { // date/name
+						String dateString = line.substring(line.indexOf("<b>")
+								+ "<b>".length());
+						dateString = line.split("-")[0].trim();
+						dateString = dateString.replace("<b>", "");
+						newTrailReport.setDate(dateString);
+
+						String splitStrings[] = line.split("-", 2);
+						if (splitStrings.length >= 2) {
+							reportName = splitStrings[1];
+							if (reportName.indexOf("<a href=") != -1) {
+								reportName = reportName.substring(reportName
+										.indexOf('>'));
+								int endingIndex = reportName.indexOf("</a>");
+								if (endingIndex != -1)
+									reportName = reportName.substring(0,
+											endingIndex);
+								reportName = reportName.replace(">", "").trim();
+							} else {
+								reportName = reportName.split("[(]", 1)[0];
+								reportName = reportName.trim();
+							}
 						}
+					} else if (line.startsWith("Conditions: ")) { // summary/detail
+						String summaryString = line.substring("Conditions: "
+								.length());
+						String splitStrings[] = summaryString.split("<br>");
+						summaryString = splitStrings[0].trim();
 
-						String items[] = matches[i].split("<br>", 4);
-						if (items.length == 4) {
-							newReport.setSummary(items[1].trim());
-							newReport.setDetail(items[2].trim());
-							String author = items[3];
-							author = author
-									.substring(0, author.indexOf("<li>"));
-							author = author.replace("(", "").replace(")", "")
-									.trim();
-							newReport.setAuthor(author);
+						newTrailReport.setSummary(summaryString);
+
+						String detailString = "";
+
+						for (int i = 1; i < splitStrings.length; i++) {
+							if (detailString.length() > 0)
+								detailString += "\r\n";
+
+							detailString += splitStrings[i].trim();
 						}
-						newReport.setSource("Skinnyski");
-						info.getReports().add(newReport.copy());
-					} // for matches
-				} // if (matches.length > 2)
-			} // for TrailInfos
+						newTrailReport.setDetail(detailString);
+					} else if (line.startsWith("Photos: <a onClick=")) { // photos
+						// ignore lines with photo
+					} else if (line.startsWith("(")) { // author
+						String authorString = line.replace("(", "").replace(
+								")", "");
+						authorString = authorString.split("<")[0];
+						newTrailReport.setAuthor(authorString);
 
-		} // if (connect())
+						newTrailReport.setSource("Skinnyski");
+						for (TrailInfo info : trailInfos) {
+							// look for a matching trail info and add the report
+							if (reportName.indexOf(info
+									.getSkinnyskiSearchTerm()) != -1)
+								info.addReport(newTrailReport);
+						}
+						// reset to wait for start of next
+						newTrailReport = null;
+						reportName = "";
+					} else // additional detailed report
+					{
+						String detailString = newTrailReport.getDetail();
+						// replace brs with endlines, then eliminate them if at
+						// beginning or end
+						line.replace("<br>", "\r\n");
+						line = line.trim();
+						// if we're adding to a previous report, then add an
+						// endline
+						if (detailString.length() != 0 && line.length() != 0)
+							detailString += "\r\n";
+
+						detailString += line;
+						newTrailReport.setDetail(detailString);
+					}
+
+					// switch (readState) {
+					// case WAIT_FOR_START_OF_LIST:
+					// // start of list means we're starting to look for info
+					// if (line.indexOf("<li>") != -1)
+					// readState = ReportReadState_t.READ_DATE_AND_NAME;
+					// break;
+					// case READ_DATE_AND_NAME:
+					// if (line.indexOf("<b>") != -1) {
+					// String dateString = line.substring(line
+					// .indexOf("<b>") + "<b>".length());
+					// dateString = line.split("-")[0].trim();
+					// dateString = dateString.replace("<b>", "");
+					// newTrailReport.setDate(dateString);
+					//
+					// String splitStrings[] = line.split("-", 2);
+					// if (splitStrings.length >= 2) {
+					// reportName = splitStrings[1];
+					// if (reportName.indexOf("<a href=") != -1) {
+					// reportName = reportName
+					// .substring(reportName.indexOf('>'));
+					// int endingIndex = reportName
+					// .indexOf("</a>");
+					// if (endingIndex != -1)
+					// reportName = reportName.substring(0,
+					// endingIndex);
+					// reportName = reportName.replace(">", "")
+					// .trim();
+					// } else {
+					// reportName = reportName.split("[(]", 1)[0];
+					// reportName = reportName.trim();
+					// }
+					// }
+					//
+					// readState = ReportReadState_t.READ_SUMMARY_AND_DETAIL;
+					// }
+					// break;
+					// case READ_SUMMARY_AND_DETAIL:
+					// String strings[] = line.split("<br>");
+					// if (strings.length >= 2) {
+					// newTrailReport.setSummary(strings[0]);
+					// newTrailReport.setSummary(strings[1]);
+					// readState = ReportReadState_t.READ_AUTHOR;
+					// }
+					// break;
+					// case READ_AUTHOR:
+					// String authorString = line.substring(
+					// line.indexOf('(') + 1, line.indexOf(')'));
+					// newTrailReport.setAuthor(authorString);
+					// newTrailReport.setSource("Skinnyski");
+					// for (TrailInfo info : trailInfos) {
+					// // look for a matching trail info and add the report
+					// if (reportName.indexOf(info
+					// .getSkinnyskiSearchTerm()) != -1)
+					// info.addReport(newTrailReport);
+					// }
+					// readState = ReportReadState_t.WAIT_FOR_START_OF_LIST;
+					// break;
+					//
+					// } // switch (readState)
+
+				} // while ((line = reader.readLine()) != null)
+			} catch (Exception e) {
+				System.err.println(e);
+				trailInfos = new ArrayList<TrailInfo>();
+			} // catch
+			finally {
+				netConnection.disconnect();
+			}
+
+		} // if
+			// (netConnection.connect("http://skinnyski.com/trails/reports.asp"))
 	} // parseHtml
-
 }

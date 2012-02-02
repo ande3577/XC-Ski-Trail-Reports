@@ -49,11 +49,11 @@ public class UrlConnection implements INetConnection {
 			reader = new BufferedReader(new InputStreamReader(
 					urlConnection.getInputStream()));
 
-			disconnect();
-
 		} catch (Exception e) {
 			System.err.println(e);
 			retVal = false;
+			
+			disconnect();
 		}
 		return retVal;
 	}

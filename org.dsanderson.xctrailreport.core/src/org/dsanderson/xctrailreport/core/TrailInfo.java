@@ -117,7 +117,7 @@ public class TrailInfo {
 	}
 
 	public void addReport(TrailReport report) {
-		reports.add(report);
+		reports.add(report.copy());
 	}
 
 	public List<TrailReport> getReports() {

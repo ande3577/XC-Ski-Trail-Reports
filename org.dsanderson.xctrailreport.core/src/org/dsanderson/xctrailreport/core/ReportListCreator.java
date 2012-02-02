@@ -34,14 +34,18 @@ public class ReportListCreator {
 	}
 
 	public List<TrailInfo> getTrailInfoReports(InputStream inputStream) {
+
 		ITrailInfoParser parser = factory.getTrailInfoParser();
 		parser.SetInputStream(inputStream);
 		parser.parse();
+
 		List<TrailInfo> trailInfos = parser.getTrailInfo();
-		DirectionHandler directionHandler = new DirectionHandler(factory);
-		directionHandler.getDirections(trailInfos);
+
 		IReportRetriever reportRetriever = factory.getReportRetriever();
 		reportRetriever.getReports(trailInfos);
+
+		DirectionHandler directionHandler = new DirectionHandler(factory);
+		directionHandler.getDirections(trailInfos);
 		return trailInfos;
 	}
 
