@@ -86,7 +86,7 @@ public class UrlConnection implements INetConnection {
 	 */
 	public String getString() {
 		// if we've already received the string
-		if (string == null) {
+		if (string == null && reader != null) {
 			String line;
 			try {
 				while ((line = reader.readLine()) != null) {

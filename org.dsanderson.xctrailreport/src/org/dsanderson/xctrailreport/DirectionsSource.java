@@ -84,6 +84,7 @@ public class DirectionsSource implements IDirectionsSource {
 				successful = true;
 
 			} catch (Exception e) {
+				System.err.println(e);
 				successful = false;
 			}
 
