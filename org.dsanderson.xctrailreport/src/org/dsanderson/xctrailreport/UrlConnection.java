@@ -30,7 +30,7 @@ import org.dsanderson.xctrailreport.core.INetConnection;
  * 
  */
 public class UrlConnection implements INetConnection {
-	InputStream inputStream = null;
+	String string = "";
 
 	HttpURLConnection urlConnection = null;
 
@@ -44,8 +44,19 @@ public class UrlConnection implements INetConnection {
 		try {
 			URL url = new URL(address);
 			urlConnection = (HttpURLConnection) url.openConnection();
-			inputStream = new BufferedInputStream(
+			InputStream inputStream = new BufferedInputStream(
 					urlConnection.getInputStream());
+
+			BufferedInputStream in = new BufferedInputStream(inputStream);
+
+			byte b[] = new byte[200000];
+
+			while (in.read(b) > 0) {
+				String newString = new String(b);
+				string += newString;
+				retVal = true;
+			}
+			disconnect();
 
 		} catch (Exception e) {
 			System.err.println(e);
@@ -59,8 +70,8 @@ public class UrlConnection implements INetConnection {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.INetConnection#getInputStream()
 	 */
-	public InputStream getInputStream() {
-		return inputStream;
+	public String getString() {
+		return string;
 	}
 
 	/*

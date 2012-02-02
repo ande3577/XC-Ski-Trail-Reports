@@ -39,15 +39,18 @@ public class DistanceDecorator extends TrailInfoDecorator {
 	 */
 	@Override
 	public void decorate(TrailInfo trailInfo, IListEntry listEntry) {
-		// add to end of previous (City, State)
-		ITextItem textItem = listEntry.getTextItem();
-		if (textItem == null) {
-			textItem = listEntry.newTextItem();
+		if (trailInfo.getDirectionsValid()) {
+			// add to end of previous (City, State)
+			ITextItem textItem = listEntry.getTextItem();
+			if (textItem == null) {
+				textItem = listEntry.newTextItem();
+			}
+
+			String text = textItem.getText() + " (" + trailInfo.getDistance()
+					+ " mi, " + trailInfo.getTravelTime() + ")";
+			textItem.setText(text);
 		}
 
-		String text = textItem.getText() + " (" + trailInfo.getDistance()
-				+ " mi, " + trailInfo.getTravelTime() + ")";
-		textItem.setText(text);
 		if (next() != null) {
 			next().decorate(trailInfo, listEntry);
 		}

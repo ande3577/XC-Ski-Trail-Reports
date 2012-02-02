@@ -22,7 +22,7 @@ public class xctrailreportActivity extends ListActivity {
 
 	private List<TrailInfo> trailInfo;
 
-	private TrailReportFactory factory = new TrailReportFactory();
+	private TrailReportFactory factory = new TrailReportFactory(this);
 
 	/** Called when the activity is first created. */
 	@Override
@@ -35,6 +35,8 @@ public class xctrailreportActivity extends ListActivity {
 
 	private List<TrailInfo> loadTrailInfo() {
 		List<TrailInfo> trailInfo = new ArrayList<TrailInfo>();
+
+		factory.getLocationSource().updateLocation();
 		try {
 			InputStream inputStream = getResources().openRawResource(
 					R.raw.trail_info);

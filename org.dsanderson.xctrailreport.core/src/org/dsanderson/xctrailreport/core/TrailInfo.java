@@ -37,6 +37,7 @@ public class TrailInfo {
 	String threeRiversSearchTerm = "";
 	double distance = 0;
 	double travelTime = 0;
+	boolean directionsValid = false;
 	List<TrailReport> reports = new ArrayList<TrailReport>();
 
 	public void setName(String name) {
@@ -123,6 +124,14 @@ public class TrailInfo {
 		return reports;
 	}
 
+	public void setDirectionsValid(boolean directionsValid) {
+		this.directionsValid = directionsValid;
+	}
+
+	public boolean getDirectionsValid() {
+		return directionsValid;
+	}
+
 	public TrailInfo copy() {
 		TrailInfo newCopy = new TrailInfo();
 
@@ -134,6 +143,7 @@ public class TrailInfo {
 		newCopy.skinnyskiUrl = skinnyskiUrl;
 		newCopy.threeRiversSearchTerm = threeRiversSearchTerm;
 		newCopy.distance = distance;
+		newCopy.directionsValid = directionsValid;
 		newCopy.reports.addAll(reports);
 
 		return newCopy;

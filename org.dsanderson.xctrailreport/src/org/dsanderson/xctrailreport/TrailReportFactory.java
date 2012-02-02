@@ -21,6 +21,7 @@ package org.dsanderson.xctrailreport;
 
 import org.dsanderson.xctrailreport.application.CompoundReportRetriever;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
+import org.dsanderson.xctrailreport.core.IDirectionsSource;
 import org.dsanderson.xctrailreport.core.ILocationSource;
 import org.dsanderson.xctrailreport.core.INetConnection;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
@@ -38,14 +39,23 @@ import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailReportDecorators;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiReportRetriever;
 
+import android.content.Context;
+
 /**
  * 
  */
 public class TrailReportFactory implements IAbstractFactory {
+	Context context;
 	BaseFeedParser parser = null;
 	CompoundReportRetriever reportRetriever = null;
 	UrlConnection netConnection = null;
 	TrailInfoDecorator infoDecorator = null;
+	LocationSource locationSource = null;
+	DirectionsSource directionsSource = null;
+
+	public TrailReportFactory(Context context) {
+		this.context = context;
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -78,9 +88,11 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getLocation()
 	 */
-	public ILocationSource getLocation() {
-		// TODO Auto-generated method stub
-		return null;
+	public ILocationSource getLocationSource() {
+		if (locationSource == null) {
+			locationSource = new LocationSource(context);
+		}
+		return locationSource;
 	}
 
 	/*
@@ -131,6 +143,19 @@ public class TrailReportFactory implements IAbstractFactory {
 		}
 
 		return infoDecorator;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getDirectionsSource()
+	 */
+	public IDirectionsSource getDirectionsSource() {
+		if (directionsSource == null) {
+			directionsSource = new DirectionsSource(this);
+		}
+		return directionsSource;
 	}
 
 }

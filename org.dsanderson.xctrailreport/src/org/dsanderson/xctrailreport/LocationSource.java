@@ -19,20 +19,23 @@
  */
 package org.dsanderson.xctrailreport;
 
+import java.util.List;
+
 import org.dsanderson.xctrailreport.core.ILocationSource;
-import org.dsanderson.xctrailreport.core.LocationData;
 
 import android.content.Context;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
-import android.location.LocationProvider;
+import android.os.Bundle;
 
 /**
  * 
  */
 public class LocationSource implements ILocationSource {
-	LocationData locationData;
 	Context context;
+	// / TODO Initialize to empty string
+	String location = "44.972691,-93.232541";
 
 	public LocationSource(Context context) {
 		this.context = context;
@@ -49,11 +52,38 @@ public class LocationSource implements ILocationSource {
 		LocationManager locationManager = (LocationManager) context
 				.getSystemService(Context.LOCATION_SERVICE);
 
-		Location location = locationManager
-				.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+		// Define a listener that responds to location updates
+		LocationListener locationListener = new LocationListener() {
+			public void onLocationChanged(Location location) {
+				handleNewLocation(location);
+			}
 
-		locationData.setLatitude(location.getLatitude());
-		locationData.setLatitude(location.getLongitude());
+			public void onStatusChanged(String provider, int status,
+					Bundle extras) {
+			}
+
+			public void onProviderEnabled(String provider) {
+			}
+
+			public void onProviderDisabled(String provider) {
+			}
+
+		};
+
+		// Register the listener with the Location Manager to receive location
+		// updates
+		locationManager.requestLocationUpdates(
+				LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+
+		List<String> providers = locationManager.getProviders(true);
+
+		for (String provider : providers) {
+			Location lastKnownLocation = locationManager
+					.getLastKnownLocation(provider);
+
+			handleNewLocation(lastKnownLocation);
+		}
+
 	}
 
 	/*
@@ -61,8 +91,15 @@ public class LocationSource implements ILocationSource {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.ILocation#getLocation()
 	 */
-	public LocationData getLocation() {
-		return locationData;
+	public String getLocation() {
+		return this.location;
+	}
+
+	private void handleNewLocation(Location location) {
+		if (location != null) {
+			this.location = Double.toString(location.getLatitude())
+					+ Double.toString(location.getLongitude());
+		}
 	}
 
 }

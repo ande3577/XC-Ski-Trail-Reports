@@ -19,7 +19,6 @@
  */
 package org.dsanderson.xctrailreport.skinnyski;
 
-import java.io.BufferedInputStream;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
@@ -33,7 +32,6 @@ import org.dsanderson.xctrailreport.core.TrailReport;
  */
 public class SkinnyskiReportRetriever implements IReportRetriever {
 
-	String pageSource = "";
 	IAbstractFactory factory;
 
 	public SkinnyskiReportRetriever(IAbstractFactory factory) {
@@ -49,35 +47,10 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 		parseHtml(trailInfos);
 	}
 
-	private boolean connect() {
-		pageSource = "";
-		boolean retVal = false;
-		try {
-			INetConnection netConnection = factory.getNetConnection();
-			if (!netConnection
-					.connect("http://skinnyski.com/trails/reports.asp"))
-				return false;
-
-			BufferedInputStream in = new BufferedInputStream(
-					netConnection.getInputStream());
-
-			byte b[] = new byte[200000];
-
-			while (in.read(b) > 0 && pageSource.lastIndexOf("<\\HTML>") == -1) {
-				String newString = new String(b);
-				pageSource += newString;
-				retVal = true;
-			}
-			netConnection.disconnect();
-		} catch (Exception e) {
-			System.err.println(e);
-			retVal = false;
-		}
-		return retVal;
-	}
-
 	private void parseHtml(List<TrailInfo> trailInfos) {
-		if (connect()) {
+		INetConnection netConnection = factory.getNetConnection();
+		if (netConnection.connect("http://skinnyski.com/trails/reports.asp")) {
+			String pageSource = netConnection.getString();
 			for (TrailInfo info : trailInfos) {
 				String matches[] = pageSource.split(info
 						.getSkinnyskiSearchTerm());

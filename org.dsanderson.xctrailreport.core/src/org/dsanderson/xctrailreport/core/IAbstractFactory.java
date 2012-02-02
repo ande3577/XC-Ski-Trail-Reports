@@ -28,12 +28,14 @@ public interface IAbstractFactory {
 
 	public INetConnection getNetConnection();
 
-	public ILocationSource getLocation();
-
+	public ILocationSource getLocationSource();
+	
 	public IUserSettingsSource getUserSettingsSource();
 
 	public IReportRetriever getReportRetriever();
 
 	public TrailInfoDecorator getTrailInfoDecorators();
+	
+	public IDirectionsSource getDirectionsSource();
 
 }

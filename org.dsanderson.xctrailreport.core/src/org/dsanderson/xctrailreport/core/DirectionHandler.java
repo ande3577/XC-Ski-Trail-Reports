@@ -19,12 +19,29 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import java.util.List;
+
 /**
  * 
  */
-public interface ILocationSource {
-	public abstract void updateLocation();
+public class DirectionHandler {
+	IAbstractFactory factory;
 
-	public abstract String getLocation();
+	public DirectionHandler(IAbstractFactory factory) {
+		this.factory = factory;
+	}
 
+	public void getDirections(List<TrailInfo> trailInfos) {
+		String location = factory.getLocationSource().getLocation();
+		IDirectionsSource directions = factory.getDirectionsSource();
+		for (TrailInfo info : trailInfos) {
+			if (directions.updateDirections(location, info.location)) {
+				info.distance = directions.getDistance();
+				info.travelTime = directions.getDriveTime();
+				info.directionsValid = true;
+			} else {
+				info.directionsValid = false;
+			}
+		}
+	}
 }

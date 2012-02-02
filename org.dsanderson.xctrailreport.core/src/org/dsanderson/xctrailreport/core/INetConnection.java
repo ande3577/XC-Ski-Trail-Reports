@@ -19,15 +19,13 @@
  */
 package org.dsanderson.xctrailreport.core;
 
-import java.io.InputStream;
-
 /**
  * 
  */
 public interface INetConnection {
 	public abstract boolean connect(String address);
 
-	public abstract InputStream getInputStream();
+	public abstract String getString();
 	
 	public abstract void disconnect();
 

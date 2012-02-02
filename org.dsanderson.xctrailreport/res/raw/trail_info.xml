@@ -4,7 +4,7 @@
 		<name>Elm Creek Park Reserve</name>
 		<city>Maple Grove</city>
 		<state>MN</state>
-		<location>45.1335, -93.441</location>
+		<location>45.1335,-93.441</location>
 		<skinnyskiSearchTerm>Elm Creek Park Reserve</skinnyskiSearchTerm>
 		<skinnyskiUrl>http://skinnyski.com/trails/traildetail.asp?Id=98</skinnyskiUrl>
 		<threeRiversSearchTerm>Elm Creek Park Reserve</threeRiversSearchTerm>
@@ -14,7 +14,7 @@
 		<name>Theodore Wirth Regional Park</name>
 		<city>Golden Valley</city>
 		<state>MN</state>
-		<location>44.992, -93.3222</location>
+		<location>44.992,-93.3222</location>
 		<skinnyskiSearchTerm>Theodore Wirth Regional Park</skinnyskiSearchTerm>
 		<skinnyskiUrl>http://skinnyski.com/trails/traildetail.asp?Id=97</skinnyskiUrl>
 	</trail>
