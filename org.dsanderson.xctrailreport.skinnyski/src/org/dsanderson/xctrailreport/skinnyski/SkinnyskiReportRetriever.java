@@ -49,10 +49,6 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 		parseHtml(trailInfos);
 	}
 
-	private enum ReportReadState_t {
-		WAIT_FOR_START_OF_LIST, READ_DATE_AND_NAME, READ_SUMMARY_AND_DETAIL, READ_AUTHOR
-	}
-
 	private void parseHtml(List<TrailInfo> trailInfos) {
 		INetConnection netConnection = factory.getNetConnection();
 		if (netConnection.connect("http://skinnyski.com/trails/reports.asp")) {
@@ -60,7 +56,6 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 				BufferedReader reader = netConnection.getReader();
 				String line;
 
-				ReportReadState_t readState = ReportReadState_t.WAIT_FOR_START_OF_LIST;
 				TrailReport newTrailReport = null;
 				String reportName = null;
 
@@ -146,66 +141,6 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 						detailString += line;
 						newTrailReport.setDetail(detailString);
 					}
-
-					// switch (readState) {
-					// case WAIT_FOR_START_OF_LIST:
-					// // start of list means we're starting to look for info
-					// if (line.indexOf("<li>") != -1)
-					// readState = ReportReadState_t.READ_DATE_AND_NAME;
-					// break;
-					// case READ_DATE_AND_NAME:
-					// if (line.indexOf("<b>") != -1) {
-					// String dateString = line.substring(line
-					// .indexOf("<b>") + "<b>".length());
-					// dateString = line.split("-")[0].trim();
-					// dateString = dateString.replace("<b>", "");
-					// newTrailReport.setDate(dateString);
-					//
-					// String splitStrings[] = line.split("-", 2);
-					// if (splitStrings.length >= 2) {
-					// reportName = splitStrings[1];
-					// if (reportName.indexOf("<a href=") != -1) {
-					// reportName = reportName
-					// .substring(reportName.indexOf('>'));
-					// int endingIndex = reportName
-					// .indexOf("</a>");
-					// if (endingIndex != -1)
-					// reportName = reportName.substring(0,
-					// endingIndex);
-					// reportName = reportName.replace(">", "")
-					// .trim();
-					// } else {
-					// reportName = reportName.split("[(]", 1)[0];
-					// reportName = reportName.trim();
-					// }
-					// }
-					//
-					// readState = ReportReadState_t.READ_SUMMARY_AND_DETAIL;
-					// }
-					// break;
-					// case READ_SUMMARY_AND_DETAIL:
-					// String strings[] = line.split("<br>");
-					// if (strings.length >= 2) {
-					// newTrailReport.setSummary(strings[0]);
-					// newTrailReport.setSummary(strings[1]);
-					// readState = ReportReadState_t.READ_AUTHOR;
-					// }
-					// break;
-					// case READ_AUTHOR:
-					// String authorString = line.substring(
-					// line.indexOf('(') + 1, line.indexOf(')'));
-					// newTrailReport.setAuthor(authorString);
-					// newTrailReport.setSource("Skinnyski");
-					// for (TrailInfo info : trailInfos) {
-					// // look for a matching trail info and add the report
-					// if (reportName.indexOf(info
-					// .getSkinnyskiSearchTerm()) != -1)
-					// info.addReport(newTrailReport);
-					// }
-					// readState = ReportReadState_t.WAIT_FOR_START_OF_LIST;
-					// break;
-					//
-					// } // switch (readState)
 
 				} // while ((line = reader.readLine()) != null)
 			} catch (Exception e) {
