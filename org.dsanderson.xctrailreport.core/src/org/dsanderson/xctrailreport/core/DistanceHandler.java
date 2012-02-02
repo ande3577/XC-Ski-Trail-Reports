@@ -24,16 +24,16 @@ import java.util.List;
 /**
  * 
  */
-public class DirectionHandler {
+public class DistanceHandler {
 	IAbstractFactory factory;
 
-	public DirectionHandler(IAbstractFactory factory) {
+	public DistanceHandler(IAbstractFactory factory) {
 		this.factory = factory;
 	}
 
 	public void getDirections(List<TrailInfo> trailInfos) {
 		String location = factory.getLocationSource().getLocation();
-		IDirectionsSource directions = factory.getDirectionsSource();
+		IDistanceSource directions = factory.getDistanceSource();
 		for (TrailInfo info : trailInfos) {
 			if (directions.updateDirections(location, info.location)) {
 				info.distance = directions.getDistance();

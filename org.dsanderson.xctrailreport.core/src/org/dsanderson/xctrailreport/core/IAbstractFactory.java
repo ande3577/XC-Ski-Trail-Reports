@@ -36,6 +36,6 @@ public interface IAbstractFactory {
 
 	public TrailInfoDecorator getTrailInfoDecorators();
 	
-	public IDirectionsSource getDirectionsSource();
+	public IDistanceSource getDistanceSource();
 
 }

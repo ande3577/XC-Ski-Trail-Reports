@@ -21,7 +21,7 @@ package org.dsanderson.xctrailreport;
 
 import org.dsanderson.xctrailreport.application.CompoundReportRetriever;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
-import org.dsanderson.xctrailreport.core.IDirectionsSource;
+import org.dsanderson.xctrailreport.core.IDistanceSource;
 import org.dsanderson.xctrailreport.core.ILocationSource;
 import org.dsanderson.xctrailreport.core.INetConnection;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
@@ -51,7 +51,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	UrlConnection netConnection = null;
 	TrailInfoDecorator infoDecorator = null;
 	LocationSource locationSource = null;
-	DirectionsSource directionsSource = null;
+	DistanceSource directionsSource = null;
 
 	public TrailReportFactory(Context context) {
 		this.context = context;
@@ -151,9 +151,9 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * @see
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getDirectionsSource()
 	 */
-	public IDirectionsSource getDirectionsSource() {
+	public IDistanceSource getDistanceSource() {
 		if (directionsSource == null) {
-			directionsSource = new DirectionsSource(this);
+			directionsSource = new DistanceSource(this);
 		}
 		return directionsSource;
 	}

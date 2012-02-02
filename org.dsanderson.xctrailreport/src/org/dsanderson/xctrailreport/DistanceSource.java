@@ -20,20 +20,20 @@
 package org.dsanderson.xctrailreport;
 
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
-import org.dsanderson.xctrailreport.core.IDirectionsSource;
+import org.dsanderson.xctrailreport.core.IDistanceSource;
 import org.dsanderson.xctrailreport.core.INetConnection;
 import org.json.JSONObject;
 
 /**
  * 
  */
-public class DirectionsSource implements IDirectionsSource {
+public class DistanceSource implements IDistanceSource {
 	IAbstractFactory factory;
 
 	double distance = 0;
 	double duration = 0;
 
-	public DirectionsSource(IAbstractFactory factory) {
+	public DistanceSource(IAbstractFactory factory) {
 		this.factory = factory;
 	}
 
@@ -51,6 +51,10 @@ public class DirectionsSource implements IDirectionsSource {
 
 		boolean successful = false;
 
+		/// TODO port this to use distance origings instead of directions:
+		// example
+		// https://maps.googleapis.com/maps/api/distancematrix/json?origins=44.972691,-93.232541&destinations=45.1335,-93.441|44.992,-93.3222&sensor=false
+		
 		// / example url:
 		// https://maps.googleapis.com/maps/api/directions/json?origin=44.972691,-93.232541&destination=45.1335,-93.441&sensor=false
 		// TODO Auto-generated method stub
@@ -100,8 +104,7 @@ public class DirectionsSource implements IDirectionsSource {
 	 * @see org.dsanderson.xctrailreport.core.IDirectionsSource#getDistance()
 	 */
 	public double getDistance() {
-		// TODO Auto-generated method stub
-		return 0;
+		return distance;
 	}
 
 	/*
@@ -110,8 +113,7 @@ public class DirectionsSource implements IDirectionsSource {
 	 * @see org.dsanderson.xctrailreport.core.IDirectionsSource#getDriveTime()
 	 */
 	public double getDriveTime() {
-		// TODO Auto-generated method stub
-		return 0;
+		return duration;
 	}
 
 }

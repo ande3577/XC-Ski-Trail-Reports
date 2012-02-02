@@ -44,7 +44,7 @@ public class ReportListCreator {
 		IReportRetriever reportRetriever = factory.getReportRetriever();
 		reportRetriever.getReports(trailInfos);
 
-		DirectionHandler directionHandler = new DirectionHandler(factory);
+		DistanceHandler directionHandler = new DistanceHandler(factory);
 		directionHandler.getDirections(trailInfos);
 		return trailInfos;
 	}

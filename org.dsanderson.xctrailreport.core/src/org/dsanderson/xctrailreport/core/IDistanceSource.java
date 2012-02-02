@@ -22,7 +22,7 @@ package org.dsanderson.xctrailreport.core;
 /**
  * 
  */
-public interface IDirectionsSource {
+public interface IDistanceSource {
 	
 	boolean updateDirections(String src, String dest);
 	
