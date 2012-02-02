@@ -49,9 +49,14 @@ public class TrailReportDecorators extends TrailInfoDecorator {
 	 */
 	@Override
 	public void decorate(TrailInfo trailInfo, IListEntry listEntry) {
-		for (TrailReport report : trailInfo.getReports()) {
-			trailReportDecorator.decorate(report, listEntry);
+		if (trailInfo.getReports().size() == 0) {
+			listEntry.newTextItem().setText("No reports found");
+		} else {
+			for (TrailReport report : trailInfo.getReports()) {
+				trailReportDecorator.decorate(report, listEntry);
+			}
 		}
+
 		if (next() != null) {
 			next().decorate(trailInfo, listEntry);
 		}

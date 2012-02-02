@@ -24,18 +24,20 @@ package org.dsanderson.xctrailreport.core;
  */
 public abstract class TrailReportDecorator {
 	private TrailReportDecorator nextDecorator = null;
-	
-	public TrailReportDecorator add(TrailReportDecorator newDecorator)
-	{
-		nextDecorator = newDecorator;
+
+	public TrailReportDecorator add(TrailReportDecorator newDecorator) {
+		if (nextDecorator == null) {
+			nextDecorator = newDecorator;
+			return nextDecorator;
+		} else {
+			return nextDecorator.add(newDecorator);
+		}
+	}
+
+	public TrailReportDecorator next() {
 		return nextDecorator;
 	}
-	
-	public TrailReportDecorator next()
-	{
-		return nextDecorator;
-	}
-	
+
 	/**
 	 * 
 	 * @param trailReport
