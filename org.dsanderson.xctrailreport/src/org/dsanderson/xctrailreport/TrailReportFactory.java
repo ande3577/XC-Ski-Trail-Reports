@@ -26,6 +26,16 @@ import org.dsanderson.xctrailreport.core.INetConnection;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.ITrailInfoParser;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
+import org.dsanderson.xctrailreport.core.TrailInfoDecorator;
+import org.dsanderson.xctrailreport.core.TrailReportDecorator;
+import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
+import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
+import org.dsanderson.xctrailreport.decorators.DateDecorator;
+import org.dsanderson.xctrailreport.decorators.DetailedReportDecorator;
+import org.dsanderson.xctrailreport.decorators.DistanceDecorator;
+import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
+import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
+import org.dsanderson.xctrailreport.decorators.TrailReportDecorators;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiReportRetriever;
 
 /**
@@ -35,6 +45,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	BaseFeedParser parser = null;
 	CompoundReportRetriever reportRetriever = null;
 	UrlConnection netConnection = null;
+	TrailInfoDecorator infoDecorator = null;
 
 	/*
 	 * (non-Javadoc)
@@ -56,8 +67,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getNetConnection()
 	 */
 	public INetConnection getNetConnection() {
-		if (netConnection == null)
-		{
+		if (netConnection == null) {
 			netConnection = new UrlConnection();
 		}
 		return netConnection;
@@ -97,6 +107,30 @@ public class TrailReportFactory implements IAbstractFactory {
 			reportRetriever.addRetriever(new SkinnyskiReportRetriever(this));
 		}
 		return reportRetriever;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoDecorators
+	 * ()
+	 */
+	public TrailInfoDecorator getTrailInfoDecorators() {
+		if (infoDecorator == null) {
+			infoDecorator = new TrailNameDecorator();
+			infoDecorator.add(new CityStateDecorator());
+			infoDecorator.add(new DistanceDecorator());
+
+			TrailReportDecorator trailReportDecorator = new DateDecorator();
+			trailReportDecorator.add(new SummaryDecorator());
+			trailReportDecorator.add(new DetailedReportDecorator());
+			trailReportDecorator.add(new AuthorDecorator());
+
+			infoDecorator.add(new TrailReportDecorators(trailReportDecorator));
+		}
+
+		return infoDecorator;
 	}
 
 }

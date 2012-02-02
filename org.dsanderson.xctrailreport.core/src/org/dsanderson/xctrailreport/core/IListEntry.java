@@ -22,18 +22,11 @@ package org.dsanderson.xctrailreport.core;
 /**
  * 
  */
-public interface IAbstractFactory {
-
-	public ITrailInfoParser getTrailInfoParser();
-
-	public INetConnection getNetConnection();
-
-	public ILocation getLocation();
-
-	public IUserSettingsSource getUserSettingsSource();
-
-	public IReportRetriever getReportRetriever();
-
-	public TrailInfoDecorator getTrailInfoDecorators();
-
+public interface IListEntry {
+	
+	ITextItem newTextItem();
+	
+	ITextItem getTextItem();
+	
+	void draw();
 }

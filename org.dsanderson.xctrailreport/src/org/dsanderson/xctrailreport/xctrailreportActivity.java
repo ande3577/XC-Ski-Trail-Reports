@@ -9,14 +9,19 @@ import org.dsanderson.xctrailreport.core.ReportListCreator;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 
 public class xctrailreportActivity extends ListActivity {
 
 	private List<TrailInfo> trailInfo;
-	
+
 	private TrailReportFactory factory = new TrailReportFactory();
 
 	/** Called when the activity is first created. */
@@ -43,13 +48,36 @@ public class xctrailreportActivity extends ListActivity {
 	}
 
 	private void printTrailInfo(List<TrailInfo> trailInfo) {
-		List<String> names = new ArrayList<String>(trailInfo.size());
-		for (TrailInfo info : trailInfo) {
-			names.add(info.getName());
+		this.setListAdapter(new TrailInfoAdapter(this, R.layout.row, trailInfo));
+	}
+
+	private class TrailInfoAdapter extends ArrayAdapter<TrailInfo> {
+		private List<TrailInfo> trailInfos;
+
+		/**
+		 * @param context
+		 * @param textViewResourceId
+		 * @param objects
+		 */
+		public TrailInfoAdapter(Context context, int textViewResourceId,
+				List<TrailInfo> objects) {
+			super(context, textViewResourceId, objects);
+			this.trailInfos = objects;
 		}
 
-		this.setListAdapter(new ArrayAdapter<String>(this, R.layout.listentry,
-				names));
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			View layout = convertView;
+			if (layout == null) {
+				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+				layout = vi.inflate(R.layout.row, null);
+			}
+
+			TrailInfo trailInfo = trailInfos.get(position);
+			factory.getTrailInfoDecorators().decorate(trailInfo,
+					new ListEntry((LinearLayout) layout, getContext()));
+			return layout;
+		}
 
 	}
 

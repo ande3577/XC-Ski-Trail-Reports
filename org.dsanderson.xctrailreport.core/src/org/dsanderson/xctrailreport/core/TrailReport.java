@@ -27,6 +27,7 @@ public class TrailReport {
 	private String author = "";
 	private String date = "";
 	private String detail = "";
+	private String source = "";
 
 	public void setSummary(String summary) {
 		this.summary = summary;
@@ -58,6 +59,14 @@ public class TrailReport {
 
 	public String getDetail() {
 		return detail;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
+	}
+
+	public String getSource() {
+		return source;
 	}
 
 	public TrailReport copy() {

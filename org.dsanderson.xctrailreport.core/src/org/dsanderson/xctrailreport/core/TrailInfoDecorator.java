@@ -22,18 +22,28 @@ package org.dsanderson.xctrailreport.core;
 /**
  * 
  */
-public interface IAbstractFactory {
+public abstract class TrailInfoDecorator {
 
-	public ITrailInfoParser getTrailInfoParser();
+	private TrailInfoDecorator nextDecorator = null;
 
-	public INetConnection getNetConnection();
+	public TrailInfoDecorator add(TrailInfoDecorator newDecorator) {
+		if (nextDecorator == null) {
+			nextDecorator = newDecorator;
+			return nextDecorator;
+		} else {
+			return nextDecorator.add(newDecorator);
+		}
+	}
 
-	public ILocation getLocation();
+	public TrailInfoDecorator next() {
+		return nextDecorator;
+	}
 
-	public IUserSettingsSource getUserSettingsSource();
-
-	public IReportRetriever getReportRetriever();
-
-	public TrailInfoDecorator getTrailInfoDecorators();
-
+	/**
+	 * 
+	 * @param trailInfo
+	 * @param listEntry
+	 * @return the next decorator in the list
+	 */
+	abstract public void decorate(TrailInfo trailInfo, IListEntry listEntry);
 }

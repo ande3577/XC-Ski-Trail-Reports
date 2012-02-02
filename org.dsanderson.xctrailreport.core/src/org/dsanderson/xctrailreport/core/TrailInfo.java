@@ -36,6 +36,7 @@ public class TrailInfo {
 	String skinnyskiUrl = "";
 	String threeRiversSearchTerm = "";
 	double distance = 0;
+	double travelTime = 0;
 	List<TrailReport> reports = new ArrayList<TrailReport>();
 
 	public void setName(String name) {
@@ -50,7 +51,7 @@ public class TrailInfo {
 		this.city = city;
 	}
 
-	public String getCity(String city) {
+	public String getCity() {
 		return city;
 	}
 
@@ -100,6 +101,14 @@ public class TrailInfo {
 
 	public double getDistance() {
 		return distance;
+	}
+
+	public void setTravelTime(double travelTime) {
+		this.travelTime = travelTime;
+	}
+
+	public double getTravelTime() {
+		return travelTime;
 	}
 
 	public void setReports(List<TrailReport> reports) {

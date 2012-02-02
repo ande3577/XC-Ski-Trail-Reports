@@ -83,6 +83,9 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 						.getSkinnyskiSearchTerm());
 				if (matches.length > 1) {
 					TrailReport newReport = new TrailReport();
+
+					newReport.setSource("Skinnyski");
+
 					for (int i = 1; i < matches.length; i++) {
 						String dateMatches[] = matches[i - 1].split("<b>");
 						if (dateMatches.length > 0) {
@@ -102,7 +105,7 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 									.trim();
 							newReport.setAuthor(author);
 						}
-						info.getReports().add(newReport);
+						info.getReports().add(newReport.copy());
 					} // for matches
 				} // if (matches.length > 2)
 			} // for TrailInfos
