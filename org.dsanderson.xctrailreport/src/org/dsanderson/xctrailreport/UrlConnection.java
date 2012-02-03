@@ -20,6 +20,7 @@
 package org.dsanderson.xctrailreport;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -30,7 +31,7 @@ import org.dsanderson.xctrailreport.core.INetConnection;
  * 
  */
 public class UrlConnection implements INetConnection {
-	BufferedReader reader;
+	InputStream stream = null;
 	String string = null;
 
 	HttpURLConnection urlConnection = null;
@@ -46,13 +47,12 @@ public class UrlConnection implements INetConnection {
 			string = null;
 			URL url = new URL(address);
 			urlConnection = (HttpURLConnection) url.openConnection();
-			reader = new BufferedReader(new InputStreamReader(
-					urlConnection.getInputStream()));
+			stream = urlConnection.getInputStream();
 
 		} catch (Exception e) {
 			System.err.println(e);
 			retVal = false;
-			
+
 			disconnect();
 		}
 		return retVal;
@@ -64,7 +64,10 @@ public class UrlConnection implements INetConnection {
 	 * @see org.dsanderson.xctrailreport.core.INetConnection#getInputStream()
 	 */
 	public BufferedReader getReader() {
-		return reader;
+		if (stream == null)
+			return null;
+		else
+			return new BufferedReader(new InputStreamReader(stream));
 	}
 
 	/*
@@ -85,6 +88,7 @@ public class UrlConnection implements INetConnection {
 	 * @see org.dsanderson.xctrailreport.core.INetConnection#getString()
 	 */
 	public String getString() {
+		BufferedReader reader = getReader();
 		// if we've already received the string
 		if (string == null && reader != null) {
 			String line;
@@ -97,6 +101,15 @@ public class UrlConnection implements INetConnection {
 			}
 		}
 		return string;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.xctrailreport.core.INetConnection#getStream()
+	 */
+	public InputStream getStream() {
+		return stream;
 	}
 
 }

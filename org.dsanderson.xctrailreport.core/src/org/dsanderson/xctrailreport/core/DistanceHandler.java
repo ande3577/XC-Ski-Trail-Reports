@@ -19,6 +19,7 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,16 +32,31 @@ public class DistanceHandler {
 		this.factory = factory;
 	}
 
-	public void getDirections(List<TrailInfo> trailInfos) {
+	public void getDistances(List<TrailInfo> trailInfos) {
 		String location = factory.getLocationSource().getLocation();
-		IDistanceSource directions = factory.getDistanceSource();
+		IDistanceSource distanceSource = factory.getDistanceSource();
+
+		List<String> destinations = new ArrayList<String>();
 		for (TrailInfo info : trailInfos) {
-			if (directions.updateDirections(location, info.location)) {
-				info.distance = directions.getDistance();
-				info.travelTime = directions.getDriveTime();
-				info.directionsValid = true;
-			} else {
-				info.directionsValid = false;
+			destinations.add(info.location);
+		}
+
+		if (distanceSource.updateDistances(location, destinations)) {
+			List<Integer> distances = distanceSource.getDistances();
+			List<Integer> durations = distanceSource.getDriveTimes();
+			for (int i = 0; i < trailInfos.size() && i < distances.size()
+					&& i < durations.size(); i++) {
+				TrailInfo info = trailInfos.get(i);
+				if (info.getLocation().length() > 0) {
+					info.setDistance(distances.get(i));
+					info.setTravelTime(durations.get(i));
+					info.setDirectionsValid(true);
+				}
+
+			}
+		} else {
+			for (TrailInfo info : trailInfos) {
+				info.setDirectionsValid(false);
 			}
 		}
 	}

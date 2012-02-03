@@ -19,15 +19,17 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import java.util.List;
+
 /**
  * 
  */
 public interface IDistanceSource {
 	
-	boolean updateDirections(String src, String dest);
+	boolean updateDistances(String src, List<String> dest);
 	
-	double getDistance();
+	List<Integer> getDistances();
 	
-	double getDriveTime();
+	List<Integer> getDriveTimes();
 	
 }

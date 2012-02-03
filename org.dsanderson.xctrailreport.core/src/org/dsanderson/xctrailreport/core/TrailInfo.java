@@ -35,8 +35,8 @@ public class TrailInfo {
 	String skinnyskiSearchTerm = "";
 	String skinnyskiUrl = "";
 	String threeRiversSearchTerm = "";
-	double distance = 0;
-	double travelTime = 0;
+	int distance = 0;
+	int travelTime = 0;
 	boolean directionsValid = false;
 	List<TrailReport> reports = new ArrayList<TrailReport>();
 
@@ -96,19 +96,19 @@ public class TrailInfo {
 		return threeRiversSearchTerm;
 	}
 
-	public void setDistance(double distance) {
+	public void setDistance(int distance) {
 		this.distance = distance;
 	}
 
-	public double getDistance() {
+	public int getDistance() {
 		return distance;
 	}
 
-	public void setTravelTime(double travelTime) {
+	public void setTravelTime(int travelTime) {
 		this.travelTime = travelTime;
 	}
 
-	public double getTravelTime() {
+	public int getTravelTime() {
 		return travelTime;
 	}
 

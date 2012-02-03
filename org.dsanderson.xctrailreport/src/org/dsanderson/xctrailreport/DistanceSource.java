@@ -19,10 +19,15 @@
  */
 package org.dsanderson.xctrailreport;
 
+import java.io.IOException;
+import java.util.List;
+
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IDistanceSource;
 import org.dsanderson.xctrailreport.core.INetConnection;
-import org.json.JSONObject;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 /**
  * 
@@ -30,8 +35,8 @@ import org.json.JSONObject;
 public class DistanceSource implements IDistanceSource {
 	IAbstractFactory factory;
 
-	double distance = 0;
-	double duration = 0;
+	List<Integer> distances;
+	List<Integer> durations;
 
 	public DistanceSource(IAbstractFactory factory) {
 		this.factory = factory;
@@ -44,52 +49,48 @@ public class DistanceSource implements IDistanceSource {
 	 * org.dsanderson.xctrailreport.core.IDirectionsSource#updateDirections(
 	 * java.lang.String, java.lang.String)
 	 */
-	public boolean updateDirections(String src, String dest) {
+	public boolean updateDistances(String src, List<String> dests) {
 
-		if (src.length() == 0 || dest.length() == 0)
+		if (src.length() == 0 || getMaxStringLength(dests) == 0)
 			return false;
 
 		boolean successful = false;
 
-		/// TODO port this to use distance origings instead of directions:
 		// example
 		// https://maps.googleapis.com/maps/api/distancematrix/json?origins=44.972691,-93.232541&destinations=45.1335,-93.441|44.992,-93.3222&sensor=false
-		
-		// / example url:
-		// https://maps.googleapis.com/maps/api/directions/json?origin=44.972691,-93.232541&destination=45.1335,-93.441&sensor=false
-		// TODO Auto-generated method stub
-		String url = "https://maps.googleapis.com/maps/api/directions/json?origin="
-				+ src + "&destination=" + dest + "&sensor=false";
+		String url = "https://maps.googleapis.com/maps/api/distancematrix/xml?origins="
+				+ src + "&destinations=";
+		for (String dest : dests) {
+			if (dest.length() > 0) {
+				url += "|" + dest;
+			}
+		}
+
+		url += "&sensor=false";
 
 		INetConnection netConnection = factory.getNetConnection();
 
 		if (netConnection.connect(url)) {
-			String directionsString = netConnection.getString();
-
 			try {
-				JSONObject json = new JSONObject(directionsString);
-
-				JSONObject routesObject = json.getJSONArray("routes")
-						.getJSONObject(0);
-
-				JSONObject legsObject = routesObject.getJSONArray("legs")
-						.getJSONObject(0);
-
-				JSONObject distanceObject = legsObject
-						.getJSONObject("distance");
-				int distanceMeters = distanceObject.getInt("value");
-
-				distance = (double) distanceMeters / 1609.344;
-
-				JSONObject durationObject = legsObject
-						.getJSONObject("duration");
-				int durationSeconds = durationObject.getInt("value");
-				duration = (double) durationSeconds / 60;
+				parseXmlResponse(netConnection);
 				successful = true;
+				//
+				// JSONObject distanceObject = legsObject
+				// .getJSONObject("distance");
+				// int distanceMeters = distanceObject.getInt("value");
+				// distances.add(distanceMeters);
+				//
+				// JSONObject durationObject = legsObject
+				// .getJSONObject("duration");
+				// int durationSeconds = durationObject.getInt("value");
+				// durations.add(durationSeconds);
+				// successful = true;
 
 			} catch (Exception e) {
 				System.err.println(e);
 				successful = false;
+			} finally {
+				netConnection.disconnect();
 			}
 
 		}
@@ -103,8 +104,8 @@ public class DistanceSource implements IDistanceSource {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.IDirectionsSource#getDistance()
 	 */
-	public double getDistance() {
-		return distance;
+	public List<Integer> getDistances() {
+		return distances;
 	}
 
 	/*
@@ -112,8 +113,30 @@ public class DistanceSource implements IDistanceSource {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.IDirectionsSource#getDriveTime()
 	 */
-	public double getDriveTime() {
-		return duration;
+	public List<Integer> getDriveTimes() {
+		return durations;
+	}
+
+	private int getMaxStringLength(List<String> strings) {
+		int length = 0;
+		for (String str : strings) {
+			if (str.length() > length)
+				length = str.length();
+		}
+		return length;
+	}
+
+	private void parseXmlResponse(INetConnection connection)
+			throws XmlPullParserException, IOException {
+		XmlPullParserFactory parserFactory = XmlPullParserFactory.newInstance();
+		parserFactory.setNamespaceAware(false);
+		XmlPullParser parser = parserFactory.newPullParser();
+
+		parser.setInput(connection.getReader());
+
+		CompoundTagParser tagParser = new CompoundTagParser();
+		tagParser.parse(parser, "");
+
 	}
 
 }
