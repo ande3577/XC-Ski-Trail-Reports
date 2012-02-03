@@ -41,20 +41,16 @@ public class TrailNameDecorator extends TrailReportDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(ListIterator<TrailReport> trailReportIter,
-			IListEntry listEntry) {
-		TrailReport report = trailReportIter.next();
-		TrailInfo trailInfo = report.getTrailInfo();
-		if (!trailReportIter.hasPrevious()
-				|| trailInfo != trailReportIter.previous().getTrailInfo()) {
-			ITextItem newTextItem = listEntry.newTextItem();
-			newTextItem.setText(trailInfo.getName());
-			newTextItem.setSize(16);
-			newTextItem.setBold(true);
-			newTextItem.setColor("gray");
-		}
+	public void decorate(TrailReport trailReport, IListEntry listEntry) {
+		TrailInfo trailInfo = trailReport.getTrailInfo();
+		ITextItem newTextItem = listEntry.newTextItem();
+		newTextItem.setText(trailInfo.getName());
+		newTextItem.setSize(16);
+		newTextItem.setBold(true);
+		newTextItem.setColor("gray");
+
 		if (next() != null) {
-			next().decorate(trailReportIter, listEntry);
+			next().decorate(trailReport, listEntry);
 		}
 	}
 

@@ -39,8 +39,7 @@ public class SummaryDecorator extends TrailReportDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(ListIterator<TrailReport> trailReportIter, IListEntry listEntry) {
-		TrailReport trailReport = trailReportIter.next();
+	public void decorate(TrailReport trailReport, IListEntry listEntry) {
 		if (trailReport.getSummary().length() > 0) {
 			ITextItem newTextItem = listEntry.newTextItem();
 			newTextItem.setText(trailReport.getSummary());
@@ -48,7 +47,7 @@ public class SummaryDecorator extends TrailReportDecorator {
 		}
 
 		if (next() != null) {
-			next().decorate(trailReportIter, listEntry);
+			next().decorate(trailReport, listEntry);
 		}
 	}
 }

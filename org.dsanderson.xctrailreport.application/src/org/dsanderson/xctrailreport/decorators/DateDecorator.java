@@ -39,16 +39,15 @@ public class DateDecorator extends TrailReportDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(ListIterator<TrailReport> trailReportIter, IListEntry listEntry) {
+	public void decorate(TrailReport trailReport, IListEntry listEntry) {
 		ITextItem newTextItem = listEntry.newTextItem();
-		TrailReport trailReport = trailReportIter.next();
 
 		newTextItem.setColor("gray");
 		newTextItem.setAlign(ITextItem.Alignment_t.RIGHT);
 		newTextItem.setText(trailReport.getDate());
 
 		if (next() != null) {
-			next().decorate(trailReportIter, listEntry);
+			next().decorate(trailReport, listEntry);
 		}
 	}
 

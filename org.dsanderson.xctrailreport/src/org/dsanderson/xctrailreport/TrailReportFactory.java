@@ -47,6 +47,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	BaseFeedParser parser = null;
 	CompoundReportRetriever reportRetriever = null;
 	UrlConnection netConnection = null;
+	TrailReportDecorator infoDecorator = null;
 	TrailReportDecorator reportDecorator = null;
 	LocationSource locationSource = null;
 	DistanceSource directionsSource = null;
@@ -128,10 +129,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 */
 	public TrailReportDecorator getTrailReportDecorators() {
 		if (reportDecorator == null) {
-			reportDecorator = new TrailNameDecorator();
-			reportDecorator.add(new CityStateDecorator());
-			reportDecorator.add(new DistanceDecorator());
-			reportDecorator.add(new DateDecorator());
+			reportDecorator = new DateDecorator();
 			reportDecorator.add(new SummaryDecorator());
 			reportDecorator.add(new DetailedReportDecorator());
 			reportDecorator.add(new AuthorDecorator());
@@ -151,6 +149,23 @@ public class TrailReportFactory implements IAbstractFactory {
 			directionsSource = new DistanceSource(this);
 		}
 		return directionsSource;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoDecorators
+	 * ()
+	 */
+	public TrailReportDecorator getTrailInfoDecorators() {
+		if (infoDecorator == null) {
+			infoDecorator = new TrailNameDecorator();
+			infoDecorator.add(new CityStateDecorator());
+			infoDecorator.add(new DistanceDecorator());
+		}
+
+		return infoDecorator;
 	}
 
 }

@@ -41,23 +41,20 @@ public class CityStateDecorator extends TrailReportDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(ListIterator<TrailReport> trailReportIter, IListEntry listEntry) {
-		TrailReport report = trailReportIter.next();
-		TrailInfo trailInfo = report.getTrailInfo();
-		if (!trailReportIter.hasPrevious() || trailInfo == trailReportIter.previous().getTrailInfo()) {
-			ITextItem newTextItem = listEntry.newTextItem();
-			String text = "";
-			text += trailInfo.getCity();
-			if (trailInfo.getState().length() > 0
-					&& (trailInfo.getState().length() > 0))
-				text += ", ";
-			text += trailInfo.getState();
+	public void decorate(TrailReport trailReport, IListEntry listEntry) {
+		TrailInfo trailInfo = trailReport.getTrailInfo();
+		ITextItem newTextItem = listEntry.newTextItem();
+		String text = "";
+		text += trailInfo.getCity();
+		if (trailInfo.getState().length() > 0
+				&& (trailInfo.getState().length() > 0))
+			text += ", ";
+		text += trailInfo.getState();
 
-			newTextItem.setText(text);
-		}
+		newTextItem.setText(text);
 
 		if (next() != null) {
-			next().decorate(trailReportIter, listEntry);
+			next().decorate(trailReport, listEntry);
 		}
 	}
 

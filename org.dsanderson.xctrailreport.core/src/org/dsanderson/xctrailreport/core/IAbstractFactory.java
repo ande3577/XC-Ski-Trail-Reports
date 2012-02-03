@@ -33,6 +33,8 @@ public interface IAbstractFactory {
 	public IUserSettingsSource getUserSettingsSource();
 
 	public IReportRetriever getReportRetriever();
+	
+	public TrailReportDecorator getTrailInfoDecorators();
 
 	public TrailReportDecorator getTrailReportDecorators();
 	

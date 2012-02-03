@@ -45,6 +45,6 @@ public abstract class TrailReportDecorator {
 	 * @param trailReportIter
 	 * @param listEntry
 	 */
-	abstract public void decorate(ListIterator<TrailReport> trailReportIter, IListEntry listEntry);
+	abstract public void decorate(TrailReport trailReport, IListEntry listEntry);
 
 }

@@ -39,17 +39,15 @@ public class DetailedReportDecorator extends TrailReportDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(ListIterator<TrailReport> trailReportIter, IListEntry listEntry) {
+	public void decorate(TrailReport trailReport, IListEntry listEntry) {
 
-		TrailReport trailReport = trailReportIter.next();
-		
 		if (trailReport.getDetail().length() > 0) {
 			ITextItem newTextItem = listEntry.newTextItem();
 			newTextItem.setText(trailReport.getDetail());
 		}
 
 		if (next() != null) {
-			next().decorate(trailReportIter, listEntry);
+			next().decorate(trailReport, listEntry);
 		}
 	}
 

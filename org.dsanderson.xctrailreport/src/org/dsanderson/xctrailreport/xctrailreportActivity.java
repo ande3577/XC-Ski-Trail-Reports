@@ -76,13 +76,30 @@ public class xctrailreportActivity extends ListActivity {
 				layout = vi.inflate(R.layout.row, null);
 			}
 
-			ListIterator<TrailReport> reportIter = trailReports
-					.listIterator(position);
-			factory.getTrailReportDecorators().decorate(reportIter,
-					new ListEntry((LinearLayout) layout, getContext()));
+			ListEntry listEntry = new ListEntry((LinearLayout) layout,
+					getContext());
+
+			boolean newTrail = false;
+			TrailReport currentReport = trailReports.get(position);
+			if (position > 0) {
+				TrailReport previousReport = trailReports.get(position - 1);
+
+				if (previousReport.getTrailInfo().getName()
+						.compareTo(currentReport.getTrailInfo().getName()) != 0) {
+					newTrail = true;
+				}
+			} else {
+				newTrail = true;
+			}
+
+			if (newTrail)
+				factory.getTrailInfoDecorators().decorate(currentReport,
+						listEntry);
+
+			factory.getTrailReportDecorators().decorate(
+					trailReports.get(position), listEntry);
 			return layout;
 		}
-
 	}
 
 }

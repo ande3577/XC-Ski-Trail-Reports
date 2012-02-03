@@ -39,11 +39,10 @@ public class AuthorDecorator extends TrailReportDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(ListIterator<TrailReport> trailReportIter,
+	public void decorate(TrailReport trailReport,
 			IListEntry listEntry) {
 		ITextItem newTextItem = listEntry.newTextItem();
 		String text = "";
-		TrailReport trailReport = trailReportIter.next();
 
 		if (trailReport.getAuthor().length() > 0) {
 			text = trailReport.getAuthor() + " (" + trailReport.getSource()
@@ -54,7 +53,7 @@ public class AuthorDecorator extends TrailReportDecorator {
 
 		newTextItem.setText(text);
 		if (next() != null)
-			next().decorate(trailReportIter, listEntry);
+			next().decorate(trailReport, listEntry);
 	}
 
 }
