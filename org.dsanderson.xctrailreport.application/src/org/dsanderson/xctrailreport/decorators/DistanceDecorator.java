@@ -19,6 +19,8 @@
  */
 package org.dsanderson.xctrailreport.decorators;
 
+import java.text.DecimalFormat;
+
 import org.dsanderson.xctrailreport.core.IListEntry;
 import org.dsanderson.xctrailreport.core.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailInfo;
@@ -46,8 +48,11 @@ public class DistanceDecorator extends TrailInfoDecorator {
 				textItem = listEntry.newTextItem();
 			}
 
-			String text = textItem.getText() + " (" + trailInfo.getDistance()
-					+ " mi, " + trailInfo.getTravelTime() + ")";
+			DecimalFormat formatter = new DecimalFormat("0.0");
+
+			String text = textItem.getText() + " (" + formatter.format((double) trailInfo.getDistance() / 1609.344)
+					+ "mi , " + formatter.format((double) trailInfo.getDuration() / 60) + " min)";
+			
 			textItem.setText(text);
 		}
 

@@ -20,6 +20,7 @@
 package org.dsanderson.xctrailreport;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
@@ -35,8 +36,9 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public class DistanceSource implements IDistanceSource {
 	IAbstractFactory factory;
 
-	List<Integer> distances;
-	List<Integer> durations;
+	List<Integer> distances = new ArrayList<Integer>();
+	List<Integer> durations = new ArrayList<Integer>();
+	List<Boolean> valids = new ArrayList<Boolean>();
 
 	public DistanceSource(IAbstractFactory factory) {
 		this.factory = factory;
@@ -56,6 +58,10 @@ public class DistanceSource implements IDistanceSource {
 
 		boolean successful = false;
 
+		distances.clear();
+		durations.clear();
+		valids.clear();
+
 		// example
 		// https://maps.googleapis.com/maps/api/distancematrix/json?origins=44.972691,-93.232541&destinations=45.1335,-93.441|44.992,-93.3222&sensor=false
 		String url = "https://maps.googleapis.com/maps/api/distancematrix/xml?origins="
@@ -74,17 +80,6 @@ public class DistanceSource implements IDistanceSource {
 			try {
 				parseXmlResponse(netConnection);
 				successful = true;
-				//
-				// JSONObject distanceObject = legsObject
-				// .getJSONObject("distance");
-				// int distanceMeters = distanceObject.getInt("value");
-				// distances.add(distanceMeters);
-				//
-				// JSONObject durationObject = legsObject
-				// .getJSONObject("duration");
-				// int durationSeconds = durationObject.getInt("value");
-				// durations.add(durationSeconds);
-				// successful = true;
 
 			} catch (Exception e) {
 				System.err.println(e);
@@ -113,8 +108,12 @@ public class DistanceSource implements IDistanceSource {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.IDirectionsSource#getDriveTime()
 	 */
-	public List<Integer> getDriveTimes() {
+	public List<Integer> getDurations() {
 		return durations;
+	}
+
+	public List<Boolean> getValids() {
+		return valids;
 	}
 
 	private int getMaxStringLength(List<String> strings) {
@@ -135,8 +134,25 @@ public class DistanceSource implements IDistanceSource {
 		parser.setInput(connection.getReader());
 
 		CompoundTagParser tagParser = new CompoundTagParser();
-		tagParser.parse(parser, "DistanceMatrixResponse:row:element");
+		tagParser.parse(parser, "");
+
+		if (tagParser.getParsers("DistanceMatrixResponse:status").get(0)
+				.getText().compareTo("OK") == 0) {
+			List<CompoundTagParser> elementParsers = tagParser
+					.getParsers("DistanceMatrixResponse:row:element");
+			for (CompoundTagParser element : elementParsers) {
+				valids.add(element.getParsers("status").get(0).getText()
+						.compareTo("OK") == 0);
+				String distanceText = element.getParsers("distance:value")
+						.get(0).getText();
+				distances.add(Integer.parseInt(distanceText));
+
+				String durationText = element.getParsers("duration:value")
+						.get(0).getText();
+				durations.add(Integer.parseInt(durationText));
+
+			}
+		}
 
 	}
-
 }

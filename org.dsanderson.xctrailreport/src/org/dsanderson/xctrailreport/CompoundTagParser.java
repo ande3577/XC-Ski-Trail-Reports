@@ -56,9 +56,22 @@ public class CompoundTagParser {
 
 	public List<CompoundTagParser> getParsers(String name) {
 		List<CompoundTagParser> returnParsers = new ArrayList<CompoundTagParser>();
+		String remainingTarget = getRemainingTag(name);
+		String topLevelTarget = getTopLevelTag(name);
+
 		for (CompoundTagParser parser : tagParsers) {
-			if (parser.getName().compareTo(name) == 0) {
-				returnParsers.add(parser);
+			if (topLevelTarget.compareTo(parser.getName()) == 0) {
+				if (remainingTarget.length() == 0) {
+					// if we are looking for this child menu
+					if (topLevelTarget.compareTo(name) == 0)
+						returnParsers.add(parser);
+				} else {
+					// otherwise we are looking for one of its children
+					for (CompoundTagParser childParser : parser
+							.getParsers(remainingTarget)) {
+						returnParsers.add(childParser);
+					}
+				}
 			}
 		}
 		return returnParsers;
@@ -83,6 +96,7 @@ public class CompoundTagParser {
 
 	public void parse(XmlPullParser parser) throws XmlPullParserException,
 			IOException {
+		parse(parser, "");
 		int eventType = parser.getEventType();
 
 		while (eventType != XmlPullParser.END_DOCUMENT) {
@@ -125,15 +139,11 @@ public class CompoundTagParser {
 						enterChildTag(parser, getRemainingTag(target));
 					}
 				} else {
-					if (name == null) {
-						name = parser.getName();
-					} else {
-						CompoundTagParser newParser = new CompoundTagParser(
-								parser.getName());
-						parser.next();
-						newParser.parse(parser);
-						addParser(newParser);
-					}
+					CompoundTagParser newParser = new CompoundTagParser(
+							parser.getName());
+					parser.next();
+					newParser.parse(parser);
+					addParser(newParser);
 				}
 			} else if (eventType == XmlPullParser.TEXT) {
 				if (parser.getText().trim().length() > 0)
@@ -153,7 +163,8 @@ public class CompoundTagParser {
 
 	private String getTopLevelTag(String target) {
 		if (target.indexOf(':') != -1)
-			return target.substring(0, target.indexOf(':')).replaceFirst(":", "");
+			return target.substring(0, target.indexOf(':')).replaceFirst(":",
+					"");
 		else
 			return target;
 	}
@@ -163,7 +174,7 @@ public class CompoundTagParser {
 			return target.substring(target.indexOf(':'), target.length())
 					.replaceFirst(":", "");
 		} else {
-			return target;
+			return "";
 		}
 	}
 

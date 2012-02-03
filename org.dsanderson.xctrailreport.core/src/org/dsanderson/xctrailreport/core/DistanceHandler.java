@@ -43,7 +43,7 @@ public class DistanceHandler {
 
 		if (distanceSource.updateDistances(location, destinations)) {
 			List<Integer> distances = distanceSource.getDistances();
-			List<Integer> durations = distanceSource.getDriveTimes();
+			List<Integer> durations = distanceSource.getDurations();
 			for (int i = 0; i < trailInfos.size() && i < distances.size()
 					&& i < durations.size(); i++) {
 				TrailInfo info = trailInfos.get(i);

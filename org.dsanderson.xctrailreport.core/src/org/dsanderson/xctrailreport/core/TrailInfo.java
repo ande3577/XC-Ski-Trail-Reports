@@ -108,7 +108,7 @@ public class TrailInfo {
 		this.travelTime = travelTime;
 	}
 
-	public int getTravelTime() {
+	public int getDuration() {
 		return travelTime;
 	}
 

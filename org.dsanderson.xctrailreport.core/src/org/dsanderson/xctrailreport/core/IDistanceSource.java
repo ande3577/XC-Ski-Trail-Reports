@@ -30,6 +30,8 @@ public interface IDistanceSource {
 	
 	List<Integer> getDistances();
 	
-	List<Integer> getDriveTimes();
+	List<Integer> getDurations();
+	
+	List<Boolean> getValids();
 	
 }
