@@ -135,7 +135,7 @@ public class DistanceSource implements IDistanceSource {
 		parser.setInput(connection.getReader());
 
 		CompoundTagParser tagParser = new CompoundTagParser();
-		tagParser.parse(parser, "");
+		tagParser.parse(parser, "DistanceMatrixResponse:row:element");
 
 	}
 

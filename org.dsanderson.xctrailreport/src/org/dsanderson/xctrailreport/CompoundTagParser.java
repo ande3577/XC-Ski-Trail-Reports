@@ -121,7 +121,7 @@ public class CompoundTagParser {
 			} else if (eventType == XmlPullParser.START_TAG) {
 				if (target.length() > 0) {
 					if (parser.getName().compareTo(getTopLevelTag(target)) == 0) {
-						name = target;
+						name = getTopLevelTag(target);
 						enterChildTag(parser, getRemainingTag(target));
 					}
 				} else {
@@ -153,7 +153,7 @@ public class CompoundTagParser {
 
 	private String getTopLevelTag(String target) {
 		if (target.indexOf(':') != -1)
-			return target.substring(0, target.indexOf(':')).replace(":", "");
+			return target.substring(0, target.indexOf(':')).replaceFirst(":", "");
 		else
 			return target;
 	}
@@ -161,7 +161,7 @@ public class CompoundTagParser {
 	private String getRemainingTag(String target) {
 		if (target.indexOf(':') != -1) {
 			return target.substring(target.indexOf(':'), target.length())
-					.replace(":", "");
+					.replaceFirst(":", "");
 		} else {
 			return target;
 		}
