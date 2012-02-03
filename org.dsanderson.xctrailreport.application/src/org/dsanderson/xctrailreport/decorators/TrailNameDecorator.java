@@ -19,15 +19,18 @@
  */
 package org.dsanderson.xctrailreport.decorators;
 
+import java.util.ListIterator;
+
 import org.dsanderson.xctrailreport.core.IListEntry;
 import org.dsanderson.xctrailreport.core.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailInfo;
-import org.dsanderson.xctrailreport.core.TrailInfoDecorator;
+import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 
 /**
  * 
  */
-public class TrailNameDecorator extends TrailInfoDecorator {
+public class TrailNameDecorator extends TrailReportDecorator {
 
 	/*
 	 * (non-Javadoc)
@@ -38,14 +41,20 @@ public class TrailNameDecorator extends TrailInfoDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(TrailInfo trailInfo, IListEntry listEntry) {
-		ITextItem newTextItem = listEntry.newTextItem();
-		newTextItem.setText(trailInfo.getName());
-		newTextItem.setSize(16);
-		newTextItem.setBold(true);
-		newTextItem.setColor("gray");
+	public void decorate(ListIterator<TrailReport> trailReportIter,
+			IListEntry listEntry) {
+		TrailReport report = trailReportIter.next();
+		TrailInfo trailInfo = report.getTrailInfo();
+		if (!trailReportIter.hasPrevious()
+				|| trailInfo != trailReportIter.previous().getTrailInfo()) {
+			ITextItem newTextItem = listEntry.newTextItem();
+			newTextItem.setText(trailInfo.getName());
+			newTextItem.setSize(16);
+			newTextItem.setBold(true);
+			newTextItem.setColor("gray");
+		}
 		if (next() != null) {
-			next().decorate(trailInfo, listEntry);
+			next().decorate(trailReportIter, listEntry);
 		}
 	}
 

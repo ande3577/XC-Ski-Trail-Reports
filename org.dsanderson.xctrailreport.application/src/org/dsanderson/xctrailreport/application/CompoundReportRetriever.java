@@ -24,6 +24,7 @@ import java.util.List;
 
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.TrailInfo;
+import org.dsanderson.xctrailreport.core.TrailReport;
 
 /**
  * 
@@ -34,9 +35,8 @@ public class CompoundReportRetriever implements IReportRetriever {
 
 	public CompoundReportRetriever() {
 	}
-	
-	public void addRetriever(IReportRetriever reportRetriever)
-	{
+
+	public void addRetriever(IReportRetriever reportRetriever) {
 		reportRetrievers.add(reportRetriever);
 	}
 
@@ -46,9 +46,9 @@ public class CompoundReportRetriever implements IReportRetriever {
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
 	@Override
-	public void getReports(List<TrailInfo> trailInfo) {
+	public void getReports(List<TrailReport>  trailReports, List<TrailInfo> trailInfo) {
 		for (int i = 0; i < reportRetrievers.size(); i++) {
-			reportRetrievers.get(i).getReports(trailInfo);
+			reportRetrievers.get(i).getReports(trailReports, trailInfo);
 		}
 	}
 

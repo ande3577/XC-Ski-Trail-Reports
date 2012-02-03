@@ -22,6 +22,7 @@ package org.dsanderson.xctrailreport.skinnyski;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.INetConnection;
@@ -45,11 +46,13 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 	 * 
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
-	public void getReports(List<TrailInfo> trailInfos) {
-		parseHtml(trailInfos);
+	public void getReports(List<TrailReport> trailReports,
+			List<TrailInfo> trailInfos) {
+		parseHtml(trailReports, trailInfos);
 	}
 
-	private void parseHtml(List<TrailInfo> trailInfos) {
+	private void parseHtml(List<TrailReport> trailReports,
+			List<TrailInfo> trailInfos) {
 		INetConnection netConnection = factory.getNetConnection();
 		if (netConnection.connect("http://skinnyski.com/trails/reports.asp")) {
 			try {
@@ -58,6 +61,8 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 
 				TrailReport newTrailReport = null;
 				String reportName = null;
+
+				String city = "";
 
 				while ((line = reader.readLine()) != null) {
 					if (line.startsWith("<li>")) { // start of report
@@ -87,8 +92,13 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 											endingIndex);
 								reportName = reportName.replace(">", "").trim();
 							} else {
-								reportName = reportName.split("[(]", 1)[0];
+								String split[] = reportName.split("[(]", 2);
+								reportName = split[0];
 								reportName = reportName.trim();
+								if (split.length >= 2) {
+									city = split[1];
+									city = city.split("):", 1)[0];
+								}
 							}
 						}
 					} else if (line.startsWith("Conditions: ")) { // summary/detail
@@ -117,12 +127,35 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 						newTrailReport.setAuthor(authorString);
 
 						newTrailReport.setSource("Skinnyski");
+						boolean found = false;
 						for (TrailInfo info : trailInfos) {
 							// look for a matching trail info and add the report
 							if (reportName.indexOf(info
-									.getSkinnyskiSearchTerm()) != -1)
-								info.addReport(newTrailReport);
+									.getSkinnyskiSearchTerm()) != -1) {
+								newTrailReport.setTrailInfo(info);
+								found = true;
+							}
 						}
+
+						// if not found the trail, then add it to the list
+						if (!found) {
+							TrailInfo newTrailInfo = new TrailInfo();
+							newTrailInfo.setCity(city);
+							newTrailInfo.setLocation(city);
+							newTrailInfo.setName(reportName);
+							newTrailInfo.setSkinnyskiSearchTerm(reportName);
+							// / TODO need to figure out the state for non MN
+							// reports
+							newTrailInfo.setState("MN");
+							newTrailInfo.setLocation(city + ","
+									+ newTrailInfo.getState());
+
+							trailInfos.add(newTrailInfo.copy());
+							newTrailReport.setTrailInfo(newTrailInfo);
+						}
+
+						trailReports.add(newTrailReport.copy());
+
 						// reset to wait for start of next
 						newTrailReport = null;
 						reportName = "";
@@ -131,7 +164,7 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 						String detailString = newTrailReport.getDetail();
 						// replace brs with endlines, then eliminate them if at
 						// beginning or end
-						line.replace("<br>", "\r\n");
+						line = line.replace("<br>", "\r\n");
 						line = line.trim();
 						// if we're adding to a previous report, then add an
 						// endline

@@ -19,6 +19,8 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import java.util.ListIterator;
+
 /**
  * 
  */
@@ -40,9 +42,9 @@ public abstract class TrailReportDecorator {
 
 	/**
 	 * 
-	 * @param trailReport
+	 * @param trailReportIter
 	 * @param listEntry
 	 */
-	abstract public void decorate(TrailReport trailReport, IListEntry listEntry);
+	abstract public void decorate(ListIterator<TrailReport> trailReportIter, IListEntry listEntry);
 
 }

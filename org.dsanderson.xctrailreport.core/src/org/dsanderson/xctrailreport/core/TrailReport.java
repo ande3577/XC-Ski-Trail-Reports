@@ -28,6 +28,7 @@ public class TrailReport {
 	private String date = "";
 	private String detail = "";
 	private String source = "";
+	private TrailInfo trailInfo = null;
 
 	public void setSummary(String summary) {
 		this.summary = summary;
@@ -69,6 +70,14 @@ public class TrailReport {
 		return source;
 	}
 
+	public void setTrailInfo(TrailInfo trailInfo) {
+		this.trailInfo = trailInfo;
+	}
+
+	public TrailInfo getTrailInfo() {
+		return trailInfo;
+	}
+
 	public TrailReport copy() {
 		TrailReport newReport = new TrailReport();
 		newReport.summary = summary;
@@ -76,6 +85,7 @@ public class TrailReport {
 		newReport.date = date;
 		newReport.detail = detail;
 		newReport.source = source;
+		newReport.trailInfo = trailInfo;
 		return newReport;
 	}
 }

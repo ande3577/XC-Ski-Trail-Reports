@@ -3,10 +3,12 @@ package org.dsanderson.xctrailreport;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 import org.dsanderson.xctrailreport.R;
 import org.dsanderson.xctrailreport.core.ReportListCreator;
 import org.dsanderson.xctrailreport.core.TrailInfo;
+import org.dsanderson.xctrailreport.core.TrailReport;
 
 import android.app.ListActivity;
 import android.content.Context;
@@ -20,7 +22,7 @@ import android.widget.LinearLayout;
 
 public class xctrailreportActivity extends ListActivity {
 
-	private List<TrailInfo> trailInfo;
+	private List<TrailReport> trailReports;
 
 	private TrailReportFactory factory = new TrailReportFactory(this);
 
@@ -29,32 +31,31 @@ public class xctrailreportActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		trailInfo = loadTrailInfo();
-		printTrailInfo(trailInfo);
+		trailReports = loadTrailReports();
+		printTrailReports(trailReports);
 	}
 
-	private List<TrailInfo> loadTrailInfo() {
-		List<TrailInfo> trailInfo = new ArrayList<TrailInfo>();
+	private List<TrailReport> loadTrailReports() {
 
 		factory.getLocationSource().updateLocation();
 		try {
 			InputStream inputStream = getResources().openRawResource(
 					R.raw.trail_info);
 			ReportListCreator listCreator = new ReportListCreator(factory);
-			trailInfo = listCreator.getTrailInfoReports(inputStream);
+			trailReports = listCreator.getTrailReports(inputStream);
 		} catch (Exception e) {
 			Log.e("XCTrailReports", e.getMessage(), e);
 		}
-
-		return trailInfo;
+		return trailReports;
 	}
 
-	private void printTrailInfo(List<TrailInfo> trailInfo) {
-		this.setListAdapter(new TrailInfoAdapter(this, R.layout.row, trailInfo));
+	private void printTrailReports(List<TrailReport> trailReports) {
+		this.setListAdapter(new TrailInfoAdapter(this, R.layout.row,
+				trailReports));
 	}
 
-	private class TrailInfoAdapter extends ArrayAdapter<TrailInfo> {
-		private List<TrailInfo> trailInfos;
+	private class TrailInfoAdapter extends ArrayAdapter<TrailReport> {
+		private List<TrailReport> trailReports;
 
 		/**
 		 * @param context
@@ -62,9 +63,9 @@ public class xctrailreportActivity extends ListActivity {
 		 * @param objects
 		 */
 		public TrailInfoAdapter(Context context, int textViewResourceId,
-				List<TrailInfo> objects) {
+				List<TrailReport> objects) {
 			super(context, textViewResourceId, objects);
-			this.trailInfos = objects;
+			this.trailReports = objects;
 		}
 
 		@Override
@@ -75,8 +76,9 @@ public class xctrailreportActivity extends ListActivity {
 				layout = vi.inflate(R.layout.row, null);
 			}
 
-			TrailInfo trailInfo = trailInfos.get(position);
-			factory.getTrailInfoDecorators().decorate(trailInfo,
+			ListIterator<TrailReport> reportIter = trailReports
+					.listIterator(position);
+			factory.getTrailReportDecorators().decorate(reportIter,
 					new ListEntry((LinearLayout) layout, getContext()));
 			return layout;
 		}

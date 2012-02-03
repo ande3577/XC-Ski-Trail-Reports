@@ -19,15 +19,18 @@
  */
 package org.dsanderson.xctrailreport.decorators;
 
+import java.util.ListIterator;
+
 import org.dsanderson.xctrailreport.core.IListEntry;
 import org.dsanderson.xctrailreport.core.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailInfo;
-import org.dsanderson.xctrailreport.core.TrailInfoDecorator;
+import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 
 /**
  * 
  */
-public class CityStateDecorator extends TrailInfoDecorator {
+public class CityStateDecorator extends TrailReportDecorator {
 
 	/*
 	 * (non-Javadoc)
@@ -38,19 +41,23 @@ public class CityStateDecorator extends TrailInfoDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(TrailInfo trailInfo, IListEntry listEntry) {
-		ITextItem newTextItem = listEntry.newTextItem();
-		String text = "";
-		text += trailInfo.getCity();
-		if (trailInfo.getState().length() > 0
-				&& (trailInfo.getState().length() > 0))
-			text += ", ";
-		text += trailInfo.getState();
+	public void decorate(ListIterator<TrailReport> trailReportIter, IListEntry listEntry) {
+		TrailReport report = trailReportIter.next();
+		TrailInfo trailInfo = report.getTrailInfo();
+		if (!trailReportIter.hasPrevious() || trailInfo == trailReportIter.previous().getTrailInfo()) {
+			ITextItem newTextItem = listEntry.newTextItem();
+			String text = "";
+			text += trailInfo.getCity();
+			if (trailInfo.getState().length() > 0
+					&& (trailInfo.getState().length() > 0))
+				text += ", ";
+			text += trailInfo.getState();
 
-		newTextItem.setText(text);
+			newTextItem.setText(text);
+		}
 
 		if (next() != null) {
-			next().decorate(trailInfo, listEntry);
+			next().decorate(trailReportIter, listEntry);
 		}
 	}
 

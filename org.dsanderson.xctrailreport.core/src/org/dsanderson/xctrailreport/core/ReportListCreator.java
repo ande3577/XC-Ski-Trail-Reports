@@ -20,6 +20,7 @@
 package org.dsanderson.xctrailreport.core;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 
@@ -33,20 +34,21 @@ public class ReportListCreator {
 		this.factory = factory;
 	}
 
-	public List<TrailInfo> getTrailInfoReports(InputStream inputStream) {
+	public List<TrailReport> getTrailReports(InputStream inputStream) {
 
 		ITrailInfoParser parser = factory.getTrailInfoParser();
 		parser.SetInputStream(inputStream);
 		parser.parse();
 
 		List<TrailInfo> trailInfos = parser.getTrailInfo();
+		List<TrailReport> trailReports = new ArrayList<TrailReport>();
 
 		IReportRetriever reportRetriever = factory.getReportRetriever();
-		reportRetriever.getReports(trailInfos);
+		reportRetriever.getReports(trailReports, trailInfos);
 
 		DistanceHandler directionHandler = new DistanceHandler(factory);
 		directionHandler.getDistances(trailInfos);
-		return trailInfos;
+		return trailReports;
 	}
 
 }

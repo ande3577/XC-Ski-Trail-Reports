@@ -20,16 +20,18 @@
 package org.dsanderson.xctrailreport.decorators;
 
 import java.text.DecimalFormat;
+import java.util.ListIterator;
 
 import org.dsanderson.xctrailreport.core.IListEntry;
 import org.dsanderson.xctrailreport.core.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailInfo;
-import org.dsanderson.xctrailreport.core.TrailInfoDecorator;
+import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 
 /**
  * 
  */
-public class DistanceDecorator extends TrailInfoDecorator {
+public class DistanceDecorator extends TrailReportDecorator {
 
 	/*
 	 * (non-Javadoc)
@@ -40,24 +42,38 @@ public class DistanceDecorator extends TrailInfoDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(TrailInfo trailInfo, IListEntry listEntry) {
-		if (trailInfo.getDirectionsValid()) {
-			// add to end of previous (City, State)
-			ITextItem textItem = listEntry.getTextItem();
-			if (textItem == null) {
-				textItem = listEntry.newTextItem();
+	public void decorate(ListIterator<TrailReport> trailReportIter,
+			IListEntry listEntry) {
+		TrailReport report = trailReportIter.next();
+		TrailInfo trailInfo = report.getTrailInfo();
+
+		if (!trailReportIter.hasPrevious()
+				|| trailReportIter.previous().getTrailInfo() != trailInfo) {
+
+			if (trailInfo.getDirectionsValid()) {
+				// add to end of previous (City, State)
+				ITextItem textItem = listEntry.getTextItem();
+				if (textItem == null) {
+					textItem = listEntry.newTextItem();
+				}
+
+				DecimalFormat formatter = new DecimalFormat("0.0");
+
+				String text = textItem.getText()
+						+ " ("
+						+ formatter
+								.format((double) trailInfo.getDistance() / 1609.344)
+						+ "mi , "
+						+ formatter
+								.format((double) trailInfo.getDuration() / 60)
+						+ " min)";
+
+				textItem.setText(text);
 			}
-
-			DecimalFormat formatter = new DecimalFormat("0.0");
-
-			String text = textItem.getText() + " (" + formatter.format((double) trailInfo.getDistance() / 1609.344)
-					+ "mi , " + formatter.format((double) trailInfo.getDuration() / 60) + " min)";
-			
-			textItem.setText(text);
 		}
 
 		if (next() != null) {
-			next().decorate(trailInfo, listEntry);
+			next().decorate(trailReportIter, listEntry);
 		}
 	}
 }

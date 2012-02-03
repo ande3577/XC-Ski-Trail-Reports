@@ -34,7 +34,7 @@ public interface IAbstractFactory {
 
 	public IReportRetriever getReportRetriever();
 
-	public TrailInfoDecorator getTrailInfoDecorators();
+	public TrailReportDecorator getTrailReportDecorators();
 	
 	public IDistanceSource getDistanceSource();
 

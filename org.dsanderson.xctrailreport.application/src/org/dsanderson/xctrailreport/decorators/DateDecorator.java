@@ -19,6 +19,8 @@
  */
 package org.dsanderson.xctrailreport.decorators;
 
+import java.util.ListIterator;
+
 import org.dsanderson.xctrailreport.core.IListEntry;
 import org.dsanderson.xctrailreport.core.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailReport;
@@ -37,15 +39,16 @@ public class DateDecorator extends TrailReportDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(TrailReport trailReport, IListEntry listEntry) {
+	public void decorate(ListIterator<TrailReport> trailReportIter, IListEntry listEntry) {
 		ITextItem newTextItem = listEntry.newTextItem();
+		TrailReport trailReport = trailReportIter.next();
 
 		newTextItem.setColor("gray");
 		newTextItem.setAlign(ITextItem.Alignment_t.RIGHT);
 		newTextItem.setText(trailReport.getDate());
 
 		if (next() != null) {
-			next().decorate(trailReport, listEntry);
+			next().decorate(trailReportIter, listEntry);
 		}
 	}
 

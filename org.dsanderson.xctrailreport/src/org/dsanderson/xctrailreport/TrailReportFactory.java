@@ -27,7 +27,6 @@ import org.dsanderson.xctrailreport.core.INetConnection;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.ITrailInfoParser;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
-import org.dsanderson.xctrailreport.core.TrailInfoDecorator;
 import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
 import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
@@ -36,7 +35,6 @@ import org.dsanderson.xctrailreport.decorators.DetailedReportDecorator;
 import org.dsanderson.xctrailreport.decorators.DistanceDecorator;
 import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
-import org.dsanderson.xctrailreport.decorators.TrailReportDecorators;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiReportRetriever;
 
 import android.content.Context;
@@ -49,7 +47,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	BaseFeedParser parser = null;
 	CompoundReportRetriever reportRetriever = null;
 	UrlConnection netConnection = null;
-	TrailInfoDecorator infoDecorator = null;
+	TrailReportDecorator reportDecorator = null;
 	LocationSource locationSource = null;
 	DistanceSource directionsSource = null;
 
@@ -128,21 +126,18 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoDecorators
 	 * ()
 	 */
-	public TrailInfoDecorator getTrailInfoDecorators() {
-		if (infoDecorator == null) {
-			infoDecorator = new TrailNameDecorator();
-			infoDecorator.add(new CityStateDecorator());
-			infoDecorator.add(new DistanceDecorator());
-
-			TrailReportDecorator trailReportDecorator = new DateDecorator();
-			trailReportDecorator.add(new SummaryDecorator());
-			trailReportDecorator.add(new DetailedReportDecorator());
-			trailReportDecorator.add(new AuthorDecorator());
-
-			infoDecorator.add(new TrailReportDecorators(trailReportDecorator));
+	public TrailReportDecorator getTrailReportDecorators() {
+		if (reportDecorator == null) {
+			reportDecorator = new TrailNameDecorator();
+			reportDecorator.add(new CityStateDecorator());
+			reportDecorator.add(new DistanceDecorator());
+			reportDecorator.add(new DateDecorator());
+			reportDecorator.add(new SummaryDecorator());
+			reportDecorator.add(new DetailedReportDecorator());
+			reportDecorator.add(new AuthorDecorator());
 		}
 
-		return infoDecorator;
+		return reportDecorator;
 	}
 
 	/*
