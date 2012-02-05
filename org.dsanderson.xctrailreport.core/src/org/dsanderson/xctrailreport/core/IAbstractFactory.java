@@ -29,19 +29,21 @@ public interface IAbstractFactory {
 	public INetConnection getNetConnection();
 
 	public ILocationSource getLocationSource();
-	
+
 	public IUserSettingsSource getUserSettingsSource();
 
 	public IReportRetriever getReportRetriever();
-	
+
 	public TrailReportDecorator getTrailInfoDecorators();
 
 	public TrailReportDecorator getTrailReportDecorators();
-	
+
 	public IDistanceSource getDistanceSource();
-	
-	public IErrorDialog newErrorDialog(Exception e);
-	
+
+	public IDialog newDialog(Exception e);
+
+	public IDialog newDialog(String string);
+
 	public UserSettings getUserSettings();
 
 }

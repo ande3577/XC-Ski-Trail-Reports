@@ -17,13 +17,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package org.dsanderson.xctrailreport;
 
-public class ProgramInfo {
-	public static final String programName = "XC Ski Trail Report App";
-	public static final String programVersion = "0.0.0";
-	public static final String author = "David S Anderson";
-	public static final String copyright = "Copyright (C) 2012";
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
 
+/**
+ * 
+ */
+public class PreferencesActivity extends PreferenceActivity {
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		addPreferencesFromResource(R.xml.preferences);
+	}
 }

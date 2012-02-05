@@ -1,15 +1,22 @@
 package org.dsanderson.xctrailreport;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.R;
+import org.dsanderson.xctrailreport.core.IDialog;
 import org.dsanderson.xctrailreport.core.ReportListCreator;
 import org.dsanderson.xctrailreport.core.TrailReport;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -32,13 +39,7 @@ public class xctrailreportActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		try {
-//			trailReports = loadTrailReports();
-			printTrailReports(trailReports);
-		} catch (Exception e) {
-			Log.e("XCTrailReports", e.getMessage(), e);
-			factory.newErrorDialog(e).show();
-		}
+		// refresh();
 	}
 
 	private List<TrailReport> loadTrailReports() throws Exception {
@@ -48,6 +49,9 @@ public class xctrailreportActivity extends ListActivity {
 				R.raw.trail_info);
 		ReportListCreator listCreator = new ReportListCreator(factory);
 		trailReports = listCreator.getTrailReports(inputStream);
+
+		if (trailReports.isEmpty())
+			throw new RuntimeException("No reports found.");
 
 		return trailReports;
 	}
@@ -66,8 +70,86 @@ public class xctrailreportActivity extends ListActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+		switch (item.getItemId()) {
+		case R.id.preferencesMenuItem:
+			// Launch Preference activity
+			Intent i = new Intent(xctrailreportActivity.this,
+					PreferencesActivity.class);
+			startActivity(i);
+			break;
+		case R.id.refresh:
+			refresh();
+			break;
+		case R.id.aboutMenuItem:
+			String aboutString = ProgramInfo.programName + "\r\n"
+					+ ProgramInfo.programVersion + "\r\n" + ProgramInfo.author
+					+ "\r\n" + ProgramInfo.copyright;
+			factory.newDialog(aboutString).show();
+			break;
+		default:
+			Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+			break;
+		}
 		return true;
+	}
+
+	private void refresh() {
+		new LoadReportsTask(this).execute();
+	}
+
+	private class LoadReportsTask extends
+			AsyncTask<Integer, Integer, List<TrailReport>> {
+
+		Context context = null;
+		AlertDialog dialog = null;
+		Exception e = null;
+
+		/**
+ * 
+ */
+		public LoadReportsTask(Context context) {
+			this.context = context;
+		}
+
+		@Override
+		protected void onPreExecute() {
+			dialog = new AlertDialog.Builder(context).create();
+			dialog.setMessage("Loading trail reports...");
+			dialog.show();
+			e = null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see android.os.AsyncTask#doInBackground(Params[])
+		 */
+		@Override
+		protected List<TrailReport> doInBackground(Integer... params) {
+			List<TrailReport> trailReports = new ArrayList<TrailReport>();
+			try {
+				Looper.prepare();
+				trailReports = loadTrailReports();
+			} catch (Exception e) {
+				this.e = e;
+			}
+			return trailReports;
+		}
+
+		@Override
+		protected void onPostExecute(List<TrailReport> result) {
+			if (dialog != null && dialog.isShowing())
+				dialog.dismiss();
+
+			if (e == null) {
+				printTrailReports(trailReports);
+			} else {
+				System.err.println(e);
+				factory.newDialog(e).show();
+			}
+
+		}
+
 	}
 
 	private class TrailInfoAdapter extends ArrayAdapter<TrailReport> {
