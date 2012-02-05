@@ -39,6 +39,9 @@ public class ListEntry implements IListEntry {
 	List<TextItem> textItems = new ArrayList<TextItem>();
 
 	public ListEntry(LinearLayout layout, Context context) {
+
+		layout.removeAllViews();
+
 		this.layout = layout;
 		this.context = context;
 	}

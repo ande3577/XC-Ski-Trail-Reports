@@ -20,9 +20,7 @@
 package org.dsanderson.xctrailreport.skinnyski;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.util.List;
-import java.util.Scanner;
 
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.INetConnection;
