@@ -19,33 +19,32 @@
  */
 package org.dsanderson.xctrailreport.core;
 
-import java.util.List;
+import java.util.Comparator;
 
 /**
  * 
  */
-public class UserSettings {
-	public enum SortMethod {
-		SORT_BY_DISTANCE, SORT_BY_DATE
-	}
+public class DistanceComparator implements Comparator<TrailReport> {
 
-	private List<String> enabledRegions = null;
-	private SortMethod sortMethod = null;
-
-	public void setEnabledRegions(List<String> enabledRegions) {
-		this.enabledRegions = enabledRegions;
-	}
-
-	public List<String> getEnabledRegions() {
-		return enabledRegions;
-	}
-
-	public void setSortMethod(SortMethod sortMethod) {
-		this.sortMethod = sortMethod;
-	}
-
-	public SortMethod getSortMethod() {
-		return sortMethod;
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+	 */
+	@Override
+	public int compare(TrailReport arg0, TrailReport arg1) {
+		if (arg0.getTrailInfo().getDirectionsValid()
+				&& arg1.getTrailInfo().getDirectionsValid()) {
+			Integer dist0 = arg0.getTrailInfo().getDistance();
+			Integer dist1 = arg1.getTrailInfo().getDistance();
+			return dist0.compareTo(dist1);
+		} else if (arg0.getTrailInfo().getDirectionsValid()) {
+			return -1;
+		} else if (arg1.getTrailInfo().getDirectionsValid()) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 
 }

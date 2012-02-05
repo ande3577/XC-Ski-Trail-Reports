@@ -22,6 +22,7 @@ package org.dsanderson.xctrailreport.skinnyski;
 import java.io.InputStream;
 import java.util.Scanner;
 
+import org.dsanderson.xctrailreport.core.ReportDate;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 
@@ -93,7 +94,7 @@ public class SkinnyskiScanner {
 		trailReport = new TrailReport();
 		trailInfo = new TrailInfo();
 
-		trailReport.setDate(scanDate());
+		trailReport.setDate(new ReportDate(scanDate()));
 		trailInfo.setSkinnyskiUrl(scanUrl());
 		trailInfo.setSkinnyskiSearchTerm(scanName());
 		trailInfo.setCity(scanCity());

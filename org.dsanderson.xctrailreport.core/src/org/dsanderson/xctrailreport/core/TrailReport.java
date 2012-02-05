@@ -25,7 +25,7 @@ package org.dsanderson.xctrailreport.core;
 public class TrailReport {
 	private String summary = "";
 	private String author = "";
-	private String date = "";
+	private ReportDate date = null;
 	private String detail = "";
 	private String source = "";
 	private TrailInfo trailInfo = null;
@@ -46,11 +46,11 @@ public class TrailReport {
 		return author;
 	}
 
-	public void setDate(String date) {
+	public void setDate(ReportDate date) {
 		this.date = date;
 	}
 
-	public String getDate() {
+	public ReportDate getDate() {
 		return date;
 	}
 

@@ -17,35 +17,34 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.core;
+package org.dsanderson.xctrailreport.core.test;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import org.dsanderson.xctrailreport.core.ReportDate;
 
 /**
  * 
  */
-public class UserSettings {
-	public enum SortMethod {
-		SORT_BY_DISTANCE, SORT_BY_DATE
-	}
+public class DateTest {
 
-	private List<String> enabledRegions = null;
-	private SortMethod sortMethod = null;
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
 
-	public void setEnabledRegions(List<String> enabledRegions) {
-		this.enabledRegions = enabledRegions;
-	}
+		List<ReportDate> dates = new ArrayList<ReportDate>();
+		dates.add(new ReportDate("Mar", 6, 2012));
+		dates.add(new ReportDate());
+		dates.add(new ReportDate("Feb", 4, 2012));
+		dates.add(new ReportDate("May", 23, 2011));
+		dates.add(new ReportDate("Mar 23"));
+		Collections.sort(dates);
 
-	public List<String> getEnabledRegions() {
-		return enabledRegions;
-	}
-
-	public void setSortMethod(SortMethod sortMethod) {
-		this.sortMethod = sortMethod;
-	}
-
-	public SortMethod getSortMethod() {
-		return sortMethod;
+		for (ReportDate date : dates)
+			System.out.println(date.formatDate());
 	}
 
 }

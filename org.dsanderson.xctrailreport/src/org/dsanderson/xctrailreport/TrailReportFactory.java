@@ -33,6 +33,7 @@ import org.dsanderson.xctrailreport.core.ITrailInfoParser;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 import org.dsanderson.xctrailreport.core.UserSettings;
+import org.dsanderson.xctrailreport.core.UserSettings.SortMethod;
 import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
 import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
 import org.dsanderson.xctrailreport.decorators.DateDecorator;
@@ -193,11 +194,14 @@ public class TrailReportFactory implements IAbstractFactory {
 		if (userSettings == null) {
 			userSettings = new UserSettings();
 			List<String> regions = new ArrayList<String>();
-			
+
 			regions.add("Minnesota Metro Area");
 			regions.add("Minnesota Northeast");
-			
+
 			userSettings.setEnabledRegions(regions);
+
+			userSettings
+					.setSortMethod(UserSettings.SortMethod.SORT_BY_DISTANCE);
 		}
 
 		return userSettings;

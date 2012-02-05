@@ -21,6 +21,7 @@ package org.dsanderson.xctrailreport.core;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 
@@ -34,7 +35,8 @@ public class ReportListCreator {
 		this.factory = factory;
 	}
 
-	public List<TrailReport> getTrailReports(InputStream inputStream) throws Exception {
+	public List<TrailReport> getTrailReports(InputStream inputStream)
+			throws Exception {
 
 		ITrailInfoParser parser = factory.getTrailInfoParser();
 		parser.SetInputStream(inputStream);
@@ -48,6 +50,10 @@ public class ReportListCreator {
 
 		DistanceHandler directionHandler = new DistanceHandler(factory);
 		directionHandler.getDistances(trailInfos);
+
+		Collections.sort(trailReports, new CompoundReportComparator(factory
+				.getUserSettings().getSortMethod()));
+
 		return trailReports;
 	}
 
