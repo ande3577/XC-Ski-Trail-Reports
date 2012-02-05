@@ -68,9 +68,7 @@ public class DistanceHandler {
 
 			}
 		} catch (Exception e) {
-			for (TrailInfo info : trailInfos) {
-				info.setDirectionsValid(false);
-			}
+			System.err.println(e);
 		}
 	}
 }

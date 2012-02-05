@@ -44,15 +44,16 @@ public class UrlConnection implements INetConnection {
 	public void connect(String address) throws Exception {
 		try {
 			string = null;
+			address = address.replaceAll("[ ]", "%20");
 			URL url = new URL(address);
 			urlConnection = (HttpURLConnection) url.openConnection();
 			stream = urlConnection.getInputStream();
 
 		} catch (Exception e) {
+			disconnect();
 			urlConnection = null;
 			stream = null;
 			string = null;
-			disconnect();
 			throw e;
 		}
 	}

@@ -40,6 +40,8 @@ public class DistanceSource implements IDistanceSource {
 	List<Integer> durations = new ArrayList<Integer>();
 	List<Boolean> valids = new ArrayList<Boolean>();
 
+	final int MAX_DISTANCE_REQUESTS = 20;
+
 	public DistanceSource(IAbstractFactory factory) {
 		this.factory = factory;
 	}
@@ -61,27 +63,34 @@ public class DistanceSource implements IDistanceSource {
 		durations.clear();
 		valids.clear();
 
-		// example
-		// https://maps.googleapis.com/maps/api/distancematrix/json?origins=44.972691,-93.232541&destinations=45.1335,-93.441|44.992,-93.3222&sensor=false
-		String url = "https://maps.googleapis.com/maps/api/distancematrix/xml?origins="
-				+ src + "&destinations=";
-		for (String dest : dests) {
-			if (dest.length() > 0) {
-				url += "|" + dest;
+		int index = 0;
+
+		while (index < dests.size()) {
+			// example
+			// https://maps.googleapis.com/maps/api/distancematrix/json?origins=44.972691,-93.232541&destinations=45.1335,-93.441|44.992,-93.3222&sensor=false
+			String url = "https://maps.googleapis.com/maps/api/distancematrix/xml?origins="
+					+ src + "&destinations=";
+			for (int i = 0; i < MAX_DISTANCE_REQUESTS && index < dests.size(); i++) {
+				String dest = dests.get(index++);
+				if (dest.length() > 0) {
+					if (i > 0)
+						url += "|";
+					url += dest;
+				}
 			}
+
+			url += "&sensor=false";
+
+			INetConnection netConnection = factory.getNetConnection();
+
+			try {
+				netConnection.connect(url);
+				parseXmlResponse(netConnection);
+			} finally {
+				netConnection.disconnect();
+			}
+
 		}
-
-		url += "&sensor=false";
-
-		INetConnection netConnection = factory.getNetConnection();
-
-		try {
-			netConnection.connect(url);
-			parseXmlResponse(netConnection);
-		} finally {
-			netConnection.disconnect();
-		}
-
 	}
 
 	/*
