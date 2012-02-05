@@ -19,10 +19,10 @@
  */
 package org.dsanderson.xctrailreport.skinnyski;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
+import java.util.Scanner;
 
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.INetConnection;
@@ -47,144 +47,52 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
 	public void getReports(List<TrailReport> trailReports,
-			List<TrailInfo> trailInfos) {
+			List<TrailInfo> trailInfos) throws Exception {
 		parseHtml(trailReports, trailInfos);
 	}
 
 	private void parseHtml(List<TrailReport> trailReports,
-			List<TrailInfo> trailInfos) {
+			List<TrailInfo> trailInfos) throws Exception {
 		INetConnection netConnection = factory.getNetConnection();
-		if (netConnection.connect("http://skinnyski.com/trails/reports.asp")) {
-			try {
-				BufferedReader reader = netConnection.getReader();
-				String line;
+		try {
+			netConnection.connect("http://skinnyski.com/trails/reports.asp");
+			BufferedInputStream stream = new BufferedInputStream(
+					netConnection.getStream());
+			SkinnyskiScanner scanner = new SkinnyskiScanner(stream);
 
-				TrailReport newTrailReport = null;
-				String reportName = null;
+			int reportCount = 0;
+			
+			while (scanner.scanReport() && reportCount < 50) {
+				TrailReport newTrailReport = scanner.getTrailReport();
+				TrailInfo newTrailInfo = scanner.getTrailInfo();
 
-				String city = "";
-
-				while ((line = reader.readLine()) != null) {
-					if (line.startsWith("<li>")) { // start of report
-						newTrailReport = new TrailReport();
-						reportName = "";
-					} else if (newTrailReport == null) { // still waiting for
-															// start of report
-						// do nothing if new trail report is null
-					} else if (line.startsWith("<img")) {
-						// ignore images
-					} else if (line.startsWith("<b>") && newTrailReport != null) { // date/name
-						String dateString = line.substring(line.indexOf("<b>")
-								+ "<b>".length());
-						dateString = line.split("-")[0].trim();
-						dateString = dateString.replace("<b>", "");
-						newTrailReport.setDate(dateString);
-
-						String splitStrings[] = line.split("-", 2);
-						if (splitStrings.length >= 2) {
-							reportName = splitStrings[1];
-							if (reportName.indexOf("<a href=") != -1) {
-								reportName = reportName.substring(reportName
-										.indexOf('>'));
-								int endingIndex = reportName.indexOf("</a>");
-								if (endingIndex != -1)
-									reportName = reportName.substring(0,
-											endingIndex);
-								reportName = reportName.replace(">", "").trim();
-							} else {
-								String split[] = reportName.split("[(]", 2);
-								reportName = split[0];
-								reportName = reportName.trim();
-								if (split.length >= 2) {
-									city = split[1];
-									city = city.split("):", 1)[0];
-								}
-							}
-						}
-					} else if (line.startsWith("Conditions: ")) { // summary/detail
-						String summaryString = line.substring("Conditions: "
-								.length());
-						String splitStrings[] = summaryString.split("<br>");
-						summaryString = splitStrings[0].trim();
-
-						newTrailReport.setSummary(summaryString);
-
-						String detailString = "";
-
-						for (int i = 1; i < splitStrings.length; i++) {
-							if (detailString.length() > 0)
-								detailString += "\r\n";
-
-							detailString += splitStrings[i].trim();
-						}
-						newTrailReport.setDetail(detailString);
-					} else if (line.startsWith("Photos: <a onClick=")) { // photos
-						// ignore lines with photo
-					} else if (line.startsWith("(")) { // author
-						String authorString = line.replace("(", "").replace(
-								")", "");
-						authorString = authorString.split("<")[0];
-						newTrailReport.setAuthor(authorString);
-
-						newTrailReport.setSource("Skinnyski");
-						boolean found = false;
-						for (TrailInfo info : trailInfos) {
-							// look for a matching trail info and add the report
-							if (reportName.indexOf(info
-									.getSkinnyskiSearchTerm()) != -1) {
-								newTrailReport.setTrailInfo(info);
-								found = true;
-							}
-						}
-
-						// if not found the trail, then add it to the list
-						if (!found) {
-							TrailInfo newTrailInfo = new TrailInfo();
-							newTrailInfo.setCity(city);
-							newTrailInfo.setLocation(city);
-							newTrailInfo.setName(reportName);
-							newTrailInfo.setSkinnyskiSearchTerm(reportName);
-							// / TODO need to figure out the state for non MN
-							// reports
-							newTrailInfo.setState("MN");
-							newTrailInfo.setLocation(city + ","
-									+ newTrailInfo.getState());
-
-							trailInfos.add(newTrailInfo.copy());
-							newTrailReport.setTrailInfo(newTrailInfo);
-						}
-
-						trailReports.add(newTrailReport.copy());
-
-						// reset to wait for start of next
-						newTrailReport = null;
-						reportName = "";
-					} else // additional detailed report
-					{
-						String detailString = newTrailReport.getDetail();
-						// replace brs with endlines, then eliminate them if at
-						// beginning or end
-						line = line.replace("<br>", "\r\n");
-						line = line.trim();
-						// if we're adding to a previous report, then add an
-						// endline
-						if (detailString.length() != 0 && line.length() != 0)
-							detailString += "\r\n";
-
-						detailString += line;
-						newTrailReport.setDetail(detailString);
+				boolean existingTrail = false;
+				TrailInfo trailInfo = null;
+				for (TrailInfo info : trailInfos) {
+					if (newTrailInfo.getSkinnyskiSearchTerm().compareTo(
+							info.getSkinnyskiSearchTerm()) == 0) {
+						existingTrail = true;
+						trailInfo = info;
 					}
+				}
 
-				} // while ((line = reader.readLine()) != null)
-			} catch (Exception e) {
-				System.err.println(e);
-				trailInfos = new ArrayList<TrailInfo>();
-			} // catch
-			finally {
-				netConnection.disconnect();
-			}
+				if (!existingTrail) {
+					newTrailInfo.setLocation(newTrailInfo.getCity() + ", "
+							+ newTrailInfo.getState());
+					newTrailInfo.setName(newTrailInfo.getSkinnyskiSearchTerm());
 
-		} // if
-			// (netConnection.connect("http://skinnyski.com/trails/reports.asp"))
+					trailInfos.add(newTrailInfo.copy());
+					trailInfo = trailInfos.get(trailInfos.size() - 1);
+				}
+
+				newTrailReport.setTrailInfo(trailInfo);
+				newTrailReport.setSource("SkinnySki");
+
+				trailReports.add(newTrailReport.copy());
+			} // while(scanner.hasNext("<li>")
+		} finally {
+			netConnection.disconnect();
+		}
 	} // parseHtml
+
 }

@@ -41,8 +41,7 @@ public class UrlConnection implements INetConnection {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.INetConnection#connect()
 	 */
-	public boolean connect(String address) {
-		boolean retVal = true;
+	public void connect(String address) throws Exception {
 		try {
 			string = null;
 			URL url = new URL(address);
@@ -50,12 +49,12 @@ public class UrlConnection implements INetConnection {
 			stream = urlConnection.getInputStream();
 
 		} catch (Exception e) {
-			System.err.println(e);
-			retVal = false;
-
+			urlConnection = null;
+			stream = null;
+			string = null;
 			disconnect();
+			throw e;
 		}
-		return retVal;
 	}
 
 	/*

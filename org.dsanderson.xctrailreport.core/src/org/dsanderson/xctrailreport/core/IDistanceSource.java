@@ -26,7 +26,7 @@ import java.util.List;
  */
 public interface IDistanceSource {
 	
-	boolean updateDistances(String src, List<String> dest);
+	void updateDistances(String src, List<String> dest) throws Exception;
 	
 	List<Integer> getDistances();
 	

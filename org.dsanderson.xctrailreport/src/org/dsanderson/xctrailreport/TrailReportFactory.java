@@ -22,6 +22,7 @@ package org.dsanderson.xctrailreport;
 import org.dsanderson.xctrailreport.application.CompoundReportRetriever;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IDistanceSource;
+import org.dsanderson.xctrailreport.core.IErrorDialog;
 import org.dsanderson.xctrailreport.core.ILocationSource;
 import org.dsanderson.xctrailreport.core.INetConnection;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
@@ -167,5 +168,14 @@ public class TrailReportFactory implements IAbstractFactory {
 
 		return infoDecorator;
 	}
+
+	/* (non-Javadoc)
+	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getErrorDialog()
+	 */
+	public IErrorDialog newErrorDialog(Exception e) {
+		ErrorDialog dialog = new ErrorDialog(context, e);
+		return dialog;
+	}
+	
 
 }

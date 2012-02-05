@@ -34,7 +34,7 @@ public class ReportListCreator {
 		this.factory = factory;
 	}
 
-	public List<TrailReport> getTrailReports(InputStream inputStream) {
+	public List<TrailReport> getTrailReports(InputStream inputStream) throws Exception {
 
 		ITrailInfoParser parser = factory.getTrailInfoParser();
 		parser.SetInputStream(inputStream);

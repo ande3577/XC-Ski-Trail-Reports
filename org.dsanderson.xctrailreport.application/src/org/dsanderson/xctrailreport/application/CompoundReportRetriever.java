@@ -46,7 +46,8 @@ public class CompoundReportRetriever implements IReportRetriever {
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
 	@Override
-	public void getReports(List<TrailReport>  trailReports, List<TrailInfo> trailInfo) {
+	public void getReports(List<TrailReport> trailReports,
+			List<TrailInfo> trailInfo) throws Exception {
 		for (int i = 0; i < reportRetrievers.size(); i++) {
 			reportRetrievers.get(i).getReports(trailReports, trailInfo);
 		}

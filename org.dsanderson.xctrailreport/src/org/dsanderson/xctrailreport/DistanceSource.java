@@ -51,12 +51,11 @@ public class DistanceSource implements IDistanceSource {
 	 * org.dsanderson.xctrailreport.core.IDirectionsSource#updateDirections(
 	 * java.lang.String, java.lang.String)
 	 */
-	public boolean updateDistances(String src, List<String> dests) {
+	public void updateDistances(String src, List<String> dests)
+			throws Exception {
 
 		if (src.length() == 0 || getMaxStringLength(dests) == 0)
-			return false;
-
-		boolean successful = false;
+			return;
 
 		distances.clear();
 		durations.clear();
@@ -76,21 +75,12 @@ public class DistanceSource implements IDistanceSource {
 
 		INetConnection netConnection = factory.getNetConnection();
 
-		if (netConnection.connect(url)) {
-			try {
-				parseXmlResponse(netConnection);
-				successful = true;
-
-			} catch (Exception e) {
-				System.err.println(e);
-				successful = false;
-			} finally {
-				netConnection.disconnect();
-			}
-
+		try {
+			netConnection.connect(url);
+			parseXmlResponse(netConnection);
+		} finally {
+			netConnection.disconnect();
 		}
-
-		return successful;
 
 	}
 

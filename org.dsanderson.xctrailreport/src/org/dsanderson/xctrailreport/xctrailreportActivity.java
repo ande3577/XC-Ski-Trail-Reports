@@ -1,13 +1,10 @@
 package org.dsanderson.xctrailreport;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
 import org.dsanderson.xctrailreport.R;
 import org.dsanderson.xctrailreport.core.ReportListCreator;
-import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 
 import android.app.ListActivity;
@@ -31,21 +28,23 @@ public class xctrailreportActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		trailReports = loadTrailReports();
-		printTrailReports(trailReports);
-	}
-
-	private List<TrailReport> loadTrailReports() {
-
-		factory.getLocationSource().updateLocation();
 		try {
-			InputStream inputStream = getResources().openRawResource(
-					R.raw.trail_info);
-			ReportListCreator listCreator = new ReportListCreator(factory);
-			trailReports = listCreator.getTrailReports(inputStream);
+			trailReports = loadTrailReports();
+			printTrailReports(trailReports);
 		} catch (Exception e) {
 			Log.e("XCTrailReports", e.getMessage(), e);
+			factory.newErrorDialog(e).show();
 		}
+	}
+
+	private List<TrailReport> loadTrailReports() throws Exception {
+
+		factory.getLocationSource().updateLocation();
+		InputStream inputStream = getResources().openRawResource(
+				R.raw.trail_info);
+		ReportListCreator listCreator = new ReportListCreator(factory);
+		trailReports = listCreator.getTrailReports(inputStream);
+
 		return trailReports;
 	}
 

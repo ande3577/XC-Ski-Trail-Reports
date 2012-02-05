@@ -27,10 +27,10 @@ import java.util.List;
  */
 public interface ITrailInfoParser {
 	
-	public abstract void parse();
+	public abstract void parse() throws Exception;
 	
-	public abstract void SetInputStream(InputStream inputStream);
+	public abstract void SetInputStream(InputStream inputStream) throws Exception;
 	
-	public abstract List<TrailInfo> getTrailInfo();
+	public abstract List<TrailInfo> getTrailInfo() throws Exception;
 
 }

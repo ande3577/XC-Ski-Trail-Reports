@@ -19,8 +19,6 @@
  */
 package org.dsanderson.xctrailreport.decorators;
 
-import java.util.ListIterator;
-
 import org.dsanderson.xctrailreport.core.IListEntry;
 import org.dsanderson.xctrailreport.core.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailReport;

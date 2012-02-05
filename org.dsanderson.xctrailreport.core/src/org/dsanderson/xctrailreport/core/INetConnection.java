@@ -26,7 +26,7 @@ import java.io.InputStream;
  * 
  */
 public interface INetConnection {
-	public abstract boolean connect(String address);
+	public abstract void connect(String address) throws Exception;
 
 	public abstract BufferedReader getReader();
 	

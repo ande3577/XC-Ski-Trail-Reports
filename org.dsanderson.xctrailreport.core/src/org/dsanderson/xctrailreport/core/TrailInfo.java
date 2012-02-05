@@ -19,10 +19,6 @@
  */
 package org.dsanderson.xctrailreport.core;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.dsanderson.xctrailreport.core.TrailReport;
 
 /**
  * 

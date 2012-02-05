@@ -38,7 +38,7 @@ public class BaseFeedParser implements ITrailInfoParser {
 		return inputStream;
 	}
 
-	public void parse() {
+	public void parse() throws Exception {
 		final TrailInfo currentMessage = new TrailInfo();
 		RootElement root = new RootElement(TRAIL_INFO);
 		final List<TrailInfo> messages = new ArrayList<TrailInfo>();

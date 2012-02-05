@@ -38,23 +38,36 @@ public class DistanceHandler {
 
 		List<String> destinations = new ArrayList<String>();
 		for (TrailInfo info : trailInfos) {
-			destinations.add(info.location);
+			boolean duplicate = false;
+			for (String dest : destinations) {
+				if (dest.compareTo(info.location) == 0)
+					duplicate = true;
+			}
+
+			if (!duplicate)
+				destinations.add(info.location);
 		}
 
-		if (distanceSource.updateDistances(location, destinations)) {
+		try {
+			distanceSource.updateDistances(location, destinations);
+
 			List<Integer> distances = distanceSource.getDistances();
 			List<Integer> durations = distanceSource.getDurations();
 			for (int i = 0; i < trailInfos.size() && i < distances.size()
 					&& i < durations.size(); i++) {
 				TrailInfo info = trailInfos.get(i);
 				if (info.getLocation().length() > 0) {
-					info.setDistance(distances.get(i));
-					info.setTravelTime(durations.get(i));
-					info.setDirectionsValid(true);
+					for (int j = 0; j < destinations.size(); j++) {
+						if (destinations.get(j).compareTo(info.getLocation()) == 0) {
+							info.setDistance(distances.get(j));
+							info.setTravelTime(durations.get(j));
+							info.setDirectionsValid(true);
+						}
+					}
 				}
 
 			}
-		} else {
+		} catch (Exception e) {
 			for (TrailInfo info : trailInfos) {
 				info.setDirectionsValid(false);
 			}

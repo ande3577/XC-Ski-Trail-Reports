@@ -39,5 +39,7 @@ public interface IAbstractFactory {
 	public TrailReportDecorator getTrailReportDecorators();
 	
 	public IDistanceSource getDistanceSource();
+	
+	public IErrorDialog newErrorDialog(Exception e);
 
 }
