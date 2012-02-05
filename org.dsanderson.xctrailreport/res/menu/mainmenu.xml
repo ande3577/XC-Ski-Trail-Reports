@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/filterSelect" android:title="Filters">
+        <menu>
+            <item android:id="@+id/distanceFilter" android:title="Distance"/>
+            <item android:id="@+id/ageFilter" android:title="Age"/><item android:id="@+id/regionFilter" />
+            
+            
+        </menu>
+    </item>
+    <item android:id="@+id/sortMethod" android:title="Sort By">
+        <menu>
+            <group android:id="@+id/sortMethodGroup">
+                <item android:id="@+id/sortDistance" android:title="Distance"/>
+                <item android:id="@+id/sortDate" android:title="Date"/>
+            </group>
+        </menu>
+    </item>
+    <item android:id="@+id/sources" android:title="Sources">
+        <menu>
+            <item android:id="@+id/skinnyski" android:title="Skinnyski"/>
+            <item android:id="@+id/threeRivers" android:title="Three Rivers"/>
+        </menu>
+    </item><item android:id="@+id/refresh" android:title="Refresh"></item>
+    
+    
+
+</menu>

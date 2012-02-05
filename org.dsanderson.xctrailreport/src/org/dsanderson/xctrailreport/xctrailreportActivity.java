@@ -12,10 +12,14 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class xctrailreportActivity extends ListActivity {
 
@@ -29,7 +33,7 @@ public class xctrailreportActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 
 		try {
-			trailReports = loadTrailReports();
+//			trailReports = loadTrailReports();
 			printTrailReports(trailReports);
 		} catch (Exception e) {
 			Log.e("XCTrailReports", e.getMessage(), e);
@@ -51,6 +55,19 @@ public class xctrailreportActivity extends ListActivity {
 	private void printTrailReports(List<TrailReport> trailReports) {
 		this.setListAdapter(new TrailInfoAdapter(this, R.layout.row,
 				trailReports));
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.mainmenu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+		return true;
 	}
 
 	private class TrailInfoAdapter extends ArrayAdapter<TrailReport> {
