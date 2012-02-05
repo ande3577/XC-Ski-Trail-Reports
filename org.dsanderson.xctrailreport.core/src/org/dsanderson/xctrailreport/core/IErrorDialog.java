@@ -22,26 +22,7 @@ package org.dsanderson.xctrailreport.core;
 /**
  * 
  */
-public interface IAbstractFactory {
-
-	public ITrailInfoParser getTrailInfoParser();
-
-	public INetConnection getNetConnection();
-
-	public ILocationSource getLocationSource();
+public interface IErrorDialog {
 	
-	public IUserSettingsSource getUserSettingsSource();
-
-	public IReportRetriever getReportRetriever();
-	
-	public TrailReportDecorator getTrailInfoDecorators();
-
-	public TrailReportDecorator getTrailReportDecorators();
-	
-	public IDistanceSource getDistanceSource();
-	
-	public IErrorDialog newErrorDialog(Exception e);
-	
-	public UserSettings getUserSettings();
-
+	void show();
 }

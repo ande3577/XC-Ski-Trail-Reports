@@ -19,6 +19,9 @@
  */
 package org.dsanderson.xctrailreport;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.dsanderson.xctrailreport.application.CompoundReportRetriever;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IDistanceSource;
@@ -29,6 +32,7 @@ import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.ITrailInfoParser;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.TrailReportDecorator;
+import org.dsanderson.xctrailreport.core.UserSettings;
 import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
 import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
 import org.dsanderson.xctrailreport.decorators.DateDecorator;
@@ -52,6 +56,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	TrailReportDecorator reportDecorator = null;
 	LocationSource locationSource = null;
 	DistanceSource directionsSource = null;
+	UserSettings userSettings = null;
 
 	public TrailReportFactory(Context context) {
 		this.context = context;
@@ -169,13 +174,33 @@ public class TrailReportFactory implements IAbstractFactory {
 		return infoDecorator;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getErrorDialog()
 	 */
 	public IErrorDialog newErrorDialog(Exception e) {
 		ErrorDialog dialog = new ErrorDialog(context, e);
 		return dialog;
 	}
-	
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getUserSettings()
+	 */
+	public UserSettings getUserSettings() {
+		if (userSettings == null) {
+			userSettings = new UserSettings();
+			List<String> regions = new ArrayList<String>();
+			
+			regions.add("Minnesota Metro Area");
+			regions.add("Minnesota Northeast");
+			
+			userSettings.setEnabledRegions(regions);
+		}
+
+		return userSettings;
+	}
 
 }

@@ -19,9 +19,20 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import java.util.List;
+
 /**
  * 
  */
 public class UserSettings {
+	List<String> enabledRegions = null;
+
+	public void setEnabledRegions(List<String> enabledRegions) {
+		this.enabledRegions = enabledRegions;
+	}
+
+	public List<String> getEnabledRegions() {
+		return enabledRegions;
+	}
 
 }

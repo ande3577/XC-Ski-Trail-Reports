@@ -17,31 +17,32 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.core;
+package org.dsanderson.xctrailreport;
+
+import org.dsanderson.xctrailreport.core.IErrorDialog;
+
+import android.app.AlertDialog;
+import android.content.Context;
 
 /**
  * 
  */
-public interface IAbstractFactory {
+public class ErrorDialog implements IErrorDialog {
+	AlertDialog dialog;
 
-	public ITrailInfoParser getTrailInfoParser();
+	public ErrorDialog(Context context, Exception e) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(context);
+		builder.setMessage(e.getLocalizedMessage()).setCancelable(false);
+		dialog = builder.create();
+	}
 
-	public INetConnection getNetConnection();
-
-	public ILocationSource getLocationSource();
-	
-	public IUserSettingsSource getUserSettingsSource();
-
-	public IReportRetriever getReportRetriever();
-	
-	public TrailReportDecorator getTrailInfoDecorators();
-
-	public TrailReportDecorator getTrailReportDecorators();
-	
-	public IDistanceSource getDistanceSource();
-	
-	public IErrorDialog newErrorDialog(Exception e);
-	
-	public UserSettings getUserSettings();
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.xctrailreport.core.IErrorDialog#open()
+	 */
+	public void show() {
+		dialog.show();
+	}
 
 }

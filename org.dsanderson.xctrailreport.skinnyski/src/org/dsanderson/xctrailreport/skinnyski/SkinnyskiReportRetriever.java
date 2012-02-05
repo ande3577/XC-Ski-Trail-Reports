@@ -60,36 +60,40 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 					netConnection.getStream());
 			SkinnyskiScanner scanner = new SkinnyskiScanner(stream);
 
-			int reportCount = 0;
-			
-			while (scanner.scanReport() && reportCount < 50) {
-				TrailReport newTrailReport = scanner.getTrailReport();
-				TrailInfo newTrailInfo = scanner.getTrailInfo();
+			for (String region : factory.getUserSettings().getEnabledRegions()) {
 
-				boolean existingTrail = false;
-				TrailInfo trailInfo = null;
-				for (TrailInfo info : trailInfos) {
-					if (newTrailInfo.getSkinnyskiSearchTerm().compareTo(
-							info.getSkinnyskiSearchTerm()) == 0) {
-						existingTrail = true;
-						trailInfo = info;
+				if (scanner.findRegion(region)) {
+					while (scanner.scanRegion()) {
+						TrailReport newTrailReport = scanner.getTrailReport();
+						TrailInfo newTrailInfo = scanner.getTrailInfo();
+
+						boolean existingTrail = false;
+						TrailInfo trailInfo = null;
+						for (TrailInfo info : trailInfos) {
+							if (newTrailInfo.getSkinnyskiSearchTerm()
+									.compareTo(info.getSkinnyskiSearchTerm()) == 0) {
+								existingTrail = true;
+								trailInfo = info;
+							}
+						}
+
+						if (!existingTrail) {
+							newTrailInfo.setLocation(newTrailInfo.getCity()
+									+ ", " + newTrailInfo.getState());
+							newTrailInfo.setName(newTrailInfo
+									.getSkinnyskiSearchTerm());
+
+							trailInfos.add(newTrailInfo.copy());
+							trailInfo = trailInfos.get(trailInfos.size() - 1);
+						}
+
+						newTrailReport.setTrailInfo(trailInfo);
+						newTrailReport.setSource("SkinnySki");
+
+						trailReports.add(newTrailReport.copy());
 					}
 				}
-
-				if (!existingTrail) {
-					newTrailInfo.setLocation(newTrailInfo.getCity() + ", "
-							+ newTrailInfo.getState());
-					newTrailInfo.setName(newTrailInfo.getSkinnyskiSearchTerm());
-
-					trailInfos.add(newTrailInfo.copy());
-					trailInfo = trailInfos.get(trailInfos.size() - 1);
-				}
-
-				newTrailReport.setTrailInfo(trailInfo);
-				newTrailReport.setSource("SkinnySki");
-
-				trailReports.add(newTrailReport.copy());
-			} // while(scanner.hasNext("<li>")
+			}
 		} finally {
 			netConnection.disconnect();
 		}
