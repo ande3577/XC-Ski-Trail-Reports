@@ -75,7 +75,7 @@ public class ScannerTest {
 		TrailReport trailReport = skinnyskiScanner.getTrailReport();
 
 		System.out.println("New Report:");
-		System.out.println("Date: " + trailReport.getDate());
+		System.out.println("Date: " + trailReport.getDate().formatDate());
 		System.out.println("URL: " + trailInfo.getSkinnySkiUrl());
 		System.out.println("Name: " + trailInfo.getSkinnyskiSearchTerm());
 		System.out.println("City: " + trailInfo.getCity());

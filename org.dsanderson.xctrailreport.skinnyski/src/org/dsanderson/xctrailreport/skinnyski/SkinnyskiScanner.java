@@ -36,6 +36,7 @@ public class SkinnyskiScanner {
 
 	public SkinnyskiScanner(InputStream stream) {
 		scanner = new Scanner(stream);
+		scanner.useDelimiter("\n");
 	}
 
 	public TrailReport getTrailReport() {
@@ -94,85 +95,81 @@ public class SkinnyskiScanner {
 		trailReport = new TrailReport();
 		trailInfo = new TrailInfo();
 
-		trailReport.setDate(new ReportDate(scanDate()));
-		trailInfo.setSkinnyskiUrl(scanUrl());
-		trailInfo.setSkinnyskiSearchTerm(scanName());
-		trailInfo.setCity(scanCity());
-		trailInfo.setState(scanState());
-		trailReport.setSummary(scanSummary());
-		trailReport.setDetail(scanDetailed());
-		trailReport.setAuthor(scanAuthor());
+		scanDate();
+		scanUrl();
+		scanName();
+		scanCityAndState();
+		scanSummary();
+		scanDetailedAndAuthor();
 	}
 
-	private String scanDate() {
+	private void scanDate() {
 		String date;
 		while ((date = scan("\\<b\\>", "-", ".*")) == null)
 			scanner.nextLine();
 
 		if (date != null)
-			date = date.trim();
-
-		return date;
+			trailReport.setDate(new ReportDate(date.trim()));
 	}
 
-	private String scanUrl() {
-		String url;
+	private void scanUrl() {
+		String url = null;
 		if ((url = scan("<a\\b[^>]*href=\"", "\">", "[^>]*")) != null)
-			return url;
-		else
-			return "";
+			trailInfo.setSkinnyskiUrl(url);
 	}
 
-	private String scanName() {
+	private void scanName() {
 		String name = null;
 		if ((name = scan("", "\\<\\/a\\> \\(", ".*")) == null)
 			name = scan("", "\\(", ".*");
 		if (name != null)
-			name = name.trim();
-		return name;
+			trailInfo.setSkinnyskiSearchTerm(name.trim());
 	}
 
-	private String scanCity() {
+	private void scanCityAndState() {
 		String city = scan("", "\\)", ".*");
 		scanner.nextLine();
-		if (city != null)
-			city.trim();
-		return city;
+		if (city != null) {
+			trailInfo.setCity(city.trim());
+			trailInfo.setCity("MN");
+		}
 	}
 
-	private String scanState() {
-		// / TODO need to determine state from skinnyski somehow
-		return "MN";
-	}
-
-	private String scanSummary() {
+	private void scanSummary() {
 		String summary = scan("Conditions\\:", "\\<br\\>", "[^\\<]*");
-		if (summary != null)
-			return summary.trim();
-		else
-			return "";
+		if (summary != null) {
+			trailReport.setSummary(summary.trim());
+		}
 
 	}
 
-	private String scanDetailed() {
+	private void scanDetailedAndAuthor() {
 		String detailedString = "";
+		String author = null;
 
-		while (true) {
-			if (scan("\\(", "\\)", ".*") != null) {
+		while (scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+
+			if (line.startsWith("(")) {
+				String split[] = line.split("[\\(\\)\\<]");
+				if (split.length >= 2)
+					author = split[1];
+				else
+					author = line;
+				trailReport.setAuthor(author.trim());
 				break;
-			} else if (scan("Photos\\:", "", ".*") != null) {
-				break;
+			} else if (line.startsWith("Photos:")) {
 			} else {
-				detailedString += scanner.nextLine();
+				detailedString += line;
 			}
 		}
 
 		if (detailedString != null) {
-			detailedString.replaceAll("\\<br\\>", "\r\n");
-			detailedString.trim();
+			detailedString = detailedString.replaceAll("\\<br\\>", "\r\n")
+					.trim();
 		}
 
-		return detailedString;
+		trailReport.setDetail(detailedString);
 	}
 
 	private String scanAuthor() {
