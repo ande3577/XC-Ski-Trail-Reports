@@ -172,26 +172,6 @@ public class SkinnyskiScanner {
 		trailReport.setDetail(detailedString);
 	}
 
-	private String scanAuthor() {
-		String author;
-		while (!(author = scanner.nextLine()).startsWith("("))
-			;
-		if (author != null) {
-			String results[] = author.split("\\(");
-			if (results.length < 2)
-				return null;
-
-			author = results[1];
-			results = author.split("\\)");
-			if (results.length < 1)
-				return null;
-
-			author = results[0];
-			author.trim();
-		}
-		return author;
-	}
-
 	private boolean findNext(String pattern) {
 		do {
 			if (scanner.findInLine(pattern) != null)
