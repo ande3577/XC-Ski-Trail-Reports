@@ -33,7 +33,8 @@ public class DateComparator implements Comparator<TrailReport> {
 	 */
 	@Override
 	public int compare(TrailReport o1, TrailReport o2) {
-		return o1.getDate().compareTo(o2.getDate());
+		// reverse sorting no that newer reports appear first
+		return 0 - o1.getDate().compareTo(o2.getDate());
 	}
 
 }
