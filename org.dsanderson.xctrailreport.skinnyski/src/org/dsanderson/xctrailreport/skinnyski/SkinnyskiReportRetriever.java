@@ -58,7 +58,8 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 					netConnection.getStream());
 			SkinnyskiScanner scanner = new SkinnyskiScanner(stream);
 
-			for (String region : factory.getUserSettings().getEnabledRegions()) {
+			for (String region : factory.getUserSettings().getRegions()
+					.getRegions()) {
 
 				if (scanner.findRegion(region)) {
 					while (scanner.scanRegion()) {

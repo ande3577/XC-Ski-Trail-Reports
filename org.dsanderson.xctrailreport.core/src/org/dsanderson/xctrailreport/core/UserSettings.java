@@ -29,7 +29,6 @@ public class UserSettings {
 		SORT_BY_DISTANCE, SORT_BY_DATE
 	}
 
-	private List<String> enabledRegions = null;
 	private SortMethod sortMethod = null;
 	private boolean locationEnabled = false;
 	private String defaultLocation = "55455";
@@ -37,6 +36,7 @@ public class UserSettings {
 	private int filterDistance = (int) (50 * 1609.33);
 	private boolean dateFilterEnabled;
 	private int filterAge = 10;
+	RegionManager regions = new RegionManager();
 
 	public void setLocationEnabled(boolean locationEnabled) {
 		this.locationEnabled = locationEnabled;
@@ -86,12 +86,8 @@ public class UserSettings {
 		return filterAge;
 	}
 
-	public void setEnabledRegions(List<String> enabledRegions) {
-		this.enabledRegions = enabledRegions;
-	}
-
-	public List<String> getEnabledRegions() {
-		return enabledRegions;
+	public RegionManager getRegions() {
+		return regions;
 	}
 
 	public void setSortMethod(SortMethod sortMethod) {
