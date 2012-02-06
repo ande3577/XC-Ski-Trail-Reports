@@ -20,8 +20,6 @@
 package org.dsanderson.xctrailreport.skinnyski.test;
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * 
@@ -34,8 +32,6 @@ public class RegexTest {
 	public static void main(String[] args) {
 		String input = "We went out at about 10:30 to classic ski and were treated to freshly rolled snow for skating!  Almost 100% coverage except for a couple of easy to get around spots!<br>";
 		String pattern = "\\<br\\>";
-		Pattern p = Pattern.compile(pattern);
-		Matcher m = p.matcher(input);
 		Scanner scanner = new Scanner(input);
 		String result = input;
 		if (scanner.findInLine(pattern) != null)

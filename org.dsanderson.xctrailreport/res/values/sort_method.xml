@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sortMethods">
+        <item >sortByDistance</item>
+        <item >sortByDate</item>
+    </string-array>
+    <string-array name="sortMethodNames">
+        <item >Sort by Distance</item>
+        <item >Sort by Date</item>
+    </string-array>
+    
+</resources>

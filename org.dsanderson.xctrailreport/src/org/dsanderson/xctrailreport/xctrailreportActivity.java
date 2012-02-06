@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.R;
-import org.dsanderson.xctrailreport.core.IDialog;
 import org.dsanderson.xctrailreport.core.ReportListCreator;
 import org.dsanderson.xctrailreport.core.TrailReport;
 
@@ -13,11 +12,9 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;

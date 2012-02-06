@@ -4,25 +4,19 @@
         <CheckBoxPreference android:title="Allow Location" android:summary="Allow the application to access your phones location services to determine current position."/>
         <EditTextPreference android:title="Default Location" android:summary="The location to use if the phone's location source is unavailable."/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="Report Options">
-        <PreferenceCategory android:title="Sources">
-            <CheckBoxPreference android:title="Skinnyski.com"/>
-            <CheckBoxPreference android:title="Three Rivers Park District"/>
-        </PreferenceCategory>
+    <PreferenceCategory android:title="Report Options"><Preference android:key="sources" android:title="Sources" android:summary="Select sources to pull reports from."/>
+    
         
-        <PreferenceCategory android:title="Display Options"><ListPreference android:title="Sort By:" />
-        <PreferenceCategory android:title="Filters">
-            <PreferenceCategory android:title="Distance"><CheckBoxPreference android:title="Enabled"/>
-            <EditTextPreference android:title="Max Distance (mi)"/>
+    
+    <Preference android:key="regions" android:title="Regions" android:summary="Select a list of regions to pull reports from."/>
+</PreferenceCategory><PreferenceCategory android:title="Distance Filter"><CheckBoxPreference android:title="Enabled" />
+            <EditTextPreference android:title="Max Distance (mi)" />
+</PreferenceCategory><PreferenceCategory android:title="Age Filter">
+                <CheckBoxPreference android:title="Enabled" />
+                <EditTextPreference android:title="Max Age (Days)" />
+            </PreferenceCategory><PreferenceCategory android:title="Display Options"><ListPreference android:title="Sort By:" android:entryValues="@array/sortMethods" android:entries="@array/sortMethodNames"/>
+        
 </PreferenceCategory>
-            
-            <PreferenceCategory android:title="Age">
-                <CheckBoxPreference android:title="Enabled"/>
-                <EditTextPreference android:title="Max Age (Days)"/>
-            </PreferenceCategory>
-        </PreferenceCategory>
-</PreferenceCategory>
-    </PreferenceCategory>
     
 
 </PreferenceScreen>
