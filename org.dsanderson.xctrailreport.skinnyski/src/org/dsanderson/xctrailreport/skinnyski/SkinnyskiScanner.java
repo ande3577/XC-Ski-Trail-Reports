@@ -131,7 +131,7 @@ public class SkinnyskiScanner {
 		scanner.nextLine();
 		if (city != null) {
 			trailInfo.setCity(city.trim());
-			trailInfo.setCity("MN");
+			trailInfo.setState("MN");
 		}
 	}
 

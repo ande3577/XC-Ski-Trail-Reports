@@ -57,6 +57,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	LocationSource locationSource = null;
 	DistanceSource directionsSource = null;
 	UserSettings userSettings = null;
+	UserSettingsSource settingsSource = null;
 
 	public TrailReportFactory(Context context) {
 		this.context = context;
@@ -95,7 +96,8 @@ public class TrailReportFactory implements IAbstractFactory {
 	 */
 	public ILocationSource getLocationSource() {
 		if (locationSource == null) {
-			locationSource = new LocationSource(context);
+			locationSource = new LocationSource(context,
+					userSettings.getDefaultLocation());
 		}
 		return locationSource;
 	}
@@ -108,8 +110,10 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * ()
 	 */
 	public IUserSettingsSource getUserSettingsSource() {
-		// TODO Auto-generated method stub
-		return null;
+		if (settingsSource == null) {
+			settingsSource = new UserSettingsSource(context, getUserSettings());
+		}
+		return settingsSource;
 	}
 
 	/*

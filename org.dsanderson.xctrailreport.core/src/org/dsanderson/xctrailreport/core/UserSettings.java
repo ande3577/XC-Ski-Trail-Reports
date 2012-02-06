@@ -31,6 +31,60 @@ public class UserSettings {
 
 	private List<String> enabledRegions = null;
 	private SortMethod sortMethod = null;
+	private boolean locationEnabled = false;
+	private String defaultLocation = "55455";
+	private boolean distanceFilterEnabled;
+	private int filterDistance = (int) (50 * 1609.33);
+	private boolean dateFilterEnabled;
+	private int filterAge = 10;
+
+	public void setLocationEnabled(boolean locationEnabled) {
+		this.locationEnabled = locationEnabled;
+	}
+
+	public boolean getLocationEnabled() {
+		return locationEnabled;
+	}
+
+	public void setDefaultLocation(String location) {
+		this.defaultLocation = location;
+	}
+
+	public String getDefaultLocation() {
+		return defaultLocation;
+	}
+
+	public void setDistanceFilterEnabled(boolean enabled) {
+		distanceFilterEnabled = enabled;
+	}
+
+	public boolean getDistanceFilterEnabled() {
+		return distanceFilterEnabled;
+	}
+
+	public void setFilterDistance(int distance) {
+		filterDistance = distance;
+	}
+
+	public int getFilterDistance() {
+		return filterDistance;
+	}
+
+	public void setDateFilterEnabled(boolean enabled) {
+		dateFilterEnabled = enabled;
+	}
+
+	public boolean getDateFilterEnabled() {
+		return dateFilterEnabled;
+	}
+
+	public void setFilterAge(int age) {
+		filterAge = age;
+	}
+
+	public int getFilterAge() {
+		return filterAge;
+	}
 
 	public void setEnabledRegions(List<String> enabledRegions) {
 		this.enabledRegions = enabledRegions;

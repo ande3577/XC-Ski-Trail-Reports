@@ -34,11 +34,11 @@ import android.os.Bundle;
  */
 public class LocationSource implements ILocationSource {
 	Context context;
-	// / TODO Initialize to empty string
-	String location = "44.972691,-93.232541";
+	String location;
 
-	public LocationSource(Context context) {
+	public LocationSource(Context context, String defaultLocation) {
 		this.context = context;
+		location = defaultLocation;
 	}
 
 	/*

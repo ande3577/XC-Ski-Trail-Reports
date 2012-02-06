@@ -45,5 +45,5 @@ public interface IAbstractFactory {
 	public IDialog newDialog(String string);
 
 	public UserSettings getUserSettings();
-
+	
 }

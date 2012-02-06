@@ -36,6 +36,8 @@ public class xctrailreportActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		factory.getUserSettingsSource().loadUserSettings();
+
 		// refresh();
 	}
 
