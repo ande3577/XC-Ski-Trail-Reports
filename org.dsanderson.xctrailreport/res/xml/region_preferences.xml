@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <CheckBoxPreference android:title="Minnesota Metro Area" android:key="mnMetro"/>
+    <CheckBoxPreference android:title="Minnesota Northeast" android:key="mnNortheast"/>
+    <CheckBoxPreference android:title="Minnesota Northwest" android:key="mnNorthwest"/>
+    <CheckBoxPreference android:title="Minnesota Central" android:key="mnCentral"/>
+    <CheckBoxPreference android:title="Minnesota Southern" android:key="mnSouthern"/>
+    <CheckBoxPreference android:title="Wisconsin Northwest" android:key="wiNorthwest"/>
+    <CheckBoxPreference android:title="Wisconsin Northeast" android:key="wiNortheast"/>
+    <CheckBoxPreference android:title="Wisconsin Southwest" android:key="wiSouthwest"/>
+    <CheckBoxPreference android:title="Wisconsin Southeast" android:key="wiSouthwest"/>
+    <CheckBoxPreference android:title="Michigan Upper Peninsula" android:key="miUP"/>
+    <CheckBoxPreference android:title="Iowa" android:key="ia"/>
+    <CheckBoxPreference android:title="Canada" android:key="ca"/>
+    <CheckBoxPreference android:title="Illinois" android:key="il"/>
+    <CheckBoxPreference android:title="North Dakota" android:key="nd"/>
+    <CheckBoxPreference android:title="United States" android:key="us"/>
+    
+
+</PreferenceScreen>

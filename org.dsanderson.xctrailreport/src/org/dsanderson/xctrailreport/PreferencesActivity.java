@@ -19,7 +19,10 @@
  */
 package org.dsanderson.xctrailreport;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 
 /**
@@ -30,5 +33,33 @@ public class PreferencesActivity extends PreferenceActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.preferences);
+		Preference sources = findPreference("sources");
+		sources.setOnPreferenceClickListener(sourceClickListener);
+
+		Preference regions = findPreference("regions");
+		regions.setOnPreferenceClickListener(regionClickListener);
+
 	}
+
+	private OnPreferenceClickListener sourceClickListener = new OnPreferenceClickListener() {
+
+		public boolean onPreferenceClick(Preference pref) {
+
+			Intent i = new Intent(getApplicationContext(), SourceActivity.class);
+			startActivity(i);
+			return false;
+		}
+
+	};
+
+	private OnPreferenceClickListener regionClickListener = new OnPreferenceClickListener() {
+
+		public boolean onPreferenceClick(Preference pref) {
+			Intent i = new Intent(getApplicationContext(), RegionActivity.class);
+			startActivity(i);
+			return false;
+		}
+
+	};
+
 }
