@@ -23,6 +23,7 @@ import org.dsanderson.xctrailreport.core.ITextItem;
 
 import android.graphics.Color;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
 /**
@@ -36,6 +37,7 @@ public class TextItem implements ITextItem {
 
 	public TextItem(TextView textView) {
 		this.textView = textView;
+		textView.setMovementMethod(LinkMovementMethod.getInstance());
 	}
 
 	/*
