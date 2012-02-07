@@ -45,35 +45,14 @@ public class AuthorScanTest {
 		String url = "";
 
 		if (line.startsWith("(")) {
-			if (line.contains("a href=\"")) {
-				String split[] = line.split("^\\(");
-				if (split.length < 2)
-					return author;
+			String split[] = line.split("^[\\(]");
+			if (split.length < 2)
+				return author;
 
-				author = split[1];
-				split = author.split("\\Q<a href=\"\\E");
-				author = split[0];
+			author = split[1];
+			split = author.split("[\\)]$");
+			author = split[0];
 
-				if (split.length > 1) {
-					url = split[1];
-					split = url.split("[\\<\\>]");
-					if (split.length > 1)
-						author += split[1];
-
-					split = url.split("\"");
-					url = split[0];
-
-				} else {
-					split = author.split("\\)");
-					author = split[0];
-				}
-			} else {
-				String split[] = line.split("[\\(\\)]");
-				if (split.length >= 2)
-					author = split[1];
-				else
-					author = line;
-			}
 		}
 		System.out.println(author + "; " + url);
 		return author;

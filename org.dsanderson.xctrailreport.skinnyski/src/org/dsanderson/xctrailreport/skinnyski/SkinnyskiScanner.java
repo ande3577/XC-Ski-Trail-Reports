@@ -151,12 +151,13 @@ public class SkinnyskiScanner {
 			String line = scanner.nextLine();
 
 			if (line.startsWith("(")) {
-				String split[] = line.split("[\\(\\)\\<]");
-				if (split.length >= 2)
+				String split[] = line.split("^[\\(]");
+				if (split.length >= 2) {
 					author = split[1];
-				else
-					author = line;
-				trailReport.setAuthor(author.trim());
+					split = author.split("[\\)]$");
+					author = split[0];
+					trailReport.setAuthor(author.trim());
+				}
 				break;
 			} else if (line.startsWith("Photos:")) {
 			} else {
