@@ -222,6 +222,8 @@ public class xctrailreportActivity extends ListActivity {
 
 				factory.getTrailReportDecorators().decorate(
 						trailReports.get(position), listEntry);
+
+				listEntry.draw();
 			}
 			return layout;
 		}

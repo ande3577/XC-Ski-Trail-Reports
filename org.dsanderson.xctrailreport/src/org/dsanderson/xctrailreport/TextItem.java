@@ -22,6 +22,7 @@ package org.dsanderson.xctrailreport;
 import org.dsanderson.xctrailreport.core.ITextItem;
 
 import android.graphics.Color;
+import android.text.Html;
 import android.widget.TextView;
 
 /**
@@ -29,6 +30,9 @@ import android.widget.TextView;
  */
 public class TextItem implements ITextItem {
 	TextView textView;
+	boolean italic;
+	boolean bold;
+	String textString;
 
 	public TextItem(TextView textView) {
 		this.textView = textView;
@@ -40,7 +44,7 @@ public class TextItem implements ITextItem {
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#getText()
 	 */
 	public String getText() {
-		return (String) textView.getText();
+		return textString;
 	}
 
 	/*
@@ -49,7 +53,7 @@ public class TextItem implements ITextItem {
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#setText()
 	 */
 	public void setText(String text) {
-		textView.setText(text);
+		textString = text;
 	}
 
 	/*
@@ -87,6 +91,7 @@ public class TextItem implements ITextItem {
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#setItalic(boolean)
 	 */
 	public void setItalic(boolean italic) {
+		this.italic = italic;
 	}
 
 	/*
@@ -95,6 +100,7 @@ public class TextItem implements ITextItem {
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#setBold(boolean)
 	 */
 	public void setBold(boolean bold) {
+		this.bold = bold;
 	}
 
 	/*
@@ -112,6 +118,12 @@ public class TextItem implements ITextItem {
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#draw()
 	 */
 	public void draw() {
+		String htmlString = textString;
+		if (bold)
+			htmlString = "<b>" + htmlString + "</b>";
+		if (italic)
+			htmlString = "<i>" + htmlString + "</i>";
+		textView.setText(Html.fromHtml(htmlString));
 	}
 
 }
