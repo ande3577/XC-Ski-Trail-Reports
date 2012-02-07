@@ -111,7 +111,7 @@ public class TrailInfo {
 		this.directionsValid = directionsValid;
 	}
 
-	public boolean getDirectionsValid() {
+	public boolean getDistanceValid() {
 		return directionsValid;
 	}
 

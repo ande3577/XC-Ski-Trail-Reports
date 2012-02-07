@@ -20,6 +20,7 @@
 package org.dsanderson.xctrailreport;
 
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
+import org.dsanderson.xctrailreport.core.Units;
 import org.dsanderson.xctrailreport.core.UserSettings;
 import org.dsanderson.xctrailreport.core.UserSettings.SortMethod;
 
@@ -63,13 +64,14 @@ public class UserSettingsSource implements IUserSettingsSource {
 			settings.setDistanceFilterEnabled(sharedPreference.getBoolean(key,
 					settings.getDistanceFilterEnabled()));
 		} else if (key.compareTo("filterDistance") == 0) {
-			settings.setFilterDistance(sharedPreference.getInt(key,
-					settings.getFilterDistance()));
+			settings.setFilterDistance(Units.milesToMeters(getDouble(
+					sharedPreference, key,
+					Units.metersToMiles(settings.getFilterDistance()))));
 		} else if (key.compareTo("dateFilterEnabled") == 0) {
 			settings.setDateFilterEnabled(sharedPreference.getBoolean(key,
 					settings.getDateFilterEnabled()));
 		} else if (key.compareTo("filterAge") == 0) {
-			settings.setFilterAge(sharedPreference.getInt(key,
+			settings.setFilterAge(getInt(sharedPreference, key,
 					settings.getFilterAge()));
 		} else if (key.compareTo("sortMethod") == 0) {
 			settings.setSortMethod(stringToSortMethod(sharedPreference
@@ -91,11 +93,11 @@ public class UserSettingsSource implements IUserSettingsSource {
 				settings.getDefaultLocation()));
 		settings.setDistanceFilterEnabled(preference.getBoolean(
 				"distanceFilterEnabled", settings.getDistanceFilterEnabled()));
-		settings.setFilterDistance(preference.getInt("filterDistance",
-				settings.getFilterDistance()));
+		settings.setFilterDistance(Units.milesToMeters(getDouble(preference,
+				"filterDistance", settings.getFilterDistance())));
 		settings.setDateFilterEnabled(preference.getBoolean(
 				"dateFilterEnabled", settings.getDateFilterEnabled()));
-		settings.setFilterAge(preference.getInt("filterAge",
+		settings.setFilterAge(getInt(preference, "filterAge",
 				settings.getFilterAge()));
 		settings.setSortMethod(stringToSortMethod(preference.getString(
 				"filterMethod", sortMethodToString(settings.getSortMethod()))));
@@ -126,6 +128,17 @@ public class UserSettingsSource implements IUserSettingsSource {
 			return SortMethod.SORT_BY_DISTANCE;
 		else
 			return SortMethod.SORT_BY_DATE;
+	}
+
+	private double getDouble(SharedPreferences preference, String key,
+			double defValue) {
+		String string = preference.getString(key, Double.toString(defValue));
+		return Double.parseDouble(string);
+	}
+
+	private int getInt(SharedPreferences preference, String key, int defValue) {
+		String string = preference.getString(key, Integer.toString(defValue));
+		return Integer.parseInt(string);
 	}
 
 }

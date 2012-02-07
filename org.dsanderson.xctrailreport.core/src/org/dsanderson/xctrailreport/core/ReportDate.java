@@ -82,7 +82,7 @@ public class ReportDate implements Comparable<ReportDate> {
 		date = calendar.getTime();
 	}
 
-	private Date getDate() {
+	public Date getDate() {
 		return date;
 	}
 

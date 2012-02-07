@@ -19,32 +19,33 @@
  */
 package org.dsanderson.xctrailreport.core;
 
-import java.util.Comparator;
-
 /**
  * 
  */
-public class DistanceComparator implements Comparator<TrailReport> {
+public class DistanceFilter implements IReportFilter {
+	int cutoff = Units.milesToMeters(50);
+
+	public DistanceFilter() {
+	}
+
+	public DistanceFilter(int cutoff) {
+		this.cutoff = cutoff;
+	}
+
+	public void setCutoff(int cutoff) {
+		this.cutoff = cutoff;
+	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IReportFilter#filterReport(org.dsanderson
+	 * .xctrailreport.core.TrailReport)
 	 */
 	@Override
-	public int compare(TrailReport arg0, TrailReport arg1) {
-		if (arg0.getTrailInfo().getDistanceValid()
-				&& arg1.getTrailInfo().getDistanceValid()) {
-			Integer dist0 = arg0.getTrailInfo().getDistance();
-			Integer dist1 = arg1.getTrailInfo().getDistance();
-			return dist0.compareTo(dist1);
-		} else if (arg0.getTrailInfo().getDistanceValid()) {
-			return -1;
-		} else if (arg1.getTrailInfo().getDistanceValid()) {
-			return 1;
-		} else {
-			return 0;
-		}
+	public boolean filterReport(TrailReport report) {
+		return report.getTrailInfo().getDistance() < cutoff && report.getTrailInfo().getDistanceValid();
 	}
 
 }

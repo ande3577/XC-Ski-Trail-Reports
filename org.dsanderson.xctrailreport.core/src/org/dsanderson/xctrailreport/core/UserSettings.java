@@ -31,7 +31,7 @@ public class UserSettings {
 	private boolean locationEnabled = false;
 	private String defaultLocation = "55455";
 	private boolean distanceFilterEnabled;
-	private int filterDistance = (int) (50 * 1609.33);
+	private int filterDistance = Units.milesToMeters(50);
 	private boolean dateFilterEnabled;
 	private int filterAge = 10;
 	RegionManager regions = new RegionManager();

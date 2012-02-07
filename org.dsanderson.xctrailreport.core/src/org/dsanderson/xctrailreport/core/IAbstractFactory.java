@@ -46,4 +46,6 @@ public interface IAbstractFactory {
 
 	public UserSettings getUserSettings();
 	
+	public IReportFilter getFilter();
+	
 }

@@ -26,6 +26,7 @@ import org.dsanderson.xctrailreport.core.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.TrailReportDecorator;
+import org.dsanderson.xctrailreport.core.Units;
 
 /**
  * 
@@ -44,7 +45,7 @@ public class DistanceDecorator extends TrailReportDecorator {
 	public void decorate(TrailReport trailReportIter, IListEntry listEntry) {
 		TrailInfo trailInfo = trailReportIter.getTrailInfo();
 
-		if (trailInfo.getDirectionsValid()) {
+		if (trailInfo.getDistanceValid()) {
 			// add to end of previous (City, State)
 			ITextItem textItem = listEntry.getTextItem();
 			if (textItem == null) {
@@ -55,10 +56,11 @@ public class DistanceDecorator extends TrailReportDecorator {
 
 			String text = textItem.getText()
 					+ " ("
-					+ formatter
-							.format((double) trailInfo.getDistance() / 1609.344)
+					+ formatter.format(Units.metersToMiles(trailInfo
+							.getDistance()))
 					+ "mi , "
-					+ formatter.format((double) trailInfo.getDuration() / 60)
+					+ formatter
+							.format(Units.secondsToMinutes(trailInfo.getDuration()))
 					+ " min)";
 
 			textItem.setText(text);

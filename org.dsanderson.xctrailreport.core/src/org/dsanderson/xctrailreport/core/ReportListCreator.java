@@ -53,15 +53,22 @@ public class ReportListCreator {
 
 		return trailReports;
 	}
-	
+
 	public List<TrailReport> sortTrailReports(List<TrailReport> trailReports) {
 		Collections.sort(trailReports, new CompoundReportComparator(factory
 				.getUserSettings().getSortMethod()));
 		return trailReports;
 	}
-	
+
 	public List<TrailReport> filterTrailReports(List<TrailReport> trailReports) {
-		return trailReports;
+		IReportFilter filter = factory.getFilter();
+		List<TrailReport> filteredReports = new ArrayList<TrailReport>();
+		for (TrailReport report : trailReports) {
+			if (filter.filterReport(report))
+				filteredReports.add(report.copy());
+		}
+
+		return filteredReports;
 	}
 
 }

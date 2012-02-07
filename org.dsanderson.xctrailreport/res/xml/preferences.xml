@@ -10,10 +10,10 @@
     
     <Preference android:key="regions" android:title="Regions" android:summary="Select a list of regions to pull reports from."/>
 </PreferenceCategory><PreferenceCategory android:title="Distance Filter"><CheckBoxPreference android:title="Enabled" android:key="distanceFilterEnabled"/>
-            <EditTextPreference android:title="Max Distance (mi)" android:key="filterDistance"/>
+            <EditTextPreference android:title="Max Distance (mi)" android:key="filterDistance" android:numeric="decimal" android:inputType="numberDecimal"/>
 </PreferenceCategory><PreferenceCategory android:title="Age Filter">
                 <CheckBoxPreference android:title="Enabled" android:key="dateFilterEnabled"/>
-                <EditTextPreference android:title="Max Age (Days)" android:key="filterAge"/>
+                <EditTextPreference android:title="Max Age (Days)" android:key="filterAge" android:numeric="integer" android:inputType="number"/>
             </PreferenceCategory><PreferenceCategory android:title="Display Options"><ListPreference android:title="Sort By:" android:entryValues="@array/sortMethods" android:entries="@array/sortMethodNames" android:key="sortMethod"/>
         
 </PreferenceCategory>

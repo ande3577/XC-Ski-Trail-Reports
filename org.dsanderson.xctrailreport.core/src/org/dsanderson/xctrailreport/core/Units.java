@@ -19,32 +19,27 @@
  */
 package org.dsanderson.xctrailreport.core;
 
-import java.util.Comparator;
-
 /**
  * 
  */
-public class DistanceComparator implements Comparator<TrailReport> {
+public class Units {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
-	 */
-	@Override
-	public int compare(TrailReport arg0, TrailReport arg1) {
-		if (arg0.getTrailInfo().getDistanceValid()
-				&& arg1.getTrailInfo().getDistanceValid()) {
-			Integer dist0 = arg0.getTrailInfo().getDistance();
-			Integer dist1 = arg1.getTrailInfo().getDistance();
-			return dist0.compareTo(dist1);
-		} else if (arg0.getTrailInfo().getDistanceValid()) {
-			return -1;
-		} else if (arg1.getTrailInfo().getDistanceValid()) {
-			return 1;
-		} else {
-			return 0;
-		}
+	private static final double METERS_PER_MILE = 1609.344;
+
+	public static double metersToMiles(long meters) {
+		return ((double) meters) / METERS_PER_MILE;
+	}
+
+	public static int milesToMeters(double miles) {
+		return (int) (miles * METERS_PER_MILE);
+	}
+
+	public static double secondsToMinutes(int seconds) {
+		return ((double) seconds) / 60;
+	}
+
+	public static double millisecondsToDays(long milliseconds) {
+		return ((double) milliseconds) / 1000 / 60 / 60 / 24;
 	}
 
 }
