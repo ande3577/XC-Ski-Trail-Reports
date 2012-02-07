@@ -17,31 +17,33 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.skinnyski;
+package org.dsanderson.xctrailreport.skinnyski.test;
+
+import org.dsanderson.xctrailreport.skinnyski.RegionManager;
 
 /**
  * 
  */
-public class SkinnySkiSettingsFactory {
-	static SkinnySkiSettingsFactory factory = null;
-	SkinnyskiSettings skinnyskiSettings = null;
+public class RegionListTest {
+	public static void main(String[] args) {
+		RegionManager regions = new RegionManager();
 
-	public SkinnySkiSettingsFactory() {
-		assert (factory == null);
-		factory = this;
+		System.out.println("Adding regions:");
+		regions.add("Minnesota Northwest");
+		regions.add("Minnesota Metro Area");
+		regions.add("Michigan Upper Peninsula");
+
+		printRegions(regions);
+		
+		System.out.println("Removing region:");
+		regions.remove("Minnesota Northwest");
+		printRegions(regions);
+
 	}
 
-	public SkinnySkiSettingsFactory getInstance() {
-		if (factory == null)
-			factory = new SkinnySkiSettingsFactory();
-		return factory;
+	static void printRegions(RegionManager regions) {
+		for (String region : regions.getRegions()) {
+			System.out.println(region);
+		}
 	}
-
-	public SkinnyskiSettings getSkinnySkiSettings() {
-		if (skinnyskiSettings == null)
-			skinnyskiSettings = new SkinnyskiSettings();
-
-		return skinnyskiSettings;
-	}
-	
 }

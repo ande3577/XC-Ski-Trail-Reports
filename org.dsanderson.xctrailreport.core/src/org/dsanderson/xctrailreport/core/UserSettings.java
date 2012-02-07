@@ -34,7 +34,6 @@ public class UserSettings {
 	private int filterDistance = Units.milesToMeters(50);
 	private boolean dateFilterEnabled;
 	private int filterAge = 10;
-	RegionManager regions = new RegionManager();
 
 	public void setLocationEnabled(boolean locationEnabled) {
 		this.locationEnabled = locationEnabled;
@@ -82,10 +81,6 @@ public class UserSettings {
 
 	public int getFilterAge() {
 		return filterAge;
-	}
-
-	public RegionManager getRegions() {
-		return regions;
 	}
 
 	public void setSortMethod(SortMethod sortMethod) {

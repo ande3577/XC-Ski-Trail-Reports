@@ -34,8 +34,11 @@ import org.dsanderson.xctrailreport.core.TrailReport;
 public class SkinnyskiReportRetriever implements IReportRetriever {
 
 	IAbstractFactory factory;
+	SkinnyskiSettings settings;
 
-	public SkinnyskiReportRetriever(IAbstractFactory factory) {
+	public SkinnyskiReportRetriever(SkinnyskiSettings settings,
+			IAbstractFactory factory) {
+		this.settings = settings;
 		this.factory = factory;
 	}
 
@@ -58,8 +61,7 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 					netConnection.getStream());
 			SkinnyskiScanner scanner = new SkinnyskiScanner(stream);
 
-			for (String region : factory.getUserSettings().getRegions()
-					.getRegions()) {
+			for (String region : settings.getRegions().getRegions()) {
 
 				if (scanner.findRegion(region)) {
 					while (scanner.scanRegion()) {
@@ -97,5 +99,4 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 			netConnection.disconnect();
 		}
 	} // parseHtml
-
 }

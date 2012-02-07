@@ -28,7 +28,9 @@ import android.widget.Toast;
 public class xctrailreportActivity extends ListActivity {
 
 	private List<TrailReport> trailReports;
-	private TrailReportFactory factory = new TrailReportFactory(this);
+	private SkinnyskiFactory skinnyskiFactory = new SkinnyskiFactory(this);
+	private TrailReportFactory factory = new TrailReportFactory(this,
+			skinnyskiFactory);
 	ReportListCreator listCreator = new ReportListCreator(factory);
 
 	/** Called when the activity is first created. */
@@ -38,6 +40,7 @@ public class xctrailreportActivity extends ListActivity {
 
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
+			skinnyskiFactory.getSkinnyskiSettingsSource().loadUserSettings();
 		} catch (Exception e) {
 			System.err.println(e);
 			factory.newDialog(e).show();
@@ -52,7 +55,7 @@ public class xctrailreportActivity extends ListActivity {
 		InputStream inputStream = getResources().openRawResource(
 				R.raw.trail_info);
 		trailReports = listCreator.getTrailReports(inputStream);
-		
+
 		if (trailReports.isEmpty())
 			throw new RuntimeException("No reports found.");
 
@@ -62,7 +65,8 @@ public class xctrailreportActivity extends ListActivity {
 	private void printTrailReports(List<TrailReport> trailReports) {
 		List<TrailReport> displayedTrailReports = listCreator
 				.filterTrailReports(trailReports);
-		displayedTrailReports = listCreator.sortTrailReports(displayedTrailReports);
+		displayedTrailReports = listCreator
+				.sortTrailReports(displayedTrailReports);
 
 		if (displayedTrailReports.isEmpty())
 			throw new RuntimeException("No reports found.");
@@ -158,15 +162,18 @@ public class xctrailreportActivity extends ListActivity {
 			if (dialog != null && dialog.isShowing())
 				dialog.dismiss();
 
-			if (e == null) {
-				printTrailReports(trailReports);
-			} else {
-				System.err.println(e);
-				factory.newDialog(e).show();
+			try {
+				if (e == null)
+					printTrailReports(trailReports);
+			} catch (Exception e) {
+				e = this.e;
+			} finally {
+				if (e != null) {
+					System.err.println(e);
+					factory.newDialog(e).show();
+				}
 			}
-
 		}
-
 	}
 
 	private class TrailInfoAdapter extends ArrayAdapter<TrailReport> {

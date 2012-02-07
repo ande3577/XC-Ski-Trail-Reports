@@ -32,7 +32,6 @@ import org.dsanderson.xctrailreport.core.IReportFilter;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.ITrailInfoParser;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
-import org.dsanderson.xctrailreport.core.RegionManager;
 import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 import org.dsanderson.xctrailreport.core.UserSettings;
 import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
@@ -42,7 +41,6 @@ import org.dsanderson.xctrailreport.decorators.DetailedReportDecorator;
 import org.dsanderson.xctrailreport.decorators.DistanceDecorator;
 import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
-import org.dsanderson.xctrailreport.skinnyski.SkinnyskiReportRetriever;
 
 import android.content.Context;
 
@@ -52,6 +50,7 @@ import android.content.Context;
 public class TrailReportFactory implements IAbstractFactory {
 	static TrailReportFactory factory = null;
 	Context context;
+	SkinnyskiFactory skinnyskiFactory;
 	BaseFeedParser parser = null;
 	CompoundReportRetriever reportRetriever = null;
 	UrlConnection netConnection = null;
@@ -62,15 +61,11 @@ public class TrailReportFactory implements IAbstractFactory {
 	UserSettings userSettings = null;
 	UserSettingsSource settingsSource = null;
 
-	public TrailReportFactory(Context context) {
+	public TrailReportFactory(Context context, SkinnyskiFactory skinnyskiFactory) {
 		assert (factory == null);
 		factory = this;
 		this.context = context;
-	}
-
-	static public TrailReportFactory getInstance() {
-		assert (factory != null);
-		return factory;
+		this.skinnyskiFactory = skinnyskiFactory;
 	}
 
 	/*
@@ -135,7 +130,8 @@ public class TrailReportFactory implements IAbstractFactory {
 	public IReportRetriever getReportRetriever() {
 		if (reportRetriever == null) {
 			reportRetriever = new CompoundReportRetriever();
-			reportRetriever.addRetriever(new SkinnyskiReportRetriever(this));
+			reportRetriever.addRetriever(skinnyskiFactory
+					.getSkinnyskiReportRetriever(this));
 		}
 		return reportRetriever;
 	}
@@ -210,10 +206,6 @@ public class TrailReportFactory implements IAbstractFactory {
 	public UserSettings getUserSettings() {
 		if (userSettings == null) {
 			userSettings = new UserSettings();
-			RegionManager regions = userSettings.getRegions();
-			regions.add("Minnesota Metro Area");
-			regions.add("Minnesota Northeast");
-
 			userSettings
 					.setSortMethod(UserSettings.SortMethod.SORT_BY_DISTANCE);
 		}

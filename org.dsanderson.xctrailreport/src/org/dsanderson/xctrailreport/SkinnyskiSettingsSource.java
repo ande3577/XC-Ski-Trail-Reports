@@ -20,43 +20,86 @@
 package org.dsanderson.xctrailreport;
 
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
-import org.dsanderson.xctrailreport.core.UserSettings;
+import org.dsanderson.xctrailreport.skinnyski.RegionManager;
+import org.dsanderson.xctrailreport.skinnyski.SkinnyskiSettings;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.preference.PreferenceManager;
 
 /**
  * 
  */
 public class SkinnyskiSettingsSource implements IUserSettingsSource {
+	SharedPreferences preference;
+	SkinnyskiSettings settings;
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.IUserSettingsSource#loadUserSettings()
+	private static final String regionKeys[] = { "mnMetro", "mnNortheast",
+			"mnNorthwest", "mnCentral", "mnSouthern", "wiNorthwest",
+			"wiNortheast", "wiSouthwest", "wiSouthwest", "miUP", "ia", "ca",
+			"il", "nd", "us" };
+
+	public SkinnyskiSettingsSource(Context context, SkinnyskiSettings settings) {
+		this.settings = settings;
+		preference = PreferenceManager.getDefaultSharedPreferences(context);
+		preference
+				.registerOnSharedPreferenceChangeListener(preferenceChangedListener);
+	}
+
+	private OnSharedPreferenceChangeListener preferenceChangedListener = new OnSharedPreferenceChangeListener() {
+
+		public void onSharedPreferenceChanged(
+				SharedPreferences sharedPreferences, String key) {
+			int index;
+			if ((index = findRegionKey(key)) < regionKeys.length) {
+				boolean enabled = sharedPreferences.getBoolean(key,
+						key.compareTo(regionKeys[0]) == 0);
+				HandleRegionValue(RegionManager.supportedRegions[index],
+						enabled);
+			}
+		}
+
+	};
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IUserSettingsSource#loadUserSettings()
 	 */
 	public void loadUserSettings() {
-		// TODO Auto-generated method stub
-
+		assert (regionKeys.length == RegionManager.supportedRegions.length);
+		for (int i = 0; i < regionKeys.length; i++) {
+			// only first region is enabled by default
+			boolean enabled = preference.getBoolean(regionKeys[i], i == 0);
+			HandleRegionValue(RegionManager.supportedRegions[i], enabled);
+		}
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.IUserSettingsSource#saveUserSettings()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IUserSettingsSource#saveUserSettings()
 	 */
 	public void saveUserSettings() {
-		// TODO Auto-generated method stub
-
+		// nothing to do, saved by preferences menu
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.IUserSettingsSource#getUserSettings()
-	 */
-	public UserSettings getUserSettings() {
-		// TODO Auto-generated method stub
-		return null;
+	private void HandleRegionValue(String name, boolean enabled) {
+		if (enabled)
+			settings.getRegions().add(name);
+		else
+			settings.getRegions().remove(name);
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.IUserSettingsSource#setUserSettings(org.dsanderson.xctrailreport.core.UserSettings)
-	 */
-	public void setUserSettings(UserSettings userSettings) {
-		// TODO Auto-generated method stub
-
+	private int findRegionKey(String tag) {
+		for (int i = 0; i < regionKeys.length; i++) {
+			if (tag.compareTo(regionKeys[i]) == 0) {
+				return i;
+			}
+		}
+		return regionKeys.length;
 	}
-
 }

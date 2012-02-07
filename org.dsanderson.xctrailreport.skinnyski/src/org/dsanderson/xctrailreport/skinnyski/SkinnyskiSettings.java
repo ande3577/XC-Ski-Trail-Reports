@@ -19,9 +19,17 @@
  */
 package org.dsanderson.xctrailreport.skinnyski;
 
+import org.dsanderson.xctrailreport.skinnyski.RegionManager;
+
 /**
  * 
  */
 public class SkinnyskiSettings {
-
+	RegionManager regions = new RegionManager();
+	
+	
+	public RegionManager getRegions() {
+		return regions;
+	}
+	
 }

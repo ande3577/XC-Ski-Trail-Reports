@@ -47,38 +47,34 @@ public class UserSettingsSource implements IUserSettingsSource {
 
 		public void onSharedPreferenceChanged(
 				SharedPreferences sharedPreferences, String key) {
-			setValue(key, sharedPreferences);
+			if (key.compareTo("enableLocation") == 0) {
+				boolean value = sharedPreferences.getBoolean(key,
+						settings.getLocationEnabled());
+				settings.setLocationEnabled(value);
+			} else if (key.compareTo("defaultLocation") == 0) {
+				settings.setDefaultLocation(sharedPreferences.getString(key,
+						settings.getDefaultLocation()));
+			} else if (key.compareTo("distanceFilterEnabled") == 0) {
+				settings.setDistanceFilterEnabled(sharedPreferences.getBoolean(key,
+						settings.getDistanceFilterEnabled()));
+			} else if (key.compareTo("filterDistance") == 0) {
+				settings.setFilterDistance(Units.milesToMeters(getDouble(
+						sharedPreferences, key,
+						Units.metersToMiles(settings.getFilterDistance()))));
+			} else if (key.compareTo("dateFilterEnabled") == 0) {
+				settings.setDateFilterEnabled(sharedPreferences.getBoolean(key,
+						settings.getDateFilterEnabled()));
+			} else if (key.compareTo("filterAge") == 0) {
+				settings.setFilterAge(getInt(sharedPreferences, key,
+						settings.getFilterAge()));
+			} else if (key.compareTo("sortMethod") == 0) {
+				settings.setSortMethod(stringToSortMethod(sharedPreferences
+						.getString(key,
+								sortMethodToString(settings.getSortMethod()))));
+			}
 		}
 
 	};
-
-	private void setValue(String key, SharedPreferences sharedPreference) {
-		if (key.compareTo("enableLocation") == 0) {
-			boolean value = sharedPreference.getBoolean(key,
-					settings.getLocationEnabled());
-			settings.setLocationEnabled(value);
-		} else if (key.compareTo("defaultLocation") == 0) {
-			settings.setDefaultLocation(sharedPreference.getString(key,
-					settings.getDefaultLocation()));
-		} else if (key.compareTo("distanceFilterEnabled") == 0) {
-			settings.setDistanceFilterEnabled(sharedPreference.getBoolean(key,
-					settings.getDistanceFilterEnabled()));
-		} else if (key.compareTo("filterDistance") == 0) {
-			settings.setFilterDistance(Units.milesToMeters(getDouble(
-					sharedPreference, key,
-					Units.metersToMiles(settings.getFilterDistance()))));
-		} else if (key.compareTo("dateFilterEnabled") == 0) {
-			settings.setDateFilterEnabled(sharedPreference.getBoolean(key,
-					settings.getDateFilterEnabled()));
-		} else if (key.compareTo("filterAge") == 0) {
-			settings.setFilterAge(getInt(sharedPreference, key,
-					settings.getFilterAge()));
-		} else if (key.compareTo("sortMethod") == 0) {
-			settings.setSortMethod(stringToSortMethod(sharedPreference
-					.getString(key,
-							sortMethodToString(settings.getSortMethod()))));
-		}
-	}
 
 	/*
 	 * (non-Javadoc)
