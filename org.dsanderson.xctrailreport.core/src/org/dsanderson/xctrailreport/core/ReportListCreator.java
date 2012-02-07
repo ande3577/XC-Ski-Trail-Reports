@@ -51,9 +51,16 @@ public class ReportListCreator {
 		DistanceHandler directionHandler = new DistanceHandler(factory);
 		directionHandler.getDistances(trailInfos);
 
+		return trailReports;
+	}
+	
+	public List<TrailReport> sortTrailReports(List<TrailReport> trailReports) {
 		Collections.sort(trailReports, new CompoundReportComparator(factory
 				.getUserSettings().getSortMethod()));
-
+		return trailReports;
+	}
+	
+	public List<TrailReport> filterTrailReports(List<TrailReport> trailReports) {
 		return trailReports;
 	}
 

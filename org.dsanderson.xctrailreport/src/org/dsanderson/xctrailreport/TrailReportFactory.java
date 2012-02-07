@@ -19,9 +19,6 @@
  */
 package org.dsanderson.xctrailreport;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.dsanderson.xctrailreport.application.CompoundReportRetriever;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IDistanceSource;
@@ -49,6 +46,7 @@ import android.content.Context;
  * 
  */
 public class TrailReportFactory implements IAbstractFactory {
+	static TrailReportFactory factory = null;
 	Context context;
 	BaseFeedParser parser = null;
 	CompoundReportRetriever reportRetriever = null;
@@ -61,7 +59,14 @@ public class TrailReportFactory implements IAbstractFactory {
 	UserSettingsSource settingsSource = null;
 
 	public TrailReportFactory(Context context) {
+		assert (factory == null);
+		factory = this;
 		this.context = context;
+	}
+
+	static public TrailReportFactory getInstance() {
+		assert (factory != null);
+		return factory;
 	}
 
 	/*

@@ -28,8 +28,8 @@ import android.widget.Toast;
 public class xctrailreportActivity extends ListActivity {
 
 	private List<TrailReport> trailReports;
-
 	private TrailReportFactory factory = new TrailReportFactory(this);
+	ReportListCreator listCreator = new ReportListCreator(factory);
 
 	/** Called when the activity is first created. */
 	@Override
@@ -46,7 +46,6 @@ public class xctrailreportActivity extends ListActivity {
 		factory.getLocationSource().updateLocation();
 		InputStream inputStream = getResources().openRawResource(
 				R.raw.trail_info);
-		ReportListCreator listCreator = new ReportListCreator(factory);
 		trailReports = listCreator.getTrailReports(inputStream);
 
 		if (trailReports.isEmpty())
@@ -56,8 +55,12 @@ public class xctrailreportActivity extends ListActivity {
 	}
 
 	private void printTrailReports(List<TrailReport> trailReports) {
+		List<TrailReport> displayedTrailReports = listCreator
+				.filterTrailReports(trailReports);
+		displayedTrailReports = listCreator.sortTrailReports(trailReports);
+
 		this.setListAdapter(new TrailInfoAdapter(this, R.layout.row,
-				trailReports));
+				displayedTrailReports));
 	}
 
 	@Override
@@ -90,6 +93,13 @@ public class xctrailreportActivity extends ListActivity {
 			break;
 		}
 		return true;
+	}
+
+	@Override
+	public void onWindowFocusChanged(boolean hasFocus) {
+		super.onWindowFocusChanged(hasFocus);
+		if (hasFocus && trailReports != null)
+			printTrailReports(trailReports);
 	}
 
 	private void refresh() {
@@ -168,33 +178,36 @@ public class xctrailreportActivity extends ListActivity {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			View layout = convertView;
+
 			if (layout == null) {
 				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				layout = vi.inflate(R.layout.row, null);
 			}
 
-			ListEntry listEntry = new ListEntry((LinearLayout) layout,
-					getContext());
+			if (position < trailReports.size()) {
+				ListEntry listEntry = new ListEntry((LinearLayout) layout,
+						getContext());
 
-			boolean newTrail = false;
-			TrailReport currentReport = trailReports.get(position);
-			if (position > 0) {
-				TrailReport previousReport = trailReports.get(position - 1);
+				boolean newTrail = false;
+				TrailReport currentReport = trailReports.get(position);
+				if (position > 0) {
+					TrailReport previousReport = trailReports.get(position - 1);
 
-				if (previousReport.getTrailInfo().getName()
-						.compareTo(currentReport.getTrailInfo().getName()) != 0) {
+					if (previousReport.getTrailInfo().getName()
+							.compareTo(currentReport.getTrailInfo().getName()) != 0) {
+						newTrail = true;
+					}
+				} else {
 					newTrail = true;
 				}
-			} else {
-				newTrail = true;
+
+				if (newTrail)
+					factory.getTrailInfoDecorators().decorate(currentReport,
+							listEntry);
+
+				factory.getTrailReportDecorators().decorate(
+						trailReports.get(position), listEntry);
 			}
-
-			if (newTrail)
-				factory.getTrailInfoDecorators().decorate(currentReport,
-						listEntry);
-
-			factory.getTrailReportDecorators().decorate(
-					trailReports.get(position), listEntry);
 			return layout;
 		}
 	}

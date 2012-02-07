@@ -21,12 +21,11 @@ package org.dsanderson.xctrailreport;
 
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.UserSettings;
+import org.dsanderson.xctrailreport.core.UserSettings.SortMethod;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceManager;
 
 /**
@@ -72,6 +71,10 @@ public class UserSettingsSource implements IUserSettingsSource {
 		} else if (key.compareTo("filterAge") == 0) {
 			settings.setFilterAge(sharedPreference.getInt(key,
 					settings.getFilterAge()));
+		} else if (key.compareTo("sortMethod") == 0) {
+			settings.setSortMethod(stringToSortMethod(sharedPreference
+					.getString(key,
+							sortMethodToString(settings.getSortMethod()))));
 		}
 	}
 
@@ -82,6 +85,20 @@ public class UserSettingsSource implements IUserSettingsSource {
 	 * org.dsanderson.xctrailreport.core.IUserSettingsSource#loadUserSettings()
 	 */
 	public void loadUserSettings() {
+		settings.setLocationEnabled(preference.getBoolean("enableLocation",
+				settings.getLocationEnabled()));
+		settings.setDefaultLocation(preference.getString("defaultLocation",
+				settings.getDefaultLocation()));
+		settings.setDistanceFilterEnabled(preference.getBoolean(
+				"distanceFilterEnabled", settings.getDistanceFilterEnabled()));
+		settings.setFilterDistance(preference.getInt("filterDistance",
+				settings.getFilterDistance()));
+		settings.setDateFilterEnabled(preference.getBoolean(
+				"dateFilterEnabled", settings.getDateFilterEnabled()));
+		settings.setFilterAge(preference.getInt("filterAge",
+				settings.getFilterAge()));
+		settings.setSortMethod(stringToSortMethod(preference.getString(
+				"filterMethod", sortMethodToString(settings.getSortMethod()))));
 	}
 
 	/*
@@ -91,26 +108,24 @@ public class UserSettingsSource implements IUserSettingsSource {
 	 * org.dsanderson.xctrailreport.core.IUserSettingsSource#saveUserSettings()
 	 */
 	public void saveUserSettings() {
+		assert (false); // all saving should be done automatically by menu
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.dsanderson.xctrailreport.core.IUserSettingsSource#getUserSettings()
-	 */
-	public UserSettings getUserSettings() {
+	private String sortMethodToString(SortMethod sortMethod) {
+		switch (sortMethod) {
+		case SORT_BY_DATE:
+			return "sortByDate";
+		case SORT_BY_DISTANCE:
+			return "sortByDistance";
+		}
 		return null;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.dsanderson.xctrailreport.core.IUserSettingsSource#setUserSettings
-	 * (org.dsanderson.xctrailreport.core.UserSettings)
-	 */
-	public void setUserSettings(UserSettings userSettings) {
+	private SortMethod stringToSortMethod(String string) {
+		if (string.compareTo("sortByDistance") == 0)
+			return SortMethod.SORT_BY_DISTANCE;
+		else
+			return SortMethod.SORT_BY_DATE;
 	}
 
 }

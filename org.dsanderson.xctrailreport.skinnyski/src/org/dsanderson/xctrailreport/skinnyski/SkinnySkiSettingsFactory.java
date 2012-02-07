@@ -17,14 +17,31 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.core;
+package org.dsanderson.xctrailreport.skinnyski;
 
 /**
  * 
  */
-public interface IUserSettingsSource {
-	public abstract void loadUserSettings();
-	
-	public abstract void saveUserSettings();
+public class SkinnySkiSettingsFactory {
+	static SkinnySkiSettingsFactory factory = null;
+	SkinnyskiSettings skinnyskiSettings = null;
+
+	public SkinnySkiSettingsFactory() {
+		assert (factory == null);
+		factory = this;
+	}
+
+	public SkinnySkiSettingsFactory getInstance() {
+		if (factory == null)
+			factory = new SkinnySkiSettingsFactory();
+		return factory;
+	}
+
+	public SkinnyskiSettings getSkinnySkiSettings() {
+		if (skinnyskiSettings == null)
+			skinnyskiSettings = new SkinnyskiSettings();
+
+		return skinnyskiSettings;
+	}
 	
 }
