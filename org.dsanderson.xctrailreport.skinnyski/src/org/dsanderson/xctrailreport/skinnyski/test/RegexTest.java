@@ -30,8 +30,8 @@ public class RegexTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String input = "We went out at about 10:30 to classic ski and were treated to freshly rolled snow for skating!  Almost 100% coverage except for a couple of easy to get around spots!<br>";
-		String pattern = "\\<br\\>";
+		String input = "(hello world)";
+		String pattern = "^\\(.*\\)^";
 		Scanner scanner = new Scanner(input);
 		String result = input;
 		if (scanner.findInLine(pattern) != null)
@@ -41,8 +41,6 @@ public class RegexTest {
 
 		result += pattern;
 		System.out.println(result);
-
-		System.out.println("Removed: " + input.replaceAll(pattern, ""));
 	}
 
 }
