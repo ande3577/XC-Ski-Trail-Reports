@@ -126,4 +126,33 @@ public class TextItem implements ITextItem {
 		textView.setText(Html.fromHtml(htmlString));
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ITextItem#setBackgroundColor(java.lang
+	 * .String)
+	 */
+	public void setBackgroundColor(String color) {
+		setBackgroundColor(Color.parseColor(color));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.xctrailreport.core.ITextItem#setBackgroundColor(int)
+	 */
+	public void setBackgroundColor(int color) {
+		textView.setBackgroundColor(color);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ITextItem#getTitleBackgroundColor()
+	 */
+	public int getTitleBackgroundColor() {
+		return Color.rgb(0x81, 0x73, 0x39);
+	}
 }

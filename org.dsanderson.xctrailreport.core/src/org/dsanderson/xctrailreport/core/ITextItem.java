@@ -24,25 +24,31 @@ package org.dsanderson.xctrailreport.core;
  */
 public interface ITextItem {
 	String getText();
-	
+
 	void setText(String text);
-	
+
 	void setSize(int size);
-	
+
 	void setColor(String color);
-	
+
 	void setColor(int color);
-	
+
 	void setItalic(boolean italic);
-	
+
 	void setBold(boolean bold);
+
+	void setBackgroundColor(String color);
+
+	void setBackgroundColor(int color);
 	
+	int getTitleBackgroundColor();
+
 	enum Alignment_t {
 		LEFT, CENTER, RIGHT
 	};
-	
+
 	void setAlign(Alignment_t alignment);
-	
+
 	void draw();
-	
+
 }
