@@ -26,5 +26,10 @@ public interface ILocationSource {
 	public abstract void updateLocation();
 
 	public abstract String getLocation();
+	
+	public abstract void setLocation(String location);
+	
+	public abstract boolean getHasNewLocation();
+	
 
 }

@@ -35,6 +35,7 @@ import android.os.Bundle;
 public class LocationSource implements ILocationSource {
 	Context context;
 	String location;
+	boolean hasNewLocation = false;
 
 	public LocationSource(Context context, String defaultLocation) {
 		this.context = context;
@@ -97,9 +98,27 @@ public class LocationSource implements ILocationSource {
 
 	private void handleNewLocation(Location location) {
 		if (location != null) {
-			this.location = Double.toString(location.getLatitude())
+			hasNewLocation = true;
+			this.location = Double.toString(location.getLatitude()) + ","
 					+ Double.toString(location.getLongitude());
 		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ILocationSource#getHasNewLocation()
+	 */
+	public boolean getHasNewLocation() {
+		return hasNewLocation;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.dsanderson.xctrailreport.core.ILocationSource#setLocation(java.lang.String)
+	 */
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 }

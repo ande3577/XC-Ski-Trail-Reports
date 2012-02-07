@@ -19,6 +19,8 @@
  */
 package org.dsanderson.xctrailreport;
 
+import org.dsanderson.xctrailreport.core.IAbstractFactory;
+import org.dsanderson.xctrailreport.core.ILocationSource;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.Units;
 import org.dsanderson.xctrailreport.core.UserSettings;
@@ -35,12 +37,14 @@ import android.preference.PreferenceManager;
 public class UserSettingsSource implements IUserSettingsSource {
 	SharedPreferences preference;
 	UserSettings settings;
+	IAbstractFactory factory;
 
-	public UserSettingsSource(Context context, UserSettings settings) {
+	public UserSettingsSource(Context context, IAbstractFactory factory) {
 		preference = PreferenceManager.getDefaultSharedPreferences(context);
 		preference
 				.registerOnSharedPreferenceChangeListener(preferenceChangedListener);
-		this.settings = settings;
+		this.settings = factory.getUserSettings();
+		this.factory = factory;
 	}
 
 	private OnSharedPreferenceChangeListener preferenceChangedListener = new OnSharedPreferenceChangeListener() {
@@ -52,11 +56,15 @@ public class UserSettingsSource implements IUserSettingsSource {
 						settings.getLocationEnabled());
 				settings.setLocationEnabled(value);
 			} else if (key.compareTo("defaultLocation") == 0) {
-				settings.setDefaultLocation(sharedPreferences.getString(key,
-						settings.getDefaultLocation()));
+				String locationString = sharedPreferences.getString(key,
+						settings.getDefaultLocation());
+				settings.setDefaultLocation(locationString);
+				ILocationSource location = factory.getLocationSource();
+				if (!location.getHasNewLocation())
+					location.setLocation(locationString);
 			} else if (key.compareTo("distanceFilterEnabled") == 0) {
-				settings.setDistanceFilterEnabled(sharedPreferences.getBoolean(key,
-						settings.getDistanceFilterEnabled()));
+				settings.setDistanceFilterEnabled(sharedPreferences.getBoolean(
+						key, settings.getDistanceFilterEnabled()));
 			} else if (key.compareTo("filterDistance") == 0) {
 				settings.setFilterDistance(Units.milesToMeters(getDouble(
 						sharedPreferences, key,

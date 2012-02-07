@@ -116,7 +116,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 */
 	public IUserSettingsSource getUserSettingsSource() {
 		if (settingsSource == null) {
-			settingsSource = new UserSettingsSource(context, getUserSettings());
+			settingsSource = new UserSettingsSource(context, this);
 		}
 		return settingsSource;
 	}
