@@ -105,6 +105,8 @@ public class UserSettingsSource implements IUserSettingsSource {
 				settings.getFilterAge()));
 		settings.setSortMethod(stringToSortMethod(preference.getString(
 				"filterMethod", sortMethodToString(settings.getSortMethod()))));
+		settings.setSortMethod(stringToSortMethod(preference.getString(
+				"sortMethod", sortMethodToString(settings.getSortMethod()))));
 	}
 
 	/*

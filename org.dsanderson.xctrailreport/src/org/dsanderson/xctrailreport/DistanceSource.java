@@ -67,7 +67,7 @@ public class DistanceSource implements IDistanceSource {
 
 		while (index < dests.size()) {
 			// example
-			// https://maps.googleapis.com/maps/api/distancematrix/json?origins=44.972691,-93.232541&destinations=45.1335,-93.441|44.992,-93.3222&sensor=false
+			// https://maps.googleapis.com/maps/api/distancematrix/xml?origins=44.972691,-93.232541&destinations=45.1335,-93.441|44.992,-93.3222&sensor=false
 			String url = "https://maps.googleapis.com/maps/api/distancematrix/xml?origins="
 					+ src + "&destinations=";
 			for (int i = 0; i < MAX_DISTANCE_REQUESTS && index < dests.size(); i++) {

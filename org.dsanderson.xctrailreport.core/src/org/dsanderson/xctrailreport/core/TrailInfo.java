@@ -99,7 +99,7 @@ public class TrailInfo {
 		return distance;
 	}
 
-	public void setTravelTime(int travelTime) {
+	public void setDuration(int travelTime) {
 		this.travelTime = travelTime;
 	}
 
@@ -107,7 +107,7 @@ public class TrailInfo {
 		return travelTime;
 	}
 
-	public void setDirectionsValid(boolean directionsValid) {
+	public void setDistanceValid(boolean directionsValid) {
 		this.directionsValid = directionsValid;
 	}
 

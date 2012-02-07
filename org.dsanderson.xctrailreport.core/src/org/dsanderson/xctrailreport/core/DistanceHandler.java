@@ -53,19 +53,17 @@ public class DistanceHandler {
 
 			List<Integer> distances = distanceSource.getDistances();
 			List<Integer> durations = distanceSource.getDurations();
-			for (int i = 0; i < trailInfos.size() && i < distances.size()
-					&& i < durations.size(); i++) {
-				TrailInfo info = trailInfos.get(i);
+			for (TrailInfo info : trailInfos) {
 				if (info.getLocation().length() > 0) {
-					for (int j = 0; j < destinations.size(); j++) {
-						if (destinations.get(j).compareTo(info.getLocation()) == 0) {
-							info.setDistance(distances.get(j));
-							info.setTravelTime(durations.get(j));
-							info.setDirectionsValid(true);
+					for (int i = 0; i < destinations.size()
+							&& !info.getDistanceValid(); i++) {
+						if (destinations.get(i).compareTo(info.getLocation()) == 0) {
+							info.setDistanceValid(true);
+							info.setDistance(distances.get(i));
+							info.setDuration(durations.get(i));
 						}
 					}
 				}
-
 			}
 		} catch (Exception e) {
 			System.err.println(e);
