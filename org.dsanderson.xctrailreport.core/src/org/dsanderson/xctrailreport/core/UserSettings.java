@@ -34,6 +34,7 @@ public class UserSettings {
 	private int filterDistance = Units.milesToMeters(50);
 	private boolean dateFilterEnabled;
 	private int filterAge = 10;
+	private boolean redrawNeeded = false;
 
 	public void setLocationEnabled(boolean locationEnabled) {
 		this.locationEnabled = locationEnabled;
@@ -84,11 +85,20 @@ public class UserSettings {
 	}
 
 	public void setSortMethod(SortMethod sortMethod) {
+		redrawNeeded = true;
 		this.sortMethod = sortMethod;
 	}
 
 	public SortMethod getSortMethod() {
 		return sortMethod;
+	}
+	
+	public void setRedrawNeeded(boolean redrawNeeded) {
+		this.redrawNeeded = redrawNeeded;
+	}
+	
+	public boolean getRedrawNeeded() {
+		return this.redrawNeeded;
 	}
 
 }

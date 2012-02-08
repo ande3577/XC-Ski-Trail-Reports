@@ -95,6 +95,7 @@ public class xctrailreportActivity extends ListActivity {
 		this.setListAdapter(new TrailInfoAdapter(this, R.layout.row,
 				trailReports));
 		registerForContextMenu(getListView());
+		factory.getUserSettings().setRedrawNeeded(false);
 	}
 
 	public void onCreateContextMenu(ContextMenu menu, View v,
@@ -196,7 +197,8 @@ public class xctrailreportActivity extends ListActivity {
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);
-		if (hasFocus && trailReports != null)
+		if (hasFocus && trailReports != null
+				&& factory.getUserSettings().getRedrawNeeded())
 			printTrailReports();
 	}
 

@@ -45,7 +45,7 @@ public class DistanceFilter implements IReportFilter {
 	 */
 	@Override
 	public boolean filterReport(TrailReport report) {
-		return report.getTrailInfo().getDistance() < cutoff && report.getTrailInfo().getDistanceValid();
+		return report.getTrailInfo().getDistance() <= cutoff && report.getTrailInfo().getDistanceValid();
 	}
 
 }
