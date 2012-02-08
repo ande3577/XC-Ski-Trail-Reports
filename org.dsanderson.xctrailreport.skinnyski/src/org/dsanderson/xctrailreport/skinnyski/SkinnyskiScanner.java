@@ -22,6 +22,8 @@ package org.dsanderson.xctrailreport.skinnyski;
 import java.io.InputStream;
 import java.util.Scanner;
 
+import javax.swing.plaf.synth.Region;
+
 import org.dsanderson.xctrailreport.core.ReportDate;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
@@ -33,6 +35,10 @@ public class SkinnyskiScanner {
 	Scanner scanner;
 	TrailReport trailReport;
 	TrailInfo trailInfo;
+	String state;
+
+	static private final String regionStates[] = { "MN", "MN", "MN", "MN",
+			"MN", "MN", "WI", "WI", "WI", "MI", "IA", "", "IL", "ND", "" };
 
 	public SkinnyskiScanner(InputStream stream) {
 		scanner = new Scanner(stream);
@@ -48,6 +54,7 @@ public class SkinnyskiScanner {
 	}
 
 	public boolean findRegion(String region) {
+		state = getStateByRegion(region);
 		while (findNext("\\<font\\ssize\\=\\+1\\>\\<b\\>")) {
 			String foundRegion;
 			if ((foundRegion = scan("", "\\<\\/b\\>", ".*")) != null) {
@@ -65,19 +72,6 @@ public class SkinnyskiScanner {
 		} else {
 			return false;
 		}
-	}
-
-	public boolean scanReport() {
-		if (findNextReport()) {
-			scanSingleReport();
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	private boolean findNextReport() {
-		return findNext("\\<li\\>");
 	}
 
 	private boolean endOfRegion() {
@@ -129,11 +123,16 @@ public class SkinnyskiScanner {
 	}
 
 	private void scanCityAndState() {
-		String city = scan("", "\\)", ".*");
+		String city = scan("", ",", ".*");
+		String state = this.state;
+		if (city != null)
+			state = scan("", "\\)", ".*");
+		else
+			city = scan("", "\\)", ".*");
 		scanner.nextLine();
 		if (city != null) {
 			trailInfo.setCity(city.trim());
-			trailInfo.setState("MN");
+			trailInfo.setState(state.trim());
 		}
 	}
 
@@ -209,4 +208,12 @@ public class SkinnyskiScanner {
 		return result;
 	}
 
+	private String getStateByRegion(String region) {
+		for (int i = 0; i < RegionManager.supportedRegions.length; i++) {
+			if (RegionManager.supportedRegions[i].compareTo(region) == 0) {
+				return regionStates[i];
+			}
+		}
+		return "";
+	}
 }

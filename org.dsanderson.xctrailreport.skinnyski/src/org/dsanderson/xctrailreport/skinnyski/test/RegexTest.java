@@ -32,9 +32,12 @@ public class RegexTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String input = " <a href=\"traildetail.asp?Id=588\">Green Acres Recreation</a> (Lake Elmo):</b><br>";
-//		String patternArray[] = { "<a\\b[^>]*href=\"", "\">", "[^>]*"};
-		String patternArray[] = { "\\Q<a href=\"traildetail.asp?Id=\\E", "\">", "[\\d]*"};
+//		String input = " <a href=\"traildetail.asp?Id=588\">Green Acres Recreation</a> (Lake Elmo):</b><br>";
+//		String patternArray[] = { "\\Q<a href=\"traildetail.asp?Id=\\E", "\">", "[\\d]*"};
+		
+		String input = "Bozeman, MT)";
+		String patternArray[] = {"", ",", ".*"};
+		
 		String pattern = patternArray[0] + patternArray[2] + patternArray[1];
 		Scanner scanner = new Scanner(input);
 		String result = input;

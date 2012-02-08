@@ -44,8 +44,7 @@ public class ScannerTest {
 
 			List<String> regions = new ArrayList<String>();
 
-			regions.add("Minnesota Metro Area");
-			regions.add("Minnesota Northeast");
+			regions.add("United States");
 
 			SkinnyskiScanner skinnyskiScanner = new SkinnyskiScanner(fileStream);
 
@@ -79,7 +78,8 @@ public class ScannerTest {
 		System.out.println("URL: " + trailInfo.getSkinnySkiUrl());
 		System.out.println("Submit: " + trailInfo.getSkinnySkiSubmitUrl());
 		System.out.println("Name: " + trailInfo.getSkinnyskiSearchTerm());
-		System.out.println("City: " + trailInfo.getCity());
+		System.out.println("City: " + trailInfo.getCity() + ", "
+				+ trailInfo.getState());
 
 		System.out.println("Summary: " + trailReport.getSummary());
 		System.out.println("Detailed: " + trailReport.getDetail());
