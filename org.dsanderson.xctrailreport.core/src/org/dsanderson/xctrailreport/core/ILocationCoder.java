@@ -23,5 +23,5 @@ package org.dsanderson.xctrailreport.core;
  * 
  */
 public interface ILocationCoder {
-	String getLocation(String locationName);
+	String getLocation(String locationName) throws Exception;
 }

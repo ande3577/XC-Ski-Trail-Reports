@@ -22,8 +22,6 @@ package org.dsanderson.xctrailreport.skinnyski;
 import java.io.InputStream;
 import java.util.Scanner;
 
-import javax.swing.plaf.synth.Region;
-
 import org.dsanderson.xctrailreport.core.ReportDate;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;

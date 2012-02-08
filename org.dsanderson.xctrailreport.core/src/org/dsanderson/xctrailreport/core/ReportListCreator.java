@@ -38,11 +38,11 @@ public class ReportListCreator {
 	public List<TrailReport> getTrailReports(InputStream inputStream)
 			throws Exception {
 
-//		ITrailInfoParser parser = factory.getTrailInfoParser();
-//		parser.SetInputStream(inputStream);
-//		parser.parse();
+		ITrailInfoParser parser = factory.getTrailInfoParser();
+		parser.SetInputStream(inputStream);
+		parser.parse();
 
-		List<TrailInfo> trailInfos = new ArrayList<TrailInfo>();
+		List<TrailInfo> trailInfos = parser.getTrailInfo();
 		List<TrailReport> trailReports = new ArrayList<TrailReport>();
 
 		IReportRetriever reportRetriever = factory.getReportRetriever();

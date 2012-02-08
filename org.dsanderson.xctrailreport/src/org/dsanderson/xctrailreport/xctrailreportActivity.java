@@ -76,8 +76,7 @@ public class xctrailreportActivity extends ListActivity {
 	private List<TrailReport> loadTrailReports() throws Exception {
 
 		factory.getLocationSource().updateLocation();
-		InputStream inputStream = getResources().openRawResource(
-				R.raw.trail_info);
+		InputStream inputStream = getAssets().open("trail_info.xml");
 		trailReports = listCreator.getTrailReports(inputStream);
 		trailReports = listCreator.filterTrailReports(trailReports);
 
@@ -110,7 +109,8 @@ public class xctrailreportActivity extends ListActivity {
 				menu.add(Menu.NONE, R.id.trailInfoMenu, Menu.NONE, "Trail Info");
 			}
 
-			menu.add(Menu.NONE, R.id.composeReportItem, Menu.NONE, "Compose Report");
+			menu.add(Menu.NONE, R.id.composeReportItem, Menu.NONE,
+					"Compose Report");
 		}
 	}
 
@@ -127,13 +127,15 @@ public class xctrailreportActivity extends ListActivity {
 					launchIntent(trailReport.getTrailInfo().getSkinnySkiUrl());
 				return true;
 			case R.id.openMapMenu:
-				launchIntent("geo:" + trailReport.getTrailInfo().getLocation());
+				launchIntent("geo:" + trailReport.getTrailInfo().getLocation()
+						+ "?z=16");
 				return true;
 			case R.id.composeReportItem:
-				String reportUrl = trailReport.getTrailInfo().getSkinnySkiSubmitUrl();
+				String reportUrl = trailReport.getTrailInfo()
+						.getSkinnySkiSubmitUrl();
 				if (reportUrl == null || reportUrl.length() == 0)
 					reportUrl = SkinnyskiReportRetriever.DEFAULT_SKINNYSKI_REPORT_URL;
-				
+
 				launchIntent(reportUrl);
 				return true;
 			default:

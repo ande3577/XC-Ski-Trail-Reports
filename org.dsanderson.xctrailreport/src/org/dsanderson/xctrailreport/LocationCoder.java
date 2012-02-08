@@ -19,6 +19,7 @@
  */
 package org.dsanderson.xctrailreport;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.core.ILocationCoder;
@@ -44,18 +45,34 @@ public class LocationCoder implements ILocationCoder {
 	 * org.dsanderson.xctrailreport.core.ILocationCoder#getLocation(java.lang
 	 * .String)
 	 */
-	public String getLocation(String locationName) {
+	public String getLocation(String locationName) throws Exception {
 		String location = locationName;
-		try {
-			Geocoder coder = new Geocoder(context);
-			List<Address> addresses = coder.getFromLocationName(locationName, 1);
-			if (addresses.size() > 0) {
-				Address address = addresses.get(0);
-				location = address.getLatitude() + "," + address.getLongitude();
-			}
-		} catch (Exception e) {
+		Geocoder coder = new Geocoder(context);
+		List<Address> addresses = new ArrayList<Address>();
+
+		while (locationName.length() > 0) {
+			addresses = coder.getFromLocationName(locationName, 1);
+			if (addresses.size() == 0)
+				locationName = lessSpecific(locationName);
+			else
+				break;
+		}
+
+		if (addresses.size() > 0) {
+			Address address = addresses.get(0);
+			location = address.getLatitude() + "," + address.getLongitude();
 		}
 		return location;
 	}
 
+	private String lessSpecific(String locationName) {
+		String splits[] = locationName.split("\\,");
+		String str = "";
+		for (int i = 1; i < splits.length; i++) {
+			if (i != 1)
+				str += ", ";
+			str += splits[i];
+		}
+		return str.trim();
+	}
 }
