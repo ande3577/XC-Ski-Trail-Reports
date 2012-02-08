@@ -13,15 +13,19 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -43,6 +47,7 @@ public class xctrailreportActivity extends ListActivity {
 			factory.getUserSettingsSource().loadUserSettings();
 			skinnyskiFactory.getSkinnyskiSettingsSource().loadUserSettings();
 
+			@SuppressWarnings("unchecked")
 			final List<TrailReport> savedTrailReports = (List<TrailReport>) getLastNonConfigurationInstance();
 			if (savedTrailReports == null) {
 				refresh();
@@ -61,12 +66,11 @@ public class xctrailreportActivity extends ListActivity {
 
 		// refresh();
 	}
-	
+
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
-	  super.onConfigurationChanged(newConfig);
+		super.onConfigurationChanged(newConfig);
 	}
-
 
 	private List<TrailReport> loadTrailReports() throws Exception {
 
@@ -92,6 +96,47 @@ public class xctrailreportActivity extends ListActivity {
 
 		this.setListAdapter(new TrailInfoAdapter(this, R.layout.row,
 				displayedTrailReports));
+		registerForContextMenu(getListView());
+	}
+
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.list_context_menu, menu);
+	}
+
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.trailInfoMenu:
+			if (trailReports.size() > 0) {
+				launchIntent(trailReports.get(0).getTrailInfo()
+						.getSkinnySkiUrl());
+			}
+			return true;
+		case R.id.openMapMenu:
+			if (trailReports.size() > 0) {
+				launchIntent("geo:"
+						+ trailReports.get(0).getTrailInfo().getLocation());
+			}
+			return true;
+		case R.id.composeReportItem:
+			if (trailReports.size() > 0) {
+				launchIntent(trailReports.get(0).getTrailInfo()
+						.getSkinnySkiUrl());
+			}
+			return true;
+		default:
+			return super.onContextItemSelected(item);
+		}
+	}
+
+	private void launchIntent(String uriString) {
+		Uri uri = Uri.parse(uriString);
+		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+		startActivity(intent);
 	}
 
 	@Override

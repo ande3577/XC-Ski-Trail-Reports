@@ -26,6 +26,7 @@ import org.dsanderson.xctrailreport.core.DistanceFilter;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IDistanceSource;
 import org.dsanderson.xctrailreport.core.IDialog;
+import org.dsanderson.xctrailreport.core.ILocationCoder;
 import org.dsanderson.xctrailreport.core.ILocationSource;
 import org.dsanderson.xctrailreport.core.INetConnection;
 import org.dsanderson.xctrailreport.core.IReportFilter;
@@ -60,6 +61,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	DistanceSource directionsSource = null;
 	UserSettings userSettings = null;
 	UserSettingsSource settingsSource = null;
+	LocationCoder locationCoder = null;
 
 	public TrailReportFactory(Context context, SkinnyskiFactory skinnyskiFactory) {
 		assert (factory == null);
@@ -225,5 +227,17 @@ public class TrailReportFactory implements IAbstractFactory {
 		if (userSettings.getDateFilterEnabled())
 			filter.add(new DateFilter(userSettings.getFilterAge()));
 		return filter;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getLocationCoder()
+	 */
+	public ILocationCoder getLocationCoder() {
+		if (locationCoder == null)
+			locationCoder = new LocationCoder(context);
+		return locationCoder;
 	}
 }
