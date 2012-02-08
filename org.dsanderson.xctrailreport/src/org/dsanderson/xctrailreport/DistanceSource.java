@@ -40,7 +40,10 @@ public class DistanceSource implements IDistanceSource {
 	List<Integer> durations = new ArrayList<Integer>();
 	List<Boolean> valids = new ArrayList<Boolean>();
 
-	final int MAX_DISTANCE_REQUESTS = 20;
+	static final int ABSOLUTE_MAX_URL_LENGTH = 1000 - "&sensor=false".length();
+	static final int MAX_URL_LENGTH_PADDING = 0;
+	static final int MAX_URL_LENGTH = ABSOLUTE_MAX_URL_LENGTH
+			- MAX_URL_LENGTH_PADDING;
 
 	public DistanceSource(IAbstractFactory factory) {
 		this.factory = factory;
@@ -70,10 +73,11 @@ public class DistanceSource implements IDistanceSource {
 			// https://maps.googleapis.com/maps/api/distancematrix/xml?origins=44.972691,-93.232541&destinations=45.1335,-93.441|44.992,-93.3222&sensor=false
 			String url = "https://maps.googleapis.com/maps/api/distancematrix/xml?origins="
 					+ src + "&destinations=";
-			for (int i = 0; i < MAX_DISTANCE_REQUESTS && index < dests.size(); i++) {
+			int i = 0;
+			while (url.length() < MAX_URL_LENGTH && index < dests.size()) {
 				String dest = dests.get(index++);
 				if (dest.length() > 0) {
-					if (i > 0)
+					if (i++ > 0)
 						url += "|";
 					url += dest;
 				}
