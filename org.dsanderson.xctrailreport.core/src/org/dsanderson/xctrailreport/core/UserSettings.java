@@ -24,16 +24,18 @@ package org.dsanderson.xctrailreport.core;
  */
 public class UserSettings {
 	public enum SortMethod {
-		SORT_BY_DISTANCE, SORT_BY_DATE
+		SORT_BY_DISTANCE, SORT_BY_DATE, SORT_BY_DURATION
 	}
 
 	private SortMethod sortMethod = null;
 	private boolean locationEnabled = false;
 	private String defaultLocation = "55455";
-	private boolean distanceFilterEnabled;
+	private boolean distanceFilterEnabled = false;
 	private int filterDistance = Units.milesToMeters(50);
-	private boolean dateFilterEnabled;
+	private boolean dateFilterEnabled = false;
 	private int filterAge = 10;
+	private boolean durationFilterEnabled = false;
+	private int durationCutoff = 30;
 	private boolean redrawNeeded = false;
 
 	public void setLocationEnabled(boolean locationEnabled) {
@@ -84,6 +86,22 @@ public class UserSettings {
 		return filterAge;
 	}
 
+	public void setDurationFilterEnabled(boolean durationFilterEnabled) {
+		this.durationFilterEnabled = durationFilterEnabled;
+	}
+
+	public boolean getDurationFilterEnabled() {
+		return durationFilterEnabled;
+	}
+
+	public void setDurationCutoff(int durationCutoff) {
+		this.durationCutoff = durationCutoff;
+	}
+
+	public int getDurationCutoff() {
+		return durationCutoff;
+	}
+
 	public void setSortMethod(SortMethod sortMethod) {
 		redrawNeeded = true;
 		this.sortMethod = sortMethod;
@@ -92,11 +110,11 @@ public class UserSettings {
 	public SortMethod getSortMethod() {
 		return sortMethod;
 	}
-	
+
 	public void setRedrawNeeded(boolean redrawNeeded) {
 		this.redrawNeeded = redrawNeeded;
 	}
-	
+
 	public boolean getRedrawNeeded() {
 		return this.redrawNeeded;
 	}

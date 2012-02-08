@@ -3,10 +3,12 @@
     <string-array name="sortMethods">
         <item >sortByDistance</item>
         <item >sortByDate</item>
+        <item >sortByDuration</item>
     </string-array>
     <string-array name="sortMethodNames">
         <item >Sort by Distance</item>
         <item >Sort by Date</item>
+        <item >Sort By Drive Time</item>
     </string-array>
     
 </resources>

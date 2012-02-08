@@ -17,10 +17,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.core;
+package org.dsanderson.xctrailreport.application;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.dsanderson.xctrailreport.core.IAbstractFactory;
+import org.dsanderson.xctrailreport.core.IDistanceSource;
+import org.dsanderson.xctrailreport.core.TrailInfo;
 
 /**
  * 
@@ -40,12 +44,12 @@ public class DistanceHandler {
 		for (TrailInfo info : trailInfos) {
 			boolean duplicate = false;
 			for (String dest : destinations) {
-				if (dest.compareTo(info.location) == 0)
+				if (dest.compareTo(info.getLocation()) == 0)
 					duplicate = true;
 			}
 
 			if (!duplicate)
-				destinations.add(info.location);
+				destinations.add(info.getLocation());
 		}
 
 		try {

@@ -17,35 +17,36 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.core;
+package org.dsanderson.xctrailreport.application;
+
+import java.util.Comparator;
+
+import org.dsanderson.xctrailreport.core.TrailReport;
 
 /**
  * 
  */
-public class DistanceFilter implements IReportFilter {
-	int cutoff = Units.milesToMeters(50);
-
-	public DistanceFilter() {
-	}
-
-	public DistanceFilter(int cutoff) {
-		this.cutoff = cutoff;
-	}
-
-	public void setCutoff(int cutoff) {
-		this.cutoff = cutoff;
-	}
+public class DistanceComparator implements Comparator<TrailReport> {
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * org.dsanderson.xctrailreport.core.IReportFilter#filterReport(org.dsanderson
-	 * .xctrailreport.core.TrailReport)
+	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
 	 */
 	@Override
-	public boolean filterReport(TrailReport report) {
-		return report.getTrailInfo().getDistance() <= cutoff && report.getTrailInfo().getDistanceValid();
+	public int compare(TrailReport arg0, TrailReport arg1) {
+		if (arg0.getTrailInfo().getDistanceValid()
+				&& arg1.getTrailInfo().getDistanceValid()) {
+			Integer dist0 = arg0.getTrailInfo().getDistance();
+			Integer dist1 = arg1.getTrailInfo().getDistance();
+			return dist0.compareTo(dist1);
+		} else if (arg0.getTrailInfo().getDistanceValid()) {
+			return -1;
+		} else if (arg1.getTrailInfo().getDistanceValid()) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 
 }

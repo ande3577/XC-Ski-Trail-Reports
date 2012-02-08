@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.R;
-import org.dsanderson.xctrailreport.core.ReportListCreator;
+import org.dsanderson.xctrailreport.application.ReportListCreator;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiReportRetriever;
 

@@ -38,6 +38,10 @@ public class Units {
 		return ((double) seconds) / 60;
 	}
 
+	public static int minutesToSeconds(double minutes) {
+		return (int) (minutes * 60);
+	}
+
 	public static double millisecondsToDays(long milliseconds) {
 		return ((double) milliseconds) / 1000 / 60 / 60 / 24;
 	}

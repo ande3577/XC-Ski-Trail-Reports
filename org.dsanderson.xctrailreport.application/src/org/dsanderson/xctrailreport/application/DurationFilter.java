@@ -17,24 +17,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.core;
+package org.dsanderson.xctrailreport.application;
 
-import java.util.Date;
+import org.dsanderson.xctrailreport.core.IReportFilter;
+import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.core.Units;
 
 /**
  * 
  */
-public class DateFilter implements IReportFilter {
-	int cutoff = 10;
+public class DurationFilter implements IReportFilter {
+	int cutoff = Units.minutesToSeconds(30);
 
-	public DateFilter() {
+	/**
+	 * 
+	 */
+	public DurationFilter() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public DateFilter(int cutoff) {
+	public DurationFilter(int cutoff) {
 		this.cutoff = cutoff;
 	}
-	
-	public void setAgeCutoff(int cutoff) {
+
+	public void setCutoff(int cutoff) {
 		this.cutoff = cutoff;
 	}
 
@@ -47,10 +53,8 @@ public class DateFilter implements IReportFilter {
 	 */
 	@Override
 	public boolean filterReport(TrailReport report) {
-		Date currentDate = new Date();
-		long age = currentDate.getTime() - report.getDate().getDate().getTime();
-		double ageDays = Units.millisecondsToDays(age);
-		return (Math.floor(ageDays) <= (double) cutoff);
+		return report.getTrailInfo().getDuration() <= cutoff
+				&& report.getTrailInfo().getDistanceValid();
 	}
 
 }

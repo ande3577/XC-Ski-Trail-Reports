@@ -21,8 +21,9 @@ package org.dsanderson.xctrailreport;
 
 import org.dsanderson.xctrailreport.application.CompoundFilter;
 import org.dsanderson.xctrailreport.application.CompoundReportRetriever;
-import org.dsanderson.xctrailreport.core.DateFilter;
-import org.dsanderson.xctrailreport.core.DistanceFilter;
+import org.dsanderson.xctrailreport.application.DateFilter;
+import org.dsanderson.xctrailreport.application.DistanceFilter;
+import org.dsanderson.xctrailreport.application.DurationFilter;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IDistanceSource;
 import org.dsanderson.xctrailreport.core.IDialog;
@@ -224,6 +225,8 @@ public class TrailReportFactory implements IAbstractFactory {
 		CompoundFilter filter = new CompoundFilter();
 		if (userSettings.getDistanceFilterEnabled())
 			filter.add(new DistanceFilter(userSettings.getFilterDistance()));
+		if (userSettings.getDurationFilterEnabled())
+			filter.add(new DurationFilter(userSettings.getDurationCutoff()));
 		if (userSettings.getDateFilterEnabled())
 			filter.add(new DateFilter(userSettings.getFilterAge()));
 		return filter;

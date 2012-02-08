@@ -79,6 +79,15 @@ public class UserSettingsSource implements IUserSettingsSource {
 				settings.setSortMethod(stringToSortMethod(sharedPreferences
 						.getString(key,
 								sortMethodToString(settings.getSortMethod()))));
+			} else if (key.compareTo("durationFilterEnabled") == 0) {
+				settings.setDurationFilterEnabled(sharedPreferences.getBoolean(
+						key, settings.getDateFilterEnabled()));
+			} else if (key.compareTo("durationFilterCutoff") == 0) {
+				int cutoffMinutes = getInt(sharedPreferences, key,
+						(int) Units.secondsToMinutes(settings
+								.getDurationCutoff()));
+				settings.setDurationCutoff(Units
+						.minutesToSeconds(cutoffMinutes));
 			}
 		}
 
@@ -107,6 +116,11 @@ public class UserSettingsSource implements IUserSettingsSource {
 				"filterMethod", sortMethodToString(settings.getSortMethod()))));
 		settings.setSortMethod(stringToSortMethod(preference.getString(
 				"sortMethod", sortMethodToString(settings.getSortMethod()))));
+		settings.setDurationFilterEnabled(preference.getBoolean(
+				"durationFilterEnabled", settings.getDurationFilterEnabled()));
+		settings.setDurationCutoff(Units.minutesToSeconds(getInt(preference,
+				"durationFilterCutoff",
+				(int) Units.secondsToMinutes(settings.getDurationCutoff()))));
 	}
 
 	/*
@@ -125,6 +139,8 @@ public class UserSettingsSource implements IUserSettingsSource {
 			return "sortByDate";
 		case SORT_BY_DISTANCE:
 			return "sortByDistance";
+		case SORT_BY_DURATION:
+			return "sortByDuration";
 		}
 		return null;
 	}
@@ -132,8 +148,10 @@ public class UserSettingsSource implements IUserSettingsSource {
 	private SortMethod stringToSortMethod(String string) {
 		if (string.compareTo("sortByDistance") == 0)
 			return SortMethod.SORT_BY_DISTANCE;
-		else
+		else if (string.compareTo("sortByDate") == 0)
 			return SortMethod.SORT_BY_DATE;
+		else
+			return SortMethod.SORT_BY_DURATION;
 	}
 
 	private double getDouble(SharedPreferences preference, String key,

@@ -14,7 +14,11 @@
 </PreferenceCategory><PreferenceCategory android:title="Age Filter">
                 <CheckBoxPreference android:title="Enabled" android:key="dateFilterEnabled"/>
                 <EditTextPreference android:title="Max Age (Days)" android:key="filterAge" android:numeric="integer" android:inputType="number"/>
+            </PreferenceCategory><PreferenceCategory android:title="Drive Time Filter">
+                <CheckBoxPreference android:title="Enabled" android:key="durationFilterEnabled"/>
+                <EditTextPreference android:title="Max Drive Time (minutes)" android:key="durationFilterCutoff"  android:numeric="integer" android:inputType="number"/>
             </PreferenceCategory><PreferenceCategory android:title="Display Options"><ListPreference android:title="Sort By:" android:entryValues="@array/sortMethods" android:entries="@array/sortMethodNames" android:key="sortMethod"/>
+            
         
 </PreferenceCategory>
     
