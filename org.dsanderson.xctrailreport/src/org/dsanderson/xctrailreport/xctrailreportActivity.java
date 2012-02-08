@@ -7,6 +7,7 @@ import java.util.List;
 import org.dsanderson.xctrailreport.R;
 import org.dsanderson.xctrailreport.core.ReportListCreator;
 import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.skinnyski.SkinnyskiReportRetriever;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -25,7 +26,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -56,7 +57,7 @@ public class xctrailreportActivity extends ListActivity {
 				for (TrailReport report : savedTrailReports) {
 					trailReports.add(report.copy());
 				}
-				printTrailReports(trailReports);
+				printTrailReports();
 			}
 
 		} catch (Exception e) {
@@ -78,6 +79,7 @@ public class xctrailreportActivity extends ListActivity {
 		InputStream inputStream = getResources().openRawResource(
 				R.raw.trail_info);
 		trailReports = listCreator.getTrailReports(inputStream);
+		trailReports = listCreator.filterTrailReports(trailReports);
 
 		if (trailReports.isEmpty())
 			throw new RuntimeException("No reports found.");
@@ -85,17 +87,14 @@ public class xctrailreportActivity extends ListActivity {
 		return trailReports;
 	}
 
-	private void printTrailReports(List<TrailReport> trailReports) {
-		List<TrailReport> displayedTrailReports = listCreator
-				.filterTrailReports(trailReports);
-		displayedTrailReports = listCreator
-				.sortTrailReports(displayedTrailReports);
+	private void printTrailReports() {
+		trailReports = listCreator.sortTrailReports(trailReports);
 
-		if (displayedTrailReports.isEmpty())
+		if (trailReports.isEmpty())
 			throw new RuntimeException("No reports found.");
 
 		this.setListAdapter(new TrailInfoAdapter(this, R.layout.row,
-				displayedTrailReports));
+				trailReports));
 		registerForContextMenu(getListView());
 	}
 
@@ -103,33 +102,54 @@ public class xctrailreportActivity extends ListActivity {
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
 
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.list_context_menu, menu);
+		TrailReport report = determineListItemFromMenuInfo((AdapterView.AdapterContextMenuInfo) menuInfo);
+		if (report != null) {
+			menu.add(Menu.NONE, R.id.openMapMenu, Menu.NONE, "Open Map");
+			if (report.getTrailInfo().getSkinnySkiUrl() != null
+					&& report.getTrailInfo().getSkinnySkiUrl().length() != 0) {
+				menu.add(Menu.NONE, R.id.trailInfoMenu, Menu.NONE, "Trail Info");
+			}
+
+			menu.add(Menu.NONE, R.id.composeReportItem, Menu.NONE, "Compose Report");
+		}
 	}
 
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.trailInfoMenu:
-			if (trailReports.size() > 0) {
-				launchIntent(trailReports.get(0).getTrailInfo()
-						.getSkinnySkiUrl());
+		TrailReport trailReport = determineListItemFromMenuInfo((AdapterView.AdapterContextMenuInfo) item
+				.getMenuInfo());
+		if (trailReport != null) {
+			switch (item.getItemId()) {
+			case R.id.trailInfoMenu:
+				String trailInfoUrl = trailReport.getTrailInfo()
+						.getSkinnySkiUrl();
+				if (trailInfoUrl != null && trailInfoUrl.length() > 0)
+					launchIntent(trailReport.getTrailInfo().getSkinnySkiUrl());
+				return true;
+			case R.id.openMapMenu:
+				launchIntent("geo:" + trailReport.getTrailInfo().getLocation());
+				return true;
+			case R.id.composeReportItem:
+				String reportUrl = trailReport.getTrailInfo().getSkinnySkiSubmitUrl();
+				if (reportUrl == null || reportUrl.length() == 0)
+					reportUrl = SkinnyskiReportRetriever.DEFAULT_SKINNYSKI_REPORT_URL;
+				
+				launchIntent(reportUrl);
+				return true;
+			default:
+				break;
 			}
-			return true;
-		case R.id.openMapMenu:
-			if (trailReports.size() > 0) {
-				launchIntent("geo:"
-						+ trailReports.get(0).getTrailInfo().getLocation());
-			}
-			return true;
-		case R.id.composeReportItem:
-			if (trailReports.size() > 0) {
-				launchIntent(trailReports.get(0).getTrailInfo()
-						.getSkinnySkiUrl());
-			}
-			return true;
-		default:
-			return super.onContextItemSelected(item);
+		}
+
+		return super.onContextItemSelected(item);
+	}
+
+	private TrailReport determineListItemFromMenuInfo(
+			AdapterView.AdapterContextMenuInfo info) {
+		if (trailReports.size() > 0) {
+			return trailReports.get(info.position);
+		} else {
+			return null;
 		}
 	}
 
@@ -175,7 +195,7 @@ public class xctrailreportActivity extends ListActivity {
 	public void onWindowFocusChanged(boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);
 		if (hasFocus && trailReports != null)
-			printTrailReports(trailReports);
+			printTrailReports();
 	}
 
 	@Override
@@ -237,7 +257,7 @@ public class xctrailreportActivity extends ListActivity {
 
 			try {
 				if (e == null)
-					printTrailReports(trailReports);
+					printTrailReports();
 			} catch (Exception e) {
 				e = this.e;
 			} finally {

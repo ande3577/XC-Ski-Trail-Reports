@@ -26,12 +26,16 @@ import java.util.Scanner;
  */
 public class RegexTest {
 
+	static Scanner scanner;
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String input = "(hello world)";
-		String pattern = "^\\(.*\\)^";
+		String input = " <a href=\"traildetail.asp?Id=588\">Green Acres Recreation</a> (Lake Elmo):</b><br>";
+//		String patternArray[] = { "<a\\b[^>]*href=\"", "\">", "[^>]*"};
+		String patternArray[] = { "\\Q<a href=\"traildetail.asp?Id=\\E", "\">", "[\\d]*"};
+		String pattern = patternArray[0] + patternArray[2] + patternArray[1];
 		Scanner scanner = new Scanner(input);
 		String result = input;
 		if (scanner.findInLine(pattern) != null)
@@ -42,5 +46,5 @@ public class RegexTest {
 		result += pattern;
 		System.out.println(result);
 	}
-
+	
 }

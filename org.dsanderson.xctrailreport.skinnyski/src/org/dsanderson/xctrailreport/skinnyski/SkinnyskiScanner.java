@@ -113,9 +113,11 @@ public class SkinnyskiScanner {
 	}
 
 	private void scanUrl() {
-		String url = null;
-		if ((url = scan("<a\\b[^>]*href=\"", "\">", "[^>]*")) != null)
-			trailInfo.setSkinnyskiUrl(url);
+		String indexString = null;
+		if ((indexString = scan("\\Q<a href=\"traildetail.asp?Id=\\E", "\">",
+				"[\\d]*")) != null) {
+			trailInfo.setskinnyskiTrailIndex(Integer.parseInt(indexString));
+		}
 	}
 
 	private void scanName() {

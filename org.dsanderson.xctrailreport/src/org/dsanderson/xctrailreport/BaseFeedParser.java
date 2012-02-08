@@ -25,7 +25,7 @@ public class BaseFeedParser implements ITrailInfoParser {
 	static final String LOCATION = "location";
 
 	static final String SKINNYSKI_SEARCH_TERM = "skinnyskiSearchTerm";
-	static final String SKINNYSKI_URL = "skinnyskiUrl";
+	static final String SKINNYSKI_TRAIL_INDEX = "skinnyskiTrailIndex";
 
 	static final String THREE_RIVERS_SEARCH_TERM = "threeRiversSearchTerm";
 
@@ -78,10 +78,10 @@ public class BaseFeedParser implements ITrailInfoParser {
 						currentMessage.setSkinnyskiSearchTerm(body);
 					}
 				});
-		item.getChild(SKINNYSKI_URL).setEndTextElementListener(
+		item.getChild(SKINNYSKI_TRAIL_INDEX).setEndTextElementListener(
 				new EndTextElementListener() {
 					public void end(String body) {
-						currentMessage.setSkinnyskiUrl(body);
+						currentMessage.setskinnyskiTrailIndex(Integer.parseInt(body));
 					}
 				});
 		item.getChild(THREE_RIVERS_SEARCH_TERM).setEndTextElementListener(

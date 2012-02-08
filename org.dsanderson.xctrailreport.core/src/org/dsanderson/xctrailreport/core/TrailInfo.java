@@ -19,7 +19,6 @@
  */
 package org.dsanderson.xctrailreport.core;
 
-
 /**
  * 
  */
@@ -29,7 +28,7 @@ public class TrailInfo {
 	String state = "MN";
 	String location = "";
 	String skinnyskiSearchTerm = "";
-	String skinnyskiUrl = "";
+	int skinnyskiTrailIndex = -1;
 	String threeRiversSearchTerm = "";
 	int distance = 0;
 	int travelTime = 0;
@@ -75,12 +74,25 @@ public class TrailInfo {
 		return skinnyskiSearchTerm;
 	}
 
-	public void setSkinnyskiUrl(String skinnyskiUrl) {
-		this.skinnyskiUrl = skinnyskiUrl;
+	public void setskinnyskiTrailIndex(int skinnyskiTrailIndex) {
+		this.skinnyskiTrailIndex = skinnyskiTrailIndex;
 	}
 
 	public String getSkinnySkiUrl() {
-		return skinnyskiUrl;
+		if (skinnyskiTrailIndex < 0)
+			return "";
+		else
+			return "http://skinnyski.com/trails/traildetail.asp?Id="
+					+ skinnyskiTrailIndex;
+
+	}
+
+	public String getSkinnySkiSubmitUrl() {
+		if (skinnyskiTrailIndex < 0)
+			return "";
+		else
+			return "http://skinnyski.com/trails/trailreport.asp?trailId="
+					+ skinnyskiTrailIndex;
 	}
 
 	public void setThreeRiversSearchTerm(String threeRiversSearchTerm) {
@@ -123,7 +135,7 @@ public class TrailInfo {
 		newCopy.state = state;
 		newCopy.location = location;
 		newCopy.skinnyskiSearchTerm = skinnyskiSearchTerm;
-		newCopy.skinnyskiUrl = skinnyskiUrl;
+		newCopy.skinnyskiTrailIndex = skinnyskiTrailIndex;
 		newCopy.threeRiversSearchTerm = threeRiversSearchTerm;
 		newCopy.distance = distance;
 		newCopy.directionsValid = directionsValid;

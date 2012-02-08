@@ -77,6 +77,7 @@ public class ScannerTest {
 		System.out.println("New Report:");
 		System.out.println("Date: " + trailReport.getDate().formatDate());
 		System.out.println("URL: " + trailInfo.getSkinnySkiUrl());
+		System.out.println("Submit: " + trailInfo.getSkinnySkiSubmitUrl());
 		System.out.println("Name: " + trailInfo.getSkinnyskiSearchTerm());
 		System.out.println("City: " + trailInfo.getCity());
 
