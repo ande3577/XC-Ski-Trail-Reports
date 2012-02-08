@@ -57,11 +57,17 @@ public class DistanceDecorator extends TrailReportDecorator {
 			String text = textItem.getText()
 					+ " ("
 					+ formatter.format(Units.metersToMiles(trailInfo
-							.getDistance()))
-					+ "mi , "
-					+ formatter
-							.format(Units.secondsToMinutes(trailInfo.getDuration()))
-					+ " min)";
+							.getDistance())) + "mi , ";
+
+			int minutes = (int) (Units
+					.secondsToMinutes(trailInfo.getDuration()));
+
+			if (minutes > 60) {
+				text += minutes / 60 + " hrs ";
+				minutes %= 60;
+			}
+
+			text += formatter.format(minutes) + " min)";
 
 			textItem.setText(text);
 		}
