@@ -63,11 +63,11 @@ public class DistanceDecorator extends TrailReportDecorator {
 					.secondsToMinutes(trailInfo.getDuration()));
 
 			if (minutes > 60) {
-				text += minutes / 60 + " hrs ";
+				text += (int) (minutes / 60) + " hrs ";
 				minutes %= 60;
 			}
 
-			text += formatter.format(minutes) + " min)";
+			text += (int) minutes + " min)";
 
 			textItem.setText(text);
 		}
