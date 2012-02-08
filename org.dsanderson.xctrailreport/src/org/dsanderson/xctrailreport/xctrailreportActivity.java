@@ -12,6 +12,7 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
@@ -41,6 +42,18 @@ public class xctrailreportActivity extends ListActivity {
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
 			skinnyskiFactory.getSkinnyskiSettingsSource().loadUserSettings();
+
+			final List<TrailReport> savedTrailReports = (List<TrailReport>) getLastNonConfigurationInstance();
+			if (savedTrailReports == null) {
+				refresh();
+			} else {
+				trailReports = new ArrayList<TrailReport>();
+				for (TrailReport report : savedTrailReports) {
+					trailReports.add(report.copy());
+				}
+				printTrailReports(trailReports);
+			}
+
 		} catch (Exception e) {
 			System.err.println(e);
 			factory.newDialog(e).show();
@@ -48,6 +61,12 @@ public class xctrailreportActivity extends ListActivity {
 
 		// refresh();
 	}
+	
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+	  super.onConfigurationChanged(newConfig);
+	}
+
 
 	private List<TrailReport> loadTrailReports() throws Exception {
 
@@ -112,6 +131,15 @@ public class xctrailreportActivity extends ListActivity {
 		super.onWindowFocusChanged(hasFocus);
 		if (hasFocus && trailReports != null)
 			printTrailReports(trailReports);
+	}
+
+	@Override
+	public Object onRetainNonConfigurationInstance() {
+		final List<TrailReport> savedTrailReports = new ArrayList<TrailReport>();
+		for (TrailReport report : trailReports) {
+			savedTrailReports.add(report.copy());
+		}
+		return savedTrailReports;
 	}
 
 	private void refresh() {
