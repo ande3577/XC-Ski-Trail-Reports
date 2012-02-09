@@ -46,7 +46,8 @@ public class LocationCoder implements ILocationCoder {
 	 * .String)
 	 */
 	public String getLocation(String locationName) throws Exception {
-		String location = locationName;
+		// return empty string if cannot parse to valid location
+		String location = "";
 		Geocoder coder = new Geocoder(context);
 		List<Address> addresses = new ArrayList<Address>();
 
