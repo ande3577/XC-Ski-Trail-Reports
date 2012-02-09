@@ -35,9 +35,6 @@ public class SkinnyskiScanner {
 	TrailInfo trailInfo;
 	String state;
 
-	static private final String regionStates[] = { "MN", "MN", "MN", "MN",
-			"MN", "MN", "WI", "WI", "WI", "MI", "IA", "", "IL", "ND", "" };
-
 	public SkinnyskiScanner(InputStream stream) {
 		scanner = new Scanner(stream);
 		scanner.useDelimiter("\n");
@@ -52,7 +49,7 @@ public class SkinnyskiScanner {
 	}
 
 	public boolean findRegion(String region) {
-		state = getStateByRegion(region);
+		state = RegionManager.getStateByRegion(region);
 		while (findNext("\\<font\\ssize\\=\\+1\\>\\<b\\>")) {
 			String foundRegion;
 			if ((foundRegion = scan("", "\\<\\/b\\>", ".*")) != null) {
@@ -206,12 +203,4 @@ public class SkinnyskiScanner {
 		return result;
 	}
 
-	private String getStateByRegion(String region) {
-		for (int i = 0; i < RegionManager.supportedRegions.length; i++) {
-			if (RegionManager.supportedRegions[i].compareTo(region) == 0) {
-				return regionStates[i];
-			}
-		}
-		return "";
-	}
 }

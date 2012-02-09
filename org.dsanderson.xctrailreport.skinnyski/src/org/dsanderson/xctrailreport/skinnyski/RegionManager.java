@@ -34,6 +34,9 @@ public class RegionManager {
 			"Michigan Upper Peninsula", "Iowa", "Canada", "Illinois",
 			"North Dakota", "United States" };
 
+	private static final String regionStates[] = { "MN", "MN", "MN", "MN",
+			"MN", "WI", "WI", "WI", "WI", "MI", "IA", "", "IL", "ND", "" };
+
 	private List<String> regions = new ArrayList<String>();
 
 	public List<String> getRegions() {
@@ -64,6 +67,15 @@ public class RegionManager {
 		regions.remove(region);
 	}
 
+	public static String getStateByRegion(String region) {
+		for (int i = 0; i < supportedRegions.length; i++) {
+			if (supportedRegions[i].compareTo(region) == 0) {
+				return regionStates[i];
+			}
+		}
+		return "";
+	}
+
 	private int findSupportedIndex(String region) {
 		for (int i = 0; i < supportedRegions.length; i++) {
 			if (supportedRegions[i].compareTo(region) == 0) {
@@ -72,4 +84,5 @@ public class RegionManager {
 		}
 		return supportedRegions.length;
 	}
+
 }
