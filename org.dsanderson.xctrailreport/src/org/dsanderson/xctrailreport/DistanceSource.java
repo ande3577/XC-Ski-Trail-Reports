@@ -130,9 +130,14 @@ public class DistanceSource implements IDistanceSource {
 
 	private void parseXmlResponse(INetConnection connection)
 			throws XmlPullParserException, IOException {
+		XmlPullParserFactory parserFactory = XmlPullParserFactory.newInstance();
+		parserFactory.setNamespaceAware(false);
+		XmlPullParser parser = parserFactory.newPullParser();
+
+		parser.setInput(connection.getReader());
+
 		CompoundTagParser tagParser = new CompoundTagParser();
-		tagParser.setInput(connection.getReader());
-		tagParser.parse();
+		tagParser.parse(parser, "");
 
 		if (tagParser.getParsers("DistanceMatrixResponse:status").get(0)
 				.getText().compareTo("OK") == 0) {

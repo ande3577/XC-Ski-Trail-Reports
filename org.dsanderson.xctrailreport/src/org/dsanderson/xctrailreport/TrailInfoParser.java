@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.ITrailInfoParser;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 import android.sax.Element;
 import android.sax.EndElementListener;
@@ -41,27 +43,31 @@ public class TrailInfoParser implements ITrailInfoParser {
 	}
 
 	public void parse() throws Exception {
+		XmlPullParserFactory parserFactory = XmlPullParserFactory.newInstance();
+		parserFactory.setNamespaceAware(false);
+		XmlPullParser parser = parserFactory.newPullParser();
+
+		parser.setInput(new BufferedReader(new InputStreamReader(inputStream)));
+
 		CompoundTagParser tagParser = new CompoundTagParser();
-		tagParser.setInput(new BufferedReader(
-				new InputStreamReader(inputStream)));
-		tagParser.parse("trailInfo:trails");
+		tagParser.parse(parser, "");
 
 		List<CompoundTagParser> trailInfoParser = tagParser.getParsers();
 
-		for (CompoundTagParser parser : trailInfoParser) {
-			TrailInfo info = new TrailInfo();
-			info.setName(parser.getText(NAME));
-			info.setCity(parser.getText(CITY));
-			info.setLocation(parser.getText(LOCATION));
-			info.setSkinnyskiSearchTerm(parser.getText(SKINNYSKI_SEARCH_TERM));
-			String indexString = parser.getText(SKINNYSKI_TRAIL_INDEX);
-			if (indexString.length() > 0)
-				info.setskinnyskiTrailIndex(Integer.parseInt(indexString));
-			info.setState(parser.getText(STATE));
-			info.setThreeRiversSearchTerm(parser
-					.getText(THREE_RIVERS_SEARCH_TERM));
-			trailInfo.add(info.copy());
-		}
+		// for (CompoundTagParser parser : trailInfoParser) {
+		// TrailInfo info = new TrailInfo();
+		// info.setName(parser.getText(NAME));
+		// info.setCity(parser.getText(CITY));
+		// info.setLocation(parser.getText(LOCATION));
+		// info.setSkinnyskiSearchTerm(parser.getText(SKINNYSKI_SEARCH_TERM));
+		// String indexString = parser.getText(SKINNYSKI_TRAIL_INDEX);
+		// if (indexString.length() > 0)
+		// info.setskinnyskiTrailIndex(Integer.parseInt(indexString));
+		// info.setState(parser.getText(STATE));
+		// info.setThreeRiversSearchTerm(parser
+		// .getText(THREE_RIVERS_SEARCH_TERM));
+		// trailInfo.add(info.copy());
+		// }
 
 	}
 

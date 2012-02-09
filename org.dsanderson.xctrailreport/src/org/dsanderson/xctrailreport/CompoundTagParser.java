@@ -20,14 +20,11 @@
 package org.dsanderson.xctrailreport;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
 
 /**
  * 
@@ -36,25 +33,12 @@ public class CompoundTagParser {
 	String name = null;
 	String text = "";
 	private List<CompoundTagParser> tagParsers = new ArrayList<CompoundTagParser>();
-	private XmlPullParser parser;
 
 	public CompoundTagParser() {
 	}
 
 	public CompoundTagParser(String name) {
 		this.name = name;
-	}
-
-	private CompoundTagParser(XmlPullParser parser, String name) {
-		this(name);
-		this.parser = parser;
-	}
-
-	public void setInput(Reader in) throws XmlPullParserException {
-		XmlPullParserFactory parserFactory = XmlPullParserFactory.newInstance();
-		parserFactory.setNamespaceAware(false);
-		parser = parserFactory.newPullParser();
-		parser.setInput(in);
 	}
 
 	public String getName() {
@@ -100,20 +84,8 @@ public class CompoundTagParser {
 		return text;
 	}
 
-	public String getText(String name) {
-		if (name.length() == 0)
-			return getText();
-		else {
-			List<CompoundTagParser> parsers = getParsers(name);
-			if (parsers.size() == 0)
-				return null;
-			else
-				return parsers.get(0).text;
-		}
-	}
-
 	public CompoundTagParser copy() {
-		CompoundTagParser newParser = new CompoundTagParser(parser, name);
+		CompoundTagParser newParser = new CompoundTagParser(name);
 		newParser.setText(text);
 		for (CompoundTagParser parser : tagParsers) {
 			newParser.addParser(parser);
@@ -121,11 +93,38 @@ public class CompoundTagParser {
 		return newParser;
 	}
 
-	public void parse() throws XmlPullParserException, IOException {
-		parse("");
+	public void parse(XmlPullParser parser) throws XmlPullParserException,
+			IOException {
+		parse(parser, "");
+		int eventType = parser.getEventType();
+
+		while (eventType != XmlPullParser.END_DOCUMENT) {
+			if (eventType == XmlPullParser.START_DOCUMENT) {
+				name = null;
+			} else if (eventType == XmlPullParser.START_TAG) {
+				if (name == null) {
+					name = parser.getName();
+				} else {
+					CompoundTagParser newParser = new CompoundTagParser(
+							parser.getName());
+					parser.next();
+					newParser.parse(parser);
+					addParser(newParser);
+				}
+			} else if (eventType == XmlPullParser.TEXT) {
+				if (parser.getText().trim().length() > 0)
+					text += parser.getText();
+			} else if (eventType == XmlPullParser.END_TAG) {
+				if (parser.getName().compareTo(name) == 0) {
+					break;
+				}
+			}
+			eventType = parser.next();
+		}
 	}
 
-	public void parse(String target) throws XmlPullParserException, IOException {
+	public void parse(XmlPullParser parser, String target)
+			throws XmlPullParserException, IOException {
 
 		int eventType = parser.getEventType();
 
@@ -136,14 +135,13 @@ public class CompoundTagParser {
 				if (target.length() > 0) {
 					if (parser.getName().compareTo(getTopLevelTag(target)) == 0) {
 						name = getTopLevelTag(target);
-						enterChildTag(getRemainingTag(target));
+						enterChildTag(parser, getRemainingTag(target));
 					}
 				} else {
-					name = parser.getName();
-					CompoundTagParser newParser = new CompoundTagParser(parser,
+					CompoundTagParser newParser = new CompoundTagParser(
 							parser.getName());
 					parser.next();
-					newParser.parse();
+					newParser.parse(parser);
 					addParser(newParser);
 				}
 			} else if (eventType == XmlPullParser.TEXT) {
@@ -173,18 +171,17 @@ public class CompoundTagParser {
 	private String getRemainingTag(String target) {
 		if (target.indexOf(':') != -1) {
 			return target.substring(target.indexOf(':'), target.length())
-					.replaceFirst("\\:", "");
+					.replaceFirst(":", "");
 		} else {
 			return "";
 		}
 	}
 
-	private void enterChildTag(String target) throws XmlPullParserException,
-			IOException {
-		CompoundTagParser newParser = new CompoundTagParser(parser,
-				parser.getName());
+	private void enterChildTag(XmlPullParser parser, String target)
+			throws XmlPullParserException, IOException {
+		CompoundTagParser newParser = new CompoundTagParser(parser.getName());
 		parser.next();
-		newParser.parse(target);
+		newParser.parse(parser, target);
 		addParser(newParser);
 	}
 }
