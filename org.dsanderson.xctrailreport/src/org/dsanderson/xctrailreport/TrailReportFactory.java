@@ -53,7 +53,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	static TrailReportFactory factory = null;
 	Context context;
 	SkinnyskiFactory skinnyskiFactory;
-	BaseFeedParser parser = null;
+	TrailInfoParser parser = null;
 	CompoundReportRetriever reportRetriever = null;
 	UrlConnection netConnection = null;
 	TrailReportDecorator infoDecorator = null;
@@ -79,7 +79,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 */
 	public ITrailInfoParser getTrailInfoParser() {
 		if (parser == null) {
-			parser = new BaseFeedParser();
+			parser = new TrailInfoParser();
 		}
 		return parser;
 	}
