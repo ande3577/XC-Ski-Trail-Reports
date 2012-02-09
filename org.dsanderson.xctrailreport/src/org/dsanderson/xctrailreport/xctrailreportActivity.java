@@ -75,7 +75,9 @@ public class xctrailreportActivity extends ListActivity {
 
 	private List<TrailReport> loadTrailReports() throws Exception {
 
-		factory.getLocationSource().updateLocation();
+		if (factory.getUserSettings().getLocationEnabled())
+			factory.getLocationSource().updateLocation();
+
 		InputStream inputStream = getAssets().open("trail_info.xml");
 		trailReports = listCreator.getTrailReports(inputStream);
 		trailReports = listCreator.filterTrailReports(trailReports);
