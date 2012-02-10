@@ -8,14 +8,6 @@ import java.util.List;
 
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.ITrailInfoParser;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
-
-import android.sax.Element;
-import android.sax.EndElementListener;
-import android.sax.EndTextElementListener;
-import android.sax.RootElement;
-import android.util.Xml;
 
 public class TrailInfoParser implements ITrailInfoParser {
 	InputStream inputStream;

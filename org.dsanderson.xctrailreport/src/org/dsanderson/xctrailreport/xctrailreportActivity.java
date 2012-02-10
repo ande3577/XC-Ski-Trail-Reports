@@ -8,7 +8,6 @@ import org.dsanderson.xctrailreport.R;
 import org.dsanderson.xctrailreport.application.ReportListCreator;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiReportRetriever;
-import org.dsanderson.xctrailreport.skinnyski.SkinnyskiSettings;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;

@@ -26,9 +26,7 @@ import java.util.List;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IDistanceSource;
 import org.dsanderson.xctrailreport.core.INetConnection;
-import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
 
 /**
  * 
