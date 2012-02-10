@@ -51,10 +51,7 @@ public class CompoundXmlPullParser extends CompoundXmlParser {
 	@Override
 	public CompoundXmlPullParser copy() {
 		CompoundXmlPullParser newParser = new CompoundXmlPullParser(getName());
-		newParser.setText(getText());
-		for (CompoundXmlParser parser : getParsers()) {
-			newParser.addParser(parser);
-		}
+		copy(newParser, this);
 		return newParser;
 	}
 
@@ -78,22 +75,17 @@ public class CompoundXmlPullParser extends CompoundXmlParser {
 			if (eventType == XmlPullParser.START_DOCUMENT) {
 				setName(null);
 			} else if (eventType == XmlPullParser.START_TAG) {
-				if (target.length() > 0) {
-					if (parser.getName().compareTo(getTopLevelTag(target)) == 0) {
-						setName(getTopLevelTag(target));
-						enterChildTag(parser, getRemainingTag(target));
-					}
-				} else {
-					CompoundXmlPullParser newParser = new CompoundXmlPullParser(
-							parser.getName());
-					parser.next();
-					newParser.parse(parser, "");
-					addParser(newParser);
+				CompoundXmlPullParser newParser = new CompoundXmlPullParser(
+						parser.getName());
+				for (int i = 0; i < parser.getAttributeCount(); i++) {
+					newParser.addAttribute(parser.getAttributeName(i),
+							parser.getAttributeValue(i));
 				}
+				parser.next();
+				newParser.parse(parser, "");
+				addParser(newParser);
 			} else if (eventType == XmlPullParser.TEXT) {
-				if (!parser.isWhitespace()
-						&& (getName().compareTo(getTopLevelTag(target)) == 0 || target
-								.length() == 0))
+				if (!parser.isWhitespace())
 					setText(getText() + parser.getText());
 			} else if (eventType == XmlPullParser.END_TAG) {
 				if (parser.getName().compareTo(getName()) == 0) {
@@ -115,14 +107,7 @@ public class CompoundXmlPullParser extends CompoundXmlParser {
 	}
 
 	private void write(XmlSerializer serializer) throws Exception {
-		
+
 	}
 
-	private void enterChildTag(XmlPullParser parser, String target)
-			throws XmlPullParserException, IOException {
-		CompoundXmlPullParser newParser = new CompoundXmlPullParser(parser.getName());
-		parser.next();
-		newParser.parse(parser, target);
-		addParser(newParser);
-	}
 }

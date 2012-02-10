@@ -48,16 +48,16 @@ public class TrailInfoParser implements ITrailInfoParser {
 
 		for (CompoundXmlParser parser : trailInfoParser) {
 			TrailInfo info = new TrailInfo();
-			info.setName(parser.getText(NAME));
-			info.setCity(parser.getText(CITY));
-			info.setLocation(parser.getText(LOCATION));
-			info.setSkinnyskiSearchTerm(parser.getText(SKINNYSKI_SEARCH_TERM));
-			String indexString = parser.getText(SKINNYSKI_TRAIL_INDEX);
+			info.setName(parser.getValue(NAME));
+			info.setCity(parser.getValue(CITY));
+			info.setLocation(parser.getValue(LOCATION));
+			info.setSkinnyskiSearchTerm(parser.getValue(SKINNYSKI_SEARCH_TERM));
+			String indexString = parser.getValue(SKINNYSKI_TRAIL_INDEX);
 			if (indexString.length() > 0)
 				info.setskinnyskiTrailIndex(Integer.parseInt(indexString));
-			info.setState(parser.getText(STATE));
+			info.setState(parser.getValue(STATE));
 			info.setThreeRiversSearchTerm(parser
-					.getText(THREE_RIVERS_SEARCH_TERM));
+					.getValue(THREE_RIVERS_SEARCH_TERM));
 			trailInfo.add(info.copy());
 		}
 
