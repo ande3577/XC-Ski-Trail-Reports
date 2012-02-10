@@ -19,12 +19,16 @@
  */
 package org.dsanderson.xctrailreport;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 /**
  * 
@@ -84,6 +88,18 @@ public class CompoundTagParser {
 		return text;
 	}
 
+	public String getText(String name) {
+		if (name.length() == 0)
+			return getText();
+		else {
+			List<CompoundTagParser> parsers = getParsers(name);
+			if (parsers.size() == 0)
+				return null;
+			else
+				return parsers.get(0).text;
+		}
+	}
+
 	public CompoundTagParser copy() {
 		CompoundTagParser newParser = new CompoundTagParser(name);
 		newParser.setText(text);
@@ -93,37 +109,18 @@ public class CompoundTagParser {
 		return newParser;
 	}
 
-	public void parse(XmlPullParser parser) throws XmlPullParserException,
-			IOException {
-		parse(parser, "");
-		int eventType = parser.getEventType();
+	public void parse(Reader reader)
+			throws XmlPullParserException, IOException {
+		XmlPullParserFactory parserFactory = XmlPullParserFactory.newInstance();
+		parserFactory.setNamespaceAware(false);
+		XmlPullParser parser = parserFactory.newPullParser();
 
-		while (eventType != XmlPullParser.END_DOCUMENT) {
-			if (eventType == XmlPullParser.START_DOCUMENT) {
-				name = null;
-			} else if (eventType == XmlPullParser.START_TAG) {
-				if (name == null) {
-					name = parser.getName();
-				} else {
-					CompoundTagParser newParser = new CompoundTagParser(
-							parser.getName());
-					parser.next();
-					newParser.parse(parser);
-					addParser(newParser);
-				}
-			} else if (eventType == XmlPullParser.TEXT) {
-				if (parser.getText().trim().length() > 0)
-					text += parser.getText();
-			} else if (eventType == XmlPullParser.END_TAG) {
-				if (parser.getName().compareTo(name) == 0) {
-					break;
-				}
-			}
-			eventType = parser.next();
-		}
+		parser.setInput(reader);
+
+		parse(parser, "");
 	}
 
-	public void parse(XmlPullParser parser, String target)
+	private void parse(XmlPullParser parser, String target)
 			throws XmlPullParserException, IOException {
 
 		int eventType = parser.getEventType();
@@ -141,11 +138,13 @@ public class CompoundTagParser {
 					CompoundTagParser newParser = new CompoundTagParser(
 							parser.getName());
 					parser.next();
-					newParser.parse(parser);
+					newParser.parse(parser, "");
 					addParser(newParser);
 				}
 			} else if (eventType == XmlPullParser.TEXT) {
-				if (parser.getText().trim().length() > 0)
+				if (parser.getText().trim().length() > 0
+						&& name.compareTo(getTopLevelTag(target)) == 0
+						|| target.length() == 0)
 					text += parser.getText();
 			} else if (eventType == XmlPullParser.END_TAG) {
 				if (parser.getName().compareTo(name) == 0) {
@@ -153,10 +152,7 @@ public class CompoundTagParser {
 				}
 			}
 
-			if (target.length() > 0)
-				eventType = parser.nextTag();
-			else
-				eventType = parser.next();
+			eventType = parser.next();
 		}
 	}
 

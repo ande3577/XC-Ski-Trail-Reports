@@ -43,32 +43,29 @@ public class TrailInfoParser implements ITrailInfoParser {
 	}
 
 	public void parse() throws Exception {
-		XmlPullParserFactory parserFactory = XmlPullParserFactory.newInstance();
-		parserFactory.setNamespaceAware(false);
-		XmlPullParser parser = parserFactory.newPullParser();
-
-		parser.setInput(new BufferedReader(new InputStreamReader(inputStream)));
+		BufferedReader reader = new BufferedReader(new InputStreamReader(
+				inputStream));
 
 		CompoundTagParser tagParser = new CompoundTagParser();
-		tagParser.parse(parser, "");
+		tagParser.parse(reader);
 
-		List<CompoundTagParser> trailInfoParser = tagParser.getParsers();
+		List<CompoundTagParser> trailInfoParser = tagParser.getParsers("trailInfo:trail");
 
-		// for (CompoundTagParser parser : trailInfoParser) {
-		// TrailInfo info = new TrailInfo();
-		// info.setName(parser.getText(NAME));
-		// info.setCity(parser.getText(CITY));
-		// info.setLocation(parser.getText(LOCATION));
-		// info.setSkinnyskiSearchTerm(parser.getText(SKINNYSKI_SEARCH_TERM));
-		// String indexString = parser.getText(SKINNYSKI_TRAIL_INDEX);
-		// if (indexString.length() > 0)
-		// info.setskinnyskiTrailIndex(Integer.parseInt(indexString));
-		// info.setState(parser.getText(STATE));
-		// info.setThreeRiversSearchTerm(parser
-		// .getText(THREE_RIVERS_SEARCH_TERM));
-		// trailInfo.add(info.copy());
-		// }
-
+		for (CompoundTagParser parser : trailInfoParser) {
+			TrailInfo info = new TrailInfo();
+			info.setName(parser.getText(NAME));
+			info.setCity(parser.getText(CITY));
+			info.setLocation(parser.getText(LOCATION));
+			info.setSkinnyskiSearchTerm(parser.getText(SKINNYSKI_SEARCH_TERM));
+			String indexString = parser.getText(SKINNYSKI_TRAIL_INDEX);
+			if (indexString.length() > 0)
+				info.setskinnyskiTrailIndex(Integer.parseInt(indexString));
+			info.setState(parser.getText(STATE));
+			info.setThreeRiversSearchTerm(parser
+					.getText(THREE_RIVERS_SEARCH_TERM));
+			trailInfo.add(info.copy());
+		}
+		
 	}
 
 	public List<TrailInfo> getTrailInfo() {
