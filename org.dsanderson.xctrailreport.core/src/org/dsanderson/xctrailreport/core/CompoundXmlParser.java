@@ -33,7 +33,7 @@ public abstract class CompoundXmlParser {
 	private List<CompoundXmlParser> tagParsers = new ArrayList<CompoundXmlParser>();
 	private List<Attribute> attributes = new ArrayList<CompoundXmlParser.Attribute>();
 
-	private class Attribute {
+	protected class Attribute {
 		public final String name;
 		public final String value;
 
@@ -158,6 +158,10 @@ public abstract class CompoundXmlParser {
 			else
 				return parsers.get(0).text;
 		}
+	}
+	
+	protected List<Attribute> getAttributes() {
+		return attributes;
 	}
 
 	protected String getTopLevelTag(String target) {

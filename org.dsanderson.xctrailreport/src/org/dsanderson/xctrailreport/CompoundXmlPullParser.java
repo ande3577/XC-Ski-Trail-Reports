@@ -103,11 +103,23 @@ public class CompoundXmlPullParser extends CompoundXmlParser {
 		XmlSerializer serializer = parserFactory.newSerializer();
 
 		serializer.setOutput(writer);
+		serializer.startDocument("UTF-8", true);
 		write(serializer);
 	}
 
 	private void write(XmlSerializer serializer) throws Exception {
-
+		String name = getName();
+		if (name != null)
+			serializer.startTag("", name);
+		for (Attribute attribute : getAttributes()) {
+			serializer.attribute("", attribute.name, attribute.value);
+		}
+		serializer.text(getText());
+		for (CompoundXmlParser child : getParsers()) {
+			((CompoundXmlPullParser) child).write(serializer);
+		}
+		if (name != null)
+			serializer.endTag("", name);
 	}
 
 }
