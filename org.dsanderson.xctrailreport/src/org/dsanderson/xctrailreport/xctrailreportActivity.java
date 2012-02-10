@@ -1,6 +1,5 @@
 package org.dsanderson.xctrailreport;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +36,10 @@ public class xctrailreportActivity extends ListActivity {
 	private SkinnyskiFactory skinnyskiFactory = new SkinnyskiFactory(this);
 	private TrailReportFactory factory = new TrailReportFactory(this,
 			skinnyskiFactory);
-	ReportListCreator listCreator = new ReportListCreator(factory);
+	TrailReportReaderFactory trailReportReaderFactory = new TrailReportReaderFactory(
+			this);
+	ReportListCreator listCreator = new ReportListCreator(factory,
+			trailReportReaderFactory);
 
 	/** Called when the activity is first created. */
 	@Override
@@ -51,7 +53,11 @@ public class xctrailreportActivity extends ListActivity {
 			@SuppressWarnings("unchecked")
 			final List<TrailReport> savedTrailReports = (List<TrailReport>) getLastNonConfigurationInstance();
 			if (savedTrailReports == null) {
-				refresh();
+				try {
+					listCreator.loadSavedReports(trailReports);
+				} catch (Exception e) {
+					refresh();
+				}
 			} else {
 				trailReports = new ArrayList<TrailReport>();
 				for (TrailReport report : savedTrailReports) {
@@ -78,9 +84,11 @@ public class xctrailreportActivity extends ListActivity {
 		if (factory.getUserSettings().getLocationEnabled())
 			factory.getLocationSource().updateLocation();
 
-		InputStream inputStream = getAssets().open("trail_info.xml");
-		trailReports = listCreator.getTrailReports(inputStream);
-		trailReports = listCreator.filterTrailReports(trailReports);
+		try {
+			trailReports = listCreator.getTrailReports();
+		} catch (Exception e) {
+			throw e;
+		}
 
 		if (trailReports.isEmpty())
 			throw new RuntimeException("No reports found.");

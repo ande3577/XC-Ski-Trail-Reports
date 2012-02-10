@@ -19,7 +19,6 @@
  */
 package org.dsanderson.xctrailreport;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +26,6 @@ import org.dsanderson.xctrailreport.core.CompoundXmlParser;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IDistanceSource;
 import org.dsanderson.xctrailreport.core.INetConnection;
-import org.xmlpull.v1.XmlPullParserException;
 
 /**
  * 

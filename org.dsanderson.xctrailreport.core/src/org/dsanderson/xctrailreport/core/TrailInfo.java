@@ -78,6 +78,10 @@ public class TrailInfo {
 		this.skinnyskiTrailIndex = skinnyskiTrailIndex;
 	}
 
+	public int getskinnyskiTrailIndex() {
+		return skinnyskiTrailIndex;
+	}
+
 	public String getSkinnySkiUrl() {
 		if (skinnyskiTrailIndex < 0)
 			return "";

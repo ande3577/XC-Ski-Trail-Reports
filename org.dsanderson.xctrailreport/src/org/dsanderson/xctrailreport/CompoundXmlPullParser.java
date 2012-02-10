@@ -22,8 +22,6 @@ package org.dsanderson.xctrailreport;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.dsanderson.xctrailreport.core.CompoundXmlParser;
 import org.xmlpull.v1.XmlPullParser;
@@ -45,7 +43,12 @@ public class CompoundXmlPullParser extends CompoundXmlParser {
 	}
 
 	public CompoundXmlPullParser(String name, String text) {
-		super(text);
+		super(name, text);
+	}
+
+	@Override
+	public void addParser(String name, String text) {
+		addParser(new CompoundXmlPullParser(name, text));
 	}
 
 	@Override
@@ -105,6 +108,7 @@ public class CompoundXmlPullParser extends CompoundXmlParser {
 		serializer.setOutput(writer);
 		serializer.startDocument("UTF-8", true);
 		write(serializer);
+		serializer.endDocument();
 	}
 
 	private void write(XmlSerializer serializer) throws Exception {
@@ -114,7 +118,10 @@ public class CompoundXmlPullParser extends CompoundXmlParser {
 		for (Attribute attribute : getAttributes()) {
 			serializer.attribute("", attribute.name, attribute.value);
 		}
-		serializer.text(getText());
+		String text = getText();
+		if (text != null)
+			serializer.text(text);
+
 		for (CompoundXmlParser child : getParsers()) {
 			((CompoundXmlPullParser) child).write(serializer);
 		}

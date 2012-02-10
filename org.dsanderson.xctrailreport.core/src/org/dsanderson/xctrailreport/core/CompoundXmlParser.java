@@ -62,6 +62,7 @@ public abstract class CompoundXmlParser {
 
 	public CompoundXmlParser(String name, String text) {
 		this.name = name;
+		this.text = text;
 	}
 
 	public void setName(String name) {
@@ -71,7 +72,7 @@ public abstract class CompoundXmlParser {
 	public String getName() {
 		return name;
 	}
-	
+
 	public void addAttribute(String name, String value) {
 		attributes.add(new Attribute(name, value));
 	}
@@ -79,6 +80,8 @@ public abstract class CompoundXmlParser {
 	public void addParser(CompoundXmlParser parser) {
 		tagParsers.add(parser.copy());
 	}
+
+	public abstract void addParser(String name, String text);
 
 	public String getAttribute(String name) {
 		String topLevelTag = getTopLevelTag(name);
@@ -99,17 +102,17 @@ public abstract class CompoundXmlParser {
 			return null;
 		}
 	}
-	
+
 	public String getValue(String name) {
-		String attributeValue  = getAttribute(name);
+		String attributeValue = getAttribute(name);
 		if (attributeValue != null)
 			return attributeValue;
-		
+
 		List<CompoundXmlParser> parsers = getParsers(name);
 		if (parsers.size() > 0) {
 			return parsers.get(0).getText();
 		}
-		
+
 		return null;
 	}
 
@@ -159,7 +162,7 @@ public abstract class CompoundXmlParser {
 				return parsers.get(0).text;
 		}
 	}
-	
+
 	protected List<Attribute> getAttributes() {
 		return attributes;
 	}

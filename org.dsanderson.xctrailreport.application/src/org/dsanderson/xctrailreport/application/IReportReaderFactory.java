@@ -17,20 +17,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.core;
+package org.dsanderson.xctrailreport.application;
 
-import java.io.InputStream;
-import java.util.List;
+import java.io.Reader;
+import java.io.Writer;
 
 /**
  * 
  */
-public interface ITrailInfoParser {
-	
-	public abstract void parse() throws Exception;
-	
-	public abstract void SetInputStream(InputStream inputStream) throws Exception;
-	
-	public abstract List<TrailInfo> getTrailInfo() throws Exception;
+public interface IReportReaderFactory {
+	public Reader newDefaultTrailInfoReader() throws Exception;
+
+	public Reader newSavedTrailInfoReader() throws Exception;
+
+	public Writer newSavedTrailInfoWriter() throws Exception;
+
+	public Reader newSavedTrailReportReader() throws Exception;
+
+	public Writer newSavedTrailReportWriter() throws Exception;
 
 }

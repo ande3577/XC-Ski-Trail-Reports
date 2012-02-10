@@ -32,9 +32,10 @@ import org.dsanderson.xctrailreport.core.ILocationSource;
 import org.dsanderson.xctrailreport.core.INetConnection;
 import org.dsanderson.xctrailreport.core.IReportFilter;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
-import org.dsanderson.xctrailreport.core.ITrailInfoParser;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
+import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.TrailReportDecorator;
+import org.dsanderson.xctrailreport.core.TrailReportParser;
 import org.dsanderson.xctrailreport.core.UserSettings;
 import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
 import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
@@ -53,13 +54,11 @@ public class TrailReportFactory implements IAbstractFactory {
 	static TrailReportFactory factory = null;
 	Context context;
 	SkinnyskiFactory skinnyskiFactory;
-	TrailInfoParser parser = null;
 	CompoundReportRetriever reportRetriever = null;
 	UrlConnection netConnection = null;
 	TrailReportDecorator infoDecorator = null;
 	TrailReportDecorator reportDecorator = null;
 	LocationSource locationSource = null;
-	DistanceSource directionsSource = null;
 	UserSettings userSettings = null;
 	UserSettingsSource settingsSource = null;
 	LocationCoder locationCoder = null;
@@ -77,11 +76,18 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * @see
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoParser()
 	 */
-	public ITrailInfoParser getTrailInfoParser() {
-		if (parser == null) {
-			parser = new TrailInfoParser();
-		}
-		return parser;
+	public TrailInfoParser newTrailInfoParser() {
+		return new TrailInfoParser(CompoundXmlPullParserFactory.getInstance());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#newTrailReportParser()
+	 */
+	public TrailReportParser newTrailReportParser() {
+		return new TrailReportParser(CompoundXmlPullParserFactory.getInstance());
 	}
 
 	/*
@@ -164,10 +170,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getDirectionsSource()
 	 */
 	public IDistanceSource getDistanceSource() {
-		if (directionsSource == null) {
-			directionsSource = new DistanceSource(this);
-		}
-		return directionsSource;
+		return new DistanceSource(this);
 	}
 
 	/*
@@ -221,7 +224,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getFilter()
 	 */
-	public IReportFilter getFilter() {
+	public IReportFilter newFilter() {
 		CompoundFilter filter = new CompoundFilter();
 		if (userSettings.getDistanceFilterEnabled())
 			filter.add(new DistanceFilter(userSettings.getFilterDistance()));
@@ -239,8 +242,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getLocationCoder()
 	 */
 	public ILocationCoder getLocationCoder() {
-		if (locationCoder == null)
-			locationCoder = new LocationCoder(context);
-		return locationCoder;
+		return new LocationCoder(context);
 	}
+
 }

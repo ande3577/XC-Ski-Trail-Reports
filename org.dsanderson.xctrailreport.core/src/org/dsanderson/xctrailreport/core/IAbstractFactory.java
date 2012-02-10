@@ -24,7 +24,9 @@ package org.dsanderson.xctrailreport.core;
  */
 public interface IAbstractFactory {
 
-	public ITrailInfoParser getTrailInfoParser();
+	public TrailInfoParser newTrailInfoParser();
+	
+	public TrailReportParser newTrailReportParser();
 
 	public INetConnection getNetConnection();
 
@@ -46,8 +48,9 @@ public interface IAbstractFactory {
 
 	public UserSettings getUserSettings();
 	
-	public IReportFilter getFilter();
+	public IReportFilter newFilter();
 	
 	public ILocationCoder getLocationCoder();
+	
 	
 }

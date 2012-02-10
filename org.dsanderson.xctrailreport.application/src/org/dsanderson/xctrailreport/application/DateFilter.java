@@ -54,7 +54,8 @@ public class DateFilter implements IReportFilter {
 		Date currentDate = new Date();
 		long age = currentDate.getTime() - report.getDate().getDate().getTime();
 		double ageDays = Units.millisecondsToDays(age);
-		return (Math.floor(ageDays) <= (double) cutoff);
+		// add one to assume report was filed at 11:59 PM
+		return (Math.floor(ageDays) <= (double) cutoff + 1);
 	}
 
 }
