@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dsanderson.xctrailreport.core.CompoundXmlParser;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IDistanceSource;
 import org.dsanderson.xctrailreport.core.INetConnection;
@@ -126,16 +127,16 @@ public class DistanceSource implements IDistanceSource {
 		return length;
 	}
 
-	private void parseXmlResponse(INetConnection connection)
-			throws XmlPullParserException, IOException {
-		CompoundTagParser tagParser = new CompoundTagParser();
+	private void parseXmlResponse(INetConnection connection) throws Exception {
+		CompoundXmlParser tagParser = CompoundXmlPullParserFactory
+				.getInstance().newParser();
 		tagParser.parse(connection.getReader());
 
 		if (tagParser.getParsers("DistanceMatrixResponse:status").get(0)
 				.getText().compareTo("OK") == 0) {
-			List<CompoundTagParser> elementParsers = tagParser
+			List<CompoundXmlParser> elementParsers = tagParser
 					.getParsers("DistanceMatrixResponse:row:element");
-			for (CompoundTagParser element : elementParsers) {
+			for (CompoundXmlParser element : elementParsers) {
 				valids.add(element.getParsers("status").get(0).getText()
 						.compareTo("OK") == 0);
 				String distanceText = element.getParsers("distance:value")

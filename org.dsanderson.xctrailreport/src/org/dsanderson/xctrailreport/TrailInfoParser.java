@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dsanderson.xctrailreport.core.CompoundXmlParser;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.ITrailInfoParser;
 
@@ -38,12 +39,14 @@ public class TrailInfoParser implements ITrailInfoParser {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				inputStream));
 
-		CompoundTagParser tagParser = new CompoundTagParser();
+		CompoundXmlParser tagParser = CompoundXmlPullParserFactory
+				.getInstance().newParser();
 		tagParser.parse(reader);
 
-		List<CompoundTagParser> trailInfoParser = tagParser.getParsers("trailInfo:trail");
+		List<CompoundXmlParser> trailInfoParser = tagParser
+				.getParsers("trailInfo:trail");
 
-		for (CompoundTagParser parser : trailInfoParser) {
+		for (CompoundXmlParser parser : trailInfoParser) {
 			TrailInfo info = new TrailInfo();
 			info.setName(parser.getText(NAME));
 			info.setCity(parser.getText(CITY));
@@ -57,7 +60,7 @@ public class TrailInfoParser implements ITrailInfoParser {
 					.getText(THREE_RIVERS_SEARCH_TERM));
 			trailInfo.add(info.copy());
 		}
-		
+
 	}
 
 	public List<TrailInfo> getTrailInfo() {
