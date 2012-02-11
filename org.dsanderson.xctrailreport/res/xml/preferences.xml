@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
     <PreferenceCategory android:title="Display Options"><ListPreference android:title="Sort By:" android:entryValues="@array/sortMethods" android:entries="@array/sortMethodNames" android:key="sortMethod" android:defaultValue="sortByDate" android:dialogTitle="Sort By:"/>
+    
             
         
 </PreferenceCategory><PreferenceCategory android:title="Location Settings">
@@ -25,6 +26,9 @@
                 <ListPreference android:entryValues="@array/autoRefreshValues" android:entries="@array/autoRefreshTitles" android:defaultValue="ifOutOfDate" android:dialogTitle="Refresh Mode" android:title="Auto Refresh Mode" android:key="autoRefreshMode"/>
                 <EditTextPreference android:defaultValue="2" android:title="Valid Age Cutoff (hours)" android:numeric="decimal" android:inputType="numberDecimal" android:summary="Will not download reports on startup if cache is newer than this." android:key="autoRefreshCutoff"/>
             </PreferenceCategory>
+            <PreferenceCategory android:title="Restore Defaults"><Preference android:title="Restore Factory Defaults" android:shouldDisableView="false" android:key="restoreDefaults" android:summary="Revert all configuration options to preconfigured values." />
+</PreferenceCategory>
+            
     
 
 </PreferenceScreen>

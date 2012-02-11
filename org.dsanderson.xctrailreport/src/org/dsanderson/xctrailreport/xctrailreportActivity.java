@@ -12,12 +12,17 @@ import org.dsanderson.xctrailreport.skinnyski.SkinnyskiReportRetriever;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.DialogInterface.OnClickListener;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.text.format.Time;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -49,6 +54,9 @@ public class xctrailreportActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		PreferenceManager.getDefaultSharedPreferences(this)
+				.registerOnSharedPreferenceChangeListener(listener);
+
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
 			skinnyskiFactory.getSkinnyskiSettingsSource().loadUserSettings();
@@ -67,6 +75,37 @@ public class xctrailreportActivity extends ListActivity {
 		// refresh();
 	}
 
+	private OnSharedPreferenceChangeListener listener = new OnSharedPreferenceChangeListener() {
+
+		public void onSharedPreferenceChanged(
+				SharedPreferences sharedPreferences, String key) {
+			if (key.equals("restoreDefaults")) {
+				AlertDialog dialog = new AlertDialog.Builder(
+						getApplicationContext()).create();
+				dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
+						clickListener);
+				dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
+						clickListener);
+				dialog.show();
+			}
+
+		}
+	};
+
+	private OnClickListener clickListener = new OnClickListener() {
+		
+		public void onClick(DialogInterface dialog, int which) {
+			switch (which) {
+			case AlertDialog.BUTTON_POSITIVE:
+				break;
+			case AlertDialog.BUTTON_NEGATIVE:
+				break;
+			}
+
+			dialog.dismiss();
+		}
+	};
+
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
@@ -79,7 +118,8 @@ public class xctrailreportActivity extends ListActivity {
 
 		try {
 			trailReports = new ArrayList<TrailReport>();
-			trailReports = listCreator.getTrailReports(trailReports, forcedRefresh);
+			trailReports = listCreator.getTrailReports(trailReports,
+					forcedRefresh);
 		} catch (Exception e) {
 			throw e;
 		} finally {
