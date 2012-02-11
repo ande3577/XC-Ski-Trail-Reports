@@ -50,6 +50,7 @@ public class CityStateDecorator extends TrailReportDecorator {
 		text += trailInfo.getState();
 
 		newTextItem.setText(text);
+		newTextItem.setColor("darkgray");
 		newTextItem.setBackgroundColor(newTextItem.getTitleBackgroundColor());
 
 		if (next() != null) {

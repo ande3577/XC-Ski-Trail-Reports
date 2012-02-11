@@ -155,6 +155,6 @@ public class TextItem implements ITextItem {
 	 * org.dsanderson.xctrailreport.core.ITextItem#getTitleBackgroundColor()
 	 */
 	public int getTitleBackgroundColor() {
-		return Color.rgb(0x81, 0x73, 0x39);
+		return Color.rgb(0xE3, 0xDA, 0xC9);
 	}
 }
