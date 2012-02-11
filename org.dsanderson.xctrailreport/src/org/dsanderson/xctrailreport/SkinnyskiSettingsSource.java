@@ -55,8 +55,12 @@ public class SkinnyskiSettingsSource implements IUserSettingsSource {
 			if ((index = findRegionKey(key)) < regionKeys.length) {
 				boolean enabled = sharedPreferences.getBoolean(key,
 						key.compareTo(regionKeys[0]) == 0);
-				HandleRegionValue(RegionManager.supportedRegions[index],
-						enabled);
+				try {
+					HandleRegionValue(RegionManager.supportedRegions[index],
+							enabled);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
 
@@ -73,7 +77,13 @@ public class SkinnyskiSettingsSource implements IUserSettingsSource {
 		for (int i = 0; i < regionKeys.length; i++) {
 			// only first region is enabled by default
 			boolean enabled = preference.getBoolean(regionKeys[i], i == 0);
-			HandleRegionValue(RegionManager.supportedRegions[i], enabled);
+			try {
+				HandleRegionValue(RegionManager.supportedRegions[i], enabled);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+
 		}
 	}
 
@@ -87,7 +97,8 @@ public class SkinnyskiSettingsSource implements IUserSettingsSource {
 		// nothing to do, saved by preferences menu
 	}
 
-	private void HandleRegionValue(String name, boolean enabled) {
+	private void HandleRegionValue(String name, boolean enabled)
+			throws Exception {
 		if (enabled)
 			settings.getRegions().add(name);
 		else

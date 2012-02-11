@@ -26,18 +26,22 @@ import org.dsanderson.xctrailreport.skinnyski.RegionManager;
  */
 public class RegionListTest {
 	public static void main(String[] args) {
-		RegionManager regions = new RegionManager();
+		try {
+			RegionManager regions = new RegionManager();
 
-		System.out.println("Adding regions:");
-		regions.add("Minnesota Northwest");
-		regions.add("Minnesota Metro Area");
-		regions.add("Michigan Upper Peninsula");
+			System.out.println("Adding regions:");
+			regions.add("Minnesota Northwest");
+			regions.add("Minnesota Metro Area");
+			regions.add("Michigan Upper Peninsula");
 
-		printRegions(regions);
-		
-		System.out.println("Removing region:");
-		regions.remove("Minnesota Northwest");
-		printRegions(regions);
+			printRegions(regions);
+
+			System.out.println("Removing region:");
+			regions.remove("Minnesota Northwest");
+			printRegions(regions);
+		} catch (Exception e) {
+			System.err.println(e);
+		}
 
 	}
 

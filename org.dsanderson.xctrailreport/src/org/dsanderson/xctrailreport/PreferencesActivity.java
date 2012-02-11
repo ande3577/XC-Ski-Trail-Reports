@@ -19,11 +19,16 @@
  */
 package org.dsanderson.xctrailreport;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 
 /**
  * 
@@ -33,33 +38,57 @@ public class PreferencesActivity extends PreferenceActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.preferences);
-		Preference sources = findPreference("sources");
-		sources.setOnPreferenceClickListener(sourceClickListener);
-
-		Preference regions = findPreference("regions");
-		regions.setOnPreferenceClickListener(regionClickListener);
-
+		PreferenceManager.setDefaultValues(PreferencesActivity.this,
+				R.xml.preferences, false);
 	}
 
-	private OnPreferenceClickListener sourceClickListener = new OnPreferenceClickListener() {
+	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
+			final Preference preference) {
 
-		public boolean onPreferenceClick(Preference pref) {
+		if (preference.getKey().equals("restoreDefaults")) {
 
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+			builder.setMessage("Your Message");
+
+			builder.setPositiveButton("Yes", onRestoreDefaultsClickListener);
+			builder.setNegativeButton("No", onRestoreDefaultsClickListener);
+
+			builder.show();
+
+		} else if (preference.getKey().equals("sources")) {
 			Intent i = new Intent(getApplicationContext(), SourceActivity.class);
 			startActivity(i);
 			return false;
-		}
-
-	};
-
-	private OnPreferenceClickListener regionClickListener = new OnPreferenceClickListener() {
-
-		public boolean onPreferenceClick(Preference pref) {
+		} else if (preference.getKey().equals("regions")) {
 			Intent i = new Intent(getApplicationContext(), RegionActivity.class);
 			startActivity(i);
 			return false;
 		}
+		return true;
+	}
 
+	private OnClickListener onRestoreDefaultsClickListener = new OnClickListener() {
+
+		public void onClick(DialogInterface dialog, int which) {
+			if (which == DialogInterface.BUTTON_POSITIVE) {
+				Editor editor = PreferenceManager.getDefaultSharedPreferences(
+						getApplication()).edit();
+				editor.clear();
+				editor.commit();
+				PreferenceManager.setDefaultValues(PreferencesActivity.this,
+						R.xml.preferences, true);
+
+				Intent intent = getIntent();
+				overridePendingTransition(0, 0);
+				intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+				finish();
+
+				overridePendingTransition(0, 0);
+				startActivity(intent);
+
+			}
+		}
 	};
-	
+
 }

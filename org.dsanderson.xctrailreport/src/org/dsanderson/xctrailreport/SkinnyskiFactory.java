@@ -44,9 +44,13 @@ public class SkinnyskiFactory {
 
 	public SkinnyskiSettings getSkinnySkiSettings() {
 		if (skinnyskiSettings == null) {
-			skinnyskiSettings = new SkinnyskiSettings();
-			RegionManager regions = skinnyskiSettings.getRegions();
-			regions.add("Minnesota Metro Area");
+			try {
+				skinnyskiSettings = new SkinnyskiSettings();
+				RegionManager regions = skinnyskiSettings.getRegions();
+				regions.add("Minnesota Metro Area");
+			} catch (Exception e) {
+				return null;
+			}
 		}
 
 		return skinnyskiSettings;

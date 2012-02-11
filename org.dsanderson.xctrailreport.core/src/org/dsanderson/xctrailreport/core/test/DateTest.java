@@ -35,16 +35,20 @@ public class DateTest {
 	 */
 	public static void main(String[] args) {
 
-		List<ReportDate> dates = new ArrayList<ReportDate>();
-		dates.add(new ReportDate("Mar", 6, 2012));
-		dates.add(new ReportDate());
-		dates.add(new ReportDate("Feb", 4, 2012));
-		dates.add(new ReportDate("May", 23, 2011));
-		dates.add(new ReportDate("Mar 23"));
-		Collections.sort(dates);
+		try {
+			List<ReportDate> dates = new ArrayList<ReportDate>();
+			dates.add(new ReportDate("Mar", 6, 2012));
+			dates.add(new ReportDate());
+			dates.add(new ReportDate("Feb", 4, 2012));
+			dates.add(new ReportDate("May", 23, 2011));
+			dates.add(new ReportDate("Mar 23"));
+			Collections.sort(dates);
 
-		for (ReportDate date : dates)
-			System.out.println(date.formatDate());
+			for (ReportDate date : dates)
+				System.out.println(date.formatDate());
+		} catch (Exception e) {
+			System.err.println(e);
+		}
 	}
 
 }

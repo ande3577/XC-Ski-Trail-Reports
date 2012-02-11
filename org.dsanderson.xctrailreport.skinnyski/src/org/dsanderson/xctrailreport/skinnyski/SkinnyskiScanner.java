@@ -60,7 +60,7 @@ public class SkinnyskiScanner {
 		return false;
 	}
 
-	public boolean scanRegion() {
+	public boolean scanRegion() throws Exception {
 		if (!endOfRegion()) {
 			scanSingleReport();
 			return true;
@@ -80,7 +80,7 @@ public class SkinnyskiScanner {
 		return true;
 	}
 
-	private void scanSingleReport() {
+	private void scanSingleReport() throws Exception {
 		trailReport = new TrailReport();
 		trailInfo = new TrailInfo();
 
@@ -92,7 +92,7 @@ public class SkinnyskiScanner {
 		scanDetailedAndAuthor();
 	}
 
-	private void scanDate() {
+	private void scanDate() throws Exception {
 		String date;
 		while ((date = scan("\\<b\\>", "-", ".*")) == null)
 			scanner.nextLine();

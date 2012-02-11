@@ -142,6 +142,7 @@ public class TrailInfo {
 		newCopy.skinnyskiTrailIndex = skinnyskiTrailIndex;
 		newCopy.threeRiversSearchTerm = threeRiversSearchTerm;
 		newCopy.distance = distance;
+		newCopy.travelTime = travelTime;
 		newCopy.directionsValid = directionsValid;
 
 		return newCopy;

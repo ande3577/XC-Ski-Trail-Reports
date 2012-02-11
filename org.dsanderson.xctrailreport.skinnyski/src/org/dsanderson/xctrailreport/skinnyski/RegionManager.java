@@ -47,12 +47,12 @@ public class RegionManager {
 		regions.clear();
 	}
 
-	public void add(String region) {
+	public void add(String region) throws Exception {
 		// don't do anything if already in list
 		if (!regions.contains(region)) {
 			int supportedIndex = findSupportedIndex(region);
 			if (supportedIndex == supportedRegions.length)
-				throw new RuntimeException("Invalid region : " + region);
+				throw new Exception("Invalid region : " + region);
 			for (int i = 0; i < regions.size(); i++) {
 				if (supportedIndex < findSupportedIndex(regions.get(i))) {
 					regions.add(i, region);

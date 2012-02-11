@@ -44,19 +44,19 @@ public class ReportDate implements Comparable<ReportDate> {
 	 * @brief Creates a new date object based on string of format "MM d"
 	 * @param dateString
 	 */
-	public ReportDate(String dateString) {
+	public ReportDate(String dateString) throws Exception {
 		Scanner scanner = new Scanner(dateString);
 		String month;
 		if (scanner.hasNext())
 			month = scanner.next();
 		else
-			throw new RuntimeException("Invalid date string: " + dateString);
+			throw new Exception("Invalid date string: " + dateString);
 
 		int day;
 		if (scanner.hasNextInt())
 			day = scanner.nextInt();
 		else
-			throw new RuntimeException("Invalid date string: " + dateString);
+			throw new Exception("Invalid date string: " + dateString);
 
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(Calendar.MONTH, lookupMonth(month));
@@ -80,7 +80,7 @@ public class ReportDate implements Comparable<ReportDate> {
 	 * @param day
 	 * @param year
 	 */
-	public ReportDate(String month, int day, int year) throws RuntimeException {
+	public ReportDate(String month, int day, int year) throws Exception {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(year, lookupMonth(month), day);
 		date = calendar.getTime();
@@ -105,7 +105,7 @@ public class ReportDate implements Comparable<ReportDate> {
 		return date.compareTo(o.getDate());
 	}
 
-	private int lookupMonth(String month) throws RuntimeException {
+	private int lookupMonth(String month) throws Exception {
 		Integer monthInt = null;
 		int i = 0;
 		for (String str : monthStrings) {
@@ -117,7 +117,7 @@ public class ReportDate implements Comparable<ReportDate> {
 		}
 
 		if (monthInt == null) {
-			throw new RuntimeException("Invalid month: " + month);
+			throw new Exception("Invalid month: " + month);
 		}
 		return monthInt;
 	}

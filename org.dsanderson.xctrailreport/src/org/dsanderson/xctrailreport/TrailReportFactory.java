@@ -196,6 +196,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getErrorDialog()
 	 */
 	public IDialog newDialog(Exception e) {
+		e.printStackTrace();
 		Dialog dialog = new Dialog(context, e);
 		return dialog;
 	}

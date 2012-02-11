@@ -22,7 +22,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
-import android.preference.PreferenceManager;
 import android.text.format.Time;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -54,9 +53,6 @@ public class xctrailreportActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		PreferenceManager.getDefaultSharedPreferences(this)
-				.registerOnSharedPreferenceChangeListener(listener);
-
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
 			skinnyskiFactory.getSkinnyskiSettingsSource().loadUserSettings();
@@ -74,37 +70,6 @@ public class xctrailreportActivity extends ListActivity {
 
 		// refresh();
 	}
-
-	private OnSharedPreferenceChangeListener listener = new OnSharedPreferenceChangeListener() {
-
-		public void onSharedPreferenceChanged(
-				SharedPreferences sharedPreferences, String key) {
-			if (key.equals("restoreDefaults")) {
-				AlertDialog dialog = new AlertDialog.Builder(
-						getApplicationContext()).create();
-				dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
-						clickListener);
-				dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
-						clickListener);
-				dialog.show();
-			}
-
-		}
-	};
-
-	private OnClickListener clickListener = new OnClickListener() {
-		
-		public void onClick(DialogInterface dialog, int which) {
-			switch (which) {
-			case AlertDialog.BUTTON_POSITIVE:
-				break;
-			case AlertDialog.BUTTON_NEGATIVE:
-				break;
-			}
-
-			dialog.dismiss();
-		}
-	};
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
@@ -126,13 +91,10 @@ public class xctrailreportActivity extends ListActivity {
 			forcedRefresh = false;
 		}
 
-		if (trailReports.isEmpty())
-			throw new RuntimeException("No reports found.");
-
 		return trailReports;
 	}
 
-	private void printTrailReports() {
+	private void printTrailReports() throws Exception {
 		Date lastRefreshDate = trailReportReaderFactory
 				.getReportsRefreshedDate();
 		String titleString = ProgramInfo.shortName;
@@ -144,9 +106,6 @@ public class xctrailreportActivity extends ListActivity {
 		setTitle(titleString);
 
 		trailReports = listCreator.sortTrailReports(trailReports);
-
-		if (trailReports.isEmpty())
-			throw new RuntimeException("No reports found.");
 
 		this.setListAdapter(new TrailInfoAdapter(this, R.layout.row,
 				trailReports));
@@ -255,9 +214,13 @@ public class xctrailreportActivity extends ListActivity {
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);
+		try {
 		if (hasFocus && trailReports != null
 				&& factory.getUserSettings().getRedrawNeeded())
 			printTrailReports();
+		} catch (Exception e) {
+			factory.newDialog(e);
+		}
 	}
 
 	@Override
@@ -307,6 +270,8 @@ public class xctrailreportActivity extends ListActivity {
 			try {
 				Looper.prepare();
 				trailReports = loadTrailReports();
+				if (trailReports.isEmpty())
+					throw new Exception("No reports found.");
 			} catch (Exception e) {
 				this.e = e;
 			}
