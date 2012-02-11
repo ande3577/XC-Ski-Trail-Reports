@@ -134,7 +134,20 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 	 * getReportsRefreshedDate()
 	 */
 	public Date getReportsRefreshedDate() {
-		return modifiedDate;
+		if (modifiedDate != null) {
+			return modifiedDate;
+		} else {
+			String filePath = context.getExternalCacheDir()
+					+ "/saved_trail_reports.xml";
+			if (externalReadAccess()) {
+				File file = new File(filePath);
+				if (file != null) {
+					modifiedDate = new Date(file.lastModified());
+					return modifiedDate;
+				}
+			}
+		}
+		return null;
 	}
 
 	public void setReportsRefreshedDate(Date date) {

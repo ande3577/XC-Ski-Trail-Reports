@@ -33,6 +33,8 @@ import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.TrailReportParser;
+import org.dsanderson.xctrailreport.core.UserSettings;
+import org.dsanderson.xctrailreport.core.UserSettings.AutoRefreshMode;
 
 /**
  * 
@@ -48,8 +50,64 @@ public class ReportListCreator {
 		this.readerFactory = readerFactory;
 	}
 
-	public void loadSavedReports(List<TrailReport> trailReports)
-			throws Exception {
+	public List<TrailReport> getTrailReports(List<TrailReport> trailReports,
+			boolean forced) throws Exception {
+		boolean refreshNeeded = forced;
+
+		UserSettings settings = factory.getUserSettings();
+
+		if (settings.getAutoRefreshMode() == AutoRefreshMode.ALWAYS)
+			refreshNeeded = true;
+
+		if (!refreshNeeded
+				&& settings.getAutoRefreshMode() == AutoRefreshMode.IF_OUT_OF_DATE) {
+			Date lastModified = readerFactory.getReportsRefreshedDate();
+			if (lastModified == null
+					|| (new Date()).getTime() - lastModified.getTime() > factory
+							.getUserSettings().getAutoRefreshCutoff())
+				refreshNeeded = true;
+		}
+
+		try {
+			loadSavedReports(trailReports, refreshNeeded);
+		} catch (Exception e) {
+			refreshNeeded = true;
+		}
+
+		if (refreshNeeded) {
+			// / restore the list of default trail listings we got at startup
+			List<TrailInfo> trailInfos = new ArrayList<TrailInfo>();
+			for (TrailInfo info : defaultTrailInfo) {
+				trailInfos.add(info.copy());
+			}
+
+			trailReports = new ArrayList<TrailReport>();
+
+			IReportRetriever reportRetriever = factory.getReportRetriever();
+			reportRetriever.getReports(trailReports, trailInfos);
+
+			trailReports = filterTrailReports(trailReports);
+
+			DistanceHandler directionHandler = new DistanceHandler(factory);
+			directionHandler.getDistances(trailInfos);
+
+			readerFactory.setReportsRefreshedDate(new Date());
+
+			saveReports(trailInfos, trailReports);
+		}
+
+		return trailReports;
+	}
+
+	public List<TrailReport> sortTrailReports(List<TrailReport> trailReports) {
+		Collections.sort(trailReports, new CompoundReportComparator(factory
+				.getUserSettings().getSortMethod()));
+		return trailReports;
+	}
+
+	private void loadSavedReports(List<TrailReport> trailReports,
+			boolean refreshNeeded) throws Exception {
+		// always load the included trail infos
 		List<TrailInfo> trailInfo = new ArrayList<TrailInfo>();
 		TrailInfoParser parser = factory.newTrailInfoParser();
 
@@ -65,10 +123,12 @@ public class ReportListCreator {
 			throw (e);
 		}
 
-		try {
-			loadTrailInfo(parser, readerFactory.newSavedTrailInfoReader());
-		} catch (Exception e) {
-			// don't care if saved info can't be read
+		if (!refreshNeeded) {
+			try {
+				loadTrailInfo(parser, readerFactory.newSavedTrailInfoReader());
+			} catch (Exception e) {
+				// don't care if saved info can't be read
+			}
 		}
 
 		// info should be updated even if reports fail to load
@@ -76,11 +136,13 @@ public class ReportListCreator {
 			trailInfo.add(info.copy());
 		}
 
-		TrailReportParser reportParser = factory.newTrailReportParser();
-		loadTrailReports(reportParser,
-				readerFactory.newSavedTrailReportReader(), trailInfo);
-		for (TrailReport report : reportParser.getReports()) {
-			trailReports.add(report.copy());
+		if (!refreshNeeded) {
+			TrailReportParser reportParser = factory.newTrailReportParser();
+			loadTrailReports(reportParser,
+					readerFactory.newSavedTrailReportReader(), trailInfo);
+			for (TrailReport report : reportParser.getReports()) {
+				trailReports.add(report.copy());
+			}
 		}
 	}
 
@@ -94,37 +156,6 @@ public class ReportListCreator {
 		reportParser.setReports(trailReports);
 		saveTrailReports(reportParser,
 				readerFactory.newSavedTrailReportWriter());
-	}
-
-	public List<TrailReport> getTrailReports() throws Exception {
-
-		// / restore the list of default trail listings we got at startup
-		List<TrailInfo> trailInfos = new ArrayList<TrailInfo>();
-		for (TrailInfo info : defaultTrailInfo) {
-			trailInfos.add(info.copy());
-		}
-
-		List<TrailReport> trailReports = new ArrayList<TrailReport>();
-
-		IReportRetriever reportRetriever = factory.getReportRetriever();
-		reportRetriever.getReports(trailReports, trailInfos);
-
-		trailReports = filterTrailReports(trailReports);
-
-		DistanceHandler directionHandler = new DistanceHandler(factory);
-		directionHandler.getDistances(trailInfos);
-
-		readerFactory.setReportsRefreshedDate(new Date());
-
-		saveReports(trailInfos, trailReports);
-
-		return trailReports;
-	}
-
-	public List<TrailReport> sortTrailReports(List<TrailReport> trailReports) {
-		Collections.sort(trailReports, new CompoundReportComparator(factory
-				.getUserSettings().getSortMethod()));
-		return trailReports;
 	}
 
 	private void loadTrailInfo(TrailInfoParser parser, Reader reader) {

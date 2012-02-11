@@ -46,4 +46,12 @@ public class Units {
 		return ((double) milliseconds) / 1000 / 60 / 60 / 24;
 	}
 
+	public static long hoursToMilliseconds(double hours) {
+		return (long) (hours * 60 * 60 * 1000);
+	}
+
+	public static double millisecondsToHours(long milliseconds) {
+		return ((double) milliseconds) / 60 / 60 / 1000;
+	}
+
 }

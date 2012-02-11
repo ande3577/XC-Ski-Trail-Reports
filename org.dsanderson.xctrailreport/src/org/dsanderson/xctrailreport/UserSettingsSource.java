@@ -24,6 +24,7 @@ import org.dsanderson.xctrailreport.core.ILocationSource;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.Units;
 import org.dsanderson.xctrailreport.core.UserSettings;
+import org.dsanderson.xctrailreport.core.UserSettings.AutoRefreshMode;
 import org.dsanderson.xctrailreport.core.UserSettings.SortMethod;
 
 import android.content.Context;
@@ -51,43 +52,51 @@ public class UserSettingsSource implements IUserSettingsSource {
 
 		public void onSharedPreferenceChanged(
 				SharedPreferences sharedPreferences, String key) {
-			if (key.compareTo("enableLocation") == 0) {
+			if (key.equals("enableLocation")) {
 				boolean value = sharedPreferences.getBoolean(key,
 						settings.getLocationEnabled());
 				settings.setLocationEnabled(value);
-			} else if (key.compareTo("defaultLocation") == 0) {
+			} else if (key.equals("defaultLocation")) {
 				String locationString = sharedPreferences.getString(key,
 						settings.getDefaultLocation());
 				settings.setDefaultLocation(locationString);
 				ILocationSource location = factory.getLocationSource();
 				if (!location.getHasNewLocation())
 					location.setLocation(locationString);
-			} else if (key.compareTo("distanceFilterEnabled") == 0) {
+			} else if (key.equals("distanceFilterEnabled")) {
 				settings.setDistanceFilterEnabled(sharedPreferences.getBoolean(
 						key, settings.getDistanceFilterEnabled()));
-			} else if (key.compareTo("filterDistance") == 0) {
+			} else if (key.equals("filterDistance")) {
 				settings.setFilterDistance(Units.milesToMeters(getDouble(
 						sharedPreferences, key,
 						Units.metersToMiles(settings.getFilterDistance()))));
-			} else if (key.compareTo("dateFilterEnabled") == 0) {
+			} else if (key.equals("dateFilterEnabled")) {
 				settings.setDateFilterEnabled(sharedPreferences.getBoolean(key,
 						settings.getDateFilterEnabled()));
-			} else if (key.compareTo("filterAge") == 0) {
+			} else if (key.equals("filterAge")) {
 				settings.setFilterAge(getInt(sharedPreferences, key,
 						settings.getFilterAge()));
-			} else if (key.compareTo("sortMethod") == 0) {
+			} else if (key.equals("sortMethod")) {
 				settings.setSortMethod(stringToSortMethod(sharedPreferences
 						.getString(key,
 								sortMethodToString(settings.getSortMethod()))));
-			} else if (key.compareTo("durationFilterEnabled") == 0) {
+			} else if (key.equals("durationFilterEnabled")) {
 				settings.setDurationFilterEnabled(sharedPreferences.getBoolean(
 						key, settings.getDateFilterEnabled()));
-			} else if (key.compareTo("durationFilterCutoff") == 0) {
+			} else if (key.equals("durationFilterCutoff")) {
 				int cutoffMinutes = getInt(sharedPreferences, key,
 						(int) Units.secondsToMinutes(settings
 								.getDurationCutoff()));
 				settings.setDurationCutoff(Units
 						.minutesToSeconds(cutoffMinutes));
+			} else if (key.equals("autoRefreshMode")) {
+				settings.setAutoRefreshMode(stringToAutoRefreshMode(sharedPreferences
+						.getString(key, autoRefreshModeToString(settings
+								.getAutoRefreshMode()))));
+			} else if (key.equals("autoRefreshCutoff")) {
+				settings.setAutoRefreshCutoff(Units
+						.hoursToMilliseconds(getDouble(sharedPreferences, key,
+								settings.getAutoRefreshCutoff())));
 			}
 		}
 
@@ -121,6 +130,12 @@ public class UserSettingsSource implements IUserSettingsSource {
 		settings.setDurationCutoff(Units.minutesToSeconds(getInt(preference,
 				"durationFilterCutoff",
 				(int) Units.secondsToMinutes(settings.getDurationCutoff()))));
+		settings.setAutoRefreshMode(stringToAutoRefreshMode(preference
+				.getString("autoRefreshMode",
+						autoRefreshModeToString(settings.getAutoRefreshMode()))));
+		settings.setAutoRefreshCutoff(Units.hoursToMilliseconds(getDouble(
+				preference, "autoRefreshCutoff",
+				Units.millisecondsToHours(settings.getAutoRefreshCutoff()))));
 	}
 
 	/*
@@ -146,12 +161,33 @@ public class UserSettingsSource implements IUserSettingsSource {
 	}
 
 	private SortMethod stringToSortMethod(String string) {
-		if (string.compareTo("sortByDistance") == 0)
+		if (string.equals("sortByDistance"))
 			return SortMethod.SORT_BY_DISTANCE;
-		else if (string.compareTo("sortByDate") == 0)
+		else if (string.equals("sortByDate"))
 			return SortMethod.SORT_BY_DATE;
 		else
 			return SortMethod.SORT_BY_DURATION;
+	}
+
+	private String autoRefreshModeToString(AutoRefreshMode mode) {
+		switch (mode) {
+		case ALWAYS:
+			return "always";
+		case NEVER:
+			return "never";
+		case IF_OUT_OF_DATE:
+			return "ifOutOfDate";
+		}
+		return null;
+	}
+
+	private AutoRefreshMode stringToAutoRefreshMode(String string) {
+		if (string.equals("always"))
+			return AutoRefreshMode.ALWAYS;
+		else if (string.equals("never"))
+			return AutoRefreshMode.NEVER;
+		else
+			return AutoRefreshMode.IF_OUT_OF_DATE;
 	}
 
 	private double getDouble(SharedPreferences preference, String key,

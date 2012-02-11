@@ -22,8 +22,8 @@
                 <EditTextPreference android:title="Max Drive Time (minutes)" android:key="durationFilterCutoff"  android:numeric="integer" android:inputType="number" android:defaultValue="60"/>
             </PreferenceCategory>
             <PreferenceCategory android:title="Refresh on startup">
-                <ListPreference android:entryValues="@array/autoRefreshValues" android:entries="@array/autoRefreshTitles" android:defaultValue="ifOutOfDate" android:dialogTitle="Auto Refresh Mode" android:title="Auto Refresh Mode"/>
-                <EditTextPreference android:defaultValue="2" android:title="Auto Refresh Age (hours)" android:summary="Will not download reports on startup if cache is newer than this."/>
+                <ListPreference android:entryValues="@array/autoRefreshValues" android:entries="@array/autoRefreshTitles" android:defaultValue="ifOutOfDate" android:dialogTitle="Refresh Mode" android:title="Auto Refresh Mode" android:key="autoRefreshMode"/>
+                <EditTextPreference android:defaultValue="2" android:title="Valid Age Cutoff (hours)" android:numeric="decimal" android:inputType="numberDecimal" android:summary="Will not download reports on startup if cache is newer than this." android:key="autoRefreshCutoff"/>
             </PreferenceCategory>
     
 

@@ -26,7 +26,11 @@ public class UserSettings {
 	public enum SortMethod {
 		SORT_BY_DISTANCE, SORT_BY_DATE, SORT_BY_DURATION
 	}
-	
+
+	public enum AutoRefreshMode {
+		ALWAYS, NEVER, IF_OUT_OF_DATE
+	}
+
 	private SortMethod sortMethod = null;
 	private boolean locationEnabled = false;
 	private String defaultLocation = "55455";
@@ -37,6 +41,8 @@ public class UserSettings {
 	private boolean durationFilterEnabled = false;
 	private int durationCutoff = 30;
 	private boolean redrawNeeded = false;
+	private AutoRefreshMode autoRefreshMode = AutoRefreshMode.IF_OUT_OF_DATE;
+	private long autoRefreshCutoff = Units.hoursToMilliseconds(2);
 
 	public void setLocationEnabled(boolean locationEnabled) {
 		this.locationEnabled = locationEnabled;
@@ -109,6 +115,22 @@ public class UserSettings {
 
 	public SortMethod getSortMethod() {
 		return sortMethod;
+	}
+
+	public void setAutoRefreshMode(AutoRefreshMode autoRefreshMode) {
+		this.autoRefreshMode = autoRefreshMode;
+	}
+
+	public AutoRefreshMode getAutoRefreshMode() {
+		return autoRefreshMode;
+	}
+
+	public void setAutoRefreshCutoff(long autoRefreshCutoff) {
+		this.autoRefreshCutoff = autoRefreshCutoff;
+	}
+
+	public long getAutoRefreshCutoff() {
+		return autoRefreshCutoff;
 	}
 
 	public void setRedrawNeeded(boolean redrawNeeded) {

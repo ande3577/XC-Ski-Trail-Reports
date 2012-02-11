@@ -42,6 +42,7 @@ public class xctrailreportActivity extends ListActivity {
 			this);
 	ReportListCreator listCreator = new ReportListCreator(factory,
 			trailReportReaderFactory);
+	boolean forcedRefresh = false;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -55,18 +56,7 @@ public class xctrailreportActivity extends ListActivity {
 			@SuppressWarnings("unchecked")
 			final List<TrailReport> savedTrailReports = (List<TrailReport>) getLastNonConfigurationInstance();
 			if (savedTrailReports == null) {
-				try {
-					trailReports = new ArrayList<TrailReport>();
-					listCreator.loadSavedReports(trailReports);
-				} catch (Exception e) {
-					refresh();
-				}
-			} else {
-				trailReports = new ArrayList<TrailReport>();
-				for (TrailReport report : savedTrailReports) {
-					trailReports.add(report.copy());
-				}
-				printTrailReports();
+				refresh(false);
 			}
 
 		} catch (Exception e) {
@@ -88,9 +78,12 @@ public class xctrailreportActivity extends ListActivity {
 			factory.getLocationSource().updateLocation();
 
 		try {
-			trailReports = listCreator.getTrailReports();
+			trailReports = new ArrayList<TrailReport>();
+			trailReports = listCreator.getTrailReports(trailReports, forcedRefresh);
 		} catch (Exception e) {
 			throw e;
+		} finally {
+			forcedRefresh = false;
 		}
 
 		if (trailReports.isEmpty())
@@ -202,7 +195,7 @@ public class xctrailreportActivity extends ListActivity {
 			startActivity(i);
 			break;
 		case R.id.refresh:
-			refresh();
+			refresh(true);
 			break;
 		case R.id.aboutMenuItem:
 			String aboutString = ProgramInfo.programName + "\r\n"
@@ -236,7 +229,8 @@ public class xctrailreportActivity extends ListActivity {
 		return savedTrailReports;
 	}
 
-	private void refresh() {
+	private void refresh(boolean forced) {
+		forcedRefresh = forced;
 		new LoadReportsTask(this).execute();
 	}
 
