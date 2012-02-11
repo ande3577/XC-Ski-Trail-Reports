@@ -49,7 +49,7 @@ public class PreferencesActivity extends PreferenceActivity {
 
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-			builder.setMessage("Your Message");
+			builder.setMessage("This will erase all user configured settings.\r\n\r\nContinue?");
 
 			builder.setPositiveButton("Yes", onRestoreDefaultsClickListener);
 			builder.setNegativeButton("No", onRestoreDefaultsClickListener);

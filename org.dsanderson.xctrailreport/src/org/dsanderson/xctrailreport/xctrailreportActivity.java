@@ -12,16 +12,11 @@ import org.dsanderson.xctrailreport.skinnyski.SkinnyskiReportRetriever;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
-import android.content.DialogInterface.OnClickListener;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Looper;
 import android.text.format.Time;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -57,6 +52,9 @@ public class xctrailreportActivity extends ListActivity {
 			factory.getUserSettingsSource().loadUserSettings();
 			skinnyskiFactory.getSkinnyskiSettingsSource().loadUserSettings();
 
+			if (factory.getUserSettings().getLocationEnabled())
+				factory.getLocationSource().updateLocation();
+
 			@SuppressWarnings("unchecked")
 			final List<TrailReport> savedTrailReports = (List<TrailReport>) getLastNonConfigurationInstance();
 			if (savedTrailReports == null) {
@@ -77,9 +75,6 @@ public class xctrailreportActivity extends ListActivity {
 	}
 
 	private List<TrailReport> loadTrailReports() throws Exception {
-
-		if (factory.getUserSettings().getLocationEnabled())
-			factory.getLocationSource().updateLocation();
 
 		try {
 			trailReports = new ArrayList<TrailReport>();
@@ -215,9 +210,9 @@ public class xctrailreportActivity extends ListActivity {
 	public void onWindowFocusChanged(boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);
 		try {
-		if (hasFocus && trailReports != null
-				&& factory.getUserSettings().getRedrawNeeded())
-			printTrailReports();
+			if (hasFocus && trailReports != null
+					&& factory.getUserSettings().getRedrawNeeded())
+				printTrailReports();
 		} catch (Exception e) {
 			factory.newDialog(e);
 		}
@@ -268,7 +263,6 @@ public class xctrailreportActivity extends ListActivity {
 		protected List<TrailReport> doInBackground(Integer... params) {
 			List<TrailReport> trailReports = new ArrayList<TrailReport>();
 			try {
-				Looper.prepare();
 				trailReports = loadTrailReports();
 				if (trailReports.isEmpty())
 					throw new Exception("No reports found.");
