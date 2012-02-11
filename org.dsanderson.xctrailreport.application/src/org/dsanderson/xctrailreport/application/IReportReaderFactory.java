@@ -21,6 +21,7 @@ package org.dsanderson.xctrailreport.application;
 
 import java.io.Reader;
 import java.io.Writer;
+import java.util.Date;
 
 /**
  * 
@@ -35,5 +36,9 @@ public interface IReportReaderFactory {
 	public Reader newSavedTrailReportReader() throws Exception;
 
 	public Writer newSavedTrailReportWriter() throws Exception;
+	
+	public Date getReportsRefreshedDate();
+	
+	public void setReportsRefreshedDate(Date date);
 
 }

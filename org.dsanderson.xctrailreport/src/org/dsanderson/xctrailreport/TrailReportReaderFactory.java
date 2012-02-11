@@ -21,6 +21,7 @@ package org.dsanderson.xctrailreport;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -28,6 +29,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
+import java.util.Date;
 
 import org.dsanderson.xctrailreport.application.IReportReaderFactory;
 
@@ -41,6 +43,8 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 	private final Context context;
 
 	private static TrailReportReaderFactory instance = null;
+
+	private Date modifiedDate = null;
 
 	public TrailReportReaderFactory(Context context) {
 		assert (instance == null);
@@ -82,12 +86,22 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 	}
 
 	public Reader newSavedTrailReportReader() throws Exception {
-		if (externalReadAccess()) {
-			FileInputStream trailInfoStream = new FileInputStream(
-					context.getExternalCacheDir() + "/saved_trail_reports.xml");
-			return new BufferedReader(new InputStreamReader(trailInfoStream));
-		} else {
-			return null;
+		try {
+			if (externalReadAccess()) {
+				String filePath = context.getExternalCacheDir()
+						+ "/saved_trail_reports.xml";
+				FileInputStream trailInfoStream = new FileInputStream(filePath);
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(trailInfoStream));
+				modifiedDate = new Date(new File(filePath).lastModified());
+				return reader;
+			} else {
+				modifiedDate = null;
+				return null;
+			}
+		} catch (Exception e) {
+			modifiedDate = null;
+			throw e;
 		}
 	}
 
@@ -111,5 +125,19 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 		String state = Environment.getExternalStorageState();
 		return Environment.MEDIA_MOUNTED.equals(state);
 
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.xctrailreport.application.IReportReaderFactory#
+	 * getReportsRefreshedDate()
+	 */
+	public Date getReportsRefreshedDate() {
+		return modifiedDate;
+	}
+
+	public void setReportsRefreshedDate(Date date) {
+		this.modifiedDate = date;
 	}
 }

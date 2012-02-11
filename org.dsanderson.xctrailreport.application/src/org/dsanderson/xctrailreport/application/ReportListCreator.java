@@ -23,6 +23,7 @@ import java.io.Reader;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
@@ -51,7 +52,7 @@ public class ReportListCreator {
 			throws Exception {
 		List<TrailInfo> trailInfo = new ArrayList<TrailInfo>();
 		TrailInfoParser parser = factory.newTrailInfoParser();
-		
+
 		try {
 			loadTrailInfo(parser, readerFactory.newDefaultTrailInfoReader());
 			for (TrailInfo info : parser.getTrailInfo()) {
@@ -63,13 +64,13 @@ public class ReportListCreator {
 			trailReports.clear();
 			throw (e);
 		}
-		
+
 		try {
 			loadTrailInfo(parser, readerFactory.newSavedTrailInfoReader());
 		} catch (Exception e) {
 			// don't care if saved info can't be read
 		}
-		
+
 		// info should be updated even if reports fail to load
 		for (TrailInfo info : parser.getTrailInfo()) {
 			trailInfo.add(info.copy());
@@ -112,6 +113,8 @@ public class ReportListCreator {
 
 		DistanceHandler directionHandler = new DistanceHandler(factory);
 		directionHandler.getDistances(trailInfos);
+
+		readerFactory.setReportsRefreshedDate(new Date());
 
 		saveReports(trailInfos, trailReports);
 

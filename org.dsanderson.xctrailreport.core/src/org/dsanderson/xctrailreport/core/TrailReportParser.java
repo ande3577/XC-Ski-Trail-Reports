@@ -76,8 +76,7 @@ public class TrailReportParser {
 				report.setAuthor(parserOutput);
 			}
 			if ((parserOutput = reportParser.getValue(DATE)) != null) {
-				report.getDate().getDate()
-						.setTime(Long.parseLong(parserOutput));
+				report.setDate(new ReportDate(Long.parseLong(parserOutput)));
 			}
 			if ((parserOutput = reportParser.getValue(DETAIL)) != null) {
 				report.setDetail(parserOutput);
@@ -90,6 +89,7 @@ public class TrailReportParser {
 					if (info.getName().equals(parserOutput)) {
 						report.setTrailInfo(info);
 						trailReports.add(report.copy());
+						break;
 					}
 				}
 			}

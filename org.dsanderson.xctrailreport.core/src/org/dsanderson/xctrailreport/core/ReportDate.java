@@ -69,6 +69,10 @@ public class ReportDate implements Comparable<ReportDate> {
 			date = calendar.getTime();
 		}
 	}
+	
+	public ReportDate(long timestamp) {
+		date = new Date(timestamp);
+	}
 
 	/**
 	 * @brief Creates a new date object with a given date/time

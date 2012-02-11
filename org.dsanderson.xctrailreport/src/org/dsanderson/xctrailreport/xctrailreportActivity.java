@@ -1,6 +1,7 @@
 package org.dsanderson.xctrailreport;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.R;
@@ -17,6 +18,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
+import android.text.format.Time;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
@@ -54,6 +56,7 @@ public class xctrailreportActivity extends ListActivity {
 			final List<TrailReport> savedTrailReports = (List<TrailReport>) getLastNonConfigurationInstance();
 			if (savedTrailReports == null) {
 				try {
+					trailReports = new ArrayList<TrailReport>();
 					listCreator.loadSavedReports(trailReports);
 				} catch (Exception e) {
 					refresh();
@@ -97,6 +100,16 @@ public class xctrailreportActivity extends ListActivity {
 	}
 
 	private void printTrailReports() {
+		Date lastRefreshDate = trailReportReaderFactory
+				.getReportsRefreshedDate();
+		String titleString = ProgramInfo.shortName;
+		if (lastRefreshDate != null) {
+			Time time = new Time();
+			time.set(lastRefreshDate.getTime());
+			titleString += time.format(" (%b %e, %r)");
+		}
+		setTitle(titleString);
+
 		trailReports = listCreator.sortTrailReports(trailReports);
 
 		if (trailReports.isEmpty())
