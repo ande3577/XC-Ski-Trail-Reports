@@ -182,20 +182,21 @@ public class xctrailreportActivity extends ListActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.preferencesMenuItem:
+		case R.id.preferencesMenuItem: {
 			// Launch Preference activity
 			Intent i = new Intent(xctrailreportActivity.this,
 					PreferencesActivity.class);
 			startActivity(i);
+		}
 			break;
 		case R.id.refresh:
 			refresh(true);
 			break;
-		case R.id.aboutMenuItem:
-			String aboutString = ProgramInfo.programName + "\r\n"
-					+ ProgramInfo.programVersion + "\r\n" + ProgramInfo.author
-					+ "\r\n" + ProgramInfo.copyright;
-			factory.newDialog(aboutString).show();
+		case R.id.aboutMenuItem: {
+			Intent i = new Intent(xctrailreportActivity.this,
+					AboutActivity.class);
+			startActivity(i);
+		}
 			break;
 		case R.id.composeMain:
 			launchIntent(SkinnyskiReportRetriever.DEFAULT_SKINNYSKI_REPORT_URL);

@@ -1,0 +1,52 @@
+== XC Ski Trail Report App ==
+
+An android application for downloading and displaying xc ski trail reports.
+
+This project is not affiliated with skinnyski.com, or any website or trail manager.  Do not contact any website provider with questions or issues with this application.  All included reports are Copyright their respective site owners and subject to their terms of use.
+
+This project is currently in beta, not all functionality may be completely implemented.  Please report issues on any problems you find.
+
+=== Features ===
+
+* Download websites from a variety of sources (currently only skinnyski.com is supported)
+* Compute distances and drive times to a given website based on your current location.
+* Sort trail information according to most recent or nearest.
+* Quick link to trail info, compose new report, and map of trail location
+
+=== Requirements ===
+
+Currently requires android 2.3 (gingerbread) or later.  Adding support for earlier OS versions is expected.  iOS support is not planned.
+
+Location services are required to be enabled for computing current user location (GPS not required).
+
+=== Installation ===
+
+This application is currently not available on the android market.
+
+Install the most recent .apk file from the download section of this repository.  Installing applications from outside the android market must be enabled.
+
+=== License ===
+
+Copyright (C) 2012 David S Anderson 
+
+Currently closed source. May be released under GPL in the future.  The published .apk file can be freely redistributed as long as it is made available free of charge and the enclosed copyright information is left unchanged. 
+
+All reports are Copyright their respective websites.
+
+=== Authors ===
+
+David S Anderson
+
+=== Contact ===
+
+All bug reports/feature requests should be done via a new report on this page's issue tracker.
+
+If you maintain a trail report website, and would like support your site added or removed, please fill out an issue request and include contact information for follow-up.
+
+===  Disclaimer of Warranty ===
+
+THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+===  Limitation of Liability ===
+
+IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
