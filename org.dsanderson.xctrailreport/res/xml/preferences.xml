@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    <PreferenceCategory android:title="Location Settings">
-        <CheckBoxPreference android:title="Allow Location" android:summary="Allow the application to access your phones location services to determine current position." android:key="enableLocation"/>
+    <PreferenceCategory android:title="Display Options"><ListPreference android:title="Sort By:" android:entryValues="@array/sortMethods" android:entries="@array/sortMethodNames" android:key="sortMethod" android:defaultValue="sortByDate" android:dialogTitle="Sort By:"/>
+            
+        
+</PreferenceCategory><PreferenceCategory android:title="Location Settings">
+        <CheckBoxPreference android:title="Allow Location" android:summary="Allow the application to access your phones location services to determine current position." android:key="enableLocation" android:defaultValue="false"/>
         <EditTextPreference android:title="Default Location" android:summary="The location to use if the phone's location source is unavailable." android:key="defaultLocation"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="Report Options"><Preference android:key="sources" android:title="Sources" android:summary="Select sources to pull reports from."/>
@@ -9,18 +12,19 @@
         
     
     <Preference android:key="regions" android:title="Regions" android:summary="Select a list of regions to pull reports from."/>
-</PreferenceCategory><PreferenceCategory android:title="Distance Filter"><CheckBoxPreference android:title="Enabled" android:key="distanceFilterEnabled"/>
-            <EditTextPreference android:title="Max Distance (mi)" android:key="filterDistance" android:numeric="decimal" android:inputType="numberDecimal"/>
+</PreferenceCategory><PreferenceCategory android:title="Distance Filter"><CheckBoxPreference android:title="Enabled" android:key="distanceFilterEnabled" android:defaultValue="false"/>
+            <EditTextPreference android:title="Max Distance (mi)" android:key="filterDistance" android:numeric="decimal" android:inputType="numberDecimal" android:defaultValue="50"/>
 </PreferenceCategory><PreferenceCategory android:title="Age Filter">
-                <CheckBoxPreference android:title="Enabled" android:key="dateFilterEnabled"/>
-                <EditTextPreference android:title="Max Age (Days)" android:key="filterAge" android:numeric="integer" android:inputType="number"/>
+                <CheckBoxPreference android:title="Enabled" android:key="dateFilterEnabled" android:defaultValue="false"/>
+                <EditTextPreference android:title="Max Age (Days)" android:key="filterAge" android:numeric="integer" android:inputType="number" android:defaultValue="10"/>
             </PreferenceCategory><PreferenceCategory android:title="Drive Time Filter">
-                <CheckBoxPreference android:title="Enabled" android:key="durationFilterEnabled"/>
-                <EditTextPreference android:title="Max Drive Time (minutes)" android:key="durationFilterCutoff"  android:numeric="integer" android:inputType="number"/>
-            </PreferenceCategory><PreferenceCategory android:title="Display Options"><ListPreference android:title="Sort By:" android:entryValues="@array/sortMethods" android:entries="@array/sortMethodNames" android:key="sortMethod"/>
-            
-        
-</PreferenceCategory>
+                <CheckBoxPreference android:title="Enabled" android:key="durationFilterEnabled" android:defaultValue="false"/>
+                <EditTextPreference android:title="Max Drive Time (minutes)" android:key="durationFilterCutoff"  android:numeric="integer" android:inputType="number" android:defaultValue="60"/>
+            </PreferenceCategory>
+            <PreferenceCategory android:title="Refresh on startup">
+                <ListPreference android:entryValues="@array/autoRefreshValues" android:entries="@array/autoRefreshTitles" android:defaultValue="ifOutOfDate" android:dialogTitle="Auto Refresh Mode" android:title="Auto Refresh Mode"/>
+                <EditTextPreference android:defaultValue="2"/>
+            </PreferenceCategory>
     
 
 </PreferenceScreen>
