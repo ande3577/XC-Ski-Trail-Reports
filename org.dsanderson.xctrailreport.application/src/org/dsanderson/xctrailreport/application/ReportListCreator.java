@@ -51,22 +51,25 @@ public class ReportListCreator {
 			throws Exception {
 		List<TrailInfo> trailInfo = new ArrayList<TrailInfo>();
 		TrailInfoParser parser = factory.newTrailInfoParser();
-		try {
-			loadTrailInfo(parser, readerFactory.newSavedTrailInfoReader());
-		} catch (Exception e) {
-		}
+		
 		try {
 			loadTrailInfo(parser, readerFactory.newDefaultTrailInfoReader());
-			// / TODO only trail info actually loaded in this step should be
-			// stored off
 			for (TrailInfo info : parser.getTrailInfo()) {
 				defaultTrailInfo.add(info.copy());
 			}
 		} catch (Exception e) {
+			// if included trail reports creates error, we abort
 			trailInfo.clear();
 			trailReports.clear();
 			throw (e);
 		}
+		
+		try {
+			loadTrailInfo(parser, readerFactory.newSavedTrailInfoReader());
+		} catch (Exception e) {
+			// don't care if saved info can't be read
+		}
+		
 		// info should be updated even if reports fail to load
 		for (TrailInfo info : parser.getTrailInfo()) {
 			trailInfo.add(info.copy());

@@ -82,7 +82,7 @@ public class TrailInfoParser {
 				if ((parserOutput = parser.getValue(THREE_RIVERS_SEARCH_TERM)) != null)
 					info.setThreeRiversSearchTerm(parserOutput);
 
-				trailInfo.add(info.copy());
+				mergeTrailInfo(trailInfo, info);
 			}
 		} catch (Exception e) {
 			trailInfo.clear();
@@ -138,4 +138,39 @@ public class TrailInfoParser {
 		return null;
 	}
 
+	private void mergeTrailInfo(List<TrailInfo> currentInfos, TrailInfo newInfo) {
+		boolean found = false;
+		for (TrailInfo current : currentInfos) {
+			if (current.getName().equals(newInfo.getName())) {
+				found = true;
+				if (current.getCity() == null || current.getState().isEmpty())
+					current.setCity(newInfo.getCity());
+				if (current.getState() == null || current.getState().isEmpty())
+					current.setState(newInfo.getState());
+				if (current.getLocation() == null
+						|| current.getLocation().isEmpty())
+					current.setLocation(newInfo.getLocation());
+				if (current.getSkinnyskiSearchTerm() == null
+						|| current.getSkinnyskiSearchTerm().isEmpty())
+					current.setSkinnyskiSearchTerm(newInfo
+							.getSkinnyskiSearchTerm());
+				if (current.getskinnyskiTrailIndex() == 0)
+					current.setskinnyskiTrailIndex(newInfo
+							.getskinnyskiTrailIndex());
+				if (current.getThreeRiversSearchTerm() == null
+						|| current.getThreeRiversSearchTerm().isEmpty())
+					current.setThreeRiversSearchTerm(newInfo
+							.getThreeRiversSearchTerm());
+				if (!current.getDistanceValid()) {
+					current.setDistanceValid(newInfo.getDistanceValid());
+					current.setDistance(newInfo.getDistance());
+					current.setDuration(newInfo.getDuration());
+				}
+				break;
+			}
+		}
+		if (!found) {
+			currentInfos.add(newInfo.copy());
+		}
+	}
 }
