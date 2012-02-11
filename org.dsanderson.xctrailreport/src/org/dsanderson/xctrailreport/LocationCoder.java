@@ -27,6 +27,7 @@ import org.dsanderson.xctrailreport.core.ILocationCoder;
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
+import android.os.Build;
 
 /**
  * 
@@ -46,6 +47,10 @@ public class LocationCoder implements ILocationCoder {
 	 * .String)
 	 */
 	public String getLocation(String locationName) throws Exception {
+		// geocoder unavailable in emulator
+		if (Build.FINGERPRINT.startsWith("generic"))
+			return locationName;
+		
 		// return empty string if cannot parse to valid location
 		String location = "";
 		Geocoder coder = new Geocoder(context);
@@ -64,6 +69,7 @@ public class LocationCoder implements ILocationCoder {
 			location = address.getLatitude() + "," + address.getLongitude();
 		}
 		return location;
+		
 	}
 
 	private String lessSpecific(String locationName) {

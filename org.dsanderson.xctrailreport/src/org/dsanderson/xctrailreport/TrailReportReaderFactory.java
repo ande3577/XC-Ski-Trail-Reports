@@ -46,6 +46,8 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 
 	private Date modifiedDate = null;
 
+	private boolean externalStorage;
+
 	public TrailReportReaderFactory(Context context) {
 		assert (instance == null);
 		this.context = context;
@@ -54,6 +56,10 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 	public static TrailReportReaderFactory getInstance() {
 		assert (instance != null);
 		return instance;
+	}
+
+	public void setExternalStorage(boolean externalStorage) {
+		this.externalStorage = externalStorage;
 	}
 
 	public Reader newDefaultTrailInfoReader() throws Exception {
@@ -65,54 +71,19 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 	}
 
 	public Reader newSavedTrailInfoReader() throws Exception {
-		if (externalReadAccess()) {
-			FileInputStream trailInfoStream = new FileInputStream(
-					context.getExternalCacheDir() + "/saved_trail_info.xml");
-			return new BufferedReader(new InputStreamReader(trailInfoStream));
-		} else {
-			return null;
-		}
+		return newReader("saved_trail_info.xml");
 	}
 
 	public Writer newSavedTrailInfoWriter() throws Exception {
-		if (externalWriteAccess()) {
-			FileOutputStream trailInfoStream = new FileOutputStream(
-					context.getExternalCacheDir() + "/saved_trail_info.xml");
-			return new BufferedWriter(new OutputStreamWriter(trailInfoStream));
-		} else {
-			return null;
-		}
-
+		return newWriter("saved_trail_info.xml");
 	}
 
 	public Reader newSavedTrailReportReader() throws Exception {
-		try {
-			if (externalReadAccess()) {
-				String filePath = context.getExternalCacheDir()
-						+ "/saved_trail_reports.xml";
-				FileInputStream trailInfoStream = new FileInputStream(filePath);
-				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(trailInfoStream));
-				modifiedDate = new Date(new File(filePath).lastModified());
-				return reader;
-			} else {
-				modifiedDate = null;
-				return null;
-			}
-		} catch (Exception e) {
-			modifiedDate = null;
-			throw e;
-		}
+		return newReader("saved_trail_reports.xml");
 	}
 
 	public Writer newSavedTrailReportWriter() throws Exception {
-		if (externalWriteAccess()) {
-			FileOutputStream trailInfoStream = new FileOutputStream(
-					context.getExternalCacheDir() + "/saved_trail_reports.xml");
-			return new BufferedWriter(new OutputStreamWriter(trailInfoStream));
-		} else {
-			return null;
-		}
+		return newWriter("saved_trail_reports.xml");
 	}
 
 	private boolean externalReadAccess() {
@@ -137,10 +108,8 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 		if (modifiedDate != null) {
 			return modifiedDate;
 		} else {
-			String filePath = context.getExternalCacheDir()
-					+ "/saved_trail_reports.xml";
-			if (externalReadAccess()) {
-				File file = new File(filePath);
+			if (!externalStorage || externalReadAccess()) {
+				File file = new File(getDir() + "saved_trail_reports.xml");
 				if (file != null) {
 					modifiedDate = new Date(file.lastModified());
 					return modifiedDate;
@@ -152,5 +121,33 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 
 	public void setReportsRefreshedDate(Date date) {
 		this.modifiedDate = date;
+	}
+
+	private Reader newReader(String filename) throws Exception {
+		if (!externalStorage || externalReadAccess()) {
+			FileInputStream trailInfoStream = new FileInputStream(getDir()
+					+ filename);
+			return new BufferedReader(new InputStreamReader(trailInfoStream));
+		} else {
+			return null;
+		}
+	}
+
+	private Writer newWriter(String filename) throws Exception {
+		if (!externalStorage || externalWriteAccess()) {
+			FileOutputStream trailInfoStream = new FileOutputStream(getDir()
+					+ filename);
+			return new BufferedWriter(new OutputStreamWriter(trailInfoStream));
+		} else {
+			return null;
+		}
+	}
+
+	private String getDir() {
+		if (externalStorage) {
+			return context.getExternalCacheDir() + "/";
+		} else {
+			return context.getCacheDir() + "/";
+		}
 	}
 }
