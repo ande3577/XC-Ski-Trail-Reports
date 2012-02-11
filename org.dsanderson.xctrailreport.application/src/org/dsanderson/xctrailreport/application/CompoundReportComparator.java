@@ -39,20 +39,20 @@ public class CompoundReportComparator implements Comparator<TrailReport> {
 		switch (sortMethod) {
 		case SORT_BY_DISTANCE:
 			comparators.add(new DistanceComparator());
-			comparators.add(new TrailNameComparator());
 			comparators.add(new DurationComparator());
+			comparators.add(new TrailNameComparator());
 			comparators.add(new DateComparator());
 			break;
 		case SORT_BY_DATE:
 			comparators.add(new DateComparator());
-			comparators.add(new TrailNameComparator());
 			comparators.add(new DistanceComparator());
 			comparators.add(new DurationComparator());
+			comparators.add(new TrailNameComparator());
 			break;
 		case SORT_BY_DURATION:
 			comparators.add(new DurationComparator());
-			comparators.add(new TrailNameComparator());
 			comparators.add(new DistanceComparator());
+			comparators.add(new TrailNameComparator());
 			comparators.add(new DateComparator());
 			break;
 		}

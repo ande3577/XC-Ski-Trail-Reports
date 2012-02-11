@@ -61,15 +61,20 @@ public class ReportDate implements Comparable<ReportDate> {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(Calendar.MONTH, lookupMonth(month));
 		calendar.set(Calendar.DAY_OF_MONTH, day);
+		// set it to midnight, so it shows up longest in age filter
+		calendar.set(Calendar.HOUR, 0);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
+		calendar.set(Calendar.MILLISECOND, 0);
 		date = calendar.getTime();
 		// if the date is in the future
 		if (date.compareTo(new Date()) > 0) {
 			// it's the previous year
 			calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR) - 1);
-			date = calendar.getTime();
 		}
+
 	}
-	
+
 	public ReportDate(long timestamp) {
 		date = new Date(timestamp);
 	}
