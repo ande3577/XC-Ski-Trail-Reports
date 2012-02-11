@@ -145,7 +145,7 @@ public class xctrailreportActivity extends ListActivity {
 				return true;
 			case R.id.openMapMenu:
 				launchIntent("geo:" + trailReport.getTrailInfo().getLocation()
-						+ "?z=16");
+						+ "?z=14");
 				return true;
 			case R.id.composeReportItem:
 				String reportUrl = trailReport.getTrailInfo()
