@@ -8,7 +8,7 @@
     <string-array name="autoRefreshTitles">
         <item >Always</item>
         <item >Never</item>
-        <item >If out of date</item>
+        <item >If Out of Date</item>
     </string-array>
     
 </resources>

@@ -23,7 +23,7 @@
             </PreferenceCategory>
             <PreferenceCategory android:title="Refresh on startup">
                 <ListPreference android:entryValues="@array/autoRefreshValues" android:entries="@array/autoRefreshTitles" android:defaultValue="ifOutOfDate" android:dialogTitle="Auto Refresh Mode" android:title="Auto Refresh Mode"/>
-                <EditTextPreference android:defaultValue="2"/>
+                <EditTextPreference android:defaultValue="2" android:title="Auto Refresh Age (hours)" android:summary="Will not download reports on startup if cache is newer than this."/>
             </PreferenceCategory>
     
 

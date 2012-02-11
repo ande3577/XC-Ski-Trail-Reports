@@ -26,7 +26,7 @@ public class UserSettings {
 	public enum SortMethod {
 		SORT_BY_DISTANCE, SORT_BY_DATE, SORT_BY_DURATION
 	}
-
+	
 	private SortMethod sortMethod = null;
 	private boolean locationEnabled = false;
 	private String defaultLocation = "55455";
