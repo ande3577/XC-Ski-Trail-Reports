@@ -42,11 +42,8 @@ public class TrailNameDecorator extends TrailReportDecorator {
 	public void decorate(TrailReport trailReport, IListEntry listEntry) {
 		TrailInfo trailInfo = trailReport.getTrailInfo();
 		ITextItem newTextItem = listEntry.newTextItem();
+		newTextItem.setStyle(ITextItem.FieldId_t.NAME);
 		newTextItem.setText(trailInfo.getName());
-		newTextItem.setSize(16);
-		newTextItem.setBold(true);
-		newTextItem.setColor("black");
-		newTextItem.setBackgroundColor(newTextItem.getTitleBackgroundColor());
 
 		if (next() != null) {
 			next().decorate(trailReport, listEntry);

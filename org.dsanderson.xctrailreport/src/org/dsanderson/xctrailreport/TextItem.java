@@ -63,7 +63,7 @@ public class TextItem implements ITextItem {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#setSize(int)
 	 */
-	public void setSize(int size) {
+	private void setSize(int size) {
 		textView.setTextSize(size);
 	}
 
@@ -73,7 +73,7 @@ public class TextItem implements ITextItem {
 	 * @see
 	 * org.dsanderson.xctrailreport.core.ITextItem#setColor(java.lang.String)
 	 */
-	public void setColor(String color) {
+	private void setColor(String color) {
 		setColor(Color.parseColor(color));
 
 	}
@@ -83,7 +83,7 @@ public class TextItem implements ITextItem {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#setColor(int)
 	 */
-	public void setColor(int color) {
+	private void setColor(int color) {
 		textView.setTextColor(color);
 	}
 
@@ -92,7 +92,7 @@ public class TextItem implements ITextItem {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#setItalic(boolean)
 	 */
-	public void setItalic(boolean italic) {
+	private void setItalic(boolean italic) {
 		this.italic = italic;
 	}
 
@@ -101,17 +101,8 @@ public class TextItem implements ITextItem {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#setBold(boolean)
 	 */
-	public void setBold(boolean bold) {
+	private void setBold(boolean bold) {
 		this.bold = bold;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.xctrailreport.core.ITextItem#setAlign(org.dsanderson.
-	 * xctrailreport.core.ITextItem.Alignment_t)
-	 */
-	public void setAlign(Alignment_t alignment) {
 	}
 
 	/*
@@ -135,7 +126,7 @@ public class TextItem implements ITextItem {
 	 * org.dsanderson.xctrailreport.core.ITextItem#setBackgroundColor(java.lang
 	 * .String)
 	 */
-	public void setBackgroundColor(String color) {
+	private void setBackgroundColor(String color) {
 		setBackgroundColor(Color.parseColor(color));
 	}
 
@@ -144,8 +135,40 @@ public class TextItem implements ITextItem {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#setBackgroundColor(int)
 	 */
-	public void setBackgroundColor(int color) {
+	private void setBackgroundColor(int color) {
 		textView.setBackgroundColor(color);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.xctrailreport.core.ITextItem#setStyle(org.dsanderson.
+	 * xctrailreport.core.ITextItem.FieldId_t)
+	 */
+	public void setStyle(FieldId_t fieldId) {
+		switch (fieldId) {
+		case NAME:
+			setSize(16);
+			setBold(true);
+			setColor("black");
+			setBackgroundColor(getTitleBackgroundColor());
+			break;
+		case LOCATION:
+			setColor("darkgray");
+			setBackgroundColor(getTitleBackgroundColor());
+			break;
+		case DATE:
+			setColor("gray");
+			break;
+		case SUMMARY:
+			setItalic(true);
+			break;
+		case DETAIL:
+			break;
+		case AUTHOR:
+			break;
+		}
+
 	}
 
 	/*
@@ -157,4 +180,5 @@ public class TextItem implements ITextItem {
 	public int getTitleBackgroundColor() {
 		return Color.rgb(0xE3, 0xDA, 0xC9);
 	}
+
 }

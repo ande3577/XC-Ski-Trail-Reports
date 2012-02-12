@@ -40,8 +40,7 @@ public class DateDecorator extends TrailReportDecorator {
 	public void decorate(TrailReport trailReport, IListEntry listEntry) {
 		ITextItem newTextItem = listEntry.newTextItem();
 
-		newTextItem.setColor("gray");
-		newTextItem.setAlign(ITextItem.Alignment_t.RIGHT);
+		newTextItem.setStyle(ITextItem.FieldId_t.DATE);
 		newTextItem.setText(trailReport.getDate().formatDate());
 
 		if (next() != null) {

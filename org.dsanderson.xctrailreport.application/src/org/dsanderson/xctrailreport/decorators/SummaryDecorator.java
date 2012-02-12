@@ -41,7 +41,6 @@ public class SummaryDecorator extends TrailReportDecorator {
 		if (trailReport.getSummary().length() > 0) {
 			ITextItem newTextItem = listEntry.newTextItem();
 			newTextItem.setText(trailReport.getSummary());
-			newTextItem.setItalic(true);
 		}
 
 		if (next() != null) {
