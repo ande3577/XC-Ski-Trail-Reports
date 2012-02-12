@@ -37,10 +37,11 @@ public class TextItem implements ITextItem {
 	boolean italic = false;
 	boolean bold = false;
 	String textString = "";
-	int size = -1;
+	Integer size = null;
 	Integer backgroundColor = null;
 	Integer textColor = null;
 	Integer style = null;
+	Integer textStyle = null;
 
 	public TextItem(Context context, ViewGroup layout) {
 		this.context = context;
@@ -118,10 +119,18 @@ public class TextItem implements ITextItem {
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#draw()
 	 */
 	public void draw() {
-		TextView textView = new TextView(context);
+		TextView textView;
+		if (style == null)
+			textView = new TextView(context);
+		else
+			textView = new TextView(context, null, style);
+
+		if (textStyle != null)
+			textView.setTextAppearance(context, textStyle);
+
 		layout.addView(textView);
 
-		if (size > 0)
+		if (size != null)
 			textView.setTextSize(size);
 
 		if (backgroundColor != null)
@@ -168,17 +177,17 @@ public class TextItem implements ITextItem {
 	public void setStyle(FieldId_t fieldId) {
 		switch (fieldId) {
 		case NAME:
-			setSize(16);
-			setBold(true);
-			setColor("black");
-			setBackgroundColor(getTitleBackgroundColor());
+			style = new Integer(android.R.attr.listSeparatorTextViewStyle);
+			setSize(18);
+			textStyle = new Integer(
+					android.R.style.TextAppearance_Medium_Inverse);
 			break;
 		case LOCATION:
-			setColor("darkgray");
-			setBackgroundColor(getTitleBackgroundColor());
+			style = new Integer(android.R.attr.listSeparatorTextViewStyle);
 			break;
 		case DATE:
-			setColor("gray");
+			setColor(context.getResources().getColor(
+					android.R.color.tertiary_text_dark));
 			break;
 		case SUMMARY:
 			setItalic(true);
