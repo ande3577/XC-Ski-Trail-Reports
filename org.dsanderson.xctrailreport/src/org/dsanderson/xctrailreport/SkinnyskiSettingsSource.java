@@ -35,7 +35,7 @@ public class SkinnyskiSettingsSource implements IUserSettingsSource {
 	SharedPreferences preference;
 	SkinnyskiSettings settings;
 
-	private static final String regionKeys[] = { "mnMetro", "mnNortheast",
+	public static final String regionKeys[] = { "mnMetro", "mnNortheast",
 			"mnNorthwest", "mnCentral", "mnSouthern", "wiNorthwest",
 			"wiNortheast", "wiSouthwest", "wiSouthwest", "miUP", "ia", "ca",
 			"il", "nd", "us" };
