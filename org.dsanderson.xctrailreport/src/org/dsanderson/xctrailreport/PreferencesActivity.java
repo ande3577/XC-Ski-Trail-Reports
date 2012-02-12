@@ -79,6 +79,11 @@ public class PreferencesActivity extends PreferenceActivity {
 				PreferenceManager.setDefaultValues(PreferencesActivity.this,
 						R.xml.preferences, true);
 
+				TrailReportFactory.getInstance().getUserSettingsSource()
+						.loadUserSettings();
+				SkinnyskiFactory.getInstance().getSkinnyskiSettingsSource()
+						.loadUserSettings();
+
 				Intent intent = getIntent();
 				overridePendingTransition(0, 0);
 				intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);

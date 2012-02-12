@@ -109,15 +109,6 @@ public class TextItem implements ITextItem {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.dsanderson.xctrailreport.core.ITextItem#setBold(boolean)
-	 */
-	private void setBold(boolean bold) {
-		this.bold = bold;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#draw()
 	 */
 	public void draw() {
@@ -142,26 +133,6 @@ public class TextItem implements ITextItem {
 			htmlString = "<i>" + htmlString + "</i>";
 		textView.setText(Html.fromHtml(htmlString));
 		textView.setMovementMethod(LinkMovementMethod.getInstance());
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.dsanderson.xctrailreport.core.ITextItem#setBackgroundColor(java.lang
-	 * .String)
-	 */
-	private void setBackgroundColor(String color) {
-		backgroundColor = Color.parseColor(color);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.xctrailreport.core.ITextItem#setBackgroundColor(int)
-	 */
-	private void setBackgroundColor(int color) {
-		backgroundColor = new Integer(color);
 	}
 
 	/*

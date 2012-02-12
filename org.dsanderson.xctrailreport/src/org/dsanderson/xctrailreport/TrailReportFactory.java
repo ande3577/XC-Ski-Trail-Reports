@@ -69,7 +69,12 @@ public class TrailReportFactory implements IAbstractFactory {
 		this.context = context;
 		this.skinnyskiFactory = skinnyskiFactory;
 	}
-
+	
+	static public TrailReportFactory getInstance() {
+		assert (factory != null);
+		return factory;
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 

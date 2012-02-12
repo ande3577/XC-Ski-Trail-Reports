@@ -42,6 +42,11 @@ public class SkinnyskiFactory {
 		this.context = context;
 	}
 
+	static public SkinnyskiFactory getInstance() {
+		assert (skinnyskiFactory != null);
+		return skinnyskiFactory;
+	}
+
 	public SkinnyskiSettings getSkinnySkiSettings() {
 		if (skinnyskiSettings == null) {
 			try {
