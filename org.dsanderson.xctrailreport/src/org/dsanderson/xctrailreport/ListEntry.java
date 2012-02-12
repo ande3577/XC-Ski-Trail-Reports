@@ -27,18 +27,18 @@ import org.dsanderson.xctrailreport.core.ITextItem;
 import org.dsanderson.xctrailreport.TextItem;
 
 import android.content.Context;
-import android.widget.LinearLayout;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
  * 
  */
 public class ListEntry implements IListEntry {
-	LinearLayout layout;
+	ViewGroup layout;
 	Context context;
 	List<TextItem> textItems = new ArrayList<TextItem>();
 
-	public ListEntry(LinearLayout layout, Context context) {
+	public ListEntry(ViewGroup layout, Context context) {
 
 		layout.removeAllViews();
 
@@ -52,9 +52,7 @@ public class ListEntry implements IListEntry {
 	 * @see org.dsanderson.xctrailreport.core.IListEntry#newListItem()
 	 */
 	public ITextItem newTextItem() {
-		TextView textView = new TextView(context);
-		layout.addView(textView);
-		TextItem newTextItem = new TextItem(textView);
+		TextItem newTextItem = new TextItem(context, layout);
 		textItems.add(newTextItem);
 		return newTextItem;
 	}

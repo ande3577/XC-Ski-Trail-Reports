@@ -21,23 +21,30 @@ package org.dsanderson.xctrailreport;
 
 import org.dsanderson.xctrailreport.core.ITextItem;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
  * 
  */
 public class TextItem implements ITextItem {
-	TextView textView;
-	boolean italic;
-	boolean bold;
-	String textString;
+	final ViewGroup layout;
+	final Context context;
+	boolean italic = false;
+	boolean bold = false;
+	String textString = "";
+	int size = -1;
+	Integer backgroundColor = null;
+	Integer textColor = null;
+	Integer style = null;
 
-	public TextItem(TextView textView) {
-		this.textView = textView;
-		textView.setMovementMethod(LinkMovementMethod.getInstance());
+	public TextItem(Context context, ViewGroup layout) {
+		this.context = context;
+		this.layout = layout;
 	}
 
 	/*
@@ -64,7 +71,7 @@ public class TextItem implements ITextItem {
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#setSize(int)
 	 */
 	private void setSize(int size) {
-		textView.setTextSize(size);
+		this.size = new Integer(size);
 	}
 
 	/*
@@ -84,7 +91,7 @@ public class TextItem implements ITextItem {
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#setColor(int)
 	 */
 	private void setColor(int color) {
-		textView.setTextColor(color);
+		textColor = new Integer(color);
 	}
 
 	/*
@@ -111,12 +118,25 @@ public class TextItem implements ITextItem {
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#draw()
 	 */
 	public void draw() {
+		TextView textView = new TextView(context);
+		layout.addView(textView);
+
+		if (size > 0)
+			textView.setTextSize(size);
+
+		if (backgroundColor != null)
+			textView.setBackgroundColor(backgroundColor);
+
+		if (textColor != null)
+			textView.setTextColor(textColor);
+
 		String htmlString = textString;
 		if (bold)
 			htmlString = "<b>" + htmlString + "</b>";
 		if (italic)
 			htmlString = "<i>" + htmlString + "</i>";
 		textView.setText(Html.fromHtml(htmlString));
+		textView.setMovementMethod(LinkMovementMethod.getInstance());
 	}
 
 	/*
@@ -127,7 +147,7 @@ public class TextItem implements ITextItem {
 	 * .String)
 	 */
 	private void setBackgroundColor(String color) {
-		setBackgroundColor(Color.parseColor(color));
+		backgroundColor = Color.parseColor(color);
 	}
 
 	/*
@@ -136,7 +156,7 @@ public class TextItem implements ITextItem {
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#setBackgroundColor(int)
 	 */
 	private void setBackgroundColor(int color) {
-		textView.setBackgroundColor(color);
+		backgroundColor = new Integer(color);
 	}
 
 	/*

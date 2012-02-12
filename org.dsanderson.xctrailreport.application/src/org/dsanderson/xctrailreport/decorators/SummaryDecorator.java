@@ -40,6 +40,7 @@ public class SummaryDecorator extends TrailReportDecorator {
 	public void decorate(TrailReport trailReport, IListEntry listEntry) {
 		if (trailReport.getSummary().length() > 0) {
 			ITextItem newTextItem = listEntry.newTextItem();
+			newTextItem.setStyle(ITextItem.FieldId_t.SUMMARY);
 			newTextItem.setText(trailReport.getSummary());
 		}
 
