@@ -20,6 +20,7 @@
 package org.dsanderson.xctrailreport;
 
 import org.dsanderson.xctrailreport.core.ITextItem;
+import org.w3c.dom.Text;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -172,24 +173,12 @@ public class TextItem implements ITextItem {
 	public void setStyle(FieldId_t fieldId) {
 		switch (fieldId) {
 		case NAME: {
-			LayoutInflater inflator = LayoutInflater.from(context);
-			LinearLayout preferenceCategory = (LinearLayout) inflator.inflate(
-					android.R.layout.preference_category, layout);
-			// android.R.style.TextAppearance_Inverse);
-			textView = ((TextView) preferenceCategory
-					.findViewById(android.R.id.title));
-			preferenceCategory.removeView(textView);
+			newTitleTextView();
 			setSize(18);
 		}
 			break;
 		case LOCATION: {
-			LayoutInflater inflator = LayoutInflater.from(context);
-			LinearLayout preferenceCategory = (LinearLayout) inflator.inflate(
-					android.R.layout.preference_category, layout);
-			// android.R.style.TextAppearance_Inverse);
-			textView = ((TextView) preferenceCategory
-					.findViewById(android.R.id.title));
-			preferenceCategory.removeView(textView);
+			newTitleTextView();
 		}
 			break;
 		case DATE:
@@ -215,6 +204,16 @@ public class TextItem implements ITextItem {
 	 */
 	public int getTitleBackgroundColor() {
 		return Color.rgb(0xE3, 0xDA, 0xC9);
+	}
+	
+	private void newTitleTextView() {
+		LayoutInflater inflator = LayoutInflater.from(context);
+		LinearLayout preferenceCategory = (LinearLayout) inflator.inflate(
+				android.R.layout.preference_category, layout);
+		// android.R.style.TextAppearance_Inverse);
+		textView = ((TextView) preferenceCategory
+				.findViewById(android.R.id.title));
+		preferenceCategory.removeView(textView);
 	}
 
 }
