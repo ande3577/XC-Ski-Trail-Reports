@@ -52,9 +52,6 @@ public class xctrailreportActivity extends ListActivity {
 			factory.getUserSettingsSource().loadUserSettings();
 			skinnyskiFactory.getSkinnyskiSettingsSource().loadUserSettings();
 
-			if (factory.getUserSettings().getLocationEnabled())
-				factory.getLocationSource().updateLocation();
-
 			@SuppressWarnings("unchecked")
 			final List<TrailReport> savedTrailReports = (List<TrailReport>) getLastNonConfigurationInstance();
 			if (savedTrailReports == null) {
@@ -230,6 +227,13 @@ public class xctrailreportActivity extends ListActivity {
 
 	private void refresh(boolean forced) {
 		forcedRefresh = forced;
+
+		if (factory.getUserSettings().getLocationEnabled())
+			factory.getLocationSource().updateLocation();
+		else
+			factory.getLocationSource().setLocation(
+					factory.getUserSettings().getDefaultLocation());
+		
 		new LoadReportsTask(this).execute();
 	}
 

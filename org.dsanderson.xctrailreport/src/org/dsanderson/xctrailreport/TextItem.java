@@ -20,7 +20,6 @@
 package org.dsanderson.xctrailreport;
 
 import org.dsanderson.xctrailreport.core.ITextItem;
-import org.w3c.dom.Text;
 
 import android.content.Context;
 import android.graphics.Color;
