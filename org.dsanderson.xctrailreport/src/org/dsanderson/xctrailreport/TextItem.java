@@ -25,7 +25,9 @@ import android.content.Context;
 import android.graphics.Color;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -40,8 +42,7 @@ public class TextItem implements ITextItem {
 	Integer size = null;
 	Integer backgroundColor = null;
 	Integer textColor = null;
-	Integer style = null;
-	Integer textStyle = null;
+	TextView textView = null;
 
 	public TextItem(Context context, ViewGroup layout) {
 		this.context = context;
@@ -119,14 +120,8 @@ public class TextItem implements ITextItem {
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#draw()
 	 */
 	public void draw() {
-		TextView textView;
-		if (style == null)
+		if (textView == null)
 			textView = new TextView(context);
-		else
-			textView = new TextView(context, null, style);
-
-		if (textStyle != null)
-			textView.setTextAppearance(context, textStyle);
 
 		layout.addView(textView);
 
@@ -176,14 +171,26 @@ public class TextItem implements ITextItem {
 	 */
 	public void setStyle(FieldId_t fieldId) {
 		switch (fieldId) {
-		case NAME:
-			style = new Integer(android.R.attr.listSeparatorTextViewStyle);
+		case NAME: {
+			LayoutInflater inflator = LayoutInflater.from(context);
+			LinearLayout preferenceCategory = (LinearLayout) inflator.inflate(
+					android.R.layout.preference_category, layout);
+			// android.R.style.TextAppearance_Inverse);
+			textView = ((TextView) preferenceCategory
+					.findViewById(android.R.id.title));
+			preferenceCategory.removeView(textView);
 			setSize(18);
-			textStyle = new Integer(
-					android.R.style.TextAppearance_Medium_Inverse);
+		}
 			break;
-		case LOCATION:
-			style = new Integer(android.R.attr.listSeparatorTextViewStyle);
+		case LOCATION: {
+			LayoutInflater inflator = LayoutInflater.from(context);
+			LinearLayout preferenceCategory = (LinearLayout) inflator.inflate(
+					android.R.layout.preference_category, layout);
+			// android.R.style.TextAppearance_Inverse);
+			textView = ((TextView) preferenceCategory
+					.findViewById(android.R.id.title));
+			preferenceCategory.removeView(textView);
+		}
 			break;
 		case DATE:
 			setColor(context.getResources().getColor(
