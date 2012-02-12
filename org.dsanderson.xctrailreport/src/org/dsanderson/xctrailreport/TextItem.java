@@ -23,6 +23,7 @@ import org.dsanderson.xctrailreport.core.ITextItem;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
@@ -178,6 +179,7 @@ public class TextItem implements ITextItem {
 			break;
 		case LOCATION: {
 			newTitleTextView();
+			textView.setTypeface(Typeface.DEFAULT);
 		}
 			break;
 		case DATE:
@@ -204,7 +206,7 @@ public class TextItem implements ITextItem {
 	public int getTitleBackgroundColor() {
 		return Color.rgb(0xE3, 0xDA, 0xC9);
 	}
-	
+
 	private void newTitleTextView() {
 		LayoutInflater inflator = LayoutInflater.from(context);
 		LinearLayout preferenceCategory = (LinearLayout) inflator.inflate(
