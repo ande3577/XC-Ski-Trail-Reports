@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    <PreferenceCategory android:title="Display Options"><ListPreference android:title="Sort By:" android:entryValues="@array/sortMethods" android:entries="@array/sortMethodNames" android:key="sortMethod" android:defaultValue="sortByDate" android:dialogTitle="Sort By:"/>
-    
-            
-        
-</PreferenceCategory><PreferenceCategory android:title="Location Settings">
+<PreferenceCategory android:title="Location Settings">
         <CheckBoxPreference android:title="Allow Location" android:summary="Allow the application to access your phones location services to determine current position." android:key="enableLocation" android:defaultValue="false"/>
         <EditTextPreference android:title="Default Location" android:summary="The location to use if the phone's location source is unavailable." android:key="defaultLocation" android:defaultValue="Minneapolis, MN"/>
     </PreferenceCategory>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="Region Select">
     <CheckBoxPreference android:title="Minnesota Metro Area" android:key="mnMetro" android:defaultValue="true"/>
-    <CheckBoxPreference android:title="Minnesota Northeast" android:key="mnNortheast"/>
-    <CheckBoxPreference android:title="Minnesota Northwest" android:key="mnNorthwest"/>
-    <CheckBoxPreference android:title="Minnesota Central" android:key="mnCentral"/>
-    <CheckBoxPreference android:title="Minnesota Southern" android:key="mnSouthern"/>
-    <CheckBoxPreference android:title="Wisconsin Northwest" android:key="wiNorthwest"/>
-    <CheckBoxPreference android:title="Wisconsin Northeast" android:key="wiNortheast"/>
-    <CheckBoxPreference android:title="Wisconsin Southwest" android:key="wiSouthwest"/>
-    <CheckBoxPreference android:title="Wisconsin Southeast" android:key="wiSouthwest"/>
-    <CheckBoxPreference android:title="Michigan Upper Peninsula" android:key="miUP"/>
-    <CheckBoxPreference android:title="Iowa" android:key="ia"/>
-    <CheckBoxPreference android:title="Canada" android:key="ca"/>
-    <CheckBoxPreference android:title="Illinois" android:key="il"/>
-    <CheckBoxPreference android:title="North Dakota" android:key="nd"/>
-    <CheckBoxPreference android:title="United States" android:key="us"/>
+    <CheckBoxPreference android:title="Minnesota Northeast" android:key="mnNortheast" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="Minnesota Northwest" android:key="mnNorthwest" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="Minnesota Central" android:key="mnCentral" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="Minnesota Southern" android:key="mnSouthern" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="Wisconsin Northwest" android:key="wiNorthwest" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="Wisconsin Northeast" android:key="wiNortheast" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="Wisconsin Southwest" android:key="wiSouthwest" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="Wisconsin Southeast" android:key="wiSouthwest" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="Michigan Upper Peninsula" android:key="miUP" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="Iowa" android:key="ia" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="Canada" android:key="ca" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="Illinois" android:key="il" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="North Dakota" android:key="nd" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="United States" android:key="us" android:defaultValue="true"/>
     
 
 </PreferenceScreen>

@@ -13,10 +13,13 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.format.Time;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -54,9 +57,8 @@ public class xctrailreportActivity extends ListActivity {
 
 			@SuppressWarnings("unchecked")
 			final List<TrailReport> savedTrailReports = (List<TrailReport>) getLastNonConfigurationInstance();
-			if (savedTrailReports == null) {
+			if (savedTrailReports == null)
 				refresh(false);
-			}
 
 		} catch (Exception e) {
 			System.err.println(e);
@@ -201,6 +203,46 @@ public class xctrailreportActivity extends ListActivity {
 		case R.id.request:
 			launchIntent(SkinnyskiReportRetriever.DEFAULT_SKINNYSKI_REQUEST_URL);
 			break;
+		case R.id.sortBy:
+			MenuItem distance = item.getSubMenu().getItem(0).setChecked(false);
+			MenuItem date = item.getSubMenu().getItem(1).setChecked(false);
+			MenuItem duration = item.getSubMenu().getItem(2).setChecked(false);
+
+			switch (factory.userSettings.getSortMethod()) {
+			case SORT_BY_DISTANCE:
+				distance.setChecked(true);
+				break;
+			case SORT_BY_DATE:
+				date.setChecked(true);
+				break;
+			case SORT_BY_DURATION:
+				duration.setChecked(true);
+				break;
+			}
+			break;
+		case R.id.sortByDuration:
+		case R.id.sortByDate:
+		case R.id.sortByDistance:
+
+			String sortMethodString = "";
+
+			switch (item.getItemId()) {
+			case R.id.sortByDuration:
+				sortMethodString = "sortByDuration";
+				break;
+			case R.id.sortByDate:
+				sortMethodString = "sortByDate";
+				break;
+			case R.id.sortByDistance:
+				sortMethodString = "sortByDistance";
+				break;
+			}
+
+			Editor edit = PreferenceManager.getDefaultSharedPreferences(
+					getApplication()).edit();
+			edit.putString("sortMethod", sortMethodString);
+			edit.commit();
+			break;
 		default:
 			Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
 			break;
@@ -237,7 +279,7 @@ public class xctrailreportActivity extends ListActivity {
 		else
 			factory.getLocationSource().setLocation(
 					factory.getUserSettings().getDefaultLocation());
-		
+
 		new LoadReportsTask(this).execute();
 	}
 
