@@ -34,6 +34,7 @@ import org.dsanderson.xctrailreport.core.TrailReport;
 public class SkinnyskiReportRetriever implements IReportRetriever {
 
 	public static final String DEFAULT_SKINNYSKI_REPORT_URL = "http://skinnyski.com/trails/trailselect.asp?reportType=X";
+	public static final String DEFAULT_SKINNYSKI_REQUEST_URL = "http://www.skinnyski.com/trails/trailreportrequest.asp";
 
 	IAbstractFactory factory;
 	SkinnyskiSettings settings;

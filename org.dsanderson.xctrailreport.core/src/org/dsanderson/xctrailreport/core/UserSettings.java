@@ -33,7 +33,7 @@ public class UserSettings {
 
 	private SortMethod sortMethod = null;
 	private boolean locationEnabled = false;
-	private String defaultLocation = "55455";
+	private String defaultLocation = "Minneapolis, MN";
 	private boolean distanceFilterEnabled = false;
 	private int filterDistance = Units.milesToMeters(50);
 	private boolean dateFilterEnabled = false;

@@ -197,6 +197,10 @@ public class xctrailreportActivity extends ListActivity {
 			break;
 		case R.id.composeMain:
 			launchIntent(SkinnyskiReportRetriever.DEFAULT_SKINNYSKI_REPORT_URL);
+			break;
+		case R.id.request:
+			launchIntent(SkinnyskiReportRetriever.DEFAULT_SKINNYSKI_REQUEST_URL);
+			break;
 		default:
 			Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
 			break;
