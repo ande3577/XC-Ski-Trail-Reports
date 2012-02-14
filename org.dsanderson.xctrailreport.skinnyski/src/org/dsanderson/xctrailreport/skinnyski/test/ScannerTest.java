@@ -43,21 +43,16 @@ public class ScannerTest {
 		try {
 			fileStream = new FileInputStream("reports.asp");
 
-			List<String> regions = new ArrayList<String>();
-
-			for (String region : RegionManager.supportedRegions)
-				regions.add(region);
-
 			SkinnyskiScanner skinnyskiScanner = new SkinnyskiScanner(fileStream);
 
-			for (String region : regions) {
+			for (String region : RegionManager.supportedRegions) {
 
 				System.out.println("Region: " + region);
 
-				skinnyskiScanner.findRegion(region);
-
-				while (skinnyskiScanner.scanRegion()) {
-					printReportInfo(skinnyskiScanner);
+				if (skinnyskiScanner.findRegion(region)) {
+					while (skinnyskiScanner.scanRegion()) {
+						printReportInfo(skinnyskiScanner);
+					}
 				}
 			}
 

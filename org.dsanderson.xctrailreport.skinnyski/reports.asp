@@ -1,4 +1,3 @@
-
 <html><!-- #BeginTemplate "/Templates/trails.dwt" -->
 <head>
 <!-- #BeginEditable "doctitle" --> 
@@ -14,6 +13,7 @@
 <META name="title" content="Skinnyski.com: Trail Reports">
 <META name="description" content="First-hand trail reports and recent photos from skiers and groomers along with links to detailed trail information and weather.">
 <META name="image" content="http://www.skinnyski.com/images/main_banner.jpg">
+
 <META name="keywords" content="trail conditions, grooming, cross country, skiing, midwest, minnesota, wisconsin, iowa, michigan, trails, conditions, reports">
 </head>
 <!-- Search engine stuff -->
@@ -26,12 +26,14 @@
     <td valign=center bgcolor=#8080FF rowspan=3 nowrap> 
       <center>
           <a class=barlink href="/">Home</a><br>
+
           <a class=cbarlink href="../trails">Trails</a><br>
           <a class=barlink href="../lodging">Lodging</a><br>
           <a class=barlink href="../gear">Gear</a><br>
           <a class=barlink href="../training">Training</a><br>
           <a class=barlink href="../racing">Racing</a><br>
           <a class=barlink href="../notices">Notices</a><br>
+
           <a class=barlink href="../links">Links</a> 
       </center>
     </td>
@@ -54,6 +56,7 @@
         </noscript>		
       </center>
     </td>
+
   </tr>
   <tr> 
     <td valign=middle bgcolor=#ffffff><img alt="Adelsman's Cross-Country Ski Page:  skinnyski.com" vspace=0 hspace=0 align=left src="../images/main_banner.jpg" width="500" height="110"> 
@@ -67,6 +70,7 @@
 <table width=100% border=0 cellpadding=5 cellspacing=0>
   <tr valign=top> 
     <td bgcolor=#8080FF width=66> <!-- #BeginLibraryItem "/Library/TrailsSidebar.lbi" --><a name="menuNews" class=sidelink href="../trails">News</a><br> 
+
 <img alt="--------" src="../images/whitebar1-60px.gif" hspace=0 vspace=5 width="60" height="1"><br>
 <a name="menuReports" class=sidelink href="reports.asp">Trail Reports</a><br>
 <img alt="--------" src="../images/whitebar1-60px.gif" hspace=0 vspace=5 width="60" height="1"><br>
@@ -80,10 +84,11 @@
 <script language="Javascript">
   set_trails_menu();
 </script>
+
 <!-- #EndLibraryItem --><img alt=" " src="../images/spacer.gif" hspace=0 vspace=5 width="60" height="1"><br>
       <!-- #BeginEditable "sidebarBody" --> 
       <p> 
-<a href="http://www.heartwoodconferencecenter.com/" onclick="log_external_link(this, 'External Links', 'Ad - Sidebar');return false;"><img border="2" src="/ads/heartwood.gif" alt="Heartwood Conference Center and Retreat with over 25K of groomed ski trails, located in NW Wisconsin."></a><p>
+<a href="http://www.pincushiontrails.org/" onclick="log_external_link(this, 'External Links', 'Ad - Sidebar');return false;"><img border="2" src="/ads/sawtooth2012.gif" alt="Sawtooth races, 10K classical, 20K freestyle, February 18"></a><p>
 
       <!-- #EndEditable --></td>
     <td> 
@@ -107,6 +112,7 @@
                   Can't find a recent trail report on your favorite trail system?  File a <a href="trailreportrequest.asp">Trail Report Request</a>!
                   
                   </td>
+
                 <td> 
                   <center>
                     <b><font size="2" face="Arial, Helvetica, sans-serif">Submit:</font></b><br>
@@ -118,6 +124,7 @@
             </table>
 <table cellspacing="0" cellpadding="10" border="0" width="100%">
 <tr>
+
 </tr>
 </table>
 
@@ -127,8 +134,9 @@
               <table border="0" cellspacing="5" cellpadding="3" width="100%">
 
                 <tr> 
-                  <td width="50%"><font size="2">Reports: 498</font></td>
+                  <td width="50%"><font size="2">Reports: 369</font></td>
                   <td>&nbsp;</td>
+
                   <td nowrap>Report Age 
                     <select name="ageFilter">
                       <option value="new" >New 
@@ -141,6 +149,7 @@
                       10 days</option>
                       <option value="30" >Last 
                       30 days</option>
+
                       
                     </select>
                   </td>
@@ -153,6 +162,7 @@
                       <option value="ne-mn" >NE MN</option>
                       
                       <option value="nw-mn" >NW MN</option>
+
                       
                       <option value="c-mn" >C MN</option>
                       
@@ -165,6 +175,7 @@
                       <option value="sw-wi" >SW WI</option>
                       
                       <option value="se-wi" >SE WI</option>
+
                       
                       <option value="up-mi" >UP MI</option>
                       
@@ -177,6 +188,7 @@
                       <option value="il" >IL</option>
                       
                       <option value="nd" >ND</option>
+
                       
                       <option value="us" >Other US</option>
                       
@@ -188,41 +200,225 @@
                     <input type="submit" name="Submit" value="Go">
                   </td>
                 </tr>
+
               </table>
             </form>
 
-<div style="border: 2px double gray; background: tan; margin: 5px 5px 10px 5px; padding: 3px; "><b>Seeking New Trail Reports for:</b> <a href="/trails/traildetail.asp?Id=408">Mt. Valhalla</a>(2), <a href="/trails/traildetail.asp?Id=34">Sugarbush</a>, <a href="/trails/traildetail.asp?Id=447">Raven</a>, <a href="/trails/traildetail.asp?Id=316">Black River Falls SF</a>, <a href="/trails/traildetail.asp?Id=91">Lake Elmo</a>, <a href="/trails/traildetail.asp?Id=140">Levis/Trow Mound</a>, <a href="/trails/traildetail.asp?Id=18">Itasca SP</a>, <a href="/trails/traildetail.asp?Id=358">Iola Winter Sports</a>, <a href="/trails/traildetail.asp?Id=564">Marshfield School Forest</a>, <a href="/trails/traildetail.asp?Id=120">Saint Mary's Univ</a>, <a href="/trails/traildetail.asp?Id=13">Edgewood GC</a>, <a href="/trails/traildetail.asp?Id=83">Afton SP</a>, <a href="/trails/traildetail.asp?Id=367">Uller</a>, <a href="/trails/traildetail.asp?Id=569">Escanaba </a>.</div>
+<div style="border: 2px double gray; background: tan; margin: 5px 5px 10px 5px; padding: 3px; "><b>Seeking New Trail Reports for:</b> <a href="/trails/traildetail.asp?Id=34">Sugarbush</a>(3), <a href="/trails/traildetail.asp?Id=328">Hickory Ridge</a>(2), <a href="/trails/traildetail.asp?Id=399">Heartwood</a>(2), <a href="/trails/traildetail.asp?Id=510">UW-Parkside</a>, <a href="/trails/traildetail.asp?Id=63">Suomi Hills</a>, <a href="/trails/traildetail.asp?Id=400">Pattison SP</a>, <a href="/trails/traildetail.asp?Id=359">Neshota</a>, <a href="/trails/traildetail.asp?Id=365">Rapid River</a>, <a href="/trails/traildetail.asp?Id=420">Mirror Lake SP</a>, <a href="/trails/traildetail.asp?Id=48">Central Gunflint</a>, <a href="/trails/traildetail.asp?Id=364">McKeever Hills</a>, <a href="/trails/traildetail.asp?Id=350">Reforestation Camp</a>, <a href="/trails/traildetail.asp?Id=18">Itasca SP</a>, <a href="/trails/traildetail.asp?Id=16">Deep Portage</a>, <a href="/trails/traildetail.asp?Id=126">Telemark</a>, <a href="/trails/traildetail.asp?Id=401">Jay Cooke SP</a>, <a href="/trails/traildetail.asp?Id=451">Fond du Lac SF</a>.</div>
+
                         <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/metro.gif" hspace="6" border=0><font size=+1><b>Minnesota Metro Area</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Twin Cities area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=44.98&textField2=-93.264&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
 <li>
 <img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
+Conditions: Great!<br>Snow was great! Firm, fast. I was there from 3-5 pm, and there were maybe a total of 15 skiers on the trail at any given time. Not nearly as crowded as the past weeks, and some of the best skiing yet!<br>
+(Jennifer Bushek)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
+
+Conditions: Great!<br>Today was so much nicer than yesterday.  Don't know if it was because yesterday afternoon there were only a few skiers compared to the energy of today with all the Sisu lessons OR because I couldn't get my poles to grab yesterday in the classic track.  I didn't want to quit.  Green Acres is the cure for the 2011-2012 MN Winter Blues!<br>
+Photos: <a onClick="reportviewer(46670); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Peter Grasse)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
+Conditions: Great - for the season.<br>It was better than it has been all season. The snow is backed down real nice, but it got a little grainy on the hills. Overall it was great, and worked out really well. Thanks to the groomers who worked hard all year to keep it in good conditions.<br>
+(Erin Moening)
+
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
+Conditions: Surprisingly good.<br>I skied the course early this afternoon. Despite the very heavy use on this beautiful winter day, the trail was in remarkably good condition. By the time I finished a bit before 3:00, there were a few icy spots and ruts on the downhills, but nothing to complain about--especially this winter!  A huge thank you to the crew at Wirth for keeping this trail going all season long. It is a bright spot in a sea of brown.<br>
+(Jonathan Poppele)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
+
+Conditions: WOW - The classic track was great!<br>The grooming staff at Elm Creek are the best! The track was perfect, not icy at all this morning. The skate lane was also terrific. How lucky we are! Also, now that HS sectionals are over it was not cheek-by-jowl crowded. Perhaps the fact that it was 6 degrees also helped.<br>
+(Curt Werdal)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
+Fantastic; very fast, firm skate base with excellent edging.  Surprisingly clean (some wind blown debris in classic tracks).<br>
+(Matt Kramar)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
+
+Conditions: Remarkable.<br>Hats off to the Green Acres crew for their tremendous effort to keep the system in top shape.  The state qualifiers from Stillwater had a great week-end workout.  After the wild swings of melting and freezing, the slush and the ice, it was amazing to be skiing on white packed snow (alongside brown fields).  We're so fortunate to have this facility on the east side in a year like this.  It is less crowded now as the high school season is nearly complete.  Get out and enjoy!<br>
+(Torry Kraftson)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
+I skied early Saturday morning. The course was perfectly groomed and in great shape early. It was starting to get a lot of use by 10:00.<br>
+(John Breitinger )
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
+
+Conditions: Very good.<br>Just glad to have a place nearby that can provide what nature cannot.<br>
+(Kent Sall)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
+Conditions: Excellent, cold skiing.<br>Freshly delivered snow on the trails with cold temps made for a firm skate deck and a good looking classic track.<br>
+(Ben Popp, <a href="http://www.sisuskiers.org" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Sisu Nordic Ski Foundation</a>)
+
+<li>
+
+<b>Feb 10 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
+Frozen hard with many frozen ruts and icy spots.  Not even worth the time. <br>
+(Kevin Lyons)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
+Conditions: Very good.<br>Solid classic track, a little icy, but not as much I as expected with the drop form 38F to 8F.  Green worked fine in the morning and early afternoon.  Skate track was rolled and hard.<br>
+
+(Tom Ferry)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
+Conditions: A mix of good and terrible--caution required.<br>Deep frozen ruts on the uphills and some curves required caution.  Flats and most downhills were quite fine, but I found it hard to "get in the groove" and ski with confidence with that variability.  I quickly modified my goal for the day from number of laps to simply not falling down.<br>
+(Lois Braun)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
+
+Conditions: A bit icy with some ground up spots, but quite skiable.<br>Great to be able to ski in the day! Conditions quite respectable for the winter we've had.<br>
+(Judy Lutter)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=108">Como Golf Course</a> (Saint Paul):</b><br>
+Conditions: <b>Closed for the season.</b><br>As of today Como Ski Area is closed for the season. All facilities are closed. We hope to see you next year.<br>
+(Stephen Dinger )
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
+
+Conditions: Very good for skate.<br>Skate skiing on Thursday evening at Elm Creek was very good.  Firm base, with about 0.5-1 inch of loose snow on top.  Very fast, but no problems with edging.  Minor sugar on the climb up out of the donut, but the descent entrance is in better shape since last time.  Classic tracks looked in very good shape as well. Not crowded at all (starting at 7:30); at most 20 people were out skiing at any one time.<br>
+(Ted Lystig)
+
+<li>
+<b>Feb 9 - Medicine Lake (Plymouth):</b><br>
+Conditions: The tracks have returned! The little remaining snow on the lake has blown into the ice tracks formerly groomed by the West Medicine Lake Ski Club. If you stick to the East side of the peninsula there is more snow in the tracks.<br>Now with the official ban on all cars on Hennepin County lakes,  hopefully we can keep the ski tracks a little longer. Yeah!<br>
+(Karla Anderson)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
+
+Conditions: New clean snow added - greatly improved.<br>Skating was very good Thursday morning on clean, fast snow. Much of the trail had been refreshed and more clean snow was being added from a huge pile at the top of the sledding hill. No problem using good skis. There is a classic track.<br>
+(Russ Ludeke)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
+Conditions: Nice conditions (for me).<br>Skated around 8 on Thursday and about 3-4 other people there.  The groomers were out on the Pisten Bully and where they had groomed was really soft.  I tried to ski on the ungroomed stuff and the far outside as much as possible so as not to gouge the grooming.  I also skipped the left-turn drop. I really do wish the groomers would wait until the park is closed to groom.  With a 5 degree low tonight, I'm sure all those gouges will set up and be not so pleasant for those in the morning.<br>
+(Erik Hendrickson)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
+
+Conditions: Fast.<br>Nice hard packed skate trail. Classic trial looked good as there were many using it. Parking is better as the schools are ending their season.<br>
+(Jon Schaumann)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
+Conditions: Firm skate deck and solid tracks. No ice and very little sugar on the uphills.<br>Excellent conditions this morning around 8:30. Fast with good edge control.<br>
+(John O'Connell, <a href="http://www.wamxc.org/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">WAMXC</a>)
+
+<li>
+
+<b>Feb 8 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
+Conditions: Sheer ice.<br>As Elm Creek had HS races scheduled through 7:30 pm, I went over to Wirth for the first time this season at 4 pm yesterday. After one loop of classic I gave up for two reasons (wrong wax for the ice conditions), and concern about staying in control on the downhills (ice once again). We need new snow ... natural or man made. What a difference a few days makes ... had a good ski at Wirth during the City of the Lakes Loppet.<br>
+(Rich Hoeg)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
+Conditions: Very good.<br>Despite a pretty good crowd of Sisu adults and Skiwerxs kids, the trails were nice and firm tonight (except a bit of sugar under the pines on the second pitch of the first climb after the tubing hill).<br>
+
+(Per Nelson)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
+Conditions: Decent for skate.<br>I went skate skiing Wednesday evening at Wirth from @6:30-8.  Plenty of coverage, but most of the course has about 1-2 inches of sugar snow over an icy base.  It's still reasonably fast with plenty of control.  The spots where the icy underlayer get exposed are usually on uphills.  Classic track looked like it came and went throughout the loop.  Best conditions were on the (unlit) portion of the loop going through the start/finish area by the lower golf building- firm without the sugar.  The descent by the tubing hill is a bit challenging when the tubing lights are turned off at 8pm.  <br>
+(Ted Lystig)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
+
+Conditions: Very good.<br>Skied (skated) between the pursuit stages for the Sectional there today about lunchtime. Fast. Classic track looked great and less icy than yesterday (klister). Hard wax may have worked.<br>
+(Mark Lahtinen)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
+Conditions: Very good for classic.<br>The classic tracks at Elm Creek on Tuesday evening were solid and very fast.  Unlike other recent days, there was even enough loose snow around to make striding easier (previously the tracks were icier).  The no-wax skis were singing and zinging.  Looked like the skate lane was quite firm, but not as icy as it has been lately.  A bit of sugar on the sweeping downhill into the donut, but overall in good shape.<br>
+(Ted Lystig)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
+
+Schedule Update: Green Acres X-C Ski Trails will be open to the public all day Saturday as the meet that was scheduled for the morning has been canceled.<br>
+(Beth Springbon)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
+Conditions: Fair.<br>Hard and icy in places with mild sugar on hills.<br>
+(Adam Bock)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
+
+Conditions: Fast firm corduroy in late morning (those responsible for the course have done an outstanding job considering the heavy use and warm weather). By mid afternoon with 40 plus degrees the southern slopes were a slush fest at times scraped down to crust, but still surprisingly fast on the northern exposures and in the shade.  Good coverage throughout the course.<br>Scheduling notes:<br>
+Wirth is hosting high school section races Tuesday, Wednesday and Thursday, roughly 7 am to 4:30 pm each day.<br>
+(Matt Kramar)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
+Scheduling update: <br>
+3:00 - 5:00 Monday Feb. 6th - Thursday Feb. 9th High School practice <br>
+2:30 - 5:00 Friday Feb. 10th High School Race <br>
+
+8:00 - 11:30 Saturday Feb. 11th High School Race<br>
+(Beth Springborn, <a href="http://www.greenacresrec.com/crossCountrySkiing.htm" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Green Acres Recreation</a>)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
 Conditions: Deep sugar.<br>Parking was full and had to use the shuttle at 1:00.  Side lot is too muddy. Skate trail had deep sugar most of the way around.<br>
 (Jon Schaumann)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
+
 Conditions: 9:30 a.m. Good skating surface, fast, with some dirty and some pristine snow.<br>Really good conditions this morning. Not too crowded! Some deeper sugar on the steep climb coming out of the stadium, but otherwise fast with good edge. Some of the trail, even on the upper loop was pristine white. I would recommend 'B' skis as there is a bit of gravel here and there. Thanks to Green Acres for keeping us on our skis so close to home in this nightmarish winter!<br>
 (Stan Hokanson)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
 Conditions: Icy and fast.<br>I skied a couple loops of the classic loop around 10 am. Toko red klister was perfect, I could kick up all the hills except the steep one before the grooming shed. Should be fast and fun tomorrow!<br>
 (Casey Rutherford)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
+
 Conditions: Sugary.<br>What a difference a day makes.  Sugary is the word of the day.  Very loose, even the classic tracks were in tough shape by 9am.<br>
 (Brad Johnson)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 3 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
+Conditions: Good and fast for classic.<br>Classic skiing on Friday evening at Elm Creek was fast.  Tracks were deep and solid, and only washed out near the pedestrian bridge and by the teaching meadow.  Double poling was a treat, and grip with the no-wax was sufficient for the uphills.  The downhill on the donut was a bit tricky, but the inside line seemed best.<br>
+(Ted Lystig)
+
+<li>
+<b>Feb 3 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
+
 Conditions: Man-made snow, but the worst I have seen it on a weekday ever.  Looks like it hadn't been groomed the night before.<br>Classic tracks were just ice, I double poled the whole classic workout. Skate track was hard in areas, soft in others.  The big hill was the best I had seen it all year.  There were more "potholes" and "speedbumps" than I've ever seen on the man-made snow loop, beware, especially the last loop.  <br>
 (Mike Luke)
 
@@ -233,6 +429,7 @@ Conditions: Firm deck with a bit of ice and very fast. The classic track was icy
 
 <li>
 <b>Feb 3 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
+
 Conditions: Relatively excellent.<br>Just spent an hour ski-skating at Green Acres. Snow is holding up.  One of those fast, yet stable days.  Cloud cover helps - none of that ice and slush mix today.   Enough sugar on top for good edge, balance and some sub-threshold V2 skating.  Rock skis not needed, just need to keep watch for a few thin spots and stay agile.  Thanks again to Green Acres (and Ben Popp) for salvaging the season.<br>
 (Mike Reid)
 
@@ -241,346 +438,87 @@ Conditions: Relatively excellent.<br>Just spent an hour ski-skating at Green Acr
 Scheduling update: City Conference Championships from 12 to 4:30 today.<br>
 (Michael Gotzsche)
 
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
-Scheduling update:  Besides the usual high school practices, Elm Creek will be reserved Tuesday and Wednesday afternoon/evening, Feb 7-8, for high school section races (2:30-7:30 pm).<br>
-(Bruce Adelsman)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
-Conditions: Soft but good.<br>2-3" of soft slush. My skis work great on it. I was there at 6:00 when the buses were just leaving. Put in 3 nice laps.<br>
-(Jon Schaumann)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
-Conditions: Loose slush.<br>Had about an hour to ski, ran out to Elm Creek to get a quick workout. Mistake. Arrived around 4 p.m. Paved lot was full. Side lot was closed due to mud. Had to ride the shuttle. High School conference meet was beginning. I skied one lap, found 4-6" of slush. Slow. Felt bad for the kids. Realized it just wasn't meant to be for me today...<br>
-(Stan Hokanson)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
-Conditions: Fast dirty snow.<br>I skated the courses for both IPC races at 9am today and then some.  The trails were in great shape as the groomers had done a lot of work on them and I was one of the first ones on them.  Very dirty snow, would suggest B skiis.  Course was very fast too as it had frozen up again overnight.<br>
-(Eve Stein)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
-Conditions: Brown.<br>The snow on most of the course is very dirty, and the ground is starting to show through in a couple of spots.  I wouldn't recommend using good skis until snowmaking can begin again -- I felt like I was skiing on sandpaper on the upper flat loop and on the downhill into the stadium.  The groomers have been doing a great job given the abysmal conditions, but there's not a lot to work with right now.<br>
-(Emma Lee)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
-Conditions: Like a Caramel Macchiato Frappucino.<br>Semi-frozen tan slush, with a few pieces of ice and a some liquid mixed in. Slow, sticky, slushy, foggy, wet, blah. But....at least it was skiable; which is a plus considering the weather we've had.<br>
-It was my first time to Green Acres, and I was impressed with the layout and effort they have clearly put in. Some nice hills, and decent variety.<br>
-(Michael Schwartz)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
-Conditions: Good. Wet. Fast. Foggy.<br>A few hee-bee-gee-bees on the backside of both donuts.<br>
-Double-tracked from the high school races. Faster than expected.<br>
-The Zetas worked according to Tom B....wish mine hadn't blown out a sidewall a few years ago.<br>
-(Mark Lahtinen)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=418">Hiawatha Golf Course</a> (Minneapolis):</b><br>
-Conditions: Island-Hopping awesome!<br>What a difference a day makes. Tuesday: ok crust skiing, Wednesday: only one small patch of snow left, barely connected. We could use a few inches... guess it's back to running.<br>
-(Scott Hatch)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
-Skate skiing at Wirth on Wednesday evening was surprisingly good.  The skate bed was not icing, it was easy to edge, and the uphills were not getting too cut up.  There are a few darker spots on the trail around the course, but those seem like they may be more from water seeping through the snowpack than from dirt starting to show.  Granted, I've only skied here in the evening lately, so bright light could prove me wrong.  Still, I'm impressed at how well the course is holding up.  Saw one high school group (Orono?) earlier, and what looked to be a master's group later, but generally not a lot of skier traffic (in the evening) all things considered.<br>
-(Ted Lystig)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
-Conditions: Weather really taking its toll...<br>I skied Tuesday night and it was wonderful.  Tonight (Wednesday) less so. There was a significant loss of quality today. I kicked both nights with Toko Red Klister. Tuesday was good, and it was great tonight in the few spots where the track was icy but very slow most everywhere else. I actually skied a loop tonight with my good skis and was nervous the whole time because of dirt and possible ground (too dark to tell), so I switched to rock skis to ease my mind. Track is deteriorating in many places but was still pretty decent considering this crazy winter. Overall: Better than not skiing and impressive considering, but it sure would be nice to just have a real winter.<br>
-(Casey Rutherford)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
-Conditions: Excellent! Hard packed, fairly fast. Good skis for sure.<br>Skied 2 1/2 hours alternating between tough hill training and nice, easy, technique training on an incredibly wide and even top loop. Many of the trails have nice 4-8" base of man-made snow on them, almost all are open leading to some really great skiing. Only downside - incredibly crowded, always. Lots of high school teams training and racing, and seemingly the entire east metro on skis besides.<br>
-(Rob Fanderson)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=108">Como Golf Course</a> (Saint Paul):</b><br>
-Conditions: Better than expected!<br>Unlike the previous reporter, I found the Como glacier to be holding up very well. There are some icy spots, but overall it was better than expected if you don't mind being confined to a small area with good coverage. I classic skied with tape skis and they were fine if you don't mind the lack of set tracks. A double pole workout would be very doable.<br>
-(Doug Schumacher)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=108">Como Golf Course</a> (Saint Paul):</b><br>
-Conditions: Conditions are not good! There is no snow to ski!<br>I'm a golfer in the summer at Como so please stay off the course for now.<br>
-(Joshua Bentley)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=341">Woodland Trails</a> (Elk River):</b><br>
-Conditions: Closed--again.<br>Our non-winter continues.<br>
-(Dave Anderson, Elk River Nordic Ski Club)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
-I went classic skiing at Wirth on Tuesday evening at about 7:30.  The air temperature was still above freezing, and the snow was corn-like.  Tracks were set throughout most of the loop, with the exception of some of the steeper hills (up and down), a few merging sections, and near the lower start/finish area.  The start/finish area was a bit confusing, as there is very little light there, and what seem to be a few course options for the sit-ski racing.  Coverage was generally quite good, but there were two spots where I wasn't sure if the snow was thin or just dirty.  It actually seemed to ski faster out of the tracks than in, since a number of leaves were embedded in the classic tracks (and it almost felt like there might have been residual klister on the leaves as well).  No-wax skis gripped well out of the tracks, but were noisy as heck.  Not too crowded though - just one largish group finishing up around 8, and maybe a dozen of us beyond that.<br>
-(Ted Lystig)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=448">City of Lakes Loppet Trail</a> (Minneapolis):</b><br>
-At 4:30 the high school teams were en masse double poling over watery ice on Isles.<br>
-(Bart Cannon)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=108">Como Golf Course</a> (Saint Paul):</b><br>
-Conditions: Good.<br>A wide swath of The Glacier has been rolled. The snow was fast for skate skis in the morning with temps above freezing. The sliding hill at the end of The Glacier was still snow-covered as well as the by the rope-tow for climbing practice.<br>
-(David Byrne, <a href="http://www.mnrovers.org" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Minnesota Rovers Outdoors Club</a>)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=448">City of Lakes Loppet Trail</a> (Minneapolis):</b><br>
-Conditions: Good for skate on lakes.<br>Skied on Isles and Cedar. Still a good base where it had been groomed. I used rock skis but better skis would have been fine except under the bridges. Classic tracks looked thin in most places. Puddles may appear quickly now that the sun is beating down.<br>
-(Sue Schroeder)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=303">Cleary Lake Regional Park</a> (Prior Lake):</b><br>
-Conditions: Fast but in fair conditions.<br>Skied the inner 2K loop multiple times this morning and the trail continues to hold the snow well. A few branches sticking out from the snow and one right turn that's exposed to the sun that is losing most of the snow. The longer loops may still be skiable but expect that the hill about 1.1 miles in will be rocky!<br>
-(Eric Spieler)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
-I skied from 5 - 6:00.  The course was in very decent shape but starting to show some wear.  It is being used intensively. <br>
-(John Breitinger)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=341">Woodland Trails</a> (Elk River):</b><br>
-Conditions: Good rock-ski conditions!<br>Put away my skis and brought out the running shoes a few weeks ago.  On a whim I drove out to Elk River today.  I had forgotten how much fun skiing was.  A little dirt, a couple dicey spots, but continuous coverage on the outer loops.  Went around twice just to be sure.  Amazing conditions considering the lack of winter weather.<br>
-(John Kendrick)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=94">Battle Creek Regional Park West</a> (Saint Paul):</b><br>
-Conditions: Terrific rock skiing.  Thin but thorough coverage everywhere.<br>The lit loop and woods at Battle Creek are covered well enough to offer really enjoyable skate skiing.  Rock skis are a must to navigate the south-facing hills and usual thin spots, but this remains an awesome place to ski.<br>
-(Alec Steward)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
-Scheduling update:  Wirth will be hosting IPC World Cup races this week, so there will be trail closures on the snowmaking loop.  Current schedule has:  Tuesday and Wednesday closed until 3 pm, Thursday closed until 5 pm.<br>
-(Bruce Adelsman)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
-Conditions: Immaculate.<br>The snow making loop is perfect right now  for skate or classic.  The section added on in the par 3 course is a nice plus.  Use your best skis without hesitation.<br>
-(Zach Handler)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=341">Woodland Trails</a> (Elk River):</b><br>
-Conditions: Plenty good.  My afternoon lap was fast and fun.  Everyone I met on the trail was happy to be skiing on a real snow close to home.<br>Shear-pin just finished making two passes over the outer loop with the light screens.  He is predicting a fine ski if you can make it before the sun eats it up.  Enjoy!<br>
-(Dave Anderson, Elk River Nordic Ski Club)
-
-<li>
-<b>Jan 29 - Medicine Lake (Plymouth):</b><br>
-Conditions: Classic tracks: very good to excellent; skating: fresh snow on top of groomed skating lane.<br>The conditions were great this afternoon on Medicine Lake.  Ryan Atwell and the Medicine Lake Ski Club have set a super double track classic trail around 2/3 of the lake close to the shore.   We had an added bonus of skiing right underneath a bald eagle perched on a tree right above the trail.  Many thanks to the Club for grooming the trail!<br>
-Photos: <a onClick="reportviewer(46134); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Bill Lundberg)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
-Scheduling update:<br>
-Monday Jan. 30th - 2:45 - 5:00 = High School Practice<br>
-Tuesday Jan. 31st - 3:00 - 5:00 = High School Practice<br>
-Wednesday Feb. 1st - 7:00am - 4:00pm - Conference Championships<br>
-Thursday Feb. 2nd - 3:00 - 5:00pm - High School Ski Race<br>
-Friday Feb. 3rd  - OPEN to public, small amount of High School practices<br>
-(Beth Springborn, <a href="http://www.greenacresrec.com/crossCountrySkiing.htm" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Green Acres Recreation</a>)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=96">William O'Brien State Park</a> (Marine on St. Croix):</b><br>
-Conditions: Amazingly good considering the lack of snow and warm temps!<br>Kudos to Everett Meyers and the grooming crew for the Marine race today!  The 10.5 k course was completely covered.  We all used our "B" skis as recommended but I think there was only one stroke where I may have hit something.  So nice to ski on a real trail.  Too bad it probably won't last.<br>
-(Cheryl DuBois)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=84">Hyland Lake Park Reserve</a> (Bloomington):</b><br>
-Conditions: Good for classic--maybe fair for skate skiing if you have rock skis.<br>I skied all the trails this afternoon and was surprised at what good shape they were in, relative to the small amount of snow. I was on my waxable (wood) skis. You have to be flexible and not be concerned about the lack of grooves (set track), but the coverage was good, with only a couple of small bare patches, and a few sticks, rocks, and leaves. It was great to be out kicking and gliding again. Better get out tonight (lights around the lake trail are on till 10 pm) or tomorrow early in the day.<br>
-(Craig Wiklund)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=91">Lake Elmo Park Reserve</a> (Lake Elmo):</b><br>
-Conditions: Still decent at Lake Elmo.<br>The trails at Lake Elmo have held up surprisingly well. Don't use good skis but with a little caution, you can get around the east and west sides pretty well. The west side does have lots of footprints from walkers though. In fact, it's as if Sherman's Army came through on their march to the sea...<br>
-(Jay Tegedar)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=89">Lebanon Hills Regional Park</a> (Eagan):</b><br>
-Conditions: Enough snow but no track.<br>Better than I expected in regards to the snow coverage but not packed or tracked.  I was disappointed to see hikers walking with their dogs on the ski trails.<br>
-Photos: <a onClick="reportviewer(46098); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Conrad Sanders)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=102">Phalen Golf Course</a> (Saint Paul):</b><br>
-Conditions: Skateable.<br>90% Coverage for my rock skate skis. Plenty of good skiing on the ski course. Had the whole place to myself. Wow!<br>
-(Steve Serantoni)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=303">Cleary Lake Regional Park</a> (Prior Lake):</b><br>
-Conditions: Better after last night's snow... good to fair for skating, looks too thin to set classical tracks.<br>8am Sunday: Skated this morning as the groomer was finishing up.  All three loops were groomed including Ironwood!  I still recommend rock skis due to very thin coverage in a few places.  The short loop was in the best shape for skating.  The medium loop had a couple places with the ground showing. I was able to step around most of it.  Just be careful in the usual places where the coverage gets thin.<br>
-(Mike Maiers)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
-Conditions: Very nice conditions this morning for skating, considering the weather this winter, the crew has done a great job getting it in shape.<br>Agree with a previous post from a few days ago, will shift from Elm Creek to save a 30 mi trip, the trails and hills at Wirth are now in really very good condition.<br>
-(Brian Crotteau)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=96">William O'Brien State Park</a> (Marine on St. Croix):</b><br>
-Conditions: Good.<br>Set course tonight. Beautiful ski lit by stars and half moon.  Thanks to the Stillwater Ski Team Coaches the area under the pines is now fully covered.  Randy groomed today and the course has set up beautifully.  There are some thin spots but nothing that you can't ski around.  I'm really impressed with how good the skiing is.  It will be a great day on Sunday.  Looking forward to seeing friends and having a fun day on skis.<br>
-(Everett Myers, Marine/O'Brien Ski Race)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=341">Woodland Trails</a> (Elk River):</b><br>
-Conditions: Thin snow, but just so much fun!<br>Pics show it all, be cautious, especially on trails with asphalt below.<br>
-Photos: <a onClick="reportviewer(46058); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Dean Kleinhans)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=91">Lake Elmo Park Reserve</a> (Lake Elmo):</b><br>
-Conditions: Skating very good east side.  No formal classic tracks.<br>The course is very skiable on the east side.  Perfect conditions for the skate clinic this morning.  A fresh inch of ice crystal snow over a firm base made it nice and fast but compliant.  The east trails are quite smooth and there's plenty of snow cover.  Some dirty and icy spots but avoidable.  The west side (A loop) has a lot of ruts from years of tire traffic.  You can ski it but it's not much fun.  There's excellent snow in the far east green loop with even some decent classic tracks.<br>
-(Steve Thatcher, <a href="http://www.rideandglide.org/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Ride and Glide Bike & Ski Club</a>)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=448">City of Lakes Loppet Trail</a> (Minneapolis):</b><br>
-Conditions: Poor.<br>I actually skied the entire Loppet course today. The golf course was manageable, but getting off the course and over to the JD Gardens was challenging. Rocks, dirt, branches and lack of snow made it slow. The hills in the Butler Garden and Bryn Mawr area were treacherous. The bog was a "bog." Walking at times was the safest mode of transit. Walking over 394 and skiing on the lakes was the best part of the course. The COLNSF made the correct decision. The course was not safe to ski.<br>
-(Jim Williams)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
-Scheduling update:  Green Acres X-Country Ski Trails are closed and will reopen on Sunday Jan. 29th @ 3:00pm due to the Super Tour Ski Race.<br>
-(Beth Springborn, <a href="http://www.greenacresrec.com/crossCountrySkiing.htm" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Green Acres Recreation</a>)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
-First time this year led us to conclude no more need to go to Elm Creek (save 30 miles on the car)!  :-)  We were happy to see the course groomed by 7AM.  I see no need for B skis, coverage is good with a small bit of dirt in the snow near the machine shed.  The little dogleg section over to the Par 3 building is a little cut up but I'm sure it will only get better as there's plenty of snow.<br>
-(Steve Eberly)
-
-<li>
-<b>Jan 28 - Medicine Lake (Plymouth):</b><br>
-Conditions: Good.<br>Grooming report: Double classic tracks and a skate lane have been set around 2/3 of the shore of Medicine Lake starting in the lagoon just NW of the boat launch at French Park and running around the north bay, the entire west shore (minus the heavily trafficed area around the W boat launch), all bays and Peninsula on the SW side of the lake, and along the SE side of the lake as far as the art shanty's and the public beach.  Medicine lake is multiple use -- vehicles will inevitably wipe out small (hopefully) portions of the trail.  Classic tracks are deep and hard and should hold up well.  The skate lane improves skating in places, but crust cruising on the whole lake should be decent.  Be careful of a few thin spots where the classic tracks run on shore.<br>
-(Ryan Atwell)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=102">Phalen Golf Course</a> (Saint Paul):</b><br>
-Conditions: Bad.<br>Tried Phalen because I thought one might be able to crust ski it. One might not. At least not me. Turned around at headed for Lake Como where the crust skiing was awesome.<br>
-(Jenneke Oosterhoff)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=341">Woodland Trails</a> (Elk River):</b><br>
-Conditions: Very good (98%); Thin (2%); Fun (100%).<br>Some of the most relaxing skiing I've had this year.  Generally great cover, albeit bumpy and grass showing through here and there. After a tentative first lap turned up only a few areas to be cautious about (described below), we were able to ski all of the downhills, twists, and turns with abandon. The places to watch out for are the parts of the trail system closer to the parking lot that have pavement/gravel underneath, especially the prairie loop and the last 1/4K of the 10K course when approaching the parking lot (walk or double pole in the grass).  Also, the very steep first half the 'Top of the World' climb was thin with several rocks (we walked up).  Other steeper hills were still OK, but will get thin with more use. The trail had only had about a dozen passes today, and there were only a couple cars in the lot when we left at 1:30PM.  My wife and I each had a small knick on one edge of one ski (prob from the uphills). I'd use B skis with care; and C skis with bravado.  Thanks to the grooming crew for once again making great skiing out of not much!<br>
-(Ryan Atwell)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=303">Cleary Lake Regional Park</a> (Prior Lake):</b><br>
-Conditions: Remarkably not bad! Helps if you pretend it's mid-March.<br>Skated all of Cleary's trails this morning. There is no classic track, of course. After our 2"-3" last weekend they must've packed the small and middle loop, but not the outer loop. So while not perfect, those packed trails set up pretty hard, and the 1" or so we got yesterday makes for a pretty nice surface. Be aware of the usual trouble spots, and by all means use rock skis, and you can have a good time. Personally, I'd skip the cutoff to the outer loop - it's pretty rutted and there are a couple south facing areas that are burned out and totally un-skiable.<br>
-(Dan Steger)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=102">Phalen Golf Course</a> (Saint Paul):</b><br>
-Conditions: Not bad for skate, but pretty poor for classic.<br>Needless to say, cover is thin but pretty fast and fun.   A little icy in places, a little rutted in others, but overall a nice ski. Ya gotta ski around some bare spots, but that's no big deal- you can ski anywhere!  Snow a little deep and crusty in places for really good "crust skiing".<br>
-(Pete Thurmes)
-
-<li>
-<b>Jan 28 - Medicine Lake (Plymouth):</b><br>
-Conditions: Excellent lake skiing! About 2/3 of the lake is groomed with double classic tracks, and wide skate deck. Tracks were set Friday night, and skate lane was groomed this morning for perfect lake skiing.<br>Many thanks to Ryan Atwell and the rest of the Medicine Lake Nordic Ski Club for making this possible!<br>
-(Carl Shaffer)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=96">William O'Brien State Park</a> (Marine on St. Croix):</b><br>
-Conditions: The fact that there will be a ski race this year at O'Brien is incredible given the lack of snow this year.  I skied this morning and conditions were good but thin.  Rock skis are a must.  Randy has been out grooming this morning and plans to groom again later today. It is hard to predict how the course will be tomorrow but Randy is an expert with low snow.  Be careful and avoid snowplowing on the hills.  Might not be the best race for a beginner. An additional inch tonight would be great.  Just keep in mind there is very little cushion in the event of a fall so extra caution is warranted. Having said the above the O'Brien event is always a great race and race director Everett puts on  a great event.<br>On another note the head groomer Randy is retiring after 22 years in the park.  A big reason why skiing has been so good is the hard work and dedication he has given to skiing.  This will be his last race and nobody is more disappointed at the lack of snow than he is.  If you see him thank him for all his hard work over the years - he will be missed.<br>
-Photos: <a onClick="reportviewer(45997); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Jim Smith)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
-Conditions: Excellent conditions at 6am.<br>Staff is doing an excellent job of keeping the trails ski able. For anyone who complains get out earlier in the day.<br>
-(Scott Greymont)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
-Conditions: Dirty before, OK now.<br>On Thursday the snow was really dirty there, but with the couple of inches we got today, it was a bit better. B-skis for sure, I saw some rockage going on with the trails.<br>
-(Davis Johnson)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=341">Woodland Trails</a> (Elk River):</b><br>
-Conditions: Rolled and ready to ski?  If you are tired of skiing hot laps and lakes and don't mind the low snow condition bumps, you might want to give it a whirl.<br>Ancient One and Taxi ran the rollers this eveing on most of the system. We rolled a couple of inches on Monday, got another inch mid week, could have done without 40 yesterday and got just shy of an inch today.  Ski with caution on your first lap due to thin coverage, especially on the paved (flat) trails.  Enjoy with caution.<br>
-(Dave Anderson, Elk River Nordic Ski Club)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
-Conditions: Skating on Northern Lights Trail good in early afternoon, but lots of wet snow in the air.<br>New light cover of snow on Friday helped skate ski conditions on Northern Lights Trail. Ventured out on outer loop a little, but snow cover in unprotected areas was light, so turned back. Ended up walking more than I wanted. But additional snow in afternoon might make it worth a try tomorrow.<br>
-(Jon Clark)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=588">Green Acres Recreation</a> (Lake Elmo):</b><br>
-Scheduling update: Green Acres is open for skiing until 5pm today, stadium inspection until noon only. Also the wax building is open for use--first come first serve for space.<br>
-(Mike Brown)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=96">William O'Brien State Park</a> (Marine on St. Croix):</b><br>
-Conditions: Good.<br>Trail held up after the warm up yesterday.  Thanks to everyone for avoiding the trails while it was warm.<br>
-Grooming plans:  Randy will groom at least once more before Sunday.  I've posted a trail map in Visitor Center that is highlighted in yellow where we need volunteers to put more snow.  Under pines by campground, tunnel (someone did a good bit here), rr tracks and s-curve still highest priority, but any south facing spots would benefit from more snow. No walker only skiers with sleds and shovels for trail work.  Thanks to all volunteers in advance.<br>
-(Everett Myers, Marine/O'Brien Ski Race)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
-We skied Elm Creek Thursday night from 7:30-8:30, after temps had dropped back below freezing.  The best skating conditions were on the small donut loop near the lodge; the snow was cut up enough that you could get a decent edge.  On most of the rest of the snowmaking loop getting a consistent edge was difficult - I chose to double pole most of the course in the tracks, and just skate for the steeper uphills.  The classic tracks were bomber, but pretty well glazed.  The northern lights loop by evening was a mixed bag.  A few sections (namely those more to the north) were pretty decent, but several sections there were rock ski conditions at best.  In particular, the section right next to the road and joining the snow making loop was mostly bare ground.  For other sections, it certainly does raise your heart rate to note on a downhill that you're not seeing shadows in front of you, but dirt. <br>
-(Ted Lystig)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
-Conditions: Excellent for classic.<br>Had a great classic ski Thursday afternoon even while the relays were going on since they only used the skate lane.  Freshly groomed tracks where a little slow at the start from the 40 deg temps but sped up nicely as the temp went down with the sun.<br>
-(Dan Zenk)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
-Conditions: Great to good, finally able to ski Northern Lights trail.<br>Northern Lights trail just opened, but after morning ski trail is getting very soft and may not last through warmer afternoon temps. So fun to get to climb and cruise down Cowabunga again.  Valley Trail (snowmaking) is normal rock solid top notch. Thanks groomers!<br>
-Photos: <a onClick="reportviewer(45924); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Dean Kleinhans)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=97">Theodore Wirth Regional Park</a> (Minneapolis):</b><br>
-Conditions: Very hard-packed and fast.<br>Fast skiing Thursday evening at Wirth on the man-made snow after the temps dropped and the course firmed up. Near-icy conditions required good downhill skills, but it was quite enjoyable. Much more fun than Elm Creek. Hopefully they'll be able to mix in some new snow on Friday to soften things up a little bit.<br>
-(Mark Schulte)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=108">Como Golf Course</a> (Saint Paul):</b><br>
-Conditions: Mostly gone.<br>An icy run along the lights to the south is all that's really left. Good enough for some back and forth to work up a sweat <br>
--desperate.<br>
-(Scotty Nil)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=102">Phalen Golf Course</a> (Saint Paul):</b><br>
-Conditions: Fair.<br>I went out in the morning (8am) to Phalen and would rate it as 'good' with the exception of 2 places where you are under a lot of trees.  The trees are pooping pine cones and twigs but you can miss them pretty easy.<br>
-This afternoon (at 3pm) I went to check things out - walking over whilst holding my recovery drink of a tall boy Pabst (ok 2 of them) and things were getting a bit gutted.  There were a ton of high school kids and the trails were opening up anywhere near trees.  Fairways still looked good, but as in other posts please stay off till she freezes up again!<br>
-(Jeremy Sartain)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=96">William O'Brien State Park</a> (Marine on St. Croix):</b><br>
-Conditions: Good but please try to stay off the trail today with temps above freezing for 6 hours.<br>I sure would appreciate it if skiers can stay off the trails today while temps are above freezing from 11-6pm.  Tonight temps back below freezing and for the rest of the week, so should be good to ski after today.  <br>
-(Everett Myers, Marine/O'Brien Ski Race)
-
               </font>
             </ul>
             <P>&nbsp;<p>
+
             <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/ne-mn.gif" hspace="6" border=0><font size=+1><b>Minnesota Northeast</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Duluth area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=46.783&textField2=-92.106&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
 <li>
 <img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=307">Pine Valley</a> (Cloquet):</b><br>
+Conditions: Poor.<br>I was able to ski 1 km before I had to remove my skis to traverse a brown section of the trail. Portions of the trail are skiable but there are too many sections where the trail breaks down. Mother nature needs to delivery a few inches of snow before I would make another attempt to ski the trail again.<br>
+(Mike Blank)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=35">Snowflake Nordic Ski Center</a> (Duluth):</b><br>
+
+Surprisingly good.  Skied the whole 5K - and could have used my better skis.  There are some woodchips and the occasional rock showing, but very avoidable.  Only once between 2 and 3K is there a rock on the back side of a bump that you might not notice.  Track is a bit icy for classic, and you occasionally need to lift one ski when it disappears.  Better for skaters with sharp edges.  Just happy to be able to ski more than 3K without repeating... (no offense, Theodore).  Thanks, George and the crew!  Don't be fooled by the inviting look of the 10K offshoots as you start - we headed off down one of them and soon found ourselves careening down an icy hill toward a spot with a snow-gap all the way across the trail.  My shoulder and hip wish we'd stuck to the 5K.<br>
+(Jon Swenson Tellekson)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=35">Snowflake Nordic Ski Center</a> (Duluth):</b><br>
+Conditions: Fair.<br>Skated the 5k and part of the 10. The 5 is in better shape since they have not recently regroomed the 10 since real winter temps showed up, so a bit icy and easy to lose an edge. The 5 was groomed earlier but a bit skied in by the time I arrived but in decent shape in most places, considering. Bumpy in places (most noted by the biathlon range).  Thanks again Snowflake crew for giving us the only consistent local place to ski this "winter". The Duluth XC community appreciates you!<br>
+(Tom Heinitz)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=37">Boulder Lake Management Area Ski Trails</a> (Duluth):</b><br>
+
+Conditions: Not groomed, but not bad.<br>A dusting of fresh snow smoothed the rough styrofoam making for some fairly nice classic skiing.<br>
+(Duane Forbort)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=35">Snowflake Nordic Ski Center</a> (Duluth):</b><br>
+Conditions: Very fast on the 5k, coarse granular ice on a firm base.  A bit bumpy in some areas.<br>Once again George Hovland and his crew have done an outstanding job of grooming and maintaining the ski trails at Snowflake.  The 5K is in excellent condition for young kids, elite racers, and old folks like me.<br>
+(Charlie Rounds)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=35">Snowflake Nordic Ski Center</a> (Duluth):</b><br>
+
+Conditions: Fast, spring like conditions.<br>I was pleasantly surprised to find the groomer had ripped up the boiler plate surface making it soft and fun skiing. Can ski the whole 5k still with a little bit of dirt and a few rocks. But good news... Skate skiing is still alive!<br>
+(Kara Salmela )
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=37">Boulder Lake Management Area Ski Trails</a> (Duluth):</b><br>
+Conditions: Lots of snow, no grooming.<br>We arrived at Boulder around 2 pm expecting glare ice and were pleasantly surprised when it was great non-icy snow!  We classic skied Blue Ox to Nine Pine and went backwards on  Nine Pine to Lonesome Grouse.  The tracks are skied in the best at Lonesome Grouse and they are faster there but not icy.  The skate lane actually looked pretty good considering there has been no grooming.  Aside from a few easy to get around patches it's fully covered.  If they could get out and just do a touch up it might be perfect skating!<br>
+(Eve Stein)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=35">Snowflake Nordic Ski Center</a> (Duluth):</b><br>
+
+Conditions: Fairly good.<br>Expected goodly fair but was exuberant to find 8.01 with the rock ski handicap.  The typical rocks were showing through but less than expected. The 5k was in great shape with a hard deck this morning.  I'm glad I turned a stiff pair of skis into rocky's as I would've been turning triple lutz's on the trail with my default pair. The grooming crew's making lemonade out there with what they've been dealt, kudos.<br>
+(Jonathan Rova)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=35">Snowflake Nordic Ski Center</a> (Duluth):</b><br>
+Conditions: Very good! Surprising coverage that was groomed for both skate and classic.<br>There is a lot of hidden snow among the birch trees at Snowflake. What a pleasant surprise. Considering this winter, the trails were in good condition.  It is possible to ski almost all of the 5K and 10K.  It was my first time there so I got a bit lost but ended up skiing by the owner, George, who was a wonderful guide, so friendly and knowledgeable.  Highly recommended if you are tired of our few options in the city this winter.<br>
+(Wendy Lutter)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=38">Spirit Mountain</a> (Duluth):</b><br>
+
+Conditions: Not bad if you're looking to backcountry ski Minnesota style.<br>Don't expect grooming or base your opinion on the campground loop and first strides up to the warming hut.  There's plenty of coverage (thin where expected) out in the woods here and at Magney/Snively ski trail, best trails and ski experience in town.<br>
+(Shawn Miller)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=39">Lester Park</a> (Duluth):</b><br>
 Conditions: Barely skiable in some places, not so awful in others.<br>After several really bad falls walking/running on the local golf courses, I decided today to take my garage sale skis and the 30 minutes I had and ski up at Lester. Hopped on the trail above the hockey rinks and skied the middle section of the trail. Ranged from decent spring snow to take your skis off and walk, with most someplace in between.  I'd go again.  Beats falling on the ice anyday.<br>
 Photos: <a onClick="reportviewer(46381); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Kristin Riker-Coleman)
 
 <li>
-<img src="../images/new.gif">
+
 <b>Feb 4 - <a href="traildetail.asp?Id=35">Snowflake Nordic Ski Center</a> (Duluth):</b><br>
 Conditions: Surprisingly OK for skate.<br>Our perpetual spring skiing continues. Coverage was better than expected and quite good in parts. Trouble areas as usual on south hills but the Snowflake crew has snow-patched a couple of the areas on the 5K. 10k has one area you have to dismount just before Hovland's Hill (likely more than that by tomorrow PM). There is a solid, albeit thin, base that is holding up well to this crazy weather. Lots 'o folks out enjoying it today.<br>
 (Tom Heinitz)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=381">Hartley Park</a> (Duluth):</b><br>
 Conditions: Walked on but snow.<br>Non-skiing report: I went for a run at Hartley today and noticed that it had been rolled for skate but so many people ignored the grooming and walked on it that only the sides looked fresh.  Besides some ground showing under the pines, there was almost full coverage on the rest of it and it looked skatable with rock skis.<br>
+
 (Eve Stein)
 
 <li>
@@ -591,141 +529,72 @@ We skated out onto Boulder Lake for awhile, too. It's a bit of a tough ski, a cr
 
 <li>
 <b>Feb 3 - <a href="traildetail.asp?Id=39">Lester Park</a> (Duluth):</b><br>
+
 Conditions: Unskiable.<br>Non-skiing report: I hiked the trails that parallel and intersect the Lester Ski Trails this morning, and I saw large patches of bare ground on the ski trails.<br>
 (Catherine Winter)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=37">Boulder Lake Management Area Ski Trails</a> (Duluth):</b><br>
-Conditions: Still nearly 100% coverage on Bear Paw.<br>Candlelight Ski/Snowshoe/Hike still on for this Friday Feb 3, 6-9 p.m.  Bear Paw will be utilized.<br>
-Photos: <a onClick="reportviewer(46313); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(John Geissler)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=35">Snowflake Nordic Ski Center</a> (Duluth):</b><br>
-Conditions: Surprisingly good ski conditions.<br>All trails are groomed for classic and skating and are in very good shape.  The only skiing in Duluth, unless you are crazy enough to ski on Lake Superior.<br>
-(Jane Hovland)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=403">Piedmont Trail</a> (Duluth):</b><br>
-Conditions: Great for skate!<br>We went out at about 10:30 to classic ski and were treated to freshly rolled snow for skating!  Almost 100% coverage except for a couple of easy to get around spots!<br>
-(Eve Stein)
-
-<li>
-<b>Jan 31 - Hawk Ridge Snowmobile Trail (Duluth):</b><br>
-Got out ahead of the thaw and skijored up the closed section of Seven Bridges Road to the other barrier at Skyline Parkway. Coverage is very good but rock skis are a good idea because where it's thin, what's underneath is gravel. I don't know how long it'll last with this warm-up, but it was nice this morning.<br>
-(Catherine Winter)
-
-<li>
-<b>Jan 30 - Rice Lake Reservoir (Duluth):</b><br>
-Tried skating Rice Lake this afternoon. It's all drifts and bare patches of ice, which made for some challenging skiing. <br>
-(Catherine Winter)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=39">Lester Park</a> (Duluth):</b><br>
-Lester was rolled this morning. It's OK for skate skiing on rock skis. No track so you are on your own there. Avoid the loop that goes down to the kids park.<br>
-(Kara Salmela)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=451">Fond du Lac State Forest</a> (Cromwell):</b><br>
-Conditions: No track set, 3-5" of snow, some skiers have been out breaking trail and said the skiing was surprisingly nice.<br>This is the last year this trail will be groomed by contract grooming, if it gets groomed at all this year. As of this time there is no money in the trail account according to Parks and Trails staff at Moose Lake.  If this trail is groomed at all, starting next year it will have to be done through a ski club with help from the DNR in the form of Grant-in-aid dollars.  <br>
-(Lonny Gervais)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=404">Chester Bowl</a> (Duluth):</b><br>
-Conditions: Skiable, barely.<br>The trail at Chester was groomed after Friday's snow.  I skied it Sunday afternoon.  The loop on the north side nearest to the soccer field is pretty rough, there are a couple of mandatory dismounts.  The loop on the southern side nearest the down hill is actually skiable without too much damage to your skis.  There is one very thin snow section with ice under neath, and a few ares of debris turned up by the groomers tracks, but otherwise you can make a loop.  The ratio of ski tracks to walker tracks is about 1:20, so get out there!<br>
-(Matt Ryan)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=35">Snowflake Nordic Ski Center</a> (Duluth):</b><br>
-Conditions: Good.<br>Skated all trails today. Best conditions of the season (I do realize that is not saying much). Near "good skis" conditions and on most of the trail you could but the south-facing steep hills still have some dingers if not careful. All and all, really nice conditions out there- especially the '10k', which gets skied less. It amazing what nearly 2" of new snow will do. Thanks to the Snowflake crew for giving us the best skiing in Duluth.<br>
-(Tom Heinitz)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=35">Snowflake Nordic Ski Center</a> (Duluth):</b><br>
-Conditions: Groomed for skating with track on right. Outside pole track a bit soft in places. Some leaves showing in a few places perhaps only .01%. Best trail skiing this year after 1.4" new on Friday. Better than yesterday.<br>Skied classic on the 7.5 km yesterday and today. Better today. Mostly able to stay in track.<br>
-Photos: <a onClick="reportviewer(46115); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Gary Larson)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=81">Two Harbors Ski Trail</a> (Two Harbors):</b><br>
-The trail was rolled on Saturday after the few more inches of snow we received. We have about an inch of compacted base, with an undulating surface, with some grass and brush poking thru.  I skated the 5K loop and it was actually better than I thought it would be.  B team skis for certain, but it was skiing, at this rate we will have great conditions by August.<br>
-(John Cron)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=307">Pine Valley</a> (Cloquet):</b><br>
-Conditions: Excellent compared to anything else I've seen in the Duluth area.<br>There were a couple patches where you could see some grass poking through, but for the most part there was excellent coverage and it was well groomed for skate, but no classic tracks.<br>
-Photos: <a onClick="reportviewer(46215); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Katie Cheesebro)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=37">Boulder Lake Management Area Ski Trails</a> (Duluth):</b><br>
-Conditions: Nice.<br>Boulder has not been groomed since the most recent snowfall, so there are a couple of inches of fluffy snow on top of a thin, firm base. I had a great time skating it today. Blue Ox and Bear Paw had better coverage than Nine Pine, but Nine Pine was quite skiable, with just a few thin spots under the pines. A pal who was kicking said Lonesome Grouse was good, with a skied-in track. There's a rough skied-in track throughout the system. I talked to some striders who were happy with it and some who weren't. Overall, coverage is surprisingly good -- the kind of thing you'd be delighted with if it were November.<br>
-(Catherine Winter)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=39">Lester Park</a> (Duluth):</b><br>
-Conditions: Poor-fair.<br>No grooming has taken place recently. That said, it was packed down in places from recent skiers and it was worth the trip albeit on my rock skis. The thinnest spots were under the pines toward the bottom of the river, nearest the lower parking lot. Don't get discouraged if you start there, as it gets better the higher you climb.<br>
-(Jeff Speer)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=35">Snowflake Nordic Ski Center</a> (Duluth):</b><br>
-Conditions: Good! Snowflake did a good job considering the lack of snow we've seen this year.<br>After a couple of inches of snow yesterday, I was chomping at the bit to get out my first time this year.  I was pleasantly surprised with the conditions at Snowflake.  Freshly groomed last night.  Always worth the $7 as they continue to lead the way in keeping their trails at top shape compared to anywhere in the Duluth area.  I skied about 14k total on the classic trails.  There are definitely some bare spots (under trees, etc) but very nice overall.  I finally got my hands on a pair of "B" skis, and I don't recall scraping any rocks as I avoided some of the thin sections of trail.  I wouldn't consider using my "A" skis quite yet until we get more snow.   Also, plenty of people skating, trails seemed well covered for that too.<br>
-(Joe Bekkala)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=435">Mother Bear Ski Trail</a> (Brimson):</b><br>
-Conditions: Snow is still pretty thin here, could use more.<br>We skied the full trail network west of highway 44. Much of it had been packed only with no track set. Snow is very thin under the heavier tree canopy with a few rocks and roots showing in places. Still had a very nice ski though, thanks to the trail grooming that had been done.<br>
-(Randy Roff)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=435">Mother Bear Ski Trail</a> (Brimson):</b><br>
-Conditions: Fair-Good.<br>Trail was groomed and tracks set in areas that had better snow depth.  Rougher in the wetland areas and under the large pines.  South loop is the best bet now until we get more snow.<br>
-(Al Ringer)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=307">Pine Valley</a> (Cloquet):</b><br>
-Excellent. Groomed for skate which is maybe how they always groom there. The fresh snow made it nice and buttery.<br>
-(Meryl Freyberg)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=442">Bagley Nature Area</a> (Duluth):</b><br>
-Thin classic tracks laid down Friday evening. No pass required, will groom again soon. Let me know how the line of the classic tracks are and if they work. <br>
-(Zack Gill)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=39">Lester Park</a> (Duluth):</b><br>
-Conditions: Couple inches of snow.<br>We skied in a track this afternoon as the snow was ending. It was ju-u-u-st skiable, and by the time we got back to the lower loops, hikers had already done quite a bit of damage. There's so little snow that each footprint exposes dirt. The upper loops were in much better shape. If you go, watch out for a new culvert at the bottom of the first hill after G. If you stay way to the right you can get across.<br>
-(Catherine Winter)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=404">Chester Bowl</a> (Duluth):</b><br>
-Conditions: Barely Poor.<br>... unless you're three, then it's pretty fun. Trail reports in Duluth lately have been like talking to Lutherans about stewardship-you know everyone's doing it but no one's letting on. Times is tough, we've got to stick together.<br>
-(Jonathan Rova)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=35">Snowflake Nordic Ski Center</a> (Duluth):</b><br>
-Conditions: Goodly Fair.<br>Pretty much the same as the last report. The pink rocks are reappearing but the groomers are keeping them well marked.  Great job by the groom crew to make something out of notmuchthing.<br>
-(Jonathan Rova)
 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Northshore/Gunflint area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=47.647&textField2=-90.675&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
 <li>
 <img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=50">Banadad Trail</a> (Grand Marais):</b><br>
+The Banadad and adjoining trails are in great shape. While there has only been a dusting of snow over the past week, there has been no meltdown. Eight inch of base on the trail; 12-14 inches of snow in the woods.<br>
+(Ted Young)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 11 - <a href="traildetail.asp?Id=49">Upper Gunflint Trail</a> (Grand Marais):</b><br>
+
+Conditions: Good to excellent.<br>Classic skiing on Amperage (OK), Lonely Lake, Ham Lake, Highlands, Rabbit Run and Aspen Alley (all very good to excellent). A little bit of fluffy snow Thursday evening made a big difference. Thoroughly enjoyed my first XC outing to this area; saw a good deal of wildlife, including a wolf, moose and many deer.<br>
+(Bill Johnson)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=48">Central Gunflint Trail System</a> (Grand Marais):</b><br>
+Conditions: Good to Excellent.<br>We made it through the warm up of last week still in good shape. Bearskin was out earlier in the week grooming and Golden Eagle was out today on the other side of the system using the snowcat and renovator. We were just about done grooming when it started snowing...so far we've received another inch!<br>
+Photos: <a onClick="reportviewer(46553); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Teresa Baumann)
+
+<li>
+
+<b>Feb 8 - <a href="traildetail.asp?Id=47">Pincushion Mountain Trail</a> (Grand Marais):</b><br>
+Conditions: Hard, adequate coverage.<br>Skating was great on the North Advanced system, West Overlook and the Snowmen loops. Fast, but very forgiving and easy to set an edge. South facing uphills are a little glazed, despite dailing grooming.  Classic tracks are a little glazed in spots, going to have to break out that really sticky wax to get some grip.<br>
+(Adam Harju)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=34">Sugarbush Trail System</a> (Tofte):</b><br>
+Conditions: Firm, fast, good coverage, some icy spots but thin cover of ungroomed new snow made for great skate skiing.<br>Did two laps on the Onion River Road, plus the Oberg loop.  Expected great conditions on ORR but was pleasantly surprised at how smooth and well covered the Oberg loop was.  Great day.<br>
+
+(Timothy Nelson)
+
+<li>
+<b>Feb 4 - <a href="traildetail.asp?Id=50">Banadad Trail</a> (Grand Marais):</b><br>
+Conditions: Excellent.<br>Good grooming and plenty of sun protection given the pines made the Banadad a joy to do Saturday. Saw some moose tracks and enjoyed a beautiful sunny day with plenty of snow. Thanks to the groomers (Ted and Jim) for great attention to this back-country trail.<br>
+(Peter Spink)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=48">Central Gunflint Trail System</a> (Grand Marais):</b><br>
+
 Conditions: Very good to excellent! Impressive snow depth, great grooming! Great classic skiing, and the skating looked good as well. Most trails were freshly groomed. The North-South trail was just a little messy.<br>We skied from Golden Eagle Lodge (they are great folks) across the lake, did the Ridge Run, Beaver Dam Trail, and around the west side of Flour Lake on the Old Logging Camp trail for a total of 12 KM.<br>
 Photos: <a onClick="reportviewer(46407); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Eric Christensen)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=47">Pincushion Mountain Trail</a> (Grand Marais):</b><br>
 Conditions: Firm, fast, smooth, not icy on the skate deck.  Classic tracks looked a bit icy, transformed snow. Coverage is excellent.<br>Skied on the Pincushion trails starting at 9:30.  It was very warm yesterday, with high school races so I was skeptical.  But it had all been regroomed and was excellent.  It was starting to get soft around 11:30 when we left as the temps were close to 40 degrees. Great grooming.<br>
 (Timothy Nelson)
 
 <li>
+
+<b>Feb 3 - <a href="traildetail.asp?Id=72">Cascade River/Deer Yard Lake</a> (Lutsen):</b><br>
+Conditions: Very good to excellent.   The snow was warm, but the tracks were in great shape.  Nice grooming.<br>We only skied the Deer Yard Lake loop section.  There was plenty of snow up there in the higher elevations.  It was wonderful to see winter again.<br>
+(Mike Cochran)
+
+<li>
 <b>Feb 3 - <a href="traildetail.asp?Id=73">Cascade River State Park</a> (Lutsen):</b><br>
 Conditions: Groomed but patchy.<br>We arrived at the trail head around 9am today and decided to walk up on the edge away because there was a lack of snow in a few spots at the very beginning.  It was freshly groomed from the point we arrived at which was across from the trailhead building, but it looked like it was only wide enough for classic.  After walking a ways up, we chose to move to Pincushion due to the narrow trail and lack of snow.<br>
+
 Photos: <a onClick="reportviewer(46347); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Eve Stein)
 
@@ -735,353 +604,328 @@ Conditions: Lots of snow.<br>We went up for the HS races and skate skied the Mt 
 Photos: <a onClick="reportviewer(46346); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Eve Stein)
 
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=47">Pincushion Mountain Trail</a> (Grand Marais):</b><br>
-Conditions: Ego boosting speed!<br>Conditions were fantastic for skating today.  Rocket fast, yet still very easy to get an edge.  Conditions like today invariably lead to false illusions of grandeur, as I was able to V2 up hills which no mortal human has V2'ed up before (at least this mortal human!).<br>
-(Timothy Lederle)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=47">Pincushion Mountain Trail</a> (Grand Marais):</b><br>
-Conditions: Fresh snow over a base of packed powder snow conditions. Very good for classic and excellent for skate skiing.<br>Two inches of fresh snow over a base of packed powder. Trails should be re-groomed by this evening.  Compacted Base: 4-6"  Snow Depth in Woods: 10-14"  New Snow Last 24 Hours: 2" New Snow Last 7 Days: 5" Groomed for Skating: Groomed Monday: 25 of 25 km groomed with snowmobile and ginzu groomer. Groomed with Classic Tracks: Classical tracks set on 25 of 25 km.  Last Grooming Day: Monday, January 30th, 2012.  Total Snow for Season since November 10th, 2011: 28".<br>
-(Dave Bartol, <a href="http://www.devilstracknordic.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Devils Track Nordic Ski Shop</a>)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=50">Banadad Trail</a> (Grand Marais):</b><br>
-Conditions: Newly fallen snow over recently groomed trails.<br>A cold, sunny day combined with new snow made for a perfect day of skiing on this trail in the BWCA.<br>
-Photos: <a onClick="reportviewer(46220); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Colleen Corcoran)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=48">Central Gunflint Trail System</a> (Grand Marais):</b><br>
-Conditions: Excellent.<br>It looked and felt like winter on the Central Gunflint Trails this weekend.  Photos taken at sunset on "Poplar Creek Trail".  It was a perfect "Polar White" kick wax day.<br>
-Photos: <a onClick="reportviewer(46219); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Colleen Corcoran)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=47">Pincushion Mountain Trail</a> (Grand Marais):</b><br>
-Conditions: Firm skate deck, nice dusting of new snow.  Relative fast for the cold temps, great coverage, no rock, just a little occasional stubble sticking up.  No ice, firm fast tracks for classic and double poling.<br>This is real winter skiing.  Hard to believe when driving up the shore and up the Gunflint trail the coverage would be so good.<br>
-(Timothy Nelson)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=48">Central Gunflint Trail System</a> (Grand Marais):</b><br>
-Conditions: Windblown in spots until groomer came through -- then great.<br>Everything seemed to be getting groomed Sunday morning. Trails looked fine, but in the woods exposed areas on trails were so windblown as to be almost gone. Groomer came through and left great tracks. Passed people pulling sleds of gear and bringing in dogs right down the middle of the newly groomed trails, so Summerhome may have needed grooming again.<br>
-(Emily Olson)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=34">Sugarbush Trail System</a> (Tofte):</b><br>
-Conditions: 2 to 3 inches of fresh snow yesterday, but not yet groomed. Onion River Road was smooth and fast, even the lower part. Fresh snow covered the icy parts and was great for gliding. Tracks looked fine.<br>Late afternoon skate up the ORR and back was well worth it.  New snow has mitigated all concern about deteriorating icy conditions on first two K's of the lower road.  Wonderful, fast, firm deck. <br>
-(Timothy Nelson)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=50">Banadad Trail</a> (Grand Marais):</b><br>
-Conditions: All trails tracked (41K), skiing is excellent. 14 inches of snow on the ground.<br>Banadad Trail tracked today, Tall Pines and Knapp Trails tracked the day before.<br>
-(Ted Young)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=72">Cascade River/Deer Yard Lake</a> (Lutsen):</b><br>
-Conditions: Excellent classic skiing.  Plenty of snow, great coverage, solid tracks, soft snow with a fresh dusting that came down as we skied.  Skied the long and short loop (about 13K) and felt like I was back in a real winter.  Good grooming.<br>What a difference a few miles makes.  Classic skied Deer Yard in the afternoon after skating Sugarbush (12 miles away) and found a night and day difference.  Much more snow, no twigs or rocks, firm deck, good tracks, soft newly fallen and falling snow.  Just wish there were more K's here to ski!<br>
-(Timothy Nelson)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=34">Sugarbush Trail System</a> (Tofte):</b><br>
-Conditions: Recently groomed for what might be the first time this season.  Snow is still quite thin on the lower portions of the trail closest to the lake, with lots of bush and twigs sticking up.  But it was skatable, B skis recommended.  No rocks, just twigs.  Upper portions of the trail had much more snow and fewer twigs.  Still quite of few dipsy doodles but quite enjoyable.  <br>Skate skied from Britain Peak over the Hogback loop to the Picnic loop and back along the ski thru.  Best was Hogback and Picnic loop, worst was bottom part of the Oberg loop, and the ski back to Britain Peak on the lower ski through.  I should have done the Homestead loop (higher to get the better snow)  Be careful of the ski grapping twigs and dipsy doodles on the downhills.  One really bad one between the high points on the picnic loop, a real brain rattler.<br>
-(Timothy Nelson)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=48">Central Gunflint Trail System</a> (Grand Marais):</b><br>
-Conditions: Plenty of snow!  Wonderful :).<br>All trails are being groomed regularly.  Plenty of options for everyone.  Fun downhills.   If only all of MN looked like this...<br>
-(Craig Cardinal)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=49">Upper Gunflint Trail</a> (Grand Marais):</b><br>
-Excellent trail conditions and freshly snowing now. Half of the system was groomed this morning the other half on Wednesday.  South Rim is packed for back country skiing or snowshoeing.  Magneitc and Amperage remain closed as they need a deeper snowbase to cover rocks or swamp areas.<br>
-(Sharon Baker)
-
               </font>
             </ul>
+
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Iron Range area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=47.4&textField2=-93.072&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
 <li>
 <img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=349">Big Aspen Recreation Area</a> (Virginia):</b><br>
+
+Conditions: East inner loop, heavy traffic, tracks getting thinner and wider. Icy is open exposed areas. The further out you go the better the tracks are. Some bare spots poking through but avoidable.<br>Still can use your good skis. I used my no wax anticipating icy worn conditions. Regretted that! Too slow. No time to get to the west and northern trails today. Several vehicles in the lot. Good to see it getting used!<br>
+Photos: <a onClick="reportviewer(46659); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Ron Kutsi)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
+Conditions: Very good!<br>Giants Ridge has done a great job grooming all of their trails and I skied every one. They did a good job breaking up the ice from the warm weather last week and shaped the trails up nicely. There were a few thin or bare spots on outer trails in the direct sun but for the most part the trails were well covered and the snow was plentiful. Fun, fun, fun!<br>
+(Debbie Hultman)
+
+<li>
+
+<b>Feb 9 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
+Conditions: Well groomed!<br>I skated the race course for the section meet before the event started today.  The uphills in the opening kilometer were pretty icy underneath the loose snow and the downhills were great, not icy at all.  There was plenty of snow on what I skied and they have done an outstanding job of grooming!  It would be very well worth the trip to ski there!<br>
+(Eve Stein)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=77">McCarthy Beach State Park</a> (Side Lake):</b><br>
+Tracked a couple weeks ago, but holding up excellently.  Plenty of snow, mainly eight inches, big red all good!<br>
+
+(Neil Gardner)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=68">Carey Lake</a> (Hibbing):</b><br>
+Conditions: Fair to just holding on. Cloudy, 30 degrees.<br>Sun has taken it's toll on more spots along the trail. Skied the Highland trail, which had pretty good coverage throughout. However, the Highland has never been tracked this year and the user tracks are getting sloppy. Southern Lights has been tracked so the tracks were tighter but it has more bare spots. For sure "B" skis, and if we lose much more it will be back to rock skis.<br>
+Photos: <a onClick="reportviewer(46469); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Craig Holgate)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
+
+Conditions: Excellent!<br>Skated Bronze, Gold, Summit, Silver and Northern Lights and everything was fully covered and in awesome shape - most definitely good skis. Only thinned areas were a couple low spots and steep south hills on Silver. Freshly groomed this morning with a combination of snow and transformed snow. Looks like actual winter up there. Worth the hour drive from Duluth.<br>
+(Tom Heinitz)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
+Conditions: We still have snow!<br>The Ridge dodged another melt down last week, surviving several days in the high thirties.  I used my good skis Friday, Saturday and Sunday with no threat of rocks, roots, or debris.  The skate lane on Gold, Silver, Bronze, Summit, and Cedar are still 100% snow covered and near perfect conditions.  The outer loops (Laurentian, Wynne Creek, Biwabik Spur, and Oslo) still look good also.  If you are semi conscious of your surroundings while skiing you can use your good skis on all 60K.<br>
+Photos: <a onClick="reportviewer(46456); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(John Medeski)
+
+<li>
+
+<b>Feb 5 - <a href="traildetail.asp?Id=63">Suomi Hills</a> (Grand Rapids):</b><br>
+Conditions: Dicey.<br>Pretty good coverage, but a little tricky in the early morning before it softened up.  The tracks are blown out on most of the uphills and downhills. Very pretty area, made me wish I just had my BC gear to ski in untracked areas.  The lakes are all untouched.  Until it gets groomed again, be careful when it is still frozen solid.<br>
+(Matt Ryan)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=349">Big Aspen Recreation Area</a> (Virginia):</b><br>
+Conditions: Absolutely wonderful! Most of the system has great track. Solid pole plants. From#4 to # 6 outer loop it is user tracked due to not a lot of snow there. But everywhere else is cookie cutter tracks. There is even track set from the top shelter down to #13. If you are brave enough to try it.<br>We did most of the east loop , down to 7 and from there is the best tracks in the more shaded areas. From 9 to 8 and back to the lot. Mr. Moose enjoyed the grooming too. But he had too much fiber and left many big brown piles. Some on downhill corners so beware. <br>
+
+Hated to leave the trail today.<br>
+Photos: <a onClick="reportviewer(46440); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Ron Kutsi)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=349">Big Aspen Recreation Area</a> (Virginia):</b><br>
+Conditions: Fantastic. Groomed well with good coverage.<br>What a great afternoon out, no make that a SUPER afternoon of skiing at this suburb classic ski trail. Recently we have been telling friends they have to try Big Aspen. Well now is the time! Very good snow coverage for the low snow year we are having. Did see two exposed rocks on the trail and one bare spot but that was it. Made the mistake of taking out the "B" skis, should have used the A's. Gave up some speed because of it. Deer, wolf and Moose tracks to be found out on the trail. We laughed at old Mr. Moose who tracks walked right up to the Junction 8 sign. "Jct. 8, I was looking for 10"! Ended up skiing more than twice what we were going to, because the trail and afternoon was so great. Trail holding up very well in the warmer weather.<br>
+Photos: <a onClick="reportviewer(46419); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Craig Holgate)
+
+
+<li>
+<b>Feb 4 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
+The Silver, Summit and Bronze were all covered and skiable. Nice to be on some other trails. The base isn't very thick, with some grass showing on the golf course tracks. But hopefully it has weathered the worst last week. It needs to hang on for 10 more days!<br>
+Photos: <a onClick="reportviewer(46457); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Joe Muller)
+
+<li>
+<b>Feb 4 - <a href="traildetail.asp?Id=57">Mount Itasca</a> (Coleraine):</b><br>
+
+Conditions: Perfect.<br>My first time to Mt. Itasca.  It is a short man-made loop, but boy is it nice skiing.  I was there from about 2-3 on Saturday and the snow was soft, but not transformed.  Just perfect skiing. A very nice resource for this winter!<br>
+(Matt Ryan)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=63">Suomi Hills</a> (Grand Rapids):</b><br>
 Conditions: Decent.<br>Fresh dusting in last few days made for beutiful skiing.  Good base.  Worth the trip.<br>
 (Jim Brych)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
+
 Conditions: Summit Bronze trails deep set tracks and great skate lane. Fresh grooming didn't set up in the tracks and you would sink in spots. Pole plants on the outside edge were plunging down to the ground. Biwabik Spur was very good but slow as the frost from the trees was blowing down and filling the tracks. But so beautifully!  Wynne Creek has lots of little brush poking up and is wavy. Just enough snow there to track. <br>
 Laurentian had good track and better skating than Wynne Creek. Did last part of the Silver Trail which was very good!<br>Amazing just how much snow is still up there. Very few rocks sticking out but easily avoidable on the outer trails. They are in better shape than I am!<br>
 Photos: <a onClick="reportviewer(46399); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Ron Kutsi)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
 Conditions: Nearly perfect soft clean deep snow!<br>I would say this about anyone not doing Nordic skiing at Giant's Ridge today, "I pity the fool!"  Conditions are nearly perfect!  Despite that, we only saw four other people while classic skiing the entire 13.4 KM of the Gold trail!  Everyone else we saw was skating and even though they were pretty skilled, we passed them twice on our classic skis.  The classic trails are that good!  We reached 38 Km/hr on one of the descents!  We were using our race skis, including a pair of Atomic World Cup skis on snow for the first time.  I saw one tiny tip of a rock in the entire outing and that was in the skate track, not the classic track.  It's warm, it's sunny, the conditions are great, and you have the place to yourself.<br>
+
 (Steven Carter)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=57">Mount Itasca</a> (Coleraine):</b><br>
 Conditions: Excellent for both skate and classic.<br>Grooming is impeccable, and conditions remain outstanding.  No big races on the upcoming schedule, so come out and ski anytime.<br>
 Photos: <a onClick="reportviewer(46368); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Jonathan Arntson)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=349">Big Aspen Recreation Area</a> (Virginia):</b><br>
+
 Conditions: Great.<br>Great this morning. Groomed well. Completely covered. Beautiful trail. It did get sticky as the sun took over. Get out early and you'll be glad you went.<br>
 (Lori Rothstein)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 3 - <a href="traildetail.asp?Id=68">Carey Lake</a> (Hibbing):</b><br>
 Conditions: Black Forest loop had surprisingly decent track for the little snow they have. Some bare spots that are avoidable. The swamp part has no real track set in there. Trees are too thick in there to allow for coverage.<br>There was the annual Luminary ski for winter frolic taking place. Queen candidates, many who have never skied before, go out in the dark with small lights along the trail and try to stay upright. Some turn back to save themselves bodily harm. But one determined young lady made it around the loop! Congratulations Miranda for sticking it out. We are proud of you.<br>
 Photos: <a onClick="reportviewer(46398); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Ron Kutsi)
 
 <li>
+
 <b>Feb 3 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
 Conditions: Excellent! Barely transformed.<br>Best ski of the year! So great to ski on well groomed flat trails covered with plenty of snow. Skied the Silver, the summit, the gold and the bronze. Well worth the drive from Duluth.<br>
 (Kara Salmela )
 
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
-Conditions: Most excellent.<br>Skied (skated) Silver, Gold, Summit, and Bronze and the last 3 had just been groomed (I was the first on them), so it was wonderful, though a bit warm (~34), especially considering what's available in the Twin Cities options. The tracks, in some places looked a bit thin. To quote other reporters to this column - It's well worth the drive.<br>
-(Tony Pellegrini)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
-Conditions: Excellent!<br>Overcast with High temps hanging around the freezing and maybe 1/2" of new snow a couple days ago.  Additional grooming has widened the Oslo and Biwabik Spur trails, making them better for skating this week- but be cautious of a few rocks mainly along the power line portion of the Oslo loop.  All the main, inner trails are fantastic-bring your good skis and enjoy the mild weather!<br>
-(Shawn Callahan, <a href="http://greengateguesthouse.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Green Gate Guest House</a>)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=77">McCarthy Beach State Park</a> (Side Lake):</b><br>
-Conditions: Packed and tracked with a little fresh snow that had a couple of ski tracks.<br>Excellent, good job Dave & Jenny.<br>
-(Arden LaBonte)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=349">Big Aspen Recreation Area</a> (Virginia):</b><br>
-All trail loops were freshly groomed and tracked today.<br>
-(Mark Toot)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
-Conditions: Mostly excellent!<br>Everything has been groomed in the past 24 hours!  The Bronze, Silver, Gold, Summitt "superhighways" are perfect right now.  Also skied the Oslo, Laurentian/Wynne Creek loops which are better for classic than skating until we get a little more snow (a few rocks on the Oslo and sticks poking through trail along the swamp sections of the Laurentian.  Today was the best day of skiing I've had all season, ready for more!<br>
-Photos: <a onClick="reportviewer(46224); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Shawn Callahan, <a href="http://greengateguesthouse.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Green Gate Guest House</a>)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=68">Carey Lake</a> (Hibbing):</b><br>
-Conditions: Cloudy 34 degrees. "B" Skis.<br>Last week's snow covered the trails pretty good and the groomer was able to get out and pack and track. There are some thin spots, and I'm not ready to take the good skis out just yet. However you should do no new damage to your "B" skis. Classic track is deeper than I would expect with such thin snow. One more good snow, and....<br>
-Photos: <a onClick="reportviewer(46216); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Craig Holgate)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=356">Sturgeon River Trails</a> (Chisholm):</b><br>
-Conditions: So-so, need more snow, especially under the pines. Lots of needles, thin. Freshly groomed and/or packed mostly.<br>Great to see the Feds are hard at it, trying with what little we have!<br>
-(Neil Gardner)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
-Conditions: Very good.<br>Freshly groomed trails. A little soft today but might be great tomorrow. Classic track every where except the silver. Definitely worth the trip.<br>
-(Joe Schneeweis)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=349">Big Aspen Recreation Area</a> (Virginia):</b><br>
-Conditions: Top notch! It looked like the trail was groomed a few days ago and user groomed after that little bit of snow we got on Saturday night.<br>A few small rocks to maneuver around at the start, but the rest of the trail is in great shape. Good base. Bring your good skis!<br>
-(Deb Salzer)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
-Conditions: Very good to excellent.  3-4" snow over the weekend!<br>A big snow week at Giants Ridge and all the trails are now skiable.  Wynne Creek, Laurentian, Oslo and Biwabik Spur were just opened this week and need a little work, so beware of some twigs and occasional rock.  The Cedar, Gold, Silver and Bronze trail are all great- bring your good skis!  No grooming today unfortunately, so conditions were soft with the recent fresh snow.  All trails scheduled for grooming tomorrow.  All the snow clinging to the evergreens makes for beautiful skiing right now!<br>
-Photos: <a onClick="reportviewer(46118); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Shawn Callahan, <a href="http://greengateguesthouse.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Green Gate Guest House</a>)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
-Conditions: Finally a winter wonderland.<br>It is finally a fun filled winter in the Iron Range! Conditions are fabulous. Today I skied most of the trails but not all and I couldn't ask for any thing better. I want to do all 60 k tomorrow.<br>
-(Jenn Krueger)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=63">Suomi Hills</a> (Grand Rapids):</b><br>
-Conditions: Good.<br>My brother and I met a large group of North-Stars skiing these classic trails through a wilderness with steep hills winding around small lakes that reminded me of the Rock Lake trails east of Cable, WI. Randy Zupan packed the the trails Friday morning before several inches of snow fell in the afternoon. Our skis rubbed some tree roots and watch out for rocks. We put no new scratches on our B skis.<br>
-(David Byrne, <a href="http://www.mnrovers.org" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Minnesota Rovers Outdoors Club</a>)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
-Conditions: Very good where groomed. Most was groomed.<br>Fantastic 3.5 hour ski. Giants is my favorite for hill marathon training. Swix blue seemed to run well. It looked like winter at Giants Ridge!<br>
-(Mark Wilhelmson)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=53">Legion Trails</a> (Grand Rapids):</b><br>
-Conditions: Rock skis.<br>Soft snow. The groomer went through as we skied. (Yeah for hardworking groomers!) The classic track is very shallow. Watch for rocks.<br>
-(Tara Makinen)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
-Conditions: Perfect!<br>Bruce Bauer, Matt Ryan and I skied through a Midwestern powder wonderland today.  It's the end of January and we all expect to be skiing on mid-winter conditions right?  "The Ridge" has it.  Unbelievable.<br>
-(Shawn Miller)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=33">Giants Ridge</a> (Biwabik):</b><br>
-Conditions: 4 inches of `Blower` yesterday made for the prettiest ski day of the year.<br>Grooming plans:  100% of trails (60+K)will be open by Sunday with a 3"-4" base .  Use caution for twigs and rocks on Oslo, Wynne Creek, and  Biwabik Spur which have rougher trailbeds than the other 50K.<br>
-(John Filander)
-
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Ely area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=47.903&textField2=-91.867&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
 <li>
 <img src="../images/new.gif">
+<b>Feb 12 - North Arm Trails (Ely):</b><br>
+Conditions: Good.<br>The most gorgeous and fun classic trails in the state when there's good snow cover. Stuck to Moose and Slim Lake trails and they were skiable but boney in places. Lots of exposed rocks and roots in some places so we opted to take off skis for some down hills.  Slim Lake and Burntside offered good lake skiing.<br>
+(Bonnie Carlson-Green)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=42">Hidden Valley Ski Trails</a> (Ely):</b><br>
+Conditions: Great!<br>Best skate and classic skiing in the area and saw no one else on the trails Sunday morning (though there were cars in the lot). Excellent grooming, though snow cover was a little thin in places on the Deer Run trail due to sun melt.  Love the decorated tree with the candy container. Trails generally well-marked which was good since they were out of paper maps.<br>
+
+(Bonnie Carlson-Green)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=70">Flathorn-Gegoka Trails</a> (Isabella):</b><br>
+Conditions: Varied from thin hard pack to a very nice set track where snow depth was better.<br>The far east area is not for beginners along the Flathorn lake. Very narrow with rolling hills and tight sharp turns that run onto bridge crossings in 2 places. We saw several spots where skiers didn't make the corners and into the brush they went. But the green marked trails are very wide and gentle climbs in most places. Beautiful place to go. Thank goodness for hand warmer packs on a cold windy day!<br>
+Photos: <a onClick="reportviewer(46642); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Ron Kutsi)
+
+<li>
+<b>Feb 11 - Birch Lake Plantation Trail (Babbitt):</b><br>
+
+Conditions: Not very good.<br>Came across this small trail system and things looked pretty good from the parking lot. So we headed out, impressed with the nice deep groomed tracks. Only got about 1K down the trail, as it parallels the road, and found conditions to be less than idea. Given the wind and cold we decided to give up on it and try it another time.<br>
+Photos: <a onClick="reportviewer(46624); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Craig Holgate)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=70">Flathorn-Gegoka Trails</a> (Isabella):</b><br>
+Conditions: Very good snow coverage. Sunny, windy and cold, but good skiing.<br>First time on this trail system, and it was a great experience. Lots of snow here, but we did come across a few rocks poking out. Trails are in good condition, although the tracks are not real deep. We did find better, deeper, tracks on the eastern end of the trail system. Enjoyed the single tracked trails, the scenery here is fantastic.<br>
+Photos: <a onClick="reportviewer(46622); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+
+(Craig Holgate)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=70">Flathorn-Gegoka Trails</a> (Isabella):</b><br>
+Conditions: Yes, Virginia, there is a winter. Beautiful fresh snowfall yesterday on top of a solid base paints this place perfect.  National Forest Lodge trails made for a 5 hour day of skiing today.  Well groomed road and forest trails were gorgeous.  Bring your good skis!  Only a few touchy spots.<br>We had a blast.  On to the sauna! NFL sauna is the bomb and the lodge is one of the best in Minnesota, deep in the heart of the National Forest. Thank goodness this summer's fire didn't reach Isabella!<br>
+(Jean Larson)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=70">Flathorn-Gegoka Trails</a> (Isabella):</b><br>
+
+Some snow loss over the spring-like weekend and a little icy on the hills from use/melt and freeze.  Tracks still in great shape.  Should groom up nicely for this weekend and provide very good conditions overall.<br>
+(Andy Fisher, <a href="http://www.nationalforestlodge.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">National Forest Lodge</a>)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=70">Flathorn-Gegoka Trails</a> (Isabella):</b><br>
 Conditions: Excellent!  Plenty of soft snow cover, not mushy (yet).<br>You would never know, sitting in the Cities, or even Duluth, how wonderful the snow is up here. We skied for nearly three hours this morning (skiers age 7 - 78) and never encountered a bare or icy patch. The trails are wonderfully groomed.  A perfect morning in the woods.<br>
 (Pam Fickenscher)
 
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=520">Howard Wagoner Trail</a> (Tower):</b><br>
-Conditions: Good, plenty of snow for tracks.<br>I was driving back to Duluth from the Iron Range, had planned to ski at Giant's Ridge but was feeling rather lethargic. Saw the sign for "ski trail" and stopped off here instead. Reminded me of George Washington Pines near Grand Marais.<br>
-Photos: <a onClick="reportviewer(46273); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Anne Flueckiger, <a href="http://www.duluthxc.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Duluth XC Ski Club</a>)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=70">Flathorn-Gegoka Trails</a> (Isabella):</b><br>
-Conditions: Good to excellent classic skiing.<br>One inch of new snow since the last grooming made for a somewhat shallow track but otherwise very good striding. There was plenty of snow and great scenery with intimate single track trails winding thru big snow ladened pines.  Temperature topped out at 30F so there was no meltdown here.<br>
-(Tom Peterson)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=70">Flathorn-Gegoka Trails</a> (Isabella):</b><br>
-Conditions: Awesome, fresh snow, groomed last night!<br>Enjoy!!<br>
-(Louise Kennedy)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=70">Flathorn-Gegoka Trails</a> (Isabella):</b><br>
-Conditions: Fresh powder freshly groomed and near flawless.<br>Fresh powder, mild temperatures, and intermittent sunshine created a perfect winter wonderland of incomparable beauty in the Big Pines. Diligent grooming by Andy and Mike left the trails clear with plenty of glide. Couldn't ask for a better xc ski experience.<br>
-(Kate Fitzgerald)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=70">Flathorn-Gegoka Trails</a> (Isabella):</b><br>
-Conditions: Skiing this weekend was fantastic!<br>I haven't had better trail conditions in years.  Andy at National Forest Lodge was awesome and took very good care of us as well as the trails.  The trails are excellently maintained.<br>
-(Amy Floden)
-
-<li>
-<b>Jan 28 - Aurora Recreation Trails (Aurora):</b><br>
-Conditions: Very Good. Snowing still at dusk.<br>Classical city trails- with an abundance of twists and turns. Skied everything! You never do the same loop twice on this trail system!  Thanks for the perfect grooming Kim!<br>
-Photos: <a onClick="reportviewer(46052); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Cheri Johnson)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=70">Flathorn-Gegoka Trails</a> (Isabella):</b><br>
-Fantastic, ideal skiing conditions, in a winter wonderland atmosphere. We won the lottery this weekend - snow, groomed trees, lightly falling snow.<br>
-(Mary Ann Van Cura)
-
-<li>
-<img src="../images/new.gif">
-<b>Jan 27 - <a href="traildetail.asp?Id=70">Flathorn-Gegoka Trails</a> (Isabella):</b><br>
-Conditions: Trails were great, with new snow falling all weekend. They got another inch just recently.<br>This is a few hours north, but it is worth the drive and there has been snow every time I have gone - no matter what the conditions in the Twin Cities or on the North Shore. I highly recommend it. Snow up to my knees off the trail and 30k of nice groomed trails, much of them through the woods. Quiet and beautiful.<br>
-Photos: <a onClick="reportviewer(46389); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Margaret Elkins)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=70">Flathorn-Gegoka Trails</a> (Isabella):</b><br>
-Trail was great.   Well groomed and plenty of snow.<br>
-(Aviva Breen)
-
               </font>
             </ul>
+
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Other locations</b>            <ul>              <font size="-1"> 
 <li>
-<img src="../images/new.gif">
 <b>Feb 5 - <a href="traildetail.asp?Id=69">Tilson Creek Ski Trail</a> (International Falls):</b><br>
 Conditions: Fast and firm, 30 and rising.<br>Perfect morning for a fast skate - well-skied trail makes a super firm deck, and on the first loop the tracks were fast, too. Frost on the trees was beautiful and fog over the lake was pretty as well.  Lots of skiers out this weekend. We are fortunate to have so much snow here!<br>
+Photos: <a onClick="reportviewer(46415); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Burgess Eberhardt)
 
+
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - Black Bay Trail (International Falls):</b><br>
 Conditions: Newly groomed, still thin cover.<br>T'was a beautiful day in the hilly woods of Voyageur's National Park Black Bay classic trail. Rock skis still recommended for both the lower and upper loops of the Pine trail - too many rock tops showing for good skis. Tracks are a bit shallow but the 2 long downhills are just fine - fast and fun.<br>
 (Burgess Eberhardt)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=533">Manka Trail</a> (International Falls):</b><br>
 Conditions: Very good.<br>Trail was freshly groomed and fast. Skied 16 KM under the lights. There is about 12 inches of snow on the ground and 4+ inches of base on the trail.<br>
 (David Kettula)
 
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=69">Tilson Creek Ski Trail</a> (International Falls):</b><br>
-Conditions: Warm, but beautiful.  Good base and firm tracks.<br>We groomed all of Tilson on Wednesday and Thursday - the VNP access (Blue)  and continuing over to the Park HQ on Wed, and the Orange, Yellow, and Red on Thursday morning early. The VNP trail is good for skating and classic but note it starts at the VNP road, not the parking lot, and is still a bit soft.<br>
-I skied all the main Tilson trails Thursday afternoon - all are nice. There are a few round rock tops to avoid on uphills but they are visible. I have switched to good skis! There were 8 cars in the lot when I arrived.<br>
-Photos: <a onClick="reportviewer(46322); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Burgess Eberhardt)
-
-<li>
-<b>Jan 26 - Black Bay Trail (International Falls):</b><br>
-Conditions: 30 above and "misty" - newly groomed.<br>First time this year on the Black Bay classic trail, which was groomed and opened yesterday. Park groomers have done a nice job with the late start. The pole plant is still soft, tracks are mostly just fine. Some hills are not tracked where the groomer felt the snow cover was too thin, but pose no problems.<br>
-One could use good skis with care on the first, lower, loop of the Pine Trail but I used rock skis and suggest that for the upper loop especially. All sections are fully snow-covered.<br>
-Photos: <a onClick="reportviewer(45911); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Burgess Eberhardt)
-
               </font>
+
             </ul>
             <P>&nbsp;<p>
             <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/nw-mn.gif" hspace="6" border=0><font size=+1><b>Minnesota Northwest</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Bemidji area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=47.474&textField2=-94.88&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
 <li>
 <img src="../images/new.gif">
-<b>Feb 4 - <a href="traildetail.asp?Id=5">Movil Maze Trail</a> (Bemidji):</b><br>
-Conditions: Very good.<br>Although it might not last, right now the Maze is in great shape.  It feels like March skiing, with the warm sunshine and fast snow.  If people ski early or late, and not during the heat, it could stay good.  The deck is firm, and the small handful of thin spots are easily avoided.<br>
-(Dan McKeon)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=3">Buena Vista Ski Trail</a> (Bemidji):</b><br>
-The best skiing in Minnesota can be found in Bemidji.  The west side of BV was rolled and groomed by the ski club and is in excellent shape.  A little soft due to recent snow, but firming up nicely. The Finlandia is only 3 weeks away.<br>
-(Michael Meehlhause)
-
-<li>
-<b>Jan 29 - Black Lake Trails (Bemidji):</b><br>
-The private Black Lake trails were recently rolled and were in excellent shape. The base is solid and should groom up very nicely for the Black Lake Loppet in the next few weeks.<br>
-(Michael Meehlhause)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=305">Montebello Trail</a> (Bemidji):</b><br>
-Conditions: Excellent.<br>Stopped by the Montebello trails for a quick loop and found that they are in great condition with a firm base and a strong classic track. Perfect mid-season conditions and right in town.<br>
-(Michael Meehlhause)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=2">Three Island Park</a> (Bemidji):</b><br>
-Conditions: Fair to excellent.<br>Sections of trail at Three Island are perfect, with a firm base and good coverage.  Some sections are soft, but with approximately 30km of trail, there are plenty of really good km's for a long skate ski.  The North Loop is best for classic only, and the tracks throughout the system looked fair to excellent as well. One could use their best skis with some care.<br>
-(Dan McKeon)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=5">Movil Maze Trail</a> (Bemidji):</b><br>
-Conditions: Awesome!<br>I drove up to Bemidji from the Cities this weekend in search of snow, and it was so worth it! The trails appeared to be tracked fairly recently (definitely since Friday's snow)- rolled for skating, and one classic track on all trails. Nice, firm base. Skated 13K, bits and pieces of all trails - the blue trail was nice and fast! Not too crowded, saw maybe 10 other skiers in the 1.5 hours I was out.<br>
-(Jennifer Bushek)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=3">Buena Vista Ski Trail</a> (Bemidji):</b><br>
-Rolled and packed out all 25k during the 4" snowstorm -- do things have improved dramatically!  No classic track in yet, the skating is surprisingly fast in the powdery trail, kind of surfy and cool.  We are loving all the new snow.  Since the field is still fenced it is easier to get to the west side trails by parking at township building.   Enjoy!<br>
+<b>Feb 12 - <a href="traildetail.asp?Id=3">Buena Vista Ski Trail</a> (Bemidji):</b><br>
+Minnesota Finlandia prep: Moved lots of snow today during the cold morning temps.  West side looking great after covering up a few trouble spots including the wall.  With help from BV Pisten Bully we piled snow along the start area all the way to the tunnel and then smoothed it all put.  Problems solved!  I'll do the grooming Wednesday or Thursday night and pull up some good snow.  Expect fast, fun conditions on a smooth course with no ice problems.  A few dips in the trail but really quite good considering the snowpack.<br>
+Photos: <a onClick="reportviewer(46673); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Mark Morrissey)
 
 <li>
-<b>Jan 27 - <a href="traildetail.asp?Id=4">Lake Bemidji State Park</a> (Bemidji):</b><br>
-Conditions: Very good, groomed today.<br>All trails have been groomed and tracked and are in the best shape this year. There are some thin spots under the trees but overall very good.<br>
-Photos: <a onClick="reportviewer(45971); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(John Fylpaa)
+<b>Feb 9 - <a href="traildetail.asp?Id=3">Buena Vista Ski Trail</a> (Bemidji):</b><br>
+
+Conditions: West side skating still good but in need of a touch up after the warm weekend temps. 6-8" base, no classic track in yet.  Expect careful grooming this weeknd to bring back a smooth skate lane and classic skiing.  Temps in the teens, mixed clouds and sun.<br>It was a warm weekend in northern Minnesota and burned some serious holes in the south facing open areas of the course. At this time there isn't a way to get skiers out to the east side trails. However, our west side trails are tucked away nicely in the shade and were able to make it through just fine, so our race plan B is a short course using 10+ kilometers all on the west side.  I plan to touch these up just once to tiller up the dry snow that is still there, set a classic track and figure out how to spruce up the tunnel and start areas with snow we can move.  Should some snow fly we could be back up in short order grooming the full 25k east and west as these have been packed and skied this season.  Right now the forecast is generally clear meaning single digit nights and sunny 20F days.  That's good news folks!  Wax em up, pack the car and see you out at the start line!  More posts to follow this weekend as we get things ready.<br>
+(Mark Morrissey)
 
 <li>
-<b>Jan 27 - <a href="traildetail.asp?Id=5">Movil Maze Trail</a> (Bemidji):</b><br>
-Conditions: Very Good.<br>Skate conditions are very good, I skied with my good skis for the first time this year, the groomers have done an awesome job. Classic tracks were set although they looked a little thin in a few spots. Its snowing fairly heavy right now too.<br>
-(Brad Kuzel)
+<b>Feb 5 - <a href="traildetail.asp?Id=2">Three Island Park</a> (Bemidji):</b><br>
+Conditions: Varying from excellent to fair.<br>As of noon, the trails in the Bemidji area had held up against the heat and sun.  A few spots with southern exposure were opening up, but trails were generally maintaining coverage.  Three Island has lots and lots of easy kilometers of excellent skiing, and is well worth a visit.<br>
+(Dan McKeon)
+
+<li>
+<b>Feb 4 - <a href="traildetail.asp?Id=5">Movil Maze Trail</a> (Bemidji):</b><br>
+
+Conditions: Very good.<br>Although it might not last, right now the Maze is in great shape.  It feels like March skiing, with the warm sunshine and fast snow.  If people ski early or late, and not during the heat, it could stay good.  The deck is firm, and the small handful of thin spots are easily avoided.<br>
+(Dan McKeon)
 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Detroit Lakes area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=46.817&textField2=-95.845&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
 <li>
 <img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
+Conditions: Excellent to excellent.<br>Why is everyone who loves cross country skiing in Minnesota not at Maplelag right now?  This weekend the conditions were ideal, not only the best conditions of this year, which of course, is not saying much, but maybe some of the best conditions ever.  Jay has once again pulled off a Maplelag Miracle. GO.<br>
+(Claire Wilson)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
+
+Conditions: Very good skiing and racing condition.<br>Temp rose up to 20Fs in the afternoon.  I went out skiing the 6k course and the 7.5K Saving XC Skiing Day race course.  The tracks were nice and fast with 2 spots showing grass but can easily avoid.  The skating lanes were fast, firm, very well covered. <br>
+Photos: <a onClick="reportviewer(46686); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Amy Xu, <a href="http://www.rainbowresort.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Rainbow Resort</a>)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
+Conditions: Good to excellent. Frozen granular snow condition. All 64km of trail open, 56km tracked, 15km open for skating. Few minor thin/icy areas and couple bare spots near marsh areas but overall good skiing conditions.<br>Despite the few thin areas and couple scattered bare spots on southern exposed hills (over 64km) the skiing is about as good as it gets, all things considered. The February sunshine has been amazing.<br>
+
+Photos: <a onClick="reportviewer(46668); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Jay Richards, <a href="http://www.maplelag.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Maplelag Resort</a>)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
+Conditions: Skating excellent, including the extension, classic good to excellent - Sukkerbusk, Mother North Star, Northern Loop, and Roy's Run.<br>Thank you, and I hope to be back!<br>
+(Istvan Gombocz)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
+
+Conditions: Ski conditions rated as good to very good.  4F above, clear skies, very light NW breeze, frozen granular base.<br>Grooming plans: Course grooming plans for Sunday‚Äôs ‚ÄúSaving XC Skiing Day‚Äù are later this afternoon to use the Tidd Tech to scratch and comb the skate lanes.  10:00 am race time temperature is predicted to be 10F above and climbing to 20F or so in the afternoon. Classic track sets could have icy spots with the cold temps.  Course route has definitely the best snow cover and conditions.<br>
+(Keith Schumann)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
+Conditions: Solid base, good coverage 22 degrees.<br>Went over to check out the trails and race course for the weekend short notice event at Rainbow. Skied all trails and they held up well through the early week warmup. The 7.5 K loop Doug came up with is in good condition and avoids all areas with grass issues. Classic tracks are good but a bit icy today. Skate is good. Pics are of the race course and staging area.<br>
+Photos: <a onClick="reportviewer(46548); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Anne Ellefson)
+
+<li>
+
+<b>Feb 9 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
+Conditions: Good to excellent. Frozen granular snow condition. All 64km of trail open, 56km tracked, 15km open for skating. Few minor thin/icy areas and couple bare spots near marsh areas but overall great skiing conditions.<br>We set tracks on about 20km of trail the past two days and skate trails have been groomed daily. Today's tracksetting we made multiple passes and combined with warmer snow temps, able to set near perfect tracks and ready for the weekend traffic. Other trails not groomed the past three days, still have good tracks with maybe a few more icy spots but all things considered, nice skiing. With awesome temps forecast the next few days, should be a great weekend to classic. Grooming Plans: As needed.<br>
+Photos: <a onClick="reportviewer(46537); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Jay Richards, <a href="http://www.maplelag.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Maplelag Resort</a>)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
+
+Conditions: Only one little icy spot on all of Skater's Waltz at mid section of Kamakazee Hill. With the name of the hill posted on a sign at the top, it already requires a little looking further ahead than the norm. No problem going over the glazed spot with lower center of gravity, wide balance points and larger than normal eye diameter! Skate deck on North Loup and Skater's Waltz, firm fast with easy edge control. Fantastic texture around noon today; temps from mid-teens into low 20's.<br>I almost felt guilty being the first one to carve into the freshly rolled snow after it had time to set up perfectly. In order to make the guilt worthwhile 4 laps were required. In the middle of the 4th lap halfway up the hill that ends always a little too late, the guilt was gone. Always a treat to ski in the woods at Maplelag.<br>
+(Denny Barry)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
+Conditions: 28*F above; clear skies; light SW breeze; frozen granular base; base depth varies from 1 to 4 inches; existing track frozen ice glazed; Black Bear Tr., Wolf Run; Buck‚Äôs Run, Cougars Run, Hawks Trail, and Deer View Trail groomed with scratcher bars and track sets refreshed with track setters; 7.5K course for upcoming XC Skiing Day has been groomed with scratcher bars; entire trail system skiable with a variety of short patches of exposed leaves/grass,etc.; ski conditions rated as very good to good.<br>We started out early this morning with below 0 temps hauling a little snow to some light areas on the course for the upcoming Short Notice: Saving XC Skiing Day. With the temps rising quickly to 20*F I continued by grooming our trails system with the scratcher bars and resetting tracks. Through out the trail system I found several short distances areas of exposed trail base however skiing around those areas should not be a problem. Track sets are crumbly and are not to full depth in some areas; however by re tracking the ice broke and mixed fairly well. The couple of mild days from this past week really changed the look of the woods and trails. We will continue prepping the course for Sunday‚Äôs event during the week and post further reports of conditions.<br>
+Photos: <a onClick="reportviewer(46517); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Doug Schumann, <a href="http://www.rainbowresort.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Rainbow Resort</a>)
+
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
+Conditions: Mid-winter 'almost'perfect! Enough snow to not have any concerns about having grass and duff unexpectantly stopping a ski and doing cartwheels with skinnys attached. Very few spots that merit attention due to ice, making fast paced cadence an advanced skill. Tracks set deep enough to let them ride ride, allowing thoughts other then those connected with feet to enter the mind ; like wow it's really winter and it's so white!<br>Skied many classic trails, too many to recall. All skied were in terrific condition. Kept skates in the bag, keeping off from the just groomed skate deck being prepped for lucky Section 8 Nordic athletes. Temp when starting out was 27, don't think it got much higher. No sign of melt on any trail skied. HS skiers tomorrow should be skiing on as close to perfect conditions as possible. Skaters in bag in back of my truck were making pleads to get out and go. I told them Wednesday!<br>
+(Denny Barry)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
+Conditions: Good to excellent. Close to an inch of fallen frost on top of hardpack base. Few areas of thin cover/ice sections.<br>Today was a magical day for a variety of reasons. The frost setting was absolutely stunning before falling late afternoon. Frost hanging on most of the day was a good sign as the temps stayed cool and about 10 degrees lower than forecast. Late afternoon the kamikaze hill section was groomed, working in the frost with the transformed snow on kamikaze hill. A short ski later to check out the courses for the Section race on Tuesday found the trails in great shape. Personally, the skiing, in particular skating, doesn't get any better even if it is a "non winter" or "no snow year" (hence my rating of excellent). The tracks set before the weekend are holding out great and the frost refreshed things nicely. <br>
+
+Grooming plans: We will be grooming the Section course Monday afternoon with the Ginzus, setting complete new texture on the skate course and conditioning the classic course before setting new tracks. The courses will be closed during that time but all other trails open and very good skiing with a few thin areas etc. here and there.<br>
+Photos: <a onClick="reportviewer(46430); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Jay Richards, <a href="http://www.maplelag.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Maplelag Resort</a>)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
+Conditions: Fresh corduroy, solid base, good coverage.<br>Jack and I skate skied and all trails had great coverage! Had to avoid only 2 hills on the whole trail system that had patchy melting (fine climbing but chancy for the descent!) Very easy to do with all the trails. Skied til about 2pm and the snows stayed firm and fast. Lars skied classic and the tracks were solid deep and overall it is so worth the drive to ski in Northern Minnesota!<br>
+(Anne Ellefson)
+
+
+<li>
+<b>Feb 4 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
+Conditions: Good to excellent, ranging from Suckerbusk to Skater's, Island Lake, and Bullhead. The frost falling from the trees was a nice bonus.<br>On Saturday, my son and I drove up all the way from SD and enjoyed about five hours of great recreation. Thank you, and I hope  to be back a few more times this year.<br>
+(Istvan Gombocz)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
 Conditions: Good to very good. Frost snow on top of frozen graunlar base.<br>Another morning of incredible frosty conditions. Temp cooling down a bit lower last night , with lowest readings in the mid teens. Not as warm forecast today so the snow should be dry and silky all day. Trails getting refreshed from frost falling from the trees. Skaters Waltz groomed last night. Trails groomed Thursday and Friday in good shape and holding out great. Friday saw no melting really with cooler temps than clouds moving back in mid afternoon. There are a few thin/rough/icy spots here and there but overall the skiing is very nice  considering the low snow year.<br>
+
 NOTE: Sunday afternoon and all day Monday the course for the Section 8 Championships (race is on Tuesday) will be closed for grooming and race prep. This only includes Skaters Waltz, Mother North Star and Sap Run. All other 54km of trail will be open for skiing.<br>
 Photos: <a onClick="reportviewer(46355); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Jay Richards, <a href="http://www.maplelag.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Maplelag Resort</a>)
@@ -1091,329 +935,242 @@ Photos: <a onClick="reportviewer(46355); return false" href="/javascript.html"><
 Conditions: Good to excellent. Frozen granular with powdery sections, frost falling from trees on to trail. 23 degrees at 7am.<br>Winter wonderland conditions again this morning. All skate trails brushed last night and new track set on about 35km of trail last night and early this morning. A few thin spots but we have been shoveling daily and overall,  skiing is great.<br>
 (Jay Richards, <a href="http://www.maplelag.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Maplelag Resort</a>)
 
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
-Conditions: Fast and fun.<br>Pulled in Thursday night just in time for two loops of Skaters Waltz. Trail had plenty of snow and was fun and fast.  Followed up by Jay's Pan Fried Walleye in the lodge!  All trails look to be in very good shape.<br>
-(Kris Anderson)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
-Conditions: Good to excellent. Springlike with powdery sections. Frosty, morning lows in upper teens mid 20's still near noon.<br>We took the Pisten Bully out for the first time this year, setting track on about 5km of trail. The more compacted trails groomed up very nice. The less compacted trails saw a few short sections of leaves pulled up but nothing major and overall groomed up nice. Able to drop the front end renovator down a few inches, bringing up the silky and dry snow below. Few other sections of trail ginzu groomed and turned out nice. Trails not groomed today have some icy spots but overall great skiing being reported today. <br>
-Grooming plans: We will be grooming early Friday morning.<br>
-Photos: <a onClick="reportviewer(46290); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Jay Richards, <a href="http://www.maplelag.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Maplelag Resort</a>)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
-Conditions: 23*F above starting; 38*F above finishing; foggy early with clearing skies late morning; base depth varies from 2î to 5î; packed powder base; 20k renovated and combed for skate skiing; 23k groomed with track sets; ski conditions are very good to good; several very short distance areas with ground debris/grasses showing in marginal snow areas.<br>I started early this morning grooming in the fog reconditioning the courses from yesterdayís North Star Classic Ski Invitational HS Race and also grooming the fresh powder on the trail system West of Rainbow Pond. Found the conditions very good to excellent west of the pond and I was able to clean up the skate lanes on the event courses. Some of our track sets in the heavier traffic ski areas do have crumbs in them due to fact we are just a little short on base in some areas to be able to renovate deep enough. We want to thank the participants, coaches and parents that came out for the North Star Classic Invitational. Schools that attended were TrekNorth, Bemidji High, Detroit Lakes and Deer River.<br>
-Photos: <a onClick="reportviewer(46312); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Doug Schumann, <a href="http://www.rainbowresort.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Rainbow Resort</a>)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
-Conditions: Good to excellent. Springlike with powdery sections.<br>A incredible morning on the trails with frosty conditions and fantastic skiing. It did warm up in the afternoon softening the trails but cleared off and froze down again by dusk. A few southern areas saw some snow melt but overall the trails held up great. A late afternoon ski was extremely fun. <br>
-Grooming plans: Probably holding off until tomorrow evening to groom anything. Focusing on Twin lakes North Loup and inner trails.<br>
-Photos: <a onClick="reportviewer(46264); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Jay Richards, <a href="http://www.maplelag.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Maplelag Resort</a>)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
-Conditions: Excellent!  Great skiing condition.<br>The Northstar Classic Race was held today. Bemidji HS, Trek North from Bemidji, Detroit Lakes & Deer River had about 100 skiers raced the classic event.  The temp was in low to mid 20s and cloudy.  More flurries of snow is in the forecast for tomorrow, and mid 20s to low 30s for the rest of the week.  Great skiing condition.<br>
-Photos: <a onClick="reportviewer(46238); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Linda Schumann)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
-Conditions: Good to Excellent. Fast and silky.<br>Calls today asking if we had any snow left and how much snow melted. There was no melting today and we still have snow. Temp was 28F all day, cloudy and dropped a few degrees at dusk. A check of the trails via skis at dusk found fast and fun skiing. Personally, it does not get any better. Everything looks great. We spent four hours shoveling on the classic course for Sections not because it needed it but building up for good measure. We do not salt the trails so they do not get slushy like the streets in town.<br>
-Photos: <a onClick="reportviewer(46222); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Jay Richards, <a href="http://www.maplelag.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Maplelag Resort</a>)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
-Conditions: Currently 30*F above; cloudy & clear skies today; todayís high 35*F; packed powder base; average base depth 3 to 5 inches; base compaction moderate; combed, renovated and track set 3.5 course for tomorrowís Northstar Classic Ski Invitational H.S. Race; 5K course to be groomed later tonight; balance of trail system groomed Friday night has light dusting of snow fluff from Sunday; ski conditions rated as very good for entire system.<br>I got out this morning to begin grooming for tomorrowís Classic Race and found the new snow from this past weekend rolling right along. Then about noon the sun peeked out and the temp went up just enough to get that sticky action going. I pulled off the trails after completing the 3.5K course and will continue grooming later tonight. I did make one loop around the 5K course and found the whole course in very good ski condition with the exception of that south exposed Pine Hill climb. You can ski up it but it is definitely our thinnest area.  Looking forward to seeing everyone tomorrow.<br>
-Photos: <a onClick="reportviewer(46324); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Doug Schumann, <a href="http://www.rainbowresort.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Rainbow Resort</a>)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
-Conditions: Very good to excellent.<br>Skied most trails last few days. All trails in very good to excellent condition both skate and classic. Great grooming and great snow.<br>
-(Tran Alfrey)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
-Conditions: Excellent, considering the sparse snow cover.<br>Skied the 10K loop at Rainbow Resort Sunday with two friends, one a skater, and myself and another classic skiers.  Very nice 10 "outside" loop, lots of hills, some rolling, some quite steep for a nice little speed-rush.  All in all, the skiing was fantastic! and the brother/sister team on duty that day were very friendly.  If you ski at Rainbow, make sure to have a burger-basket in the restaurant afterward, they were superb!<br>
-(Tim Ray )
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
-Conditions: Excellent, real snow!<br>I made the trip from Minneapolis to Maplelag via Ottertail to find cold (-10 F) conditions, but the trails were in incredible shape.  I did not miss the man-made snow I have been skiing on all year.  Yes, Maplelag a long car ride, yes you are busy.  But it is well worth the trip!  The trails are wonderfully cared for and conditions are excellent.  Make the trip, you won't be sorry.<br>
-(Darren Ruschy)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
-Conditions were very nice for classic and skate.  Plenty of snow, excellent grooming, and great weather.<br>
-(Gregg Palmer)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
-Conditions: Great.<br>Plenty of snow at Rainbow.  As always the trails are well groomed, and the owners are welcoming and accommodating.  This is a great place to check out for a weekend or even a day trip.<br>
-Photos: <a onClick="reportviewer(46148); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Jp DuBord)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
-Conditions: Very good to excellent. Packed powder. Morning low of -10 climbing to mid teens, sunshine and light winds during the day. All 64km of trail open, tracks set on 56km of trail, 15km groomed for skate. Light snow falling Sunday evening.<br>Even though we don't have a huge base of snow, the skiing is mid winter with all trails open. Just a few minor thin/rough areas. We reset 150km of tracks Fri through Sun and the skate decks are mostly firm and fast. Good to see the classic trails skied hard this weekend and people enjoying the double track. The groomers are ready to go back out in the morning and groom the fresh snow falling tonight.<br>
-Photos: <a onClick="reportviewer(46140); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Jay Richards, <a href="http://www.maplelag.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Maplelag Resort</a>)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
-Conditions: Excellent! Great coverage and just plain wonderful.<br>Great to have some good snow to ski on.  We had a wonderful time this afternoon, on a scale of 1-10, I would give it a 10. Temp was around 18 or so and just perfect to be out for the afternoon.  Hope to get in another day at Rainbow Resort later this week. Thanks for the great grooming and trail system at Rainbow.<br>
-(Deborah Holzem)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
-Conditions: Excellent.<br>We had plenty of fresh snow to ski on-2.5" Friday and 1.5" on Saturday. All the trails were ginsu groomed on Friday evening and then more snow fell Saturday to make a nice soft top layer to play on. Best skiing this year.<br>
-(Jeffrey Quam)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
-Conditions: Soft, but otherwise excellent.<br>It was our first time skiing on natural snow this winter, and our first time at Rainbow.  What a relief to find that our ski season was not going to be a complete dive this year!  After almost four inches of new snow on Friday (which was groomed) and an additional inch last night, coverage was excellent.  We did both classic and skate. Wonderful trail system, especially the hills on the 10k loop. More skiers should check it out.<br>
-(Lois Braun)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
-We were surprised how much snow Rainbow Resort had on the trails.  The trails were in great condition for classic and skate skiing.<br>
-(Markus Bischof)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
-Conditions: Very good to excellent.<br>Awoke to fresh snow on the ground and snow showers.  By the time we got out, the trails had been tracked.  We had tremendous skiing.  The snow had a silky feeling under our skis.<br>
-(Robert Eliason)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
-Conditions: Very good for normal snow year; excellent given the lack of snow across most of MN.<br>As always Maplelag has made the most of the snow available and the trails are in really good condition.<br>
-(Knut Ronnevik)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=327">Rainbow Resort Trails</a> (Waubun):</b><br>
-Conditions: Very good to excellent. 3 to 4 inches of snow received this morning. Temp is 21 degrees and dropping.<br>This snow has good moisture to help build base, set tracks and awesome for combing. The snow was not too wet and not too dry, just right.  I have groomed not quite Ω of the trail system so far.   I will go back out to finish this evening.  23K will be groomed for classic skiing and 20K combed for skate skiing.   Cooler night temps should help set things of nicely.<br>
-Photos: <a onClick="reportviewer(45968); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Keith Schumann)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
-Conditions: Very good to excellent. Marsh crossings improved with new snow.<br>Snow falling this morning with a solid 2-3&#8243; of dense moisture laden quick hitting snow as of 11am and light snow still falling. All the classic trails tracked for a total of 56km groomed with tracks. We groomed the skate lanes as well, putting the entire trail system groomed this morning. The new snow is making for fantastic conditions with the existing base/snow we had. We  have around 54km of tracks set for classic and 15km open for skating. 4km of snowshoe trails open.<br>
-Grooming plans: We will polish trails rest of day and back out in the early morning to refresh where needed.<br>
-Photos: <a onClick="reportviewer(45937); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Jay Richards, <a href="http://www.maplelag.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Maplelag Resort</a>)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=7">Maplelag Resort</a> (Callaway):</b><br>
-Conditions: Good to excellent. Scattered thin spots and a few rough areas on marsh crossings but overall very nice skiing. All 64km open. Tracks set on 32km of trail. 15km combed for skating and remaining km packed with skier made track. Track set on side of North Loup now as well as skate deck on side. Best conditions of the year.<br>After a incredible frosty day and some amazing skate skiing on the skate trails, we finally cleared off last night and the trails tightened up. Warmer temps today loosened the snow again but held out just fine with 34 degrees as the high mark. We set track late this afternoon at transition time on Lucky's and Mother North Star and both those trails groomed out nicely all the way through. We also built up the southern exposed hills on the classic race course for sections and cleared snow off the basketball court and moved to start/finish area.<br>
-Grooming plans: We will touch up the edges on the skate trails in the morning and set tracks on all remaining classic trails not already tracked. We are hoping to have 54km of tracks by the weekend.<br>
-Photos: <a onClick="reportviewer(45912); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Jay Richards, <a href="http://www.maplelag.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Maplelag Resort</a>)
-
               </font>
+
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Park Rapids/Walker area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=47.004&textField2=-94.727&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
 <li>
-<b>Feb 2 - <a href="traildetail.asp?Id=19">Soaring Eagle Trail</a> (Park Rapids):</b><br>
-Conditions: Variable, from good (most of Troll, Eagle, and some of Lilies) to poor (most of Lake, the early, wide open part of Lilies, and several spots on the south end of Eagle).<br>1 - 2" base, 3" snow depth.  It's still very skiable here, with some thin spots as noted above.  Skitter around these, and it's fast and fun.  There is no classic track to speak of, although classic skiers have been out with the die-hard skaters.<br>
-(Deane Johnson)
+<b>Feb 5 - <a href="traildetail.asp?Id=19">Soaring Eagle Trail</a> (Park Rapids):</b><br>
 
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=19">Soaring Eagle Trail</a> (Park Rapids):</b><br>
-Conditions: Fair to good.<br>A little deterioration due to traffic.  Overall it was still very enjoyable, especially where the trail was in deciduous woodlands.  Grass and coniferous cones were a challenge in certain ecosystems.<br>
-(Lois Braun)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=19">Soaring Eagle Trail</a> (Park Rapids):</b><br>
-Conditions: Good (most of Troll and Eagle) to fair (most of Lake and Lilies). Snow depth 4" with 1" new, base is 1 - 2", groomed for skating with a classic track developing on its own.<br>Every little bit of snow helps, and most of the areas that melted down before are at least covered with some snow.  Some of the sun-exposed areas, like the first part of Lilies, the south end of Eagle, and much of Lake, are still pretty fuzzy.  But the whole area is skiable, at least.  Caution on all hills!<br>
+Conditions: Generally fair to poor.  There is one good patch if you take Eagle to the right, then go "backwards on the end of Lilie's Loop about a K or so, until you hit the first batch of baby popples and run out of snow. Then turn around and go back, 1.5 km each way.<br>Temps hit the mid-30s this weekend, and with the sun it was enough to convert many of the thin spots into bare spots.  There is decent skiing to be had on other trails, but it's interspersed with walkovers.<br>
 (Deane Johnson)
 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Other locations</b>            <ul>              <font size="-1"> 
 <li>
-<b>Jan 27 - <a href="traildetail.asp?Id=23">Zippel Bay State Park</a> (Williams):</b><br>
-Conditions: Trails were groomed today.  I groomed the cut-across trail between Ridge and the Group camp grounds.  The snow was pretty thin under the pines, so be careful there.  Skating lane groomed up great!<br>Lots of wolf tracks between Ridge Campground and the little beach.<br>
+<b>Feb 5 - <a href="traildetail.asp?Id=23">Zippel Bay State Park</a> (Williams):</b><br>
+
+Conditions: Groomed Saturday morning.  The trails are hard and fast.  Skating lane is very good, classic tracks area bit shallow and icy.  The Birch Loop now has classic tracks set, and the Candlelight Loop has been packed, but not yet track-set.<br>Great morning of skiing today.  Classic glide was amazing.  Grip was good with VR55 before it got too warm, but then I switched to a klister ski when the temperature hit 40.  The nightly fog of the past couple of days left a very pretty sugar coating on the trees today.<br>
 (Tom Heinrich)
-
-              </font>
-            </ul>
-            <P>&nbsp;<p>
-            <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/c-mn.gif" hspace="6" border=0><font size=+1><b>Minnesota Central</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
-              </font>
-            </ul>
-                &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Brainerd area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=46.358&textField2=-94.201&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=27">Northland Arboretum</a> (Brainerd):</b><br>
-Conditions: Good.<br>Enjoyed skiing in Brainerd today. Some dirty spots but I thought it was worth the drive.  No tracks set.<br>
-(Jacki DeVine)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=27">Northland Arboretum</a> (Brainerd):</b><br>
-Conditions: Surprisingly good.<br>I skated the Arb today. I was pleasantly surprised. What bare areas there are can be easily skied around.  They have done a great job with the minimal snow.  Not worth a trip from elsewhere but definitely skiable.<br>
-(David Taylor)
-
-<li>
-<b>Jan 28 - Lindbergh State Park (Little Falls):</b><br>
-Conditions: Not enough snow to be groomed, but definitely skiable. Thin in a couple of spots, but we‚Äôll take it!<br>There is a WPA shelter with a woodstove!<br>
-Photos: <a onClick="reportviewer(46085); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Jan Lasar)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=27">Northland Arboretum</a> (Brainerd):</b><br>
-Trail was rolled earlier this morning with as good results as can be expected in this season where the snow has been a no-show. Kudos to the groomers for their work. There are spots with grass, sticks, and some dirt here and there. Use your rock skis. The snow is deepest where there is less tree cover: Rudy's, Big Ben, and Potlatch were better than North Star or Plantation. That said, we had a great time at the Arboretum. The snow was fast and sweet. A day of skiing with a little snow is better than a day with no skiing.<br>
-(Steve Fisher)
-
-              </font>
-            </ul>
-                &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>St. Cloud area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=45.561&textField2=-94.162&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=344">Graystone Trails</a> (Saint Cloud):</b><br>
-Conditions: North Loop - Pretty darn good.<br>Groomed last night or early this morning.  Really pretty good shape.  Skate only.<br>
-(Bruce Busta)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=344">Graystone Trails</a> (Saint Cloud):</b><br>
-Conditions: North Loop - Good.<br>The warm weather on Thursday, thinned the snow and some ruts from warm weather skiing.  But still good skiing, but may want to use rock skis.<br>
-(Bruce Busta)
-
-              </font>
-            </ul>
-                &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Mora/Hinckley area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=46.011&textField2=-92.944&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
-<li>
-<b>Jan 29 - Knife Lake (Mora):</b><br>
-Knife Lake, Vasaloppet back-up course. I skied the entire perimeter of the lake early this afternoon and skate skiing was very good. The Vasaloppet plans to will wait closer to race day to groom the course, but the 2-4 inches of fresh snow on the lake made for fun skate skiing and a good double workout. There was actually too much snow on the leeward shores (at least for me) so skiing further out on the ice much better.<br>
-(Wade Weber, <a href="http://www.vasaloppet.org/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Vasaloppet USA</a>)
-
-              </font>
-            </ul>
-                &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Other locations</b>            <ul>              <font size="-1"> 
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=630">Anvil Nordic</a> (Lindstrom):</b><br>
-Conditions: Lake trail good-groomed for skate and tracked. Woods and open-thin, packed and waiting for more snow.<br>Come out and ski the lake for now and enjoy the peace and quiet!  Sunrise lake has no public access and very little human development, during the week you will have the whole place to yourself.  Saturday and Sunday there may be four or five fisherman at most.  If we get anymore snow the woods will be good skiing and even more secluded.  We are just north of Lindstrom and excited to introduce our new ski area!<br>
-(Nathan Johnson)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=87">Wild River State Park</a> (Center City):</b><br>
-Conditions: Fair to poor.<br>Skied classical. Mitigwaki Loop, River Trail, And Logging Trail all tracked. Other trails were rolled. Occasional bare spots in tracks that the small amount of snowfall  barely started to cover by early afternoon. Need more snow! Still tracks were fast and it was great to get out!<br>
-(Steve Adolfson)
 
               </font>
             </ul>
             <P>&nbsp;<p>
             <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/s-mn.gif" hspace="6" border=0><font size=+1><b>Minnesota Southern</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
               </font>
+
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Rochester area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=44.022&textField2=-92.47&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
 <li>
-<img src="../images/new.gif">
 <b>Feb 5 - <a href="traildetail.asp?Id=508">Quarry Hill Park</a> (Rochester):</b><br>
+
 Conditions: Skiable!  Boiler-plate hard but skiable on the northeast loop in the woods.<br>If you walk from the nature center to the northeast side, the trail has survived the warm up so far.  Trail is hard and thin.  Rock skis required.  I had the trail to myself this morning.  Not the best but beats running or skiing with thousands of people in sugar.<br>
 (Andrew Wood)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - Quarry Hill (Rochester):</b><br>
 Conditions: The trails that run directly north of the Nature Center are very skiable. In particular, the wooded areas, especially those protected by a North-facing slope are in decent condition. I am a classic skier and was please to find that over much of the trail, the classic track has survived. I was able to get in a good workout of 10K.<br>The trail is decent, but you should still bring your rock skis.<br>
 (Jim Martenson)
 
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=562">Root River State Trail</a> (Lanesboro):</b><br>
-Skied the Camp Creek portion of the Harmony Preston Trail. Met up with 4 snowmobilers who weren't supposed to be on the ski trail. The trail was trashed.<br>
-(Ed Hallisy)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=562">Root River State Trail</a> (Lanesboro):</b><br>
-Conditions: Crusty.<br>Skied again between Preston and Lansburo early this morning.  Now groomed with good skate pack and one classic track cut.<br>
-(Damon Ramaker)
-
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Red Wing/Winona area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=44.384&textField2=-92.033&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=120">Saint Mary's University</a> (Winona):</b><br>
-Conditions: Poor.<br>Thought I could time it right this morning and ski before it warmed up to much.  Froze more than I expected, very icy.  Some sections, especially on downhills have dirt across most of the trail.  Ski with caution!<br>
-(Garrett Ping)
 
 <li>
-<b>Jan 30 - <a href="traildetail.asp?Id=120">Saint Mary's University</a> (Winona):</b><br>
-Conditions: Pleasant.<br>The classic tracks were great this morning. Grip tape worked for getting kick in the tracks, which bordered on icy.  Considering the weather, the trails are in amazing condition.<br>
-(Nathan Moore)
+<img src="../images/new.gif">
+<b>Feb 13 - <a href="traildetail.asp?Id=120">Saint Mary's University</a> (Winona):</b><br>
+Conditions: Snow has been accumulating slowly since mid-afternoon. If we get the forecast 1.5" or more more trail will be available.<br>This afternoon I groomed the man-made loop and parts of the trail up thru "spagetti junction", Pine trail and back to the main loop on the connection trail called "cow path". <br>
+(Bruce Johnson)
 
 <li>
-<b>Jan 29 - <a href="traildetail.asp?Id=120">Saint Mary's University</a> (Winona):</b><br>
-Conditions: Great!<br>Great grooming for the races today!  Thanks Brad!  It's amazing how good the trails were with the little snow we have had.  Now we just need the forecast to change.<br>
-(Garrett Ping)
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=120">Saint Mary's University</a> (Winona):</b><br>
+
+Groomed the 1.2K man-made-snow loop Sunday morning. It is good skate skiing. Sorry -- no classic track.  <br>
+(John Keane)
 
 <li>
-<b>Jan 29 - <a href="traildetail.asp?Id=119">Great River Bluffs State Park</a> (Winona):</b><br>
-Conditions: Excellent! 10 a.m. 20 degrees 1 centimeter fresh powder in previously icy tracks. Blue skies. And this after 2 days of death klister/waxless ski conditions.<br>"Never has so little snow done so much." - Winston Churchill January 1946.<br>
+<b>Feb 11 - <a href="traildetail.asp?Id=120">Saint Mary's University</a> (Winona):</b><br>
+Groomed the 1.2K man-made-snow loop this morning. It is good skiing.  Sorry -- no classic track.  Dress warm -- it's windy!<br>
+(John Keane)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=119">Great River Bluffs State Park</a> (Winona):</b><br>
+
+25 degrees, clear skies, waxless skis. Skied down the campground road hill by making turns from road edge to road edge and sideslipping as the hill was very rough and icy. But once I was up into the campgrounds I found pretty decent crust skiing. The main campground loop was very smooth and the skied in track on the trail to the I-90 overlook was pretty good.<br>
 (Bob Cieslak)
 
 <li>
-<b>Jan 28 - <a href="traildetail.asp?Id=119">Great River Bluffs State Park</a> (Winona):</b><br>
-Conditions: 4" base with varying conditions. Some thin spots and icy patches.<br>All trails were packed and tracked last Tuesday, but rain and warmer temps have contributed to trail deterioration. Trails under tree canopy is holding snow fairly well.<br>
-(Rick Samples)
+<b>Feb 7 - <a href="traildetail.asp?Id=120">Saint Mary's University</a> (Winona):</b><br>
+Conditions: Man-made snow: freshly groomed on firm base. No ice but some dirt. There is no classic track.<br>We have a 1 KM loop in Yon's Valley that is open and in pretty good condition. I groomed it this afternoon and it is very good considering there is no other place to ski or train. With cold temps overnight, it should be very firm in the morning but soften up as temps increase. I will try to keep softening it up as needed.<br>
+(Bruce Johnson)
+
+              </font>
+            </ul>
+                &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Faribault area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=44.295&textField2=-93.269&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=600">Cannon Valley Trail</a> (Cannon Falls):</b><br>
+Conditions: Very good.  Groomed for skating after the last snow about a week and a half ago; near 100% coverage on 2/12 mile stretch from Sunset Rd or Avenue west.  High 30's and sunny. I used yellow LF.<br>My mountain bike foray east from Cannon Falls earlier this weekend prematurely ended when I discovered there was still skiable snow on the trail.  So I returned to get in some all too rare skiing on real snow this winter after limited activity during a three week illness.  It didn't disappoint. <br>
+The bluffs on the trail's southside shade the trail perfectly from the sun.  I was able to do 2/12 miles of skiing in one direction interrupted only once by a bare bridge deck.  The snow depth was just enough.  The asphalt showed through in a number of spots where animal or human foot prints penetrated. A bike tire track was along the edge for portion of trail as well.  (Oh yeah that was me.)  But with minimal caution full tilt skating - at least at my 59-year-old pace - was possible.  I had to double back for a mile when I forgot my buttpack at the Anderson Rest stop so I got in about 6 1/2 miles of skiing in beautiful conditions and scenery.  I had a great sunset as I headed west and my return to the east headed into a wonderful full moonrise.<br>
+(Keith Carlson)
 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Other locations</b>            <ul>              <font size="-1"> 
+
 <li>
 <b>Feb 3 - <a href="traildetail.asp?Id=484">Hormel Nature Center</a> (Austin):</b><br>
 The snow is melting fast due to the warm weather and we are not renting skis until we get more snow! Not enough snow to ski.<br>
 (Julie Champlin)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=484">Hormel Nature Center</a> (Austin):</b><br>
-Conditions: Decent trackset.<br>Decent skiing over the weekend as many people hit the trails.<br>
-(John Duren)
 
               </font>
             </ul>
             <P>&nbsp;<p>
             <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/nw-wi.gif" hspace="6" border=0><font size=+1><b>Wisconsin Northwest</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
               </font>
+
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Cable/Hayward area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=46.121&textField2=-91.361&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
 <li>
 <img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
+
+Conditions: Excellent. Firm packed trail and well set tracks.<br>Birkie trail was exceptional this weekend. Zero degrees Saturday for classic and about 7F today for skate with bright sun and bluebird sky. Skating today was about as good as it gets, easy to edge, the uphills stayed firm and the downhills were fast but controllable.<br>
+(John O'Connell, <a href="http://www.wamxc.org/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">WAMXC</a>)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=428">North End Ski Trail</a> (Cable):</b><br>
+Conditions: Very good for classic.<br>The course was in great condition today for the North End classic.  The recent snowfall resulted in tracks that were not at all icy, and firm and deep throughout.  A little washing out of tracks started to occur in spots by the end of the race, but the snow held up remarkably well.  A few spots where some leaves were mixed in the track, but overall very good.  Looked like the other trails in the area (Birkie, Birkie classic) were at least groomed for skate, if not track set.<br>
+(Ted Lystig)
+
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
+Conditions: Very good.<br>Skied from 00 to Telemark. About 2" of new snow on top of a firm base. Encountered a few spots of dirt in the skied- in classic tracks. Otherwise coverage was excellent.<br>
+(Tom Rulseh)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
+Conditions: Great.<br>Skated the 26k Prebirkie course which I had hoped would have some of the "old snow" tilled up into the new stuff but unfortunately it wasn't so it was slow, but well covered.  Only a few uphills that had some icy spots which the groomers can probably get rid of fairly easily with their magic.  Plenty of snow and those master grooming guys know their stuff...should continue to be an excellent place to ski!<br>
+
+(Eve Stein)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=421">Drummond Ski Trails</a> (Drummond):</b><br>
+Conditions: Fair to good.<br>The Drummond Ski Trails have been groomed and tracks set.  There is still some unevenness and a few places where dirt and debris have been stirred up, but overall the tracks look good.  A little snow at a time has been adding to the base, finally.<br>
+(Jim Crandall)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
+
+Grooming plans: The trail conditions should be perfect for the weekend.  We will groom the Pre-Birkie course tonight after dark.  It stopped snowing at noon today.  We received 3" of fluff.  The course will be firm and will not break down.  The new snow expected to till to about a 1/2" of new base with the old transition.  Classic skiing should be mint!  We will then groom the North trails on Saturday night for the North End Classic.  Expect perfect conditions there.<br>
+(Bill Pierce, <a href="http://www.birkie.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">American Birkebeiner</a>)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=439">Flambeau Hills Ski Trail</a> (Winter):</b><br>
+2" of new snow greatly improved trail surface. Entire trail groomed today. Skate lane is in excellent condition, classic track varies some as hard thin base prevented full track depth in some areas, overall in very good condition.<br>
+(David Schultz)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
+
+Conditions: Excellent.  3" of fresh snow as of 9 AM.  No sign of grooming yet.<br>Stayed out longer than I should have given that tomorrow is race day but I couldn't help myself.  The Birkie trail is a magic white carpet right now.<br>
+(Andy Schwartz)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
+Pre-Birkie recon report: We survived the warm up. Groomers have been waiting to reset the classic track until closer to the event and have been bringing in dump truck loads of snow to the trail crossings and burnt sections. Track will be pimped out for Pre-birkie. Expect firm tracks for elite skiers and breaking down to sugar for the rest of us. Not sure how much room the mass start will have on Lake Hayward. Toko green binder tested better than green and blue klister. 2" Of fresh snow arrived late last night, too.<br>
+(Joel Harrison, <a href="http://www.newmoonski.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">New Moon Ski Shop</a>)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
+
+Conditions: Very good!<br>Arrived at OO around 1 this afternoon.  Headed south and skied the loops around OO.  The tracks were icy in only one spot (just before the first big downhill on the main trail.)  Planned on skiing north of OO but found everything glazed and icy north of OO.  No bare spots noted.<br>
+(Michelle Stone)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
+We skied north end of trail Wednesday. While skating conditions are very good, we found the classic conditions less than ideal. Tracks are old and icy, hard to get grip, and little control due to hard ice around the tracks. <br>
+(Michael Clay)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
+
+Conditions: Hard packed and fast.  Icy and glazed in the tracks.<br>Skied from the Mosquito Brook trailhead up to the gravel pit this morning.  This area of the trail had been scratched up nicely so you could get a little edge in it.  Just a few bare spots that were easy to avoid,  downhills were fast, and southfacing ones were icy.<br>
+(Margie Rock)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
+Conditions: Good to excellent, but watch for thin spots.<br>A quick post-warm-spell Pre-Birkie preview... <br>
+The far south end of the Birkie trail faired very well. The photoset shows the end of Lake Hayward ready for tilling, and the southern road crossings in great shape. Pre-Birkie skiers should expect some dirty hauled-in snow from the end of the lake to Duffy Rd. (approx 60 yards). A few other "sun spots" out on the south-facing hills will be easily patched-up as needed. <br>
+As the other weekend reports indicate, things are great right now!<br>
+
+Good luck PreBirkie and North End Classic racers!<br>
+Photos: <a onClick="reportviewer(46466); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Chris Young, <a href="http://www.newmoonski.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">New Moon Ski Shop</a>)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=428">North End Ski Trail</a> (Cable):</b><br>
+Conditions: Very good.<br>For classic skiing, tracks were very solid, but abrasive.  Hard wax over klister seemed to work better than klister alone.  Tracks on the Birkie trail seemed most recently set.  Skate deck was combed in the morning, and very nice.  Very speedy, but good control.  Conditions started to slow a bit in the early afternoon, but no abrupt fast-slow transitions.<br>
+(Ted Lystig)
+
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=126">Telemark Resort Trails</a> (Cable):</b><br>
+Conditions: Skate skied the Kortie trail from K(15.5) to the finish mid Sunday afternoon on perfect, crumbly corduroy;  skating was not icy at all.  Good looking classic tracks, they looked pretty slick.  Temp was 34F and we only saw a couple of thin spots under the pines.<br>With the countless miles of beautiful quiet country roads up here it's certainly disappointing to see all of the dog and hiking traffic on the groomed ski trails.<br>
+(Tom Dunaway)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
+Conditions: Very Good to excellent with four thaw spots.<br>Skied Mosquito Brook north to OO and was very pleased. Encountered four thaw spots that will require some shoveling. The big red pines, a south facing slope, and the low spot just south of Mosquito Brook crossing are the usual culprits. However, all other south facing slopes were in great shape.  The classical tracks are good to excellent, but pure klister is the wax dejour.  The Pre Birkie should be fast and fun.<br>
+
+Photos: <a onClick="reportviewer(46418); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Michael Mandli)
+
+<li>
+<b>Feb 4 - <a href="traildetail.asp?Id=507">Seeley Ski Trails</a> (Seeley):</b><br>
+Conditions: Quite good.<br>Skate skiing at Seeley Ski Trails on Saturday evening was quite good.  We started at 4:30, and used headlamps to continue until 6:30.  The skate deck was very firm, but not icy.  No slush spots either.  A couple spots where the coverage was getting thin in the skate lane, but still definitely race ski conditions.  Classic tracks on the longer (7.5K) loop were thin on a few south facing hills, but problem spots looked to be easily avoidable.  Nicely groomed.<br>
+(Ted Lystig)
+
+<li>
+<b>Feb 4 - <a href="traildetail.asp?Id=439">Flambeau Hills Ski Trail</a> (Winter):</b><br>
+
+Conditions: Fun-tastic.<br>Just groomed for the annual candlelight ski.  Hundreds of lit candles over a 2.5 k loop with a couple nice hills included. Head lamp skied out to the river almost full moon and perfect temps made for an outstanding turnout. Kudos DNR Dave for a wonderful event!<br>
+(Mark Sproul)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
 Conditions: Groomed, level, fast, a couple of brown spots... easy to avoid.<br>Joe, Les, and I hit OO, around nine yesterday morning and skated down to the bridge just past Mosquito Brook and then back up to OO.  Just groomed, level, plenty of coverage, sunny, blue bird day.  Fast n furious, Joe was clicking off 2.5-3.25 minute K's, I was hangn on for dear life... finally had to ratchet it down, easily the best ski all year.  Lots of people on the trail.  16F started, 30F when we finished.<br>
 (David Martin)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=399">Heartwood Ski Trails</a> (Trego):</b><br>
+
 Conditions: Fun and fast. It seemed like it hadn't been groomed for a couple days but good skate deck and classic tracks. Some brown spots but easily avoidable.<br>I'm from the cities and wanted to find a place to get a long ski in that wasn't as far as OO at the Birkie Trail. This is the ticket.<br>
 (Steve Barone)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=507">Seeley Ski Trails</a> (Seeley):</b><br>
 Conditions: Good, hard and fast. 100 percent coverage.<br>Started late afternoon and dying sun let the excellent grooming firm up. The skate deck seemed fast and the tracks were very solid. The trails need more traffic to open up the tracks. Someone with skinny skis pressed a deep groove which caused our boots to drag and skis to occasionally clamp between the walls. But it was the best classic skiing you will find in these warm temps. Should be good on Sunday early or late. Thank you groomers!<br>
 (Mark Orlowski)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
+
 Conditions: Great!<br>Fantastic skate lane and deep rock hard (klister) classic tracks, all directions.  Thanks ABSF!<br>
 (Jef Tee)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
 Conditions: South of Mosquito Brook: Very icy, treacherous, fast fast fast.<br>Boy did we goof today! Parked at Mosquito Brook and started south -- icy. Had stopped at the Fish Hatchery and that was even worse. Did most of our basic ice training on Brooks Trail system, very pleasant, level skiing, deserted, mostly decent cover. Considered going north from Mosquito Brook, but first hundred feet fooled us, dirt patches, ice. 25 ski seasons now, and I'm still a little tense on ice I guess.<br>
 (Rich Swenson)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
+
 Conditions are excellent!  The trail is flat, fast, and firm.  The skate deck was cut up Friday night from Mosquito Brook to Timber Trail on both the Classic and Skate Trails.  51k of fresh skate deck.  The tracks are firm and transformed, still solid from the last grooming.  They are not ice, they are transformed.  You must use klister.  The skiing is perfect and so is the weather.  The South skate trail has a couple of hills that will open up this weekend and they will be repaired once the temps stay below freezing as of Tuesday.  These hills are at 30.9k and 30.05k on the skate trail.  Use caution at these points.  Enjoy the Birkie trail and the nice weather this weekend!<br>
 (Bill Pierce, <a href="http://www.birkie.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">American Birkebeiner</a>)
 
@@ -1422,150 +1179,71 @@ Conditions are excellent!  The trail is flat, fast, and firm.  The skate deck wa
 Conditions: Extremely solid.<br>Skied the north half this morning. The corduroy was still present from the last grooming and it would occasionally send a ski on its own path, but it wasn't icy. The sun came out at 10:30 and started loosening it up. By noon it was getting pretty sticky in the sun.  The grooming crew was working on covering thin spots early today.  Only saw a few burnout spots, but the sun is out now and it is 45.<br>
 (Tyler Gruetzmacher)
 
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-Conditions: klister and fast, no bare patches so far.<br>I skied OO with the Hayward Middle School kids Thursday evening. Klister and transformed snow. Still enough edging to make good skating and striding. I think our tracks will survive the big thaw this week. If you are skiing Birkie country this weekend look for icy in the am and more controlled skiing mid morning through the day. Still on race skis.<br>
-(Joel Harrison, <a href="http://www.newmoonski.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">New Moon Ski Shop</a>)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=507">Seeley Ski Trails</a> (Seeley):</b><br>
-Trails were groomed and tracked Wednesday night.  Should be good skiing in the morning.<br>
-(Terry Penman, Seeley Lions Club)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-Conditions: Excellent to good.<br>Skied OO to just past gravel pit. Snow is holding up so far. Let's keep our fingers crossed for the next few days.<br>
-Photos: <a onClick="reportviewer(46279); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Tim Swift, <a href="http://riverbrookbike.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Riverbrook Bike and Ski</a>)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-Conditions: Excellent with few exceptions.<br>Great conditions with a few uncovered spots (avoidable). Not a ton of snow to spare, but it was holding up with the cloud cover.  Mixed snow speeds with super fast corduroy and really slow warm spots. Beware of fast sharp downhill corners with strategically placed slow spots during interval workouts - or pay the price in the ditch.<br>
-Photos: <a onClick="reportviewer(46278); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Tony Squillace)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-Skied from OO to Mosquito Brook and back this morning.  Excellent corduroy with full coverage and just a touch of icy cover from yesterday's thaw.  Fastwax Salmon was perfect on the way south, then just a bit grabby as things warmed up on the way back north.<br>
-(Tim Power)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=439">Flambeau Hills Ski Trail</a> (Winter):</b><br>
-Conditions: very good.<br>Skate lane and majority of classic track was set today. Skate lane is in very good to excellent condition and classic track varies from good to excellent. Thin areas have gotten a little thinner but still very avoidable.<br>
-The Flambeau River State Forest will be hosting the 20th annual candle light ski event this Saturday, Feb 4th, beginning at dusk until 10:00pm.  A 1.8K trail loop will be groomed, tracked, and illuminated by hundreds of candles. Trail passes are waived for this event, food and drink provided. <br>
-(David Schultz)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-Conditions: Conditions in the morning were amazing. Perfect trails freshly groomed, temps in the high 20s, clear skies, no wind, very few skiers.<br>We skied a bunch of different trails near Telemark the last three days. There was an inch of fresh snow Sunday night.  Today we covered parts of the World Cup loop, the power lines, much of the Korte, parts of the Birkie trail.  Almost all of it was fresh corduroy and set up very nicely.  We were off the trails by noon when it was still below freezing, but the sky was clear and it was well above freezing by 1:00.  Cross your fingers and hope these excursions above 32F are short.<br>
-(Jerry Beutel)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-Conditions: Immaculate grooming, super slow snow.<br>It was way too warm this afternoon - mid 40's and sunny. On the steep downhills I was lucky I didn't pitch head over heels in between the shady to sunny spots. The snow cover is very good, although I did see a few bare spots. The Birkie Classic section was the best for skating. It would have been a Klister day for striders.<br>
-(Genevieve Johnson)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=428">North End Ski Trail</a> (Cable):</b><br>
-Conditions: Decent grooming, glue-like snow.<br>Beautiful, warm weather, but started way too late today for skiing. It was about 1:40 pm with 45 degree temp's. Hills were tough going up and sticky coming down.<br>
-(Genevieve Johnson)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=428">North End Ski Trail</a> (Cable):</b><br>
-Conditions: Skate excellent.  Classic tracks on A,B,C loops not reset in a few days but are still very good, same for classic only trail.<br>The Birkie groomers came to the NE and groomed the Birkie and Birkie Classic so everything is in great shape from the North End.<br>
-(Irv Berlin)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-Conditions: Wow, pretty much perfect.<br>I had the privilege of being the first to lay tracks on the skate deck from Double O to the 5K mark.  Fabulous, fresh cord, lovely classic track set on both sides, nice and firm and fast.  Sections in the sun were starting to get a bit spongy on my way back, but boy this was a fun day.<br>
-(Kirby Schuller)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=502">Totogatic Ski Trail</a> (Minong):</b><br>
-Conditions: Good shape, considering!<br>Looks like trail was last tracked on Friday prior to my visit. Some trails skied in after Sunday's "smidgeon" of snow.  Trail had some spots with brush in tracks, but not enough to irritate.  Some thinning areas.  Overall trail is in good shape and I'd say get on it while you can.  (Classic only tho!).<br>
-(Donna Ernster)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=126">Telemark Resort Trails</a> (Cable):</b><br>
-Immaculate skating and striding conditions when we left Telemark's trails late this afternoon.<br>
-(Tom Dunaway)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-Conditions: Great. Firm skate deck.  Full depth classic track.  Good coverage throughout. North of OO still ungroomed since the last snow.<br>Skied south from OO to Hwy 77 and back.  No new grooming since Friday night but the skate deck was flat, firm and fast. Some soft spots between Mosquito Brook and hwy 77 yet.<br>
-(Andy Schwartz)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=312">Mukwonago Trail</a> (Hayward):</b><br>
-Conditions: Very Good.<br>Improved since the 25th report. With the few inches of snow, there are no bare spots in the classic tracks. The skate lanes seemed firm and fast. The classic tracks were firm but with some powder for control. Moderately fast. Good grip for climbs. This is an excellent excursion about 15 minutes from Hayward.<br>
-(Hank Gray)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-Conditions: Very good to excellent.<br>Classic skied this morning from OO south to Mosquito Brook. The right side (southbound) tracks are firm but groomed before the 3 inch Friday snow. Powdery, rough skied in edges, decent for grip, slower but with great control. The left side tracks (southbound) were obviously groomed after the Friday snow. Firm, slick and much faster. Overall the best skiing of the year for anyone living around the Twin Cities. Pic showing the unplugged boys posse headed south in the right (southbound) tracks.<br>
-Photos: <a onClick="reportviewer(46130); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Hank Gray)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-Conditions: Very good.<br>We skate skied today starting from Fish Hatchery.  The trails there were in very good shape, with much less use than on the Birkie trail.  The Birkie trail had seen a bit more use, but was a bit more firmly packed and still in great shape.  We also tried the trail system just off the Birkie trail near the Mosquito Brook feed area.  Those trails were also in good condition.  A bit narrower, but still packed well (for both skate and classic), and with some nice flow.  Apart from the classic tracks on the east side of the Birkie trail (which had been set before the most recent snowfall), the skate and classic tracks in all three sections had been set after the last snow.  A great day for skiing on all of these trails.<br>
-(Ted Lystig)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=507">Seeley Ski Trails</a> (Seeley):</b><br>
-Conditions: Classic tracks were deep and solid. The skating lane was also freshly groomed and very firm.<br>Enjoyed a wonderful classic ski this afternoon under a clear blue sky. Our dog enjoyed the romp too. The fabulous grooming is always appreciated.<br>
-(Jan Wilton)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=126">Telemark Resort Trails</a> (Cable):</b><br>
-Conditions: Telemark's main trail (The Birkie Loop) is double classic tracked and the skating is beautiful.  Other trails like Kortie 17Km to finish, Tony Wise, World Cup, etc. were not groomed or rolled only (soft and deep!).  Note:  North End and Birkie trails appear to have caught up with the seemingly continuous snow and the skiing seemed perfect today.<br>Lots of international skiers (notably Russians and Germans) out on the trails after the big World Cup events from earlier in the day.  It was the definition of inspiration watching the special XC athletes at the biathlon range.<br>
-Photos: <a onClick="reportviewer(46050); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Tom Dunaway)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-Conditions: Great coverage; best for skate.<br>We skied classic today on the Classic Birkie trail from the powerlines all the way down to Fish Hatchery.  A single track was set down to OO; tracks were set either side once on the main Birkie trail from OO south.  North of OO, it seemed like the tracks were likely set before the recent 2-3 inch snowfall; same for the tracks on the right going south from OO.  The conditions for striding were often better in the skate lane (freshly groomed, nice and firm) than in the tracks.  Lots of people out enjoying the snow today, so skiing south in the left hand tracks wasn't a very viable proposition.  Skating would generally be a better call, as the skate lane was in top notch shape.<br>
-(Ted Lystig)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-Conditions: Great.  Firm deck with a couple inches of fresh snow on top.<br>Was snowing as I drove up.  When I left at 7:30, the snow had stopped and the groomers were out.  Intrepid groomer dude Chris told me the plan was to groom from OO south to Hwy 77 Friday night but leave the north trail alone.  North half was PB groomed on Thursday so the deck should be firm with a skiff of light fluff on top.<br>
-(Andy Schwartz)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=507">Seeley Ski Trails</a> (Seeley):</b><br>
-Conditions: Ungroomed.<br>We went to Seeley to ski today around 3 and it was snowing heavily with an inch or two of accumulation and 32F.  It looked like it had not been groomed since the last 4 inch snowfall but the tracks were skied in.<br>
-Photos: <a onClick="reportviewer(45955); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Eve Stein)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-I started skating around 8:45am from Telemark.  Went out World Red trail to the powerlines.  The powerlines had about an inch of cold slow snow on top of corduroy.  When the powerlines ended, I was able to experience what the elite Birkie skiers do with Virgin firm corduroy until the three Norwegian coaches flew past me crested the hill and vanished from sight.  When I got to the Kortie classic fork where it goes left and the Kortie goes right it was still ungroomed to the right with about 5 inches of snow on it for about a half of a K or so.  The remainder was groomed very well!<br>
-Photos: <a onClick="reportviewer(45954); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Eve Stein)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=132">Birkie Trail</a> (Hayward):</b><br>
-Conditions: Great!<br>Two significant snowstorms in the last 10 days and wintery temps have made our fair skiing quite nice. groomers scheduled to redo everything for the weekend. If you get a chance stop by and see the IPC Nordic WC events at Telemark this weekend. Absolutely incredible athletes. we met Magne Myrmo this week, one of the Norwegian coaches. WC in '74, the last time wooden skis won the day!<br>
-(Joel Harrison, <a href="http://www.newmoonski.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">New Moon Ski Shop</a>)
-
               </font>
             </ul>
+
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Superior area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=46.721&textField2=-92.104&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
 <li>
 <img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
+
+Conditions: Good - very good.<br>The trail was heavily used this weekend.  There are some thin spots on the River Trail and a few rocks showing on uphills under the pines in 1-2 spots.  Classic tracks under pines can be thin.  Tracks were showing some glazing late afternoon from the amount of skiers on the trail.  Skating looked very good.  Just watch the thin spots.  Overall in good shape.<br>
+(Linda Hobbs)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 11 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
+Conditions: Just groomed after some Lake Effect on Thursday night?<br>Was my first ski on a groomed trail this year! Drove from Duluth so thanks for the beautiful job. Was about zero and a little wind but so happy to be there. Did the whole length of the Classic only plus Spruce, Aspen, etc. When I got out I saw they were preparing the candle lights for the evening ski. I opted for the KroBar and soothed my aching body as hadn't skied that long for awhile. Thanks again, will put more cash in box next time.<br>
+(Randall Helander)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
+
+Conditions: As good as real snow gets, this year.<br>The groomers are doing an awesome job, given this winter's miserly snow conditions. They have been kind enough to put snow over the thin spots, of which there are very few, all things considered. Skiing was fast in the shade, slow in the sun--made for weird waxing conditions. But, thin spots and schmutz was easily avoidable, in both skate & classic. Kudos, Brule!<br>
+(Andrea Ochmann)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
+Candlelight ski Saturday night was fun as it always is. My understanding is that they trucked in snow to cover a few bare patches (so the candlelight could go on) and then it snowed four inches. It was a dark night, stayed in the classic tracks, which in most spots are quite nice. One time I hopped out into the skate lane and promptly crashed -- skate lane isn't super flat. But I think the groomers did a nice job with what they had.<br>
+(Kristin Riker-Coleman)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
+
+3-4 inches of fresh snow has fallen at the Afterhours Ski Trail...just in time for the Candlelight Ski tomorrow!  <br>
+Grooming plans: The groomers will be out all day working on the trails. Skiers can expect some great skiing once again.<br>
+(Catherine Khalar, Wisconsin DNR)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
+Conditions: Rocket fast.<br>Look close, even the management is taking care of our trail system. Hats off to them.  Hauling in snow so we can ski! Stop them shake their hand/thank them. They deserve it.<br>
+(John Prentice)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
+
+Conditions: Icy, needs grooming.<br>Skating was tough today due to icy conditions. I don't think it has been groomed since the thaw ended.  Coverage was fair - there were a handful of open areas, but they can be avoided.<br>
+(Tolga Hanhan)
+
+<li>
 <b>Feb 5 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
+Trails were groomed just before I arrived, most trail were very nice a couple were a bit icy.<br>
+(Mike LeBlanc)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
+
 Conditions: Varied and icy.<br>We arrived around 10:45 to ski today hoping that the NOAA site was correct and it would hit 35F at that time, but it turned out to be only 26 and reached 33 when we left around 1:45.  The younger groomer was out when we got there going pretty fast on the snowmobile and unfortunately only scratched up half of a few of the trails which was disappointing because it was pretty icy.  White Pine was the worst of all and untouched.  It has some open spots which are easy to get around.  The entire system has plenty of snow and just a few spots here and there that could easily be covered up with some snow off of the side of the trail.  We still had a great ski!<br>
 (Eve Stein)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
 Conditions: 8:00 am (icy fast) / 11:00 am (getting soft).<br>Coverage is still good. My thanks to the Boys of Brule (Wisc. DNR grooming). There are a few bare spots, but easily avoidable. Overall the system is in good shape. Suggest skiing after 11:00 am tomorrow unless you are very comfortable with icy conditions. In Maple, my car thermometer read 29F this morning, but five miles later at Brule it was 16F. This made for real fast, but icy conditions early in the morning. The speed was fun, but many folks might appreciate waiting for the snow to soften up tomorrow. <br>
 (Rich Hoeg)
 
 <li>
 <b>Feb 3 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
+
 Conditions: Very skiable.<br>Close to full coverage.  Track is pretty good all the way around, just have to step out occasionally for dirt.  Skate lane is good with an occasional rock to avoid.  Just a few dirty spots on some of the hills, but easy to go around.  You'll need klister or waxless for the glazed track.  Skate lane is not icy.  It's well worth the drive.<br>
 (Carol Koos)
 
@@ -1574,117 +1252,134 @@ Conditions: Very skiable.<br>Close to full coverage.  Track is pretty good all t
 Skiers should expect some occasional bare spots on the trails as the warm weather persists.  Otherwise, the trails should be beautiful to ski over the weekend.  The skate lane was groomed this morning in preparation for the weekend skiers.  Enjoy!<br>
 (Catherine Khalar, Wisconsin DNR)
 
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
-Conditions: Great.<br>Skating is 99% covered and in really nice shape.  The classic track great in places and bottomed out in others.  Easy to step out and avoid.  The warm weather is having some effect, but pretty minimal.  They are doing a really nice job with the snow that we have.  Reminded how good the skiing can be just 45 minutes from low snow Duluth!<br>
-(Matt Ryan)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
-Conditions: Peeeerfect.<br>Such a beautiful day to be skiing. Skate deck perfect. Track perfect. Soft and slow in the sun. How lucky we are to have this place.<br>
-(John Prentice)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
-Conditions: Good to excellent.<br>The trails were in beautiful shape.  Skier-tracked classic which was very nice and just getting groomed as I left (which made it even better).  The skating was superb.  Yes there were a few thin areas but I was overjoyed to be really skiing.  We hope the warm weather this week doesn't do much harm.<br>
-(John Ipsen)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
-Conditions: Very good.<br>The Afterhours trail was heavily used over the weekend and it was reported that the skiers were very happy with the conditions....and that there was snow.  The system was groomed this morning and it is planned to set track this afternoon.  We had 1/2 inch of fresh snow overnight.<br>
-(Catherine Khalar, Wisconsin DNR)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
-Conditions: Great conditions - sun drenched snow covered pines!<br>Soft wipeout in powder (see photos) ... another foreign concept this Winter!  Huge thanks to the DNR guys. The conditions on Saturday and Sunday were A+.<br>
-Photos: <a onClick="reportviewer(46127); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Rich Hoeg)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
-Conditions: Perfect.<br>Josh, Kevin, Curt - that's their names, the crew members at Brule. Make a point to stop and thank them, they done did it again.<br>
-(John Prentice)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
-Conditions: Very nice!<br>All of the trails were in great shape! Our thanks to the groomers!<br>
-(Rick Agar)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
-Conditions: Perfectly groomed! Skate deck looked excellent. Classic was great.<br>Did 40 km of classic at Brule this morning. It was wonderful to have these kinds of thoughts ... soft pole plants, occasionally depth charging down into the snow. The concept of deep pole plants has been unheard of this Winter.  Huge thanks to the Wisconsin DNR. I think most of Duluth was over at After Hours when I left. It is great to finally ski long distances on real snow.<br>
-(Rich Hoeg)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
-Conditions: Skate and classic were excellent.<br>After nearly 2" of wet snow yesterday and last night, the trail was newly groomed.  For the first time, the Brule River State Forest staff, can rate the trail in "excellent" condition.  Groomers re-started at 5 AM this morning to finish last night's grooming.  The surface is firm and flat.<br>
-(Kevin Feind, Wisconsin DNR)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
-Conditions: Almost perfect for classic.<br>A few bare spots under trees, but the rest was gorgeous with fresh snow falling while we skied!<br>
-(Fannie Snowberg)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
-We have received just under an inch of snow today.  The trails will be touched up again and ready for the weekend.<br>
-(Catherine Khalar, Wisconsin DNR)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
-Conditions: Perfect.<br>Forgotten what winter is like? Go to Brule.<br>
-Photos: <a onClick="reportviewer(45948); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Eric Chandler)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=125">After Hours Ski Trail</a> (Brule):</b><br>
-Let's give a standing ovation to the crew at Brule. Trails are in perfect condition. And I'm sure they will tweak it even better for the weekend. For the weekend. Get there early, stay late. It is what we have been waiting for.<br>
-(John Prentice)
-
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Ashland/Bayfield area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=46.673&textField2=-90.895&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
-<li>
-<b>Feb 1 - Copper Falls State Park (Mellen):</b><br>
-Conditions: Very Good. Excellent grooming. about 10 inches of snow in woods. Snow transformed due to the warm weather.  Good base except some dirt showing in hemlock/pine areas due to the warmth.<br>Undulating terrain similar to North End and Telemark trails. 8 k of skate lanes and more ks for classic.<br>
-(Bill Burke)
 
 <li>
-<b>Jan 30 - <a href="traildetail.asp?Id=123">Mt. Ashwabay Ski Trails</a> (Bayfield):</b><br>
-Conditions: Very good!<br>With 1 1/2 - 2 inches of new snow, doc regroomed the classic trails.  I regroomed (both packed and tracked) Telford, Anchor, Seagull, and Rollercoaster skate trails.  With the new snow last Friday and today, the skate trails are in very good condition.<br>
-(Scott Nesvold)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=408">Mt. Valhalla Ski Trails</a> (Washburn):</b><br>
-Conditions: A bit soft but still good with a 4" base.<br>All loops of both the Teuton and Valkyrie trails were groomed and had track set today.  Teuton is ready for both skating and classic and Valkyrie for classic only.<br>
+<img src="../images/new.gif">
+<b>Feb 13 - <a href="traildetail.asp?Id=408">Mt. Valhalla Ski Trails</a> (Washburn):</b><br>
+Conditions: Very good on Teuton trails. Fair on Valkyrie trails.<br>All loops of the Teuton trails were groomed and tracked today for classic and skating. Loops A & B on the Valkyrie were groomed and tracked as well for classic only.<br>
 (Karen Larsen)
 
 <li>
-<b>Jan 29 - <a href="traildetail.asp?Id=408">Mt. Valhalla Ski Trails</a> (Washburn):</b><br>
-Conditions: Snow very good, grooming...um...Loki must have lost another bet?<br>Glad to see the trails finally groomed and the trails were being well used today. For those who might venture out there for a ski. Valhalla is groomed in a similar manner as last year: grooming snowmobile burnouts down to the dirt on the up hills, wind rows on the skate lanes, and tracks set on the soft trail edge. So use poles with big baskets and skate with soft knees.<br>
-(Mike Weispfenning)
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=123">Mt. Ashwabay Ski Trails</a> (Bayfield):</b><br>
+
+The sugar bush/deer path trail had some bare spots on the south side. The rest of the trails at Mt Ashwabay were very good and recently tracked for classic skiing.<br>
+Photos: <a onClick="reportviewer(46655); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Angie Miller)
 
 <li>
-<b>Jan 29 - <a href="traildetail.asp?Id=123">Mt. Ashwabay Ski Trails</a> (Bayfield):</b><br>
-Conditions: Good to very good!<br>Friday night and Saturday morning, after about 3 inches of new snow up on the hill, the crew regroomed everything.  Skate trails are packed and tracked, the classic trails tracked, except for Pines and Cabin where it is a bit thin was just packed with the ginzu.  Dave said the new snow helped a lot, and the skate trails are looking very good, and the classic trails for the most part are in good condition.<br>
+<b>Feb 11 - <a href="traildetail.asp?Id=408">Mt. Valhalla Ski Trails</a> (Washburn):</b><br>
+Conditions: Poor.<br>Valkyrie trails were not groomed after our 2-3" of recent snow. Tried to do the Sun Bowl but decided against it due to lack of grooming. Went over to the Teton trails only to find that they had been rolled but not tracked. For a classic skier, that is really a difficult surface to ski on. Greatly disappointed in grooming, especially since we have had so little snow.<br>
+(Susan Hall)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=137">Mecca</a> (Mercer):</b><br>
+
+Conditions: Excellent!<br>Trail was groomed yesterday and with the new lake effect snow from Thursday mixed into the old base, its the best conditions of the year. The classical only portions are like velvet.<br>
+Photos: <a onClick="reportviewer(46608); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Gary Mears)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=123">Mt. Ashwabay Ski Trails</a> (Bayfield):</b><br>
+Conditions: Very good to excellent.<br>3-6 inches of new snow!  They groomed Telford, Anchor, Seagull, Rollercoaster, Jolly Long, and Birch Hill trails, packing and tracking.  They report those trails to be in very good to excellent condition.  John rolled the classic trails Friday, said he was planning on tracking them Saturday.<br>
 (Scott Nesvold)
 
 <li>
-<b>Jan 28 - <a href="traildetail.asp?Id=123">Mt. Ashwabay Ski Trails</a> (Bayfield):</b><br>
-Conditions: Good to very good!<br>Dave W. had been out after yesterday's mini snow squall, which left around 2 inches. That lead to the best conditions of the season. I classic skied with race skis. There are thin spots, but they are avoidable. The best was along Anchor, Sugarbrush, and Seagull. Deer Path and some of the other classic only trails were good to the west, but on the east the thin spots were more frequent. It would be best to not use your race skis there. The Ashwabay skate trails looked perfect and level. Jolly trails did get groomed for both skate and classic, but I didn't not check them out today. That's for tomorrow.<br>
-(Mike Weispfenning)
+
+<b>Feb 10 - <a href="traildetail.asp?Id=408">Mt. Valhalla Ski Trails</a> (Washburn):</b><br>
+Conditions: Teuton -good but not tracked. Valkyrie -still icy.<br>All loops of the Teuton trail were rolled today but did not have track set.<br>
+(Karen Larsen)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=123">Mt. Ashwabay Ski Trails</a> (Bayfield):</b><br>
+Conditions: Good!<br>Last night between Doc, Dave and myself, Sugarbush classic was groomed to the tin shed, and Telford, Anchor, Seagull, and Roller Coaster were groomed with the ginzu and re-tracked.  The top part of Anchor and Seagull are in good shape, although the track has 2 thin spots, and the 2 rocks on the top of Seagull are showing again. The bottom of Anchor and Sugarbush classic still have cover, but it is pretty thin.<br>
+
+(Scott Nesvold)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=123">Mt. Ashwabay Ski Trails</a> (Bayfield):</b><br>
+Conditions: Good to fair.<br>The trail was holding up reasonably well to the warm temps.  Still good coverage throughout.  Only exceptions were on exposed, south facing hills, particularly Jolly-long going up to Birch Hill which had brown patches showing.  I skied in the late morning, and the skate lanes were still hard from last night's freeze, but were softening fast.  Still able to use good skis and just avoid the couple of thin spots.<br>
+(Brian Hammond)
 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Rice Lake area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=45.506&textField2=-91.738&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
 <li>
 <img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=124">Blue Hills Trail</a> (Bruce):</b><br>
+Conditions: Supercalifragistic...you get the idea.<br>Only 2 totally bare spots to portage over. Skate was fantastic today--most of the trails except far outer stuff were groomed. Classic was a little less fantabulous, but good nonetheless, especially with conditions as they are. Some of the best natural snow around. Groomers are doing an awesome job!<br>
+(Andrea Ochmann)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=143">Timberland Hills</a> (Cumberland):</b><br>
+
+Very few bare spots. The skate lane had been groomed after the thaw, classic tracks not. However, they received one-half inch of new snow making the classic track good in most areas.<br>
+(Jeff Roberts)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=612">Red Barn Ski Trails</a> (Shell Lake):</b><br>
+The new snow made the trail fair to good the coverage in the lane and in the woods is good.  Thanks to rolling, the west field is thin but skiable.  Enjoy dog-friendly recommended by boots.<br>
+(Dale Cardwell)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=124">Blue Hills Trail</a> (Bruce):</b><br>
+
+Icy conditions present earlier in the week have been modulated by grooming of the skate lane Thursday and a huge overnight snowfall of 3/4"!  The entire trail system still has good cover, the trails where we are concentrating our grooming are mostly smooth, and the untouched 3/4" of fresh snow provides nice edge control on the sun exposed downhills.  The classic tracks (set 10-14 days ago) have fresh snow awaiting skiers.  <br>
+Grooming plans: Next grooming is anticipated late morning Sunday when temps warm enough to allow some softening of the underlying hardpack.<br>
+Photos: <a onClick="reportviewer(46595); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Tom Paulsen, <a href="http://www.bluehillstrail.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Blue Hills Trail Association</a>)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=513">Barron Area Nordic Trail Association</a> (Barron):</b><br>
+Conditions: Four inch base that was scratched Wednesday. The classic track is icy fast.<br>Great considering how little snow we have! The skate apron is super in the woods. The classic track is icy fast and fun for double poling. Get out and enjoy! Don't forget to donate or join BANTA!<br>
+
+(Greg Mikunda)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=143">Timberland Hills</a> (Cumberland):</b><br>
+The skate lane is in good shape with only a few bare patches. The tracks are poor: icy, well-worn, and bare in some places. The outside track is the best, but watch for more bare spots. Probably about as good as it can be considering the weather.<br>
+(Michael Clay)
+
+<li>
+<b>Feb 6 - Trade River Trail (Frederic):</b><br>
+Conditions: Poor and deteriorating daily.<br>No tracks.  Rock skis.<br>
+(William Johnson)
+
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=494">Coon Lake Trail</a> (Frederic):</b><br>
+Conditions: Poor and deteriorating daily.<br>No tracks.  Rock skis.<br>
+(William Johnson)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=124">Blue Hills Trail</a> (Bruce):</b><br>
+Conditions: Fabulous spring skiing Saturday and Sunday. Skaters did very well before noon but the grooming and warming to 48F allowed fish scales to work fine too.<br>Thanks to all you who maintain these trails! This was the first time we skied there and we enjoyed it. Hope that the snow lasts ...<br>
+
+(Bruce Jacobson)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=124">Blue Hills Trail</a> (Bruce):</b><br>
+Conditions: Fun, fast during the magic window!<br>Great weekend of skiing at the Blue Hills. Met groomer Dan at the top of the hills and told him he made a lot of people very happy. The lot was full and the North Star ski club was over from the cities, hope you all had a great time.<br>
+(Mark Sproul)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=124">Blue Hills Trail</a> (Bruce):</b><br>
+
+Rock hard trail surface yielded to groomer's knives, mild temps, and sunshine.  Able to get an edge and ski all out - faster than a speeding bullet - Woo Hoo!<br>
+Photos: <a onClick="reportviewer(46417); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Tom Paulsen, <a href="http://www.bluehillstrail.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Blue Hills Trail Association</a>)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=463">Spooner City Trails</a> (Spooner):</b><br>
 Conditions: Good to pretty good coverage, some thin and brown spots, firm, fast and icy.<br>All seven k's of Spooner City Park were tracked and groomed Monday (the best condition all year - A skis) then chipped up again Wednesday (pretty good skate skiing yet).  Since then it has not been groomed.  Currently it is level, very firm, with good coverage in most areas, it has shallow skate ruts and is icy in spots.  Best skiing in the next couple days would be after 11:30 am, before that it is going to be icy and fast, with not much for control.  More grooming will take place when we get stable freezing temps and more snow.<br>
 (David Martin)
 
+
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=124">Blue Hills Trail</a> (Bruce):</b><br>
 The base has withstood this most recent warm-up.  Several days of freeze-thaw cycles have created a crusty hardpack.  The Eastside skate lane was groomed (scarified) this morning, yielding just enough edge control to allow ski-with-abandon skating.  With brilliant sunshine and temps rising to the low 40s, great skating conditions lasted about 3 hours.  This was one of the more thrilling skate skis of the winter.<br>
 Photos: <a onClick="reportviewer(46371); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
@@ -1692,92 +1387,35 @@ Photos: <a onClick="reportviewer(46371); return false" href="/javascript.html"><
 
 <li>
 <b>Feb 3 - <a href="traildetail.asp?Id=144">Timberland Hills West</a> (Cumberland):</b><br>
+
 Conditions: The snow base is holding on pretty well, however the freeze/thaw cycles are creating icy conditions depending on the temperature.<br>The lights are on at the Lighted Trail nightly until 11 PM.<br>
-(Louis Muench)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=124">Blue Hills Trail</a> (Bruce):</b><br>
-Rocket fast skating and& striding this morning with cloudy skies & temps in the low 30s.  The crusty hardpack surface yielded just enough to provide adequate edge control, and sticky conditions were absent yet at noon.  The base is adequate throughout, although it is becoming visibly thin.  Most of the trails have a smooth surface, only the back loops on the Eastside are still quite irregular.<br>
-(Tom Paulsen, <a href="http://www.bluehillstrail.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Blue Hills Trail Association</a>)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=143">Timberland Hills</a> (Cumberland):</b><br>
-Fair springlike conditions. It was on the icy side today. The snow base is holding up well so far except for some thin spots in the usual south-facing spots on the outer loop. No "portages" were required, but rock skis are a good idea unless you're cautious.<br>
-(Louis Muench)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=465">Beaver Brook Ski Trail</a> (Spooner):</b><br>
-Conditions: Groomed but bouncy (undulating terrain)!<br>Trail is in good shape considering the amount of snow.  We'll see what temps do to it, but I only ran across one icy spot.<br>
-(Donna Ernster)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=463">Spooner City Trails</a> (Spooner):</b><br>
-Conditions: 1 inch of new snow-very good to excellent in most areas.<br>Spooner City Park has been groomed for skating and a new track (still a grassy spot or two) set. 7-8 inches of new snow has fallen the past week. The trails are in the best shape I have seen all year.<br>
-(David Martin)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=465">Beaver Brook Ski Trail</a> (Spooner):</b><br>
-Conditions: Very good, inch of new snow.<br>The entire diagonal stride trail was set at Beaver Brook yesterday.  The track, shallow in some areas, is in pretty good shape.<br>
-(David Martin)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=124">Blue Hills Trail</a> (Bruce):</b><br>
-Excellent conditions this past weekend, great packed powder skiing.  Despite the low snow year, the entire trail system has enough base to use your good skis - and most trails have a relatively smooth surface.<br>
-Photos: <a onClick="reportviewer(46157); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Tom Paulsen, <a href="http://www.bluehillstrail.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Blue Hills Trail Association</a>)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=143">Timberland Hills</a> (Cumberland):</b><br>
-Conditions: Very good.<br>Firm, solid track for classic. There is a good 6 inches of snow and very well groomed. Awesome rolling layout, well worth the 80 mile drive form Saint Paul. First time out on a "real" trail this year.<br>
-Photos: <a onClick="reportviewer(46117); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Scott Ford)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=124">Blue Hills Trail</a> (Bruce):</b><br>
-Conditions: Very good to excellent.<br>Drove up from Eau Claire and skied Saturday and there is plenty of nice snow on top of a solid base.  They have 12 K groomed for classic on the east side, so we skied all that and more, since the groomed skating lane was also great for striding.  Very good edge control on the downhill turns. It was so nice to be where there really is winter! Tom Paulson and the crew do a wonderful job of grooming and letting us know what to expect.<br>
-(Libby Stupak)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=143">Timberland Hills</a> (Cumberland):</b><br>
-Conditions: Very good.  Very good skate and classic.<br>Skied classic on most of the trails.  A well-defined track with good coverage on all but a few spots.<br>
-(Jeff Roberts)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=124">Blue Hills Trail</a> (Bruce):</b><br>
-Outstanding snow conditions today.  Fast, firm, packed powder with great skating and very good striding (1" fresh snow in the track getting skied in).  <br>
-(Tom Paulsen, <a href="http://www.bluehillstrail.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Blue Hills Trail Association</a>)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=121">Balsam Branch Trails</a> (Amery):</b><br>
-Conditions: Poor to fair overall - some areas that are well shaded are quite good. South facing slopes have some visible rocks, but no snakes.<br>Freshly groomed in the last hours. Track not set due to lack of snow.<br>
-(Larry Behne)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=612">Red Barn Ski Trails</a> (Shell Lake):</b><br>
-Conditions: Well packed 2 to 4 inch base for skating, track is to be set.<br>Several corners and tight spots have been regraded.  The parking lot is plowed, enjoy.<br>
-(Dale Cardwell)
-
-<li>
-<b>Jan 26 - Trade River Trail (Frederic):</b><br>
-Conditions: Poor but improving.<br>Rolled 3" of new snow. Occasional grass in open areas.  B skis for now.  No tracks set yet.<br>
-(William Johnson)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=494">Coon Lake Trail</a> (Frederic):</b><br>
-Conditions: Poor but improving.<br>Rolled 3" of new snow.  Occasional grass and sticks.  No tracks set yet.  B skis until further notice.<br>
-(William Johnson)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=143">Timberland Hills</a> (Cumberland):</b><br>
-Conditions: Good conditions, except for some occasional thin spots in the classic tracks.<br>The trails have been groomed twice this week and should hold up well for the weekend.<br>
 (Louis Muench)
 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Eau Claire area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=44.811&textField2=-91.498&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
 <li>
 <img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=131">Tower Ridge Ski Area</a> (Eau Claire):</b><br>
+Conditions: Pretty decent considering.<br>The trail was still very skiable for skating.  It had been groomed Friday and you could still see the corduroy in most locations.   Just a few isolated bare spots and a couple of icy areas, but a great deal on the trail system in pretty nice shape.  Classic tracks are still present although pretty icy with a number of bare spots.  I used my rock skis, but if you were really careful, you could use good skis.<br>
+(Dick Stardig)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=412">Lake Wissota State Park</a> (Chippewa Falls):</b><br>
+
+Conditions: Very poor, not skiable.<br>Non-skiing report: I got out of the car and took a look at the numerous bare spots and icy snow and decided it was not worth it.<br>
+(Steve Carlson)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=131">Tower Ridge Ski Area</a> (Eau Claire):</b><br>
+Conditions: Good/Excellent.<br>As with many trails in this thin snow cover year, the south facing hills have some icy/bare spots -- most are easily navigated.  The three hills due east of the cabin are skiable, but you may want to use your B skis.  There a several kilometers of excellent conditions suitable for A skis.  The best bet is to tour with your B skis, then pull out the A skis once you find the danger spots.<br>
+(Randy Davis)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=131">Tower Ridge Ski Area</a> (Eau Claire):</b><br>
+
 Conditions: Pretty darn good.<br>At 40F degrees and sunny, snow was soft enough to edge for good skating. Flat areas not in direct sunlight are fully covered. Fast. Some open patches on some hills but still enough snow for hill intervals. Many thanks to Mike Shilts (groomer).<br>
 (Rick Alfuth)
 
@@ -1786,75 +1424,41 @@ Conditions: Pretty darn good.<br>At 40F degrees and sunny, snow was soft enough 
 Grooming plans: Ross is going to till the skate deck at 1:00am. Should be good to go in the morning for skating.<br>
 (Scott Bertrand)
 
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=609">Lowes Creek County Park</a> (Eau Claire):</b><br>
-Conditions: Fair and patchy brown.<br>Almost one less mother in Eau Claire after the icy ski this morning!  The west loop was not too bad but the east loops had some significant brown.  The skunk encounter on the trail topped the morning off - Phew!<br>
-(Amy Rantala)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=328">Hickory Ridge Trail</a> (Bloomer):</b><br>
-Conditions: Thin and thinner.<br>Icy with bare spots early this morning. Some areas are down to dirt and leaves.<br>
-(Frank Lowry)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=131">Tower Ridge Ski Area</a> (Eau Claire):</b><br>
-Conditions: Hard packed with glaze of ice over.<br>Snuck out for a mid-morning ski and found the trail to be fast and surprisingly well covered. Good practice for speed turnover and balance with icy conditions. Needless to say the harder packed skis in quiver are your best pick if you have a choice. Only did hills to I loop, fast and iced  up, but still covered.  The classic tracks are sparse and down to the dirt in places.  Please do snow and cloud prayers/dances, so we can ski through the week!<br>
-(Bob Losby)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=412">Lake Wissota State Park</a> (Chippewa Falls):</b><br>
-Conditions: Fair.<br>We just finished grooming all of the trails.  The best we could do was to clean up the skating lane.  We did not attempt to improve the classic track. It is pretty well iced in place -- both good and bad.  In some places both the skating and classic are pretty good.  In others it is almost down to brown earth.  In general the further you get from the parking lot the better it is.  The little used portions are very skiable.<br>
-(Steve Thon)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=328">Hickory Ridge Trail</a> (Bloomer):</b><br>
-Conditions: Very good.<br>Classic skied about 20K today.  Plenty of snow, and except for just a few spots, no dirt showing through.  Classic tracks were nice and deep and in great shape. Skate lane was nice and solid and very workable. At the west end of the Highland Lake Loop, deer have been digging in the snow and bringing up the leaves, but it is easy to get around all the leaves. Thanks to Ross for the great grooming! And thanks today to our generous friends for providing sustenance at the warming house for the ski back to our car!<br>
-(Libby Stupak)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=412">Lake Wissota State Park</a> (Chippewa Falls):</b><br>
-Conditions: Good.<br>Skiied the Staghorn on skate skis.  Lots of hiking/snowshoe traffic on the skating lane.  Nice to see classic tracks set.<br>
-(Tim Shepardson)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=131">Tower Ridge Ski Area</a> (Eau Claire):</b><br>
-Conditions: Perfect with a fresh snowfall.<br>First time here and really enjoyed it.  Lots of different trails to choose from with a fresh 1.5 inch snowfall.  Trails were recently groomed with a nice set track and skating also looked good. A hidden gem so close to the Twin Cities.<br>
-Photos: <a onClick="reportviewer(46044); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Conrad Sanders)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=136">Red Cedar River Trail</a> (Menomonie):</b><br>
-Conditions: Fast,  fun.<br>Skied to Irvington form Menomonie trail head. Skate deck freshly groomed and very fast near perfect. Classic tracks very icy yet skiable - think violet klister with thick hard wax might work.  Ice falls with full sun worth the effort, many birds, hawks, eagles and cardinals, oh my.<br>
-Photos: <a onClick="reportviewer(46028); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Dave Leschke)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=609">Lowes Creek County Park</a> (Eau Claire):</b><br>
-Conditions: Decent but not great.<br>Skied all the groomed trails on both sides of the bridge.  A few bad spots on the hills in the open areas but not bad overall.  Wouldn't bring out the good skis yet.<br>
-(Tony Biasi)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=328">Hickory Ridge Trail</a> (Bloomer):</b><br>
-Conditions: Close to perfection - finally!<br>Fresh snow on Friday, about 2 inches. Expert groomer Ross worked through the night with the Ginzu. All 27 K groomed for skate and classic. Enjoy!<br>
-(Noah Michaelsen)
-
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Phillips area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=45.697&textField2=-90.4&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
 <li>
 <img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=557">Rib Lake Ski Trails</a> (Rib Lake):</b><br>
+Conditions: Very good to excellent.<br>Skied the HinderBinder race course today and snow was very good to excellent for both skate skiing and classic tracks.  We did not need our 'rock skis' today.  We have our fingers crossed for more snow.<br>
+(Cathy Miller-Temme)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=521">Camp Forest Springs</a> (Westboro):</b><br>
+
+Excellent! Best of the year so far! We only got about a half inch of new snow but, with some extra work with shovel and Ginzu groomer, the skate lanes are perfect and the tracks are almost perfect. Should set us up for a great HinderBinder Race on Feb. 18.<br>
+(Scott Everson)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=521">Camp Forest Springs</a> (Westboro):</b><br>
+Grooming plans: The skate lanes are all being groomed/ scarified with the Ginzu today and they are looking very good! It should be fast but very skiable today. Classic tracks - still looking excellent but too solid/icy to regroom.<br>
+(Scott Everson)
+
+<li>
 <b>Feb 5 - <a href="traildetail.asp?Id=521">Camp Forest Springs</a> (Westboro):</b><br>
+
 Very good to excellent.  I groomed the skate lanes (19km) this morning, most of it looks great! There is a thin stretch on skidder, you may want to skip that trail or walkk thru the hemlock grove (40 yards). All in all, surprisingly good!<br>
 (Scott Everson)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=557">Rib Lake Ski Trails</a> (Rib Lake):</b><br>
 Conditions: Excellent.<br>Thank you groomers!  Rib lake, Timms Hill and Camp Forest Springs were in great shape today from you guys breaking up the crust.<br>
 (Kevin Roytek)
 
 <li>
 <b>Feb 3 - <a href="traildetail.asp?Id=557">Rib Lake Ski Trails</a> (Rib Lake):</b><br>
+
 Conditions: Excellent coverage this morning, just groomed, nice.<br>The hills and trail layout are super.  Enjoy.<br>
 (Dale Cardwell)
 
@@ -1863,36 +1467,52 @@ Conditions: Excellent coverage this morning, just groomed, nice.<br>The hills an
 We still have excellent conditions here! Snow coverage is very good except a few thin spots on Rollercoaster and Skidder. Groomed skate lanes this morning and shoveled snow on those thin spots.<br>
 (Scott Everson)
 
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=521">Camp Forest Springs</a> (Westboro):</b><br>
-Trails were groomed Monday; I skied them this morning and they were beautiful! The (classic) skiing was great until it got too warm and my skis got way too sticky. Best to wait now until early tomorrow.<br>
-(Scott Everson)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=557">Rib Lake Ski Trails</a> (Rib Lake):</b><br>
-Conditions: Very good.<br>Rib Lake's trails in very nice condition for skating: hard packed with ample snow on turns and downhills.  Striding conditions appeared to be in good shape as well, tho I didn't classic ski.  Trail was a bit narrow in places but overall very nice.  Some locals claim this weekend was the best this winter! Oh: the ski-thru outhouse needs T.P.! (see photo)<br>
-(Paul Matteoni)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=557">Rib Lake Ski Trails</a> (Rib Lake):</b><br>
-Conditions: Good.<br>Skied the Timm's Hill Trail and attempted to ski the High Point Ski Trail (loops around Timm's Hill).  Timm's Hill Trail in good condition, well groomed and well set trails.  A bit slow for skating in some soft stretches.  Colder weather and continued grooming should rectify this. High Point Trail is not open due to logging around Timm's Hill County Park.  Access the north end of Timm's Hill Trail from Rustic Road near High Point Village.<br>
-(Paul Matteoni)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=521">Camp Forest Springs</a> (Westboro):</b><br>
-Excellent - Trails groomed again this morning; seems like we're grooming almost every day! 20km, 12 loops to choose from (or just ski all of them). Finally have good snow cover under the hemlocks on Skidder and Rollercoaster.<br>
-(Scott Everson)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=521">Camp Forest Springs</a> (Westboro):</b><br>
-Excellent - probably the best conditions of this season. Everything was groomed again on Wednesday night after we had school groups here for the day. I skied some of the tracks this morning; it was a little slow but still great!<br>
-(Scott Everson)
-
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Other locations</b>            <ul>              <font size="-1"> 
+
 <li>
-<img src="../images/new.gif">
+<b>Feb 11 - <a href="traildetail.asp?Id=133">Willow River State Park</a> (Hudson):</b><br>
+Conditions: No skiing, there's no snow.<br>Bring your running shoes.<br>
+(Jeff Bolte)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=348">Troll Hollow</a> (Dresser):</b><br>
+Conditions: Corduroy at noon today. Perfect! Lots of snow, firm deck with good edge, tracks looked good.<br>Only a handful of skiers out.<br>
+
+(Carrie Kostroski)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=348">Troll Hollow</a> (Dresser):</b><br>
+Great day of racing with excellent, fast conditions.  Course held up very well as the snow firmed up very nicely with the cold temperatures.  <br>
+(Mike Chrun)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=564">Marshfield School Forest</a> (Marshfield):</b><br>
+Conditions: Skate lanes were tilled Tuesday after the weekend melt.  The "A" trail continues to be in very good with 100% coverage. The classic tracks are in fair condition with a couple bare spots.  We have tilled the skate lanes on the other trails in the system but there are many bare spots.  Good skis if you stay on the "A" trail. Rock skis on all others.<br>The only thing worse than "rock skis in February" are "roller skis in Feb!"  Keep doin' the snow dance....<br>
+
+(Randy Lueth)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=348">Troll Hollow</a> (Dresser):</b><br>
+Conditions: Good.<br>Well groomed for the Sectional race today.  Classic tracks a bit worn out by the end of the day.  Plenty of coverage.  Worth the drive from the TC.<br>
+(Julie Anderson)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=348">Troll Hollow</a> (Dresser):</b><br>
+
+Conditions: All relative this year but around 2:30 both classic and skate could be called excellent.<br>As it cooled and the high school kids were on the course, it started to get sugary.  No dirt, slush, or ice however.<br>
+Scheduling update:<br>
+Tuesday and Wednesday there are section meets.  Troll Hollow should be open to skiing about 4:30.  Track will be set both days around that time for late afternoon and evening skiing.<br>
+(Mike Chrun)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=348">Troll Hollow</a> (Dresser):</b><br>
+Conditions: Nice.<br>I classic skied today.  The tracks were set where they are supposed to be and the conditions were great.  Firm deep tracks and plenty of clean snow.  It was not very crowded this morning.  I ran into a few people skiing at the hollow for the first time in advance of their MN high school section race this Tuesday.<br>
+
+(Paul Schaaf)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=348">Troll Hollow</a> (Dresser):</b><br>
 Sugar snow, fast in good shape. There was about 2 inches churned up sugar in the skate lane on the uphills when I skied this morning which made it work; the classic track looked great. Not icy.<br>
 (Ralph Schwartz)
@@ -1900,39 +1520,8 @@ Sugar snow, fast in good shape. There was about 2 inches churned up sugar in the
 <li>
 <b>Feb 3 - <a href="traildetail.asp?Id=348">Troll Hollow</a> (Dresser):</b><br>
 Conditions: Fantastic.<br>Troll is in great shape for classic and skate skiing.  The trail has no dirt, ice or wet spots and is well worth the drive.  Definitely the best skiing in the Twin Cities area.<br>
+
 (Katie Anderson)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=348">Troll Hollow</a> (Dresser):</b><br>
-Conditions: Had a good classic ski using waxless skis early today.<br>Snow was soft but skate skiing was also good later today.  Fourth high school meet in four days went off very well this evening as there is still ample snow.  No slush and no dirt.<br>
-(Mike Chrun)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=564">Marshfield School Forest</a> (Marshfield):</b><br>
-Conditions: Good-Very good. 29 degrees partly cloudy.<br>Skating deck better than tracks, which are glazed, worn a bit, and have occasional leaves and other debris in them. Still good skiing, but a little snow would be nice to freshen the system up.<br>
-(David Henning)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=133">Willow River State Park</a> (Hudson):</b><br>
-Conditions: Much better than expected!<br>I skied pretty much all of the park today, snow coverage was quite good, but I stayed on my rock skis to be safe.  If you're familiar with the park you probably know places that are problematic when snow is low.  Red trail has good coverage, brown is good except for about 15ft where it meets up with red. Purple has two bare spots with low snow, probably the only trail I'd avoid. Green/campground is good, blue also has good coverage. Yellow/orange were in good condition as well. Unfortunately, the trails are still open to hiking so there are footprints on the trails but if you're dying to ski, get out there and do it!<br>
-(Michael Phernetton)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=348">Troll Hollow</a> (Dresser):</b><br>
-Conditions: Excellent for both classic and skate.<br>Sorry about the condition of the tracks Friday.  The morning groomer was inexperienced, and Trollhaugen is trying to make sure it doesn't happen again.  I have taken over for Rollie, but honestly, the tracks have been set very nicely whenever I've skied this winter, and today was no exception.<br>
-(Rollie, I know you're still monitoring, but don't fret.  Your "Baby" might have been a bit colicky yesterday, but it's fine today.  Enjoy your retirement!)<br>
-Schedule update:<br>
-Monday-JV race at 4:00.  Done about 5:00.<br>
-Tuesday-Conference meet starting at 10:00.  Done about 3:00.<br>
-Wednesday-Conference meet at 10:00.  Done about 4:30.<br>
-Thursday-JV meet at 6:00.  Done about 7:00.<br>
-Tracks will be reset after the meets Tuesday and Wednesday.<br>
-(Mike Chrun)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=348">Troll Hollow</a> (Dresser):</b><br>
-Conditions: Fresh grooming but worst classic tracks ever, skate was fine.<br>Was the first person on the course this morning and thought, awesome fresh tracks, but was thoroughly disappointed instead. Could not keep my skis in the track on ANY corners because the corners were too sharp, sometimes the track was so close to the edge of the snow pack my outside pole would drop away from me. The skate lane had been groomed right over the track in numerous places.  The tracks were not consistent and in some places weren't tracked continuously. Overall very poor conditions for classic, was a waste of my money. The skate lane was freshly groomed and fast.<br>
-(Todd Mott)
 
               </font>
             </ul>
@@ -1940,42 +1529,300 @@ Conditions: Fresh grooming but worst classic tracks ever, skate was fine.<br>Was
             <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/ne-wi.gif" hspace="6" border=0><font size=+1><b>Wisconsin Northeast</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
               </font>
             </ul>
+
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Rhinelander/Eagle River area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=45.917&textField2=-89.244&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
 <li>
 <img src="../images/new.gif">
+<b>Feb 13 - <a href="traildetail.asp?Id=363">Washburn Lake Ski Trails</a> (Woodboro):</b><br>
+
+Conditions: Good.<br>The entire trail system was good, both skate and track. There are a few icy spots. There is plenty of snow. The groomers did a good job of bringing up the fresh snow to make a good skate deck.<br>
+(Tom Meyer)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 13 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
+Conditions: Excellent!<br>I finally had the opportunity to ski "the Glow" this year.  It was excellent!  And it was nice to get to use my good skis for a change.  It was well worth the trip for us to ski here!<br>
+(Bill Fehrenbach)
+
+<li>
+<img src="../images/new.gif">
+
+<b>Feb 13 - <a href="traildetail.asp?Id=447">Raven Trails</a> (Woodruff):</b><br>
+Conditions: Fair to good.<br>All loops groomed.  Thin spots on the red and yellow loops.  Tree debris (oak leaves and pine needles) on trails.<br>
+(Tony Martinez, Wisconsin DNR)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 13 - <a href="traildetail.asp?Id=570">McNaughton Lake Trail</a> (Lake Tomahawk):</b><br>
+Conditions: Fair to good.<br>All loops groomed.  Tree debris (needles, leaves) on trails.<br>
+
+(Tony Martinez, Wisconsin DNR)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 13 - <a href="traildetail.asp?Id=575">Three Eagle Trail</a> (Eagle River):</b><br>
+Conditions: Very good.<br>Strided the trail this morning, a few icy spots and some debris near the south end didn't diminish the quality of the trail much at all. VR40/VR45 worked great great, but watch the debris. Great skiing on Three Eagle!<br>
+(Dan Mckissack)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=363">Washburn Lake Ski Trails</a> (Woodboro):</b><br>
+
+Conditions: Very good.  What a perfect day for skiing with sun and temperatures in the mid-20's!<br>Classic tracks are excellent, and skate deck firm.  No bare spots or debris issues.  Downhills a bit slick, making snowplowing a little adventurous.<br>
+(David Henning)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
+Conditions: Very Good.<br>A few small areas of mixed dirt/snow and some pine needles but the vast majority of the trails were in excellent condition. Classic tracks were deep and well set. The skating deck firm. Trails fast with a mix of powder and refrozen snow. Hard but not icy. Klister with a hard wax top coat worked well.<br>
+Photos: <a onClick="reportviewer(46677); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(George Cleveland)
+
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
+Excelllent. Skied (classic) most of the trails on Saturday. Some of the best skiing I have ever done.  Beautiful job with the grooming; no thin spots or ice patches that you may find at other areas; very consistent, deep set tracks and smooth, even skate lanes. Afterglow is a hidden gem; well worth the trip from wherever you are!<br>
+(Bob Oram)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
+
+Conditions: Very good.<br>Had a great afternoon at MWP.  But it's been a while since they've had snow.  Skied Lake Marie and River Run.  Despite the optimistic reports in the chalet, I'd recommend "B" skis on those trails.<br>
+(Bill Fehrenbach)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=145">Razorback Ridges Trail</a> (Sayner):</b><br>
+Conditions: All classic trails are very good!<br>I skied all the classic trails and found excellent tracks.  There are a couple dirt patches that are easily skied around.  There are also some pesky oak leaves, especially on lions pride and hair raiser.  Toko green base binder worked excellent!  The Lion's club does an amazing job keeping this facility is top notch shape!<br>
+(Troy Walters)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=363">Washburn Lake Ski Trails</a> (Woodboro):</b><br>
+
+Conditions: Great.<br>I skied classic today and those conditions were OK. The skate deck was firm and flat.  New snow yesterday was groomed out and helped provide some edge.<br>
+(Pete Wurl)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
+Conditions: Excellent.<br>My wife and I skied the classic tracks on Wednesday and Thursday. Tracks were set very well and control ably fast and true. Going downhill were smooth and true. One inch of snow Thursday evening should make the skiing even better. Highly recommend.<br>
+(Ron Harms)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
+
+Conditions: Can it get any better?<br>Skied 3 hours today at Afterglow and, once again, it was glorious!  Classic tracks were as good as they get - full depth, firm, and relatively free of woods debris, given that we're dealing with old snow.  One can always be assured that the trails at Afterglow will be groomed to the highest level possible. Thanks, Pete.<br>
+(Rich Dirks)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
+Conditions: Excellent to very good, skate and classic.<br>Skied Base Loop, Tornado Alley, Survivor, Yukon, C&D Express, Lake Marie, XC Express, Nepco's Cruise, River Run and Sleigh Ride.  Skate lanes had been groomed very recently and were generally in excellent shape.  Some icy spots here and there but all manageable.  Tracks had been recently reset and were in great shape as well.  A beautiful day!<br>
+(Kirby Schuller)
+
+<li>
+
+<b>Feb 9 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
+Conditions: Excellent.<br>All classic tracks have been reset. Perfect. Tracks looks like they were set in 6" of new snow. Not swiss cheese. Solid tracks. Hard wax has been working. Skate lane perfect. For the best quality ski trails we do not allow walking, dogs or snowshoeing on our ski trails. Just skis. 8 miles of snowshoe trails are in great shape. Rentals available. 15" snow depth in the woods. Trails have been groomed 39 of the last 46 nights.<br>
+Photos: <a onClick="reportviewer(46542); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Pete Moline, <a href="http://www.afterglowresort.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Afterglow Lake Resort</a>)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
+
+Conditions: Very good.<br>Our groomers (with help from our shoveling brigades) have been putting in unbelievable hours this past week and it shows, as we remain 100% open heading into the weekend. We are continuing to patch bare spots as they pop up (usually on southern facing steep exposed hills), but as of today there are no long bare stretches anywhere. Skate decks are running hard and fast but have a softer top than you would expect for dealing with transformed ice and snow. Skating is considered very good to excellent around the park. Classic is more variable. We have firm, deep tracks everywhere but some are still glazed and icy owing to the near daily thaw/refreeze conditions for a week straight -- it's not simply a matter of which classic tracks have been reset and which haven't, it's a matter of when. <br>
+Grooming plans: By Saturday we hope to have reset most, if not all, of the classic tracks in the park. <br>
+(Joel Knutson)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=575">Three Eagle Trail</a> (Eagle River):</b><br>
+Conditions: Very Good.<br>Classic tracks were reset today and, for the most part, are in excellent shape. A few shallow icy spots resisted reconditioning but they are very skiable. Skate lane remains fast and firm with slightly granular corduroy.<br>
+Photos: <a onClick="reportviewer(46540); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+
+(Tom Rulseh)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=129">Nordmarka Ski Trails</a> (Eagle River):</b><br>
+Grooming Report:  Fair to poor classic track.  Good skate surface. I spent a fair amount of time on the skate surface today.  It should be pretty good.  There are only a few thin spots to navigate.<br>
+Photos: <a onClick="reportviewer(46531); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Troy Walters)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=569">Escanaba Trail </a> (Boulder Junction):</b><br>
+
+Conditions: Good.<br>Finished Wednesday afternoon with good results, a few thin spots on the outer loop but if you can brave the cold this coming weekend you will not be disappointed as tracks should hold up well.<br>
+(Dan Jacoby, Wisconsin DNR)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=145">Razorback Ridges Trail</a> (Sayner):</b><br>
+Conditions: Skate loops were regroomed Tuesday night and are very firm but in really good shape considering temperature swings and lack of new snow. I groomed all classic loops Wednesday night except for outside section of Lions Pride and Will's Crossing. Those two sections have hard,but still well-formed tracks with some icy spots and areas of glazing. The newly set tracks are not as perfect I--as a full-time classic skier--would like them to be, but for the most part they are pretty good. <br>Grooming plans: I will be tied up Friday and Saturday, but I will get out Friday morning early and reset track on remaining classic loops.<br>
+(Will Maines)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
+
+Conditions: Skate and classic tracks firm and fast.<br>Plenty of snow and great conditions for both skate and classic.  Some icy spots.  No problem with control on hills.  Get "up north" for some great skiing!<br>
+(Dave Hammer)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=363">Washburn Lake Ski Trails</a> (Woodboro):</b><br>
+Conditions: Hard packed skate deck.  Tracks are glazed and frozen. Overall, in very good condition with absolutely no dirt, debris on the skate deck.  Will need snow to reset the tracks.<br>Grooming crew did a good job combing the skate deck and bringing up new snow. Some areas with south slopes are icy and will take another pass, but other areas on the trail have snow that has not yet transformed, yes really. <br>
+(Brian Hegge)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=575">Three Eagle Trail</a> (Eagle River):</b><br>
+
+Conditions: Excellent skate, variable classic.<br>Skate lane was groomed today with an excellent result. Classic tracks are deep, firm hardpack with several icy stretches in sun exposed areas. Great for double polling, challenging on getting kick.<br>
+Photos: <a onClick="reportviewer(46521); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Tom Rulseh)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=127">Anvil National Recreation Trail</a> (Eagle River):</b><br>
+Conditions: Overall good.<br>The classic track was solid.  A little icy in just a few places, but overall quite good.  The overall trail surface is not very level, but I was able to control all the hills well.  I appreciate the grooming work done by the Forest Service, thank you!<br>
+Photos: <a onClick="reportviewer(46518); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+
+(Troy Walters)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
+Conditions: Perfection in snow.<br>Don't know how he does it, but Pete Moline at Afterglow is a wizard with a groomer. All of the other local trails are fairly crusty and icy, which is completely understandable given the recent weather. Afterglow's trails are perfect, nothing more can be said. Crazy good job, Pete, Michelangelo on a groomer!<br>
+(Dan Mckissack)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
+
+Conditions: Outstanding.<br>Perfect classic tracks. Perfect skate lane. 15" snow depth in the woods. Trails have been groomed 38 of the last 45 nights. No dirt showing.<br>
+Photos: <a onClick="reportviewer(46513); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Pete Moline, <a href="http://www.afterglowresort.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Afterglow Lake Resort</a>)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=569">Escanaba Trail </a> (Boulder Junction):</b><br>
+Conditions: Good condition.<br>40 degrees several days after last grooming last Friday made for some icy tracks.  I was able to cut and track the green 5.5 mile Pallette loop yesterday and am heading out now to finish remaining loops.  No one had skied Tuesday when I left at 3 PM so should be in nice shape.  I had to cut old track out and bring in saved snow from edges which resulted in good firm tracks.  <br>
+
+(Dan Jacoby, Wisconsin DNR)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
+I skied most of the MWP trails Tuesday and had an excellent day! Classic tracks on Wolf Tracks and a few other trails were still rough (from the race on Saturday and then the thaw/ freeze cycle) but they are working on that Wednesday. Thanks to the crew shoveling snow onto the thin spots!<br>
+(Scott Everson)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
+Conditions: Really nice.<br>Everything was buffed and polished in the skate lanes.  Some classic had been reset, with more to follow.  The thaw appears to have done minimal damage and crews have been out the past few days and through the week shoveling onto thin spots.  The high school champs courses look and ski big time.<br>
+
+(Ken Schoville)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
+Conditions: Nordic Heaven.<br>No other way to describe it.  Skate lanes were in perfect shape and very fast!  Classic tracks were wonderful the few times I hopped in on a downhill, also very fast.  It just doesn't get any better.<br>
+(Kirby Schuller)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=575">Three Eagle Trail</a> (Eagle River):</b><br>
+
+Conditions: Good.<br>Classic skied the trail this morning. Pretty crusty overall, in places it was almost pure ice, but coverage seemed to have held up over the warm days, and the light dusting of snow we got this morning definitely helped.<br>
+(Dan Mckissack)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=447">Raven Trails</a> (Woodruff):</b><br>
+Conditions: Fair to good.<br>All loops groomed.  Some thin spots emerging on the red and yellow loops after the warm weather.<br>
+(Tony Martinez, Wisconsin DNR)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=570">McNaughton Lake Trail</a> (Lake Tomahawk):</b><br>
+
+Conditions: Fair to good.<br>All loops groomed. Some thin spots emerging along lake after the warm weather.<br>
+(Tony Martinez, Wisconsin DNR)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=572">Madeline Lake Trail</a> (Arbor Vitae):</b><br>
+Conditions: Fair to good.<br>All loops groomed.  Some thin spots emerging after the warm weather.<br>
+(Tony Martinez, Wisconsin DNR)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=129">Nordmarka Ski Trails</a> (Eagle River):</b><br>
+
+Conditions: Fair classic conditions.<br>I was doing ski lessons at the trails today and skied over half the trails.  It has been decided we will leave the old classic tracks and not reset at this point.  There is variability in their consistency from transformed full depth to washed out and shallow.  The skate surface is pretty good.  The trail has 1 set of tracks on about 60% of the course.  Skating would be a bit better.<br>
+(Troy Walters)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
+Conditions: Perfect.<br>I always try to underestimate our trail conditions. This report is not taking into consideration the warm temps recently. Conditions are just Perfect. Can't underestimate perfect. Classic tracks perfect. Trails have been groomed 37 of the last 44 nights.<br>
+Photos: <a onClick="reportviewer(46470); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Pete Moline, <a href="http://www.afterglowresort.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Afterglow Lake Resort</a>)
+
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=145">Razorback Ridges Trail</a> (Sayner):</b><br>
+My back is healed up so back to the trails today.  Given the recent warm spell the skate trails were quite good.  Fast and no bare spots.  A bit "crunchy" with some hard glazed spots but overall better than I expected.   The classic tracks I saw looked in good shape.  <br>
+(John Huppert)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
+Conditions: Wowee, zowee!  Almost perfect for skate, classic was excellent to very good.<br>All the skate lanes I skied had be refreshed before I got there at about 10:15 AM.  Conditions were absolutely wonderful and very, very fast.  A few spots that were too icy to be fully freshened, but those were very few.  Really fun!<br>
+
+(Kirby Schuller)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=129">Nordmarka Ski Trails</a> (Eagle River):</b><br>
+Grooming report:  Skate lane surface was roughed up a bit - expect fair to good.  Classic tracks are melted out in places - expect fair to poor. The skating surfaces should be pretty good.  The classic tracks will be good in places, poor in others.  We will try to reset classic track tomorrow.  There are some spots that have very low snow... especially near the trail head.  That being said, conditions are better than I expected.<br>
+(Troy Walters)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
+Conditions: Excellent.<br>We skied Saturday and Sunday on beautifully groomed classic tracks and skate trail. It was our first time and we were very pleased with the accommodations and hospitality, as well as the snow conditions. I am rarely impressed by attention to grooming details - I was here.<br>
+
+(Don Becker)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=575">Three Eagle Trail</a> (Eagle River):</b><br>
+Conditions: Excellent for both classic and skating.<br>My wife Jessica and I classic skied by moonlight Friday night and it was great.  I skated on freshly groomed snow on Sunday.  Get out by day and by the full moon and enjoy.<br>
+(Alan Bates)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
+
+Conditions: Good full coverage.<br>Good conditions. Firm and fast in the morn.  A little slower in the afternoon with temp around 37.  Great day skiing and worth the drive.<br>
+(Diane Gustin)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
+Conditions: Excellent!<br>The skate lane was freshly groomed and the classic track was excellent.  What an amazing job grooming!  I would expect excellent conditions at Afterglow all week as Pete knows how to work the trails with tough grooming conditions by using proper timing and years of grooming knowledge!<br>
+(Troy Walters)
+
+<li>
 <b>Feb 5 - <a href="traildetail.asp?Id=145">Razorback Ridges Trail</a> (Sayner):</b><br>
+
 Conditions: Very good on trails tracked today.<br>Considering warm temps and no new snow trail in very good condition thanks to excellent and timely grooming. Hats off and much gratitude to a great group of local folks who maintain an excellent trail system. Please remember to leave a donation so it can be continued. Well worth it!<br>
 (Lisa Stueland)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
 Excellent. Trails groomed up great tonight. Held up very well at 39F. A 72 year old grandmother, did the polar plunge, went down the tubing hill at least 10 times, skied and snowshoed today. I hope I am in that shape at 62. Due to the way we groom, and 120" snowfall average, a deep base remains on our trails. Trails have been groomed 35 of the last 42 nights.<br>
 Photos: <a onClick="reportviewer(46397); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Pete Moline, <a href="http://www.afterglowresort.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Afterglow Lake Resort</a>)
 
+
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=363">Washburn Lake Ski Trails</a> (Woodboro):</b><br>
 Conditions: Fine and fast in the morning.<br>Skied from 10 am to noon, starting temp was 25 so it was frozen hard and really fast.  Trails were in great condition but softened up when the temps rose.  Skating was superb and used my best skis.  The meager $5 fee was a bargain for an excellent ski day.<br>
 (Scott  Frazier)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
 Conditions: Very good to excellent on 95% of the course.  The 5% that is not very good is obvious and easily avoided.<br>Skied the Wolf Tracks marathon this morning.  A few icy chute down hills but overall, the course held up well.  Nice course, bright sunny day, lotsa chotchkes in the goody bag.   A good first running for this event.<br>
+
 (Andy Schwartz)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=363">Washburn Lake Ski Trails</a> (Woodboro):</b><br>
 Conditions: Icy fun.<br>Another banner day at the Washburn trails - skate deck firm, fast and wicked fast.  Classic tracks icy bobsled run on south facing hills - better on north facing hills - OK kick outside the tracks and wicked fast "easy tiger".  Major temp swing 10am 19F to 1pm 43F.  Lots of skiers out and as a bonus snowshoe trails are really good.<br>
 Photos: <a onClick="reportviewer(46375); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Dave Leschke)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=127">Anvil National Recreation Trail</a> (Eagle River):</b><br>
+
 Conditions: Very good. Sunny, 22F and rising.<br>Classic skied many of the trails this morning. Conditions were fantastic, trail was a bit bumpy and has seen a little use, but overall, it's holding up wonderfully. Some icy sections (that were softening by the time I finished), which made for some wicked fast downhills. Don't know what day God created klister, but I'll need to look that up.<br>
 (Dan Mckissack)
 
@@ -1986,6 +1833,7 @@ Conditions: Good to very good, warm and sunny, 34F.<br>Skied most of the trails 
 
 <li>
 <b>Feb 3 - <a href="traildetail.asp?Id=363">Washburn Lake Ski Trails</a> (Woodboro):</b><br>
+
 Conditions: Real winter skiing.<br>Skied at 10 am found great trail system with plenty of snow - conditions held up under the afternoon sun and warming temps 38F at 1pm. Classic track deep and firm, used red klister with good results. Skate deck firm and starting to slow with the sun but plenty of snow. Today was great - real snow great trail system.<br>
 Photos: <a onClick="reportviewer(46341); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Dave Leschke)
@@ -1994,6 +1842,7 @@ Photos: <a onClick="reportviewer(46341); return false" href="/javascript.html"><
 <b>Feb 3 - <a href="traildetail.asp?Id=129">Nordmarka Ski Trails</a> (Eagle River):</b><br>
 Conditions: Fair to good for classic and skate.<br>I groomed the skate lane this morning.  The classic track was in decent shape so I left it alone.  Still have great snow coverage except by 2 signs and the low snow spots are very small.  Not many km's at this course, but it is close to town!<br>
 Photos: <a onClick="reportviewer(46330); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+
 (Troy Walters)
 
 <li>
@@ -2001,217 +1850,105 @@ Photos: <a onClick="reportviewer(46330); return false" href="/javascript.html"><
 Conditions: Good condition.<br>Tracked this morning and I was surprised how much snow was left and how well it tracked.  10-12 inches in the woods, March like conditions fast in Am and slower in the afternoon.  This intermediate level trail is holding up to the mild weather quite well.<br>
 (Dan Jacoby, Wisconsin DNR)
 
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
-Conditions: Snow white and the groomers.<br>The Rendezvous should be golden.  There's plenty of snow depth, well groomed, and warm temps.  The snow is fairly fresh looking, but you might want to bring klister.<br>
-(Ken Schoville)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
-Conditions: Excellent.<br>Plenty of great snow up here, enjoyed the fresh grooming with a dusting of snow.  A few avoidable patches of dirt.  Should be fine skiing for the race here this weekend.  Skate was really good,  tracks also looked firm and deep.<br>
-(Judy Archibald)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
-Conditions: Excellent.<br>First trip to Afterglow. I had high expectations and was not let down. Virtually untouched fresh corduroy, silky smooth, firm and fast surface. Just enough screamin' hills to keep it lively without becoming a chore. I picked the perfect place to celebrate my 50th birthday, and won't wait another 50 to return.<br>
-(Rick Bie)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=575">Three Eagle Trail</a> (Eagle River):</b><br>
-Conditions: 35 deg falling to 30. Freshly groomed skate and classic.  Excellent!<br>Wow, what a great surface.  I classic skied the whole trail late this afternoon as the sun was going down.  I hopped in the skate lane a couple times and it was solid.  The super grooming was only trumped by the amazing sunset.  Thanks for all the great grooming effort this year!<br>
-(Troy Walters)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=127">Anvil National Recreation Trail</a> (Eagle River):</b><br>
-Conditions: Good.<br>Skied most of the trails this morning. Pretty good, but fairly soft conditions. The shoulder of the trail is pretty soft in places and makes for some unpredictable pole plants, and the skate deck - while fairly solid - seemed a bit bumpy. Got practice for moguls! :) All in all the trails seemed pretty good, Jeff has done a great job with the tools and conditions he's had to work with. Thanks for the efforts!<br>
-(Dan Mckissack)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=469">Schlecht Lake</a> (Minocqua):</b><br>
-Conditions: Good to very good skating, but little to no classic tracks.<br>Is skated here Tuesday and the snow was fun and fast.  However, the trail could use a grooming.  It appears it wasn't groomed after the last couple of inches of snow.  The trail gets enough traffic that skating was quite good nonetheless.  I only noticed a fair set of classic tracks in one area and none elsewhere.<br>
-(Karen Olkowski )
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
-Conditions: As good as it gets.<br>Great skiing on the best groomed trails in the Midwest.<br>
-(Bob Faherty)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
-Conditions: Excellent.<br>A large group came out for 2 for Tues. today. Trails were perfect skate and classic. All skate lanes groomed again tonight. Perfect. Trails have been groomed 33 of the last 39 nights. 18" snow depth in the woods. Our trails go through a thick forest and are well protected from the sun. We had hazy to cloudy skies and a high of 38F today. Trails have trees about 11 to 12' apart but have a wide skate lane with a classic track with plenty of room for a solid pole plant. Snow at the Glow.<br>
-Photos: <a onClick="reportviewer(46229); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Pete Moline, <a href="http://www.afterglowresort.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Afterglow Lake Resort</a>)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=570">McNaughton Lake Trail</a> (Lake Tomahawk):</b><br>
-Conditions: Very good.<br>All loops groomed.<br>
-(Tony Martinez, Wisconsin DNR)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=447">Raven Trails</a> (Woodruff):</b><br>
-Conditions: Very good.<br>All loops groomed.<br>
-(Tony Martinez, Wisconsin DNR)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=127">Anvil National Recreation Trail</a> (Eagle River):</b><br>
-Conditions: Very good 8" base groomed and tracked. Just before the warm weather, try skiing in morning.<br>Sorry about the tracker being broke down, I understand the frustration.<br>
-(Jeff Higley, US Forest Service)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=575">Three Eagle Trail</a> (Eagle River):</b><br>
-Conditions: Excellent!<br>Strided the trail this morning. Conditions were perfect, it looked like the trail had been very recently groomed. Great kick and glide, skate deck looked perfect. Nice job!<br>
-(Dan Mckissack)
-
-<li>
-<b>Jan 29 - CAVOC Trails (Rhinelander):</b><br>
-Trails are excellent, firm, well groomed, no debris and no bare or soft spots.<br>
-(John Almquist)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=363">Washburn Lake Ski Trails</a> (Woodboro):</b><br>
-Conditions: Excellent.<br>Trails are in excellent condition, firm, well groomed, no debris, and no bare or soft spots.<br>
-(John Almquist)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
-Conditions: Skate and classical: excellent.<br>The groomers were very proud of their work, and rightfully so!  New tracks throughout, wonderful firm base.  Plenty of snow!  Don't forget to check out the Tea Room, a new ski-in spot this season.<br>
-(Joseph Bednarowski)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
-Conditions: Excellent!  15 deg, freshly groomed skate and classic.<br>I skated all the trails twice and found excellent conditions.  The trails had set up well and the skate push off was solid!  The trails have been leveled perfectly for a magic carpet surface.  Great grooming Pete!<br>
-(Troy Walters)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=519">Nose Lake Ski Trail</a> (Rhinelander):</b><br>
-Ungroomed. Despite how awesome this trail is, its a hit or miss when it comes to the grooming. There is however skiable tracks to follow as many many skiers have ventured out to enjoy the great weather despite the status of this trail!<br>
-Photos: <a onClick="reportviewer(46094); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Lilly Lee)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=493">Cassian Two-Way Ski Trail</a> (Rhinelander):</b><br>
-Conditions: Very good.<br>The recent snow is nicely compacted, giving fair glide and a little soft on kick. The people who snowshoe on the trail despite the signs have made a few areas at the trail head a little dicey.<br>
-(Randy Bryan)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
-Conditions: Excellent. 1" new snow. 18" snow depth.  All skate lanes groomed. All classic track set again for Sunday morning. Grooming started at 2am and I finished at 5:25am. Now the trail can firm up before 9am when we open. Grooming during the day looks nice, but only softens the trail so each skier can do more damage to a groomers hard work. Trails have been groomed 31 of the last 36 nights.<br>A Discover Wisconsin TV crew was here filming skiing, tubing, igloos, and the famous Afterglow  Polar Dunk yesterday. Next weekend they will be back filming iceskating, hockey, s'mores around the campfire and snowshoeing. Glow in the snow.<br>
-(Pete Moline, <a href="http://www.afterglowresort.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Afterglow Lake Resort</a>)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
-Conditions: Excellent to very good for skate and classic.<br>Interior trails that I skied were again in great shape, very firm and fast, even with the light snowfall from the night before which continued throughout the day.  River Run had been groomed sometime that morning and so the skate lane was very soft.  Plenty of snow.<br>
-(Kirby Schuller)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=575">Three Eagle Trail</a> (Eagle River):</b><br>
-Conditions: Very good.<br>Strided the trail at dusk. There is about 2" of new snow on the trail, but the tracks have been skied in well so it's really more of an issue for skaters. The open area at Mud Creek Bridge is almost completely covered with drifts, the trail is 90% covered in soft snow for a short stretch, but easy to navigate.<br>
-(Dan Mckissack)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
-Conditions: Mighty fine.<br>Classic skied the high school race courses with the Wausau Team and found everything to be in excellent condition.  Had a good 2" and maybe more on the trails that was groomed in well in most, with the exception of Beaver Pond, which made the downhills powdery fun.<br>
-(Ken Schoville)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=363">Washburn Lake Ski Trails</a> (Woodboro):</b><br>
-Conditions: Skate and classical: Perfect.<br>The trails were fast and absolutely pristine today.  No flaws to report.  Firm base with no crust or ice.  New tracks recently set, and the groomers were out combing the skate deck around mid-afternoon.<br>
-(Joseph Bednarowski)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=145">Razorback Ridges Trail</a> (Sayner):</b><br>
-Conditions: Excellent.<br>Freshly groomed and  in great shape.<br>
-(Chris Morris)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=572">Madeline Lake Trail</a> (Arbor Vitae):</b><br>
-Trail was groomed today and in excellent condition.<br>
-(Julie Brooks)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=569">Escanaba Trail </a> (Boulder Junction):</b><br>
-Conditions: Good to very good conditions.<br>Leveled and groomed this morning.  1.5 inches last night another inch of lake snow arriving now so trails around this area should be in prime condition.  About 14-15 inches of snow in the woods.  Very scenic with new snow settling on the pines.<br>
-(Dan Jacoby, Wisconsin DNR)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=447">Raven Trails</a> (Woodruff):</b><br>
-Conditions: Very good.<br>All loops tracked.<br>
-(Tony Martinez, Wisconsin DNR)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=570">McNaughton Lake Trail</a> (Lake Tomahawk):</b><br>
-Conditions: Very good.<br>Skaters loop groomed.  All other loops tracked.<br>
-(Tony Martinez, Wisconsin DNR)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=575">Three Eagle Trail</a> (Eagle River):</b><br>
-Conditions: Very good.<br>Strided the trail late this afternoon/early evening. Conditions were very good, excellent glide, although the skate deck seemed on the soft side. The trail looks to have seen a fair amount of activity, but is holding up well.<br>
-(Dan Mckissack)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=127">Anvil National Recreation Trail</a> (Eagle River):</b><br>
-Conditions: Very poor.<br>As already mentioned...No tracking. Very difficult to ski over the bumps and holes. Disapointing for many in the parking lot, including "trees for tomorrow" children.<br>
-(Roger LeBarron)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
-Conditions: From perfect for skate to very good, classic all looked excellent.<br>Fresh grooming on the interior trails I skated, Base Loop, Nose Dive Alley, XC Xpress, Sleigh Ride and Silver strider were perfection.  Virgin cord from last nights grooming had the track nice and firm and very fast.  Yukon, C&D Express and Lake Marie hadn't seen a pass by the groomer for a few days and as such were actually a bit soft in spots but still very good.  Boy it was nice out today.<br>
-(Kirby Schuller)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=127">Anvil National Recreation Trail</a> (Eagle River):</b><br>
-Conditions: Classic - no tracks.<br>Also made the assumption that the trails getting 'done' meant they were tracked.<br>
-(Marina McKissack)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=141">Afterglow Lake Resort</a> (Phelps):</b><br>
-Conditions: Excellent.<br>Perfect skate lane and deep classic tracks exist. For the highest quality skiing, no dogs, no walking and no snowshoeing is allowed on our ski trails. The 8 mile snowshoe trail system is in excellent condition. Snowshoe rentals available. Trails have been groomed 38 times this season. A pine grosbeak landed on my Tidd Tech G2 and I was able to get a photo.<br>
-Photos: <a onClick="reportviewer(45946); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Pete Moline, <a href="http://www.afterglowresort.com" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">Afterglow Lake Resort</a>)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=138">Minocqua Winter Park Nordic Center</a> (Minocqua):</b><br>
-Conditions: Excellent.<br>Bluebird day on crystalline snow. The new snow and warm temps gave way to a nice freeze last evening and a fresh groom, with deep firm classic tracks and fresh corduroy on the skate deck throughout most of the park. Early skiers noticing the difference with reports of firm plants and a fast track relative to midweek. Should only get better all weekend long with the temps dropping.<br>
-(Joel Knutson)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=569">Escanaba Trail </a> (Boulder Junction):</b><br>
-Conditions: Good conditions.<br>Last groomed January 24th after 8 inches of new snow.  Finally good snow to work with.  No more thin spots.  firm track with 14 inches of snow in the woods.  Remember no dogs or snowshoes even if fluffy is a well trained dog or you stay to the side with snowshoes. As groomers we need the snow from tree to tree on the trail surface. We pull the snow in from the sides to level and mix snow types. Snow shoes make pock marks, inconsistent crusty snow, and a very bumpy ride for the groomer.  We have snowshoe trails at North Trout, Fallison and Star Lake Nature trails with plowed lots. <br>
-(Dan Jacoby, Wisconsin DNR)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=447">Raven Trails</a> (Woodruff):</b><br>
-Conditions: Perfect.<br>We went to Raven and were rewarded with a perfect outing.  Firepit was well-stocked, the nuthatches, woodpeckers and chicadees were abundant and the trails were excellent.<br>
-(Larry Cain)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=127">Anvil National Recreation Trail</a> (Eagle River):</b><br>
-Conditions: Trail was groomed but not tracked.<br>Made the assumption that the long-awaited grooming asserted by Jeff would have included tracking so we went to Anvil Thursday only to discover that, although the trail had finally been groomed, no classic track had been established and, predictably, a novice skier was floundering along.  What a shame to have such perfect conditions for skiing and no classic tracks!<br>
-(Larry Cain)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=570">McNaughton Lake Trail</a> (Lake Tomahawk):</b><br>
-Conditions: Very good.<br>Skaters loop groomed.  All other loops tracked.<br>
-(Tony Martinez, Wisconsin DNR)
-
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Wausau area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=44.959&textField2=-89.63&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
 <li>
 <img src="../images/new.gif">
+<b>Feb 13 - <a href="traildetail.asp?Id=148">Nine Mile County Forest Recreation Area</a> (Wausau):</b><br>
+Conditions: Excellent!<br>Skating was very fast!  You can tell there's an icy layer underneath but the couple of inches on top, combined with some expert grooming made it very good skiing.  Very fast and skis gripped well.  Classic track had only a few dark spots but mostly in areas that don't get heavy snow cover due to tree canopy.<br>
+(Dawn Sillars)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 13 - <a href="traildetail.asp?Id=357">Standing Rocks Park</a> (Stevens Point):</b><br>
+
+Conditions: Fair to poor.<br>Variable conditions from fairly good coverage to icy conditions to bare ground. Still, it was much better than expected. Some hills are very icy with bare spots.<br>
+(Jim Sniadajewski)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 13 - <a href="traildetail.asp?Id=148">Nine Mile County Forest Recreation Area</a> (Wausau):</b><br>
+Conditions: Classic was very good considering.<br>Strided 20K Loop and overall was very good considering thin snowcover. Thanks to groomers! Track was washed out in few areas and C segment cover was patchy, but skiable and very enjoyably fast.<br>
+(Steve Gantert)
+
+<li>
+<img src="../images/new.gif">
+
+<b>Feb 12 - <a href="traildetail.asp?Id=358">Iola Winter Sports Club Trails</a> (Iola):</b><br>
+As good as can be, a few small spots are grass showing field also, 2 or 3 ice patches on downhills were easy to ski around, the groomers did all they could with what they had to work with, a beautiful day on skis! I hope for some snow this week. Thank the groomers for a super day!<br>
+(Charles Kane)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=148">Nine Mile County Forest Recreation Area</a> (Wausau):</b><br>
+Conditions: A resounding good for skating. The classic track appeared to be in overall good shape with a few washed out areas.<br>I drove up from Madison and was very pleased with the conditions. <br>
+
+The 2 inches of snow from Friday was packed over a solid and smooth base. This provided a very fast ski. The packed powder allowed good control on the downhills.  Sunny skies and mid-twenty temps made for a delightful day at Nine Mile.<br>
+(Ron Fabrizius)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=148">Nine Mile County Forest Recreation Area</a> (Wausau):</b><br>
+Conditions: Very good to excellent for skating.<br>Skate deck was hard but not icy, with good edge on the flats and superb control on the descents. The Alps, which looked dicey last weekend, were a blast today - kicked my butt, though, into the teeth of the nasty north wind.<br>
+(Rick Bie)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=372">Underdown Recreation Area</a> (Irma):</b><br>
+
+Conditions: Fair to good.<br>Two inches of new snow last Thursday over a icy base was groomed on Friday. This has left the track with a icy and abrasive bottom and very soft sidewalls. It was difficult to keep kick wax on and to keep your skis from wandering outside the groomed trail. No wax skis (or maybe klister with hard wax cover) will probably work best.<br>
+(Luke Linnell)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=151">Greenwood Hills Trail</a> (Wausau):</b><br>
+Conditions: Good to fair.<br>JO loop is in good condition.  Other trails are good in spots and fair in other spots.  <br>
+Grooming plans: Will be grooming again Sunday morning.<br>
+(Scott Sann)
+
+<li>
+
+<b>Feb 8 - <a href="traildetail.asp?Id=358">Iola Winter Sports Club Trails</a> (Iola):</b><br>
+Conditions: Variable, but it was skiing.<br>Phil was coaxed into grooming on Tuesday so the xc team had somewhere to train. He has groomed the green trail, mixed conditions, 80% is good, a few icy spots, some dirt mixed with snow, and three bare spots.  I am a skier to the core so it was worth the drive Wednesday night plus the moon coming up was spectacular.  I got to celebrate one of my best friends 50th bday with a ski then some beer and pizza. Ski on - the Birkie is looming on the horizon.<br>
+Grooming plans: Phil was going to make snow Wednesday night but had some issues so he plans to try again tonight.  The first bare spot is in front of the chalet so you need to walk up to the trail head to start.  That is where he hopes to make snow, there is a barn spot by the silo but if you go straight at cut off it can be avoided, the last bare spot is on the flats after the hill going into the s curves.  With snow making Phil is hoping to fill those areas in and have a completed loop for this weekend. <br>
+(Tracy Piontkowski)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=148">Nine Mile County Forest Recreation Area</a> (Wausau):</b><br>
+
+No snow for almost two weeks! Approximately 2" base for skate skiing with fairly good conditions. Tracks are set on trails with variable conditions in wooded vs. open areas.<br>
+(Greg Freix, Wausau/Marathon County Parks)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=148">Nine Mile County Forest Recreation Area</a> (Wausau):</b><br>
+Conditions: Very fast ground ice and hard crusted snow.  Skate lane very good, classic tracks icy.<br>I was out skating around 11 AM.  Groomer had worked most of the trails making the ice nice with much success. I only encountered a few dirty patches, easily avoided. Icy in sunny areas but most areas consisted of very nice ground ice/snow. Very well worth the trip.<br>
+(Tim Corcoran)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=372">Underdown Recreation Area</a> (Irma):</b><br>
+
+Conditions: Very good classic.<br>Skied Red (12k) loop. Track was firm with good coverage except few spots under hemlocks. Good grip with Swix Violet. Thanks to groomers!<br>
+(Steve Gantert)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=148">Nine Mile County Forest Recreation Area</a> (Wausau):</b><br>
+Conditions: Skate and classic: good, considering.<br>40+ degrees for the second day in a row meant plenty of ice and slush depending on sun or shade.  Considering the Badger State Games races gave all the trails heavy use on Saturday, things were in pretty good shape.  Still full coverage except for loop C, which was very patchy.<br>
+(Joseph Bednarowski)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=357">Standing Rocks Park</a> (Stevens Point):</b><br>
+
 Conditions: Poor, lodge closed.<br>Non-skiing report: There is snow, but a walk out onto the trail Saturday afternoon showed water in the low spots, dirt and leaves to ski around and with as wet as the snow was, skiing late in the afternoon or evening would be dicing as the snow "ices" as it cools.<br>
 (Mike Brady)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=148">Nine Mile County Forest Recreation Area</a> (Wausau):</b><br>
 Conditions: Fantastic!<br>Great conditions for all the Badger State Game races today.  Could have used your best skis.  Great firm track even with temperatures reaching the mid 40s by the afternoon.<br>
 (Garrett Ping)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=151">Greenwood Hills Trail</a> (Wausau):</b><br>
+
 Conditions: Great/poor.<br>Junior Olympic 1.0 K loop is great.  Rest of trails poor.  Grooming today and tomorrow.<br>
 (Scott Sann)
 
@@ -2222,143 +1959,41 @@ Expect firm conditions in the morning, softening through the day. Downhills will
 Note - course change for 43 km. Leo's Loop is out. Instead, there will be three laps around the final 7 km - my favorite part of the course. Have fun tomorrow!<br>
 (John McCarthy)
 
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=151">Greenwood Hills Trail</a> (Wausau):</b><br>
-Conditions: Icy.<br>The majority is pretty iced up...but with the conditions we've been having we are lucky to even have snow!<br>
-(Dawn Sillars)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=148">Nine Mile County Forest Recreation Area</a> (Wausau):</b><br>
-Conditions: Skate conditions very good.<br>Snow has been brought in to mend a few trouble areas. The surface should groom up nicely with a very hard base, expect fast conditions but not icy and no bare spots. <br>
-(Perry Dau)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=151">Greenwood Hills Trail</a> (Wausau):</b><br>
-Conditions: Good to poor.<br>Junior Olympic loop is good and groomed today.  Rest of trails are hit and miss.  We could use more snow again.<br>
-(Scott Sann)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=358">Iola Winter Sports Club Trails</a> (Iola):</b><br>
-Conditions: Boilerplate.<br>We tried skiing Wednesday night, should have listened to Phils message about going biking instead, did one green loop and abandoned our efforts, wishing for skis with metal edges.  The base is very thin and not much to work with. There were a few people out taking advantage of shallow tracks to do some double poling but in the dark the occasional bare spot was interesting to say the least.  We talked with Phil and he said until this warm spell is over he doesn't have plans to groom. Looks as if we will continue to allocate our ski budget to travel instead of new equipment.<br>
-(Tracy Piontkowski)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=148">Nine Mile County Forest Recreation Area</a> (Wausau):</b><br>
-Conditions: Very good.<br>Update for the Badger State Games, just got done going over the trails and am happy to report that there is a 2 inch base over most of the trail, work is being done on the few thin spots and it looks like we should have a complete set of races for Saturday.<br>
-(Ron Roloff)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=148">Nine Mile County Forest Recreation Area</a> (Wausau):</b><br>
-Conditions: Held up very well after a warm day.<br>I had a blast skiing this afternoon. The snow was freezing up well after a warm day.<br>
-(Perry Dau)
-
-<li>
-<b>Jan 30 - Inshalla golf course (Tomahawk):</b><br>
-Not groomed but skiable. Looks like there were plenty of people who enjoyed the trail over the weekend since under the fluff I could see the indentations of poles, dogs, and snowshoers! Although not groomed I used my good classic skis and did well. open areas of course are blown over with deeper snow, but only makes it more adventerous!<br>
-(Lilly Lee)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=151">Greenwood Hills Trail</a> (Wausau):</b><br>
-Conditions: Conditions are very good.<br>100% of trails open to skating.  75% of trails open for traditional/thin in some areas.<br>
-(Scott Sann)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=372">Underdown Recreation Area</a> (Irma):</b><br>
-Conditions: Good to Excellent.<br>Perfect hard wax day. Plenty of snow. Inside trails were a little washed out from weekend users but the outside trails, including the single track cutoffs, were in great shape.<br>
-Photos: <a onClick="reportviewer(46135); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(George Cleveland)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=146">Plover River Ski Trail</a> (Stevens Point):</b><br>
-Conditions: Snow covered and slippery.<br>Generally one shallow skied-in track throughout.  But it turns to hard-pack on any turn or hill, making the normally tame little hills on the system a bit challenging.  Still very scenic for an in-town trail!<br>
-(Bill Fehrenbach)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=357">Standing Rocks Park</a> (Stevens Point):</b><br>
-Conditions: Thin, thin, thin.  Good to fair.<br>Most of the blue trail is still skiable, but there are large (several square feet) thin and dirty areas.  Leaves, needles, twigs and grass.  Once, or twice it was difficult to avoid dirt. Downhills are bumpy, so be careful.  Classical track is set, where appropriate, but also with debris. Leave your Sunday skis at home.  Bring the "B" skis for the experience.<br>
-(Chris Szymonski)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=358">Iola Winter Sports Club Trails</a> (Iola):</b><br>
-Conditions: Snow covered and groomed, some debris spots on hills.  The northern most black loop is still roped off, but the blue and green loops are fine.<br>I skied Iola on Friday and Saturday and it was packed and fast!  Some thin spots but easily avoided.  Phil and Co. were shoveling snow into the bare patches in the fields in preparation for the Norseman Challenge race.  Skate deck is fine, and tracks set for the classic race also.<br>
-(Scott Frazier)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=372">Underdown Recreation Area</a> (Irma):</b><br>
-Conditions: Excellent.<br>Full coverage with no ice now on this great classic layout.  The light dusting of snow since the last grooming has been skied in.<br>
-(Greg Pleski)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=357">Standing Rocks Park</a> (Stevens Point):</b><br>
-Conditions: Good.<br>Skated the blue loop (excluding Red Pine) this afternoon.  Coverage is good in most areas - a few spots with exposed dirt and trail debris that are easy to avoid.  Coverage is thin in the pines on Lodge Loop.  I used "B" skis with no problem.  Trail was groomed yesterday and again today.  They thought the lodge would be open Monday and Tuesday (11:00-4:30), although things could change if it rains.<br>
-(Dan McGlynn)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=148">Nine Mile County Forest Recreation Area</a> (Wausau):</b><br>
-Conditions: Very good.<br>Classic skied the red loop and safely used my good skis.  The sides of the track were a little soft but bottoms were nice and firm.  Worth the drive.<br>
-(Blake Schlaeppi)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=148">Nine Mile County Forest Recreation Area</a> (Wausau):</b><br>
-Conditions: Very good!<br>Nice skate conditions today.  Classic trail isn't has deep as one might want but they were well-set and fast The skiing was great!<br>
-(Paul Matteoni)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=357">Standing Rocks Park</a> (Stevens Point):</b><br>
-Conditions: Full coverage with some ground leaves in places.<br>Skied all the trails except the Red Pine section.  The trails have full coverage except some ground leaves in the gravel pit area.  Some leaves also in spots on the blue trails.  Overall not bad for the little bit of snow they have.<br>
-(Diane Gustin)
-
-<li>
-<b>Jan 26 - Inshalla Golf Course (Tomahawk):</b><br>
-Perfect! Welcome skiers to Inshalla! I discovered that Inshalla golf course is now grooming xc ski trails and is open to the public for free! It is a beautiful trail system that one can enjoy with family friends and fido! They do  not have a donation box but if you do go and really like the skiing send them a donation via mail, they really deserve it for offering this gem to the public!<br>
-Photos: <a onClick="reportviewer(45902); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Lilly Lee)
-
               </font>
+
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Green Bay area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=44.519&textField2=-88.02&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
 <li>
-<b>Jan 31 - <a href="traildetail.asp?Id=590">Bridgewood Resort</a> (Neenah):</b><br>
-Trail is closed until further notice.<br>
-(Greg Hollub)
+<b>Feb 11 - <a href="traildetail.asp?Id=350">Reforestation Camp</a> (Green Bay):</b><br>
+
+Conditions: Darn good skate skiing.  Tracks not set for striding.<br>Cold weather Friday night plus grooming efforts made for some pretty good skating today. Some exposed spots but I was comfortable using good skis. Please contact my attorney iif you don't agree with my assessment.<br>
+(Gary Machlett)
 
 <li>
-<b>Jan 30 - <a href="traildetail.asp?Id=590">Bridgewood Resort</a> (Neenah):</b><br>
-Conditions: Fair to poor.<br>Skied Monday night.  Trails are icy and more bare spots emerging.  Considering we have only had a couple of inches of snow this year, trails are ski able. Bring rock skis!<br>
-(Tom Oehler)
+<b>Feb 11 - <a href="traildetail.asp?Id=470">Navarino Wildlife Area</a> (Shiocton):</b><br>
+After a melt and loss of snow in January, we received 3-4" of snow on Friday.  Trails near the nature center are being prepared, trails to the north in the open are not being groomed due to wind swept areas of no snow.<br>
+Grooming plans: Forest trails are being packed today at Navarino.  Tracks will be set depending on snow depth.<br>
+(Tim Ewing)
 
 <li>
-<b>Jan 29 - <a href="traildetail.asp?Id=350">Reforestation Camp</a> (Green Bay):</b><br>
-Conditions: 1-2" of packed powder over icy base. Full coverage, modest debris, too shallow for tracks.<br>The shelter was open and the trails pretty fast with temps in the teens. Buckets of skiers out with over 35 vehicles parked at 3pm. Call it 80% good skiing, 100% fun in the sun.<br>
-Photos: <a onClick="reportviewer(46101); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Mark Ernst, <a href="http://www.incompetition.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">In Competition Sports</a>)
+<b>Feb 10 - <a href="traildetail.asp?Id=350">Reforestation Camp</a> (Green Bay):</b><br>
+
+Conditions: Fair.<br>3-4 inches new snow today. Soft and slow. Full coverage but ice underneath. Maybe will set up overnight.<br>
+(Marc Anderson)
 
 <li>
-<b>Jan 29 - <a href="traildetail.asp?Id=590">Bridgewood Resort</a> (Neenah):</b><br>
-Conditions: Good to very good.<br>Conditions continue to get better and better. Trails are packed solid with a good base. Only a few spots of grass to look out for and a few rocks near the hotel.   Great conditions considering the lack of snow.<br>
-(Mike Mundl )
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=380">Barkhausen Waterfowl Preserve</a> (Green Bay):</b><br>
-Conditions: 27F, 2" new snow over crust, icy base.<br>The trails were rolled. We don't have enough snow for tracks yet. Barkhausen is normally classic only but there were a few skate tracks with no ill effects as there are no tracks. Trail walkers abound here, I find taking their photo a non-confront-able way to discourage their trail wreckin' ways.<br>
-(Mark Ernst, <a href="http://www.incompetition.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">In Competition Sports</a>)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=350">Reforestation Camp</a> (Green Bay):</b><br>
-Conditions: Hard pack base, couple of inches of new snow.<br>At 8am guys were out grooming trails. Good skating deck through the  trail system. Full snow cover with some icy spots. Shelter was also open.<br>
-(Mike Fahrbach)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=590">Bridgewood Resort</a> (Neenah):</b><br>
-Freshly groomed.  2" fresh snow.  A few lingering icy spots.  The trail was just rolled.<br>
+<b>Feb 10 - <a href="traildetail.asp?Id=590">Bridgewood Resort</a> (Neenah):</b><br>
+Conditions: The trails will remain closed.<br>Fresh snow, not enough with windy conditions.  Tried to groom, doing damage to golf course.<br>
 (Greg Hollub)
 
               </font>
             </ul>
+
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Door County area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=44.85&textField2=-86.8&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
 <li>
-<b>Feb 2 - <a href="traildetail.asp?Id=514">Whitefish Dunes State Park</a> (Sturgeon Bay):</b><br>
-Conditions: Poor.<br>Trails last groomed Monday, Jan 30.  Since then there has been considerable melting during the day and freezing freezing overnight, resulting in mostly ice, with some snow and quite a few bare spots.  Skiing is not recommended at this time.<br>
+<b>Feb 10 - <a href="traildetail.asp?Id=514">Whitefish Dunes State Park</a> (Sturgeon Bay):</b><br>
+Conditions: Poor.<br>Portions of the Red Trail were rolled after approx. 2" of moderately fluffy snow Friday morning.  The base has numerous areas where glare ice is just below the surface.  Skiing is not advised until more snow covers the base. When hiking on non-ski trails, caution is also advised because of the ice under the new snow.<br>
+
 (Rich Dirks)
 
               </font>
@@ -2366,377 +2001,386 @@ Conditions: Poor.<br>Trails last groomed Monday, Jan 30.  Since then there has b
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Other locations</b>            <ul>              <font size="-1"> 
 <li>
 <img src="../images/new.gif">
+<b>Feb 13 - <a href="traildetail.asp?Id=352">Lakewood XC Ski Trails</a> (Lakewood):</b><br>
+There are now classic tracks in Lakewood.  They were set with the Tidd Tech and are shallow in spots.  Also there are some bare spots on south facing hills.<br>
+
+(Fred Axelrod)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=352">Lakewood XC Ski Trails</a> (Lakewood):</b><br>
+Conditions: Good skate skiing.  No classic tracks.<br>We skied mid-day Saturday.  Full coverage, soft and variable conditions across the width of the skate deck.  Worth skiing.<br>
+(Bob Warp)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=556">Governor Thompson State Park</a> (Crivitz):</b><br>
+
+Conditions: Range from poor to good. No classic track set.<br>We packed and rolled the new snow that fell yesterday.  Still not enough out there for a consistent classic track.  Some areas are quite thin and others are great for skating.  <br>
+(Maggie Kailhofer)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=376">Lauterman National Recreation Trail</a> (Florence):</b><br>
+Conditions: Good.<br>2" of new snow with deep tracks from grooming a week ago made for a nice ski. Plenty of speed on solid surface underneath.<br>
+(Dan Hinch)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=352">Lakewood XC Ski Trails</a> (Lakewood):</b><br>
+
+3" of new snow received this morning.  The entire trail was rolled with the snowmobile today.  No tracks were set.  There are some tufts of grass showing through the snow on a few south facing slopes.<br>
+(Fred Axelrod)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=568">Spring Rapids Trail</a> (Crivitz):</b><br>
+Conditions: Varying from poor to good - classical. Good - skating.<br>The trail received several inches of unpredicted but welcome snow overnight.  The entire system has been groomed, and classic tracks have been set on the Riverside and Aspen Ridge trail, but couldn't be set on the Big Oak because the snow was too thin.  Underneath this new snow is a lot of ice, be very careful on some of the downhills!<br>
+(Sara Pearson, Wisconsin DNR)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=352">Lakewood XC Ski Trails</a> (Lakewood):</b><br>
+
+Conditions: 2"-3" of new snow and still snowing at 7am.  <br>Grooming plans: We will be out grooming today when the snow stops.  There is a base of boilerplate under the new snow. There were a few bare spots particularly on south facing hills.<br>
+(Fred Axelrod)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=376">Lauterman National Recreation Trail</a> (Florence):</b><br>
 Conditions: Very good.<br>A very nice crowd for the annual Chili Ski-in! Thanks to all FS staff and volunteers. Good to see new and old friends.<br>
 (Dan Hinch)
 
 <li>
 <b>Feb 3 - <a href="traildetail.asp?Id=352">Lakewood XC Ski Trails</a> (Lakewood):</b><br>
+
 Conditions: The trail was rolled and combed yesterday with the snowmobile.  There are no set tracks.   A few small bare spots are beginning to show.  There are some moguls and  uneveness which can challenge your balance.  Conditions are packed powder.<br>Because of the occasional bare spot I would recommend B skis.  However the trail is very skiable and fast if you catch it before it warms up later in the day.<br>
 (Fred Axelrod)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=556">Governor Thompson State Park</a> (Crivitz):</b><br>
-Conditions: Skiable!  Poor to Good.<br>After this mornings snow was rolled into the trail-we have skiing!  Sorry, no classic track yet, but the trails are definitely skiable.  Some vegetation stubble still showing through in places, but nothing you can't ski around.  Trails are still uneven in places and will be until we get more snow to fill in the dips.<br>
-(Maggie Kailhofer)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=352">Lakewood XC Ski Trails</a> (Lakewood):</b><br>
-Conditions: Good.<br>The entire trail was snow covered not icy with some stubble and some bumpy spots. The trail took a little toil on the southern exposure today, but was still good at the end of the day.<br>
-(Tom Meyer)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=352">Lakewood XC Ski Trails</a> (Lakewood):</b><br>
-Conditions: Full coverage, groomed for skating only, no classic tracks yet.<br>I skied the entire trail today, except for the shortcuts. Everything has good snow coverage including the south facing hills. Golf course loop and the loop on the far northeast end of the course were the best. Some of the  sections in between those had uneven or soft spots, but overall pretty nice. <br>
-(Dan Statz)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=376">Lauterman National Recreation Trail</a> (Florence):</b><br>
-Conditions: Very good.<br>Freshly groomed trails from yesterday; thank you Larry! A little soft as I was the first one on it but sure nice to have snow.<br>
-(Dan Hinch)
 
               </font>
             </ul>
             <P>&nbsp;<p>
             <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/sw-wi.gif" hspace="6" border=0><font size=+1><b>Wisconsin Southwest</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
               </font>
+
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>La Crosse area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=43.801&textField2=-91.239&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
 <li>
-<img src="../images/new.gif">
+<b>Feb 7 - <a href="traildetail.asp?Id=426">Coulee Experimental State Forest</a> (Bangor):</b><br>
+
+This had snow on it, which is more than most places around here.  It was super icy and I fell from getting in grooves.  There were bare patches as well.  On a warm day it might be worth going out for some spring skiing, but while icy, it might not be worth it.<br>
+(Anna DeMers)
+
+<li>
 <b>Feb 5 - <a href="traildetail.asp?Id=549">Drugan's Golf Course</a> (Holmen):</b><br>
 Crust cruising.  Skiable, but we lost a lot since yesterday. <br>
 (Scott Cooper)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=549">Drugan's Golf Course</a> (Holmen):</b><br>
+
 Conditions: Magic crust skiing, 3-4K's of skiable crust.<br>Had a blast skiing on the scarce remaining south west Wisconsin snow.<br>
 (Jack Zabrowski)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=134">Hixon Forest</a> (La Crosse):</b><br>
 Conditions: Very poor.<br>Went crust skiing on the golf course before temperatures rose above freezing. Old man winter came late, then has decided to take over a week off. Golf course is best area to find crust, but will challenge your balance as you glide over bare spots and hikers craters. I might get one more ski in tomorrow if the thin layer isn't melted by then. Otherwise, use rollerskis or get on back on the nordic track (or go up north).<br>
 (Brian Vamstad)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=549">Drugan's Golf Course</a> (Holmen):</b><br>
+
 Good crust cruising.<br>
 (Scott Cooper)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=549">Drugan's Golf Course</a> (Holmen):</b><br>
-Conditions: Skiable, no tracks set, some bare spots. Soft in areas, crusty in others.<br>Most of the groomed trail is still there, but someone has been walking their dog on it.<br>
-(Scott Cooper)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=549">Drugan's Golf Course</a> (Holmen):</b><br>
-Conditions: Groomed for skating, a few bare spots.  No track set.<br>You know it is going to be a bad day when you are skiing in the morning with a headlamp and it is already 40 degrees.  Skiing was OK with the no-wax classicals.<br>
-(Scott Cooper)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=549">Drugan's Golf Course</a> (Holmen):</b><br>
-Trail had been groomed for skating, no tracks for classic set.  Recent warmth left an icy crust and several bare spots.<br>
-(Kevin Drewiske)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=134">Hixon Forest</a> (La Crosse):</b><br>
-Conditions: Hardpan. Classic tracks were set a few days ago, but are deteriorating.<br>I scarified the woods and the golf course trail to Main Street.  The trail is pretty hard, but skiable.<br>
-(Scott Cooper)
-
-<li>
-<b>Jan 26 - Viroqua Hills Golf Course (Viroqua):</b><br>
-Soft and a new bare spots. Its skiable snow though. Bring the B-skis / rock skis.<br>
-(Eric Weidman)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=134">Hixon Forest</a> (La Crosse):</b><br>
-Conditions: Groomed for skating and classical.  Good coverage, just a few dirt spots on some of the hills.<br>Great job grooming Roger and Fred.<br>
-(Scott Cooper)
-
-              </font>
-            </ul>
-                &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Tomah area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=43.979&textField2=-90.504&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=316">Black River Falls State Forest</a> (Millston):</b><br>
-Conditions: Skate and classic track set on Wildcat.  Crusty base with half inch of fresh.<br>Wonderful day on the trail.  Wildcat was very fast.  One other person had skied it the day before otherwise I was the first to classic ski it.  Not a soul around.  I had the place to myself.  I expect that the trail will deteriorate fast with the warm weather.  The base is minimal but still plenty of cover.<br>
-(Steve Horn)
 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Other locations</b>            <ul>              <font size="-1"> 
 <li>
-<b>Feb 1 - <a href="traildetail.asp?Id=140">Levis/Trow Mound Trail</a> (Neillsville):</b><br>
-Conditions: Fair.<br>We arrived early and the trails were icy and softening as the temps warmed.  We skate skied.  Dirt spots but you can ski around them.  Really fast conditions at 9 AM.  <br>
-(Steve Beezley)
+<b>Feb 7 - <a href="traildetail.asp?Id=140">Levis/Trow Mound Trail</a> (Neillsville):</b><br>
+
+Conditions: Poor to barely okay.<br>I skied Test Track and Bad Bear, but decided not to try the icy, partially covered trails with hills.  There are many bare spots on the trails, but one can find sections with good snow cover. However, it is all crusted and icy.  There is still some classical track left.<br>
+(Jim Mohr)
 
 <li>
-<b>Jan 28 - <a href="traildetail.asp?Id=140">Levis/Trow Mound Trail</a> (Neillsville):</b><br>
-Conditions: Pretty darn good as posted in the chalet.<br>Started at 11:00 and Gil was grooming.  Skating was really great, could see a new track was being set so came back for that later. Boy scout weekend and a lot of skiers enjoying near perfect conditions!<br>
-(Mark Sproul)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=140">Levis/Trow Mound Trail</a> (Neillsville):</b><br>
-Conditions: Very good, excellent, best of the season.<br>Both classic and skate really good. 38 degrees when I started today so classic skied with waxless crowns. Great kick and glide in a nice glazed track. A couple thin spots but not a problem! After reading groomer Steve's blog about the wolfs & fresh kill had to go and see for myself.  Right from the start near the chalet two nice set of tracks one set big! <br>
-(Mark Sproul)
+<b>Feb 4 - <a href="traildetail.asp?Id=140">Levis/Trow Mound Trail</a> (Neillsville):</b><br>
+Conditions: Fair to poor.<br>Given the warm weather, having anything to ski on is better than nothing.  That said, the conditions at the mound were a far cry from ideal. East and north sides were mostly icy; south and especially west were either slushy or just worn down to the brown ground.  A decent day for skate skiing on my old waxless skis.  Frankly, this area is so pretty, any excuse to be out there in winter is worthwhile.  $8 day use fee, as it's a county park.<br>
+(Timothy Bauer)
 
               </font>
             </ul>
+
             <P>&nbsp;<p>
             <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/se-wi.gif" hspace="6" border=0><font size=+1><b>Wisconsin Southeast</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Sheboygan area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=43.751&textField2=-87.714&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=362">Greenbush Ski Trails</a> (Greenbush):</b><br>
-Conditions: Icy.<br>Plenty of ice, little snow to edge.<br>
-(Lynne Dzuba)
 
 <li>
-<b>Jan 29 - <a href="traildetail.asp?Id=362">Greenbush Ski Trails</a> (Greenbush):</b><br>
-Conditions: 1-2" hard packed base with ice underneath.  Some thin spots here and there.  Very little debris, but a rock here and there.<br>Very nice day at Greenbush.  The woods help break the wind.  Best trails were purple-green-purple (very good), brown (excellent) and the SW purple up to the overlook (very good).  The south marsh area was rough in spots.  Still recommend rock or B skis.<br>
+<img src="../images/new.gif">
+<b>Feb 13 - <a href="traildetail.asp?Id=362">Greenbush Ski Trails</a> (Greenbush):</b><br>
+Pretty good for skating.  I did the green trail, then cut over to the purple and then a brown.  The snow coverage was pretty good with some icy areas and a few spots with dirt showing.  There was also a bit of debris on the trail. Not the best but at least it is skiable.<br>
+(Jim Van Akkeren)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=379">Zillmer Ski Trails</a> (Campbellsport):</b><br>
+
+Conditions: OK.<br>Sunday afternoon I would have given a B grade.  Conditions deteriorated to a grade C.  Starting to snow now...<br>
+(Kevin Schmitt)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=362">Greenbush Ski Trails</a> (Greenbush):</b><br>
+Conditions: 1-1.5" hard packed trail over ice.  Rock skis only!<br>Skied from 3-6pm today and conditions were much better than I expected. Jeff did a great job grooming and the snow adhered to the ice very nice. The back green (after the green-purple cutoff) is in poor shape until the big hill. You can also ski to the overlook, but like Jeff said, I wouldn't venture down to the south marsh (just ski back and take the green downhill cutoff which is in very good shape). Overall grade A, grooming A+.<br>
 (Matthew Stanke)
 
 <li>
-<b>Jan 29 - <a href="traildetail.asp?Id=379">Zillmer Ski Trails</a> (Campbellsport):</b><br>
-Best ski conditions of the season and what a gorgeous day!<br>
-(Paul Poblocki)
+<img src="../images/new.gif">
+
+<b>Feb 12 - <a href="traildetail.asp?Id=379">Zillmer Ski Trails</a> (Campbellsport):</b><br>
+Conditions: Thin hard pack 1-1+" base over ice, with emerging bare spots.  Rock skis only!<br>Skied from 11-2:30pm today.  Most of the trails were good, but several trouble spots included sections on the first .5 mile loop (in the pines) and a few sections on the red.  SW yellow pass the west red was the best.  Sun did a number on the emerging bare spots today.  Overall grade B.<br>
+(Matthew Stanke)
 
 <li>
-<b>Jan 28 - <a href="traildetail.asp?Id=362">Greenbush Ski Trails</a> (Greenbush):</b><br>
-Conditions: Very Good, considering what the groomers had to work with.<br>I give those who groomed these trails an A+.  I skied with older skis but could have used my newer racing skis.  The light snow that came last night along with a solid base made skiing enjoyable.  There were spots where the coverage was thin, but the groomers did such a good job by not only preserving the trail base but providing room to ski around these spots.  The bottom line is I had a good time.<br>
-(Ken Spiegelberg)
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=379">Zillmer Ski Trails</a> (Campbellsport):</b><br>
+Conditions: Skiable - worth the trip.<br>As of Sunday afternoon the trails were quite skiable.  Rock skis recommended, or "B" skis if you are very careful.  Much of the trail system (90%) is fine - thin, but the new snow adhered to the ice quite well.  In the remaining areas the sun has melted the snow to grass, or in a few places wood chips or rocks.  Watch out on the Yellow Loop coming down the big hill after the Ice Age Center.  Otherwise fairly fast and infinitely more fun than the Gerbil Wheel  :)  Overall, much better than expected and an inch or two of new snow will help a lot.<br>
+
+(Andy Vrakas)
 
 <li>
-<b>Jan 28 - <a href="traildetail.asp?Id=379">Zillmer Ski Trails</a> (Campbellsport):</b><br>
-Conditions: Good coverage for the most part with an occasional bare spot showing through.  Great conditions considering the recent warm weather and lack of snow.<br>Definitely worth the drive from Milwaukee.  I used my rock skis but could have safely used "B" skis.<br>
-(John Peterson)
+<b>Feb 11 - <a href="traildetail.asp?Id=362">Greenbush Ski Trails</a> (Greenbush):</b><br>
+Conditions: Good.<br>The Bush is back! Skied every trail except pink today, and the conditions were good. Most of the trail has sufficient though thin coverage. The 3+ inches of new, dry snow hadn't totally adhered or set up yet, so the surface was uneven and slow. Hill from lower to upper parking has numerous icy spots, so only advanced skiers should go down it. There are a few icy patches at other times, but easily avoided. Very thin where purple comes out of pines and is exposed at far end, as well as just before the downhill to the marsh on purple. Use "b" skis if you have them. Snow plowing on hills will destroy cover and expose ice, so try to avoid hills where you're forced to do that.<br>
+(Charlie Dee)
 
 <li>
-<b>Jan 26 - <a href="traildetail.asp?Id=362">Greenbush Ski Trails</a> (Greenbush):</b><br>
-I skate skied purple-green-purple, red and brown trails Thursday afternoon.  Not bad.  They had a fresh inch of snow on late on Wednesday over groomed hard pack.  At 35 degrees, it was slow in spots, so I got a good workout. <br>
-(Steve Scharrer)
+<b>Feb 11 - <a href="traildetail.asp?Id=379">Zillmer Ski Trails</a> (Campbellsport):</b><br>
+
+Conditions: Fair to good, rolled but not tracked.<br>Just enough snow.  Some thin spots, a couple pieces of gravel on the yellow loop south of the Ice Age Center.  Very few skiers Saturday but the wood stove was heating the warming shelter.<br>
+(Don Schaeffer)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=362">Greenbush Ski Trails</a> (Greenbush):</b><br>
+Greenbush received a record setting 3 inches of snow. All trails have been packed on top of ice. Hopefully it will adhere overnight. We‚Äôll find out in the morning. I would stay away from the marsh on the purple trail. You can ski out to the marsh and come back.<br>
+(Jeff Welsch)
 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Madison area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=43.073&textField2=-89.401&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
 <li>
 <img src="../images/new.gif">
-<b>Feb 4 - <a href="traildetail.asp?Id=366">Blue Mound State Park</a> (Blue Mounds):</b><br>
-Skate skied this morning.  Very good but was deteriorating fast.  Spots of gravel starting to show through in several places and getting very soft.<br>
-(Steve Pitts)
+<b>Feb 12 - <a href="traildetail.asp?Id=366">Blue Mound State Park</a> (Blue Mounds):</b><br>
+Conditions: Fair - decent coverage for skating.<br>Better than expected. Coverage was good throughout Flint Rock and Minix. Easy to get around a few bare spots. Not too icy but hard packed. Definitely recommend rock skis for gravel and debris. Best 1.5k loop is around the campground area. Lunch at the Naked Elm in Blue Mounds topped it off.<br>
+(Finn Ryan)
 
 <li>
-<b>Feb 2 - <a href="traildetail.asp?Id=366">Blue Mound State Park</a> (Blue Mounds):</b><br>
-Conditions: Fair to good.<br>Skied all wooded trails. Classic track solid but about half icy with a few bare spots. Classic outside the tracks was fine. Skating would probably be pretty darn good as overall coverage is good. I would ski it when above freezing or it might be too icy/rutted/dicey. Watch for the 2 small spots of exposed gravel on the John Minix Trails downhill from the swimming pool parking lot. Campground area had the best coverage (100%) and best tracks. Pleasant Valley is melted.<br>
-(Don Fariss)
+<b>Feb 11 - <a href="traildetail.asp?Id=366">Blue Mound State Park</a> (Blue Mounds):</b><br>
 
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=420">Mirror Lake State Park</a> (Baraboo):</b><br>
-Conditions: Poor.<br>I skied fern dell, hastings, and turtleville this morning. Rutted up, bare spots, rocks, icy. If it was groomed in the morning it could be fair, but with all the warm temps coming, not worth wasting the gas.<br>
-(Dave Statz)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=366">Blue Mound State Park</a> (Blue Mounds):</b><br>
-Conditions: Very good.<br>Only skied in campground, but tracks in excellent shape and skate deck firm. 2 to 3 inches deep. Snow not wet. Right now BM is an oasis as the rest of the county melts.<br>
-(Don Fariss)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=371">Elver Park</a> (Madison):</b><br>
-Conditions: Very good.<br>Firm and fast at 10am. Skied all of the West side and the slalom down East which was still very good. The climb and descent of the first hill on West were softening noticeably by 11:15.<br>
-(Robert  Abendroth)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=371">Elver Park</a> (Madison):</b><br>
-Conditions: Good to very good.<br>The new snow made the trails nearly ideal for skating.  There were a few places where the ice below had worn through.  There was still no classic track. The trails should still be good tomorrow morning.<br>
+Conditions: Fair.<br>Most of the trails were in fair condition.  There are several places where gravel is sticking through, most notably on the main outgoing trail from the parking lot.  Some sections were in good shape, especially the campground.  The trail down to the campground has some big bare spots.  It's skiable, but a little risky.  Overall, it was fair and worth the trip.  The blue mound glacier had adhered nicely to the one inch of new snow.  It is worth the trip, but don't use your best skis.<br>
 (Matt Valley)
 
 <li>
-<b>Jan 29 - <a href="traildetail.asp?Id=420">Mirror Lake State Park</a> (Baraboo):</b><br>
-Conditions: Very good.<br>Skated Fern Dell, Turtleville, Hastings and Pinecone Pass.  All heavily used over the weekend but as of Sunday afternoon remained in very good condition.  Skate deck firm and fully covered, a little debris here and there, and some fresh snow overnight.<br>
-(Gene Musser)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=512">Cam-Rock Park</a> (Cambridge):</b><br>
-Conditions: Good classic skiing.<br>An inch or so new snow in well-set tracks made for oil-smooth striding on the old railroad grade between Cambridge and Rockdale.  The skate zone looked smooth, but no one had skied on it.  A half-dozen others were out enjoying the crisp, blue sky day.<br>
-(Phil Van Valkenberg)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=420">Mirror Lake State Park</a> (Baraboo):</b><br>
-Conditions: Very good.<br>Skated Fern Dell and Turtleville Friday afternoon and Saturday morning. A little slow with the warm temps on Friday but the one inch of snow and colder temps on Saturday made for excellent conditions.<br>
-(Mike Wiegel)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=371">Elver Park</a> (Madison):</b><br>
-Conditions: Good.<br>Skiers that like it firm and fast may think it very good. Amazing what a dusting of snow can do. The hills are still icy particularly at the turn and base of the first. Overall much better than Wednesday. More snow should make things better.<br>
-(Robert Abendroth)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=423">Devil's Lake State Park</a> (Baraboo):</b><br>
-Conditions: Fair to good.<br>Steinke Basin was tracked several days ago so it is a bit beat-up.  Great coverage though and almost no debris.<br>
-(Sue Ann)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=366">Blue Mound State Park</a> (Blue Mounds):</b><br>
-Conditions: Excellent.<br>Park has set a deep and firm classical track that is the best Iíve seen anywhere all year.  And Friday night's half inch of powder has collected in the tracks yielding beautiful hard wax conditions. A note of warning: Whoever did the grooming set the tracks down some of the steeper hills. Be sure to get out of the tracks early so you don't get stuck in them.<br>
-Note: Now that they have set tracks, the trails are classic only again.<br>
-(Don Fariss)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=610">Maple Bluff Country Club</a> (Maple Bluff):</b><br>
-Icy, several bare spots in the classic track. The few areas with some fresh snow in the track were fun, though. Skate lane looked fairly icy and bumpy. Some might call these conditions poor, but it beats walking.<br>
-(Jon Beers)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=366">Blue Mound State Park</a> (Blue Mounds):</b><br>
-Conditions: Good, tracked!<br>Finally, groomed tracks. Super fast after last night's dusting. Downhills near the bike trail are hairy as tracks laid most/all of the way down/up the 3 descents but enough snow fell to get grip with one ski out of the track. Descent into campground is wicked fast too!<br>
+<b>Feb 10 - <a href="traildetail.asp?Id=366">Blue Mound State Park</a> (Blue Mounds):</b><br>
+Conditions: Fair.<br>Snowing on the way out and through the first loop. Second loop full sun then snow again upon departure. At least an inch fell on the trails, enough for a novice like me to get an edge on Minx, Willow and Flint. The descent into the campground isn't too bad but the descent from the road to the pool is dicey.  What's a strider to do but be a skater some days.<br>
 (Pedro Sanchez)
 
 <li>
-<b>Jan 28 - <a href="traildetail.asp?Id=552">Lake Kegonsa State Park</a> (Stoughton):</b><br>
-Conditions: Good to excellent.<br>Just got back from Lake K and was high impressed considering the warm temps recently. The system was groomed last night and they did an outstanding job which left a very firm corduroy base. The half inch of new snow received on Friday night also made for excellent skiing, just enough to help keep a stable ski. There were some icy spots in places but you should be able to manage these sections from seeing other skiers tracks. Classic lanes looked good too. "B" skis if you have them just in case.<br>
-(Brant Wesolek)
+<b>Feb 7 - <a href="traildetail.asp?Id=420">Mirror Lake State Park</a> (Baraboo):</b><br>
+
+Conditions: Fair at best.<br>I skied early morning 33F solid ice base with enough crust to get an edge skied Ferndell Hasings and Turtle. Many bare spots, ruts and icy patches-on Turtle, had to remove skis a few times. Hastings was in the best shape - good test of your agility dodging bare spots, etc, but beats the alternative.<br>
+(Dan  Dudley)
 
 <li>
-<b>Jan 27 - <a href="traildetail.asp?Id=371">Elver Park</a> (Madison):</b><br>
-Conditions: Fair.<br>The trails were nearly completely covered and rock hard.  They were mostly ice.  It was very difficult to get an edge.  The downhills were treacherous.  Classic skiing would not be fun.<br>
-(Matt Valley)
+<b>Feb 5 - <a href="traildetail.asp?Id=366">Blue Mound State Park</a> (Blue Mounds):</b><br>
+Conditions: Fair for skating.<br>The wooded trails are still mostly covered. The descent to the camp ground had several bare spots with much exposed gravel. Other wooded trails had some gravel exposed, but nothing too bad. Trails were icy in the morning, but certainly skiable. Amazing that we can still ski near Madison. The Mound continues to amaze.<br>
+(Tom Kaufman)
 
 <li>
-<b>Jan 26 - <a href="traildetail.asp?Id=610">Maple Bluff Country Club</a> (Maple Bluff):</b><br>
-Conditions: Good classic, fair skate.<br>Classic track mostly deep and firm, but very icy. Skate lane rolled well and firm, but damaged. Some bonehead skated the trail when soft, and left ruts. They also sign and pack a walking trail, and most walkers are pretty good about going there, but it only takes one on a warm day to posthole the skate lane. From the depth of the prints, it looks like a gorilla took the Hound of the Baskervilles for a walk. Still pretty good skiing, however. Thanks for the grooming!<br>
-(Pete Anderson)
+<b>Feb 4 - <a href="traildetail.asp?Id=366">Blue Mound State Park</a> (Blue Mounds):</b><br>
+
+Skate skied this morning.  Very good but was deteriorating fast.  Spots of gravel starting to show through in several places and getting very soft.<br>
+(Steve Pitts)
 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Milwaukee area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=43.039&textField2=-87.906&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
 <li>
-<b>Feb 2 - <a href="traildetail.asp?Id=370">Lapham Peak</a> (Delafield):</b><br>
-Conditions: Skied the manmade loop including the big hill section and it was delightful. The glide was very good and it was not icy at 9:30am.  By 11am is was a little soft but still very enjoyable.<br>This was ideal training for the Badger State Games race on Saturday.<br>
-(Don Howell)
+
+<b>Feb 11 - <a href="traildetail.asp?Id=370">Lapham Peak</a> (Delafield):</b><br>
+Conditions: Man-made track in excellent shape.<br>Two sets for classical and a paved path for skaters in excellent shape. Considering it's lit at night, what more can one ask for in this frugal winter?  About 8 other skiers were out there. The loop itself is only 0.9 miles, and gets redundant after a few passes, but still it beats the alternative by a long shot.<br>
+(Timothy Bauer)
 
 <li>
-<b>Feb 1 - <a href="traildetail.asp?Id=370">Lapham Peak</a> (Delafield):</b><br>
-Conditions: Man-made loops only: icy and transformed snow.  Needs tilling and resurfacing by grooming staff.<br>I truly hope we have the coldest and longest winter ever in 2013 with good snowfall!  Then I hope we surpass that in both 2014 and 2015.  Enough said!<br>
-(Matthew Stanke)
+<b>Feb 11 - <a href="traildetail.asp?Id=466">Fox Hill Nordic</a> (West Bend):</b><br>
+Conditions: Poor to pretty decent.<br>Skated outer loops at 11am. Coverage was thin in open areas, but definitely skiable.  Echo Jerry's comments from Friday that rock skis are a good idea.  The snow should settle for better skiing on Sunday, but the thin spots will remain with some tufts of grass grabbing your skis.<br>
+
+(Bob Phelps)
 
 <li>
-<b>Feb 1 - <a href="traildetail.asp?Id=377">Nordic Ski Trail</a> (La Grange):</b><br>
-Conditions: Fair, despite meltdown.<br>I skied the purple loop from 1:30 to 2:30, was surprisingly in ok shape.  There were bare spots, slush puddles and bits of ice here and there, but I was able to skate without taking my skis off.  I was able to maneuver around the bare spots.  Wasn't fast, but I had decent glide for 40 degrees, and I even skied in my bike shorts. The longer loops are not worth trying until more snow arrives.<br>
-(Ed Edinger)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=466">Fox Hill Nordic</a> (West Bend):</b><br>
-Conditions: Poor.<br>Skated this morning. Some sections are still o.k. for sustainable skiing, south side of the first field,the woods to the south of the marsh, truck lane, corkscrew. The east and west loops in the woods are in poor condition. The parking lot is closed, but you can walk in from the north entrance to the lower field.<br>
+<b>Feb 10 - <a href="traildetail.asp?Id=466">Fox Hill Nordic</a> (West Bend):</b><br>
+Grooming plans: Trails were rolled and will be combed in the morning (7-8 a.m. Sat). Recommend rock skis in the woods.<br>
 (Jerry Gensch)
 
 <li>
-<b>Jan 30 - <a href="traildetail.asp?Id=466">Fox Hill Nordic</a> (West Bend):</b><br>
-Conditions: Firm and fast.<br>Skied early Monday morning with trails in great shape.  Jerry was out grooming, like icing on the cake.  I hope it lasts.<br>
-(Matt Smith)
+<b>Feb 9 - <a href="traildetail.asp?Id=370">Lapham Peak</a> (Delafield):</b><br>
+Man-made 1k loop was good for skating at 11am (28 degrees).  It became softer with the sun at 12:30 (31 degrees) but still enjoyable. The steep short hill loop was very mushy and difficult on the climb and I only did it 3 times in my 20 loops,  Striders had tracks but they were icy and disappeared at the top of the long hill.<br>
 
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=370">Lapham Peak</a> (Delafield):</b><br>
-Conditions: Snowmaking loop --  still in good condition on Monday evening.<br>The Lapham "Glacier" is holding up well.  Even though it was 40 degrees on Monday evening, the skating was good and the striding looked fine.  The kids were having a great time on the trails and in the Nordic Playground.<br>
-(John McCarthy)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=377">Nordic Ski Trail</a> (La Grange):</b><br>
-Skating glide good, not icy, packed from Sunday grooming with some loose snow on top.  Good coverage, used good skis. By 11am it started to get soft over 32 degrees but still OK.<br>
 (Don Howell)
 
 <li>
-<b>Jan 30 - <a href="traildetail.asp?Id=370">Lapham Peak</a> (Delafield):</b><br>
-Conditions: Fair to good on lower loops, good to very good on upper loops.<br>Skated both lower and upper loops this morning. Things were better than I expected.  Nearly all of the upper loops were in very good shape with decent snow cover and no ice. Some lower loop areas are a bit iffy but you can ski around them without too much trouble. The final hill of "two tier" is probably the worst. <br>
-(David Schauer)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=466">Fox Hill Nordic</a> (West Bend):</b><br>
-Conditions: Excellent, firm an fast.<br>Skied most of the trails late Sunday afternoon.  Skating conditions are great throughout the system.  Firm but not icy with a little bit of powder on top for good purchase.  Classic trails good considering the amount of snow we have but still pretty good (bare in a few spots).<br>
-(Russ Sobotta)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=510">UW-Parkside Ski Trail</a> (Kenosha):</b><br>
-Conditions: Fair/good.<br>Skated Sunday afternoon. The inch or so new snow helped a lot but could press through to the grass in open areas. Not groomed as of Sunday afternoon.<br>
-(Robert Garner)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=377">Nordic Ski Trail</a> (La Grange):</b><br>
-Conditions: Very good to excellent.<br>Skied entire Blue Loop. Very thin on the last two climbs and some scattered ice patches under trees. Fresh snow really helped as did the grooming. Rolled but not packed and no classical track. Best skating I've had this year.<br>
-(Robert Abendroth)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=377">Nordic Ski Trail</a> (La Grange):</b><br>
-Conditions: Very good.<br>Skated most of the blue loop and had only one bare spot at the top of a hill that was easily avoided. The small amount of snow we had made a huge difference from what the trails were like mid-week. Groomers were out Sunday afternoon.<br>
-(Mike Wiegel)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=510">UW-Parkside Ski Trail</a> (Kenosha):</b><br>
-Conditions: Unskiable.<br>Rain and warm weather have decimated the trails.<br>
-(Robert Garner)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=377">Nordic Ski Trail</a> (La Grange):</b><br>
-Conditions: Snow covered very skiable, only 3 or 4 rough spots,.<br>Great considering,   I did the blue loop, and even had my new 2 week old skis, not a mark on them. Hard base underneath, with a dusting on top.<br>
-(Paul Lemens)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=587">Lac Lawrann Conservancy</a> (West Bend):</b><br>
-Icy with 1" new blowing snow. Base too shallow to regroom now.<br>
-(Bob Broman)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=466">Fox Hill Nordic</a> (West Bend):</b><br>
-Conditions: Fair to good.<br>Warm temps have created a fast and icy track at Fox Hill.  Most of the flats and open spaces still have adequate purchase, but use extra caution on hills.  I would advise rock skis until we get some more snow.<br>
-(Jeff Grotenhuis)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=466">Fox Hill Nordic</a> (West Bend):</b><br>
-Conditions: Parts really good, parts not so much. Crusty throughout.<br>Skied this late afternoon on the lower loops and upper field sections.  Crusty but skiable for the most part but there are some thin sections, especially the bridges.  You can catch a decent edge where the groomer tilled the top layer but the hilly sections were treacherous. Good double-pole workout conditions but not great skiing.  Fortunately good grooming this past week preserved the trail through the difficult weather.<br>
-(Russ Sobotta)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=377">Nordic Ski Trail</a> (La Grange):</b><br>
-Conditions: Thin but skiable.<br>Very thin and icy. Only skied the purple and was able to get an edge most of the time. They started dragging the trails at 10am. It got better at the temp rose. They are all set for the candle light ski/hike Saturday night. Ski while the snow lasts.<br>
-(Doug Gillaspie)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=370">Lapham Peak</a> (Delafield):</b><br>
-Conditions: Slow but full coverage.<br>Skated Thursday night around 8 for 1 hour. 34 degrees at the Delafield exit ramp and 42 degrees at the parking lot, weird.  Very slow and I felt like I was fighting my skis the whole way. I'm not sure if any wax recipe would have helped, everyone looked slow. Good workout and at least we have something.<br>
-(Danny Crawford)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=377">Nordic Ski Trail</a> (La Grange):</b><br>
-Conditions: 1-2 inch base, slowly deteriorating due to upper 30's.<br>I skied from 3:30 to 5:30, and with the warmer temps it was soft and sticky in areas.  Got a bit better when the temp dropped a few degrees.  I saw more bare spots, although they are easily maneuverable, the up hills are getting thin, but ok overall. <br>
+<b>Feb 9 - <a href="traildetail.asp?Id=370">Lapham Peak</a> (Delafield):</b><br>
+Conditions: Hard pack mostly, slick and fast.<br>I skied for 3 hours in late afternoon/evening, and trail was slick, although I could get an edge most of the time by picking the right line.  They groomed it at 6, and that helped a lot.  The upper portion of man-made loop was softer and sugary, but great skiing nonetheless.  Thank you Lapham peak for making snow!<br>
 (Ed Edinger)
 
 <li>
-<b>Jan 26 - <a href="traildetail.asp?Id=466">Fox Hill Nordic</a> (West Bend):</b><br>
-Conditions: Excellent.<br>Early morning ski through the entire system found a freshly groomed skate lane.  Wednesday's surprise snowfall provided consistent purchase over the hardened base.<br>
-(Jeff Grotenhuis)
+<b>Feb 6 - <a href="traildetail.asp?Id=370">Lapham Peak</a> (Delafield):</b><br>
+
+Conditions: Man-made snow loop  --  mutated "snow" on an ice base.  Generally in good condition for skating.  Track needs work.<br>The man-made snow loop was mostly good Monday night for the Peak Nordic Kids program and other skiers.  The only trouble spot is about 100 meters up the start hill, where there's not enough loose "snow" on top of the icy base.  Other portions of the loop have a layer of loose snow that makes for fun, fast skating.  There is a track around most of the loop. <br>
+(John McCarthy)
 
 <li>
-<b>Jan 26 - <a href="traildetail.asp?Id=377">Nordic Ski Trail</a> (La Grange):</b><br>
-The conditions are fine.  There is 100% coverage throughout with literally a couple rocks to watch for.  A hard/icy base is holding nicely and some areas have a nice fluff/broken icy layer on top of it.  <br>
-(Doug Bailey)
+<b>Feb 5 - <a href="traildetail.asp?Id=370">Lapham Peak</a> (Delafield):</b><br>
+Conditions: Good conditions with 8-16" base.  Firm in the morning turning to somewhat sugary in the afternoon.<br>Very nice morning at Lapham.  Best skiing was from 9-noon when the snow started to soften just a bit and before temps rose in the upper 30's.  Thank you park/grooming staff! <br>
+(Matthew Stanke)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=370">Lapham Peak</a> (Delafield):</b><br>
+
+Lapham was perfect this morning. Somehow the groomers turned the slush from yesterday into super fast hard pack. Thank goodness for the snowmaking. It's the only way we're going to get ready for the Birkie. If you haven't donated yet, please consider helping out.<br>
+(Jim Michler)
 
               </font>
             </ul>
             <P>&nbsp;<p>
             <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/up-mi.gif" hspace="6" border=0><font size=+1><b>Michigan Upper Peninsula</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
               </font>
+
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Ironwood area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=46.455&textField2=-90.171&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
 <li>
 <img src="../images/new.gif">
+<b>Feb 13 - <a href="traildetail.asp?Id=517">Miljes Ski Trails</a> (Wakefield):</b><br>
+
+Conditions: Excellent.  Overcast, mid 20's.<br>This is classic only system--nicely groomed through a pretty mixed forest.  Excellent glide today--could often maintain good speed just double poling.  Worth coming to just to see the warming house--the most elaborate we have ever seen!<br>
+(David Henning)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 13 - <a href="traildetail.asp?Id=302">Wolverine Ski Trail</a> (Ironwood):</b><br>
+Conditions: Mint conditions. Groomers completed grooming this morning with a fresh skate lane. Track set still great. The day started out with bright sunshine and then some clouds rolled in. Temps in mid 20's.<br>Skiing is awesome.<br>
+(Deborah Leonard)
+
+<li>
+<img src="../images/new.gif">
+
+<b>Feb 12 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
+Conditions: Wonderful.<br>We had expected it to be quite cold with the wind chills predicted for the day, but the sun was out and we went out overdressed. The trails were in great shape and we thought they were the best shape of the season. We classic skied the whole day and all the hills were very doable. Another great day to be out skiing.<br>
+(Kevin Hillegas)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
+Conditions: Supreme.<br>My first trip to Ironwood. Three days in heaven on classic track. These guys should get a grammy for beautiful music. Thanks to our friends who showed us this piece of u.P.<br>
+
+(Mark Mellstrom)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
+Conditions: Excellent conditions for skating and classic!!<br>We had another great day on the ABR Trails.  This place is something special.  They're really committed to providing an outstanding cross country skiing experience with their variety of trails and excellent grooming!<br>
+Photos: <a onClick="reportviewer(46654); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Bill Lundberg)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=302">Wolverine Ski Trail</a> (Ironwood):</b><br>
+
+Conditions: Perfect classic tracks and skating deck!!<br>It was one of those days when everything aligned--clear blue sky, bright sunshine, excellent grooming, and 12 degrees.  The volunteer groomers do a fantastic job at Wolverine!  The trails have a great flow to them with beautiful scenery as a bonus.<br>
+Photos: <a onClick="reportviewer(46619); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Bill Lundberg)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=302">Wolverine Ski Trail</a> (Ironwood):</b><br>
+I have lived here 30 years (and traveled worldwide) and this season's mild temperatures (and good snow), combined with the exceptional grooming have created the best skiing I can remember any time or anywhere. Thank you Wolverine Piston Bully Jockeys!<br>
+(Greyson Morrow)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=517">Miljes Ski Trails</a> (Wakefield):</b><br>
+
+Conditions: We feel a little redundant saying this, but trails are in excellent condition!<br>We received 4-5 inches of new snow on Friday.  The trails are freshly groomed and track as of Saturday morning.  The warming house is cozy and warm with fresh snacks.  Thanks to those who donate!  Get out and enjoy phenomenal Nordic skiing condition at Milje's!  Ski you there.<br>
+(Greg Miljevich)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
+Conditions: New snow -- 4 inches and a freshly groomed trail.<br>The trails were in great shape today -- a little slow with the cold temps and new snow, but really enjoyable.  They just do an excellent job grooming their trails at ABR!<br>
+Photos: <a onClick="reportviewer(46577); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Bill Lundberg)
+
+<li>
+
+<b>Feb 10 - <a href="traildetail.asp?Id=302">Wolverine Ski Trail</a> (Ironwood):</b><br>
+Grooming plans: Groomers out early this morning to the 4" of fresh dry snow. All newly track set and new skate lanes. Lake affect snow off and on. Ideal conditions all around for those training and recreating. This is going to be a great weekend to enjoy good temps and fantastic winter skiing.<br>
+Photos: <a onClick="reportviewer(46568); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Deborah Leonard)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
+We had another super day of skiing, hi 20's and sunshine. The Elmhurst Ski and Bike Club spent the day here and Team Gogebic had a nice turn out for practice tonight. The snow is holding up well and is skiing well with the daily grooming. We concentrated on regrooming a portion of the classic only trails today and all of the skate lanes. We have a full crew on again in the early morning.<br>
+
+(Eric Anderson, <a href="http://www.abrski.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">ABR Ski Shop</a>)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
+Conditions: We had a nice turn out of 22 Clydesdales tonight; 4 teams of various levels skiing from 5-15 km. ages 21-71. Sam from the Gogebic College Ski Team and Team Gogebic provided a few helpful hints and tips to help us improve our technique. Next week we will have the normal classic touring  version of the Clydesdales and also a new group of skaters (equipment and basic start up instructions provided).<br>
+We had a nice turn out of 22 Clydesdales tonight; 4 teams of various levels skiing from 5-15 km. ages 21-71. Sam from the Gogebic College Ski Team and Team Gogebic provided a few helpful hints and tips to help us improve our technique. Next week we will have the normal classic touring  version of the Clydesdales and also a new group of skaters (equipment and basic start up instructions provided at no cost).<br>We groomed 40 km of classic tracks again today, powertilled 15 km of skating and tracked with the Pisten Bully and scarified 20 km of skating lanes. Skiing has been very good and the surface is corn snow/granular and cold dry powder. Grooming is daily; check the board or with attendant on specific trail conditions daily.<br>
+Photos: <a onClick="reportviewer(46529); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Eric Anderson, <a href="http://www.abrski.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">ABR Lodging</a>)
+
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
+Conditions: Striding: perfect, primo, most excellent.<br>Arrived at 10 am with temp of 18 degrees, bright sunshine, awesome tracks, bomber kick with V40, and amazing glide. Its one of those perfect days where everything is amazing and you don't want to stop skiing. I strided everywhere and tracks were fast, deep and firm. Finished at 2 pm with temp of 30 degrees and V40 still working well. Kudos to the groomers.<br>
+(Greg Dahl)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
+We enjoyed 56 of our local 2nd graders today. What a super day to introduce kids to skiing. We have had some pretty nice skiing; thanks to our snow and weather and our groomer crew and equipment. Today we reset about 45 km of classic track and powertilled 25 km of skating. Other trails were scarified with the light equipment.<br>
+
+Photos: <a onClick="reportviewer(46496); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Eric Anderson, <a href="http://www.abrski.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">ABR Ski Shop</a>)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
+Conditions: Skating: died and went to heaven, striding: most excellent.<br>Arrived at ABR at 0900 temp was 26 degrees. They have had 4 days in a row of above 40 degree weather, but by looking at the trails you would have never guessed it. The groomers had groomed all 60 km of their trails and they were perfect! I was met with fresh corduroy everywhere I went, 4 hours and 52 km later you still could not wipe the grin off my face. None of the south facing hills were icy. I strided trying out some new wax and the tracks were perfect too - not glazed, just firm and deep and V60 worked in the afternoon with 35 degree temp. I have always stated that ABR has the best grooming and today just reinforced that - after 4 days of thawing weather and the trails were like I died and went to heaven. Kudos to the groomers.<br>
+Photos: <a onClick="reportviewer(46483); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Greg Dahl)
+
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=302">Wolverine Ski Trail</a> (Ironwood):</b><br>
+Conditions: Superb trail conditions. The volunteer groomers were out this morning setting a fresh rippled skate lane and good striding track.<br>Grooming plans:  The Pisten Bully will be out tomorrow morning grooming again. <br>
+Photos: <a onClick="reportviewer(46474); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Deborah Leonard)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
+
+Conditions: Amazing.<br>Driving home from Bayfield County I thought I would stop and check things out.  ABR always does a good job, but I wasn't expecting to much due to the summer like weather.  Got there around 9:30 classic skied til about 12:30 kicking good on VR55 then went to skating and  again things were great although warming just a bit.  Thanks to Eric and the gang for restoring at least one day of winter for this old man.<br>
+(Alfred Saauld)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
+Conditions: Very nice.<br>After driving up for the day I managed to get to ABR by 9:30 and the parking lot was already crowded. I classic skied and the trails were well groomed and pretty fast in the morning, with temps in the low twenties. By 1:30 it was pretty warm already and things were getting a little soft. I went back out with the dreaded Klister on my skis and after not having any kick, I had plenty of grip - a good choice! The afternoon was beautiful for skiing. It was warm, I had good kick and the trails were still pretty fast. It was one of those days when you know why you started skiing in the first place.<br>
+(Kevin Hillegas)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
+
+The skiing has really been super! We had 4 groomers out grooming for Sunday and it turned out perfect. We have been running the PB daily and grooming 50-66 km every day. Four of us will back out in the early hours of the morning.<br>
+Photos: <a onClick="reportviewer(46431); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Eric Anderson, <a href="http://www.abrski.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">ABR Ski Shop</a>)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=302">Wolverine Ski Trail</a> (Ironwood):</b><br>
 Conditions: Piston Bully tilled and tracked. Immaculate corn snow conditions.<br>Sunny skies, mild temperatures, 360 degrees of skiable Midwestern mountains and perfect grooming; it doesn't get any better than this.<br>
 (Rob Gardner)
 
+
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=517">Miljes Ski Trails</a> (Wakefield):</b><br>
 Conditions: Excellent.<br>We were up bright and early on Saturday morning grooming and tracking the trails to perfection.  Warm weather, sunny skies and perfect conditions will make this a phenomenal weekend to take in some Nordic skiing at Milje's.  The trail system couldn't be in better condition.  Enjoy and ski you there!<br>
 (Greg Miljevich)
@@ -2744,114 +2388,116 @@ Conditions: Excellent.<br>We were up bright and early on Saturday morning groomi
 <li>
 <b>Feb 3 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
 Super skiing today, we groomed about 50 k this morning and I am just coming in from grooming 10 k tonight with the Pisten Bully. Four groomers are headed out in a few hours to complete the grooming.  Temps at 19 it should be nice again for the weekend.<br>
+
 Photos: <a onClick="reportviewer(46352); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Eric Anderson, <a href="http://www.abrski.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">ABR Lodging</a>)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
-Conditions: Perfect!<br>Mild temps are making skiing very pleasant. Plenty of snow, no ice, and as always great grooming! Should be another awesome weekend of skiing here.<br>
-(Rich Scott)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
-The Clydesdales skied the main trails tonight that were groomed in the AM , no glazed tracks, just some nice hard firm fast tracks. We had a super ski, all 13 of us. The Pisten Bully will be headed out early in the morning to groom Blueberry, Bards, Hautanen, Coyote, Meadow and maybe Peltonen.<br>
-(Eric Anderson, <a href="http://www.abrski.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">ABR Ski Shop</a>)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=517">Miljes Ski Trails</a> (Wakefield):</b><br>
-Conditions: Spring like conditions.<br>Freshly groomed and corduroy smooth. Warmer temps this week combined with excellent trail conditions should make for some fine nordic skiing! Enjoy!<br>
-(Greg Miljevich)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
-Conditions: It was nice skiing today, John reported French Silk Pie at 10 AM,  Birdman Bob reported nice skiing at 1 PM and a rare American 3 toed woodpecker on the White Pine Trail. Angela reported cold dry powder in the wooded shaded areas and warm snow in the open areas when she skied at 3 PM. 47 Team Gogebic members had a nice ski from 4 PM to dark and some reported conditions were starting to ice up at dusk.<br>The base is deep and we have the Pisten Bully and other groomers to groom for the freeze thaw sessions. We will be out in the early morning grooming, it will not be all 60 km but we will have nice skiing for Wednesday at 9 AM.<br>
-(Eric Anderson, <a href="http://www.abrski.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">ABR Lodging</a>)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
-One of our local ìdessertî skiers described skiing as ìFrench Silk Pieî; one of our îdesertî skiers from the south described skiing as ìcaviarî.   Pig Heart ran the PB this morning and Wully Bully ran the John Deere Gator and groomer. About 32 k were regroomed this morning after the inch of new snow.<br>
-(Eric Anderson, <a href="http://www.abrski.com/" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">ABR Lodging</a>)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=302">Wolverine Ski Trail</a> (Ironwood):</b><br>
-Freshly groomed this morning for skating and striding. Temps warmed up nicely when the sun came out.<br>
-Photos: <a onClick="reportviewer(46181); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Deborah Leonard)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=302">Wolverine Ski Trail</a> (Ironwood):</b><br>
-Conditions: Trails were in perfect shape for striding and skating.<br>Everyone out having a great ski.<br>
-Photos: <a onClick="reportviewer(46141); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Deborah Leonard)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=517">Miljes Ski Trails</a> (Wakefield):</b><br>
-Conditions: Fresh snow and very beautiful.<br>We had wanted to ski at this small trail system for a long time and finally got a chance to go there. The trail system is mostly flat and somewhat rolling, but very pretty with the snow everywhere. This is a nice out of the way classic trail system and worth a stop.<br>
-(Kevin Hillegas)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=302">Wolverine Ski Trail</a> (Ironwood):</b><br>
-Conditions: Perfect. Sunny 14 degrees. Star Green for kick.<br>Last night's 3 inches of fluffy snow was all groomed in by the time I arrived this morning. Piston Bully perfection throughout the entire trail system. Classic skied it all and then went out and skated the novice loop. (Thanks for naming a trail after my skating abilities!) Loved the Powderhorn loop and the jacket flapping downhills on Cliffhanger. Met a lot of nice skiers today and almost all were from Minnesota. (Strange don't they have snow there?) Even met a couple of high school skiers from section 7!(Daughters section) Fantastic trail system, keep up the great work.<br>
-Photos: <a onClick="reportviewer(46096); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Craig Holgate)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
-Conditions: New Snow.<br>Although a bit chilly with the wind, it was another great day skiing at ABR. It snowed about 2-3 inches Friday night and snowed another 2 while we were skiing. We classic skied 30k's and the new snow was very welcome, especially on Peltonen Passout trail giving us much welcome control on the downhills. As usual, the grooming was excellent and the trails were beautiful with all the new fallen snow.<br>
-(Kevin Hillegas)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=302">Wolverine Ski Trail</a> (Ironwood):</b><br>
-Conditions: Freshly groomed this morning. Lake affect snow kicked in. Striding track is great and the skate lane has some fluffy snow on it. It's been snowing all day. Some wind in the open spots but quiet in the woods.  Groomers will be out again Sunday morning.<br>A snow-globe day at Wolverine.<br>
-Photos: <a onClick="reportviewer(46024); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Deborah Leonard)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=153">ABR</a> (Ironwood):</b><br>
-Conditions: Near perfect! Cloudy, light snow, 18 degrees. Swix special Blue a great choice today.<br>Not sure what took so long, but today was my first time here. Won't be the last that's for sure. Nice to pull in and be greeted by a friendly face telling you all 66K have been freshly groomed and are ready to go. Started in the morning and classiced a good portion of the trails throughout the day. Plenty of snow, nice deep tracks and solid pole plants throughout. Enjoyed the Sunset trail, and covered Cougar crossing in the south to White Pine in the north. Thanks for a great day of skiing.<br>
-Photos: <a onClick="reportviewer(46023); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Craig Holgate)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=517">Miljes Ski Trails</a> (Wakefield):</b><br>
-Conditions: Excellent.<br>As I was getting ready to groom Friday, a local and regular skier at Milje's mentioned that the trails were in great shape, but that "the deer were starting to cross the trail heavily in some spots."  Only in the Northwoods!  It's now freshly groomed and tracked and waiting to be used.  (I saw several deer too).  Have fun and hope you spot some Northwood's wildlife.<br>
-(Greg Miljevich)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=517">Miljes Ski Trails</a> (Wakefield):</b><br>
-Conditions: Excellent, with a firm track and great pole plants. Cloudy 35 degrees. Swix V60 Red Silver worked great.<br>Wow what a fun quaint little trail system. If like me you are drawn to the area by the other "big" name trail systems, don't overlook the quiet gem. Had the honor of meeting the owners/trail groomers at the warming house. Got the history on the humble beginnings of this trail system and the plans for future expansion. A very mild donation only trail so be sure to bring the whole family out for this one. Had the entire trail system to myself as I skied it one and half times. A perfect afternoon ski made even better by the light snow that started to fall. Ski Miljes!<br>
-Photos: <a onClick="reportviewer(45957); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Craig Holgate)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=302">Wolverine Ski Trail</a> (Ironwood):</b><br>
-Conditions: Conditions were great.<br>The trails were well groomed with fresh snow covering the tree tops. The scene was a Currier and Ives photo. Donations are requested, so please donate.<br>
-(Angela Heigl)
 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Marquette area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=46.544&textField2=-87.395&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
 <li>
 <img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
+Conditions: Excellent with 6-8" of fresh snow groomed in before and during the weekend.<br>What a discovery this place was! Drove 6 hours from Highland Park, IL (same as to Minocqua Winter Park) and discovered perhaps the prettiest and most challenging trails I've ever skied on. All trails were freshly groomed for both skating and classic. Well-designed winding hilly trails located in the snow belt were just what the doctor ordered in this snow-starved winter. The warming lodge was super friendly and more than helpful. For a modest trail fee they shared soups, fresh breads and snacks. We'll be back again soon!<br>
+(Dave Weber)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=375">Al Quaal Recreation Area</a> (Ishpeming):</b><br>
+
+Conditions: Skate and classical: very good to excellent.<br>The trails were very fast with an extremely firm base.  Some of the trails were a little blown over, but overall it was great skiing.  The Olympic Trail was one of the more technically demanding trails I've ever skied.  Great fun!<br>
+(Joseph Bednarowski)
+
+<li>
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=431">Noquemanon Trail</a> (Marquette):</b><br>
+Conditions: Excellent.<br>Skied to 510 today from Forestvillle trailhead. Perfect day. Excellent conditions. Snow gets soft past 16k but still great.<br>
+(Jim Michler)
+
+<li>
+<img src="../images/new.gif">
+
+<b>Feb 12 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
+Conditions: Excellent. 10" base, 7" of new snow through Saturday.<br>Grooming plans: Groomed the trails twice on Saturday and we will be rolling the skate lanes again today.<br>
+(John Swanberg)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=431">Noquemanon Trail</a> (Marquette):</b><br>
+Conditions: Excellent skate and classic.<br>Middle of the night grooming of 4-6 inches of new snow with the big, bad Bombi 180 produced near perfect conditions.  After a week of daily freeze/thaw the immaculate classic tracks were a real treat!<br>
+
+(Deb Loy)
+
+<li>
+<b>Feb 11 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
+Conditions: 6-7" new snow since Thursday eve.<br>Grooming plans: Full team will be working trails today. Jimmy Track will be grooming first and then we will follow up with weighted rolling on the skate lanes. We will pass the skate lanes at least twice to get your system up to our standards.<br>
+(John Swanberg)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=163">Blueberry Ridge Trail</a> (Sands):</b><br>
+
+Conditions: Skate: excellent, classical: very good.<br>3-4" of fresh packed snow on top of really crusty ice.  The groomers were out around dusk, the skate deck looked flawless, but the tracks were a little uneven, icy patches mixed with slower snow.<br>
+(Joseph Bednarowski)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
+Conditions: Tilled surface 1" new snow last night, 9"to 10" base-clean snow.<br>Grooming plans: We will be grooming all trails this morning. Mixing the new snow with the older icy snow should make for some of the best skiing of the year.<br>
+(John Swanberg)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
+
+Conditions: Temp mid 20s to low 30s F, looks like about an 8" base, good coverage.<br>I classic skied today. The groomers were out and set new tracks and groomed the skating surface. They turned an icy hard pack into a very skiable quality trail. Thank you groomers!<br>
+(Dick Langer)
+
+<li>
+<b>Feb 8 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
+Conditions: Skate excellent-classic very fast  10" base.<br>Grooming plans: We will begin reworking all classic tracks today. We will begin with B,H and Z and will move on after these tracks are reworked. Skate lane is fine.<br>
+(John Swanberg)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
+
+Conditions: Continued late-season conditions, "fast and furious'.  Most of the skate lanes were groomed this morning, raked and combed.  Hard, fast deck with plenty of control on the big hills as the temps moved closer to freezing mark.<br>Can not say enough about the grooming at Valley Spur.  Thanks John, John, and Dave.<br>
+Photos: <a onClick="reportviewer(46460); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Gregory Roll)
+
+<li>
+<b>Feb 6 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
+Conditions: I drove up to ski this past Saturday (skate) and Sunday (classical). I skied trails A, B, C, D, H, W,Y and Z in 35-40 degree temps.  I found conditions on both days to be excellent. Trails are groomed daily, so they were firm and fast with a fresh corduroy skate path to get a nice edge. There is plenty of snow base here to last awhile.<br>The experience was well worth the drive!<br>
+(Steve Scharrer)
+
+<li>
+
+<b>Feb 6 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
+Conditions: Great conditions.<br>Trails are holding well. Resetting tracks this afternoon.<br>
+(John Swanberg)
+
+<li>
+<b>Feb 5 - <a href="traildetail.asp?Id=431">Noquemanon Trail</a> (Marquette):</b><br>
+Conditions: Great conditions for skating.<br>Because of lack of snow, made the trek from Green Bay.  Great decision.  Two days of awesome skiing.<br>
+
+(Gary Machlett)
+
+<li>
 <b>Feb 5 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
 Conditions: Excellent, Fast.<br>Select trails will have their skate lanes dragged this morning. Expect fast trails this morning.<br>
 (John Swanberg)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=431">Noquemanon Trail</a> (Marquette):</b><br>
+
 Conditions: Excellent.<br>Skied all the Forestville loops today. Firm and fast, with at least a 12" base.  Grooming being done almost daily, great tracks.  Beautiful views of Lake Superior along Chiwaji. <br>
 (Bob Mahaney)
 
 <li>
-<img src="../images/new.gif">
 <b>Feb 4 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
 Conditions: 12F in the morning; 37F by 4 pm.<br>Skating was excellent and trails barely softened due to the overnight temps.  A lot of base to groom, we continue to hold our snow.  Well formed classic tracks.<br>
 Photos: <a onClick="reportviewer(46382); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (John Gierke)
 
 <li>
-<img src="../images/new.gif">
+
 <b>Feb 4 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
 Conditions: Excellent.<br>We groomed all easy and intermediate trails last night. Trails should be fast and firm on Saturday morning.<br>
 (John Swanberg)
@@ -2859,188 +2505,88 @@ Conditions: Excellent.<br>We groomed all easy and intermediate trails last night
 <li>
 <b>Feb 3 - <a href="traildetail.asp?Id=431">Noquemanon Trail</a> (Marquette):</b><br>
 Conditions: Wonderful.<br>Lots of base so trails are holding up well despite the warm weather.  It's been cold enough at night to ginzu groom so mornng skating has been super.  Classic tracks are a few days old and are still very nice.<br>
+
 Photos: <a onClick="reportviewer(46331); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Dennis Loy)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
-Conditions: 10" solid base with well formed tracks.  Skate lanes rolled and combed.<br>Great response from our Green Bay friends who skied in the morning.  Solid skate lanes all over.  The preferred classic ski was the no-wax.  Temps rose above 32F in the afternoon and skating slowed.  Matt P. was skating after work and called it Excellent at 6:30 pm, so he was doing 30K.  The mornings or late evenings will be the best throughout the weekend.<br>
-(John Gierke)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
-Conditions: A bit soft for skating but remained firm for classic even though it warmed up to 36 today.  <br>Trails are typical for VS, well groomed and holding up well.  The groomers here are definitely over-achievers.  Great job guys.<br>
-(Brian Roll)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
-Conditions: Very good cover: Temp mid 30F.<br>Classic skied, tracks were in very good shape, climbed "Stairway to Heaven" several times just to assure that I wasn't dreaming! The grooming is state of the art and the groomers continue to do a great job. Tomorrow will be my fourth day here and it continues to be my top venue.<br>
-(Dick Langer)
-
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
-Conditions: Good but softening.<br>Grooming plans: We will be setting tracks today where needed. We will drag skate lanes on Thursday morning. Trails are holding fair in this warm weather. We will be doing what we can to provide the best trails possible.<br>
-(John Swanberg)
-
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=375">Al Quaal Recreation Area</a> (Ishpeming):</b><br>
-Deer Lake Trail ñ Groomed and tracked (trail is in great shape!).<br>
-All other trails will be groomed and tracked starting with Teal Lake Trail.<br>
-(Denise Gurnack)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=163">Blueberry Ridge Trail</a> (Sands):</b><br>
-Full groom and track Monday.<br>
-(Denise Gurnack)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
-Conditions: Good to excellent.<br>10.5" base. 2' of snow in woods. Received 2" of new snow on Monday. Groomed and tracked on Monday. Expect a great skate deck and tracks.<br>
-(John Swanberg)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
-Conditions: Superb...<br>Enjoyed a wonderful post Noque ski at Valley Spur.  What a gem of a place, warming hut, wood fire, soup and bread.  Excellent grooming for both skate and classic.<br>
-Photos: <a onClick="reportviewer(46112); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Leslie Taylor)
-
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=353">Valley Spur</a> (Munising):</b><br>
-Conditions: Excellent.<br>My first visit ever at Valley Spur and what a system of trails. They were even grooming during the day right behind you to keep things perfect. The Field of Dreams of CC skiing!<br>
-(Dan Hinch)
 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Houghton area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=47.122&textField2=-88.569&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
 <li>
+
 <img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=154">Swedetown Trails</a> (Calumet):</b><br>
+Conditions: 12 inch base, excellent conditions.<br>Elaine, Kent, Seth Adams and I skied the Swedetown trails this weekend.  The stride trails had a deep, firm track, the skate lane was firm and well groomed. Beautiful trails system, some of the best skiing all year!<br>
+(David Martin)
+
+<li>
+<b>Feb 10 - <a href="traildetail.asp?Id=157">Maasto Hiihto Ski Trails</a> (Hancock):</b><br>
+Conditions: Back to excellent!<br>We received a skiff of snow last night which after being groomed in brought our trails back to where to like them!  I took a bunch of photos but later discovered that my camera got bumped to a poor setting so I only got one worth posting.<br>
+
+Photos: <a onClick="reportviewer(46585); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Arly Aronson)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=157">Maasto Hiihto Ski Trails</a> (Hancock):</b><br>
+Conditions: Good, but very much spring skiing conditions.<br>Photos taken in Churning Rapids and in Maasto‚Äôs Swedetown gorge.<br>
+Photos: <a onClick="reportviewer(46511); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Arly Aronson)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=154">Swedetown Trails</a> (Calumet):</b><br>
+
 Conditions: Fabulous trails at this winter wonderland.<br>Skating and classic trails in excellent condition.  2-3 feet of snow in the woods; beautifully groomed trails and temps in the low 30s. By 2:00 the snow was rather slow in the warm temps. Came upon several animals along the trail, entertaining the adults though intended for the 50 plus kids at their weekly ski classes.<br>
 Photos: <a onClick="reportviewer(46405); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Marian Hedman)
 
-<li>
-<b>Feb 1 - <a href="traildetail.asp?Id=154">Swedetown Trails</a> (Calumet):</b><br>
-Conditions: I took a guess that the higher elevation at Swedetown might have better conditions than what I'd seen earlier at Chassell and MTU, which were both icy in the track. Swedetown was excellent, considering how warm it has been. It was 33 degrees with light drizzle.<br>Due to lack of use, the skate deck was still plenty fluffy when I headed out at 3:00 pm, and the classic track was also very good. The track had been set some time ago. The tree snow had fallen into it here and there, something a regular skier at Swedetown is used to. <br>
-I took the good no wax classic skis all the way out to the end of the Bear Chase trails following a one lap warm up on Pines. I have not been out the Bear trails for a long time and I wanted something not fast. It was somewhat slow going. The farther out I got on the Bear loops, the better the track got for an easy kick. The downhills were easy out of track with the fluffy skate deck.<br>
-Back at the car I messed around with kick wax until I got it right and headed out Powderhouse after a warmup on Len's. The waxable skis ran considerably faster than the no waxers and they climbed better in the track. Powderhouse is a blast and you can skip the two tough entry hills, Jekyll and Hyde, by starting on the Pines. Due to oveall lack of snow time on groomed trails, I skipped J and H. They are a thrill ride when you're ready for it.<br>
-It was good to start with the easy stuff and then take just enough of the rock-em-sock-em on Powderhouse to finish up about three hours of skiing. It was better than expected, good job groomers.<br>
-(Jeff Bolte)
-
-<li>
-<b>Jan 29 - <a href="traildetail.asp?Id=157">Maasto Hiihto Ski Trails</a> (Hancock):</b><br>
-Conditions: Excellent, normal winter conditions for here.<br>We received a snippet of snow here over the weekend so we went for a wonderful BC ski in the Churning Rapids today.  This is the volume of snow the trail mutt apprentices. All of these photos were taken in Churning Rapids today.<br>
-Photos: <a onClick="reportviewer(46089); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Arly Aronson)
-
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Other locations</b>            <ul>              <font size="-1"> 
 <li>
-<b>Feb 2 - Ge-Che Trail (Iron River):</b><br>
-Conditions: Good.<br>Best classical grooming in years at this huge trail system. Best parking at Covenant Point Bible Camp, other lots unplowed.<br>
-(Dan Hinch)
+<img src="../images/new.gif">
+<b>Feb 12 - <a href="traildetail.asp?Id=457">Listening Inn</a> (Crystal Falls):</b><br>
+
+Conditions: Excellent, about an inch of new snow is packed, rolled and all tracks are set.  There is also about 5K of Skate lane.  <br>Cross country ski enthusiasts with wood skis dug them out of their basements and garages to participate in the First Annual Wood Ski Jamboree at the Listening Inn north of Crystal Falls.  This event was held on Saturday and Sunday.  Wood cross country skis have not been popular since the 1970‚Äôs and before, when they were the only type of skis available.  The participants found that in colder temperatures (15 F or below) their wood skis were almost as fast as their modern skis, on a well groomed trail.  This event gives skiers who often started their sport on wood skis a good excuse to get out and use them again, and dress the part of old time skiing.<br>
+Photos: <a onClick="reportviewer(46690); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
+(Bill Ziegler)
 
 <li>
-<b>Jan 30 - <a href="traildetail.asp?Id=457">Listening Inn</a> (Crystal Falls):</b><br>
-Conditions: Excellent, all trail loops are packed and track set. There is also about 5K of Skate lane.<br>They received about a foot of new snow in the last week.<br>
+<b>Feb 11 - Fumee Lake Natural Area (Quinnesec):</b><br>
+Conditions: A good classic ski trail made by previous skiers.  The trails have not been mechanically groomed.  Fair snow coverage, with very few exposed (and avoidable) spots in the areas you'd expect such as under some pines and in some sunny open areas.<br>We skied around Little and Big Fumee Lakes.  The artesian water at the far end of Big Fumee Lake is delicious treat!  The upper trails did not have a recent ski track. This is a very pretty place, and it provides a neat opportunity to learn some local mining history.<br>
+(Barbara Trabert)
+
+<li>
+<b>Feb 9 - <a href="traildetail.asp?Id=457">Listening Inn</a> (Crystal Falls):</b><br>
+
+Conditions: Very good to excellent.<br>Did not know what to expect with the recent weather conditions, but again found the skiing to be great.  Did not skate, but classic skied the entire system a couple of time and found a nice formed firm track all around.  Kicking good on VR50.  In more then a couple of spot felt like we were skiing on silk, very nice.  One really has to hand it to these trail owners who do such a great job of grooming in this not so great winter of 2012.<br>
+(Alfred Sauld)
+
+<li>
+<b>Feb 7 - <a href="traildetail.asp?Id=457">Listening Inn</a> (Crystal Falls):</b><br>
+Conditions: Excellent, all loops were groomed today and track set.<br>The snow base held up well during the thaw and Les's grooming made a great track.<br>
 (Bill Ziegler)
 
               </font>
             </ul>
-            <P>&nbsp;<p>
-            <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/ia.gif" hspace="6" border=0><font size=+1><b>Iowa</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
-              </font>
-            </ul>
-                &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Other locations</b>            <ul>              <font size="-1"> 
-<li>
-<b>Jan 28 - <a href="traildetail.asp?Id=354">Mines of Spain Recreation Area</a> (Dubuque):</b><br>
-Conditions: Good.<br>Trails were in pretty good shape for both classical and freestyle.  Dubuque keeps getting traces of new snow so trails were fast for Mines of Spain to host the races for the Iowa Games.<br>
-(Mary Beth Driscoll)
 
-              </font>
-            </ul>
-            <P>&nbsp;<p>
-            <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/da.gif" hspace="6" border=0><font size=+1><b>Canada</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
-              </font>
-            </ul>
-                &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Thunder Bay area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=48.405&textField2=-89.258&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=433">Kamview Nordic Centre</a> (Thunder Bay):</b><br>
-Very good to excellent skate/classic on 30km. All Pisten Bully groomed. Moved PB160 out to Sleeping Giant Park today as lots of snow out there. Loppet course has enough snow now for race on March 3rd. Be there!<br>
-(Peter Crooks)
-
-              </font>
-            </ul>
-            <P>&nbsp;<p>
-            <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/il.gif" hspace="6" border=0><font size=+1><b>Illinois</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
-              </font>
-            </ul>
-                &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Other locations</b>            <ul>              <font size="-1"> 
-<li>
-<b>Jan 31 - <a href="traildetail.asp?Id=547">Rock Cut State Park</a> (Loves Park):</b><br>
-Conditions: Fair.<br>I skied Rock Cut this morning about 10:30 and found it better than I expected. From the Rt 173 entrance I went in the connector loop to the Vasa loop. (Is it now called the Wayne Fish loop?) The whole loop is skiable if you are comfortable skiing on hardpark with a thin layer of soft snow on top. There are short bare spots under the pines where the connector loop connects, and crossing the ditch on the connector trail.  The rest is fair to good.  Even the tollway hill was pretty good. The sun will do some damage this afternoon but I think it will still be skiable tomorrow morning.  Rock skis recommended. Happy skiun.<br>
-(Tom Detzner)
-
-<li>
-<b>Jan 30 - <a href="traildetail.asp?Id=547">Rock Cut State Park</a> (Loves Park):</b><br>
-Conditions: fair to good.<br>Skied this afternoon, and despite the temp in the upper 40's, the packed track was surprisingly good, not too slow, better in the shaded areas.  Was groomed last week, so that helped alot otherwise it probably would not be very skiable.<br>
-(Ed Edinger)
-
-              </font>
-            </ul>
             <P>&nbsp;<p>
             <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/nd.gif" hspace="6" border=0><font size=+1><b>North Dakota</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
               </font>
             </ul>
                 &nbsp;<img src="/images/flake.gif" border=0>&nbsp;<b>Fargo area</b> <font size="-1">[ <a target="Weather" href="http://www.crh.noaa.gov/ifps/MapClick.php?FcstType=text&TempBox=1&WindBox=1&WeatherBox=1&PoPBox=1&textField1=46.877&textField2=-96.789&Submit=Submit&MapType=3&site=MPX&CiTemplate=0" onclick="log_external_link(this, 'External Links', 'Section - Trail Reports');return false;">forecast/conditions</a> ]</font>            <ul>              <font size="-1"> 
+
 <li>
-<img src="../images/new.gif">
+<b>Feb 5 - <a href="traildetail.asp?Id=13">Edgewood Golf Course Ski Trail</a> (Fargo):</b><br>
+Conditions: Poor at best and really not skiable.<br>Because of the warm temps on Sunday it was possible to skate ski and classic ski where the snow was previously packed down other wise the crust layer would not support a skier.  Lots of dirt, sticks, cart paths, wheel ruts, foot prints, and snow shoe imprints to contend with.<br>
+I would not recommend skiing at Edgewood unless we get more snow.  If the snow had been roller packed to make a base this past weekend would of probably been pretty good for skate skiing.<br>
+(Eriik Berg)
+
+<li>
 <b>Feb 4 - <a href="traildetail.asp?Id=12">Lindenwood Park Ski Trails</a> (Fargo):</b><br>
+
 A skier packed classical track on the Red River has an one inch base with snow that has not undergone any melting.  Park District groomed classical trails are glazed with numerous bare areas of dirt and grass.  Skating lane has a one inch base with good edging and some bare areas.  Spring skiing conditions.<br>
 Photos: <a onClick="reportviewer(46369); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
 (Gary Brekke)
-
-<li>
-<b>Feb 2 - <a href="traildetail.asp?Id=12">Lindenwood Park Ski Trails</a> (Fargo):</b><br>
-One inch icy base is holding except for sections with a southern exposure where there are numerous areas of grass and dirt.  The shaded edge of the river bank is holding five inches of snow and good skiing with a skier tracked trail.  Spring skiing conditions.<br>
-(Gary Brekke)
-
-<li>
-<b>Jan 27 - <a href="traildetail.asp?Id=12">Lindenwood Park Ski Trails</a> (Fargo):</b><br>
-The light dusting of snow this morning took the edge off the glaze in the classical track from yesterday's warm temps and sun and filled in most of the bare or dirty sections.  Short sections of trail with south exposures still have thin sections with bare dirt exposed.  The skating lane is firm with good edging.  One inch packed base.  Exposed areas of both trails are drifting in with wind-blown snow.<br>
-(Gary Brekke)
-
-<li>
-<b>Jan 26 - <a href="traildetail.asp?Id=13">Edgewood Golf Course Ski Trail</a> (Fargo):</b><br>
-Conditions: Fair to good.<br>Classic trail is good in most areas around the riverside loop.  Classic trails on open fairways have been blown in with snow and are difficult to ski.  Considering the small amount of snow we have had, it is worth it to ski there.  However, there is only one set of tracks set instead of two side-by-side.<br>
-(Laura Sivertson)
-
-              </font>
-            </ul>
-            <P>&nbsp;<p>
-            <table width="100%" bgcolor="#eaeaae" border=0 cellspacing=0 cellpadding=5>              <tr valign=bottom>                 <td><img src="../images/us.gif" hspace="6" border=0><font size=+1><b>United States</b></font></td>              </tr>            </table>            <ul>              <font size="-1"> 
-<li>
-<b>Feb 2 - Methow Valley (Winthrop, WA):</b><br>
-Conditions: Hard packed, corduroy, groomed and tracked daily.<br>Spent last 4 days skiing these trails.  The reputation of the Methow lived up to my expectations - the grooming was exceptional and every trail provided beautiful views of the Cascades against blue sky.  Cozy little cabins to rent at reasonable prices.  We brought our dog and found several dog friendly trails.<br>
-Photos: <a onClick="reportviewer(46333); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Vicki Longhini)
-
-<li>
-<b>Jan 31 - Icicle River Trail (Leavenworth, WA):</b><br>
-Conditions: Fantastic conditions this morning!  Freshly groomed old snow--but the glide was great in both the skate lane and track.  Sunny and clear.<br>This was our best ski of the 2011-12 season.  Great flow to this 8k trail and the mountain scenery is hard to beat.  Made 3 loops and then broke for lunch.  Sweet!<br>
-(John Morris)
-
-<li>
-<b>Jan 29 - Methow Valley (Winthrop, WA):</b><br>
-Conditions: 36F with icy trail conditions in the valley.  Track was superb for double poling.  Skate lane was hard in most places but difficult to get an edge during our morning ski.  Hoping for the trails to soften a wee bit during the afternoon.<br>Cross country skiing is "king" in this valley.  Over 200k of groomed trails.  There is plenty of snow here for snow-starved Midwesterners.  <br>
-(John Morris)
-
-<li>
-<b>Jan 27 - Alturas Lake (Stanley, ID):</b><br>
-Conditions: Perfect snow though grooming was in progress.  Single track was coming.  We had rolled now.  Outstanding scenery surrounding 3 foot plus snow pack.<br>Alturas Lake is a series of trails near an alpine lake 32 miles north west of Sun Valley.  Narrow trails were a nice change from wider trails elsewhere in the area.  Wonderful trip to remind us what good snow is like.<br>
-Photos: <a onClick="reportviewer(45988); return false" href="/javascript.html"><img border=0 src="/images/photoset.gif"></a>&nbsp;<br>
-(Chip Treen)
 
               </font>
             </ul>
@@ -3049,6 +2595,7 @@ Photos: <a onClick="reportviewer(45988); return false" href="/javascript.html"><
             <!-- #EndEditable --></td>
         </tr>
       </table>
+
     </td>
   </tr>
 </table>
@@ -3058,6 +2605,7 @@ Photos: <a onClick="reportviewer(45988); return false" href="/javascript.html"><
   <a class=footer href=../about.html>About Us</a> | <a class=footer href=../advertising.html>Advertising 
   Information</a> | <a class=footer href=../privacy.html>Privacy Statement</a> 
   <br>
+
   <span class=footer> This service provided to you according to our <a class=footer href=../agreement.html>Visitor 
   Agreement</a> </span> 
 </center>

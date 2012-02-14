@@ -49,13 +49,9 @@ public class SkinnyskiScanner {
 	}
 
 	public boolean findRegion(String region) {
-		state = RegionManager.getStateByRegion(region);
-		while (findNext("\\<font\\ssize\\=\\+1\\>\\<b\\>")) {
-			String foundRegion;
-			if ((foundRegion = scan("", "\\<\\/b\\>", ".*")) != null) {
-				if (region.equals(foundRegion))
-					return true;
-			}
+		if (findNext("\\Q<font size=+1><b>" + region + "</b>\\E")) {
+			state = RegionManager.getStateByRegion(region);
+			return true;
 		}
 		return false;
 	}
