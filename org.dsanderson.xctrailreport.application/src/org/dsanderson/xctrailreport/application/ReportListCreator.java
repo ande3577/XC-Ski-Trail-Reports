@@ -86,10 +86,10 @@ public class ReportListCreator {
 			IReportRetriever reportRetriever = factory.getReportRetriever();
 			reportRetriever.getReports(trailReports, trailInfos);
 
-			trailReports = filterTrailReports(trailReports);
-
 			DistanceHandler directionHandler = new DistanceHandler(factory);
 			directionHandler.getDistances(trailInfos);
+			
+			trailReports = filterTrailReports(trailReports);
 
 			readerFactory.setReportsRefreshedDate(new Date());
 
