@@ -170,14 +170,7 @@ public class SkinnyskiScanner {
 	}
 
 	private boolean findNext(String pattern) {
-		do {
-			if (scanner.findInLine(pattern) != null)
-				return true;
-			else if (scanner.hasNextLine())
-				scanner.nextLine();
-			else
-				return false;
-		} while (true);
+		return scanner.findWithinHorizon(pattern, 0) != null;
 	}
 
 	private String scan(String start, String end, String target) {
@@ -185,7 +178,7 @@ public class SkinnyskiScanner {
 
 		result = scanner.findInLine(start + target + end);
 		if (result != null) {
-			if (start != null && start.length() > 0) {
+			if (start != null && !start.isEmpty()) {
 				String results[] = result.split(start);
 				if (results.length < 2)
 					return null;
@@ -193,7 +186,7 @@ public class SkinnyskiScanner {
 				result = results[1];
 			}
 
-			if (end != null && end.length() > 0) {
+			if (end != null && !end.isEmpty()) {
 				String results[] = result.split(end);
 				if (results.length < 1)
 					return null;

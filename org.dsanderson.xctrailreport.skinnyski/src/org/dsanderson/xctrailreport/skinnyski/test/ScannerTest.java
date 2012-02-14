@@ -25,6 +25,7 @@ import java.util.List;
 
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.skinnyski.RegionManager;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiScanner;
 
 /**
@@ -44,7 +45,8 @@ public class ScannerTest {
 
 			List<String> regions = new ArrayList<String>();
 
-			regions.add("United States");
+			for (String region : RegionManager.supportedRegions)
+				regions.add(region);
 
 			SkinnyskiScanner skinnyskiScanner = new SkinnyskiScanner(fileStream);
 
