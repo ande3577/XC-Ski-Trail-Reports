@@ -131,21 +131,4 @@ public class TrailInfo {
 		return directionsValid;
 	}
 
-	public TrailInfo copy() {
-		TrailInfo newCopy = new TrailInfo();
-
-		newCopy.name = name;
-		newCopy.city = city;
-		newCopy.state = state;
-		newCopy.location = location;
-		newCopy.skinnyskiSearchTerm = skinnyskiSearchTerm;
-		newCopy.skinnyskiTrailIndex = skinnyskiTrailIndex;
-		newCopy.threeRiversSearchTerm = threeRiversSearchTerm;
-		newCopy.distance = distance;
-		newCopy.travelTime = travelTime;
-		newCopy.directionsValid = directionsValid;
-
-		return newCopy;
-	}
-
 }

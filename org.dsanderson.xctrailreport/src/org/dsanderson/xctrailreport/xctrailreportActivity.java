@@ -266,7 +266,7 @@ public class xctrailreportActivity extends ListActivity {
 	public Object onRetainNonConfigurationInstance() {
 		final List<TrailReport> savedTrailReports = new ArrayList<TrailReport>();
 		for (TrailReport report : trailReports) {
-			savedTrailReports.add(report.copy());
+			savedTrailReports.add(report);
 		}
 		return savedTrailReports;
 	}

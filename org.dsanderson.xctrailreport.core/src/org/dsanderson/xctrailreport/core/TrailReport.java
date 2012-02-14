@@ -78,14 +78,4 @@ public class TrailReport {
 		return trailInfo;
 	}
 
-	public TrailReport copy() {
-		TrailReport newReport = new TrailReport();
-		newReport.summary = summary;
-		newReport.author = author;
-		newReport.date = date;
-		newReport.detail = detail;
-		newReport.source = source;
-		newReport.trailInfo = trailInfo;
-		return newReport;
-	}
 }
