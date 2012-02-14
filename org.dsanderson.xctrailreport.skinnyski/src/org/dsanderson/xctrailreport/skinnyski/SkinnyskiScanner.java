@@ -53,7 +53,7 @@ public class SkinnyskiScanner {
 		while (findNext("\\<font\\ssize\\=\\+1\\>\\<b\\>")) {
 			String foundRegion;
 			if ((foundRegion = scan("", "\\<\\/b\\>", ".*")) != null) {
-				if (region.compareTo(foundRegion) == 0)
+				if (region.equals(foundRegion))
 					return true;
 			}
 		}

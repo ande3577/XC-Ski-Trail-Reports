@@ -56,7 +56,7 @@ public class TrailReportParser {
 	public void setReports(List<TrailReport> trailReports) {
 		this.trailReports.clear();
 		for (TrailReport report : trailReports) {
-			this.trailReports.add(report.copy());
+			this.trailReports.add(report);
 		}
 	}
 
@@ -88,7 +88,7 @@ public class TrailReportParser {
 				for (TrailInfo info : trailInfo) {
 					if (info.getName().equals(parserOutput)) {
 						report.setTrailInfo(info);
-						trailReports.add(report.copy());
+						trailReports.add(report);
 						break;
 					}
 				}

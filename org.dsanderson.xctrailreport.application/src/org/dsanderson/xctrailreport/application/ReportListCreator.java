@@ -78,7 +78,7 @@ public class ReportListCreator {
 			// / restore the list of default trail listings we got at startup
 			List<TrailInfo> trailInfos = new ArrayList<TrailInfo>();
 			for (TrailInfo info : defaultTrailInfo) {
-				trailInfos.add(info.copy());
+				trailInfos.add(info);
 			}
 
 			trailReports = new ArrayList<TrailReport>();
@@ -114,7 +114,7 @@ public class ReportListCreator {
 		try {
 			loadTrailInfo(parser, readerFactory.newDefaultTrailInfoReader());
 			for (TrailInfo info : parser.getTrailInfo()) {
-				defaultTrailInfo.add(info.copy());
+				defaultTrailInfo.add(info);
 			}
 		} catch (Exception e) {
 			// if included trail reports creates error, we abort
@@ -133,7 +133,7 @@ public class ReportListCreator {
 
 		// info should be updated even if reports fail to load
 		for (TrailInfo info : parser.getTrailInfo()) {
-			trailInfo.add(info.copy());
+			trailInfo.add(info);
 		}
 
 		if (!refreshNeeded) {
@@ -141,7 +141,7 @@ public class ReportListCreator {
 			loadTrailReports(reportParser,
 					readerFactory.newSavedTrailReportReader(), trailInfo);
 			for (TrailReport report : reportParser.getReports()) {
-				trailReports.add(report.copy());
+				trailReports.add(report);
 			}
 		}
 	}
@@ -220,7 +220,7 @@ public class ReportListCreator {
 		List<TrailReport> filteredReports = new ArrayList<TrailReport>();
 		for (TrailReport report : trailReports) {
 			if (filter.filterReport(report))
-				filteredReports.add(report.copy());
+				filteredReports.add(report);
 		}
 
 		return filteredReports;

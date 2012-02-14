@@ -37,7 +37,7 @@ public class TrailInfoParser {
 	public void setTrailInfo(List<TrailInfo> trailInfo) {
 		this.trailInfo.clear();
 		for (TrailInfo info : trailInfo)
-			this.trailInfo.add(info.copy());
+			this.trailInfo.add(info);
 	}
 
 	public void parse(Reader reader) throws Exception {
@@ -121,7 +121,7 @@ public class TrailInfoParser {
 		for (TrailReport report : trailReports) {
 			// don't add info that's already in the list
 			if (getTrailInfoByName(report.getTrailInfo().getName()) == null) {
-				trailInfo.add(report.getTrailInfo().copy());
+				trailInfo.add(report.getTrailInfo());
 			}
 		}
 	}
@@ -170,7 +170,7 @@ public class TrailInfoParser {
 			}
 		}
 		if (!found) {
-			currentInfos.add(newInfo.copy());
+			currentInfos.add(newInfo);
 		}
 	}
 }
