@@ -80,17 +80,6 @@ public class TextItem implements ITextItem {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * org.dsanderson.xctrailreport.core.ITextItem#setColor(java.lang.String)
-	 */
-	private void setColor(String color) {
-		setColor(Color.parseColor(color));
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
 	 * @see org.dsanderson.xctrailreport.core.ITextItem#setColor(int)
 	 */
 	private void setColor(int color) {

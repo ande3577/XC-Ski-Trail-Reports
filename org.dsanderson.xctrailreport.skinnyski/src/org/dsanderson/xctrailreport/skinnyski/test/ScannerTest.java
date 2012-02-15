@@ -20,8 +20,6 @@
 package org.dsanderson.xctrailreport.skinnyski.test;
 
 import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
