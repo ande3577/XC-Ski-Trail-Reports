@@ -313,6 +313,10 @@ public class xctrailreportActivity extends ListActivity {
 		protected List<TrailReport> doInBackground(Integer... params) {
 			List<TrailReport> trailReports = new ArrayList<TrailReport>();
 			try {
+				if (skinnyskiFactory.getSkinnySkiSettings().getRegions()
+						.getRegions().isEmpty())
+					throw new Exception("No regions enabled.");
+
 				trailReports = loadTrailReports();
 				if (trailReports.isEmpty())
 					throw new Exception("No reports found.");
