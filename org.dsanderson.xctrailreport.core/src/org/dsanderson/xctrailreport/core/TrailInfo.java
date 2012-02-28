@@ -33,6 +33,21 @@ public class TrailInfo {
 	int distance = 0;
 	int travelTime = 0;
 	boolean directionsValid = false;
+	
+	public TrailInfo() {
+	}
+	
+	public TrailInfo(TrailInfo info) {
+		this.city = info.city;
+		this.directionsValid = info.directionsValid;
+		this.distance = info.distance;
+		this.location = info.location;
+		this.name = info.name;
+		this.skinnyskiSearchTerm = info.skinnyskiSearchTerm;
+		this.skinnyskiTrailIndex = info.skinnyskiTrailIndex;
+		this.state = info.state;
+		this.threeRiversSearchTerm = info.threeRiversSearchTerm;
+	}
 
 	public void setName(String name) {
 		this.name = name;

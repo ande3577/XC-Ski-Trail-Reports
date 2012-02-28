@@ -31,8 +31,8 @@ import org.dsanderson.xctrailreport.core.TrailReport;
  */
 public class SkinnyskiScanner {
 	Scanner scanner;
-	TrailReport trailReport;
-	TrailInfo trailInfo;
+	TrailReport trailReport = new TrailReport();
+	TrailInfo trailInfo = new TrailInfo();
 	String state;
 
 	public SkinnyskiScanner(InputStream stream) {
@@ -77,8 +77,6 @@ public class SkinnyskiScanner {
 	}
 
 	private void scanSingleReport() throws Exception {
-		trailReport = new TrailReport();
-		trailInfo = new TrailInfo();
 
 		scanDate();
 		scanUrl();
@@ -86,6 +84,7 @@ public class SkinnyskiScanner {
 		scanCityAndState();
 		scanSummary();
 		scanDetailedAndAuthor();
+		
 	}
 
 	private void scanDate() throws Exception {

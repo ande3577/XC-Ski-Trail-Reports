@@ -29,6 +29,18 @@ public class TrailReport {
 	private String detail = "";
 	private String source = "";
 	private TrailInfo trailInfo = null;
+	
+	public TrailReport() {
+	}
+	
+	public TrailReport(TrailReport report) {
+		this.author = report.author;
+		this.date = report.date;
+		this.detail = report.detail;
+		this.source = report.source;
+		this.summary = report.summary;
+		this.trailInfo = report.trailInfo;
+	}
 
 	public void setSummary(String summary) {
 		this.summary = summary;
