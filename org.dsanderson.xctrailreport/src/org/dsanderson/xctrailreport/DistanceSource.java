@@ -64,6 +64,7 @@ public class DistanceSource implements IDistanceSource {
 		valids.clear();
 
 		int index = 0;
+		int startingIndex = 0;
 
 		while (index < dests.size()) {
 			// example
@@ -71,7 +72,8 @@ public class DistanceSource implements IDistanceSource {
 			String url = "https://maps.googleapis.com/maps/api/distancematrix/xml?origins="
 					+ src + "&destinations=";
 			int i = 0;
-			while (url.length() < MAX_URL_LENGTH && index < dests.size()) {
+			while (url.length() < MAX_URL_LENGTH && index < dests.size()
+					&& index - startingIndex < 99) {
 				String dest = dests.get(index++);
 				if (dest.length() > 0) {
 					if (i++ > 0)
@@ -87,6 +89,11 @@ public class DistanceSource implements IDistanceSource {
 			try {
 				netConnection.connect(url);
 				parseXmlResponse(netConnection);
+				if (index < dests.size() && index - startingIndex == 99) {
+					// delay so I can use google distance API again
+					Thread.sleep(11000);
+					startingIndex = index;
+				}
 			} finally {
 				netConnection.disconnect();
 			}
@@ -135,15 +142,21 @@ public class DistanceSource implements IDistanceSource {
 			List<CompoundXmlParser> elementParsers = tagParser
 					.getParsers("DistanceMatrixResponse:row:element");
 			for (CompoundXmlParser element : elementParsers) {
-				valids.add(element.getParsers("status").get(0).getText()
-						.compareTo("OK") == 0);
-				String distanceText = element.getParsers("distance:value")
-						.get(0).getText();
-				distances.add(Integer.parseInt(distanceText));
+				if (element.getParsers("status").get(0).getText()
+						.compareTo("OK") == 0) {
+					valids.add(true);
+					String distanceText = element.getParsers("distance:value")
+							.get(0).getText();
+					distances.add(Integer.parseInt(distanceText));
 
-				String durationText = element.getParsers("duration:value")
-						.get(0).getText();
-				durations.add(Integer.parseInt(durationText));
+					String durationText = element.getParsers("duration:value")
+							.get(0).getText();
+					durations.add(Integer.parseInt(durationText));
+				} else {
+					valids.add(false);
+					distances.add(0);
+					durations.add(0);
+				}
 
 			}
 		}

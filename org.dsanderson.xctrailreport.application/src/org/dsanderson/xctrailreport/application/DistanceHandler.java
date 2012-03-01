@@ -57,12 +57,13 @@ public class DistanceHandler {
 
 			List<Integer> distances = distanceSource.getDistances();
 			List<Integer> durations = distanceSource.getDurations();
+			List<Boolean> valids = distanceSource.getValids();
 			for (TrailInfo info : trailInfos) {
 				if (info.getLocation().length() > 0) {
 					for (int i = 0; i < destinations.size()
 							&& !info.getDistanceValid(); i++) {
 						if (destinations.get(i).compareTo(info.getLocation()) == 0) {
-							info.setDistanceValid(true);
+							info.setDistanceValid(valids.get(i));
 							info.setDistance(distances.get(i));
 							info.setDuration(durations.get(i));
 						}
