@@ -24,18 +24,24 @@ import java.util.Scanner;
 
 import org.dsanderson.xctrailreport.core.ReportDate;
 import org.dsanderson.xctrailreport.core.TrailInfo;
+import org.dsanderson.xctrailreport.core.TrailInfoPool;
 import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.core.TrailReportPool;
 
 /**
  * 
  */
 public class SkinnyskiScanner {
+	private final TrailReportPool trailReportPool;
+	private final TrailInfoPool trailInfoPool;
 	Scanner scanner;
-	TrailReport trailReport = new TrailReport();
-	TrailInfo trailInfo = new TrailInfo();
+	TrailReport trailReport;
+	TrailInfo trailInfo;
 	String state;
 
-	public SkinnyskiScanner(InputStream stream) {
+	public SkinnyskiScanner(InputStream stream, TrailReportPool reportPool, TrailInfoPool infoPool) {
+		trailReportPool = reportPool;
+		trailInfoPool = infoPool;
 		scanner = new Scanner(stream);
 		scanner.useDelimiter("\n");
 	}
@@ -77,7 +83,9 @@ public class SkinnyskiScanner {
 	}
 
 	private void scanSingleReport() throws Exception {
-
+		trailReport = trailReportPool.newTrailReport();
+		trailInfo = trailInfoPool.newTrailInfo();
+		
 		scanDate();
 		scanUrl();
 		scanName();

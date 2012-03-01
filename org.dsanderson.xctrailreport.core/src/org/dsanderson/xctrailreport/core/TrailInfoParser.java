@@ -7,6 +7,7 @@ import java.util.List;
 
 public class TrailInfoParser {
 	final ICompoundXmlParserFactory parserFactory;
+	final TrailInfoPool infoPool;
 
 	// names of the XML tags
 	static final String TRAIL_INFO = "trailInfo";
@@ -26,8 +27,10 @@ public class TrailInfoParser {
 
 	List<TrailInfo> trailInfo = new ArrayList<TrailInfo>();
 
-	public TrailInfoParser(ICompoundXmlParserFactory parserFactory) {
+	public TrailInfoParser(ICompoundXmlParserFactory parserFactory,
+			TrailInfoPool infoPool) {
 		this.parserFactory = parserFactory;
+		this.infoPool = infoPool;
 	}
 
 	public List<TrailInfo> getTrailInfo() {
@@ -49,7 +52,7 @@ public class TrailInfoParser {
 					.getParsers(TRAIL_INFO + ":" + TRAIL);
 
 			for (CompoundXmlParser parser : trailInfoParser) {
-				TrailInfo info = new TrailInfo();
+				TrailInfo info = infoPool.newTrailInfo();
 				String parserOutput;
 				if ((parserOutput = parser.getValue(NAME)) != null)
 					info.setName(parserOutput);
@@ -171,6 +174,8 @@ public class TrailInfoParser {
 		}
 		if (!found) {
 			currentInfos.add(newInfo);
+		} else {
+			infoPool.deleteTrailInfo(newInfo);
 		}
 	}
 }

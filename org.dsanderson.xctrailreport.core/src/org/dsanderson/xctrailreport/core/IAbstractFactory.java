@@ -52,5 +52,9 @@ public interface IAbstractFactory {
 	
 	public ILocationCoder getLocationCoder();
 	
+	public TrailReportPool getTrailReportPool();
+	
+	public TrailInfoPool getTrailInfoPool();
+	
 	
 }

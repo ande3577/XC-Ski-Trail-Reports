@@ -23,25 +23,27 @@ package org.dsanderson.xctrailreport.core;
  * 
  */
 public class TrailReport {
-	private String summary = "";
-	private String author = "";
-	private ReportDate date = null;
-	private String detail = "";
-	private String source = "";
-	private TrailInfo trailInfo = null;
+	private String summary;
+	private String author;
+	private ReportDate date;
+	private String detail;
+	private String source;
+	private TrailInfo trailInfo;
 	
 	public TrailReport() {
+		reset();
 	}
 	
-	public TrailReport(TrailReport report) {
-		this.author = report.author;
-		this.date = report.date;
-		this.detail = report.detail;
-		this.source = report.source;
-		this.summary = report.summary;
-		this.trailInfo = report.trailInfo;
+	public TrailReport reset() {
+		summary = "";
+		author = "";
+		date = null;
+		detail = "";
+		source = "";
+		trailInfo = null;
+		return this;
 	}
-
+	
 	public void setSummary(String summary) {
 		this.summary = summary;
 	}

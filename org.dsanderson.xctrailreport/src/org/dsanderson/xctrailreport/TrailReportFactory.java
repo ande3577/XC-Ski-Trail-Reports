@@ -34,6 +34,7 @@ import org.dsanderson.xctrailreport.core.IReportFilter;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.TrailInfoParser;
+import org.dsanderson.xctrailreport.core.TrailInfoPool;
 import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 import org.dsanderson.xctrailreport.core.TrailReportParser;
 import org.dsanderson.xctrailreport.core.UserSettings;
@@ -44,6 +45,7 @@ import org.dsanderson.xctrailreport.decorators.DetailedReportDecorator;
 import org.dsanderson.xctrailreport.decorators.DistanceDecorator;
 import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
+import org.dsanderson.xctrailreport.core.TrailReportPool;
 
 import android.content.Context;
 
@@ -62,6 +64,8 @@ public class TrailReportFactory implements IAbstractFactory {
 	UserSettings userSettings = null;
 	UserSettingsSource settingsSource = null;
 	LocationCoder locationCoder = null;
+	TrailReportPool trailReportPool = null;
+	TrailInfoPool trailInfoPool = null;
 
 	public TrailReportFactory(Context context, SkinnyskiFactory skinnyskiFactory) {
 		assert (factory == null);
@@ -82,7 +86,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoParser()
 	 */
 	public TrailInfoParser newTrailInfoParser() {
-		return new TrailInfoParser(CompoundXmlPullParserFactory.getInstance());
+		return new TrailInfoParser(CompoundXmlPullParserFactory.getInstance(), factory.getTrailInfoPool());
 	}
 
 	/*
@@ -92,7 +96,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#newTrailReportParser()
 	 */
 	public TrailReportParser newTrailReportParser() {
-		return new TrailReportParser(CompoundXmlPullParserFactory.getInstance());
+		return new TrailReportParser(CompoundXmlPullParserFactory.getInstance(), getTrailReportPool());
 	}
 
 	/*
@@ -250,5 +254,24 @@ public class TrailReportFactory implements IAbstractFactory {
 	public ILocationCoder getLocationCoder() {
 		return new LocationCoder(context);
 	}
+
+	/* (non-Javadoc)
+	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailReportFactory()
+	 */
+	public TrailReportPool getTrailReportPool() {
+		if (trailReportPool == null)
+			trailReportPool = new TrailReportPool();
+		return trailReportPool;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoPool()
+	 */
+	public TrailInfoPool getTrailInfoPool() {
+		if (trailInfoPool == null)
+			trailInfoPool = new TrailInfoPool();
+		return trailInfoPool;
+	}
+
 
 }

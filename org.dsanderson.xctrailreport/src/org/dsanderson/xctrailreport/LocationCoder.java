@@ -34,9 +34,12 @@ import android.os.Build;
  */
 public class LocationCoder implements ILocationCoder {
 	final Context context;
+	final Geocoder coder;
+	Address address;
 
 	public LocationCoder(Context context) {
 		this.context = context;
+		coder = new Geocoder(context);
 	}
 
 	/*
@@ -53,7 +56,6 @@ public class LocationCoder implements ILocationCoder {
 		
 		// return empty string if cannot parse to valid location
 		String location = "";
-		Geocoder coder = new Geocoder(context);
 		List<Address> addresses = new ArrayList<Address>();
 
 		while (locationName.length() > 0) {
@@ -65,7 +67,7 @@ public class LocationCoder implements ILocationCoder {
 		}
 
 		if (addresses.size() > 0) {
-			Address address = addresses.get(0);
+			address = addresses.get(0);
 			location = address.getLatitude() + "," + address.getLongitude();
 		}
 		return location;
@@ -82,4 +84,5 @@ public class LocationCoder implements ILocationCoder {
 		}
 		return str.trim();
 	}
+
 }

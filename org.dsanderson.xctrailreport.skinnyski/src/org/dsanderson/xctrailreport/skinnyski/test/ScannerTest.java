@@ -22,7 +22,9 @@ package org.dsanderson.xctrailreport.skinnyski.test;
 import java.io.FileInputStream;
 
 import org.dsanderson.xctrailreport.core.TrailInfo;
+import org.dsanderson.xctrailreport.core.TrailInfoPool;
 import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.core.TrailReportPool;
 import org.dsanderson.xctrailreport.skinnyski.RegionManager;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiScanner;
 
@@ -39,9 +41,12 @@ public class ScannerTest {
 		FileInputStream fileStream = null;
 
 		try {
+			TrailReportPool trailReportPool = new TrailReportPool();
+			TrailInfoPool trailInfoPool = new TrailInfoPool();
+			
 			fileStream = new FileInputStream("reports.asp");
 
-			SkinnyskiScanner skinnyskiScanner = new SkinnyskiScanner(fileStream);
+			SkinnyskiScanner skinnyskiScanner = new SkinnyskiScanner(fileStream, trailReportPool, trailInfoPool);
 
 			for (String region : RegionManager.supportedRegions) {
 

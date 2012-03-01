@@ -30,6 +30,7 @@ import java.util.List;
 public class TrailReportParser {
 	private List<TrailReport> trailReports;
 	private final ICompoundXmlParserFactory parserFactory;
+	private final TrailReportPool trailReportPool;
 
 	private final String TRAIL_REPORTS = "trailReports";
 	private final String REPORT = "report";
@@ -44,8 +45,10 @@ public class TrailReportParser {
 	/**
 	 * 
 	 */
-	public TrailReportParser(ICompoundXmlParserFactory parserFactory) {
+	public TrailReportParser(ICompoundXmlParserFactory parserFactory,
+			TrailReportPool trailReportPool) {
 		this.parserFactory = parserFactory;
+		this.trailReportPool = trailReportPool;
 		trailReports = new ArrayList<TrailReport>();
 	}
 
@@ -67,7 +70,7 @@ public class TrailReportParser {
 		List<CompoundXmlParser> reportParsers = parser.getParsers(TRAIL_REPORTS
 				+ ":" + REPORT);
 		for (CompoundXmlParser reportParser : reportParsers) {
-			TrailReport report = new TrailReport();
+			TrailReport report = trailReportPool.newTrailReport();
 			String parserOutput;
 			if ((parserOutput = reportParser.getValue(SUMMARY)) != null) {
 				report.setSummary(parserOutput);

@@ -62,7 +62,8 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 			netConnection.connect("http://skinnyski.com/trails/reports.asp");
 			BufferedInputStream stream = new BufferedInputStream(
 					netConnection.getStream());
-			SkinnyskiScanner scanner = new SkinnyskiScanner(stream);
+			SkinnyskiScanner scanner = new SkinnyskiScanner(stream,
+					factory.getTrailReportPool(), factory.getTrailInfoPool());
 
 			for (String region : settings.getRegions().getRegions()) {
 
@@ -91,14 +92,17 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 													+ ", "
 													+ newTrailInfo.getState()));
 
-							trailInfos.add(new TrailInfo(newTrailInfo));
+							trailInfos.add(newTrailInfo);
 							trailInfo = trailInfos.get(trailInfos.size() - 1);
+						} else {
+							factory.getTrailInfoPool().deleteTrailInfo(
+									newTrailInfo);
 						}
-
+						
 						newTrailReport.setTrailInfo(trailInfo);
 						newTrailReport.setSource("SkinnySki");
 
-						trailReports.add(new TrailReport(newTrailReport));
+						trailReports.add(newTrailReport);
 					}
 				}
 			}

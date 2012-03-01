@@ -35,20 +35,23 @@ public class TrailInfo {
 	boolean directionsValid = false;
 	
 	public TrailInfo() {
+		reset();
 	}
 	
-	public TrailInfo(TrailInfo info) {
-		this.city = info.city;
-		this.directionsValid = info.directionsValid;
-		this.distance = info.distance;
-		this.location = info.location;
-		this.name = info.name;
-		this.skinnyskiSearchTerm = info.skinnyskiSearchTerm;
-		this.skinnyskiTrailIndex = info.skinnyskiTrailIndex;
-		this.state = info.state;
-		this.threeRiversSearchTerm = info.threeRiversSearchTerm;
+	public TrailInfo reset() {
+		name = "";
+		city = "";
+		state = "MN";
+		location = "";
+		skinnyskiSearchTerm = "";
+		skinnyskiTrailIndex = -1;
+		threeRiversSearchTerm = "";
+		distance = 0;
+		travelTime = 0;
+		directionsValid = false;
+		return this;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
