@@ -29,27 +29,30 @@ public class TrailReport {
 	private String detail;
 	private String source;
 	private TrailInfo trailInfo;
-	
+
 	public TrailReport() {
 		reset();
 	}
-	
+
 	public TrailReport reset() {
-		summary = "";
-		author = "";
+		summary = null;
+		author = null;
 		date = null;
-		detail = "";
-		source = "";
+		detail = null;
+		source = null;
 		trailInfo = null;
 		return this;
 	}
-	
+
 	public void setSummary(String summary) {
 		this.summary = summary;
 	}
 
 	public String getSummary() {
-		return summary;
+		if (summary == null)
+			return "";
+		else
+			return summary;
 	}
 
 	public void setAuthor(String author) {
@@ -57,7 +60,10 @@ public class TrailReport {
 	}
 
 	public String getAuthor() {
-		return author;
+		if (author == null)
+			return "";
+		else
+			return author;
 	}
 
 	public void setDate(ReportDate date) {
@@ -73,7 +79,10 @@ public class TrailReport {
 	}
 
 	public String getDetail() {
-		return detail;
+		if (detail == null)
+			return "";
+		else
+			return detail;
 	}
 
 	public void setSource(String source) {
@@ -81,7 +90,10 @@ public class TrailReport {
 	}
 
 	public String getSource() {
-		return source;
+		if (source == null)
+			return "";
+		else
+			return source;
 	}
 
 	public void setTrailInfo(TrailInfo trailInfo) {

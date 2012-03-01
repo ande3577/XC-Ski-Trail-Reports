@@ -33,31 +33,34 @@ public class TrailInfo {
 	int distance = 0;
 	int travelTime = 0;
 	boolean directionsValid = false;
-	
+
 	public TrailInfo() {
 		reset();
 	}
-	
+
 	public TrailInfo reset() {
-		name = "";
-		city = "";
-		state = "MN";
-		location = "";
-		skinnyskiSearchTerm = "";
+		name = null;
+		city = null;
+		state = null;
+		location = null;
+		skinnyskiSearchTerm = null;
 		skinnyskiTrailIndex = -1;
-		threeRiversSearchTerm = "";
+		threeRiversSearchTerm = null;
 		distance = 0;
 		travelTime = 0;
 		directionsValid = false;
 		return this;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	public String getName() {
-		return name;
+		if (name == null)
+			return "";
+		else
+			return name;
 	}
 
 	public void setCity(String city) {
@@ -65,7 +68,10 @@ public class TrailInfo {
 	}
 
 	public String getCity() {
-		return city;
+		if (city == null)
+			return "";
+		else
+			return city;
 	}
 
 	public void setState(String state) {
@@ -73,7 +79,10 @@ public class TrailInfo {
 	}
 
 	public String getState() {
-		return state;
+		if (state == null)
+			return "";
+		else
+			return state;
 	}
 
 	public void setLocation(String location) {
@@ -81,7 +90,10 @@ public class TrailInfo {
 	}
 
 	public String getLocation() {
-		return location;
+		if (location == null)
+			return "";
+		else
+			return location;
 	}
 
 	public void setSkinnyskiSearchTerm(String skinnyskiSearchTerm) {
@@ -89,7 +101,10 @@ public class TrailInfo {
 	}
 
 	public String getSkinnyskiSearchTerm() {
-		return skinnyskiSearchTerm;
+		if (skinnyskiSearchTerm == null)
+			return "";
+		else
+			return skinnyskiSearchTerm;
 	}
 
 	public void setskinnyskiTrailIndex(int skinnyskiTrailIndex) {
@@ -122,7 +137,10 @@ public class TrailInfo {
 	}
 
 	public String getThreeRiversSearchTerm() {
-		return threeRiversSearchTerm;
+		if (threeRiversSearchTerm == null)
+			return "";
+		else
+			return threeRiversSearchTerm;
 	}
 
 	public void setDistance(int distance) {
