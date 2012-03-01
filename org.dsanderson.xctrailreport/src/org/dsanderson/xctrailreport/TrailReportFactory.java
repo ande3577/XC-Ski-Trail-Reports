@@ -45,6 +45,7 @@ import org.dsanderson.xctrailreport.decorators.DetailedReportDecorator;
 import org.dsanderson.xctrailreport.decorators.DistanceDecorator;
 import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
+import org.dsanderson.xctrailreport.threerivers.ThreeRiversReportRetriever;
 import org.dsanderson.xctrailreport.core.TrailReportPool;
 
 import android.content.Context;
@@ -56,7 +57,6 @@ public class TrailReportFactory implements IAbstractFactory {
 	static TrailReportFactory factory = null;
 	Context context;
 	SkinnyskiFactory skinnyskiFactory;
-	CompoundReportRetriever reportRetriever = null;
 	UrlConnection netConnection = null;
 	TrailReportDecorator infoDecorator = null;
 	TrailReportDecorator reportDecorator = null;
@@ -73,12 +73,12 @@ public class TrailReportFactory implements IAbstractFactory {
 		this.context = context;
 		this.skinnyskiFactory = skinnyskiFactory;
 	}
-	
+
 	static public TrailReportFactory getInstance() {
 		assert (factory != null);
 		return factory;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -86,7 +86,8 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoParser()
 	 */
 	public TrailInfoParser newTrailInfoParser() {
-		return new TrailInfoParser(CompoundXmlPullParserFactory.getInstance(), factory.getTrailInfoPool());
+		return new TrailInfoParser(CompoundXmlPullParserFactory.getInstance(),
+				factory.getTrailInfoPool());
 	}
 
 	/*
@@ -96,7 +97,9 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#newTrailReportParser()
 	 */
 	public TrailReportParser newTrailReportParser() {
-		return new TrailReportParser(CompoundXmlPullParserFactory.getInstance(), getTrailReportPool());
+		return new TrailReportParser(
+				CompoundXmlPullParserFactory.getInstance(),
+				getTrailReportPool());
 	}
 
 	/*
@@ -146,11 +149,13 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getReportRetriever()
 	 */
 	public IReportRetriever getReportRetriever() {
-		if (reportRetriever == null) {
-			reportRetriever = new CompoundReportRetriever();
+		CompoundReportRetriever reportRetriever = new CompoundReportRetriever();
+
+		if (userSettings.getSkinnyskiEnabled())
 			reportRetriever.addRetriever(skinnyskiFactory
 					.getSkinnyskiReportRetriever(this));
-		}
+		if (userSettings.getThreeRiversEnabed())
+			reportRetriever.addRetriever(new ThreeRiversReportRetriever(this));
 		return reportRetriever;
 	}
 
@@ -255,8 +260,12 @@ public class TrailReportFactory implements IAbstractFactory {
 		return new LocationCoder(context);
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailReportFactory()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailReportFactory
+	 * ()
 	 */
 	public TrailReportPool getTrailReportPool() {
 		if (trailReportPool == null)
@@ -264,14 +273,16 @@ public class TrailReportFactory implements IAbstractFactory {
 		return trailReportPool;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoPool()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoPool()
 	 */
 	public TrailInfoPool getTrailInfoPool() {
 		if (trailInfoPool == null)
 			trailInfoPool = new TrailInfoPool();
 		return trailInfoPool;
 	}
-
 
 }

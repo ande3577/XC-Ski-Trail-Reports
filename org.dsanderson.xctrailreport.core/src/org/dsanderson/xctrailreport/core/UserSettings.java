@@ -43,6 +43,8 @@ public class UserSettings {
 	private boolean redrawNeeded = false;
 	private AutoRefreshMode autoRefreshMode = AutoRefreshMode.IF_OUT_OF_DATE;
 	private long autoRefreshCutoff = Units.hoursToMilliseconds(2);
+	private boolean skinnyskiEnabled = true;
+	private boolean threeRiversEnabled = true;
 
 	public void setLocationEnabled(boolean locationEnabled) {
 		this.locationEnabled = locationEnabled;
@@ -139,6 +141,22 @@ public class UserSettings {
 
 	public boolean getRedrawNeeded() {
 		return this.redrawNeeded;
+	}
+	
+	public void setSkinnyskiEnabled(boolean skinnyskiEnabled) {
+		this.skinnyskiEnabled = skinnyskiEnabled;
+	}
+	
+	public boolean getSkinnyskiEnabled() {
+		return skinnyskiEnabled;
+	}
+	
+	public void setThreeRiversEnabled(boolean threeRiversEnabled) {
+		this.threeRiversEnabled = threeRiversEnabled;
+	}
+	
+	public boolean getThreeRiversEnabed() {
+		return threeRiversEnabled;
 	}
 
 }

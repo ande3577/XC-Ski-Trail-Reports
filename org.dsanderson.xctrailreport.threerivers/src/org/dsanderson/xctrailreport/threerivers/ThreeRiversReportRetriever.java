@@ -75,13 +75,8 @@ public class ThreeRiversReportRetriever implements IReportRetriever {
 				}
 
 				if (!existingTrail) {
-					newTrailInfo.setName(newTrailInfo.getSkinnyskiSearchTerm());
-					newTrailInfo.setLocation(factory.getLocationCoder()
-							.getLocation(
-									newTrailInfo.getName() + ", "
-											+ newTrailInfo.getCity() + ", "
-											+ newTrailInfo.getState()));
-
+					newTrailInfo.setName(newTrailInfo
+							.getThreeRiversSearchTerm());
 					trailInfos.add(newTrailInfo);
 					trailInfo = trailInfos.get(trailInfos.size() - 1);
 				} else {

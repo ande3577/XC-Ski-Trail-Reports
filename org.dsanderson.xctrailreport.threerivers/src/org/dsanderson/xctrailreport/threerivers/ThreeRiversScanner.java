@@ -118,7 +118,7 @@ public class ThreeRiversScanner {
 			if (scanner.findInLine("\\<p\\>") != null)
 				scanner.nextLine();
 			else if (scanner.findInLine("\\<em\\>") != null) {
-				String detailedString = scan("","\\<\\/em\\>",".*");
+				String detailedString = scan("", "\\<\\/em\\>", ".*");
 				trailReport.setDetail(detailedString);
 			} else
 				break;

@@ -136,6 +136,10 @@ public class UserSettingsSource implements IUserSettingsSource {
 		settings.setAutoRefreshCutoff(Units.hoursToMilliseconds(getDouble(
 				preference, "autoRefreshCutoff",
 				Units.millisecondsToHours(settings.getAutoRefreshCutoff()))));
+		settings.setSkinnyskiEnabled(preference.getBoolean("skinnyskiEnabled",
+				settings.getSkinnyskiEnabled()));
+		settings.setThreeRiversEnabled(preference.getBoolean(
+				"threeRiversEnabled", settings.getThreeRiversEnabed()));
 	}
 
 	/*
