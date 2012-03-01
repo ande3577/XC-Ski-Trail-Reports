@@ -47,7 +47,6 @@ public class ThreeRiversScanner {
 		trailReportPool = reportPool;
 		trailInfoPool = infoPool;
 		scanner = new Scanner(stream);
-		scanner.useDelimiter("\n");
 	}
 
 	public TrailReport getTrailReport() {
@@ -69,9 +68,9 @@ public class ThreeRiversScanner {
 
 	private boolean endOfRegion() {
 		while (scanner.hasNextLine()) {
-			if (scanner.findInLine("\\<h5\\>") != null)
+			if (scanner.findInLine("\\Q<h5>\\E") != null)
 				return false;
-			else if (scanner.findInLine("\\<strong\\>") != null)
+			else if (scanner.findInLine("\\Q<strong>\\E") != null)
 				return true;
 			else
 				scanner.nextLine();
@@ -84,42 +83,52 @@ public class ThreeRiversScanner {
 		trailInfo = trailInfoPool.newTrailInfo();
 
 		scanName();
-		scanSummary();
-		scanDate();
-		scanDetailed();
+		scanSummaryAndDate();
+		// scanDetailed();
 	}
 
 	private void scanName() {
-		String name = scan("", "\\<\\/h5\\>", ".*");
-		if (name != null)
-			trailInfo.setThreeRiversSearchTerm(name.trim());
-		scanner.nextLine();
+		String line = scanner.nextLine();
+		String split[] = line.split("\\Q</h5>\\E");
+		if (split.length > 0)
+			trailInfo.setThreeRiversSearchTerm(split[0].trim());
 	}
 
-	private void scanSummary() {
-		while (scanner.hasNextLine() && scanner.findInLine("\\<p\\>") == null)
-			scanner.nextLine();
-		String summaryString = scan("", "Updated ", ".*");
-		if (summaryString != null)
-			trailReport.setSummary(summaryString);
-	}
+	private void scanSummaryAndDate() {
+		String line;
+		do {
+			line = scanner.nextLine();
+		} while (!line.contains("<p>"));
+		String split[] = line.split("\\Q<p>\\E");
+		if (split.length < 2)
+			return;
+		split = split[1].split("\\QUpdated \\E");
+		if (split.length > 0)
+			trailReport.setSummary(split[0]);
+		if (split.length > 1) {
+			split = split[1].split("\\Q</p>\\E");
+			if (split.length > 0) {
+				try {
+					Date date = dateFormat.parse(split[0]);
+					if (date != null)
+						trailReport.setDate(new ReportDate(date.getTime()));
+				} catch (Exception e) {
+					System.err.println(e);
+				}
+			}
+		}
 
-	private void scanDate() throws Exception {
-		String dateString = scan("", "\\<\\/p\\>", ".*");
-		Date date = dateFormat.parse(dateString);
-		if (date != null)
-			trailReport.setDate(new ReportDate(date.getTime()));
-		scanner.nextLine();
 	}
 
 	private void scanDetailed() {
 
 		while (scanner.hasNextLine()) {
-			if (scanner.findInLine("\\<p\\>") != null)
+			if (scanner.findInLine("\\Q<p>\\E") != null)
 				scanner.nextLine();
-			else if (scanner.findInLine("\\<em\\>") != null) {
-				String detailedString = scan("", "\\<\\/em\\>", ".*");
+			else if (scanner.findInLine("\\Q<em>\\E") != null) {
+				String detailedString = scan("", "\\Q</em>\\E", ".*");
 				trailReport.setDetail(detailedString);
+				scanner.nextLine();
 			} else
 				break;
 		}

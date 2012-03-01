@@ -21,6 +21,7 @@ package org.dsanderson.xctrailreport;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 
 /**
  * 
@@ -31,5 +32,7 @@ public class SourceActivity extends PreferenceActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.source_preferences);
+		PreferenceManager.setDefaultValues(SourceActivity.this,
+				R.xml.source_preferences, false);
 	}
 }

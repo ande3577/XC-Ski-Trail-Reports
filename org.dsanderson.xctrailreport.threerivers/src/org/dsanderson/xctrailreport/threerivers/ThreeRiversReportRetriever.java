@@ -84,7 +84,7 @@ public class ThreeRiversReportRetriever implements IReportRetriever {
 				}
 
 				newTrailReport.setTrailInfo(trailInfo);
-				newTrailReport.setSource("ThreeRivers");
+				newTrailReport.setSource("Three Rivers Park District");
 
 				trailReports.add(newTrailReport);
 			}
