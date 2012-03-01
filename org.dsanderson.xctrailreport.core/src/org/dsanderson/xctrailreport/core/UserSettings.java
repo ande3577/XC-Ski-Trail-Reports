@@ -31,7 +31,7 @@ public class UserSettings {
 		ALWAYS, NEVER, IF_OUT_OF_DATE
 	}
 
-	private SortMethod sortMethod = null;
+	private SortMethod sortMethod = SortMethod.SORT_BY_DATE;
 	private boolean locationEnabled = false;
 	private String defaultLocation = "Minneapolis, MN";
 	private boolean distanceFilterEnabled = false;
