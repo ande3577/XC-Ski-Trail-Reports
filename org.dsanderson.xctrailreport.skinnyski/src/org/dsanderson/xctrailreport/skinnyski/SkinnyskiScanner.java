@@ -154,7 +154,7 @@ public class SkinnyskiScanner {
 				String split[] = line.split("^[\\(]", 2);
 				if (split.length >= 2) {
 					author = split[1];
-					split = author.split("[\\)]$", 1);
+					split = author.split("[\\)]$", 2);
 					author = split[0];
 					trailReport.setAuthor(author.trim());
 				}
