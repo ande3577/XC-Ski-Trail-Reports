@@ -48,6 +48,7 @@ import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
 import org.dsanderson.xctrailreport.threerivers.ThreeRiversReportRetriever;
 import org.dsanderson.xctrailreport.core.TrailReportPool;
+import org.dsanderson.xctrailreport.application.PhotosetFilter;
 
 import android.content.Context;
 
@@ -249,6 +250,8 @@ public class TrailReportFactory implements IAbstractFactory {
 			filter.add(new DurationFilter(userSettings.getDurationCutoff()));
 		if (userSettings.getDateFilterEnabled())
 			filter.add(new DateFilter(userSettings.getFilterAge()));
+		if (userSettings.getPhotosetFilterEnabled())
+			filter.add(new PhotosetFilter());
 		return filter;
 	}
 

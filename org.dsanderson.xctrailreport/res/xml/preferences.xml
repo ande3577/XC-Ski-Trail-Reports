@@ -17,6 +17,9 @@
             </PreferenceCategory><PreferenceCategory android:title="Drive Time Filter">
                 <CheckBoxPreference android:title="Enabled" android:key="durationFilterEnabled" android:defaultValue="false"/>
                 <EditTextPreference android:title="Max Drive Time (minutes)" android:key="durationFilterCutoff"  android:numeric="integer" android:inputType="number" android:defaultValue="60"/>
+                
+            </PreferenceCategory><PreferenceCategory android:title="Photoset FIlter">
+                <CheckBoxPreference android:summary="Display report only if a photoset is available." android:key="photosetFilterEnabled" android:title="Photoset Filter Enabled" android:defaultValue="false"/>
             </PreferenceCategory>
             <PreferenceCategory android:title="Refresh on startup">
                 <ListPreference android:entryValues="@array/autoRefreshValues" android:entries="@array/autoRefreshTitles" android:defaultValue="ifOutOfDate" android:dialogTitle="Refresh Mode" android:title="Auto Refresh Mode" android:key="autoRefreshMode"/>

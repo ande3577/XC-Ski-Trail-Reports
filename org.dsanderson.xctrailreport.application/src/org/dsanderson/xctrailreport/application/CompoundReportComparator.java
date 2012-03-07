@@ -26,7 +26,6 @@ import java.util.List;
 import org.dsanderson.xctrailreport.core.TrailNameComparator;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.UserSettings.SortMethod;
-import org.dsanderson.xctrailreport.decorators.PhotosetDecorator;
 
 /**
  * 

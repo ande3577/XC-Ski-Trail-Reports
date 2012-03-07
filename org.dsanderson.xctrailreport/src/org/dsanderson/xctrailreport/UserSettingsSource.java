@@ -89,6 +89,9 @@ public class UserSettingsSource implements IUserSettingsSource {
 								.getDurationCutoff()));
 				settings.setDurationCutoff(Units
 						.minutesToSeconds(cutoffMinutes));
+			} else if (key.equals("photosetFilterEnabled")) {
+				settings.setPhotsetFilterEnabled(sharedPreferences.getBoolean(
+						key, settings.getPhotosetFilterEnabled()));
 			} else if (key.equals("autoRefreshMode")) {
 				settings.setAutoRefreshMode(stringToAutoRefreshMode(sharedPreferences
 						.getString(key, autoRefreshModeToString(settings
@@ -136,6 +139,8 @@ public class UserSettingsSource implements IUserSettingsSource {
 		settings.setDurationCutoff(Units.minutesToSeconds(getInt(preference,
 				"durationFilterCutoff",
 				(int) Units.secondsToMinutes(settings.getDurationCutoff()))));
+		settings.setPhotsetFilterEnabled(preference.getBoolean(
+				"photosetFilterEnabled", settings.getPhotosetFilterEnabled()));
 		settings.setAutoRefreshMode(stringToAutoRefreshMode(preference
 				.getString("autoRefreshMode",
 						autoRefreshModeToString(settings.getAutoRefreshMode()))));

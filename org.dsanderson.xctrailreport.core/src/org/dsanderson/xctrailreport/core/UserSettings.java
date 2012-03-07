@@ -40,6 +40,7 @@ public class UserSettings {
 	private int filterAge = 10;
 	private boolean durationFilterEnabled = false;
 	private int durationCutoff = 30;
+	private boolean photosetFilterEnabled = false;
 	private boolean redrawNeeded = false;
 	private AutoRefreshMode autoRefreshMode = AutoRefreshMode.IF_OUT_OF_DATE;
 	private long autoRefreshCutoff = Units.hoursToMilliseconds(2);
@@ -108,6 +109,14 @@ public class UserSettings {
 
 	public int getDurationCutoff() {
 		return durationCutoff;
+	}
+	
+	public void setPhotsetFilterEnabled(boolean photosetFilterEnabled) {
+		this.photosetFilterEnabled = photosetFilterEnabled;
+	}
+	
+	public boolean getPhotosetFilterEnabled() {
+		return photosetFilterEnabled;
 	}
 
 	public void setSortMethod(SortMethod sortMethod) {
