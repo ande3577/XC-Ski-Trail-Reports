@@ -24,7 +24,7 @@ package org.dsanderson.xctrailreport.core;
  */
 public class UserSettings {
 	public enum SortMethod {
-		SORT_BY_DISTANCE, SORT_BY_DATE, SORT_BY_DURATION
+		SORT_BY_DISTANCE, SORT_BY_DATE, SORT_BY_DURATION, SORT_BY_PHOTOSET
 	}
 
 	public enum AutoRefreshMode {

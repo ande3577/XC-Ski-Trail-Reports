@@ -206,6 +206,7 @@ public class xctrailreportActivity extends ListActivity {
 			MenuItem distance = item.getSubMenu().getItem(0).setChecked(false);
 			MenuItem date = item.getSubMenu().getItem(1).setChecked(false);
 			MenuItem duration = item.getSubMenu().getItem(2).setChecked(false);
+			MenuItem photoset = item.getSubMenu().getItem(3).setChecked(false);
 
 			switch (factory.userSettings.getSortMethod()) {
 			case SORT_BY_DISTANCE:
@@ -217,11 +218,15 @@ public class xctrailreportActivity extends ListActivity {
 			case SORT_BY_DURATION:
 				duration.setChecked(true);
 				break;
+			case SORT_BY_PHOTOSET:
+				photoset.setChecked(true);
+				break;
 			}
 			break;
 		case R.id.sortByDuration:
 		case R.id.sortByDate:
 		case R.id.sortByDistance:
+		case R.id.sortByPhotoset:
 
 			String sortMethodString = "";
 
@@ -234,6 +239,9 @@ public class xctrailreportActivity extends ListActivity {
 				break;
 			case R.id.sortByDistance:
 				sortMethodString = "sortByDistance";
+				break;
+			case R.id.sortByPhotoset:
+				sortMethodString = "sortByPhotoset";
 				break;
 			}
 

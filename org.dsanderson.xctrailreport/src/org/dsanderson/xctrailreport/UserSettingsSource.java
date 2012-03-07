@@ -166,6 +166,8 @@ public class UserSettingsSource implements IUserSettingsSource {
 			return "sortByDistance";
 		case SORT_BY_DURATION:
 			return "sortByDuration";
+		case SORT_BY_PHOTOSET:
+			return "sortByPhotoset";
 		}
 		return null;
 	}
@@ -175,8 +177,12 @@ public class UserSettingsSource implements IUserSettingsSource {
 			return SortMethod.SORT_BY_DISTANCE;
 		else if (string.equals("sortByDate"))
 			return SortMethod.SORT_BY_DATE;
-		else
+		else if (string.equals("sortByDuration"))
 			return SortMethod.SORT_BY_DURATION;
+		else if (string.equals("sortByPhotoset"))
+			return SortMethod.SORT_BY_PHOTOSET;
+		else
+			return SortMethod.SORT_BY_DATE;
 	}
 
 	private String autoRefreshModeToString(AutoRefreshMode mode) {

@@ -26,6 +26,7 @@ import java.util.List;
 import org.dsanderson.xctrailreport.core.TrailNameComparator;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.UserSettings.SortMethod;
+import org.dsanderson.xctrailreport.decorators.PhotosetDecorator;
 
 /**
  * 
@@ -42,19 +43,30 @@ public class CompoundReportComparator implements Comparator<TrailReport> {
 			comparators.add(new DurationComparator());
 			comparators.add(new TrailNameComparator());
 			comparators.add(new DateComparator());
+			comparators.add(new PhotoSetComparator());
 			break;
 		case SORT_BY_DATE:
 			comparators.add(new DateComparator());
 			comparators.add(new DistanceComparator());
 			comparators.add(new DurationComparator());
 			comparators.add(new TrailNameComparator());
+			comparators.add(new PhotoSetComparator());
 			break;
 		case SORT_BY_DURATION:
 			comparators.add(new DurationComparator());
 			comparators.add(new DistanceComparator());
 			comparators.add(new TrailNameComparator());
 			comparators.add(new DateComparator());
+			comparators.add(new PhotoSetComparator());
 			break;
+		case SORT_BY_PHOTOSET:
+			comparators.add(new PhotoSetComparator());
+			comparators.add(new DateComparator());
+			comparators.add(new DistanceComparator());
+			comparators.add(new DurationComparator());
+			comparators.add(new TrailNameComparator());
+			break;
+			
 		}
 
 	}
