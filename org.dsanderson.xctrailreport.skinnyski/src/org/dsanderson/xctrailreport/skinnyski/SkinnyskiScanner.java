@@ -39,7 +39,8 @@ public class SkinnyskiScanner {
 	TrailInfo trailInfo;
 	String state;
 
-	public SkinnyskiScanner(InputStream stream, TrailReportPool reportPool, TrailInfoPool infoPool) {
+	public SkinnyskiScanner(InputStream stream, TrailReportPool reportPool,
+			TrailInfoPool infoPool) {
 		trailReportPool = reportPool;
 		trailInfoPool = infoPool;
 		scanner = new Scanner(stream);
@@ -85,14 +86,14 @@ public class SkinnyskiScanner {
 	private void scanSingleReport() throws Exception {
 		trailReport = trailReportPool.newTrailReport();
 		trailInfo = trailInfoPool.newTrailInfo();
-		
+
 		scanDate();
 		scanUrl();
 		scanName();
 		scanCityAndState();
 		scanSummary();
 		scanDetailedAndAuthor();
-		
+
 	}
 
 	private void scanDate() throws Exception {
@@ -150,15 +151,25 @@ public class SkinnyskiScanner {
 			String line = scanner.nextLine();
 
 			if (line.startsWith("(")) {
-				String split[] = line.split("^[\\(]");
+				String split[] = line.split("^[\\(]", 2);
 				if (split.length >= 2) {
 					author = split[1];
-					split = author.split("[\\)]$");
+					split = author.split("[\\)]$", 1);
 					author = split[0];
 					trailReport.setAuthor(author.trim());
 				}
 				break;
 			} else if (line.startsWith("Photos:")) {
+				String split[] = line.split("\\Q<a onClick=\"reportviewer(\\E",
+						2);
+				if (split.length >= 2) {
+					split = split[1].split("\\Q);\\E", 2);
+					if (split.length >= 2) {
+						trailReport
+								.setPhotosetUrl("http://skinnyski.com/tools/photoviewer.asp?reportId="
+										+ split[0]);
+					}
+				}
 			} else {
 				detailedString += line;
 			}

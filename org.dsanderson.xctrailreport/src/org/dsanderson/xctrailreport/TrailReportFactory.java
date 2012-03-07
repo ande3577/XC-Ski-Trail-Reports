@@ -43,6 +43,7 @@ import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
 import org.dsanderson.xctrailreport.decorators.DateDecorator;
 import org.dsanderson.xctrailreport.decorators.DetailedReportDecorator;
 import org.dsanderson.xctrailreport.decorators.DistanceDecorator;
+import org.dsanderson.xctrailreport.decorators.PhotosetDecorator;
 import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
 import org.dsanderson.xctrailreport.threerivers.ThreeRiversReportRetriever;
@@ -171,6 +172,7 @@ public class TrailReportFactory implements IAbstractFactory {
 			reportDecorator = new DateDecorator();
 			reportDecorator.add(new SummaryDecorator());
 			reportDecorator.add(new DetailedReportDecorator());
+			reportDecorator.add(new PhotosetDecorator());
 			reportDecorator.add(new AuthorDecorator());
 		}
 

@@ -28,6 +28,8 @@ public class TrailReport {
 	private ReportDate date;
 	private String detail;
 	private String source;
+	private String photosetURL;
+	
 	private TrailInfo trailInfo;
 
 	public TrailReport() {
@@ -41,6 +43,7 @@ public class TrailReport {
 		detail = null;
 		source = null;
 		trailInfo = null;
+		photosetURL = null;
 		return this;
 	}
 
@@ -102,6 +105,17 @@ public class TrailReport {
 
 	public TrailInfo getTrailInfo() {
 		return trailInfo;
+	}
+	
+	public void setPhotosetUrl(String url) {
+		photosetURL = url;
+	}
+	
+	public String getPhotosetUrl() {
+		if (photosetURL == null)
+			return "";
+		else
+			return photosetURL;
 	}
 
 }

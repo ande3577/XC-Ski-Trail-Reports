@@ -41,6 +41,7 @@ public class TrailReportParser {
 	private String DETAIL = "detail";
 	private String SOURCE = "source";
 	private String TRAIL_NAME = "trailName";
+	private String PHOTO_URL = "photosetURL";
 
 	/**
 	 * 
@@ -87,6 +88,9 @@ public class TrailReportParser {
 			if ((parserOutput = reportParser.getValue(SOURCE)) != null) {
 				report.setSource(parserOutput);
 			}
+			if((parserOutput = reportParser.getValue(PHOTO_URL)) != null) {
+				report.setPhotosetUrl(parserOutput);
+			}
 			if ((parserOutput = reportParser.getValue(TRAIL_NAME)) != null) {
 				for (TrailInfo info : trailInfo) {
 					if (info.getName().equals(parserOutput)) {
@@ -109,6 +113,7 @@ public class TrailReportParser {
 					Long.toString(report.getDate().getDate().getTime()));
 			reportParser.addParser(DETAIL, report.getDetail());
 			reportParser.addParser(SOURCE, report.getSource());
+			reportParser.addParser(PHOTO_URL, report.getPhotosetUrl());
 			reportParser.addParser(TRAIL_NAME, report.getTrailInfo().getName());
 			xmlBuilder.addParser(reportParser);
 		}
