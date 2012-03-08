@@ -213,6 +213,13 @@
 
 <li>
 <img src="../images/new.gif">
+<b>Mar 6 - <a href="traildetail.asp?Id=103">Highland 9-hole Golf Course</a> (Saint Paul):</b><br>
+
+Conditions: Good! Was groomed either this morning or later yesterday, nice surprise. Track was set with nice depth, almost as good as Woodlands.<br>Thanks St Paul Park & Rec (Jeff) for the grooming. I know the skiers that were out this morning appreciated the effort.<br>
+(Scott Stanley)
+
+<li>
+<img src="../images/new.gif">
 <b>Feb 12 - <a href="traildetail.asp?Id=98">Elm Creek Park Reserve</a> (Maple Grove):</b><br>
 Conditions: Great!<br>Snow was great! Firm, fast. I was there from 3-5 pm, and there were maybe a total of 15 skiers on the trail at any given time. Not nearly as crowded as the past weeks, and some of the best skiing yet!<br>
 (Jennifer Bushek)

@@ -97,9 +97,10 @@ public class SkinnyskiScanner {
 	}
 
 	private void scanDate() throws Exception {
+		String line;
 		String date;
-		while ((date = scan("\\<b\\>", "-", ".*")) == null)
-			scanner.nextLine();
+		while ((date = scan("\\<b\\>", "-", "[^\\-]+")) == null)
+			System.out.println(scanner.nextLine());
 
 		if (date != null)
 			trailReport.setDate(new ReportDate(date.trim()));
@@ -193,7 +194,7 @@ public class SkinnyskiScanner {
 		result = scanner.findInLine(start + target + end);
 		if (result != null) {
 			if (start != null && !start.isEmpty()) {
-				String results[] = result.split(start);
+				String results[] = result.split(start, 2);
 				if (results.length < 2)
 					return null;
 
@@ -201,7 +202,7 @@ public class SkinnyskiScanner {
 			}
 
 			if (end != null && !end.isEmpty()) {
-				String results[] = result.split(end);
+				String results[] = result.split(end, 2);
 				if (results.length < 1)
 					return null;
 				result = results[0];
