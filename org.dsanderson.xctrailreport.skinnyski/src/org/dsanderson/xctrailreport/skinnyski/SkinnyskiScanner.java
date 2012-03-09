@@ -97,10 +97,9 @@ public class SkinnyskiScanner {
 	}
 
 	private void scanDate() throws Exception {
-		String line;
 		String date;
 		while ((date = scan("\\<b\\>", "-", "[^\\-]+")) == null)
-			System.out.println(scanner.nextLine());
+			scanner.nextLine();
 
 		if (date != null)
 			trailReport.setDate(new ReportDate(date.trim()));

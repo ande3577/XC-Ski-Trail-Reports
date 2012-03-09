@@ -22,7 +22,6 @@ package org.dsanderson.xctrailreport.threerivers;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 import org.dsanderson.xctrailreport.core.ReportDate;
