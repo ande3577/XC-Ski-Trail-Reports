@@ -42,6 +42,7 @@ public class PreferencesActivity extends PreferenceActivity {
 				R.xml.preferences, false);
 	}
 
+	@Override
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
 			final Preference preference) {
 
@@ -78,6 +79,9 @@ public class PreferencesActivity extends PreferenceActivity {
 				editor.commit();
 				PreferenceManager.setDefaultValues(PreferencesActivity.this,
 						R.xml.preferences, true);
+				
+				PreferenceManager.setDefaultValues(PreferencesActivity.this,
+						R.xml.hidden_preferences, true);
 
 				TrailReportFactory.getInstance().getUserSettingsSource()
 						.loadUserSettings();

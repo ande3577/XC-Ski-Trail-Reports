@@ -17,9 +17,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport;
+package org.dsanderson.android.util;
 
-import org.dsanderson.xctrailreport.core.ITextItem;
+import org.dsanderson.util.ITextItem;
 
 import android.content.Context;
 import android.graphics.Color;

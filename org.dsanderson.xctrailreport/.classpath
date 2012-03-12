@@ -9,5 +9,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/org.dsanderson.xctrailreport.skinnyski"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.dsanderson.xctrailreport.application"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.dsanderson.xctrailreport.threerivers"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.dsanderson.util"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

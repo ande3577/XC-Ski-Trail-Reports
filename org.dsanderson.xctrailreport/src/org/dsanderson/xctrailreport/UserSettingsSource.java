@@ -19,8 +19,8 @@
  */
 package org.dsanderson.xctrailreport;
 
+import org.dsanderson.util.ILocationSource;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
-import org.dsanderson.xctrailreport.core.ILocationSource;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.Units;
 import org.dsanderson.xctrailreport.core.UserSettings;

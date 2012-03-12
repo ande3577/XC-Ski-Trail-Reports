@@ -17,34 +17,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport;
+package org.dsanderson.android.util;
 
-import org.dsanderson.xctrailreport.core.IDialog;
+import org.dsanderson.util.IErrorDialog;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 
 /**
  * 
  */
-public class Dialog implements IDialog {
+public class ErrorDialog implements IErrorDialog {
 	AlertDialog dialog;
 
-	public Dialog(Context context, Exception e) {
-		this(context, "Error: " + e.getLocalizedMessage());
-
-	}
-
-	public Dialog(Context context, String string) {
+	public ErrorDialog(Context context, Exception e) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(context);
-		builder.setMessage(string).setCancelable(true)
-				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.dismiss();
-					}
-				});
-		;
+		builder.setMessage(e.getLocalizedMessage()).setCancelable(false);
 		dialog = builder.create();
 	}
 
@@ -57,21 +45,4 @@ public class Dialog implements IDialog {
 		dialog.show();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.xctrailreport.core.IDialog#isVisible()
-	 */
-	public boolean isShowing() {
-		return dialog.isShowing();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.xctrailreport.core.IDialog#dismiss()
-	 */
-	public void dismiss() {
-		dialog.dismiss();
-	}
 }

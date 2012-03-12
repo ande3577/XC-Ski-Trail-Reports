@@ -17,10 +17,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport;
+package org.dsanderson.android.util;
 
-import org.dsanderson.xctrailreport.core.CompoundXmlParser;
-import org.dsanderson.xctrailreport.core.ICompoundXmlParserFactory;
+import org.dsanderson.util.CompoundXmlParser;
+import org.dsanderson.util.ICompoundXmlParserFactory;
 
 /**
  * 
@@ -28,7 +28,7 @@ import org.dsanderson.xctrailreport.core.ICompoundXmlParserFactory;
 public class CompoundXmlPullParserFactory implements ICompoundXmlParserFactory {
 	static CompoundXmlPullParserFactory instance = null;
 
-	static CompoundXmlPullParserFactory getInstance() {
+	static public CompoundXmlPullParserFactory getInstance() {
 		if (instance == null)
 			instance = new CompoundXmlPullParserFactory();
 

@@ -19,17 +19,23 @@
  */
 package org.dsanderson.xctrailreport;
 
+import org.dsanderson.android.util.CompoundXmlPullParserFactory;
+import org.dsanderson.android.util.Dialog;
+import org.dsanderson.android.util.DistanceSource;
+import org.dsanderson.android.util.LocationCoder;
+import org.dsanderson.android.util.LocationSource;
+import org.dsanderson.android.util.UrlConnection;
+import org.dsanderson.util.IDialog;
+import org.dsanderson.util.IDistanceSource;
+import org.dsanderson.util.ILocationCoder;
+import org.dsanderson.util.ILocationSource;
+import org.dsanderson.util.INetConnection;
 import org.dsanderson.xctrailreport.application.CompoundFilter;
 import org.dsanderson.xctrailreport.application.CompoundReportRetriever;
 import org.dsanderson.xctrailreport.application.DateFilter;
 import org.dsanderson.xctrailreport.application.DistanceFilter;
 import org.dsanderson.xctrailreport.application.DurationFilter;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
-import org.dsanderson.xctrailreport.core.IDistanceSource;
-import org.dsanderson.xctrailreport.core.IDialog;
-import org.dsanderson.xctrailreport.core.ILocationCoder;
-import org.dsanderson.xctrailreport.core.ILocationSource;
-import org.dsanderson.xctrailreport.core.INetConnection;
 import org.dsanderson.xctrailreport.core.IReportFilter;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
@@ -187,7 +193,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getDirectionsSource()
 	 */
 	public IDistanceSource getDistanceSource() {
-		return new DistanceSource(this);
+		return new DistanceSource(getNetConnection());
 	}
 
 	/*

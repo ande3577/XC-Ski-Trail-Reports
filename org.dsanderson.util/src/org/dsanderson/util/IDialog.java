@@ -17,32 +17,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport;
-
-import org.dsanderson.xctrailreport.core.IErrorDialog;
-
-import android.app.AlertDialog;
-import android.content.Context;
+package org.dsanderson.util;
 
 /**
  * 
  */
-public class ErrorDialog implements IErrorDialog {
-	AlertDialog dialog;
-
-	public ErrorDialog(Context context, Exception e) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(context);
-		builder.setMessage(e.getLocalizedMessage()).setCancelable(false);
-		dialog = builder.create();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.xctrailreport.core.IErrorDialog#open()
-	 */
-	public void show() {
-		dialog.show();
-	}
-
+public interface IDialog {
+	
+	void show();
+	
+	boolean isShowing();
+	
+	void dismiss();
+	
 }

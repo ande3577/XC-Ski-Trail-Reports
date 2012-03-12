@@ -17,12 +17,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport;
+package org.dsanderson.android.util;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.dsanderson.xctrailreport.core.ILocationCoder;
+import org.dsanderson.util.ILocationCoder;
 
 import android.content.Context;
 import android.location.Address;

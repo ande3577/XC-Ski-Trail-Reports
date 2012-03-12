@@ -17,14 +17,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport;
+package org.dsanderson.android.util;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.dsanderson.xctrailreport.core.IListEntry;
-import org.dsanderson.xctrailreport.core.ITextItem;
-import org.dsanderson.xctrailreport.TextItem;
+import org.dsanderson.android.util.TextItem;
+import org.dsanderson.util.IListEntry;
+import org.dsanderson.util.ITextItem;
 
 import android.content.Context;
 import android.view.ViewGroup;

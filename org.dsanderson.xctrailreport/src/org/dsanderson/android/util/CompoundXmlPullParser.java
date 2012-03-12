@@ -17,13 +17,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport;
+package org.dsanderson.android.util;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 
-import org.dsanderson.xctrailreport.core.CompoundXmlParser;
+import org.dsanderson.util.CompoundXmlParser;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;

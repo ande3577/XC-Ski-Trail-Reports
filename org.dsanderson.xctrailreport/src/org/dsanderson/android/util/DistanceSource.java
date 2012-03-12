@@ -17,21 +17,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport;
+package org.dsanderson.android.util;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.dsanderson.xctrailreport.core.CompoundXmlParser;
-import org.dsanderson.xctrailreport.core.IAbstractFactory;
-import org.dsanderson.xctrailreport.core.IDistanceSource;
-import org.dsanderson.xctrailreport.core.INetConnection;
+import org.dsanderson.util.CompoundXmlParser;
+import org.dsanderson.util.IDistanceSource;
+import org.dsanderson.util.INetConnection;
 
 /**
  * 
  */
 public class DistanceSource implements IDistanceSource {
-	IAbstractFactory factory;
+	INetConnection netConnection;
 
 	List<Integer> distances = new ArrayList<Integer>();
 	List<Integer> durations = new ArrayList<Integer>();
@@ -42,8 +41,8 @@ public class DistanceSource implements IDistanceSource {
 	static final int MAX_URL_LENGTH = ABSOLUTE_MAX_URL_LENGTH
 			- MAX_URL_LENGTH_PADDING;
 
-	public DistanceSource(IAbstractFactory factory) {
-		this.factory = factory;
+	public DistanceSource(INetConnection NetConnection) {
+		this.netConnection = netConnection;
 	}
 
 	/*
@@ -83,8 +82,6 @@ public class DistanceSource implements IDistanceSource {
 			}
 
 			url += "&sensor=false";
-
-			INetConnection netConnection = factory.getNetConnection();
 
 			try {
 				netConnection.connect(url);
