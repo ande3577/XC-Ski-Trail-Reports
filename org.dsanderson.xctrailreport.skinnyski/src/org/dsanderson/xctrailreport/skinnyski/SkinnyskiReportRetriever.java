@@ -22,8 +22,8 @@ package org.dsanderson.xctrailreport.skinnyski;
 import java.io.BufferedInputStream;
 import java.util.List;
 
+import org.dsanderson.util.INetConnection;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
-import org.dsanderson.xctrailreport.core.INetConnection;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;

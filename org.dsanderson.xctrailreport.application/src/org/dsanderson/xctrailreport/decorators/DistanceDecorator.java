@@ -21,8 +21,8 @@ package org.dsanderson.xctrailreport.decorators;
 
 import java.text.DecimalFormat;
 
-import org.dsanderson.xctrailreport.core.IListEntry;
-import org.dsanderson.xctrailreport.core.ITextItem;
+import org.dsanderson.util.IListEntry;
+import org.dsanderson.util.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.TrailReportDecorator;

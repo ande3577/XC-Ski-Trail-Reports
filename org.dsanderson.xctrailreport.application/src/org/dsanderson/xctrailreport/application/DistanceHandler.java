@@ -22,8 +22,8 @@ package org.dsanderson.xctrailreport.application;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
-import org.dsanderson.xctrailreport.core.IDistanceSource;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 
 /**

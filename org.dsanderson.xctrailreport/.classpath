@@ -9,6 +9,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/org.dsanderson.xctrailreport.skinnyski"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.dsanderson.xctrailreport.application"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.dsanderson.xctrailreport.threerivers"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.dsanderson.util"/>
+	<classpathentry kind="lib" path="/org.dsanderson.android.util/bin/org.dsanderson.android.util.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

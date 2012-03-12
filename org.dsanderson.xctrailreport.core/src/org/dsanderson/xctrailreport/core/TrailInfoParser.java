@@ -5,6 +5,9 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dsanderson.util.CompoundXmlParser;
+import org.dsanderson.util.ICompoundXmlParserFactory;
+
 public class TrailInfoParser {
 	final ICompoundXmlParserFactory parserFactory;
 	final TrailInfoPool infoPool;

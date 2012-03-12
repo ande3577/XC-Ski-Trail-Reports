@@ -41,7 +41,7 @@ public class DistanceSource implements IDistanceSource {
 	static final int MAX_URL_LENGTH = ABSOLUTE_MAX_URL_LENGTH
 			- MAX_URL_LENGTH_PADDING;
 
-	public DistanceSource(INetConnection NetConnection) {
+	public DistanceSource(INetConnection netConnection) {
 		this.netConnection = netConnection;
 	}
 
