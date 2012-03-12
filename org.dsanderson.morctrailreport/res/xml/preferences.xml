@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="Preference Category">
+        <EditTextPreference android:title="Preference" android:key="preference"/>
+        
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Restore Defaults">
+        <Preference android:summary="Restore all values to factory settings" android:key="restoreDefaults" android:title="Restore Defaults"/>
+    </PreferenceCategory>
+    
+
+</PreferenceScreen>
