@@ -78,8 +78,8 @@ public class ThreeRiversScanner {
 	}
 
 	private void scanSingleReport() throws Exception {
-		trailReport = trailReportPool.newTrailReport();
-		trailInfo = trailInfoPool.newTrailInfo();
+		trailReport = trailReportPool.newItem();
+		trailInfo = trailInfoPool.newItem();
 
 		scanName();
 		scanSummaryAndDate();

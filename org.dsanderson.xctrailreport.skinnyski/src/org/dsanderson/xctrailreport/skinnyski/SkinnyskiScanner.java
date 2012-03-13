@@ -84,8 +84,8 @@ public class SkinnyskiScanner {
 	}
 
 	private void scanSingleReport() throws Exception {
-		trailReport = trailReportPool.newTrailReport();
-		trailInfo = trailInfoPool.newTrailInfo();
+		trailReport = trailReportPool.newItem();
+		trailInfo = trailInfoPool.newItem();
 
 		scanDate();
 		scanUrl();

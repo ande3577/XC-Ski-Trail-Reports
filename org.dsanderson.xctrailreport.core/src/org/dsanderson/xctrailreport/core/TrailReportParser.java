@@ -74,7 +74,7 @@ public class TrailReportParser {
 		List<CompoundXmlParser> reportParsers = parser.getParsers(TRAIL_REPORTS
 				+ ":" + REPORT);
 		for (CompoundXmlParser reportParser : reportParsers) {
-			TrailReport report = trailReportPool.newTrailReport();
+			TrailReport report = trailReportPool.newItem();
 			String parserOutput;
 			if ((parserOutput = reportParser.getValue(SUMMARY)) != null) {
 				report.setSummary(parserOutput);

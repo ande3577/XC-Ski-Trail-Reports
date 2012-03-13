@@ -55,7 +55,7 @@ public class TrailInfoParser {
 					.getParsers(TRAIL_INFO + ":" + TRAIL);
 
 			for (CompoundXmlParser parser : trailInfoParser) {
-				TrailInfo info = infoPool.newTrailInfo();
+				TrailInfo info = infoPool.newItem();
 				String parserOutput;
 				if ((parserOutput = parser.getValue(NAME)) != null)
 					info.setName(parserOutput);
@@ -178,7 +178,7 @@ public class TrailInfoParser {
 		if (!found) {
 			currentInfos.add(newInfo);
 		} else {
-			infoPool.deleteTrailInfo(newInfo);
+			infoPool.recycleItem(newInfo);
 		}
 	}
 }

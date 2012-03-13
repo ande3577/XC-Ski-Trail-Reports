@@ -22,22 +22,22 @@ package org.dsanderson.xctrailreport.core;
 /**
  * 
  */
-public class TrailReportPool {
-	private TrailReport discardedReport = null;
-	private boolean discardedAvailable = false; 
+public class TrailReportPool extends Pool<TrailReport>{
 
-	public TrailReport newTrailReport() {
-		if (!discardedAvailable)
-			return new TrailReport();
-		else {
-			discardedAvailable = false;
-			return discardedReport.reset();
-		}
+	/* (non-Javadoc)
+	 * @see org.dsanderson.xctrailreport.core.Pool#createItem()
+	 */
+	@Override
+	protected TrailReport createItem() {
+		return new TrailReport();
 	}
 
-	public void deleteTrailReport(TrailReport report) {
-		discardedAvailable = true;
-		discardedReport = report;
+	/* (non-Javadoc)
+	 * @see org.dsanderson.xctrailreport.core.Pool#recycleItem(java.lang.Object)
+	 */
+	@Override
+	protected TrailReport recycleItem(TrailReport item) {
+		return item.reset();
 	}
 
 }
