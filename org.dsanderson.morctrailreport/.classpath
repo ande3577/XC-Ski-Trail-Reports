@@ -4,5 +4,8 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="lib" path="/org.dsanderson.android.util/bin/org.dsanderson.android.util.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.dsanderson.util"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.dsanderson.xctrailreport.core"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

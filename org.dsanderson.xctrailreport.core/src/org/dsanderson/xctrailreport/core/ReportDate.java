@@ -89,6 +89,10 @@ public class ReportDate implements Comparable<ReportDate> {
 		calendar.set(year, lookupMonth(month), day);
 		date = calendar.getTime();
 	}
+	
+	public ReportDate(Date date) {
+		this.date = date;
+	}
 
 	public Date getDate() {
 		return date;

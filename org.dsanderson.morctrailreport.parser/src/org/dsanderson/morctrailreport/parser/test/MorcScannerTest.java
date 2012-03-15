@@ -21,12 +21,15 @@ package org.dsanderson.morctrailreport.parser.test;
 
 import java.io.FileInputStream;
 
+import org.dsanderson.morctrailreport.parser.MorcFactory;
+import org.dsanderson.morctrailreport.parser.MorcInfoPool;
 import org.dsanderson.morctrailreport.parser.MorcScanner;
+import org.dsanderson.morctrailreport.parser.MorcSpecificTrailInfo;
+import org.dsanderson.morctrailreport.parser.RegionManager;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfoPool;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.TrailReportPool;
-import org.dsanderson.xctrailreport.threerivers.ThreeRiversScanner;
 
 /**
  * 
@@ -43,14 +46,20 @@ public class MorcScannerTest {
 		try {
 			TrailReportPool trailReportPool = new TrailReportPool();
 			TrailInfoPool trailInfoPool = new TrailInfoPool();
+			MorcInfoPool morcInfoPool = new MorcInfoPool();
 
-			fileStream = new FileInputStream("cc-ski-trail-conditions.aspx");
+			fileStream = new FileInputStream("trailconditions.php");
 
-			MorcScanner threeRiversScanner = new MorcScanner(
-					fileStream, trailReportPool, trailInfoPool);
+			MorcScanner morcScanner = new MorcScanner(fileStream,
+					trailReportPool, trailInfoPool, morcInfoPool);
 
-			while (threeRiversScanner.scanRegion()) {
-				printReportInfo(threeRiversScanner);
+			for (String region : RegionManager.supportedRegions) {
+				System.out.println("Parsing Region: " + region);
+				if (morcScanner.findRegion(region)) {
+					while (morcScanner.scanRegion()) {
+						printReportInfo(morcScanner);
+					}
+				}
 			}
 		} catch (Exception e) {
 			System.err.println(e);
@@ -65,13 +74,18 @@ public class MorcScannerTest {
 	private static void printReportInfo(MorcScanner morcScanner) {
 		TrailInfo trailInfo = morcScanner.getTrailInfo();
 		TrailReport trailReport = morcScanner.getTrailReport();
+		MorcSpecificTrailInfo morcInfo = morcScanner.getMorcSpecificInfo();
 
 		System.out.println("New Report:");
 		System.out.println("Date: " + trailReport.getDate().formatDate());
-		System.out.println("Name: " + trailInfo.getThreeRiversSearchTerm());
+		System.out.println("Name: " + trailInfo.getName());
+		System.out
+				.println("All Report Url: " + morcInfo.getAllTrailReportUrl());
+		System.out.println("Trail Info Url: " + morcInfo.getTrailInfoUrl());
 
 		System.out.println("Summary: " + trailReport.getSummary());
 		System.out.println("Detailed: " + trailReport.getDetail());
+		System.out.println("Author: " + trailReport.getAuthor());
 		System.out.println("");
 
 	}

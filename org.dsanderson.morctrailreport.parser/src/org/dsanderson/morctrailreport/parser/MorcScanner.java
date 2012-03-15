@@ -22,6 +22,7 @@ package org.dsanderson.morctrailreport.parser;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 import org.dsanderson.xctrailreport.core.ReportDate;
@@ -36,15 +37,19 @@ import org.dsanderson.xctrailreport.core.TrailReportPool;
 public class MorcScanner {
 	private final TrailReportPool trailReportPool;
 	private final TrailInfoPool trailInfoPool;
-	private final SimpleDateFormat dateFormat = new SimpleDateFormat("M/d/yy");
+	private final MorcInfoPool morcInfoPool;
+	private final SimpleDateFormat dateFormat = new SimpleDateFormat(
+			"mm/dd/yyyy, hh:mm:ss a");
 	private Scanner scanner;
 	private TrailReport trailReport;
 	private TrailInfo trailInfo;
+	private MorcSpecificTrailInfo morcInfo;
 
 	public MorcScanner(InputStream stream, TrailReportPool reportPool,
-			TrailInfoPool infoPool) {
+			TrailInfoPool infoPool, MorcInfoPool morcInfoPool) {
 		trailReportPool = reportPool;
 		trailInfoPool = infoPool;
+		this.morcInfoPool = morcInfoPool;
 		scanner = new Scanner(stream);
 	}
 
@@ -54,6 +59,17 @@ public class MorcScanner {
 
 	public TrailInfo getTrailInfo() {
 		return trailInfo;
+	}
+
+	public MorcSpecificTrailInfo getMorcSpecificInfo() {
+		return morcInfo;
+	}
+
+	public boolean findRegion(String region) {
+		if (findNext("\\Q<td><a name=\"" + region + "\"></a>\\E")) {
+			return true;
+		}
+		return false;
 	}
 
 	public boolean scanRegion() throws Exception {
@@ -67,9 +83,9 @@ public class MorcScanner {
 
 	private boolean endOfRegion() {
 		while (scanner.hasNextLine()) {
-			if (scanner.findInLine("\\Q<h5>\\E") != null)
+			if (scanner.findInLine("\\Q<td class=\"alt0\" align=\"left\">\\E") != null)
 				return false;
-			else if (scanner.findInLine("\\Q<strong>\\E") != null)
+			else if (scanner.findInLine("\\Q<table width=\"100%\">\\E") != null)
 				return true;
 			else
 				scanner.nextLine();
@@ -78,59 +94,107 @@ public class MorcScanner {
 	}
 
 	private void scanSingleReport() throws Exception {
-		trailReport = trailReportPool.newTrailReport();
-		trailInfo = trailInfoPool.newTrailInfo();
+		trailReport = trailReportPool.newItem();
+		trailInfo = trailInfoPool.newItem();
+		morcInfo = morcInfoPool.newItem();
 
-		scanName();
-		scanSummaryAndDate();
-		// scanDetailed();
+		scanAllReportUrlandName();
+		scanSummary();
+		scanInfoUrl();
+		scanDetailed();
+		scanAuthor();
+		scanDate();
 	}
 
-	private void scanName() {
-		String line = scanner.nextLine();
-		String split[] = line.split("\\Q</h5>\\E");
-		if (split.length > 0)
-			trailInfo.setThreeRiversSearchTerm(split[0].trim());
-	}
+	private void scanAllReportUrlandName() {
 
-	private void scanSummaryAndDate() {
-		String line;
-		do {
-			line = scanner.nextLine();
-		} while (!line.contains("<p>"));
-		String split[] = line.split("\\Q<p>\\E");
-		if (split.length < 2)
+		if (!findNext("\\Q<a href=\"showthread.php?t=\\E"))
 			return;
-		split = split[1].split("\\QUpdated \\E");
-		if (split.length > 0)
-			trailReport.setSummary(split[0]);
-		if (split.length > 1) {
-			split = split[1].split("\\Q</p>\\E");
-			if (split.length > 0) {
-				try {
-					Date date = dateFormat.parse(split[0]);
-					if (date != null)
-						trailReport.setDate(new ReportDate(date.getTime()));
-				} catch (Exception e) {
-					System.err.println(e);
-				}
-			}
-		}
+		String allReportUrl = scan("", "\"\\>", ".*");
+		morcInfo.setAllReportShortUrl(allReportUrl);
 
+		String name = scan("", "\\Q</a>\\E", ".*");
+		trailInfo.setName(name);
+		scanner.nextLine();
+	}
+
+	private void scanSummary() {
+		if (!findNext("\\Q<a href=\"javascript:OpenWin\\E"))
+			return;
+		scanner.nextLine();
+		String summary = scan("", "\\Q</a>\\E", ".*");
+		if (summary != null)
+			trailReport.setSummary(summary.trim());
+		scanner.nextLine();
+	}
+
+	private void scanInfoUrl() {
+		if (!findNext("\\Q<a href=\"../wiki/index.php/\\E"))
+			return;
+		String infoUrl = scan("", "\"\\>", ".*");
+		morcInfo.setTrailInfoShortUrl(infoUrl);
+		scanner.nextLine();
 	}
 
 	private void scanDetailed() {
+		if (!findNext("\\Q<td class=\"alt3\" align=\"left\">\\E"))
+			return;
 
-		while (scanner.hasNextLine()) {
-			if (scanner.findInLine("\\Q<p>\\E") != null)
-				scanner.nextLine();
-			else if (scanner.findInLine("\\Q<em>\\E") != null) {
-				String detailedString = scan("", "\\Q</em>\\E", ".*");
-				trailReport.setDetail(detailedString);
-				scanner.nextLine();
-			} else
-				break;
+		String line;
+		String detailed = "";
+		if (!scanner.hasNextLine())
+			return;
+
+		do {
+			line = scanner.nextLine();
+
+			if (!line.isEmpty())
+				detailed += line.trim() + " ";
+
+		} while (scanner.hasNextLine() && !line.contains("</td>"));
+
+		detailed = detailed.replaceAll("\\Q</td>\\E", "");
+		trailReport.setDetail(detailed.trim());
+	}
+
+	private void scanAuthor() {
+		if (!findNext("\\Q<a href=\"member.php?u=\\E"))
+			return;
+		String author = scan("\\Q\">\\E", "\\Q</a>\\E", ".*");
+		trailReport.setAuthor(author);
+		scanner.nextLine();
+	}
+
+	private void scanDate() {
+		if (!findNext("\\Q<font size=\"-1\">\\E"))
+			return;
+		scanner.nextLine();
+		String line = scanner.nextLine().trim();
+
+		String split[] = line.split("[\\-\\:\\ ]", 6);
+		if (split.length != 6)
+			return;
+
+		int month = Integer.parseInt(split[0]);
+		int day = Integer.parseInt(split[1]);
+		int year = Integer.parseInt(split[2].replace(",", ""));
+
+		int hour = Integer.parseInt(split[3]);
+		int minute = Integer.parseInt(split[4]);
+		String amPm = split[5];
+
+		if (amPm.equals("PM")) {
+			if (hour < 12)
+				hour += 12;
+		} else {
+			if (hour == 12)
+				hour = 0;
 		}
+
+		GregorianCalendar calendar = new GregorianCalendar(year, month, day,
+				hour, minute);
+		trailReport.setDate(new ReportDate(calendar.getTime()));
+
 	}
 
 	private String scan(String start, String end, String target) {
@@ -154,6 +218,10 @@ public class MorcScanner {
 			}
 		}
 		return result;
+	}
+
+	private boolean findNext(String pattern) {
+		return scanner.findWithinHorizon(pattern, 0) != null;
 	}
 
 }

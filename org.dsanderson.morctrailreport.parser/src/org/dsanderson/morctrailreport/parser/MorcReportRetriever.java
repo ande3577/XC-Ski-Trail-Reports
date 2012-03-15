@@ -33,10 +33,12 @@ import org.dsanderson.xctrailreport.core.TrailReport;
  */
 public class MorcReportRetriever implements IReportRetriever {
 
-	IAbstractFactory factory;
+	private final IAbstractFactory factory;
+	private final MorcFactory morcFactory;
 
-	public MorcReportRetriever(IAbstractFactory factory) {
+	public MorcReportRetriever(IAbstractFactory factory, MorcFactory morcFactory) {
 		this.factory = factory;
+		this.morcFactory = morcFactory;
 	}
 
 	/*
@@ -54,39 +56,60 @@ public class MorcReportRetriever implements IReportRetriever {
 		INetConnection netConnection = factory.getNetConnection();
 		try {
 			netConnection
-					.connect("http://www.threeriversparks.org/news/news/cc-ski-trail-conditions.aspx");
+					.connect("http://www.morcmtb.org/forums/trailconditions.php");
 			BufferedInputStream stream = new BufferedInputStream(
 					netConnection.getStream());
 			MorcScanner scanner = new MorcScanner(stream,
-					factory.getTrailReportPool(), factory.getTrailInfoPool());
+					factory.getTrailReportPool(), factory.getTrailInfoPool(),
+					morcFactory.getTrailInfoPool());
 
-			while (scanner.scanRegion()) {
-				TrailReport newTrailReport = scanner.getTrailReport();
-				TrailInfo newTrailInfo = scanner.getTrailInfo();
+			for (String region : morcFactory.getRegionManager().getRegions()) {
 
-				boolean existingTrail = false;
-				TrailInfo trailInfo = null;
-				for (TrailInfo info : trailInfos) {
-					if (newTrailInfo.getThreeRiversSearchTerm().compareTo(
-							info.getThreeRiversSearchTerm()) == 0) {
-						existingTrail = true;
-						trailInfo = info;
+				if (scanner.findRegion(region)) {
+					while (scanner.scanRegion()) {
+						TrailReport newTrailReport = scanner.getTrailReport();
+						TrailInfo newTrailInfo = scanner.getTrailInfo();
+						MorcSpecificTrailInfo newMorcInfo = scanner.getMorcSpecificInfo();
+
+						boolean existingTrail = false;
+						boolean existingSkinnyskiTrail = false;
+						TrailInfo trailInfo = null;
+						for (TrailInfo info : trailInfos) {
+							if (newTrailInfo.getName()
+									.compareTo(info.getName()) == 0) {
+								existingTrail = true;
+								if (info.getSourceSpecificInfo(MorcFactory.SOURCE_NAME) == null)
+									info.addSourceSpecificInfo(newMorcInfo);
+								else
+									existingSkinnyskiTrail = true;
+								trailInfo = info;
+							}
+						}
+
+						if (!existingTrail) {
+							newTrailInfo.setLocation(factory.getLocationCoder()
+									.getLocation(
+											newTrailInfo.getName() + ", "
+													+ newTrailInfo.getCity()
+													+ ", "
+													+ newTrailInfo.getState()));
+
+							trailInfos.add(newTrailInfo);
+							trailInfo = trailInfos.get(trailInfos.size() - 1);
+							trailInfo.addSourceSpecificInfo(newMorcInfo);
+						} else {
+							factory.getTrailInfoPool().deleteItem(newTrailInfo);
+							if (!existingSkinnyskiTrail)
+								morcFactory.getTrailInfoPool().deleteItem(
+										newMorcInfo);
+						}
+
+						newTrailReport.setTrailInfo(trailInfo);
+						newTrailReport.setSource(MorcFactory.SOURCE_NAME);
+
+						trailReports.add(newTrailReport);
 					}
 				}
-
-				if (!existingTrail) {
-					newTrailInfo.setName(newTrailInfo
-							.getThreeRiversSearchTerm());
-					trailInfos.add(newTrailInfo);
-					trailInfo = trailInfos.get(trailInfos.size() - 1);
-				} else {
-					factory.getTrailInfoPool().deleteTrailInfo(newTrailInfo);
-				}
-
-				newTrailReport.setTrailInfo(trailInfo);
-				newTrailReport.setSource("Three Rivers Park District");
-
-				trailReports.add(newTrailReport);
 			}
 		} finally {
 			netConnection.disconnect();
