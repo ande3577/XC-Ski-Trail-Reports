@@ -19,6 +19,9 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  */
@@ -27,12 +30,10 @@ public class TrailInfo {
 	String city = "";
 	String state = "MN";
 	String location = "";
-	String skinnyskiSearchTerm = "";
-	int skinnyskiTrailIndex = -1;
-	String threeRiversSearchTerm = "";
 	int distance = 0;
 	int travelTime = 0;
 	boolean directionsValid = false;
+	List<ISourceSpecificTrailInfo> sourceSpecificInfo = new ArrayList<ISourceSpecificTrailInfo>();
 
 	public TrailInfo() {
 		reset();
@@ -43,12 +44,10 @@ public class TrailInfo {
 		city = null;
 		state = null;
 		location = null;
-		skinnyskiSearchTerm = null;
-		skinnyskiTrailIndex = -1;
-		threeRiversSearchTerm = null;
 		distance = 0;
 		travelTime = 0;
 		directionsValid = false;
+		sourceSpecificInfo = new ArrayList<ISourceSpecificTrailInfo>();
 		return this;
 	}
 
@@ -96,53 +95,6 @@ public class TrailInfo {
 			return location;
 	}
 
-	public void setSkinnyskiSearchTerm(String skinnyskiSearchTerm) {
-		this.skinnyskiSearchTerm = skinnyskiSearchTerm;
-	}
-
-	public String getSkinnyskiSearchTerm() {
-		if (skinnyskiSearchTerm == null)
-			return "";
-		else
-			return skinnyskiSearchTerm;
-	}
-
-	public void setskinnyskiTrailIndex(int skinnyskiTrailIndex) {
-		this.skinnyskiTrailIndex = skinnyskiTrailIndex;
-	}
-
-	public int getskinnyskiTrailIndex() {
-		return skinnyskiTrailIndex;
-	}
-
-	public String getSkinnySkiUrl() {
-		if (skinnyskiTrailIndex < 0)
-			return "";
-		else
-			return "http://skinnyski.com/trails/traildetail.asp?Id="
-					+ skinnyskiTrailIndex;
-
-	}
-
-	public String getSkinnySkiSubmitUrl() {
-		if (skinnyskiTrailIndex < 0)
-			return "";
-		else
-			return "http://skinnyski.com/trails/trailreport.asp?trailId="
-					+ skinnyskiTrailIndex;
-	}
-
-	public void setThreeRiversSearchTerm(String threeRiversSearchTerm) {
-		this.threeRiversSearchTerm = threeRiversSearchTerm;
-	}
-
-	public String getThreeRiversSearchTerm() {
-		if (threeRiversSearchTerm == null)
-			return "";
-		else
-			return threeRiversSearchTerm;
-	}
-
 	public void setDistance(int distance) {
 		this.distance = distance;
 	}
@@ -165,6 +117,23 @@ public class TrailInfo {
 
 	public boolean getDistanceValid() {
 		return directionsValid;
+	}
+	
+	public List<ISourceSpecificTrailInfo> getSourceSpecificInfos() {
+		return sourceSpecificInfo;
+	}
+	
+	public ISourceSpecificTrailInfo getSourceSpecificInfo(String source) {
+		for(ISourceSpecificTrailInfo info : sourceSpecificInfo){
+			if (info.getSourceName().equals(source)) {
+				return info;
+			}
+		}
+		return null;
+	}
+	
+	public void addSourceSpecificInfo(ISourceSpecificTrailInfo info) {
+		sourceSpecificInfo.add(info);
 	}
 
 }

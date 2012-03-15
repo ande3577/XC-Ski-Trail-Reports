@@ -78,8 +78,8 @@ public class ThreeRiversScanner {
 	}
 
 	private void scanSingleReport() throws Exception {
-		trailReport = trailReportPool.newTrailReport();
-		trailInfo = trailInfoPool.newTrailInfo();
+		trailReport = trailReportPool.newItem();
+		trailInfo = trailInfoPool.newItem();
 
 		scanName();
 		scanSummaryAndDate();
@@ -90,7 +90,7 @@ public class ThreeRiversScanner {
 		String line = scanner.nextLine();
 		String split[] = line.split("\\Q</h5>\\E");
 		if (split.length > 0)
-			trailInfo.setThreeRiversSearchTerm(split[0].trim());
+			trailInfo.setName(split[0].trim());
 	}
 
 	private void scanSummaryAndDate() {

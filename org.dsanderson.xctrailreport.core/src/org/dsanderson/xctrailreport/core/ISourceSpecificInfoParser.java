@@ -19,25 +19,17 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import org.dsanderson.util.CompoundXmlParser;
+import org.dsanderson.util.ICompoundXmlParserFactory;
+
 /**
  * 
  */
-public class TrailInfoPool extends Pool<TrailInfo> {
+public interface ISourceSpecificInfoParser {
+	// /parse the xml object
+	ISourceSpecificTrailInfo parse(CompoundXmlParser parser) throws Exception;
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.Pool#createItem()
-	 */
-	@Override
-	protected TrailInfo createItem() {
-		return new TrailInfo();
-	}
-
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.Pool#recycleItem(java.lang.Object)
-	 */
-	@Override
-	protected TrailInfo recycleItem(TrailInfo item) {
-		return item.reset();
-	}
+	CompoundXmlParser buildParser(ISourceSpecificTrailInfo info,
+			ICompoundXmlParserFactory parserFactory) throws Exception;
 
 }

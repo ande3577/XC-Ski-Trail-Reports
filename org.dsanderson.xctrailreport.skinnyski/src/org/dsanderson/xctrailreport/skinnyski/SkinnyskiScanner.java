@@ -34,15 +34,18 @@ import org.dsanderson.xctrailreport.core.TrailReportPool;
 public class SkinnyskiScanner {
 	private final TrailReportPool trailReportPool;
 	private final TrailInfoPool trailInfoPool;
+	private final SkinnyskiTrailInfoPool skinnyskiPool;
 	Scanner scanner;
 	TrailReport trailReport;
 	TrailInfo trailInfo;
+	SkinnyskiSpecificInfo skinnyskiInfo;
 	String state;
 
 	public SkinnyskiScanner(InputStream stream, TrailReportPool reportPool,
-			TrailInfoPool infoPool) {
+			TrailInfoPool infoPool, SkinnyskiTrailInfoPool skinnyskiPool) {
 		trailReportPool = reportPool;
 		trailInfoPool = infoPool;
+		this.skinnyskiPool = skinnyskiPool;
 		scanner = new Scanner(stream);
 		scanner.useDelimiter("\n");
 	}
@@ -53,6 +56,10 @@ public class SkinnyskiScanner {
 
 	public TrailInfo getTrailInfo() {
 		return trailInfo;
+	}
+	
+	public SkinnyskiSpecificInfo getSkinnyskiSpecificInfo() {
+		return skinnyskiInfo;
 	}
 
 	public boolean findRegion(String region) {
@@ -84,8 +91,9 @@ public class SkinnyskiScanner {
 	}
 
 	private void scanSingleReport() throws Exception {
-		trailReport = trailReportPool.newTrailReport();
-		trailInfo = trailInfoPool.newTrailInfo();
+		trailReport = trailReportPool.newItem();
+		trailInfo = trailInfoPool.newItem();
+		skinnyskiInfo = skinnyskiPool.newItem();
 
 		scanDate();
 		scanUrl();
@@ -109,7 +117,7 @@ public class SkinnyskiScanner {
 		String indexString = null;
 		if ((indexString = scan("\\Q<a href=\"traildetail.asp?Id=\\E", "\">",
 				"[\\d]*")) != null) {
-			trailInfo.setskinnyskiTrailIndex(Integer.parseInt(indexString));
+			skinnyskiInfo.setTrailIndex(Integer.parseInt(indexString));
 		}
 	}
 
@@ -118,7 +126,7 @@ public class SkinnyskiScanner {
 		if ((name = scan("", "\\<\\/a\\> \\(", ".*")) == null)
 			name = scan("", "\\(", ".*");
 		if (name != null)
-			trailInfo.setSkinnyskiSearchTerm(name.trim());
+			trailInfo.setName(name.trim());
 	}
 
 	private void scanCityAndState() {

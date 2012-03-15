@@ -33,16 +33,13 @@ import org.dsanderson.xctrailreport.core.TrailReport;
  */
 public class SkinnyskiReportRetriever implements IReportRetriever {
 
-	public static final String DEFAULT_SKINNYSKI_REPORT_URL = "http://skinnyski.com/trails/trailselect.asp?reportType=X";
-	public static final String DEFAULT_SKINNYSKI_REQUEST_URL = "http://www.skinnyski.com/trails/trailreportrequest.asp";
+	private final IAbstractFactory factory;
+	private final SkinnyskiFactory skinnySkiFactory;
 
-	IAbstractFactory factory;
-	SkinnyskiSettings settings;
-
-	public SkinnyskiReportRetriever(SkinnyskiSettings settings,
-			IAbstractFactory factory) {
-		this.settings = settings;
+	public SkinnyskiReportRetriever(IAbstractFactory factory,
+			SkinnyskiFactory skinnyskiFactory) {
 		this.factory = factory;
+		this.skinnySkiFactory = skinnyskiFactory;
 	}
 
 	/*
@@ -63,28 +60,34 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 			BufferedInputStream stream = new BufferedInputStream(
 					netConnection.getStream());
 			SkinnyskiScanner scanner = new SkinnyskiScanner(stream,
-					factory.getTrailReportPool(), factory.getTrailInfoPool());
+					factory.getTrailReportPool(), factory.getTrailInfoPool(),
+					skinnySkiFactory.getTrailInfoPool());
 
-			for (String region : settings.getRegions().getRegions()) {
+			for (String region : skinnySkiFactory.getRegions().getRegions()) {
 
 				if (scanner.findRegion(region)) {
 					while (scanner.scanRegion()) {
 						TrailReport newTrailReport = scanner.getTrailReport();
 						TrailInfo newTrailInfo = scanner.getTrailInfo();
+						SkinnyskiSpecificInfo newSkinnyskiInfo = scanner
+								.getSkinnyskiSpecificInfo();
 
 						boolean existingTrail = false;
+						boolean existingSkinnyskiTrail = false;
 						TrailInfo trailInfo = null;
 						for (TrailInfo info : trailInfos) {
-							if (newTrailInfo.getSkinnyskiSearchTerm()
-									.compareTo(info.getSkinnyskiSearchTerm()) == 0) {
+							if (newTrailInfo.getName()
+									.compareTo(info.getName()) == 0) {
 								existingTrail = true;
+								if (info.getSourceSpecificInfo(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME) == null)
+									info.addSourceSpecificInfo(newSkinnyskiInfo);
+								else
+									existingSkinnyskiTrail = true;
 								trailInfo = info;
 							}
 						}
 
 						if (!existingTrail) {
-							newTrailInfo.setName(newTrailInfo
-									.getSkinnyskiSearchTerm());
 							newTrailInfo.setLocation(factory.getLocationCoder()
 									.getLocation(
 											newTrailInfo.getName() + ", "
@@ -94,11 +97,14 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 
 							trailInfos.add(newTrailInfo);
 							trailInfo = trailInfos.get(trailInfos.size() - 1);
+							trailInfo.addSourceSpecificInfo(newSkinnyskiInfo);
 						} else {
-							factory.getTrailInfoPool().deleteTrailInfo(
-									newTrailInfo);
+							factory.getTrailInfoPool().deleteItem(newTrailInfo);
+							if (!existingSkinnyskiTrail)
+								skinnySkiFactory.getTrailInfoPool().deleteItem(
+										newSkinnyskiInfo);
 						}
-						
+
 						newTrailReport.setTrailInfo(trailInfo);
 						newTrailReport.setSource("SkinnySki");
 

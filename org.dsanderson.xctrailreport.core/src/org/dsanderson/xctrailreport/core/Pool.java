@@ -22,22 +22,26 @@ package org.dsanderson.xctrailreport.core;
 /**
  * 
  */
-public class TrailInfoPool extends Pool<TrailInfo> {
-
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.Pool#createItem()
-	 */
-	@Override
-	protected TrailInfo createItem() {
-		return new TrailInfo();
+public abstract class Pool<T> {
+	private T discardedItem = null;
+	private boolean discardedAvailable = false;
+	
+	public T newItem() {
+		if (!discardedAvailable)
+			return createItem();
+		else {
+			discardedAvailable = false;
+			return recycleItem(discardedItem);
+		}
 	}
-
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.Pool#recycleItem(java.lang.Object)
-	 */
-	@Override
-	protected TrailInfo recycleItem(TrailInfo item) {
-		return item.reset();
+	
+	public void deleteItem(T item) {
+		discardedAvailable = true;
+		discardedItem = item;
 	}
+	
+	abstract protected T createItem();
+	
+	abstract protected T recycleItem(T item);
 
 }

@@ -6,7 +6,7 @@
 		<state>MN</state>
 		<location>44.9795,-93.322</location>
 		<skinnyskiSearchTerm>City of Lakes Loppet Trail</skinnyskiSearchTerm>
-		<skinnyskiTrailIndex>448</skinnyskiTrailIndex>
+		<index>448</index>
 	</trail>
 
 	<trail>
@@ -14,86 +14,113 @@
 		<city>Golden Valley</city>
 		<state>MN</state>
 		<location>44.992,-93.3222</location>
-		<skinnyskiSearchTerm>Theodore Wirth Regional Park</skinnyskiSearchTerm>
-		<skinnyskiTrailIndex>97</skinnyskiTrailIndex>
+		<skinnyski>
+			<index>97</index>
+		</skinnyski>
 	</trail>
 	<trail>
 		<name>Baker Park Reserve</name>
 		<city>Maple Plain</city>
 		<state>MN</state>
 		<location>45.032,-93.6044</location>
-		<skinnyskiSearchTerm>Baker Park Reserve</skinnyskiSearchTerm>
-		<skinnyskiTrailIndex>93</skinnyskiTrailIndex>
-		<threeRiversSearchTerm>Baker Park Reserve</threeRiversSearchTerm>
+		<skinnyski>
+			<index>93</index>
+		</skinnyski>
+		<threeRivers>
+			<infoUrl>baker-park</infoUrl>
+		</threeRivers>
 	</trail>
 	<trail>
 		<name>Carver Park Reserve</name>
 		<city>Victoria</city>
 		<state>MN</state>
 		<location>44.8836,-93.7031</location>
-		<skinnyskiSearchTerm>Carver Park Reserve</skinnyskiSearchTerm>
-		<skinnyskiTrailIndex>90</skinnyskiTrailIndex>
-		<threeRiversSearchTerm>Carver Park Reserve</threeRiversSearchTerm>
+		<skinnyski>
+			<index>90</index>
+		</skinnyski>
+		<threeRivers>
+			<infoUrl>carver-park</infoUrl>
+		</threeRivers>
 	</trail>
 	<trail>
 		<name>Cleary Lake Regional Park</name>
 		<city>Prior Lake</city>
 		<state>MN</state>
 		<location>44.6866,-93.3793</location>
-		<skinnyskiSearchTerm>Cleary Lake Regional Park</skinnyskiSearchTerm>
-		<skinnyskiTrailIndex>303</skinnyskiTrailIndex>
-		<threeRiversSearchTerm>Cleary Lake Regional Park</threeRiversSearchTerm>
+		<skinnyski>
+			<index>303</index>
+		</skinnyski>
+		<threeRivers>
+			<infoUrl>cleary-lake-park</infoUrl>
+		</threeRivers>
 	</trail>
 	<trail>
 		<name>Eagle Lake Regional Park</name>
 		<city>Plymouth</city>
 		<state>MN</state>
 		<location>45.0585,-93.4205</location>
-		<skinnyskiSearchTerm>Eagle Lake Regional Park</skinnyskiSearchTerm>
-		<skinnyskiTrailIndex>330</skinnyskiTrailIndex>
-		<threeRiversSearchTerm>Eagle Lake Regional Park</threeRiversSearchTerm>
+		<skinnyski>
+			<index>330</index>
+		</skinnyski>
+		<threeRivers>
+			<infoUrl>eagle-lake-park</infoUrl>
+		</threeRivers>
 	</trail>
 	<trail>
 		<name>Elm Creek Park Reserve</name>
 		<city>Maple Grove</city>
 		<state>MN</state>
 		<location>45.1335,-93.441</location>
-		<skinnyskiSearchTerm>Elm Creek Park Reserve</skinnyskiSearchTerm>
-		<skinnyskiTrailIndex>98</skinnyskiTrailIndex>
-		<threeRiversSearchTerm>Elm Creek Park Reserve</threeRiversSearchTerm>
+		<skinnyski>
+			<index>98</index>
+		</skinnyski>
+		<threeRivers>
+			<infoUrl>elm-creek-park</infoUrl>		
+		</threeRivers>
 	</trail>
 	<trail>
 		<name>French Regional Park</name>
 		<city>Plymouth</city>
 		<state>MN</state>
 		<location>45.0279,-93.438</location>
-		<skinnyskiSearchTerm>French Regional Park</skinnyskiSearchTerm>
-		<skinnyskiTrailIndex>99</skinnyskiTrailIndex>
-		<threeRiversSearchTerm>French Regional Park</threeRiversSearchTerm>
+		<skinnyski>
+			<index>99</index>
+		</skinnyski>
+		<threeRivers>
+			<infoUrl>french-park</infoUrl>
+		</threeRivers>
 	</trail>
 	<trail>
 		<name>Glen Lake Golf Center</name>
 		<city>Minnetonka</city>
 		<state>MN</state>
 		<location>44.8922325,-93.4603828</location>
-		<threeRiversSearchTerm>Glen Lake Golf Center</threeRiversSearchTerm>
+		<threeRivers>
+			<infoUrl>glen-lake-golf</infoUrl>
+		</threeRivers>
 	</trail>
 	<trail>
 		<name>Hyland Lake Park Reserve</name>
 		<city>Bloomington</city>
 		<state>MN</state>
 		<location>44.8243,-93.3769</location>
-		<skinnyskiSearchTerm>Hyland Lake Park Reserve</skinnyskiSearchTerm>
-		<skinnyskiTrailIndex>84</skinnyskiTrailIndex>
-		<threeRiversSearchTerm>Hyland Lake Park Reserve</threeRiversSearchTerm>
+		<skinnyski>
+			<index>84</index>
+		</skinnyski>
+		<threeRivers>
+			<infoUrl>hyland-lake-park</infoUrl>
+		</threeRivers>
 	</trail>
 	<trail>
 		<name>Murphy-Hanrehan Park Reserve</name>
 		<city>Burnsville</city>
 		<state>MN</state>
 		<location>44.7238,-93.3483</location>
-		<skinnyskiSearchTerm>Murphy-Hanrehan Park Reserve</skinnyskiSearchTerm>
-		<skinnyskiTrailIndex>85</skinnyskiTrailIndex>
-		<threeRiversSearchTerm>Murphy-Hanrehan Park Reserve</threeRiversSearchTerm>
+		<skinnyski>
+			<index>85</index>
+		</skinnyski>
+		<threeRivers>
+			<infoUrl>murphy-hanrehan-park</infoUrl>
+		</threeRivers>
 	</trail>
 </trailInfo>

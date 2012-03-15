@@ -17,11 +17,35 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.pctest;
+package org.dsanderson.xctrailreport.core;
 
 /**
  * 
  */
-public class PcTest {
-
+public interface ISourceSpecificFactory {
+	
+	///set whether this source is enabled by the user
+	void setEnabled(boolean enabled);
+	
+	///get whether this source is enabled by the user
+	boolean getEnabled();
+	
+	///get the name of this source
+	String getSourceName();
+	
+	///get the default url for composing a report
+	String getDefaultComposeUrl();
+	
+	///get the default url for requesting a new report
+	String getDefaultRequestUrl();
+	
+	///get this sources trail retriever
+	IReportRetriever getReportRetriever();
+	
+	///get the xml key for parsing source specific info
+	String getSourceSpecificXmlKey();
+	
+	///get the parser for saved trail info
+	ISourceSpecificInfoParser getSourceSpecificParser();
+		
 }

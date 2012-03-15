@@ -85,7 +85,7 @@ public class PreferencesActivity extends PreferenceActivity {
 
 				TrailReportFactory.getInstance().getUserSettingsSource()
 						.loadUserSettings();
-				SkinnyskiFactory.getInstance().getSkinnyskiSettingsSource()
+				SkinnyskiAndroidFactory.getInstance().getUserSettingsSource()
 						.loadUserSettings();
 
 				Intent intent = getIntent();

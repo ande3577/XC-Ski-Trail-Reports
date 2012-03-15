@@ -17,26 +17,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.core;
+package org.dsanderson.xctrailreport.skinnyski;
+
+import org.dsanderson.xctrailreport.core.Pool;
 
 /**
  * 
  */
-public class TrailInfoPool extends Pool<TrailInfo> {
+public class SkinnyskiTrailInfoPool extends Pool<SkinnyskiSpecificInfo> {
 
 	/* (non-Javadoc)
 	 * @see org.dsanderson.xctrailreport.core.Pool#createItem()
 	 */
 	@Override
-	protected TrailInfo createItem() {
-		return new TrailInfo();
+	protected SkinnyskiSpecificInfo createItem() {
+		return new SkinnyskiSpecificInfo();
 	}
 
 	/* (non-Javadoc)
 	 * @see org.dsanderson.xctrailreport.core.Pool#recycleItem(java.lang.Object)
 	 */
 	@Override
-	protected TrailInfo recycleItem(TrailInfo item) {
+	protected SkinnyskiSpecificInfo recycleItem(SkinnyskiSpecificInfo item) {
 		return item.reset();
 	}
 

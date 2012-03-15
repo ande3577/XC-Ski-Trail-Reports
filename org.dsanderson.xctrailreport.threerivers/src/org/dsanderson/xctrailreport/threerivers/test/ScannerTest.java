@@ -67,7 +67,7 @@ public class ScannerTest {
 
 		System.out.println("New Report:");
 		System.out.println("Date: " + trailReport.getDate().formatDate());
-		System.out.println("Name: " + trailInfo.getThreeRiversSearchTerm());
+		System.out.println("Name: " + trailInfo.getName());
 
 		System.out.println("Summary: " + trailReport.getSummary());
 		System.out.println("Detailed: " + trailReport.getDetail());

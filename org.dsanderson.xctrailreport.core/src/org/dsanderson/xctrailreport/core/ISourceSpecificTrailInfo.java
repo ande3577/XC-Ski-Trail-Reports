@@ -17,18 +17,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.skinnyski;
-
-import org.dsanderson.xctrailreport.skinnyski.RegionManager;
+package org.dsanderson.xctrailreport.core;
 
 /**
  * 
  */
-public class SkinnyskiSettings {
-	RegionManager regions = new RegionManager();
-	
-	public RegionManager getRegions() {
-		return regions;
-	}
-	
+public interface ISourceSpecificTrailInfo {
+	/// get the name of this source
+	String getSourceName();
+	/// get the url for trail info
+	String getTrailInfoUrl();
+	/// get the url to compose a new trail report
+	String getComposeUrl();
 }
