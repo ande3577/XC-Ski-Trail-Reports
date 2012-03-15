@@ -27,7 +27,7 @@ import org.dsanderson.xctrailreport.core.ISourceSpecificInfoParser;
 /**
  * 
  */
-public abstract class ThreeRiversFactory implements ISourceSpecificFactory {
+public class ThreeRiversFactory implements ISourceSpecificFactory {
 	public static final String SOURCE_NAME = "Three Rivers Park District";
 	private static final String XML_TAG = "threeRivers";
 	

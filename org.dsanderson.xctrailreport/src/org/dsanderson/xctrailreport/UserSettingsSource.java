@@ -21,11 +21,13 @@ package org.dsanderson.xctrailreport;
 
 import org.dsanderson.util.ILocationSource;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
+import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.Units;
 import org.dsanderson.xctrailreport.core.UserSettings;
 import org.dsanderson.xctrailreport.core.UserSettings.AutoRefreshMode;
 import org.dsanderson.xctrailreport.core.UserSettings.SortMethod;
+import org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -151,6 +153,10 @@ public class UserSettingsSource implements IUserSettingsSource {
 				settings.getSkinnyskiEnabled()));
 		settings.setThreeRiversEnabled(preference.getBoolean(
 				"threeRiversEnabled", settings.getThreeRiversEnabed()));
+		ISourceSpecificFactory skinnyskiSource = factory
+				.getSourceSpecificFactory(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME);
+		if (skinnyskiSource != null)
+			((SkinnyskiFactory) skinnyskiSource).getUserSettingsSource().loadUserSettings();
 	}
 
 	/*

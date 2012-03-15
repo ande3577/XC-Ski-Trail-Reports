@@ -110,7 +110,6 @@
 		<threeRivers>
 			<infoUrl>hyland-lake-park</infoUrl>
 		</threeRivers>
-		<threeRiversSearchTerm>Hyland Lake Park Reserve</threeRiversSearchTerm>
 	</trail>
 	<trail>
 		<name>Murphy-Hanrehan Park Reserve</name>
@@ -123,6 +122,5 @@
 		<threeRivers>
 			<infoUrl>murphy-hanrehan-park</infoUrl>
 		</threeRivers>
-		<threeRiversSearchTerm>Murphy-Hanrehan Park Reserve</threeRiversSearchTerm>
 	</trail>
 </trailInfo>

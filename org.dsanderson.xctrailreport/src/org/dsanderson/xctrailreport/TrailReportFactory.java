@@ -54,6 +54,7 @@ import org.dsanderson.xctrailreport.decorators.DistanceDecorator;
 import org.dsanderson.xctrailreport.decorators.PhotosetDecorator;
 import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
+import org.dsanderson.xctrailreport.threerivers.ThreeRiversFactory;
 import org.dsanderson.xctrailreport.core.TrailReportPool;
 import org.dsanderson.xctrailreport.application.PhotosetFilter;
 
@@ -66,6 +67,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	static TrailReportFactory factory = null;
 	Context context;
 	SkinnyskiAndroidFactory skinnyskiFactory = null;
+	ThreeRiversFactory threeRiversFactory = null;
 	UrlConnection netConnection = null;
 	TrailReportDecorator infoDecorator = null;
 	TrailReportDecorator reportDecorator = null;
@@ -81,6 +83,7 @@ public class TrailReportFactory implements IAbstractFactory {
 		factory = this;
 		this.context = context;
 		skinnyskiFactory = new SkinnyskiAndroidFactory(context, this);
+		threeRiversFactory = new ThreeRiversFactory(this);
 	}
 
 	static public TrailReportFactory getInstance() {
@@ -289,12 +292,8 @@ public class TrailReportFactory implements IAbstractFactory {
 	 */
 	public List<ISourceSpecificFactory> getSourceSpecificFactories() {
 		List<ISourceSpecificFactory> factories = new ArrayList<ISourceSpecificFactory>();
-
-		if (userSettings.getSkinnyskiEnabled())
-			factories.add(skinnyskiFactory);
-		if (userSettings.getThreeRiversEnabed()) {
-			// factories.add(threeRiversFactory);
-		}
+		factories.add(skinnyskiFactory);
+		factories.add(threeRiversFactory);
 		return factories;
 	}
 
@@ -307,7 +306,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 */
 	public ISourceSpecificFactory getSourceSpecificFactory(String sourceName) {
 		for (ISourceSpecificFactory factory : getSourceSpecificFactories()) {
-			if (factory.getSourceName().equals(sourceName)) {
+			if (factory.getSourceName().compareTo(sourceName) == 0) {
 				return factory;
 			}
 		}
