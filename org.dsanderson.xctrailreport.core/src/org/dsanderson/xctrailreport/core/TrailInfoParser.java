@@ -11,6 +11,7 @@ import org.dsanderson.util.ICompoundXmlParserFactory;
 public class TrailInfoParser {
 	final ICompoundXmlParserFactory parserFactory;
 	final TrailInfoPool infoPool;
+	final List<ISourceSpecificFactory> sources;
 
 	// names of the XML tags
 	static final String TRAIL_INFO = "trailInfo";
@@ -31,9 +32,10 @@ public class TrailInfoParser {
 	List<TrailInfo> trailInfo = new ArrayList<TrailInfo>();
 
 	public TrailInfoParser(ICompoundXmlParserFactory parserFactory,
-			TrailInfoPool infoPool) {
+			TrailInfoPool infoPool, List<ISourceSpecificFactory> sources) {
 		this.parserFactory = parserFactory;
 		this.infoPool = infoPool;
+		this.sources = sources;
 	}
 
 	public List<TrailInfo> getTrailInfo() {
@@ -78,15 +80,16 @@ public class TrailInfoParser {
 						info.setDistanceValid(Boolean
 								.parseBoolean(parserOutput));
 				}
-				if ((parserOutput = parser.getValue(SKINNYSKI_SEARCH_TERM)) != null)
-					info.setSkinnyskiSearchTerm(parserOutput);
-				if ((parserOutput = parser.getValue(SKINNYSKI_TRAIL_INDEX)) != null) {
-					if (parserOutput.length() > 0)
-						info.setskinnyskiTrailIndex(Integer
-								.parseInt(parserOutput));
+
+				for (ISourceSpecificFactory source : sources) {
+					List<CompoundXmlParser> sourceSpecificParser = parser
+							.getParsers(source.getSourceSpecificXmlKey());
+					if (sourceSpecificParser.size() > 0) {
+						info.addSourceSpecificInfo(source
+								.getSourceSpecificParser().parse(
+										sourceSpecificParser.get(0)));
+					}
 				}
-				if ((parserOutput = parser.getValue(THREE_RIVERS_SEARCH_TERM)) != null)
-					info.setThreeRiversSearchTerm(parserOutput);
 
 				mergeTrailInfo(trailInfo, info);
 			}
@@ -105,12 +108,19 @@ public class TrailInfoParser {
 			infoBuilder.addParser(CITY, info.getCity());
 			infoBuilder.addParser(STATE, info.getState());
 			infoBuilder.addParser(LOCATION, info.getLocation());
-			infoBuilder.addParser(SKINNYSKI_SEARCH_TERM,
-					info.getSkinnyskiSearchTerm());
-			infoBuilder.addParser(SKINNYSKI_TRAIL_INDEX,
-					Integer.toString(info.getskinnyskiTrailIndex()));
-			infoBuilder.addParser(THREE_RIVERS_SEARCH_TERM,
-					info.getThreeRiversSearchTerm());
+			for (ISourceSpecificTrailInfo sourceSpecific : info
+					.getSourceSpecificInfos()) {
+				for (ISourceSpecificFactory source : sources) {
+					if (source.getSourceName().equals(
+							sourceSpecific.getSourceName())) {
+						CompoundXmlParser newParser = source
+								.getSourceSpecificParser().buildParser(
+										sourceSpecific, parserFactory);
+						if (newParser != null)
+							infoBuilder.addParser(newParser);
+					}
+				}
+			}
 			infoBuilder.addParser(DISTANCE,
 					Integer.toString(info.getDistance()));
 			infoBuilder.addParser(DURATION,
@@ -156,17 +166,14 @@ public class TrailInfoParser {
 				if (current.getLocation() == null
 						|| current.getLocation().isEmpty())
 					current.setLocation(newInfo.getLocation());
-				if (current.getSkinnyskiSearchTerm() == null
-						|| current.getSkinnyskiSearchTerm().isEmpty())
-					current.setSkinnyskiSearchTerm(newInfo
-							.getSkinnyskiSearchTerm());
-				if (current.getskinnyskiTrailIndex() == 0)
-					current.setskinnyskiTrailIndex(newInfo
-							.getskinnyskiTrailIndex());
-				if (current.getThreeRiversSearchTerm() == null
-						|| current.getThreeRiversSearchTerm().isEmpty())
-					current.setThreeRiversSearchTerm(newInfo
-							.getThreeRiversSearchTerm());
+				for (ISourceSpecificTrailInfo sourceSpecific : newInfo
+						.getSourceSpecificInfos()) {
+					if (current.getSourceSpecificInfo(sourceSpecific
+							.getSourceName()) == null) {
+						current.addSourceSpecificInfo(sourceSpecific);
+					}
+				}
+
 				if (!current.getDistanceValid()) {
 					current.setDistanceValid(newInfo.getDistanceValid());
 					current.setDistance(newInfo.getDistance());

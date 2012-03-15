@@ -27,6 +27,8 @@ import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.TrailReportPool;
 import org.dsanderson.xctrailreport.skinnyski.RegionManager;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiScanner;
+import org.dsanderson.xctrailreport.skinnyski.SkinnyskiSpecificInfo;
+import org.dsanderson.xctrailreport.skinnyski.SkinnyskiTrailInfoPool;
 
 /**
  * 
@@ -43,10 +45,12 @@ public class ScannerTest {
 		try {
 			TrailReportPool trailReportPool = new TrailReportPool();
 			TrailInfoPool trailInfoPool = new TrailInfoPool();
-			
+			SkinnyskiTrailInfoPool skinnyskiPool = new SkinnyskiTrailInfoPool();
+
 			fileStream = new FileInputStream("reports.asp");
 
-			SkinnyskiScanner skinnyskiScanner = new SkinnyskiScanner(fileStream, trailReportPool, trailInfoPool);
+			SkinnyskiScanner skinnyskiScanner = new SkinnyskiScanner(
+					fileStream, trailReportPool, trailInfoPool, skinnyskiPool);
 
 			for (String region : RegionManager.supportedRegions) {
 
@@ -72,12 +76,14 @@ public class ScannerTest {
 	private static void printReportInfo(SkinnyskiScanner skinnyskiScanner) {
 		TrailInfo trailInfo = skinnyskiScanner.getTrailInfo();
 		TrailReport trailReport = skinnyskiScanner.getTrailReport();
+		SkinnyskiSpecificInfo skinnyskiSpecificInfo = skinnyskiScanner
+				.getSkinnyskiSpecificInfo();
 
 		System.out.println("New Report:");
 		System.out.println("Date: " + trailReport.getDate().formatDate());
-		System.out.println("URL: " + trailInfo.getSkinnySkiUrl());
-		System.out.println("Submit: " + trailInfo.getSkinnySkiSubmitUrl());
-		System.out.println("Name: " + trailInfo.getSkinnyskiSearchTerm());
+		System.out.println("URL: " + skinnyskiSpecificInfo.getTrailInfoUrl());
+		System.out.println("Submit: " + skinnyskiSpecificInfo.getComposeUrl());
+		System.out.println("Name: " + trailInfo.getName());
 		System.out.println("City: " + trailInfo.getCity() + ", "
 				+ trailInfo.getState());
 

@@ -19,6 +19,9 @@
  */
 package org.dsanderson.xctrailreport;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.dsanderson.android.util.CompoundXmlPullParserFactory;
 import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.DistanceSource;
@@ -31,13 +34,12 @@ import org.dsanderson.util.ILocationCoder;
 import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.INetConnection;
 import org.dsanderson.xctrailreport.application.CompoundFilter;
-import org.dsanderson.xctrailreport.application.CompoundReportRetriever;
 import org.dsanderson.xctrailreport.application.DateFilter;
 import org.dsanderson.xctrailreport.application.DistanceFilter;
 import org.dsanderson.xctrailreport.application.DurationFilter;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportFilter;
-import org.dsanderson.xctrailreport.core.IReportRetriever;
+import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.TrailInfoPool;
@@ -52,7 +54,6 @@ import org.dsanderson.xctrailreport.decorators.DistanceDecorator;
 import org.dsanderson.xctrailreport.decorators.PhotosetDecorator;
 import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
-import org.dsanderson.xctrailreport.threerivers.ThreeRiversReportRetriever;
 import org.dsanderson.xctrailreport.core.TrailReportPool;
 import org.dsanderson.xctrailreport.application.PhotosetFilter;
 
@@ -64,7 +65,7 @@ import android.content.Context;
 public class TrailReportFactory implements IAbstractFactory {
 	static TrailReportFactory factory = null;
 	Context context;
-	SkinnyskiFactory skinnyskiFactory;
+	SkinnyskiAndroidFactory skinnyskiFactory = null;
 	UrlConnection netConnection = null;
 	TrailReportDecorator infoDecorator = null;
 	TrailReportDecorator reportDecorator = null;
@@ -75,11 +76,11 @@ public class TrailReportFactory implements IAbstractFactory {
 	TrailReportPool trailReportPool = null;
 	TrailInfoPool trailInfoPool = null;
 
-	public TrailReportFactory(Context context, SkinnyskiFactory skinnyskiFactory) {
+	public TrailReportFactory(Context context) {
 		assert (factory == null);
 		factory = this;
 		this.context = context;
-		this.skinnyskiFactory = skinnyskiFactory;
+		skinnyskiFactory = new SkinnyskiAndroidFactory(context, this);
 	}
 
 	static public TrailReportFactory getInstance() {
@@ -95,7 +96,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	 */
 	public TrailInfoParser newTrailInfoParser() {
 		return new TrailInfoParser(CompoundXmlPullParserFactory.getInstance(),
-				factory.getTrailInfoPool());
+				factory.getTrailInfoPool(), getSourceSpecificFactories());
 	}
 
 	/*
@@ -148,23 +149,6 @@ public class TrailReportFactory implements IAbstractFactory {
 			settingsSource = new UserSettingsSource(context, this);
 		}
 		return settingsSource;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getReportRetriever()
-	 */
-	public IReportRetriever getReportRetriever() {
-		CompoundReportRetriever reportRetriever = new CompoundReportRetriever();
-
-		if (userSettings.getSkinnyskiEnabled())
-			reportRetriever.addRetriever(skinnyskiFactory
-					.getSkinnyskiReportRetriever(this));
-		if (userSettings.getThreeRiversEnabed())
-			reportRetriever.addRetriever(new ThreeRiversReportRetriever(this));
-		return reportRetriever;
 	}
 
 	/*
@@ -294,6 +278,40 @@ public class TrailReportFactory implements IAbstractFactory {
 		if (trailInfoPool == null)
 			trailInfoPool = new TrailInfoPool();
 		return trailInfoPool;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getSourceSpecificFactory
+	 * ()
+	 */
+	public List<ISourceSpecificFactory> getSourceSpecificFactories() {
+		List<ISourceSpecificFactory> factories = new ArrayList<ISourceSpecificFactory>();
+
+		if (userSettings.getSkinnyskiEnabled())
+			factories.add(skinnyskiFactory);
+		if (userSettings.getThreeRiversEnabed()) {
+			// factories.add(threeRiversFactory);
+		}
+		return factories;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getSourceSpecificFactory
+	 * (java.lang.String)
+	 */
+	public ISourceSpecificFactory getSourceSpecificFactory(String sourceName) {
+		for (ISourceSpecificFactory factory : getSourceSpecificFactories()) {
+			if (factory.getSourceName().equals(sourceName)) {
+				return factory;
+			}
+		}
+		return null;
 	}
 
 }

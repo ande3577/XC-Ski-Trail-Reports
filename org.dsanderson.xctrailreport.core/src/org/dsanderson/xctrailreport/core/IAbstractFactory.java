@@ -19,6 +19,8 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import java.util.List;
+
 import org.dsanderson.util.IDialog;
 import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.ILocationCoder;
@@ -39,8 +41,10 @@ public interface IAbstractFactory {
 	public ILocationSource getLocationSource();
 
 	public IUserSettingsSource getUserSettingsSource();
-
-	public IReportRetriever getReportRetriever();
+	
+	public ISourceSpecificFactory getSourceSpecificFactory(String SourceName);
+	
+	public List<ISourceSpecificFactory> getSourceSpecificFactories();
 
 	public TrailReportDecorator getTrailInfoDecorators();
 

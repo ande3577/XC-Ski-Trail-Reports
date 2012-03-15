@@ -67,8 +67,8 @@ public class ThreeRiversReportRetriever implements IReportRetriever {
 				boolean existingTrail = false;
 				TrailInfo trailInfo = null;
 				for (TrailInfo info : trailInfos) {
-					if (newTrailInfo.getThreeRiversSearchTerm().compareTo(
-							info.getThreeRiversSearchTerm()) == 0) {
+					if (newTrailInfo.getName().compareTo(
+							info.getName()) == 0) {
 						existingTrail = true;
 						trailInfo = info;
 					}
@@ -76,7 +76,7 @@ public class ThreeRiversReportRetriever implements IReportRetriever {
 
 				if (!existingTrail) {
 					newTrailInfo.setName(newTrailInfo
-							.getThreeRiversSearchTerm());
+							.getName());
 					trailInfos.add(newTrailInfo);
 					trailInfo = trailInfos.get(trailInfos.size() - 1);
 				} else {

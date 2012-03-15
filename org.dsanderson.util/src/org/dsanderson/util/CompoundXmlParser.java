@@ -119,6 +119,14 @@ public abstract class CompoundXmlParser {
 	public List<CompoundXmlParser> getParsers() {
 		return tagParsers;
 	}
+	
+	public CompoundXmlParser getParser(String name) {
+		List<CompoundXmlParser> parserList = getParsers(name);
+		if (parserList != null && parserList.size() > 0)
+			return parserList.get(0);
+		else
+			return null;
+	}
 
 	public List<CompoundXmlParser> getParsers(String name) {
 		List<CompoundXmlParser> returnParsers = new ArrayList<CompoundXmlParser>();

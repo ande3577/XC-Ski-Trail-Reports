@@ -7,8 +7,10 @@ import java.util.List;
 import org.dsanderson.android.util.ListEntry;
 import org.dsanderson.xctrailreport.R;
 import org.dsanderson.xctrailreport.application.ReportListCreator;
+import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
+import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
-import org.dsanderson.xctrailreport.skinnyski.SkinnyskiReportRetriever;
+import org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -37,9 +39,7 @@ import android.widget.Toast;
 public class xctrailreportActivity extends ListActivity {
 
 	private List<TrailReport> trailReports;
-	private SkinnyskiFactory skinnyskiFactory = new SkinnyskiFactory(this);
-	private TrailReportFactory factory = new TrailReportFactory(this,
-			skinnyskiFactory);
+	private TrailReportFactory factory = new TrailReportFactory(this);
 	TrailReportReaderFactory trailReportReaderFactory = new TrailReportReaderFactory(
 			this);
 	ReportListCreator listCreator = new ReportListCreator(factory,
@@ -53,7 +53,6 @@ public class xctrailreportActivity extends ListActivity {
 
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
-			skinnyskiFactory.getSkinnyskiSettingsSource().loadUserSettings();
 
 			@SuppressWarnings("unchecked")
 			final List<TrailReport> savedTrailReports = (List<TrailReport>) getLastNonConfigurationInstance();
@@ -114,8 +113,12 @@ public class xctrailreportActivity extends ListActivity {
 		TrailReport report = determineListItemFromMenuInfo((AdapterView.AdapterContextMenuInfo) menuInfo);
 		if (report != null) {
 			menu.add(Menu.NONE, R.id.openMapMenu, Menu.NONE, "Open Map");
-			if (report.getTrailInfo().getSkinnySkiUrl() != null
-					&& report.getTrailInfo().getSkinnySkiUrl().length() != 0) {
+			ISourceSpecificTrailInfo skinnyskiInfo = report.getTrailInfo()
+					.getSourceSpecificInfo(
+							SkinnyskiFactory.SKINNYSKI_SOURCE_NAME);
+			if (skinnyskiInfo != null
+					&& skinnyskiInfo.getTrailInfoUrl() != null
+					&& skinnyskiInfo.getTrailInfoUrl().length() != 0) {
 				menu.add(Menu.NONE, R.id.trailInfoMenu, Menu.NONE, "Trail Info");
 			}
 
@@ -130,23 +133,34 @@ public class xctrailreportActivity extends ListActivity {
 				.getMenuInfo());
 		if (trailReport != null) {
 			switch (item.getItemId()) {
-			case R.id.trailInfoMenu:
-				String trailInfoUrl = trailReport.getTrailInfo()
-						.getSkinnySkiUrl();
-				if (trailInfoUrl != null && trailInfoUrl.length() > 0)
-					launchIntent(trailReport.getTrailInfo().getSkinnySkiUrl());
+			case R.id.trailInfoMenu: {
+				ISourceSpecificTrailInfo sourceSpecific = trailReport
+						.getTrailInfo().getSourceSpecificInfo(
+								SkinnyskiFactory.SKINNYSKI_SOURCE_NAME);
+				if (sourceSpecific != null) {
+					String trailInfoUrl = sourceSpecific.getTrailInfoUrl();
+					if (trailInfoUrl != null && trailInfoUrl.length() > 0)
+						launchIntent(trailInfoUrl);
+				}
+			}
 				return true;
 			case R.id.openMapMenu:
 				launchIntent("geo:" + trailReport.getTrailInfo().getLocation()
 						+ "?z=14");
 				return true;
-			case R.id.composeReportItem:
-				String reportUrl = trailReport.getTrailInfo()
-						.getSkinnySkiSubmitUrl();
-				if (reportUrl == null || reportUrl.length() == 0)
-					reportUrl = SkinnyskiReportRetriever.DEFAULT_SKINNYSKI_REPORT_URL;
+			case R.id.composeReportItem: {
+				ISourceSpecificTrailInfo sourceSpecific = trailReport
+						.getTrailInfo().getSourceSpecificInfo(
+								SkinnyskiFactory.SKINNYSKI_SOURCE_NAME);
+				if (sourceSpecific != null) {
+					String composeUrl = sourceSpecific.getTrailInfoUrl();
+					if (composeUrl != null && composeUrl.length() > 0)
+						composeUrl = SkinnyskiFactory.getInstance()
+								.getDefaultComposeUrl();
 
-				launchIntent(reportUrl);
+					launchIntent(composeUrl);
+				}
+			}
 				return true;
 			default:
 				break;
@@ -197,11 +211,19 @@ public class xctrailreportActivity extends ListActivity {
 			startActivity(i);
 		}
 			break;
-		case R.id.composeMain:
-			launchIntent(SkinnyskiReportRetriever.DEFAULT_SKINNYSKI_REPORT_URL);
+		case R.id.composeMain: {
+			ISourceSpecificFactory skinnyskiFactory = factory
+					.getSourceSpecificFactory("Skinnyski");
+			if (skinnyskiFactory != null)
+				launchIntent(skinnyskiFactory.getDefaultComposeUrl());
+		}
 			break;
-		case R.id.request:
-			launchIntent(SkinnyskiReportRetriever.DEFAULT_SKINNYSKI_REQUEST_URL);
+		case R.id.request: {
+			ISourceSpecificFactory skinnyskiFactory = factory
+					.getSourceSpecificFactory("Skinnyski");
+			if (skinnyskiFactory != null)
+				launchIntent(skinnyskiFactory.getDefaultRequestUrl());
+		}
 			break;
 		case R.id.sortBy:
 			MenuItem distance = item.getSubMenu().getItem(0).setChecked(false);
@@ -322,8 +344,9 @@ public class xctrailreportActivity extends ListActivity {
 		protected List<TrailReport> doInBackground(Integer... params) {
 			List<TrailReport> trailReports = new ArrayList<TrailReport>();
 			try {
-				if (skinnyskiFactory.getSkinnySkiSettings().getRegions()
-						.getRegions().isEmpty())
+				if (((SkinnyskiFactory) factory
+						.getSourceSpecificFactory(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME))
+						.getSettings().getRegions().getRegions().isEmpty())
 					throw new Exception("No regions enabled.");
 
 				trailReports = loadTrailReports();

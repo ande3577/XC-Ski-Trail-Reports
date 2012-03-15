@@ -28,7 +28,7 @@ import java.util.List;
 
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportFilter;
-import org.dsanderson.xctrailreport.core.IReportRetriever;
+import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.TrailReport;
@@ -83,12 +83,14 @@ public class ReportListCreator {
 
 			trailReports = new ArrayList<TrailReport>();
 
-			IReportRetriever reportRetriever = factory.getReportRetriever();
-			reportRetriever.getReports(trailReports, trailInfos);
+			for (ISourceSpecificFactory source : factory
+					.getSourceSpecificFactories())
+				source.getReportRetriever()
+						.getReports(trailReports, trailInfos);
 
 			DistanceHandler directionHandler = new DistanceHandler(factory);
 			directionHandler.getDistances(trailInfos);
-			
+
 			trailReports = filterTrailReports(trailReports);
 
 			readerFactory.setReportsRefreshedDate(new Date());
