@@ -45,14 +45,17 @@ public class SkinnyskiAndroidFactory extends SkinnyskiFactory {
 		return skinnyskiAndroidFactory;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory#getUserSettingsSource()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory#getUserSettingsSource
+	 * ()
 	 */
 	@Override
 	public IUserSettingsSource getUserSettingsSource() {
 		if (skinnyskiSettingsSource == null)
-			skinnyskiSettingsSource = new SkinnyskiSettingsSource(context,
-					getSettings());
+			skinnyskiSettingsSource = new SkinnyskiSettingsSource(context, this);
 		return skinnyskiSettingsSource;
 	}
 

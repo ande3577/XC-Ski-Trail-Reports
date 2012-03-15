@@ -21,7 +21,7 @@ package org.dsanderson.xctrailreport;
 
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.skinnyski.RegionManager;
-import org.dsanderson.xctrailreport.skinnyski.SkinnyskiSettings;
+import org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -32,16 +32,16 @@ import android.preference.PreferenceManager;
  * 
  */
 public class SkinnyskiSettingsSource implements IUserSettingsSource {
-	SharedPreferences preference;
-	SkinnyskiSettings settings;
+	private SharedPreferences preference;
+	private final SkinnyskiFactory factory;
 
 	public static final String regionKeys[] = { "mnMetro", "mnNortheast",
 			"mnNorthwest", "mnCentral", "mnSouthern", "wiNorthwest",
 			"wiNortheast", "wiSouthwest", "wiSouthwest", "miUP", "ia", "ca",
 			"il", "nd", "us" };
 
-	public SkinnyskiSettingsSource(Context context, SkinnyskiSettings settings) {
-		this.settings = settings;
+	public SkinnyskiSettingsSource(Context context, SkinnyskiFactory factory) {
+		this.factory = factory;
 		preference = PreferenceManager.getDefaultSharedPreferences(context);
 		preference
 				.registerOnSharedPreferenceChangeListener(preferenceChangedListener);
@@ -83,8 +83,10 @@ public class SkinnyskiSettingsSource implements IUserSettingsSource {
 				e.printStackTrace();
 				throw new RuntimeException(e);
 			}
-
 		}
+
+		factory.setEnabled(preference.getBoolean("skinnyskiEnabled",
+				factory.getEnabled()));
 	}
 
 	/*
@@ -100,9 +102,9 @@ public class SkinnyskiSettingsSource implements IUserSettingsSource {
 	private void HandleRegionValue(String name, boolean enabled)
 			throws Exception {
 		if (enabled)
-			settings.getRegions().add(name);
+			factory.getRegions().add(name);
 		else
-			settings.getRegions().remove(name);
+			factory.getRegions().remove(name);
 	}
 
 	private int findRegionKey(String tag) {

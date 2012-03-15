@@ -84,9 +84,11 @@ public class ReportListCreator {
 			trailReports = new ArrayList<TrailReport>();
 
 			for (ISourceSpecificFactory source : factory
-					.getSourceSpecificFactories())
-				source.getReportRetriever()
-						.getReports(trailReports, trailInfos);
+					.getSourceSpecificFactories()) {
+				if (source.getEnabled())
+					source.getReportRetriever().getReports(trailReports,
+							trailInfos);
+			}
 
 			DistanceHandler directionHandler = new DistanceHandler(factory);
 			directionHandler.getDistances(trailInfos);

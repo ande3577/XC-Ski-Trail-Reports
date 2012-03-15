@@ -63,8 +63,7 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 					factory.getTrailReportPool(), factory.getTrailInfoPool(),
 					skinnySkiFactory.getTrailInfoPool());
 
-			for (String region : skinnySkiFactory.getSettings().getRegions()
-					.getRegions()) {
+			for (String region : skinnySkiFactory.getRegions().getRegions()) {
 
 				if (scanner.findRegion(region)) {
 					while (scanner.scanRegion()) {

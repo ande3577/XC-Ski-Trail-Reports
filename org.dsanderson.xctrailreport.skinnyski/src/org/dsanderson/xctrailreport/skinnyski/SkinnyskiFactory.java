@@ -34,19 +34,19 @@ public abstract class SkinnyskiFactory implements ISourceSpecificFactory {
 	static final String DEFAULT_SKINNYSKI_REPORT_URL = "http://skinnyski.com/trails/trailselect.asp?reportType=X";
 	static final String DEFAULT_SKINNYSKI_REQUEST_URL = "http://www.skinnyski.com/trails/trailreportrequest.asp";
 	static final String SKINNYSKI_XML_TAG = "skinnyski";
-	private final SkinnyskiSettings settings;
 	private final IAbstractFactory factory;
+	private boolean enabled = false;
 
 	private SkinnyskiReportRetriever retriever = null;
 	private SkinnyskiTrailInfoPool infoPool = null;
 	private SkinnyskiInfoParser parser = null;
+	RegionManager regions = new RegionManager();
 
 	public SkinnyskiFactory(IAbstractFactory factory) {
 		assert (instance == null);
 		instance = this;
 		this.factory = factory;
 		
-		settings = new SkinnyskiSettings();
 	}
 
 	static public SkinnyskiFactory getInstance() {
@@ -115,10 +115,6 @@ public abstract class SkinnyskiFactory implements ISourceSpecificFactory {
 		return SKINNYSKI_XML_TAG;
 	}
 	
-	public SkinnyskiSettings getSettings() {
-		return settings;
-	}
-	
 	public SkinnyskiTrailInfoPool getTrailInfoPool() {
 		if (infoPool == null)
 			infoPool = new SkinnyskiTrailInfoPool();
@@ -139,6 +135,18 @@ public abstract class SkinnyskiFactory implements ISourceSpecificFactory {
 	}
 	
 	abstract public IUserSettingsSource getUserSettingsSource();
+	
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
+	public boolean getEnabled() {
+		return enabled;
+	}
+	
+	public RegionManager getRegions() {
+		return regions;
+	}
 	
 	
 

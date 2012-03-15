@@ -346,7 +346,7 @@ public class xctrailreportActivity extends ListActivity {
 			try {
 				if (((SkinnyskiFactory) factory
 						.getSourceSpecificFactory(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME))
-						.getSettings().getRegions().getRegions().isEmpty())
+						.getRegions().getRegions().isEmpty())
 					throw new Exception("No regions enabled.");
 
 				trailReports = loadTrailReports();

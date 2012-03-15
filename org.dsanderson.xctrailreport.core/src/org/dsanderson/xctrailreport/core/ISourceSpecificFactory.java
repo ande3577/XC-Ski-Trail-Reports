@@ -23,6 +23,13 @@ package org.dsanderson.xctrailreport.core;
  * 
  */
 public interface ISourceSpecificFactory {
+	
+	///set whether this source is enabled by the user
+	void setEnabled(boolean enabled);
+	
+	///get whether this source is enabled by the user
+	boolean getEnabled();
+	
 	///get the name of this source
 	String getSourceName();
 	

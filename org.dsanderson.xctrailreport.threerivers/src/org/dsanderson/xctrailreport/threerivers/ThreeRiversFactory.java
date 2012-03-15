@@ -30,33 +30,42 @@ import org.dsanderson.xctrailreport.core.ISourceSpecificInfoParser;
 public class ThreeRiversFactory implements ISourceSpecificFactory {
 	public static final String SOURCE_NAME = "Three Rivers Park District";
 	private static final String XML_TAG = "threeRivers";
-	
+
 	private static ThreeRiversFactory instance = null;
-	
+
 	private final IAbstractFactory factory;
 	private ThreeRiversReportRetriever retriever = null;
 	private ThreeRiversParser parser = null;
-	
+
+	private boolean enabled = false;
+
 	public ThreeRiversFactory(IAbstractFactory factory) {
-		assert(instance == null);
+		assert (instance == null);
 		instance = this;
 		this.factory = factory;
 	}
-	
+
 	static public ThreeRiversFactory getInstance() {
 		return instance;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificFactory#getSourceName()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ISourceSpecificFactory#getSourceName()
 	 */
 	@Override
 	public String getSourceName() {
 		return SOURCE_NAME;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificFactory#getDefaultComposeUrl()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ISourceSpecificFactory#getDefaultComposeUrl
+	 * ()
 	 */
 	@Override
 	public String getDefaultComposeUrl() {
@@ -64,8 +73,12 @@ public class ThreeRiversFactory implements ISourceSpecificFactory {
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificFactory#getDefaultRequestUrl()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ISourceSpecificFactory#getDefaultRequestUrl
+	 * ()
 	 */
 	@Override
 	public String getDefaultRequestUrl() {
@@ -73,8 +86,12 @@ public class ThreeRiversFactory implements ISourceSpecificFactory {
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificFactory#getReportRetriever()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ISourceSpecificFactory#getReportRetriever
+	 * ()
 	 */
 	@Override
 	public IReportRetriever getReportRetriever() {
@@ -83,21 +100,50 @@ public class ThreeRiversFactory implements ISourceSpecificFactory {
 		return retriever;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificFactory#getSourceSpecificXmlKey()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificFactory#
+	 * getSourceSpecificXmlKey()
 	 */
 	@Override
 	public String getSourceSpecificXmlKey() {
 		return XML_TAG;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificFactory#getSourceSpecificParser()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificFactory#
+	 * getSourceSpecificParser()
 	 */
 	@Override
 	public ISourceSpecificInfoParser getSourceSpecificParser() {
 		if (parser == null)
 			parser = new ThreeRiversParser();
 		return parser;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ISourceSpecificFactory#setEnabled(boolean
+	 * )
+	 */
+	@Override
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ISourceSpecificFactory#getEnabled()
+	 */
+	@Override
+	public boolean getEnabled() {
+		return enabled;
 	}
 }

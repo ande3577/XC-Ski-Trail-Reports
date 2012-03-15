@@ -28,6 +28,7 @@ import org.dsanderson.xctrailreport.core.UserSettings;
 import org.dsanderson.xctrailreport.core.UserSettings.AutoRefreshMode;
 import org.dsanderson.xctrailreport.core.UserSettings.SortMethod;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory;
+import org.dsanderson.xctrailreport.threerivers.ThreeRiversFactory;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -102,12 +103,12 @@ public class UserSettingsSource implements IUserSettingsSource {
 				settings.setAutoRefreshCutoff(Units
 						.hoursToMilliseconds(getDouble(sharedPreferences, key,
 								settings.getAutoRefreshCutoff())));
-			} else if (key.equals("skinnyskiEnabled")) {
-				settings.setSkinnyskiEnabled(sharedPreferences.getBoolean(key,
-						settings.getSkinnyskiEnabled()));
 			} else if (key.equals("threeRiversEnabled")) {
-				settings.setThreeRiversEnabled(sharedPreferences.getBoolean(
-						key, settings.getThreeRiversEnabed()));
+				ISourceSpecificFactory threeRiversSource = factory
+						.getSourceSpecificFactory(ThreeRiversFactory.SOURCE_NAME);
+				if (threeRiversSource != null)
+					threeRiversSource.setEnabled(sharedPreferences.getBoolean(
+							key, threeRiversSource.getEnabled()));
 			}
 		}
 
@@ -149,14 +150,18 @@ public class UserSettingsSource implements IUserSettingsSource {
 		settings.setAutoRefreshCutoff(Units.hoursToMilliseconds(getDouble(
 				preference, "autoRefreshCutoff",
 				Units.millisecondsToHours(settings.getAutoRefreshCutoff()))));
-		settings.setSkinnyskiEnabled(preference.getBoolean("skinnyskiEnabled",
-				settings.getSkinnyskiEnabled()));
-		settings.setThreeRiversEnabled(preference.getBoolean(
-				"threeRiversEnabled", settings.getThreeRiversEnabed()));
+
+		ISourceSpecificFactory threeRiversSource = factory
+				.getSourceSpecificFactory(ThreeRiversFactory.SOURCE_NAME);
+		if (threeRiversSource != null)
+			threeRiversSource.setEnabled(preference.getBoolean(
+					"threeRiversEnabled", threeRiversSource.getEnabled()));
+
 		ISourceSpecificFactory skinnyskiSource = factory
 				.getSourceSpecificFactory(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME);
 		if (skinnyskiSource != null)
-			((SkinnyskiFactory) skinnyskiSource).getUserSettingsSource().loadUserSettings();
+			((SkinnyskiFactory) skinnyskiSource).getUserSettingsSource()
+					.loadUserSettings();
 	}
 
 	/*
