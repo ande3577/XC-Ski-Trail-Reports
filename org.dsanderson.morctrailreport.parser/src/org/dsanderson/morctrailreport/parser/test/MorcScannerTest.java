@@ -21,7 +21,6 @@ package org.dsanderson.morctrailreport.parser.test;
 
 import java.io.FileInputStream;
 
-import org.dsanderson.morctrailreport.parser.MorcFactory;
 import org.dsanderson.morctrailreport.parser.MorcInfoPool;
 import org.dsanderson.morctrailreport.parser.MorcScanner;
 import org.dsanderson.morctrailreport.parser.MorcSpecificTrailInfo;

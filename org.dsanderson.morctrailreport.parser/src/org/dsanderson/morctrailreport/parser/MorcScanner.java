@@ -20,8 +20,6 @@
 package org.dsanderson.morctrailreport.parser;
 
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
@@ -38,8 +36,6 @@ public class MorcScanner {
 	private final TrailReportPool trailReportPool;
 	private final TrailInfoPool trailInfoPool;
 	private final MorcInfoPool morcInfoPool;
-	private final SimpleDateFormat dateFormat = new SimpleDateFormat(
-			"mm/dd/yyyy, hh:mm:ss a");
 	private Scanner scanner;
 	private TrailReport trailReport;
 	private TrailInfo trailInfo;

@@ -21,9 +21,6 @@
 package org.dsanderson.xctrailreport;
 
 public class ProgramInfo {
-	public static final String programName = "XC Ski Trail Report App";
-	public static final String shortName = "XC Trail Reports";
-	public static final String programVersion = "0.0.0";
 	public static final String author = "David S Anderson";
 	public static final String copyright = "Copyright (C) 2012 " + author + ". All rights reserved.";
 

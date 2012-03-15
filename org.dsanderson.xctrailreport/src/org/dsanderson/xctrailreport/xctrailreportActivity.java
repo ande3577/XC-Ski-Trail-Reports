@@ -90,7 +90,7 @@ public class xctrailreportActivity extends ListActivity {
 	private void printTrailReports() throws Exception {
 		Date lastRefreshDate = trailReportReaderFactory
 				.getReportsRefreshedDate();
-		String titleString = ProgramInfo.shortName;
+		String titleString = getString(R.string.app_name);
 		if (lastRefreshDate != null) {
 			Time time = new Time();
 			time.set(lastRefreshDate.getTime());

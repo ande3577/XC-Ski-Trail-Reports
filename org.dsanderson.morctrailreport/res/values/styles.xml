@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TrailName" parent="@*android:style/Widget.TextView.ListSeparator">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TrailLocation" parent="@*android:style/Widget.TextView.ListSeparator"></style>
+
+    <style name="ReportDate" parent="@*android:style/Widget.TextView">
+        <item name="android:textColor">?android:attr/textColorTertiary</item>
+    </style>
+
+    <style name="Summary" parent="@*android:style/Widget.TextView">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="Summary" parent="@*android:style/Widget.TextView"></style>
+
+    <style name="Author" parent="@*android:style/Widget.TextView"></style>
+
+</resources>
