@@ -19,8 +19,6 @@
  */
 package org.dsanderson.morctrailreport;
 
-import org.dsanderson.morctrailreport.parser.MorcFactory;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;

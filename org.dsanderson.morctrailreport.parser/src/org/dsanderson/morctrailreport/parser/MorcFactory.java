@@ -30,7 +30,7 @@ import org.dsanderson.xctrailreport.core.IUserSettingsSource;
  */
 public abstract class MorcFactory implements ISourceSpecificFactory {
 	public static final String SOURCE_NAME = "MORC";
-	private static final String XML_TAG = "morc";
+	public static final String XML_TAG = "morc";
 
 	private boolean enabled = true;
 

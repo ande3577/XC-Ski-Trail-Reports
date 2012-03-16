@@ -7,18 +7,16 @@ import java.util.List;
 import org.dsanderson.android.util.ListEntry;
 import org.dsanderson.morctrailreport.R;
 import org.dsanderson.morctrailreport.AboutActivity;
-import org.dsanderson.morctrailreport.PreferenceActivity;
 import org.dsanderson.morctrailreport.parser.MorcFactory;
+import org.dsanderson.morctrailreport.parser.MorcSpecificTrailInfo;
 
 import org.dsanderson.xctrailreport.application.ReportListCreator;
-import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
@@ -38,7 +36,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 public class morcTrailReportActivity extends ListActivity {
 	private List<TrailReport> trailReports;
@@ -116,17 +113,31 @@ public class morcTrailReportActivity extends ListActivity {
 		TrailReport report = determineListItemFromMenuInfo((AdapterView.AdapterContextMenuInfo) menuInfo);
 		if (report != null) {
 			menu.add(Menu.NONE, R.id.openMapMenu, Menu.NONE, "Open Map");
-			ISourceSpecificTrailInfo skinnyskiInfo = report.getTrailInfo()
-					.getSourceSpecificInfo(
-							MorcFactory.SOURCE_NAME);
-			if (skinnyskiInfo != null
-					&& skinnyskiInfo.getTrailInfoUrl() != null
-					&& skinnyskiInfo.getTrailInfoUrl().length() != 0) {
-				menu.add(Menu.NONE, R.id.trailInfoMenu, Menu.NONE, "Trail Info");
-			}
+			ISourceSpecificTrailInfo morcInfo = report.getTrailInfo()
+					.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
 
-			menu.add(Menu.NONE, R.id.composeReportItem, Menu.NONE,
-					"Compose Report");
+			if (morcInfo != null) {
+
+				String allReportUrl = ((MorcSpecificTrailInfo) morcInfo)
+						.getAllTrailReportUrl();
+
+				if (allReportUrl != null && allReportUrl.length() != 0) {
+					menu.add(Menu.NONE, R.id.viewAllReports, Menu.NONE,
+							"View All Reports");
+				}
+
+				if (morcInfo.getComposeUrl() != null
+						&& morcInfo.getComposeUrl().length() != 0) {
+					menu.add(Menu.NONE, R.id.composeReportItem, Menu.NONE,
+							"Compose Report");
+				}
+
+				if (morcInfo.getTrailInfoUrl() != null
+						&& morcInfo.getTrailInfoUrl().length() != 0) {
+					menu.add(Menu.NONE, R.id.trailInfoMenu, Menu.NONE,
+							"Trail Info");
+				}
+			}
 		}
 	}
 
@@ -136,6 +147,20 @@ public class morcTrailReportActivity extends ListActivity {
 				.getMenuInfo());
 		if (trailReport != null) {
 			switch (item.getItemId()) {
+			case R.id.viewAllReports: {
+				ISourceSpecificTrailInfo sourceSpecific = trailReport
+						.getTrailInfo().getSourceSpecificInfo(
+								MorcFactory.SOURCE_NAME);
+				if (sourceSpecific != null) {
+					String viewAllReportUrl = ((MorcSpecificTrailInfo) sourceSpecific)
+							.getAllTrailReportUrl();
+					if (viewAllReportUrl != null
+							&& viewAllReportUrl.length() > 0)
+						launchIntent(viewAllReportUrl);
+				}
+			}
+				return true;
+
 			case R.id.trailInfoMenu: {
 				ISourceSpecificTrailInfo sourceSpecific = trailReport
 						.getTrailInfo().getSourceSpecificInfo(
@@ -158,10 +183,7 @@ public class morcTrailReportActivity extends ListActivity {
 				if (sourceSpecific != null) {
 					String composeUrl = sourceSpecific.getTrailInfoUrl();
 					if (composeUrl != null && composeUrl.length() > 0)
-						composeUrl = MorcAndroidFactory.getInstance()
-								.getDefaultComposeUrl();
-
-					launchIntent(composeUrl);
+						launchIntent(composeUrl);
 				}
 			}
 				return true;
@@ -191,17 +213,17 @@ public class morcTrailReportActivity extends ListActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.menu, menu);
+		inflater.inflate(R.menu.mainmenu, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.preferences:
+		case R.id.preferencesMenuItem:
 			openPreferencesMenu();
 			return true;
-		case R.id.about:
+		case R.id.aboutMenuItem:
 			openAbout();
 			return true;
 		case R.id.refresh:
@@ -211,7 +233,6 @@ public class morcTrailReportActivity extends ListActivity {
 			MenuItem distance = item.getSubMenu().getItem(0).setChecked(false);
 			MenuItem date = item.getSubMenu().getItem(1).setChecked(false);
 			MenuItem duration = item.getSubMenu().getItem(2).setChecked(false);
-			MenuItem photoset = item.getSubMenu().getItem(3).setChecked(false);
 
 			switch (factory.userSettings.getSortMethod()) {
 			case SORT_BY_DISTANCE:
@@ -223,15 +244,11 @@ public class morcTrailReportActivity extends ListActivity {
 			case SORT_BY_DURATION:
 				duration.setChecked(true);
 				return true;
-			case SORT_BY_PHOTOSET:
-				photoset.setChecked(true);
-				return true;
 			}
 			return false;
 		case R.id.sortByDuration:
 		case R.id.sortByDate:
 		case R.id.sortByDistance:
-		case R.id.sortByPhotoset:
 
 			String sortMethodString = "";
 
@@ -244,9 +261,6 @@ public class morcTrailReportActivity extends ListActivity {
 				break;
 			case R.id.sortByDistance:
 				sortMethodString = "sortByDistance";
-				break;
-			case R.id.sortByPhotoset:
-				sortMethodString = "sortByPhotoset";
 				break;
 			}
 
@@ -262,7 +276,7 @@ public class morcTrailReportActivity extends ListActivity {
 
 	// / Launch Preference activity
 	private void openPreferencesMenu() {
-		Intent i = new Intent(this, PreferenceActivity.class);
+		Intent i = new Intent(this, PreferencesActivity.class);
 		startActivity(i);
 	}
 
@@ -271,7 +285,7 @@ public class morcTrailReportActivity extends ListActivity {
 		Intent i = new Intent(this, AboutActivity.class);
 		startActivity(i);
 	}
-	
+
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);

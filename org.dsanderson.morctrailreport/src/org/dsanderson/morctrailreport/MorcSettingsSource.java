@@ -36,7 +36,7 @@ public class MorcSettingsSource implements IUserSettingsSource {
 	private final MorcFactory factory;
 
 	public static final String regionKeys[] = { "metro", "southern",
-			"northeastern", "northwestern"};
+			"northwest", "northeast" };
 
 	public MorcSettingsSource(Context context, MorcFactory factory) {
 		this.factory = factory;

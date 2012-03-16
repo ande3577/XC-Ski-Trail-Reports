@@ -47,7 +47,7 @@ public class MorcSpecificTrailInfo implements ISourceSpecificTrailInfo {
 	}
 
 	public String getAllTrailReportUrl() {
-		if (shortAllReportUrl == null)
+		if (shortAllReportUrl == null || shortAllReportUrl.length() == 0)
 			return "";
 		else
 			return ALL_REPORT_PREFIX + shortAllReportUrl;
@@ -62,7 +62,7 @@ public class MorcSpecificTrailInfo implements ISourceSpecificTrailInfo {
 	 */
 	@Override
 	public String getComposeUrl() {
-		if (shortComposeUrl == null)
+		if (shortComposeUrl == null || shortComposeUrl.length() == 0)
 			return "";
 		else
 			return TRAIL_COMPOSE_PREFIX + shortComposeUrl
@@ -112,8 +112,10 @@ public class MorcSpecificTrailInfo implements ISourceSpecificTrailInfo {
 	 */
 	@Override
 	public String getTrailInfoUrl() {
-		if (shortTrailInfoUrl == null)
+		if (shortTrailInfoUrl == null || shortTrailInfoUrl.length() == 0)
 			return "";
+		else if (shortTrailInfoUrl.startsWith("http://"))
+			return shortTrailInfoUrl;
 		else
 			return TRAIL_INFO_PREFIX + shortTrailInfoUrl;
 	}

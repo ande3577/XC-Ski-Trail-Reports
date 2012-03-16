@@ -34,7 +34,6 @@ import java.util.Date;
 import org.dsanderson.xctrailreport.application.IReportReaderFactory;
 
 import android.content.Context;
-import android.os.Environment;
 
 /**
  * 

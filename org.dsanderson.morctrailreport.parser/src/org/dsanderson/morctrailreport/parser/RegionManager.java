@@ -28,7 +28,7 @@ import java.util.List;
 public class RegionManager {
 
 	static public final String supportedRegions[] = { "Metro", "Southern",
-			"Northeastern", "Northwestern " };
+			"Northwest", "Northeast" };
 
 	private List<String> regions = new ArrayList<String>();
 

@@ -5,8 +5,9 @@
 		<city>Minneapolis</city>
 		<state>MN</state>
 		<location>44.9795,-93.322</location>
-		<skinnyskiSearchTerm>City of Lakes Loppet Trail</skinnyskiSearchTerm>
-		<index>448</index>
+		<skinnyski>
+			<index>448</index>
+		</skinnyski>
 	</trail>
 
 	<trail>

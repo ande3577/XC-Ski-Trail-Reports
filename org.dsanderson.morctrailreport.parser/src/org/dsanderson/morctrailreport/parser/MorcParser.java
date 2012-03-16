@@ -30,6 +30,7 @@ import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 public class MorcParser implements ISourceSpecificInfoParser {
 	private static final String SHORT_TRAIL_INFO_URL_KEY = "trailInfo";
 	private static final String SHORT_COMPOSE_URL_KEY = "compose";
+	private static final String SHORT_ALL_REPORT_URL_KEY = "allReports";
 
 	/*
 	 * (non-Javadoc)
@@ -45,9 +46,11 @@ public class MorcParser implements ISourceSpecificInfoParser {
 		String url = null;
 
 		if ((url = parser.getValue(SHORT_TRAIL_INFO_URL_KEY)) != null)
-			info.setAllReportShortUrl(url);
+			info.setTrailInfoShortUrl(url);
 		if ((url = parser.getValue(SHORT_COMPOSE_URL_KEY)) != null)
 			info.setTrailComposeShortUrl(url);
+		if ((url = parser.getValue(SHORT_ALL_REPORT_URL_KEY)) != null)
+			info.setAllReportShortUrl(url);
 		
 		return info;
 	}
@@ -63,7 +66,12 @@ public class MorcParser implements ISourceSpecificInfoParser {
 	@Override
 	public CompoundXmlParser buildParser(ISourceSpecificTrailInfo info,
 			ICompoundXmlParserFactory parserFactory) throws Exception {
-		return null;
+		MorcSpecificTrailInfo morcInfo = (MorcSpecificTrailInfo) info;
+		CompoundXmlParser parser = parserFactory.newParser(MorcFactory.XML_TAG);
+		parser.addParser(SHORT_TRAIL_INFO_URL_KEY, morcInfo.getTrailInfoShortUrl());
+		parser.addParser(SHORT_COMPOSE_URL_KEY, morcInfo.getTrailComposeShortUrl());
+		parser.addParser(SHORT_ALL_REPORT_URL_KEY, morcInfo.getAllReportShortUrl());
+		return parser;
 	}
-
+	
 }

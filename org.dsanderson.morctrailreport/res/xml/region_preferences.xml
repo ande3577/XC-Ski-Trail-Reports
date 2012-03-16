@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="Region Select">
-    <CheckBoxPreference android:title="Minnesota Metro Area" android:key="mnMetro" android:defaultValue="true"/>
-    <CheckBoxPreference android:title="Minnesota Northeast" android:key="mnNortheast" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="Minnesota Northwest" android:key="mnNorthwest" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="Minnesota Central" android:key="mnCentral" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="Minnesota Southern" android:key="mnSouthern" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="Wisconsin Northwest" android:key="wiNorthwest" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="Wisconsin Northeast" android:key="wiNortheast" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="Wisconsin Southwest" android:key="wiSouthwest" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="Wisconsin Southeast" android:key="wiSouthwest" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="Michigan Upper Peninsula" android:key="miUP" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="Iowa" android:key="ia" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="Canada" android:key="ca" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="Illinois" android:key="il" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="North Dakota" android:key="nd" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="United States" android:key="us" android:defaultValue="false"/>
-    
-
+    <CheckBoxPreference android:title="Metro Area" android:key="metro" android:defaultValue="true"/>
+    <CheckBoxPreference android:title="Southern" android:key="southern" android:defaultValue="false"/>
+    <CheckBoxPreference android:title="Northwest" android:key="northwest" android:defaultValue="false"/>
+    <CheckBoxPreference android:title="Northeast" android:key="northeast" android:defaultValue="false"/>
 </PreferenceScreen>

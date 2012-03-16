@@ -25,7 +25,6 @@
             </intent-filter>
         </activity>
         <activity android:name="PreferencesActivity"></activity>
-        <activity android:name="SourceActivity"></activity>
         <activity android:name="RegionActivity"></activity>
         <activity android:name="AboutActivity"></activity>
     </application>

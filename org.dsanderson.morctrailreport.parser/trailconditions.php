@@ -505,7 +505,7 @@
 	
 	<td class="alt2">
 <a href="javascript:OpenWin('../morcpages/cond1.htm', '505', '640')">
-		Closed</a>
+		Closed Carver lake</a>
 <img src="../images/conditionicons/closed.gif" width="17" height="17" border="0">
 
 	</td>
@@ -552,7 +552,7 @@
 	
 	<td class="alt2">
 <a href="javascript:OpenWin('../morcpages/cond1.htm', '505', '640')">
-		Closed</a>
+		Closed Elm Creek</a>
 <img src="../images/conditionicons/closed.gif" width="17" height="17" border="0">
 
 	</td>

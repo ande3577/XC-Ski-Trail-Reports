@@ -119,8 +119,10 @@ public class CompoundXmlPullParser extends CompoundXmlParser {
 			serializer.attribute("", attribute.name, attribute.value);
 		}
 		String text = getText();
-		if (text != null)
-			serializer.text(text);
+		if (text == null)
+			text = "";
+
+		serializer.text(text);
 
 		for (CompoundXmlParser child : getParsers()) {
 			((CompoundXmlPullParser) child).write(serializer);

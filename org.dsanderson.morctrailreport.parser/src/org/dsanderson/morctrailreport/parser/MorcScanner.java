@@ -96,7 +96,6 @@ public class MorcScanner {
 
 		scanAllReportUrlandName();
 		scanSummary();
-		scanInfoUrl();
 		scanDetailed();
 		scanAuthor();
 		scanDate();
@@ -121,14 +120,6 @@ public class MorcScanner {
 		String summary = scan("", "\\Q</a>\\E", ".*");
 		if (summary != null)
 			trailReport.setSummary(summary.trim());
-		scanner.nextLine();
-	}
-
-	private void scanInfoUrl() {
-		if (!findNext("\\Q<a href=\"../wiki/index.php/\\E"))
-			return;
-		String infoUrl = scan("", "\"\\>", ".*");
-		morcInfo.setTrailInfoShortUrl(infoUrl);
 		scanner.nextLine();
 	}
 
@@ -171,7 +162,8 @@ public class MorcScanner {
 		if (split.length != 6)
 			return;
 
-		int month = Integer.parseInt(split[0]);
+		int month = Integer.parseInt(split[0]) - 1;
+		assert(month >= 0);
 		int day = Integer.parseInt(split[1]);
 		int year = Integer.parseInt(split[2].replace(",", ""));
 
