@@ -52,7 +52,10 @@ public class SkinnyskiSettingsSource implements IUserSettingsSource {
 		public void onSharedPreferenceChanged(
 				SharedPreferences sharedPreferences, String key) {
 			int index;
-			if ((index = findRegionKey(key)) < regionKeys.length) {
+			if (key == "skinnyskiEnabled") {
+				factory.setEnabled(sharedPreferences.getBoolean(key,
+						factory.getEnabled()));
+			} else if ((index = findRegionKey(key)) < regionKeys.length) {
 				boolean enabled = sharedPreferences.getBoolean(key,
 						key.compareTo(regionKeys[0]) == 0);
 				try {
