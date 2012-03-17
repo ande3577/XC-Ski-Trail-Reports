@@ -2,18 +2,22 @@ package org.dsanderson.xctrailreport.test;
 
 import java.util.Random;
 
-import org.dsanderson.android.util.GenericDatabase;
 import org.dsanderson.xctrailreport.test.R;
 
 import android.app.ListActivity;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.SimpleCursorAdapter;
 
 public class testActivity extends ListActivity {
-	private GenericDatabase database;
+	private TestDataBase database;
+	String sortString = null;
+	String filterString = null;
 
 	// private Cursor cursor;
 	private SimpleCursorAdapter adapter;
@@ -32,6 +36,41 @@ public class testActivity extends ListActivity {
 		database.getAllObjects();
 
 		fillData();
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.clear:
+			database.clear();
+			break;
+		case R.id.sortByName:
+			sortString = TestDataBase.COLUMN_NAME + " ASC, " + TestDataBase.COLUMN_VALUE + " ASC";
+			break;
+		case R.id.sortByValue:
+			sortString = TestDataBase.COLUMN_VALUE + " ASC";
+			break;
+		case R.id.sortByAdded:
+			sortString = TestDataBase.COLUMN_ID + " ASC";
+			break;
+		case R.id.filterDisabled:
+			filterString = null;
+			break;
+		case R.id.filterEnabled:
+			filterString = TestDataBase.COLUMN_VALUE + "<50";
+			break;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+		fillData();
+		return true;
 	}
 
 	public void onClick(View view) {
@@ -63,6 +102,8 @@ public class testActivity extends ListActivity {
 		// Fields on the UI to which we map
 		int[] to = new int[] { R.id.name, R.id.value };
 
+		database.setSortOrder(sortString);
+		database.setFilter(filterString);
 		Cursor cursor = database.getCursor();
 		adapter = new SimpleCursorAdapter(this, R.layout.row, cursor, from, to);
 		setListAdapter(adapter);

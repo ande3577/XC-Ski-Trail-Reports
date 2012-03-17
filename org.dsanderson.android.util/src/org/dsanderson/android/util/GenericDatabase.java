@@ -39,8 +39,10 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 	private final String tableName;
 	private final String[] allColumns;
 	private final String[] allTypes;
+	private String sortOrder = null;
+	private String filterString = null;
 
-	protected static final String COLUMN_ID = "_id";
+	public static final String COLUMN_ID = "_id";
 	protected static final String TYPE_ID = "integer primary key autoincrement";
 
 	// private static final String DATABASE_CREATE = "create table " +
@@ -146,8 +148,8 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 	}
 
 	public Cursor getCursor() {
-		return database.query(tableName, allColumns, null, null, null, null,
-				null);
+		return database.query(tableName, allColumns, filterString, null, null, null,
+				sortOrder);
 	}
 
 	public void update(DatabaseObject<T> object) {
@@ -159,6 +161,14 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 
 	public void clear() {
 		database.delete(tableName, null, null);
+	}
+
+	public void setSortOrder(String sortKeys) {
+		sortOrder = sortKeys;
+	}
+	
+	public void setFilter(String filterString) {
+		this.filterString = filterString;
 	}
 
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/clear" android:title="Clear"></item>
+    <item android:id="@+id/sortBy" android:title="Sort By">
+        <menu>
+            <item android:id="@+id/sortByName" android:title="Sort by Name"/>
+            <item android:id="@+id/sortByValue" android:title="Sort by Value"/>
+            <item android:id="@+id/sortByAdded" android:title="Sort by Added"/>
+        </menu>
+    </item>
+    <item android:id="@+id/filter" android:title="Filter">
+        <menu>
+            <item android:id="@+id/filterDisabled" android:title="Filter Disabled" /><item android:id="@+id/filterEnabled" android:title="Filter Enabled"/>
+            
+        </menu>
+    </item>
+    
+
+</menu>
