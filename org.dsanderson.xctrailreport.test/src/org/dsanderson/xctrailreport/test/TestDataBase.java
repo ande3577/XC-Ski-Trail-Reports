@@ -19,116 +19,54 @@
  */
 package org.dsanderson.xctrailreport.test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 /**
  * 
  */
-public class TestDataBase extends SQLiteOpenHelper {
-	private SQLiteDatabase database;
-	public static final String DATABASE_NAME = "test_database.db";
-	public static final int DATABASE_VERSION = 5;
-
+public class TestDataBase extends GenericDatabase {
 	public static final String TABLE_TEST = "test";
-	public static final String COLUMN_ID = "_id";
 	public static final String COLUMN_NAME = "name";
+	private static final String TYPE_NAME = "text not null";
 	public static final String COLUMN_VALUE = "value";
+	private static final String TYPE_VALUE = "integer not null";
 
-	private static final String DATABASE_CREATE = "create table " + TABLE_TEST
-			+ "( " + COLUMN_ID + " integer primary key autoincrement, "
-			+ COLUMN_NAME + " text not null, " + COLUMN_VALUE
-			+ " integer not null );";
+	public static final String DATABASE_NAME = "test_database.db";
+	public static final int DATABASE_VERSION = 6;
 
-	private static final String[] allColumns = { COLUMN_ID, COLUMN_NAME,
-			COLUMN_VALUE };
+	private static final String[] allColumns = { COLUMN_ID, COLUMN_NAME, COLUMN_VALUE };
+	private static final String[] allTypes = { TYPE_ID, TYPE_NAME, TYPE_VALUE };
 
 	public TestDataBase(Context context) {
-		super(context, DATABASE_NAME, null, DATABASE_VERSION);
+		super(context, DATABASE_NAME, DATABASE_VERSION, TABLE_TEST, allColumns,
+				allTypes);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * android.database.sqlite.SQLiteOpenHelper#onCreate(android.database.sqlite
-	 * .SQLiteDatabase)
+	 * org.dsanderson.xctrailreport.test.GenericDatabase#buildContentValues(
+	 * java.lang.Object, android.content.ContentValues)
 	 */
 	@Override
-	public void onCreate(SQLiteDatabase db) {
-		db.execSQL(DATABASE_CREATE);
+	protected void buildContentValues(DatabaseObject object, ContentValues values) {
+		TestDatabaseObject dbObject = (TestDatabaseObject) object;
+		values.put(COLUMN_NAME, dbObject.getName());
+		values.put(COLUMN_VALUE, dbObject.getValue());
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * android.database.sqlite.SQLiteOpenHelper#onUpgrade(android.database.sqlite
-	 * .SQLiteDatabase, int, int)
+	 * org.dsanderson.xctrailreport.test.GenericDatabase#cursorToTestObject(
+	 * android.database.Cursor)
 	 */
 	@Override
-	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		Log.w(TestDataBase.class.getName(), "Upgrading database from version "
-				+ oldVersion + " to " + newVersion
-				+ ", which will destroy all old data");
-		db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEST);
-		onCreate(db);
-	}
-
-	public void open() throws SQLException {
-		database = getWritableDatabase();
-	}
-
-	public void close() {
-		super.close();
-	}
-
-	public TestDatabaseObject createTestObject(String name, int value) {
-		ContentValues values = new ContentValues();
-		values.put(COLUMN_NAME, name);
-		values.put(COLUMN_VALUE, value);
-		long insertId = database.insert(TABLE_TEST, null, values);
-		// To show how to query
-		Cursor cursor = database.query(TABLE_TEST, allColumns, COLUMN_ID
-				+ " = " + insertId, null, null, null, null);
-		cursor.moveToFirst();
-		return cursorToTestObject(cursor);
-	}
-
-	public void deleteComment(TestDatabaseObject testObject) {
-		long id = testObject.getId();
-		System.out.println("Comment deleted with id: " + id);
-		database.delete(TABLE_TEST, COLUMN_ID + " = " + id, null);
-	}
-
-	public List<TestDatabaseObject> getAllObjects() {
-		List<TestDatabaseObject> comments = new ArrayList<TestDatabaseObject>();
-		Cursor cursor = getCursor();
-		cursor.moveToFirst();
-		while (!cursor.isAfterLast()) {
-			TestDatabaseObject testObject = cursorToTestObject(cursor);
-			comments.add(testObject);
-			cursor.moveToNext();
-		}
-		// Make sure to close the cursor
-		cursor.close();
-		return comments;
-	}
-
-	public Cursor getCursor() {
-		return database.query(TABLE_TEST, allColumns, null, null, null, null,
-				null);
-	}
-
-	public TestDatabaseObject cursorToTestObject(Cursor cursor) {
+	public DatabaseObject getObject(Cursor cursor) {
 		TestDatabaseObject testObject = new TestDatabaseObject();
 		testObject.setId(cursor.getLong(0));
 		testObject.setName(cursor.getString(1));

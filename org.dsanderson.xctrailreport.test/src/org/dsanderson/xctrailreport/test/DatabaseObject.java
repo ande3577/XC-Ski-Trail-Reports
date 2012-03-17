@@ -22,36 +22,15 @@ package org.dsanderson.xctrailreport.test;
 /**
  * 
  */
-public class TestDatabaseObject extends DatabaseObject{
-	private String name;
-	private int value;
+public class DatabaseObject {
+	private long id;
 	
-	public TestDatabaseObject() {
+	public void setId(long id) {
+		this.id = id;
 	}
 	
-	public TestDatabaseObject(String name, int value) {
-		this.name = name;
-		this.value = value;
+	public long getId() {
+		return id;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setValue(int value) {
-		this.value = value;
-	}
-	
-	public int getValue() {
-		return value;
-	}
-	
-	@Override
-	public String toString() {
-		return name + ", " + Integer.toString(value);
-	}
 }
