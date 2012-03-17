@@ -19,6 +19,8 @@
  */
 package org.dsanderson.xctrailreport.test;
 
+import org.dsanderson.android.util.GenericDatabase;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -26,7 +28,7 @@ import android.database.Cursor;
 /**
  * 
  */
-public class TestDataBase extends GenericDatabase {
+public class TestDataBase extends GenericDatabase<TestDatabaseObject> {
 	public static final String TABLE_TEST = "test";
 	public static final String COLUMN_NAME = "name";
 	private static final String TYPE_NAME = "text not null";
@@ -36,7 +38,8 @@ public class TestDataBase extends GenericDatabase {
 	public static final String DATABASE_NAME = "test_database.db";
 	public static final int DATABASE_VERSION = 6;
 
-	private static final String[] allColumns = { COLUMN_ID, COLUMN_NAME, COLUMN_VALUE };
+	private static final String[] allColumns = { COLUMN_ID, COLUMN_NAME,
+			COLUMN_VALUE };
 	private static final String[] allTypes = { TYPE_ID, TYPE_NAME, TYPE_VALUE };
 
 	public TestDataBase(Context context) {
@@ -52,12 +55,12 @@ public class TestDataBase extends GenericDatabase {
 	 * java.lang.Object, android.content.ContentValues)
 	 */
 	@Override
-	protected void buildContentValues(DatabaseObject object, ContentValues values) {
-		TestDatabaseObject dbObject = (TestDatabaseObject) object;
-		values.put(COLUMN_NAME, dbObject.getName());
-		values.put(COLUMN_VALUE, dbObject.getValue());
+	protected void buildContentValues(TestDatabaseObject object,
+			ContentValues values) {
+		values.put(COLUMN_NAME, object.getName());
+		values.put(COLUMN_VALUE, object.getValue());
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -66,12 +69,7 @@ public class TestDataBase extends GenericDatabase {
 	 * android.database.Cursor)
 	 */
 	@Override
-	public DatabaseObject getObject(Cursor cursor) {
-		TestDatabaseObject testObject = new TestDatabaseObject();
-		testObject.setId(cursor.getLong(0));
-		testObject.setName(cursor.getString(1));
-		testObject.setValue(cursor.getInt(2));
-		return testObject;
+	protected TestDatabaseObject getObject(Cursor cursor) {
+		return new TestDatabaseObject(cursor.getString(1), cursor.getInt(2));
 	}
-
 }

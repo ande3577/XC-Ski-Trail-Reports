@@ -17,13 +17,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.test;
+package org.dsanderson.android.util;
 
 /**
  * 
  */
-public class DatabaseObject {
+public class DatabaseObject<T> {
 	private long id;
+	private T data;
 	
 	public void setId(long id) {
 		this.id = id;
@@ -31,6 +32,14 @@ public class DatabaseObject {
 	
 	public long getId() {
 		return id;
+	}
+	
+	public void setData(T data) {
+		this.data = data;
+	}
+	
+	public T getData() {
+		return data;
 	}
 	
 }

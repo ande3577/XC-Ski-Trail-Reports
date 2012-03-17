@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.test;
+package org.dsanderson.android.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ import android.util.Log;
 /**
  * 
  */
-public abstract class GenericDatabase extends SQLiteOpenHelper {
+public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 	private SQLiteDatabase database;
 
 	private final String tableName;
@@ -72,8 +72,8 @@ public abstract class GenericDatabase extends SQLiteOpenHelper {
 		String dataBaseCreate = "create table " + tableName + "( ";
 		for (int i = 0; i < allColumns.length; i++) {
 			if (i != 0)
-				dataBaseCreate += ", "; 
-			
+				dataBaseCreate += ", ";
+
 			dataBaseCreate += allColumns[i] + " " + allTypes[i];
 		}
 		dataBaseCreate += ");";
@@ -102,13 +102,14 @@ public abstract class GenericDatabase extends SQLiteOpenHelper {
 	}
 
 	public void close() {
-		super.close();
+		database.close();
 	}
 
-	abstract protected void buildContentValues(DatabaseObject object,
-			ContentValues values);
+	abstract protected void buildContentValues(T object, ContentValues values);
 
-	public void insert(DatabaseObject object) {
+	abstract protected T getObject(Cursor cursor);
+
+	public void insert(T object) {
 		ContentValues values = new ContentValues();
 		buildContentValues(object, values);
 		database.insert(tableName, null, values);
@@ -119,10 +120,9 @@ public abstract class GenericDatabase extends SQLiteOpenHelper {
 		remove(id);
 	}
 
-	public void remove(TestDatabaseObject testObject) {
+	public void remove(DatabaseObject<T> testObject) {
 		long id = testObject.getId();
 		remove(id);
-
 	}
 
 	private void remove(long id) {
@@ -130,13 +130,14 @@ public abstract class GenericDatabase extends SQLiteOpenHelper {
 		database.delete(tableName, COLUMN_ID + " = " + id, null);
 	}
 
-	public List<DatabaseObject> getAllObjects() {
-		List<DatabaseObject> objects = new ArrayList<DatabaseObject>();
+	public List<DatabaseObject<T>> getAllObjects() {
+		List<DatabaseObject<T>> objects = new ArrayList<DatabaseObject<T>>();
 		Cursor cursor = getCursor();
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			DatabaseObject testObject = getObject(cursor);
-			objects.add(testObject);
+			DatabaseObject<T> object = new DatabaseObject<T>();
+			object.setData(getObject(cursor));
+			objects.add(object);
 			cursor.moveToNext();
 		}
 		// Make sure to close the cursor
@@ -149,6 +150,15 @@ public abstract class GenericDatabase extends SQLiteOpenHelper {
 				null);
 	}
 
-	public abstract DatabaseObject getObject(Cursor cursor);
+	public void update(DatabaseObject<T> object) {
+		ContentValues values = new ContentValues();
+		buildContentValues(object.getData(), values);
+		long id = object.getId();
+		database.update(tableName, values, COLUMN_ID + " = " + id, null);
+	}
+
+	public void clear() {
+		database.delete(tableName, null, null);
+	}
 
 }

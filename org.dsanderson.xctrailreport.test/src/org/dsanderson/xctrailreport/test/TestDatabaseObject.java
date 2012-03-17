@@ -22,7 +22,7 @@ package org.dsanderson.xctrailreport.test;
 /**
  * 
  */
-public class TestDatabaseObject extends DatabaseObject{
+public class TestDatabaseObject {
 	private String name;
 	private int value;
 	

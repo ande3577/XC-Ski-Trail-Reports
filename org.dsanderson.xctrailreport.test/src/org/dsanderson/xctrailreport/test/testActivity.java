@@ -2,6 +2,7 @@ package org.dsanderson.xctrailreport.test;
 
 import java.util.Random;
 
+import org.dsanderson.android.util.GenericDatabase;
 import org.dsanderson.xctrailreport.test.R;
 
 import android.app.ListActivity;
