@@ -6,13 +6,18 @@ import java.util.Random;
 import org.dsanderson.xctrailreport.test.R;
 
 import android.app.ListActivity;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.CursorAdapter;
 import android.widget.LinearLayout;
+import android.widget.SimpleCursorAdapter;
 
 public class testActivity extends ListActivity {
 	private TestDataBase database;
+
+	// private Cursor cursor;
+	private SimpleCursorAdapter adapter;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -25,35 +30,49 @@ public class testActivity extends ListActivity {
 		database = new TestDataBase(this);
 		database.open();
 
-		List<TestDatabaseObject> values = database.getAllObjects();
-		ArrayAdapter<TestDatabaseObject> adapter = new ArrayAdapter<TestDatabaseObject>(
-				this, android.R.layout.simple_list_item_1, values);
-		setListAdapter(adapter);
+		database.getAllObjects();
+
+		fillData();
 	}
-	
+
 	public void onClick(View view) {
-		@SuppressWarnings("unchecked")
-		ArrayAdapter<TestDatabaseObject> adapter = (ArrayAdapter<TestDatabaseObject>) getListAdapter();
 		TestDatabaseObject object = null;
 		switch (view.getId()) {
 		case R.id.add:
 			String[] names = new String[] { "Cool", "Very nice", "Hate it" };
 			int nextInt = new Random().nextInt(3);
 			// Save the new comment to the database
-			object = database.createTestObject(names[nextInt], new Random().nextInt(100));
-			adapter.add(object);
+			object = database.createTestObject(names[nextInt],
+					new Random().nextInt(100));
 			break;
 		case R.id.delete:
 			if (getListAdapter().getCount() > 0) {
-				object = (TestDatabaseObject) getListAdapter().getItem(0);
-				database.deleteComment(object);
-				adapter.remove(object);
+				Cursor cursor = database.getCursor();
+				if (cursor.moveToFirst()) {
+					object = database.cursorToTestObject(cursor);
+					database.deleteComment(object);
+				}
 			}
 			break;
 		}
-		adapter.notifyDataSetChanged();
+		fillData();
 	}
-	
+
+	private void fillData() {
+
+		// Fields from the database (projection)
+		// Must include the _id column for the adapter to work
+		String[] from = new String[] { TestDataBase.COLUMN_NAME,
+				TestDataBase.COLUMN_VALUE };
+		// Fields on the UI to which we map
+		int[] to = new int[] { R.id.name, R.id.value };
+
+		Cursor cursor = database.getCursor();
+		adapter = new SimpleCursorAdapter(this, R.layout.row, cursor, from, to);
+
+		setListAdapter(adapter);
+	}
+
 	@Override
 	protected void onResume() {
 		database.open();
@@ -65,6 +84,5 @@ public class testActivity extends ListActivity {
 		database.close();
 		super.onPause();
 	}
-
 
 }

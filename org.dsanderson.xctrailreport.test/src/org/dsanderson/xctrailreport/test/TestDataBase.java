@@ -35,18 +35,21 @@ import android.util.Log;
  */
 public class TestDataBase extends SQLiteOpenHelper {
 	private SQLiteDatabase database;
-	private static final String DATABASE_NAME = "test_database.db";
-	private static final int DATABASE_VERSION = 1;
+	public static final String DATABASE_NAME = "test_database.db";
+	public static final int DATABASE_VERSION = 5;
 
-	private static final String TABLE_TEST = "test";
-	private static final String COLUMN_ID = "_id";
-	private static final String COLUMN_NAME = "name";
+	public static final String TABLE_TEST = "test";
+	public static final String COLUMN_ID = "_id";
+	public static final String COLUMN_NAME = "name";
+	public static final String COLUMN_VALUE = "value";
 
 	private static final String DATABASE_CREATE = "create table " + TABLE_TEST
 			+ "( " + COLUMN_ID + " integer primary key autoincrement, "
-			+ COLUMN_NAME + " text not null);";
+			+ COLUMN_NAME + " text not null, " + COLUMN_VALUE
+			+ " integer not null );";
 
-	private static final String[] allColumns = { COLUMN_ID, COLUMN_NAME };
+	private static final String[] allColumns = { COLUMN_ID, COLUMN_NAME,
+			COLUMN_VALUE };
 
 	public TestDataBase(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -91,6 +94,7 @@ public class TestDataBase extends SQLiteOpenHelper {
 	public TestDatabaseObject createTestObject(String name, int value) {
 		ContentValues values = new ContentValues();
 		values.put(COLUMN_NAME, name);
+		values.put(COLUMN_VALUE, value);
 		long insertId = database.insert(TABLE_TEST, null, values);
 		// To show how to query
 		Cursor cursor = database.query(TABLE_TEST, allColumns, COLUMN_ID
@@ -104,11 +108,10 @@ public class TestDataBase extends SQLiteOpenHelper {
 		System.out.println("Comment deleted with id: " + id);
 		database.delete(TABLE_TEST, COLUMN_ID + " = " + id, null);
 	}
-	
+
 	public List<TestDatabaseObject> getAllObjects() {
 		List<TestDatabaseObject> comments = new ArrayList<TestDatabaseObject>();
-		Cursor cursor = database.query(TABLE_TEST,
-				allColumns, null, null, null, null, null);
+		Cursor cursor = getCursor();
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			TestDatabaseObject testObject = cursorToTestObject(cursor);
@@ -119,11 +122,17 @@ public class TestDataBase extends SQLiteOpenHelper {
 		cursor.close();
 		return comments;
 	}
-	
-	private TestDatabaseObject cursorToTestObject(Cursor cursor) {
+
+	public Cursor getCursor() {
+		return database.query(TABLE_TEST, allColumns, null, null, null, null,
+				null);
+	}
+
+	public TestDatabaseObject cursorToTestObject(Cursor cursor) {
 		TestDatabaseObject testObject = new TestDatabaseObject();
 		testObject.setId(cursor.getLong(0));
 		testObject.setName(cursor.getString(1));
+		testObject.setValue(cursor.getInt(2));
 		return testObject;
 	}
 
