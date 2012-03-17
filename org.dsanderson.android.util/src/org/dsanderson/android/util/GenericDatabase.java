@@ -127,7 +127,7 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 		remove(id);
 	}
 
-	private void remove(long id) {
+	public void remove(long id) {
 		System.out.println("Comment deleted with id: " + id);
 		database.delete(tableName, COLUMN_ID + " = " + id, null);
 	}
@@ -137,8 +137,7 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 		Cursor cursor = getCursor();
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			DatabaseObject<T> object = new DatabaseObject<T>();
-			object.setData(getObject(cursor));
+			DatabaseObject<T> object = getDatabaseObject(cursor);
 			objects.add(object);
 			cursor.moveToNext();
 		}
@@ -148,8 +147,30 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 	}
 
 	public Cursor getCursor() {
-		return database.query(tableName, allColumns, filterString, null, null, null,
-				sortOrder);
+		return database.query(tableName, allColumns, filterString, null, null,
+				null, sortOrder);
+	}
+
+	public Cursor getCursor(long id) {
+		Cursor cursor = database.query(tableName, allColumns, COLUMN_ID + " = "
+				+ id, null, null, null, null);
+		cursor.moveToFirst();
+		return cursor;
+	}
+
+	public T getObject(long id) {
+		return getObject(getCursor(id));
+	}
+
+	public DatabaseObject<T> getDatabaseObject(Cursor cursor) {
+		DatabaseObject<T> object = new DatabaseObject<T>();
+		object.setId(cursor.getLong(0));
+		object.setData(getObject(cursor));
+		return object;
+	}
+
+	public DatabaseObject<T> getDataBaseObject(long id) {
+		return getDatabaseObject(getCursor(id));
 	}
 
 	public void update(DatabaseObject<T> object) {
@@ -166,7 +187,7 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 	public void setSortOrder(String sortKeys) {
 		sortOrder = sortKeys;
 	}
-	
+
 	public void setFilter(String filterString) {
 		this.filterString = filterString;
 	}

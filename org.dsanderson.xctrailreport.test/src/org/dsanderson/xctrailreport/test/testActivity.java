@@ -2,15 +2,21 @@ package org.dsanderson.xctrailreport.test;
 
 import java.util.Random;
 
+import org.dsanderson.android.util.DatabaseObject;
 import org.dsanderson.xctrailreport.test.R;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.LinearLayout;
 import android.widget.SimpleCursorAdapter;
 
@@ -18,6 +24,9 @@ public class testActivity extends ListActivity {
 	private TestDataBase database;
 	String sortString = null;
 	String filterString = null;
+
+	private static final String[] names = new String[] { "Cool", "Very nice",
+			"Hate it" };
 
 	// private Cursor cursor;
 	private SimpleCursorAdapter adapter;
@@ -36,8 +45,9 @@ public class testActivity extends ListActivity {
 		database.getAllObjects();
 
 		fillData();
+		registerForContextMenu(getListView());
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
@@ -52,7 +62,8 @@ public class testActivity extends ListActivity {
 			database.clear();
 			break;
 		case R.id.sortByName:
-			sortString = TestDataBase.COLUMN_NAME + " ASC, " + TestDataBase.COLUMN_VALUE + " ASC";
+			sortString = TestDataBase.COLUMN_NAME + " ASC, "
+					+ TestDataBase.COLUMN_VALUE + " ASC";
 			break;
 		case R.id.sortByValue:
 			sortString = TestDataBase.COLUMN_VALUE + " ASC";
@@ -73,10 +84,52 @@ public class testActivity extends ListActivity {
 		return true;
 	}
 
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.context_menu, menu);
+	}
+
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.deleteItem: {
+			Long id = getObjectFromMenuItem(item);
+			if (id != null) {
+				database.remove(id);
+			}
+			break;
+		}
+		case R.id.change:
+			Long id = getObjectFromMenuItem(item);
+			if (id != null) {
+				DatabaseObject<TestDatabaseObject> object = database
+						.getDataBaseObject(id);
+				object.getData().setName(names[new Random().nextInt(3)]);
+				database.update(object);
+			}
+			break;
+		default:
+			return super.onContextItemSelected(item);
+		}
+		fillData();
+		return true;
+	}
+
+	private Long getObjectFromMenuItem(MenuItem item) {
+		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
+				.getMenuInfo();
+		if (info == null)
+			return null;
+		else
+			return info.id;
+	}
+
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.add:
-			String[] names = new String[] { "Cool", "Very nice", "Hate it" };
 			int nextInt = new Random().nextInt(3);
 			// Save the new comment to the database
 			database.insert(new TestDatabaseObject(names[nextInt], new Random()
