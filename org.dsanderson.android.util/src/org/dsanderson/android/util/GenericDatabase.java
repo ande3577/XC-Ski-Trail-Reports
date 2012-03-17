@@ -194,13 +194,36 @@ public class GenericDatabase extends SQLiteOpenHelper {
 	public void clear() {
 		database.delete(tableName, null, null);
 	}
-
-	public void setSortOrder(String sortKeys) {
-		sortOrder = sortKeys;
+	
+	public void clearSortOrder(){
+		sortOrder = null;
+	}
+	
+	public void addSortOrder(String columnName, boolean ascending) {
+		if (sortOrder == null)
+			sortOrder = "";
+		else
+			sortOrder += ", ";
+		
+		sortOrder += columnName;
+		
+		if (ascending)
+			sortOrder += " ASC";
+		else
+			sortOrder += " DESC";
 	}
 
-	public void setFilter(String filterString) {
-		this.filterString = filterString;
+	public void clearFilter() {
+		filterString = null;
 	}
-
+	
+	public void addFilter(String filterString) {
+		if (this.filterString == null)
+			this.filterString = "";
+		else
+			this.filterString += ", ";
+		
+		this.filterString += filterString;
+	}
+	
 }

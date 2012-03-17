@@ -22,8 +22,6 @@ import android.widget.SimpleCursorAdapter;
 
 public class testActivity extends ListActivity {
 	private TestDataBase database;
-	String sortString = null;
-	String filterString = null;
 
 	private static final String[] names = new String[] { "Cool", "Very nice",
 			"Hate it" };
@@ -62,20 +60,25 @@ public class testActivity extends ListActivity {
 			database.clear();
 			break;
 		case R.id.sortByName:
-			sortString = TestDatabaseFactory.COLUMN_NAME + " ASC, "
-					+ TestDatabaseFactory.COLUMN_VALUE + " ASC";
+			database.clearSortOrder();
+			database.addSortOrder(TestDatabaseFactory.COLUMN_NAME, true);
+			database.addSortOrder(TestDatabaseFactory.COLUMN_VALUE, true);
 			break;
 		case R.id.sortByValue:
-			sortString = TestDatabaseFactory.COLUMN_VALUE + " ASC";
+			database.clearSortOrder();
+			database.addSortOrder(TestDatabaseFactory.COLUMN_VALUE, true);
+			database.addSortOrder(TestDatabaseFactory.COLUMN_NAME, true);
 			break;
 		case R.id.sortByAdded:
-			sortString = TestDataBase.COLUMN_ID + " ASC";
+			database.clearSortOrder();
+			database.addSortOrder(TestDataBase.COLUMN_ID, true);
 			break;
 		case R.id.filterDisabled:
-			filterString = null;
+			database.clearFilter();
 			break;
 		case R.id.filterEnabled:
-			filterString = TestDatabaseFactory.COLUMN_VALUE + "<50";
+			database.clearFilter();
+			database.addFilter(TestDatabaseFactory.COLUMN_VALUE + "<50");
 			break;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -105,7 +108,8 @@ public class testActivity extends ListActivity {
 		case R.id.change:
 			Long id = getObjectFromMenuItem(item);
 			if (id != null) {
-				TestDatabaseObject object = (TestDatabaseObject) database.getObject(id);
+				TestDatabaseObject object = (TestDatabaseObject) database
+						.getObject(id);
 				object.setName(names[new Random().nextInt(3)]);
 				database.update(object);
 			}
@@ -154,8 +158,6 @@ public class testActivity extends ListActivity {
 		// Fields on the UI to which we map
 		int[] to = new int[] { R.id.name, R.id.value };
 
-		database.setSortOrder(sortString);
-		database.setFilter(filterString);
 		Cursor cursor = database.getCursor();
 		adapter = new SimpleCursorAdapter(this, R.layout.row, cursor, from, to);
 		setListAdapter(adapter);
