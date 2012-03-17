@@ -62,11 +62,11 @@ public class testActivity extends ListActivity {
 			database.clear();
 			break;
 		case R.id.sortByName:
-			sortString = TestDataBase.COLUMN_NAME + " ASC, "
-					+ TestDataBase.COLUMN_VALUE + " ASC";
+			sortString = TestDatabaseFactory.COLUMN_NAME + " ASC, "
+					+ TestDatabaseFactory.COLUMN_VALUE + " ASC";
 			break;
 		case R.id.sortByValue:
-			sortString = TestDataBase.COLUMN_VALUE + " ASC";
+			sortString = TestDatabaseFactory.COLUMN_VALUE + " ASC";
 			break;
 		case R.id.sortByAdded:
 			sortString = TestDataBase.COLUMN_ID + " ASC";
@@ -75,7 +75,7 @@ public class testActivity extends ListActivity {
 			filterString = null;
 			break;
 		case R.id.filterEnabled:
-			filterString = TestDataBase.COLUMN_VALUE + "<50";
+			filterString = TestDatabaseFactory.COLUMN_VALUE + "<50";
 			break;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -105,9 +105,8 @@ public class testActivity extends ListActivity {
 		case R.id.change:
 			Long id = getObjectFromMenuItem(item);
 			if (id != null) {
-				DatabaseObject<TestDatabaseObject> object = database
-						.getDataBaseObject(id);
-				object.getData().setName(names[new Random().nextInt(3)]);
+				TestDatabaseObject object = (TestDatabaseObject) database.getObject(id);
+				object.setName(names[new Random().nextInt(3)]);
 				database.update(object);
 			}
 			break;
@@ -150,8 +149,8 @@ public class testActivity extends ListActivity {
 
 		// Fields from the database (projection)
 		// Must include the _id column for the adapter to work
-		String[] from = new String[] { TestDataBase.COLUMN_NAME,
-				TestDataBase.COLUMN_VALUE };
+		String[] from = new String[] { TestDatabaseFactory.COLUMN_NAME,
+				TestDatabaseFactory.COLUMN_VALUE };
 		// Fields on the UI to which we map
 		int[] to = new int[] { R.id.name, R.id.value };
 

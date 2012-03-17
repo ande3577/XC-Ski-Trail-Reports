@@ -28,48 +28,14 @@ import android.database.Cursor;
 /**
  * 
  */
-public class TestDataBase extends GenericDatabase<TestDatabaseObject> {
-	public static final String TABLE_TEST = "test";
-	public static final String COLUMN_NAME = "name";
-	private static final String TYPE_NAME = "text not null";
-	public static final String COLUMN_VALUE = "value";
-	private static final String TYPE_VALUE = "integer not null";
-
+public class TestDataBase extends GenericDatabase {
 	public static final String DATABASE_NAME = "test_database.db";
 	public static final int DATABASE_VERSION = 6;
+	public static final String TABLE_TEST = "test";
 
 	public TestDataBase(Context context) {
-		super(context, DATABASE_NAME, DATABASE_VERSION, TABLE_TEST);
+		super(context, DATABASE_NAME, DATABASE_VERSION, TABLE_TEST, new TestDatabaseFactory());
 
-		addColumn(COLUMN_NAME, TYPE_NAME).//
-				addColumn(COLUMN_VALUE, TYPE_VALUE);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.dsanderson.xctrailreport.test.GenericDatabase#buildContentValues(
-	 * java.lang.Object, android.content.ContentValues)
-	 */
-	@Override
-	protected void buildContentValues(TestDatabaseObject object,
-			ContentValues values) {
-		values.put(COLUMN_NAME, object.getName());
-		values.put(COLUMN_VALUE, object.getValue());
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.dsanderson.xctrailreport.test.GenericDatabase#cursorToTestObject(
-	 * android.database.Cursor)
-	 */
-	@Override
-	protected TestDatabaseObject getObject(Cursor cursor) {
-		return new TestDatabaseObject(
-				cursor.getString(findColumn(COLUMN_NAME)),
-				cursor.getInt(findColumn(COLUMN_NAME)));
-	}
 }

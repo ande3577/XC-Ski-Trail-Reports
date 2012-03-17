@@ -19,7 +19,7 @@
  */
 package org.dsanderson.xctrailreport.skinnyski;
 
-import org.dsanderson.xctrailreport.core.Pool;
+import org.dsanderson.util.Pool;
 
 /**
  * 

@@ -33,10 +33,10 @@ import android.util.Log;
 /**
  * 
  */
-public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
+public class GenericDatabase extends SQLiteOpenHelper {
 	private SQLiteDatabase database;
-
 	private final String tableName;
+	private final DatabaseObjectFactory objectFactory;
 	private List<String> allColumns;
 	private List<String> allTypes;
 	private String columnArray[] = null;
@@ -53,18 +53,21 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 	// + " integer not null );";
 
 	public GenericDatabase(Context context, String dataBaseName,
-			int dataBaseVersion, String tableName) {
+			int dataBaseVersion, String tableName, DatabaseObjectFactory objectFactory) {
 		super(context, dataBaseName, null, dataBaseVersion);
 
 		this.tableName = tableName;
+		this.objectFactory = objectFactory;
 
 		this.allColumns = new ArrayList<String>();
 		this.allTypes = new ArrayList<String>();
 
 		addColumn(COLUMN_ID, TYPE_ID);
+		
+		objectFactory.registerColumns(this);
 	}
 
-	public GenericDatabase<T> addColumn(String column, String type) {
+	public GenericDatabase addColumn(String column, String type) {
 		assert (columnArray == null);
 		allColumns.add(column);
 		allTypes.add(type);
@@ -125,13 +128,9 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 		database.close();
 	}
 
-	abstract protected void buildContentValues(T object, ContentValues values);
-
-	abstract protected T getObject(Cursor cursor);
-
-	public void insert(T object) {
+	public void insert(DatabaseObject object) {
 		ContentValues values = new ContentValues();
-		buildContentValues(object, values);
+		objectFactory.buildContentValues(object, values);
 		database.insert(tableName, null, values);
 	}
 
@@ -140,7 +139,7 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 		remove(id);
 	}
 
-	public void remove(DatabaseObject<T> testObject) {
+	public void remove(DatabaseObject testObject) {
 		long id = testObject.getId();
 		remove(id);
 	}
@@ -150,12 +149,13 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 		database.delete(tableName, COLUMN_ID + " = " + id, null);
 	}
 
-	public List<DatabaseObject<T>> getAllObjects() {
-		List<DatabaseObject<T>> objects = new ArrayList<DatabaseObject<T>>();
+	public List<DatabaseObject> getAllObjects() {
+		List<DatabaseObject> objects = new ArrayList<DatabaseObject>();
 		Cursor cursor = getCursor();
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			DatabaseObject<T> object = getDatabaseObject(cursor);
+			DatabaseObject object = objectFactory.getObject(cursor, this);
+			object.setId(cursor.getLong(findColumn(COLUMN_ID)));
 			objects.add(object);
 			cursor.moveToNext();
 		}
@@ -177,24 +177,16 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 		return cursor;
 	}
 
-	public T getObject(long id) {
-		return getObject(getCursor(id));
-	}
-
-	public DatabaseObject<T> getDatabaseObject(Cursor cursor) {
-		DatabaseObject<T> object = new DatabaseObject<T>();
-		object.setId(cursor.getLong(0));
-		object.setData(getObject(cursor));
+	public DatabaseObject getObject(long id) {
+		Cursor cursor = getCursor(id);
+		DatabaseObject object = objectFactory.getObject(cursor, this);
+		object.setId(cursor.getLong(findColumn(COLUMN_ID)));
 		return object;
 	}
 
-	public DatabaseObject<T> getDataBaseObject(long id) {
-		return getDatabaseObject(getCursor(id));
-	}
-
-	public void update(DatabaseObject<T> object) {
+	public void update(DatabaseObject object) {
 		ContentValues values = new ContentValues();
-		buildContentValues(object.getData(), values);
+		objectFactory.buildContentValues(object, values);
 		long id = object.getId();
 		database.update(tableName, values, COLUMN_ID + " = " + id, null);
 	}

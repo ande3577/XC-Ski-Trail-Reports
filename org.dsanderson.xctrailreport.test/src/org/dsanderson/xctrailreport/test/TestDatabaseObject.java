@@ -19,15 +19,18 @@
  */
 package org.dsanderson.xctrailreport.test;
 
+import org.dsanderson.android.util.DatabaseObject;
+
 /**
  * 
  */
-public class TestDatabaseObject {
+public class TestDatabaseObject extends DatabaseObject {
 	private String name;
 	private int value;
 	
 	public TestDatabaseObject() {
 	}
+	
 	
 	public TestDatabaseObject(String name, int value) {
 		this.name = name;

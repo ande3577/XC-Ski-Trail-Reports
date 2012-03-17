@@ -19,7 +19,7 @@
  */
 package org.dsanderson.morctrailreport.parser;
 
-import org.dsanderson.xctrailreport.core.Pool;
+import org.dsanderson.util.Pool;
 
 /**
  * 

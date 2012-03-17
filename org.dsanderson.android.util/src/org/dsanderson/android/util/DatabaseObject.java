@@ -22,9 +22,8 @@ package org.dsanderson.android.util;
 /**
  * 
  */
-public class DatabaseObject<T> {
+public class DatabaseObject {
 	private long id;
-	private T data;
 	
 	public void setId(long id) {
 		this.id = id;
@@ -32,14 +31,6 @@ public class DatabaseObject<T> {
 	
 	public long getId() {
 		return id;
-	}
-	
-	public void setData(T data) {
-		this.data = data;
-	}
-	
-	public T getData() {
-		return data;
 	}
 	
 }
