@@ -37,8 +37,9 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 	private SQLiteDatabase database;
 
 	private final String tableName;
-	private final String[] allColumns;
-	private final String[] allTypes;
+	private List<String> allColumns;
+	private List<String> allTypes;
+	private String columnArray[] = null;
 	private String sortOrder = null;
 	private String filterString = null;
 
@@ -52,13 +53,26 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 	// + " integer not null );";
 
 	public GenericDatabase(Context context, String dataBaseName,
-			int dataBaseVersion, String tableName, String[] allColumns,
-			String[] allTypes) {
+			int dataBaseVersion, String tableName) {
 		super(context, dataBaseName, null, dataBaseVersion);
-		assert (allColumns.length == allTypes.length);
+
 		this.tableName = tableName;
-		this.allColumns = allColumns;
-		this.allTypes = allTypes;
+
+		this.allColumns = new ArrayList<String>();
+		this.allTypes = new ArrayList<String>();
+
+		addColumn(COLUMN_ID, TYPE_ID);
+	}
+
+	public GenericDatabase<T> addColumn(String column, String type) {
+		assert (columnArray == null);
+		allColumns.add(column);
+		allTypes.add(type);
+		return this;
+	}
+
+	public int findColumn(String column) {
+		return allColumns.indexOf(column);
 	}
 
 	/*
@@ -72,11 +86,11 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 
 		String dataBaseCreate = "create table " + tableName + "( ";
-		for (int i = 0; i < allColumns.length; i++) {
+		for (int i = 0; i < allColumns.size(); i++) {
 			if (i != 0)
 				dataBaseCreate += ", ";
 
-			dataBaseCreate += allColumns[i] + " " + allTypes[i];
+			dataBaseCreate += allColumns.get(i) + " " + allTypes.get(i);
 		}
 		dataBaseCreate += ");";
 
@@ -100,6 +114,10 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 	}
 
 	public void open() throws SQLException {
+		columnArray = new String[allColumns.size()];
+		for (int i = 0; i < allColumns.size(); i++)
+			columnArray[i] = allColumns.get(i);
+
 		database = getWritableDatabase();
 	}
 
@@ -147,13 +165,14 @@ public abstract class GenericDatabase<T> extends SQLiteOpenHelper {
 	}
 
 	public Cursor getCursor() {
-		return database.query(tableName, allColumns, filterString, null, null,
-				null, sortOrder);
+		return database.query(tableName, columnArray,
+				filterString, null, null, null, sortOrder);
 	}
 
 	public Cursor getCursor(long id) {
-		Cursor cursor = database.query(tableName, allColumns, COLUMN_ID + " = "
-				+ id, null, null, null, null);
+		Cursor cursor = database.query(tableName,
+				columnArray, COLUMN_ID + " = " + id, null,
+				null, null, null);
 		cursor.moveToFirst();
 		return cursor;
 	}

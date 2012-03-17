@@ -38,13 +38,11 @@ public class TestDataBase extends GenericDatabase<TestDatabaseObject> {
 	public static final String DATABASE_NAME = "test_database.db";
 	public static final int DATABASE_VERSION = 6;
 
-	private static final String[] allColumns = { COLUMN_ID, COLUMN_NAME,
-			COLUMN_VALUE };
-	private static final String[] allTypes = { TYPE_ID, TYPE_NAME, TYPE_VALUE };
-
 	public TestDataBase(Context context) {
-		super(context, DATABASE_NAME, DATABASE_VERSION, TABLE_TEST, allColumns,
-				allTypes);
+		super(context, DATABASE_NAME, DATABASE_VERSION, TABLE_TEST);
+
+		addColumn(COLUMN_NAME, TYPE_NAME).//
+				addColumn(COLUMN_VALUE, TYPE_VALUE);
 	}
 
 	/*
@@ -70,6 +68,8 @@ public class TestDataBase extends GenericDatabase<TestDatabaseObject> {
 	 */
 	@Override
 	protected TestDatabaseObject getObject(Cursor cursor) {
-		return new TestDatabaseObject(cursor.getString(1), cursor.getInt(2));
+		return new TestDatabaseObject(
+				cursor.getString(findColumn(COLUMN_NAME)),
+				cursor.getInt(findColumn(COLUMN_NAME)));
 	}
 }
