@@ -17,33 +17,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.util;
-
-import java.util.Date;
+package org.dsanderson.xctrailreport.core;
 
 /**
  * 
  */
-public interface IList<T> {
-	void add(T object);
-	
-	void remove(T object);
-
-	void remove(int index);
-
-	T get(int index);
-
-	T find(String name);
-
-	void load() throws Exception;
-
-	void save() throws Exception;
-	
-	void close();
-
-	Date getTimestamp();
-
-	void clear();
-	
-	int size();
+public class Merge {
+	static public String merge(String existing, String newString) {
+		if (existing == null && newString != null && existing.length() <= 0
+				&& newString.length() >= 0)
+			return newString;
+		else
+			return existing;
+	}
 }

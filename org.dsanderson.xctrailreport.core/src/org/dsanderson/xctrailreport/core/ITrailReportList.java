@@ -17,33 +17,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.util;
+package org.dsanderson.xctrailreport.core;
 
-import java.util.Date;
+import org.dsanderson.util.IList;
 
 /**
  * 
  */
-public interface IList<T> {
-	void add(T object);
-	
-	void remove(T object);
+public interface ITrailReportList extends IList<TrailReport> {
 
-	void remove(int index);
+	public void sort(UserSettings settings);
 
-	T get(int index);
+	public void filter(UserSettings settings);
 
-	T find(String name);
-
-	void load() throws Exception;
-
-	void save() throws Exception;
-	
-	void close();
-
-	Date getTimestamp();
-
-	void clear();
-	
-	int size();
 }

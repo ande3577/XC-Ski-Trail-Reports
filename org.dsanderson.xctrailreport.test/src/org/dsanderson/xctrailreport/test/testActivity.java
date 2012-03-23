@@ -28,6 +28,7 @@ public class testActivity extends ListActivity {
 
 	// private Cursor cursor;
 	private SimpleCursorAdapter adapter;
+	Cursor cursor = null;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -106,7 +107,7 @@ public class testActivity extends ListActivity {
 		case R.id.deleteItem: {
 			Long id = getObjectFromMenuItem(item);
 			if (id != null) {
-				database.remove(id);
+				database.removeById(id);
 			}
 			break;
 		}
@@ -114,7 +115,7 @@ public class testActivity extends ListActivity {
 			Long id = getObjectFromMenuItem(item);
 			if (id != null) {
 				TestDatabaseObject object = (TestDatabaseObject) database
-						.get(id);
+						.getById(id);
 				object.setName(names[new Random().nextInt(3)]);
 				database.update(object);
 			}
@@ -148,6 +149,7 @@ public class testActivity extends ListActivity {
 				Cursor cursor = database.getCursor();
 				if (cursor.moveToFirst())
 					database.remove(cursor);
+				cursor.close();
 			}
 			break;
 		}
@@ -167,6 +169,9 @@ public class testActivity extends ListActivity {
 			System.err.println(e);
 		}
 
+		TextView countView = (TextView) findViewById(R.id.count);
+		countView.setText(String.format("Size: %d", database.size()));
+
 		// Fields from the database (projection)
 		// Must include the _id column for the adapter to work
 		String[] from = new String[] { TestDatabaseFactory.COLUMN_NAME,
@@ -174,7 +179,9 @@ public class testActivity extends ListActivity {
 		// Fields on the UI to which we map
 		int[] to = new int[] { R.id.name, R.id.value };
 
-		Cursor cursor = database.getCursor();
+		if (cursor != null && !cursor.isClosed())
+			cursor.close();
+		cursor = database.getCursor();
 		adapter = new SimpleCursorAdapter(this, R.layout.row, cursor, from, to);
 		setListAdapter(adapter);
 	}

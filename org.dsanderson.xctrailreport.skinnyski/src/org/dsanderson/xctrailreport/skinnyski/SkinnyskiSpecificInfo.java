@@ -19,6 +19,7 @@
  */
 package org.dsanderson.xctrailreport.skinnyski;
 
+import org.dsanderson.util.Pool;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 
 /**
@@ -83,6 +84,35 @@ public class SkinnyskiSpecificInfo implements ISourceSpecificTrailInfo {
 	public SkinnyskiSpecificInfo reset() {
 		trailIndex = -1;
 		return this;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo#merge(org.
+	 * dsanderson.xctrailreport.core.ISourceSpecificTrailInfo)
+	 */
+	@Override
+	public void merge(ISourceSpecificTrailInfo newInfo) {
+		if (trailIndex != -1)
+			trailIndex = ((SkinnyskiSpecificInfo) newInfo).getTrailIndex();
+	}
+
+	/* (non-Javadoc)
+	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo#newItem()
+	 */
+	@Override
+	public ISourceSpecificTrailInfo newItem() {
+		return SkinnyskiFactory.getInstance().getTrailInfoPool().newItem();
+	}
+
+	/* (non-Javadoc)
+	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo#recycleItem(org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo)
+	 */
+	@Override
+	public void deleteItem() {
+		SkinnyskiFactory.getInstance().getTrailInfoPool().deleteItem(this);
 	}
 
 }

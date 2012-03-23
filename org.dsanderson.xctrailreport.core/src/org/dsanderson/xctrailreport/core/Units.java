@@ -50,6 +50,10 @@ public class Units {
 		return (long) (hours * 60 * 60 * 1000);
 	}
 
+	public static long daysToMilliseconds(double days) {
+		return hoursToMilliseconds(days * 24);
+	}
+
 	public static double millisecondsToHours(long milliseconds) {
 		return ((double) milliseconds) / 60 / 60 / 1000;
 	}

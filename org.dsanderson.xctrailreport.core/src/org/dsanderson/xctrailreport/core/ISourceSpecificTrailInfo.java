@@ -19,6 +19,8 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import org.dsanderson.util.Pool;
+
 /**
  * 
  */
@@ -29,4 +31,10 @@ public interface ISourceSpecificTrailInfo {
 	String getTrailInfoUrl();
 	/// get the url to compose a new trail report
 	String getComposeUrl();
+	/// merge new source specific information into an existing info item
+	void merge(ISourceSpecificTrailInfo newInfo);
+	/// get a new instance of the source specific item
+	ISourceSpecificTrailInfo newItem();
+	/// recycle the current item
+	void deleteItem();
 }

@@ -9,7 +9,11 @@ import org.dsanderson.xctrailreport.R;
 import org.dsanderson.xctrailreport.application.ReportListCreator;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
+import org.dsanderson.xctrailreport.core.ITrailInfoList;
+import org.dsanderson.xctrailreport.core.ITrailReportList;
 import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.core.android.TrailInfoList;
+import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory;
 
 import android.app.AlertDialog;
@@ -38,7 +42,8 @@ import android.widget.Toast;
 
 public class xctrailreportActivity extends ListActivity {
 
-	private List<TrailReport> trailReports;
+	private ITrailReportList trailReports;
+	private ITrailInfoList trailInfos;
 	private TrailReportFactory factory = new TrailReportFactory(this);
 	TrailReportReaderFactory trailReportReaderFactory = new TrailReportReaderFactory(
 			this);
@@ -50,6 +55,9 @@ public class xctrailreportActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		trailReports = factory.getTrailReportList();
+		trailInfos = factory.getTrailInfoList();
 
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
@@ -72,24 +80,22 @@ public class xctrailreportActivity extends ListActivity {
 		super.onConfigurationChanged(newConfig);
 	}
 
-	private List<TrailReport> loadTrailReports() throws Exception {
+	private void loadTrailReports() throws Exception {
 
 		try {
-			trailReports = new ArrayList<TrailReport>();
-			trailReports = listCreator.getTrailReports(trailReports,
-					forcedRefresh);
+			listCreator
+					.getTrailReports(trailReports, trailInfos, forcedRefresh);
 		} catch (Exception e) {
+			System.err.println(e);
+			trailReports.clear();
 			throw e;
 		} finally {
 			forcedRefresh = false;
 		}
-
-		return trailReports;
 	}
 
 	private void printTrailReports() throws Exception {
-		Date lastRefreshDate = trailReportReaderFactory
-				.getReportsRefreshedDate();
+		Date lastRefreshDate = trailReports.getTimestamp();
 		String titleString = getString(R.string.app_name);
 		if (lastRefreshDate != null) {
 			Time time = new Time();
@@ -98,10 +104,11 @@ public class xctrailreportActivity extends ListActivity {
 		}
 		setTitle(titleString);
 
-		trailReports = listCreator.sortTrailReports(trailReports);
+		trailReports.filter(factory.getUserSettings());
+		trailReports.sort(factory.getUserSettings());
 
-		this.setListAdapter(new TrailInfoAdapter(this, R.layout.row,
-				trailReports));
+		// this.setListAdapter(new TrailInfoAdapter(this, R.layout.row,
+		// trailReports));
 		registerForContextMenu(getListView());
 		factory.getUserSettings().setRedrawNeeded(false);
 	}
@@ -293,15 +300,6 @@ public class xctrailreportActivity extends ListActivity {
 		}
 	}
 
-	@Override
-	public Object onRetainNonConfigurationInstance() {
-		final List<TrailReport> savedTrailReports = new ArrayList<TrailReport>();
-		for (TrailReport report : trailReports) {
-			savedTrailReports.add(report);
-		}
-		return savedTrailReports;
-	}
-
 	private void refresh(boolean forced) {
 		forcedRefresh = forced;
 
@@ -350,8 +348,8 @@ public class xctrailreportActivity extends ListActivity {
 						.getRegions().getRegions().isEmpty())
 					throw new Exception("No regions enabled.");
 
-				trailReports = loadTrailReports();
-				if (trailReports.isEmpty())
+				loadTrailReports();
+				if (trailReports.size() == 0)
 					throw new Exception("No reports found.");
 			} catch (Exception e) {
 				this.e = e;

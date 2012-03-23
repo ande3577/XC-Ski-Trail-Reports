@@ -17,33 +17,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.util;
+package org.dsanderson.xctrailreport.core;
 
-import java.util.Date;
+import java.util.List;
+
+import org.dsanderson.util.IDistanceSource;
+import org.dsanderson.util.IList;
 
 /**
  * 
  */
-public interface IList<T> {
-	void add(T object);
-	
-	void remove(T object);
+public interface ITrailInfoList extends IList<TrailInfo> {
+	TrailInfo mergeIntoList(TrailInfo info);
 
-	void remove(int index);
+	public List<String> getAllLocations();
 
-	T get(int index);
+	public void updateDistances(IDistanceSource distanceSource,
+			List<String> locations);
 
-	T find(String name);
-
-	void load() throws Exception;
-
-	void save() throws Exception;
-	
-	void close();
-
-	Date getTimestamp();
-
-	void clear();
-	
-	int size();
 }

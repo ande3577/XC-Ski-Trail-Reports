@@ -36,8 +36,7 @@ import android.util.Log;
 /**
  * 
  */
-public class GenericDatabase extends SQLiteOpenHelper implements
-		IList<DatabaseObject> {
+public class GenericDatabase extends SQLiteOpenHelper {
 	private SQLiteDatabase database;
 	private final String tableName;
 	private final IDatabaseObjectFactory objectFactory;
@@ -124,15 +123,21 @@ public class GenericDatabase extends SQLiteOpenHelper implements
 
 	public void remove(Cursor cursor) {
 		long id = cursor.getInt(0);
-		remove(id);
+		removeById(id);
 	}
 
 	public void remove(DatabaseObject object) {
 		long id = object.getId();
-		remove(id);
+		removeById(id);
 	}
 
-	public void remove(long id) {
+	public void remove(int index) {
+		Cursor cursor = getCursor(index);
+		remove(cursor);
+		cursor.close();
+	}
+
+	public void removeById(long id) {
 		System.out.println("Comment deleted with id: " + id);
 		database.delete(tableName, COLUMN_ID + " = " + id, null);
 	}
@@ -159,22 +164,38 @@ public class GenericDatabase extends SQLiteOpenHelper implements
 				null, sortOrder);
 	}
 
-	public Cursor getCursor(long id) {
+	public Cursor getCursorById(long id) {
 		Cursor cursor = database.query(tableName, columnArray, COLUMN_ID
 				+ " = " + id, null, null, null, null);
 		cursor.moveToFirst();
 		return cursor;
 	}
 
+	public Cursor getCursor(int index) {
+		Cursor cursor = getCursor();
+		cursor.moveToPosition(index);
+		return cursor;
+	}
+
 	public DatabaseObject getObject(String name, String column) {
-		Cursor cursor = database.query(tableName, columnArray, column + "="
-				+ name, null, null, null, null);
-		cursor.moveToFirst();
 		DatabaseObject object = null;
-		object = objectFactory.getObject(cursor, object);
-		object.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
-		object.setTimestamp(cursor.getLong(cursor
-				.getColumnIndex(COLUMN_TIMESTAMP)));
+		Cursor cursor = null;
+		try {
+			cursor = database.query(tableName, columnArray,
+					column + "=" + name, null, null, null, null);
+			cursor.moveToFirst();
+			object = objectFactory.getObject(cursor, object);
+			object.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
+			object.setTimestamp(cursor.getLong(cursor
+					.getColumnIndex(COLUMN_TIMESTAMP)));
+
+		} catch (Exception e) {
+		} finally {
+			try {
+				cursor.close();
+			} catch (Exception e) {
+			}
+		}
 		return object;
 	}
 
@@ -233,13 +254,29 @@ public class GenericDatabase extends SQLiteOpenHelper implements
 		database.insert(tableName, null, values);
 	}
 
+	public DatabaseObject getById(long id) {
+		Cursor cursor = getCursorById(id);
+		DatabaseObject object = null;
+		object = objectFactory.getObject(cursor, object);
+		object.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
+		object.setTimestamp(cursor.getLong(cursor
+				.getColumnIndex(COLUMN_TIMESTAMP)));
+		return object;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see org.dsanderson.util.IList#get(int)
 	 */
-	public DatabaseObject get(long index) {
+	public DatabaseObject get(int index) {
 		Cursor cursor = getCursor(index);
+		DatabaseObject object = get(cursor);
+		cursor.close();
+		return object;
+	}
+
+	public DatabaseObject get(Cursor cursor) {
 		DatabaseObject object = null;
 		object = objectFactory.getObject(cursor, object);
 		object.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
@@ -254,7 +291,7 @@ public class GenericDatabase extends SQLiteOpenHelper implements
 	 * @see org.dsanderson.util.IList#find(java.lang.String)
 	 */
 	public DatabaseObject find(String name) {
-		return getObject(name, searchColumn);
+		return getObject("\"" + name + "\"", searchColumn);
 	}
 
 	/*
@@ -262,12 +299,26 @@ public class GenericDatabase extends SQLiteOpenHelper implements
 	 * 
 	 * @see org.dsanderson.util.IList#loadList()
 	 */
-	public void load() throws Exception {
+	public void open() throws Exception {
+		if (isOpen())
+			return;
+
 		columnArray = new String[allColumns.size()];
 		for (int i = 0; i < allColumns.size(); i++)
 			columnArray[i] = allColumns.get(i);
 
 		database = getWritableDatabase();
+	}
+
+	public void load() throws Exception {
+		// nothing to do here, is always ready to read data
+	}
+
+	public boolean isOpen() {
+		if (database == null)
+			return false;
+		else
+			return database.isOpen();
 	}
 
 	/*
@@ -291,7 +342,21 @@ public class GenericDatabase extends SQLiteOpenHelper implements
 		cursor.moveToFirst();
 		Date date = new Date(cursor.getLong(cursor
 				.getColumnIndex("NEWEST_TIMESTAMP")));
+		cursor.close();
 		return date;
+	}
+
+	public int size() {
+		String[] column = { COLUMN_ID };
+		Cursor cursor = database.query(tableName, column, null, null, null,
+				null, null);
+		int size = cursor.getCount();
+		cursor.close();
+		return size;
+	}
+
+	public SQLiteDatabase getDatabase() {
+		return database;
 	}
 
 }

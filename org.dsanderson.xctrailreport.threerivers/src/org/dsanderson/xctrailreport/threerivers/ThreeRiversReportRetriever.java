@@ -25,6 +25,8 @@ import java.util.List;
 import org.dsanderson.util.INetConnection;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
+import org.dsanderson.xctrailreport.core.ITrailInfoList;
+import org.dsanderson.xctrailreport.core.ITrailReportList;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 
@@ -44,13 +46,8 @@ public class ThreeRiversReportRetriever implements IReportRetriever {
 	 * 
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
-	public void getReports(List<TrailReport> trailReports,
-			List<TrailInfo> trailInfos) throws Exception {
-		parseHtml(trailReports, trailInfos);
-	}
-
-	private void parseHtml(List<TrailReport> trailReports,
-			List<TrailInfo> trailInfos) throws Exception {
+	public void getReports(ITrailReportList trailReports,
+			ITrailInfoList trailInfos) throws Exception {
 		INetConnection netConnection = factory.getNetConnection();
 		try {
 			netConnection
@@ -64,32 +61,15 @@ public class ThreeRiversReportRetriever implements IReportRetriever {
 				TrailReport newTrailReport = scanner.getTrailReport();
 				TrailInfo newTrailInfo = scanner.getTrailInfo();
 
-				boolean existingTrail = false;
-				TrailInfo trailInfo = null;
-				for (TrailInfo info : trailInfos) {
-					if (newTrailInfo.getName().compareTo(
-							info.getName()) == 0) {
-						existingTrail = true;
-						trailInfo = info;
-					}
-				}
+				trailInfos.mergeIntoList(newTrailInfo);
 
-				if (!existingTrail) {
-					newTrailInfo.setName(newTrailInfo
-							.getName());
-					trailInfos.add(newTrailInfo);
-					trailInfo = trailInfos.get(trailInfos.size() - 1);
-				} else {
-					factory.getTrailInfoPool().deleteItem(newTrailInfo);
-				}
-
-				newTrailReport.setTrailInfo(trailInfo);
-				newTrailReport.setSource("Three Rivers Park District");
-
+				newTrailReport.setTrailInfo(newTrailInfo);
+				newTrailReport.setSource(ThreeRiversFactory.SOURCE_NAME);
 				trailReports.add(newTrailReport);
 			}
 		} finally {
 			netConnection.disconnect();
 		}
-	} // parseHtml
+	}
+
 }

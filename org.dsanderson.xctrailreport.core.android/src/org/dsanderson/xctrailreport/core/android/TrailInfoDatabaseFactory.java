@@ -38,12 +38,7 @@ import android.database.Cursor;
 public class TrailInfoDatabaseFactory implements IDatabaseObjectFactory {
 	private final TrailInfoPool pool;
 	private final List<IDatabaseObjectFactory> sourceSpecificFactories;
-	private final Context context;
 	GenericDatabase database = null;
-
-	public static final String DATABASE_NAME = "trail_info_database.db";
-	public static final int DATABASE_VERSION = 1;
-	public static final String TABLE_TEST = "trail_info";
 
 	public static final String COLUMN_NAME = "name";
 	private static final String TYPE_NAME = "text not null";
@@ -63,14 +58,10 @@ public class TrailInfoDatabaseFactory implements IDatabaseObjectFactory {
 	public static final String COLUMN_DURATION = "duration";
 	private static final String TYPE_DURATION = "integer not null";
 
-	public static final String COLUMN_DISTANCE_VALID = "distance_valid";
-	private static final String TYPE_DISTANCE_VALID = "integer not null";
-
-	public TrailInfoDatabaseFactory(Context context, TrailInfoPool pool,
+	public TrailInfoDatabaseFactory(TrailInfoPool pool,
 			List<IDatabaseObjectFactory> sourceSpecificFactories) {
 		this.pool = pool;
 		this.sourceSpecificFactories = sourceSpecificFactories;
-		this.context = context;
 	}
 
 	/*
@@ -86,8 +77,7 @@ public class TrailInfoDatabaseFactory implements IDatabaseObjectFactory {
 				.addColumn(COLUMN_STATE, TYPE_STATE) //
 				.addColumn(COLUMN_LOCATION, TYPE_LOCATION) //
 				.addColumn(COLUMN_DISTANCE, TYPE_DISTANCE) //
-				.addColumn(COLUMN_DURATION, TYPE_DURATION) //
-				.addColumn(COLUMN_DISTANCE_VALID, TYPE_DISTANCE_VALID);
+				.addColumn(COLUMN_DURATION, TYPE_DURATION);
 
 		for (IDatabaseObjectFactory factory : sourceSpecificFactories)
 			factory.registerColumns(database);
@@ -106,12 +96,17 @@ public class TrailInfoDatabaseFactory implements IDatabaseObjectFactory {
 		values.put(COLUMN_CITY, info.getCity());
 		values.put(COLUMN_STATE, info.getState());
 		values.put(COLUMN_LOCATION, info.getLocation());
-		values.put(COLUMN_DISTANCE, info.getDistance());
-		values.put(COLUMN_DURATION, info.getDuration());
-		if (info.getDistanceValid())
-			values.put(COLUMN_DISTANCE_VALID, 1);
-		else
-			values.put(COLUMN_DISTANCE_VALID, 0);
+
+		int distance, duration;
+		if (info.getDistanceValid()) {
+			distance = info.getDistance();
+			duration = info.getDuration();
+		} else {
+			distance = duration = Integer.MAX_VALUE;
+		}
+
+		values.put(COLUMN_DISTANCE, distance);
+		values.put(COLUMN_DURATION, duration);
 
 		for (IDatabaseObjectFactory factory : sourceSpecificFactories)
 			factory.buildContentValues(info, values);
@@ -125,7 +120,10 @@ public class TrailInfoDatabaseFactory implements IDatabaseObjectFactory {
 	 * database.Cursor)
 	 */
 	public DatabaseObject getObject(Cursor cursor, DatabaseObject object) {
-		TrailInfo info = pool.newItem();
+		TrailInfo info = (TrailInfo) object;
+		if (object == null)
+			info = pool.newItem();
+		
 		info.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)));
 		info.setCity(cursor.getString(cursor.getColumnIndex(COLUMN_CITY)));
 		info.setState(cursor.getString(cursor.getColumnIndex(COLUMN_STATE)));
@@ -133,8 +131,11 @@ public class TrailInfoDatabaseFactory implements IDatabaseObjectFactory {
 				.getColumnIndex(COLUMN_LOCATION)));
 		info.setDistance(cursor.getInt(cursor.getColumnIndex(COLUMN_DISTANCE)));
 		info.setDuration(cursor.getInt(cursor.getColumnIndex(COLUMN_DURATION)));
-		info.setDistanceValid(cursor.getInt(cursor
-				.getColumnIndex(COLUMN_DISTANCE_VALID)) != 0);
+		if (info.getDistance() != Integer.MAX_VALUE
+				&& info.getDuration() != Integer.MAX_VALUE)
+			info.setDistanceValid(true);
+		else
+			info.setDistanceValid(false);
 
 		for (IDatabaseObjectFactory factory : sourceSpecificFactories)
 			info = (TrailInfo) factory.getObject(cursor, info);

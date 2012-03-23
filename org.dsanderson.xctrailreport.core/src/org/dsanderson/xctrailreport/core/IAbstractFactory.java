@@ -68,8 +68,8 @@ public interface IAbstractFactory {
 
 	public TrailInfoPool getTrailInfoPool();
 
-	public IList<DatabaseObject> getTrailReportList();
+	public ITrailReportList getTrailReportList();
 
-	public IList<DatabaseObject> getTrailInfoList();
+	public ITrailInfoList getTrailInfoList();
 
 }

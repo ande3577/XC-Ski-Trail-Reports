@@ -20,6 +20,7 @@
 package org.dsanderson.xctrailreport.threerivers;
 
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
+import org.dsanderson.xctrailreport.core.Merge;
 
 /**
  * 
@@ -72,7 +73,7 @@ public class ThreeRiversTrailInfo implements ISourceSpecificTrailInfo {
 	public void setTrailInfoUrl(String url) {
 		trailInfoUrl = url;
 	}
-	
+
 	public String getTrailInfoShortUrl() {
 		return trailInfoUrl;
 	}
@@ -80,6 +81,40 @@ public class ThreeRiversTrailInfo implements ISourceSpecificTrailInfo {
 	public ThreeRiversTrailInfo reset() {
 		trailInfoUrl = null;
 		return this;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo#merge(org.
+	 * dsanderson.xctrailreport.core.ISourceSpecificTrailInfo)
+	 */
+	@Override
+	public void merge(ISourceSpecificTrailInfo newInfo) {
+		trailInfoUrl = Merge.merge(trailInfoUrl,
+				((ThreeRiversTrailInfo) newInfo).getTrailInfoShortUrl());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo#newItem()
+	 */
+	@Override
+	public ISourceSpecificTrailInfo newItem() {
+		return ThreeRiversFactory.getInstance().getPool().newItem();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo#deleteItem()
+	 */
+	@Override
+	public void deleteItem() {
+		ThreeRiversFactory.getInstance().getPool().deleteItem(this);
 	}
 
 }

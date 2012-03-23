@@ -25,6 +25,8 @@ import java.util.List;
 import org.dsanderson.util.INetConnection;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
+import org.dsanderson.xctrailreport.core.ITrailInfoList;
+import org.dsanderson.xctrailreport.core.ITrailReportList;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 
@@ -47,13 +49,8 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 	 * 
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
-	public void getReports(List<TrailReport> trailReports,
-			List<TrailInfo> trailInfos) throws Exception {
-		parseHtml(trailReports, trailInfos);
-	}
-
-	private void parseHtml(List<TrailReport> trailReports,
-			List<TrailInfo> trailInfos) throws Exception {
+	public void getReports(ITrailReportList trailReports,
+			ITrailInfoList trailInfos) throws Exception {
 		INetConnection netConnection = factory.getNetConnection();
 		try {
 			netConnection.connect("http://skinnyski.com/trails/reports.asp");
@@ -69,45 +66,12 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 					while (scanner.scanRegion()) {
 						TrailReport newTrailReport = scanner.getTrailReport();
 						TrailInfo newTrailInfo = scanner.getTrailInfo();
-						SkinnyskiSpecificInfo newSkinnyskiInfo = scanner
-								.getSkinnyskiSpecificInfo();
 
-						boolean existingTrail = false;
-						boolean existingSkinnyskiTrail = false;
-						TrailInfo trailInfo = null;
-						for (TrailInfo info : trailInfos) {
-							if (newTrailInfo.getName()
-									.compareTo(info.getName()) == 0) {
-								existingTrail = true;
-								if (info.getSourceSpecificInfo(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME) == null)
-									info.addSourceSpecificInfo(newSkinnyskiInfo);
-								else
-									existingSkinnyskiTrail = true;
-								trailInfo = info;
-							}
-						}
+						newTrailInfo = trailInfos.mergeIntoList(newTrailInfo);
 
-						if (!existingTrail) {
-							newTrailInfo.setLocation(factory.getLocationCoder()
-									.getLocation(
-											newTrailInfo.getName() + ", "
-													+ newTrailInfo.getCity()
-													+ ", "
-													+ newTrailInfo.getState()));
-
-							trailInfos.add(newTrailInfo);
-							trailInfo = trailInfos.get(trailInfos.size() - 1);
-							trailInfo.addSourceSpecificInfo(newSkinnyskiInfo);
-						} else {
-							factory.getTrailInfoPool().deleteItem(newTrailInfo);
-							if (!existingSkinnyskiTrail)
-								skinnySkiFactory.getTrailInfoPool().deleteItem(
-										newSkinnyskiInfo);
-						}
-
-						newTrailReport.setTrailInfo(trailInfo);
-						newTrailReport.setSource("SkinnySki");
-
+						newTrailReport.setTrailInfo(newTrailInfo);
+						newTrailReport
+								.setSource(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME);
 						trailReports.add(newTrailReport);
 					}
 				}
@@ -115,5 +79,6 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 		} finally {
 			netConnection.disconnect();
 		}
-	} // parseHtml
+	}
+
 }

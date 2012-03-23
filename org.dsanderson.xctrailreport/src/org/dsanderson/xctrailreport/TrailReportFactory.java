@@ -44,11 +44,11 @@ import org.dsanderson.xctrailreport.application.DurationFilter;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportFilter;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
+import org.dsanderson.xctrailreport.core.ITrailInfoList;
+import org.dsanderson.xctrailreport.core.ITrailReportList;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
-import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.TrailInfoPool;
-import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 import org.dsanderson.xctrailreport.core.TrailReportParser;
 import org.dsanderson.xctrailreport.core.UserSettings;
@@ -333,12 +333,19 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * @see
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailReportList()
 	 */
-	public TrailReportList getTrailReportList() {
-		if (trailReportList == null)
+	public ITrailReportList getTrailReportList() {
+		if (trailReportList == null) {
 			trailReportList = new TrailReportList(context,
 					new TrailReportDatabaseFactory(trailReportPool,
 							getTrailInfoDatabaseFactory()));
-		return trailReportList;
+			try {
+				trailReportList.open();
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+		}
+		return (ITrailReportList) trailReportList;
 	}
 
 	/*
@@ -347,10 +354,11 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * @see
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoList()
 	 */
-	public TrailInfoList getTrailInfoList() {
+	public ITrailInfoList getTrailInfoList() {
 		if (trailInfoList == null)
-			trailInfoList = new TrailInfoList(context,
-					getTrailInfoDatabaseFactory());
+			trailInfoList = new TrailInfoList(
+					(TrailReportList) getTrailReportList(),
+					getTrailReportPool(), getTrailInfoPool());
 		return trailInfoList;
 	}
 
@@ -361,7 +369,7 @@ public class TrailReportFactory implements IAbstractFactory {
 					skinnyskiFactory));
 			sourceSpecificFactories.add(new ThreeriversDatabaseFactory(
 					threeRiversFactory));
-			trailInfoDatabaseFactory = new TrailInfoDatabaseFactory(context,
+			trailInfoDatabaseFactory = new TrailInfoDatabaseFactory(
 					trailInfoPool, sourceSpecificFactories);
 		}
 		return trailInfoDatabaseFactory;

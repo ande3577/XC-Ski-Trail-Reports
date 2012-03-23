@@ -25,6 +25,6 @@ import java.util.List;
  * 
  */
 public interface IReportRetriever {
-	abstract void getReports (List<TrailReport> trailReports,
-			List<TrailInfo> trailInfo) throws Exception;
+	abstract void getReports(ITrailReportList trailReports,
+			ITrailInfoList trailInfos) throws Exception;
 }

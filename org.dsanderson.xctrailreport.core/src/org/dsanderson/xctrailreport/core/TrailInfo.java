@@ -120,22 +120,43 @@ public class TrailInfo extends DatabaseObject {
 	public boolean getDistanceValid() {
 		return directionsValid;
 	}
-	
+
 	public List<ISourceSpecificTrailInfo> getSourceSpecificInfos() {
 		return sourceSpecificInfo;
 	}
-	
+
 	public ISourceSpecificTrailInfo getSourceSpecificInfo(String source) {
-		for(ISourceSpecificTrailInfo info : sourceSpecificInfo){
+		for (ISourceSpecificTrailInfo info : sourceSpecificInfo) {
 			if (info.getSourceName().equals(source)) {
 				return info;
 			}
 		}
 		return null;
 	}
-	
+
 	public void addSourceSpecificInfo(ISourceSpecificTrailInfo info) {
 		sourceSpecificInfo.add(info);
+	}
+
+	public void merge(TrailInfo newInfo) {
+		name = Merge.merge(name, newInfo.name);
+		city = Merge.merge(city, newInfo.city);
+		state = Merge.merge(state, newInfo.state);
+		location = Merge.merge(location, newInfo.location);
+		if (!directionsValid && newInfo.directionsValid) {
+			directionsValid = newInfo.directionsValid;
+			distance = newInfo.distance;
+			travelTime = newInfo.travelTime;
+		}
+
+		for (ISourceSpecificTrailInfo newSpecific : newInfo.sourceSpecificInfo) {
+			ISourceSpecificTrailInfo existingSpecific = getSourceSpecificInfo(newSpecific
+					.getSourceName());
+			if (existingSpecific == null)
+				addSourceSpecificInfo(newSpecific);
+			else
+				existingSpecific.merge(newSpecific);
+		}
 	}
 
 }

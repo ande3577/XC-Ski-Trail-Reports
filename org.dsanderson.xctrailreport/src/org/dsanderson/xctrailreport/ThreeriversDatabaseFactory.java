@@ -72,6 +72,9 @@ public class ThreeriversDatabaseFactory implements IDatabaseObjectFactory {
 			ThreeRiversTrailInfo threeRiversInfo = (ThreeRiversTrailInfo) sourceSpecific;
 			values.put(COLUMN_INFO_URL, threeRiversInfo.getTrailInfoShortUrl());
 		}
+		else {
+			values.put(COLUMN_INFO_URL, "");
+		}
 	}
 
 	/*
