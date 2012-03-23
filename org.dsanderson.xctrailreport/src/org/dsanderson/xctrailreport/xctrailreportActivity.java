@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -37,7 +38,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CursorAdapter;
 import android.widget.LinearLayout;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 public class xctrailreportActivity extends ListActivity {
@@ -55,6 +58,8 @@ public class xctrailreportActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		registerForContextMenu(getListView());
 
 		trailReports = factory.getTrailReportList();
 		trailInfos = factory.getTrailInfoList();
@@ -107,9 +112,8 @@ public class xctrailreportActivity extends ListActivity {
 		trailReports.filter(factory.getUserSettings());
 		trailReports.sort(factory.getUserSettings());
 
-		// this.setListAdapter(new TrailInfoAdapter(this, R.layout.row,
-		// trailReports));
-		registerForContextMenu(getListView());
+		Cursor cursor = ((TrailReportList) trailReports).getCursor();
+		this.setListAdapter(new TrailInfoAdapter(this, R.layout.row, cursor));
 		factory.getUserSettings().setRedrawNeeded(false);
 	}
 
@@ -296,6 +300,7 @@ public class xctrailreportActivity extends ListActivity {
 					&& factory.getUserSettings().getRedrawNeeded())
 				printTrailReports();
 		} catch (Exception e) {
+			e.printStackTrace();
 			factory.newDialog(e);
 		}
 	}
@@ -312,8 +317,7 @@ public class xctrailreportActivity extends ListActivity {
 		new LoadReportsTask(this).execute();
 	}
 
-	private class LoadReportsTask extends
-			AsyncTask<Integer, Integer, List<TrailReport>> {
+	private class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 
 		Context context = null;
 		AlertDialog dialog = null;
@@ -340,8 +344,8 @@ public class xctrailreportActivity extends ListActivity {
 		 * @see android.os.AsyncTask#doInBackground(Params[])
 		 */
 		@Override
-		protected List<TrailReport> doInBackground(Integer... params) {
-			List<TrailReport> trailReports = new ArrayList<TrailReport>();
+		protected Integer doInBackground(Integer... params) {
+			Integer size = null;
 			try {
 				if (((SkinnyskiFactory) factory
 						.getSourceSpecificFactory(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME))
@@ -349,16 +353,17 @@ public class xctrailreportActivity extends ListActivity {
 					throw new Exception("No regions enabled.");
 
 				loadTrailReports();
-				if (trailReports.size() == 0)
+				size = trailReports.size();
+				if (size == 0)
 					throw new Exception("No reports found.");
 			} catch (Exception e) {
 				this.e = e;
 			}
-			return trailReports;
+			return size;
 		}
 
 		@Override
-		protected void onPostExecute(List<TrailReport> result) {
+		protected void onPostExecute(Integer result) {
 			if (dialog != null && dialog.isShowing())
 				dialog.dismiss();
 
@@ -366,18 +371,19 @@ public class xctrailreportActivity extends ListActivity {
 				if (e == null)
 					printTrailReports();
 			} catch (Exception e) {
+				e.printStackTrace();
 				e = this.e;
 			} finally {
 				if (e != null) {
-					System.err.println(e);
+					e.printStackTrace();
 					factory.newDialog(e).show();
 				}
 			}
 		}
 	}
 
-	private class TrailInfoAdapter extends ArrayAdapter<TrailReport> {
-		private List<TrailReport> trailReports;
+	private class TrailInfoAdapter extends SimpleCursorAdapter {
+		private Context context;
 
 		/**
 		 * @param context
@@ -385,9 +391,9 @@ public class xctrailreportActivity extends ListActivity {
 		 * @param objects
 		 */
 		public TrailInfoAdapter(Context context, int textViewResourceId,
-				List<TrailReport> objects) {
-			super(context, textViewResourceId, objects);
-			this.trailReports = objects;
+				Cursor cursor) {
+			super(context, R.id.list, cursor, null, null);
+			this.context = context;
 		}
 
 		@Override
@@ -401,7 +407,7 @@ public class xctrailreportActivity extends ListActivity {
 
 			if (position < trailReports.size()) {
 				ListEntry listEntry = new ListEntry((LinearLayout) layout,
-						getContext());
+						context);
 
 				boolean newTrail = false;
 				TrailReport currentReport = trailReports.get(position);
@@ -427,6 +433,7 @@ public class xctrailreportActivity extends ListActivity {
 			}
 			return layout;
 		}
+
 	}
 
 }
