@@ -19,10 +19,12 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import org.dsanderson.util.DatabaseObject;
+
 /**
  * 
  */
-public class TrailReport {
+public class TrailReport extends DatabaseObject {
 	private String summary;
 	private String author;
 	private ReportDate date;

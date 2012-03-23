@@ -25,6 +25,12 @@
         
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/dateString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date: " />
+
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"

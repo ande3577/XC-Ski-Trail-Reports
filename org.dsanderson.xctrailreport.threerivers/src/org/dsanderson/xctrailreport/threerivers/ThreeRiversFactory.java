@@ -29,13 +29,14 @@ import org.dsanderson.xctrailreport.core.ISourceSpecificInfoParser;
  */
 public class ThreeRiversFactory implements ISourceSpecificFactory {
 	public static final String SOURCE_NAME = "Three Rivers Park District";
-	private static final String XML_TAG = "threeRivers";
+	public static final String XML_TAG = "threeRivers";
 
 	private static ThreeRiversFactory instance = null;
 
 	private final IAbstractFactory factory;
 	private ThreeRiversReportRetriever retriever = null;
 	private ThreeRiversParser parser = null;
+	private ThreeRiversInfoPool pool = null;
 
 	private boolean enabled = false;
 
@@ -47,6 +48,12 @@ public class ThreeRiversFactory implements ISourceSpecificFactory {
 
 	static public ThreeRiversFactory getInstance() {
 		return instance;
+	}
+
+	public ThreeRiversInfoPool getPool() {
+		if (pool == null)
+			pool = new ThreeRiversInfoPool();
+		return pool;
 	}
 
 	/*

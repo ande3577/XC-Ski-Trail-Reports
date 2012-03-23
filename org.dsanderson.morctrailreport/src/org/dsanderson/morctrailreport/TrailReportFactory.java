@@ -28,8 +28,10 @@ import org.dsanderson.android.util.DistanceSource;
 import org.dsanderson.android.util.LocationCoder;
 import org.dsanderson.android.util.LocationSource;
 import org.dsanderson.android.util.UrlConnection;
+import org.dsanderson.util.DatabaseObject;
 import org.dsanderson.util.IDialog;
 import org.dsanderson.util.IDistanceSource;
+import org.dsanderson.util.IList;
 import org.dsanderson.util.ILocationCoder;
 import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.INetConnection;
@@ -41,8 +43,10 @@ import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportFilter;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
+import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.TrailInfoPool;
+import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 import org.dsanderson.xctrailreport.core.TrailReportParser;
 import org.dsanderson.xctrailreport.core.UserSettings;
@@ -302,6 +306,22 @@ public class TrailReportFactory implements IAbstractFactory {
 				return factory;
 			}
 		}
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailReportList()
+	 */
+	public IList<DatabaseObject> getTrailReportList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoList()
+	 */
+	public IList<DatabaseObject> getTrailInfoList() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

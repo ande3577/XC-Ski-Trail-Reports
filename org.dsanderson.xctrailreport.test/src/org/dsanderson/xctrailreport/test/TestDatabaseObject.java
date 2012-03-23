@@ -19,7 +19,7 @@
  */
 package org.dsanderson.xctrailreport.test;
 
-import org.dsanderson.android.util.DatabaseObject;
+import org.dsanderson.util.DatabaseObject;
 
 /**
  * 

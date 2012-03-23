@@ -25,7 +25,8 @@ import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
  * 
  */
 public class SkinnyskiSpecificInfo implements ISourceSpecificTrailInfo {
-	int trailIndex = -1;
+	public static final int NULL_TRAIL_INDEX = -1;
+	int trailIndex = NULL_TRAIL_INDEX;
 
 	/*
 	 * (non-Javadoc)
@@ -74,11 +75,11 @@ public class SkinnyskiSpecificInfo implements ISourceSpecificTrailInfo {
 	public void setTrailIndex(int index) {
 		trailIndex = index;
 	}
-	
+
 	public int getTrailIndex() {
 		return trailIndex;
 	}
-	
+
 	public SkinnyskiSpecificInfo reset() {
 		trailIndex = -1;
 		return this;

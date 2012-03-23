@@ -1,15 +1,14 @@
 package org.dsanderson.xctrailreport.test;
 
+import java.util.Date;
 import java.util.Random;
 
-import org.dsanderson.android.util.DatabaseObject;
 import org.dsanderson.xctrailreport.test.R;
 
-import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +18,7 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.LinearLayout;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 public class testActivity extends ListActivity {
 	private TestDataBase database;
@@ -38,7 +38,12 @@ public class testActivity extends ListActivity {
 		setContentView(layout);
 
 		database = new TestDataBase(this);
-		database.open();
+		try {
+			database.load();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		database.getAllObjects();
 
@@ -109,7 +114,7 @@ public class testActivity extends ListActivity {
 			Long id = getObjectFromMenuItem(item);
 			if (id != null) {
 				TestDatabaseObject object = (TestDatabaseObject) database
-						.getObject(id);
+						.get(id);
 				object.setName(names[new Random().nextInt(3)]);
 				database.update(object);
 			}
@@ -135,7 +140,7 @@ public class testActivity extends ListActivity {
 		case R.id.add:
 			int nextInt = new Random().nextInt(3);
 			// Save the new comment to the database
-			database.insert(new TestDatabaseObject(names[nextInt], new Random()
+			database.add(new TestDatabaseObject(names[nextInt], new Random()
 					.nextInt(100)));
 			break;
 		case R.id.delete:
@@ -151,6 +156,17 @@ public class testActivity extends ListActivity {
 
 	private void fillData() {
 
+		TextView dateView = (TextView) findViewById(R.id.dateString);
+
+		try {
+			Date modifiedDate = database.getTimestamp();
+			dateView.setText(DateFormat.format("MM/dd/yy hh:mm:ss",
+					modifiedDate));
+		} catch (Exception e) {
+			dateView.setText("Cannot read date");
+			System.err.println(e);
+		}
+
 		// Fields from the database (projection)
 		// Must include the _id column for the adapter to work
 		String[] from = new String[] { TestDatabaseFactory.COLUMN_NAME,
@@ -165,7 +181,11 @@ public class testActivity extends ListActivity {
 
 	@Override
 	protected void onResume() {
-		database.open();
+		try {
+			database.load();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		super.onResume();
 	}
 

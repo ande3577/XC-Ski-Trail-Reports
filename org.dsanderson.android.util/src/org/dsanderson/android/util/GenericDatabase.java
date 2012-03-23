@@ -20,12 +20,15 @@
 package org.dsanderson.android.util;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import org.dsanderson.util.DatabaseObject;
+import org.dsanderson.util.IList;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -33,10 +36,12 @@ import android.util.Log;
 /**
  * 
  */
-public class GenericDatabase extends SQLiteOpenHelper {
+public class GenericDatabase extends SQLiteOpenHelper implements
+		IList<DatabaseObject> {
 	private SQLiteDatabase database;
 	private final String tableName;
-	private final DatabaseObjectFactory objectFactory;
+	private final IDatabaseObjectFactory objectFactory;
+	private final String searchColumn;
 	private List<String> allColumns;
 	private List<String> allTypes;
 	private String columnArray[] = null;
@@ -46,14 +51,12 @@ public class GenericDatabase extends SQLiteOpenHelper {
 	public static final String COLUMN_ID = "_id";
 	protected static final String TYPE_ID = "integer primary key autoincrement";
 
-	// private static final String DATABASE_CREATE = "create table " +
-	// TABLE_TEST
-	// + "( " + COLUMN_ID + " integer primary key autoincrement, "
-	// + COLUMN_NAME + " text not null, " + COLUMN_VALUE
-	// + " integer not null );";
+	public static final String COLUMN_TIMESTAMP = "_timestamp";
+	protected static final String TYPE_TIMESTAMP = "integer not null";
 
 	public GenericDatabase(Context context, String dataBaseName,
-			int dataBaseVersion, String tableName, DatabaseObjectFactory objectFactory) {
+			int dataBaseVersion, String tableName,
+			IDatabaseObjectFactory objectFactory, String searchColumn) {
 		super(context, dataBaseName, null, dataBaseVersion);
 
 		this.tableName = tableName;
@@ -62,8 +65,11 @@ public class GenericDatabase extends SQLiteOpenHelper {
 		this.allColumns = new ArrayList<String>();
 		this.allTypes = new ArrayList<String>();
 
+		this.searchColumn = searchColumn;
+
 		addColumn(COLUMN_ID, TYPE_ID);
-		
+		addColumn(COLUMN_TIMESTAMP, TYPE_TIMESTAMP);
+
 		objectFactory.registerColumns(this);
 	}
 
@@ -72,10 +78,6 @@ public class GenericDatabase extends SQLiteOpenHelper {
 		allColumns.add(column);
 		allTypes.add(type);
 		return this;
-	}
-
-	public int findColumn(String column) {
-		return allColumns.indexOf(column);
 	}
 
 	/*
@@ -116,22 +118,8 @@ public class GenericDatabase extends SQLiteOpenHelper {
 		onCreate(db);
 	}
 
-	public void open() throws SQLException {
-		columnArray = new String[allColumns.size()];
-		for (int i = 0; i < allColumns.size(); i++)
-			columnArray[i] = allColumns.get(i);
-
-		database = getWritableDatabase();
-	}
-
 	public void close() {
 		database.close();
-	}
-
-	public void insert(DatabaseObject object) {
-		ContentValues values = new ContentValues();
-		objectFactory.buildContentValues(object, values);
-		database.insert(tableName, null, values);
 	}
 
 	public void remove(Cursor cursor) {
@@ -139,8 +127,8 @@ public class GenericDatabase extends SQLiteOpenHelper {
 		remove(id);
 	}
 
-	public void remove(DatabaseObject testObject) {
-		long id = testObject.getId();
+	public void remove(DatabaseObject object) {
+		long id = object.getId();
 		remove(id);
 	}
 
@@ -154,8 +142,10 @@ public class GenericDatabase extends SQLiteOpenHelper {
 		Cursor cursor = getCursor();
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			DatabaseObject object = objectFactory.getObject(cursor, this);
-			object.setId(cursor.getLong(findColumn(COLUMN_ID)));
+			DatabaseObject object = null;
+			object = objectFactory.getObject(cursor, object);
+			object.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
+			object.setTimestamp(new Date().getTime());
 			objects.add(object);
 			cursor.moveToNext();
 		}
@@ -165,22 +155,26 @@ public class GenericDatabase extends SQLiteOpenHelper {
 	}
 
 	public Cursor getCursor() {
-		return database.query(tableName, columnArray,
-				filterString, null, null, null, sortOrder);
+		return database.query(tableName, columnArray, filterString, null, null,
+				null, sortOrder);
 	}
 
 	public Cursor getCursor(long id) {
-		Cursor cursor = database.query(tableName,
-				columnArray, COLUMN_ID + " = " + id, null,
-				null, null, null);
+		Cursor cursor = database.query(tableName, columnArray, COLUMN_ID
+				+ " = " + id, null, null, null, null);
 		cursor.moveToFirst();
 		return cursor;
 	}
 
-	public DatabaseObject getObject(long id) {
-		Cursor cursor = getCursor(id);
-		DatabaseObject object = objectFactory.getObject(cursor, this);
-		object.setId(cursor.getLong(findColumn(COLUMN_ID)));
+	public DatabaseObject getObject(String name, String column) {
+		Cursor cursor = database.query(tableName, columnArray, column + "="
+				+ name, null, null, null, null);
+		cursor.moveToFirst();
+		DatabaseObject object = null;
+		object = objectFactory.getObject(cursor, object);
+		object.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
+		object.setTimestamp(cursor.getLong(cursor
+				.getColumnIndex(COLUMN_TIMESTAMP)));
 		return object;
 	}
 
@@ -188,25 +182,26 @@ public class GenericDatabase extends SQLiteOpenHelper {
 		ContentValues values = new ContentValues();
 		objectFactory.buildContentValues(object, values);
 		long id = object.getId();
+		object.setTimestamp(new Date().getTime());
 		database.update(tableName, values, COLUMN_ID + " = " + id, null);
 	}
 
 	public void clear() {
 		database.delete(tableName, null, null);
 	}
-	
-	public void clearSortOrder(){
+
+	public void clearSortOrder() {
 		sortOrder = null;
 	}
-	
+
 	public void addSortOrder(String columnName, boolean ascending) {
 		if (sortOrder == null)
 			sortOrder = "";
 		else
 			sortOrder += ", ";
-		
+
 		sortOrder += columnName;
-		
+
 		if (ascending)
 			sortOrder += " ASC";
 		else
@@ -216,14 +211,87 @@ public class GenericDatabase extends SQLiteOpenHelper {
 	public void clearFilter() {
 		filterString = null;
 	}
-	
+
 	public void addFilter(String filterString) {
 		if (this.filterString == null)
 			this.filterString = "";
 		else
 			this.filterString += ", ";
-		
+
 		this.filterString += filterString;
 	}
-	
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.util.IList#add(java.lang.Object)
+	 */
+	public void add(DatabaseObject object) {
+		ContentValues values = new ContentValues();
+		objectFactory.buildContentValues(object, values);
+		values.put(COLUMN_TIMESTAMP, (new Date()).getTime());
+		database.insert(tableName, null, values);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.util.IList#get(int)
+	 */
+	public DatabaseObject get(long index) {
+		Cursor cursor = getCursor(index);
+		DatabaseObject object = null;
+		object = objectFactory.getObject(cursor, object);
+		object.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
+		object.setTimestamp(cursor.getLong(cursor
+				.getColumnIndex(COLUMN_TIMESTAMP)));
+		return object;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.util.IList#find(java.lang.String)
+	 */
+	public DatabaseObject find(String name) {
+		return getObject(name, searchColumn);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.util.IList#loadList()
+	 */
+	public void load() throws Exception {
+		columnArray = new String[allColumns.size()];
+		for (int i = 0; i < allColumns.size(); i++)
+			columnArray[i] = allColumns.get(i);
+
+		database = getWritableDatabase();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.util.IList#saveList()
+	 */
+	public void save() throws Exception {
+		// nothing to do here, sql databases save on exit
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.util.IList#getTimestamp()
+	 */
+	public Date getTimestamp() {
+		final String maxQuery = "SELECT MAX(" + COLUMN_TIMESTAMP
+				+ ") AS NEWEST_TIMESTAMP FROM " + tableName;
+		Cursor cursor = database.rawQuery(maxQuery, null);
+		cursor.moveToFirst();
+		Date date = new Date(cursor.getLong(cursor
+				.getColumnIndex("NEWEST_TIMESTAMP")));
+		return date;
+	}
+
 }

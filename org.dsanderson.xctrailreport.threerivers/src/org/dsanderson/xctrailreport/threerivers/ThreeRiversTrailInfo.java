@@ -72,6 +72,10 @@ public class ThreeRiversTrailInfo implements ISourceSpecificTrailInfo {
 	public void setTrailInfoUrl(String url) {
 		trailInfoUrl = url;
 	}
+	
+	public String getTrailInfoShortUrl() {
+		return trailInfoUrl;
+	}
 
 	public ThreeRiversTrailInfo reset() {
 		trailInfoUrl = null;

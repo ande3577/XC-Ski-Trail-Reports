@@ -17,19 +17,33 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.android.util;
+package org.dsanderson.xctrailreport.threerivers;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import org.dsanderson.util.Pool;
 
 /**
  * 
  */
-public interface DatabaseObjectFactory {
-	public abstract void registerColumns(GenericDatabase database);
-	
-	abstract public void buildContentValues(DatabaseObject object, ContentValues values);
+public class ThreeRiversInfoPool extends Pool<ThreeRiversTrailInfo> {
 
-	abstract public DatabaseObject getObject(Cursor cursor, GenericDatabase database);
-	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.util.Pool#createItem()
+	 */
+	@Override
+	protected ThreeRiversTrailInfo createItem() {
+		return new ThreeRiversTrailInfo();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.util.Pool#recycleItem(java.lang.Object)
+	 */
+	@Override
+	protected ThreeRiversTrailInfo recycleItem(ThreeRiversTrailInfo item) {
+		return item.reset();
+	}
+
 }

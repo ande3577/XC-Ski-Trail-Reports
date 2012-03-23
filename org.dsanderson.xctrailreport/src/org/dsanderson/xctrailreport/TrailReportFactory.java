@@ -25,11 +25,15 @@ import java.util.List;
 import org.dsanderson.android.util.CompoundXmlPullParserFactory;
 import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.DistanceSource;
+import org.dsanderson.android.util.GenericDatabase;
+import org.dsanderson.android.util.IDatabaseObjectFactory;
 import org.dsanderson.android.util.LocationCoder;
 import org.dsanderson.android.util.LocationSource;
 import org.dsanderson.android.util.UrlConnection;
+import org.dsanderson.util.DatabaseObject;
 import org.dsanderson.util.IDialog;
 import org.dsanderson.util.IDistanceSource;
+import org.dsanderson.util.IList;
 import org.dsanderson.util.ILocationCoder;
 import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.INetConnection;
@@ -41,8 +45,10 @@ import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportFilter;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
+import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.TrailInfoPool;
+import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 import org.dsanderson.xctrailreport.core.TrailReportParser;
 import org.dsanderson.xctrailreport.core.UserSettings;
@@ -56,6 +62,10 @@ import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
 import org.dsanderson.xctrailreport.threerivers.ThreeRiversFactory;
 import org.dsanderson.xctrailreport.core.TrailReportPool;
+import org.dsanderson.xctrailreport.core.android.TrailInfoDatabaseFactory;
+import org.dsanderson.xctrailreport.core.android.TrailInfoList;
+import org.dsanderson.xctrailreport.core.android.TrailReportDatabaseFactory;
+import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.application.PhotosetFilter;
 
 import android.content.Context;
@@ -77,6 +87,10 @@ public class TrailReportFactory implements IAbstractFactory {
 	LocationCoder locationCoder = null;
 	TrailReportPool trailReportPool = null;
 	TrailInfoPool trailInfoPool = null;
+	GenericDatabase database = null;
+	TrailReportList trailReportList = null;
+	TrailInfoList trailInfoList = null;
+	TrailInfoDatabaseFactory trailInfoDatabaseFactory = null;
 
 	public TrailReportFactory(Context context) {
 		assert (factory == null);
@@ -313,4 +327,43 @@ public class TrailReportFactory implements IAbstractFactory {
 		return null;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailReportList()
+	 */
+	public TrailReportList getTrailReportList() {
+		if (trailReportList == null)
+			trailReportList = new TrailReportList(context,
+					new TrailReportDatabaseFactory(trailReportPool,
+							getTrailInfoDatabaseFactory()));
+		return trailReportList;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoList()
+	 */
+	public TrailInfoList getTrailInfoList() {
+		if (trailInfoList == null)
+			trailInfoList = new TrailInfoList(context,
+					getTrailInfoDatabaseFactory());
+		return trailInfoList;
+	}
+
+	private TrailInfoDatabaseFactory getTrailInfoDatabaseFactory() {
+		if (trailInfoDatabaseFactory == null) {
+			List<IDatabaseObjectFactory> sourceSpecificFactories = new ArrayList<IDatabaseObjectFactory>();
+			sourceSpecificFactories.add(new SkinnyskiDatabaseFactory(
+					skinnyskiFactory));
+			sourceSpecificFactories.add(new ThreeriversDatabaseFactory(
+					threeRiversFactory));
+			trailInfoDatabaseFactory = new TrailInfoDatabaseFactory(context,
+					trailInfoPool, sourceSpecificFactories);
+		}
+		return trailInfoDatabaseFactory;
+	}
 }

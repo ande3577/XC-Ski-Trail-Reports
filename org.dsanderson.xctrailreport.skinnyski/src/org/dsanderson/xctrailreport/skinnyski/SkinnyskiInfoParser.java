@@ -19,7 +19,6 @@
  */
 package org.dsanderson.xctrailreport.skinnyski;
 
-
 import org.dsanderson.util.CompoundXmlParser;
 import org.dsanderson.util.ICompoundXmlParserFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificInfoParser;

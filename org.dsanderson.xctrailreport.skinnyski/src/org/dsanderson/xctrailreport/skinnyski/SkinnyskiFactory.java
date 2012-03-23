@@ -33,7 +33,7 @@ public abstract class SkinnyskiFactory implements ISourceSpecificFactory {
 	public static final String SKINNYSKI_SOURCE_NAME = "Skinnyski";
 	static final String DEFAULT_SKINNYSKI_REPORT_URL = "http://skinnyski.com/trails/trailselect.asp?reportType=X";
 	static final String DEFAULT_SKINNYSKI_REQUEST_URL = "http://www.skinnyski.com/trails/trailreportrequest.asp";
-	static final String SKINNYSKI_XML_TAG = "skinnyski";
+	public static final String SKINNYSKI_XML_TAG = "skinnyski";
 	private final IAbstractFactory factory;
 	private boolean enabled = false;
 

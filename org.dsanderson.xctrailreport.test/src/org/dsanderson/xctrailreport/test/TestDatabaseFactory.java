@@ -19,9 +19,9 @@
  */
 package org.dsanderson.xctrailreport.test;
 
-import org.dsanderson.android.util.DatabaseObject;
-import org.dsanderson.android.util.DatabaseObjectFactory;
+import org.dsanderson.android.util.IDatabaseObjectFactory;
 import org.dsanderson.android.util.GenericDatabase;
+import org.dsanderson.util.DatabaseObject;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -29,7 +29,7 @@ import android.database.Cursor;
 /**
  * 
  */
-public class TestDatabaseFactory implements DatabaseObjectFactory {
+public class TestDatabaseFactory implements IDatabaseObjectFactory {
 	public static final String COLUMN_NAME = "name";
 	private static final String TYPE_NAME = "text not null";
 	public static final String COLUMN_VALUE = "value";
@@ -68,9 +68,10 @@ public class TestDatabaseFactory implements DatabaseObjectFactory {
 	 * org.dsanderson.android.util.DatabaseObjectFactory#getObject(android.database
 	 * .Cursor)
 	 */
-	public DatabaseObject getObject(Cursor cursor, GenericDatabase database) {
-		return new TestDatabaseObject(cursor.getString(database
-				.findColumn(COLUMN_NAME)), cursor.getInt(database
-				.findColumn(COLUMN_VALUE)));
+	public DatabaseObject getObject(Cursor cursor, DatabaseObject object) {
+		object = new TestDatabaseObject(cursor.getString(cursor
+				.getColumnIndex(COLUMN_NAME)), //
+				cursor.getInt(cursor.getColumnIndex(COLUMN_VALUE)));
+		return object;
 	}
 }

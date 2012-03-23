@@ -22,10 +22,12 @@ package org.dsanderson.xctrailreport.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dsanderson.util.DatabaseObject;
+
 /**
  * 
  */
-public class TrailInfo {
+public class TrailInfo extends DatabaseObject {
 	String name = "";
 	String city = "";
 	String state = "MN";

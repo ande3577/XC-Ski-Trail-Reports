@@ -57,7 +57,7 @@ public class SkinnyskiScanner {
 	public TrailInfo getTrailInfo() {
 		return trailInfo;
 	}
-	
+
 	public SkinnyskiSpecificInfo getSkinnyskiSpecificInfo() {
 		return skinnyskiInfo;
 	}
@@ -101,7 +101,17 @@ public class SkinnyskiScanner {
 		scanCityAndState();
 		scanSummary();
 		scanDetailedAndAuthor();
+	}
 
+	public void recycleAll() {
+		trailReportPool.deleteItem(trailReport);
+		trailInfoPool.deleteItem(trailInfo);
+		skinnyskiPool.deleteItem(skinnyskiInfo);
+	}
+	
+	public void recycleInfo() {
+		trailInfoPool.deleteItem(trailInfo);
+		skinnyskiPool.deleteItem(skinnyskiInfo);
 	}
 
 	private void scanDate() throws Exception {

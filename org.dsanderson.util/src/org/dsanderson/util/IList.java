@@ -17,20 +17,31 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.android.util;
+package org.dsanderson.util;
+
+import java.util.Date;
 
 /**
  * 
  */
-public class DatabaseObject {
-	private long id;
+public interface IList<T> {
+	void add(T object);
+
+	void remove(T object);
+
+	void remove(long index);
+
+	T get(long index);
+
+	T find(String name);
+
+	void load() throws Exception;
+
+	void save() throws Exception;
 	
-	public void setId(long id) {
-		this.id = id;
-	}
-	
-	public long getId() {
-		return id;
-	}
-	
+	void close();
+
+	Date getTimestamp();
+
+	void clear();
 }

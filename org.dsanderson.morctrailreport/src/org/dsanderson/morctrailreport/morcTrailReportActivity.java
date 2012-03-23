@@ -181,7 +181,7 @@ public class morcTrailReportActivity extends ListActivity {
 						.getTrailInfo().getSourceSpecificInfo(
 								MorcFactory.SOURCE_NAME);
 				if (sourceSpecific != null) {
-					String composeUrl = sourceSpecific.getTrailInfoUrl();
+					String composeUrl = sourceSpecific.getComposeUrl();
 					if (composeUrl != null && composeUrl.length() > 0)
 						launchIntent(composeUrl);
 				}

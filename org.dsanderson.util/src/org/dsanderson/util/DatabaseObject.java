@@ -17,24 +17,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.test;
-
-import org.dsanderson.android.util.GenericDatabase;
-
-import android.content.Context;
+package org.dsanderson.util;
 
 /**
  * 
  */
-public class TestDataBase extends GenericDatabase {
-	public static final String DATABASE_NAME = "test_database.db";
-	public static final int DATABASE_VERSION = 7;
-	public static final String TABLE_TEST = "test";
-
-	public TestDataBase(Context context) {
-		super(context, DATABASE_NAME, DATABASE_VERSION, TABLE_TEST,
-				new TestDatabaseFactory(), TestDatabaseFactory.COLUMN_NAME);
-
+public class DatabaseObject {
+	private long id;
+	private long timestamp;
+	
+	public void setId(long id) {
+		this.id = id;
 	}
-
+	
+	public long getId() {
+		return id;
+	}
+	
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
+	
+	public long getTimestamp() {
+		return timestamp;
+	}
+	
 }

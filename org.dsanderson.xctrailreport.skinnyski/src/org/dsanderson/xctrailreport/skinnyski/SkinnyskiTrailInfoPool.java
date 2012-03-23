@@ -25,8 +25,9 @@ import org.dsanderson.util.Pool;
  * 
  */
 public class SkinnyskiTrailInfoPool extends Pool<SkinnyskiSpecificInfo> {
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.dsanderson.xctrailreport.core.Pool#createItem()
 	 */
 	@Override
@@ -34,7 +35,9 @@ public class SkinnyskiTrailInfoPool extends Pool<SkinnyskiSpecificInfo> {
 		return new SkinnyskiSpecificInfo();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.dsanderson.xctrailreport.core.Pool#recycleItem(java.lang.Object)
 	 */
 	@Override
