@@ -69,6 +69,11 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 								.getSkinnyskiSpecificInfo();
 
 						newTrailInfo.addSourceSpecificInfo(newSkinnyskiInfo);
+						newTrailInfo.setLocation(factory.getLocationCoder()
+								.getLocation(
+										newTrailInfo.getName() + ", "
+												+ newTrailInfo.getCity() + ", "
+												+ newTrailInfo.getState()));
 						newTrailInfo = trailInfos.mergeIntoList(newTrailInfo);
 
 						newTrailReport.setTrailInfo(newTrailInfo);

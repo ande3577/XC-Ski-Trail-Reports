@@ -179,10 +179,12 @@ public class TrailInfoList implements ITrailInfoList {
 				TrailReportDatabaseFactory.TABLE_TEST, column, null, null,
 				null, null, null, null);
 		List<String> locations = new ArrayList<String>();
-		cursor.moveToFirst();
-		while (cursor.moveToNext()) {
-			locations.add(cursor.getString(cursor
-					.getColumnIndex(TrailInfoDatabaseFactory.COLUMN_LOCATION)));
+		if (cursor.moveToFirst()) {
+			do {
+				locations
+						.add(cursor.getString(cursor
+								.getColumnIndex(TrailInfoDatabaseFactory.COLUMN_LOCATION)));
+			} while (cursor.moveToNext());
 		}
 		cursor.close();
 		return locations;
@@ -206,20 +208,21 @@ public class TrailInfoList implements ITrailInfoList {
 			return;
 
 		Cursor cursor = reportList.getCursor();
-		cursor.moveToFirst();
-		while (cursor.moveToNext()) {
-			TrailReport report = (TrailReport) reportList.get(cursor);
-			TrailInfo info = report.getTrailInfo();
+		if (cursor.moveToFirst()) {
+			do {
+				TrailReport report = (TrailReport) reportList.get(cursor);
+				TrailInfo info = report.getTrailInfo();
 
-			int index = locations.indexOf(info.getLocation());
-			if (index >= 0) {
-				info.setDistanceValid(valids.get(index));
-				info.setDistance(distances.get(index));
-				info.setDuration(durations.get(index));
-			}
-			reportList.update(report);
-			reportPool.deleteItem(report);
-			infoPool.deleteItem(info);
+				int index = locations.indexOf(info.getLocation());
+				if (index >= 0) {
+					info.setDistanceValid(valids.get(index));
+					info.setDistance(distances.get(index));
+					info.setDuration(durations.get(index));
+				}
+				reportList.update(report);
+				reportPool.deleteItem(report);
+				infoPool.deleteItem(info);
+			} while (cursor.moveToNext());
 		}
 
 	}
@@ -239,7 +242,8 @@ public class TrailInfoList implements ITrailInfoList {
 			reportPool.deleteItem(existingReport);
 			return existingInfo;
 		}
-		// do nothing else here, do not actually store an instance of a trail info list
+		// do nothing else here, do not actually store an instance of a trail
+		// info list
 		return newInfo;
 
 	}
