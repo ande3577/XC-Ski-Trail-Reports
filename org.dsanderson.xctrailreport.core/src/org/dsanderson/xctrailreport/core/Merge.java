@@ -24,8 +24,10 @@ package org.dsanderson.xctrailreport.core;
  */
 public class Merge {
 	static public String merge(String existing, String newString) {
-		if ((existing == null && newString != null)
-				|| (existing.length() <= 0 && newString.length() >= 0))
+		if (existing == null && newString != null)
+			return newString;
+		else if (existing != null && newString != null && existing.isEmpty()
+				&& !newString.isEmpty())
 			return newString;
 		else
 			return existing;

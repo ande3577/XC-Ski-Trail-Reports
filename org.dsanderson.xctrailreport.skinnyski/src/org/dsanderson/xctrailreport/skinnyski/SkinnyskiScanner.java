@@ -108,7 +108,7 @@ public class SkinnyskiScanner {
 		trailInfoPool.deleteItem(trailInfo);
 		skinnyskiPool.deleteItem(skinnyskiInfo);
 	}
-	
+
 	public void recycleInfo() {
 		trailInfoPool.deleteItem(trailInfo);
 		skinnyskiPool.deleteItem(skinnyskiInfo);
@@ -133,7 +133,7 @@ public class SkinnyskiScanner {
 
 	private void scanName() {
 		String name = null;
-		if ((name = scan("", "\\<\\/a\\> \\(", ".*")) == null)
+		if ((name = scan("", "\\Q</a> (\\E", ".*")) == null)
 			name = scan("", "\\(", ".*");
 		if (name != null)
 			trailInfo.setName(name.trim());
@@ -210,7 +210,7 @@ public class SkinnyskiScanner {
 
 		result = scanner.findInLine(start + target + end);
 		if (result != null) {
-			if (start != null && start.length() > 0) {
+			if (start != null && !start.isEmpty()) {
 				String results[] = result.split(start, 2);
 				if (results.length < 2)
 					return null;
@@ -218,7 +218,7 @@ public class SkinnyskiScanner {
 				result = results[1];
 			}
 
-			if (end != null && start.length() > 0) {
+			if (end != null && !end.isEmpty()) {
 				String results[] = result.split(end, 2);
 				if (results.length < 1)
 					return null;
