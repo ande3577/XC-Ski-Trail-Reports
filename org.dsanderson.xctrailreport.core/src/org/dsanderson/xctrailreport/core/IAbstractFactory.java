@@ -21,10 +21,8 @@ package org.dsanderson.xctrailreport.core;
 
 import java.util.List;
 
-import org.dsanderson.util.DatabaseObject;
 import org.dsanderson.util.IDialog;
 import org.dsanderson.util.IDistanceSource;
-import org.dsanderson.util.IList;
 import org.dsanderson.util.ILocationCoder;
 import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.INetConnection;

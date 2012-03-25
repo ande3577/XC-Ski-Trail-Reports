@@ -28,7 +28,6 @@ import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.TrailReportPool;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 
 /**

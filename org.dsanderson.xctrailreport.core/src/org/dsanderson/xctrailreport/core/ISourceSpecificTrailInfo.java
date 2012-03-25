@@ -19,8 +19,6 @@
  */
 package org.dsanderson.xctrailreport.core;
 
-import org.dsanderson.util.Pool;
-
 /**
  * 
  */

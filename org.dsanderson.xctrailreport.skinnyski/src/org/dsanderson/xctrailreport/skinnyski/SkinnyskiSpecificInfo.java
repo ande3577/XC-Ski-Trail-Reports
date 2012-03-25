@@ -19,7 +19,6 @@
  */
 package org.dsanderson.xctrailreport.skinnyski;
 
-import org.dsanderson.util.Pool;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 
 /**

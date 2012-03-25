@@ -25,8 +25,6 @@ import org.dsanderson.util.Pool;
  * 
  */
 public class TrailReportPool extends Pool<TrailReport>{
-	private static TrailReportPool instance = null;
-
 	/* (non-Javadoc)
 	 * @see org.dsanderson.xctrailreport.core.Pool#createItem()
 	 */

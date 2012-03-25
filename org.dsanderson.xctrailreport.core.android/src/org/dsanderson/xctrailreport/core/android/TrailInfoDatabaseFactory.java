@@ -24,12 +24,10 @@ import java.util.List;
 import org.dsanderson.android.util.GenericDatabase;
 import org.dsanderson.android.util.IDatabaseObjectFactory;
 import org.dsanderson.util.DatabaseObject;
-import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfoPool;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 
 /**

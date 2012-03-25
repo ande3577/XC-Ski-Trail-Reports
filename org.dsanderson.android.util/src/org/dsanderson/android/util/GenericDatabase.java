@@ -24,7 +24,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.dsanderson.util.DatabaseObject;
-import org.dsanderson.util.IList;
 
 import android.content.ContentValues;
 import android.content.Context;
