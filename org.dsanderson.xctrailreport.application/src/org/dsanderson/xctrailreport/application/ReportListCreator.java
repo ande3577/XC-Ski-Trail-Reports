@@ -39,13 +39,11 @@ import org.dsanderson.xctrailreport.core.UserSettings.AutoRefreshMode;
  */
 public class ReportListCreator {
 	private final IAbstractFactory factory;
-	private final IReportReaderFactory readerFactory;
-	private List<TrailInfo> defaultTrailInfo = new ArrayList<TrailInfo>();
+	private final ITrailInfoList defaultTrailInfo;
 
-	public ReportListCreator(IAbstractFactory factory,
-			IReportReaderFactory readerFactory) {
+	public ReportListCreator(IAbstractFactory factory) {
 		this.factory = factory;
-		this.readerFactory = readerFactory;
+		defaultTrailInfo = factory.getDefaultTrailInfoList();
 	}
 
 	public void getTrailReports(ITrailReportList trailReports,
@@ -101,33 +99,16 @@ public class ReportListCreator {
 		}
 
 		try {
-			loadTrailInfo(parser, readerFactory.newDefaultTrailInfoReader());
-			for (TrailInfo info : parser.getTrailInfo()) {
-				defaultTrailInfo.add(info);
-				trailInfos.mergeIntoList(info);
-			}
+			defaultTrailInfo.load();
 		} catch (Exception e) {
 			// if included trail infos creates error, we abort
+			trailInfos.clear();
 			trailReports.clear();
 			throw (e);
 		}
 
 		if (!refreshNeeded) {
 			trailReports.load();
-		}
-	}
-
-	private void loadTrailInfo(TrailInfoParser parser, Reader reader) {
-		try {
-			parser.parse(reader);
-		} catch (Exception e) {
-			System.err.println(e);
-		} finally {
-			if (reader != null)
-				try {
-					reader.close();
-				} catch (Exception e) {
-				}
 		}
 	}
 

@@ -89,15 +89,15 @@ public class TrailReportList extends GenericDatabase implements
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET, false);
 			break;
 		case SORT_BY_DISTANCE:
-			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, false);
-			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, false);
+			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, true);
+			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, true);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_NAME, true);
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET, false);
 			break;
 		case SORT_BY_DURATION:
-			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, false);
-			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, false);
+			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, true);
+			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, true);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_NAME, true);
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET, false);
@@ -105,8 +105,8 @@ public class TrailReportList extends GenericDatabase implements
 		case SORT_BY_PHOTOSET:
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET, false);
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
-			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, false);
-			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, false);
+			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, true);
+			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, true);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_NAME, true);
 			break;
 		}
@@ -148,7 +148,7 @@ public class TrailReportList extends GenericDatabase implements
 					+ settings.getDurationCutoff());
 		}
 		if (settings.getPhotosetFilterEnabled()) {
-			addFilter(TrailReportDatabaseFactory.COLUMN_PHOTOSET + "!=");
+			addFilter(TrailReportDatabaseFactory.COLUMN_PHOTOSET + "!=''");
 		}
 	}
 }

@@ -175,6 +175,11 @@ public class GenericDatabase extends SQLiteOpenHelper {
 		cursor.moveToPosition(index);
 		return cursor;
 	}
+	
+	public Cursor getUnfilteredCursor() {
+		return database.query(tableName, columnArray, null, null, null,
+				null, sortOrder);
+	}
 
 	public DatabaseObject getObject(String name, String column) {
 		DatabaseObject object = null;

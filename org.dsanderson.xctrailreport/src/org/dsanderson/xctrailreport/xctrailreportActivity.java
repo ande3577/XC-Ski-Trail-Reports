@@ -44,10 +44,7 @@ public class xctrailreportActivity extends ListActivity {
 	private TrailReportList trailReports;
 	private TrailInfoList trailInfos;
 	private TrailReportFactory factory = new TrailReportFactory(this);
-	TrailReportReaderFactory trailReportReaderFactory = new TrailReportReaderFactory(
-			this);
-	ReportListCreator listCreator = new ReportListCreator(factory,
-			trailReportReaderFactory);
+	ReportListCreator listCreator = new ReportListCreator(factory);
 	boolean forcedRefresh = false;
 
 	/** Called when the activity is first created. */

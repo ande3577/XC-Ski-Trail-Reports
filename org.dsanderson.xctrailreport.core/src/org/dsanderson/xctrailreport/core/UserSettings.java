@@ -63,6 +63,7 @@ public class UserSettings {
 
 	public void setDistanceFilterEnabled(boolean enabled) {
 		distanceFilterEnabled = enabled;
+		redrawNeeded = true;
 	}
 
 	public boolean getDistanceFilterEnabled() {
@@ -71,6 +72,7 @@ public class UserSettings {
 
 	public void setFilterDistance(int distance) {
 		filterDistance = distance;
+		redrawNeeded = true;
 	}
 
 	public int getFilterDistance() {
@@ -79,6 +81,7 @@ public class UserSettings {
 
 	public void setDateFilterEnabled(boolean enabled) {
 		dateFilterEnabled = enabled;
+		redrawNeeded = true;
 	}
 
 	public boolean getDateFilterEnabled() {
@@ -87,6 +90,7 @@ public class UserSettings {
 
 	public void setFilterAge(int age) {
 		filterAge = age;
+		redrawNeeded = true;
 	}
 
 	public int getFilterAge() {
@@ -95,6 +99,7 @@ public class UserSettings {
 
 	public void setDurationFilterEnabled(boolean durationFilterEnabled) {
 		this.durationFilterEnabled = durationFilterEnabled;
+		redrawNeeded = true;
 	}
 
 	public boolean getDurationFilterEnabled() {
@@ -103,6 +108,7 @@ public class UserSettings {
 
 	public void setDurationCutoff(int durationCutoff) {
 		this.durationCutoff = durationCutoff;
+		redrawNeeded = true;
 	}
 
 	public int getDurationCutoff() {
@@ -111,6 +117,7 @@ public class UserSettings {
 	
 	public void setPhotsetFilterEnabled(boolean photosetFilterEnabled) {
 		this.photosetFilterEnabled = photosetFilterEnabled;
+		redrawNeeded = true;
 	}
 	
 	public boolean getPhotosetFilterEnabled() {

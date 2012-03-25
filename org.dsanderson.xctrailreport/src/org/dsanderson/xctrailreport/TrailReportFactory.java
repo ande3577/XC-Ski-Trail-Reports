@@ -37,6 +37,7 @@ import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.INetConnection;
 import org.dsanderson.xctrailreport.application.CompoundFilter;
 import org.dsanderson.xctrailreport.application.DateFilter;
+import org.dsanderson.xctrailreport.application.DefaultTrailInfoList;
 import org.dsanderson.xctrailreport.application.DistanceFilter;
 import org.dsanderson.xctrailreport.application.DurationFilter;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
@@ -89,6 +90,8 @@ public class TrailReportFactory implements IAbstractFactory {
 	TrailReportList trailReportList = null;
 	TrailInfoList trailInfoList = null;
 	TrailInfoDatabaseFactory trailInfoDatabaseFactory = null;
+	DefaultTrailInfoList defaultTrailInfoList = null;
+	TrailReportReaderFactory trailReportReaderFactory = null;
 
 	public TrailReportFactory(Context context) {
 		assert (factory == null);
@@ -356,8 +359,15 @@ public class TrailReportFactory implements IAbstractFactory {
 		if (trailInfoList == null)
 			trailInfoList = new TrailInfoList(
 					(TrailReportList) getTrailReportList(),
-					getTrailReportPool(), getTrailInfoPool());
+					getTrailReportPool(), getTrailInfoPool(), getDefaultTrailInfoList());
 		return trailInfoList;
+	}
+	
+	public ITrailInfoList getDefaultTrailInfoList() {
+		if (defaultTrailInfoList == null) {
+			defaultTrailInfoList = new DefaultTrailInfoList(this, getReportReaderFactory());
+		}
+		return defaultTrailInfoList;
 	}
 
 	private TrailInfoDatabaseFactory getTrailInfoDatabaseFactory() {
@@ -372,4 +382,12 @@ public class TrailReportFactory implements IAbstractFactory {
 		}
 		return trailInfoDatabaseFactory;
 	}
+	
+	private TrailReportReaderFactory getReportReaderFactory() {
+		if (trailReportReaderFactory == null) {
+			trailReportReaderFactory = new TrailReportReaderFactory(context);
+		}
+		return trailReportReaderFactory;
+	}
+	
 }

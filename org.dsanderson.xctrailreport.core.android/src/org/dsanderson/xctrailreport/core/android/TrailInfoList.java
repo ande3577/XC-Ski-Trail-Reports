@@ -40,12 +40,15 @@ public class TrailInfoList implements ITrailInfoList {
 	private final TrailReportList reportList;
 	private final TrailReportPool reportPool;
 	private final TrailInfoPool infoPool;
+	private final ITrailInfoList defaultTrailInfo;
 
 	public TrailInfoList(TrailReportList reportList,
-			TrailReportPool reportPool, TrailInfoPool infoPool) {
+			TrailReportPool reportPool, TrailInfoPool infoPool,
+			ITrailInfoList defaultTrailInfo) {
 		this.reportList = reportList;
 		this.reportPool = reportPool;
 		this.infoPool = infoPool;
+		this.defaultTrailInfo = defaultTrailInfo;
 	}
 
 	/*
@@ -207,7 +210,7 @@ public class TrailInfoList implements ITrailInfoList {
 		if (distances.size() != locations.size())
 			return;
 
-		Cursor cursor = reportList.getCursor();
+		Cursor cursor = reportList.getUnfilteredCursor();
 		if (cursor.moveToFirst()) {
 			do {
 				TrailReport report = (TrailReport) reportList.get(cursor);
@@ -236,15 +239,25 @@ public class TrailInfoList implements ITrailInfoList {
 	 */
 	public TrailInfo mergeIntoList(TrailInfo newInfo) {
 		TrailReport existingReport = reportList.find(newInfo.getName());
+		// if a past report has already used this trail info, then me merge and readd
 		if (existingReport != null) {
 			TrailInfo existingInfo = existingReport.getTrailInfo();
 			existingInfo.merge(newInfo);
 			reportPool.deleteItem(existingReport);
+			infoPool.deleteItem(newInfo);
 			return existingInfo;
+		} else {
+			// if this is present in default info, then we merge together and add
+			TrailInfo existingInfo = defaultTrailInfo.find(newInfo.getName());
+			if (existingInfo != null) {
+				existingInfo.merge(newInfo);
+				reportPool.deleteItem(existingReport);
+				infoPool.deleteItem(newInfo);
+				return existingInfo;
+			}
 		}
 		// do nothing else here, do not actually store an instance of a trail
 		// info list
 		return newInfo;
-
 	}
 }
