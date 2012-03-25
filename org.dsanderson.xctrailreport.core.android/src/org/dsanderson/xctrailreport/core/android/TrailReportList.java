@@ -92,14 +92,14 @@ public class TrailReportList extends GenericDatabase implements
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, false);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, false);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_NAME, true);
-			addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, true);
+			addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET, false);
 			break;
 		case SORT_BY_DURATION:
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, false);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, false);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_NAME, true);
-			addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, true);
+			addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET, false);
 			break;
 		case SORT_BY_PHOTOSET:

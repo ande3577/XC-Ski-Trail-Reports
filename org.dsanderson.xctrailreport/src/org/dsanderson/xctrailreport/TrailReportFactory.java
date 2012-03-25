@@ -336,7 +336,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	public ITrailReportList getTrailReportList() {
 		if (trailReportList == null) {
 			trailReportList = new TrailReportList(context,
-					new TrailReportDatabaseFactory(trailReportPool,
+					new TrailReportDatabaseFactory(getTrailReportPool(),
 							getTrailInfoDatabaseFactory()));
 			try {
 				trailReportList.open();
@@ -370,7 +370,7 @@ public class TrailReportFactory implements IAbstractFactory {
 			sourceSpecificFactories.add(new ThreeriversDatabaseFactory(
 					threeRiversFactory));
 			trailInfoDatabaseFactory = new TrailInfoDatabaseFactory(
-					trailInfoPool, sourceSpecificFactories);
+					getTrailInfoPool(), sourceSpecificFactories);
 		}
 		return trailInfoDatabaseFactory;
 	}

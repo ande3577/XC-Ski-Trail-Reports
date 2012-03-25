@@ -45,8 +45,8 @@ import android.widget.Toast;
 
 public class xctrailreportActivity extends ListActivity {
 
-	private ITrailReportList trailReports;
-	private ITrailInfoList trailInfos;
+	private TrailReportList trailReports;
+	private TrailInfoList trailInfos;
 	private TrailReportFactory factory = new TrailReportFactory(this);
 	TrailReportReaderFactory trailReportReaderFactory = new TrailReportReaderFactory(
 			this);
@@ -58,11 +58,11 @@ public class xctrailreportActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		registerForContextMenu(getListView());
 
-		trailReports = factory.getTrailReportList();
-		trailInfos = factory.getTrailInfoList();
+		trailReports = (TrailReportList) factory.getTrailReportList();
+		trailInfos = (TrailInfoList) factory.getTrailInfoList();
 
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
@@ -382,8 +382,7 @@ public class xctrailreportActivity extends ListActivity {
 		}
 	}
 
-	private class TrailInfoAdapter extends SimpleCursorAdapter {
-		private Context context;
+	private class TrailInfoAdapter extends CursorAdapter {
 
 		/**
 		 * @param context
@@ -392,27 +391,42 @@ public class xctrailreportActivity extends ListActivity {
 		 */
 		public TrailInfoAdapter(Context context, int textViewResourceId,
 				Cursor cursor) {
-			super(context, R.id.list, cursor, null, null);
-			this.context = context;
+			super(context, cursor);
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see android.widget.CursorAdapter#newView(android.content.Context,
+		 * android.database.Cursor, android.view.ViewGroup)
+		 */
 		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			View layout = convertView;
+		public View newView(Context context, Cursor cursor, ViewGroup parent) {
 
-			if (layout == null) {
-				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-				layout = vi.inflate(R.layout.row, null);
-			}
+			final LayoutInflater inflater = LayoutInflater.from(context);
+			View layout = inflater.inflate(R.layout.row, parent, false);
 
-			if (position < trailReports.size()) {
-				ListEntry listEntry = new ListEntry((LinearLayout) layout,
+			return layout;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see android.widget.CursorAdapter#bindView(android.view.View,
+		 * android.content.Context, android.database.Cursor)
+		 */
+		@Override
+		public void bindView(View view, Context context, Cursor cursor) {
+			TrailReport currentReport = (TrailReport) trailReports.get(cursor);
+
+			if (currentReport != null) {
+				ListEntry listEntry = new ListEntry((LinearLayout) view,
 						context);
 
 				boolean newTrail = false;
-				TrailReport currentReport = trailReports.get(position);
-				if (position > 0) {
-					TrailReport previousReport = trailReports.get(position - 1);
+				if (cursor.moveToPrevious()) {
+					TrailReport previousReport = (TrailReport) trailReports
+							.get(cursor);
 
 					if (previousReport.getTrailInfo().getName()
 							.compareTo(currentReport.getTrailInfo().getName()) != 0) {
@@ -426,12 +440,11 @@ public class xctrailreportActivity extends ListActivity {
 					factory.getTrailInfoDecorators().decorate(currentReport,
 							listEntry);
 
-				factory.getTrailReportDecorators().decorate(
-						trailReports.get(position), listEntry);
+				factory.getTrailReportDecorators().decorate(currentReport,
+						listEntry);
 
 				listEntry.draw();
 			}
-			return layout;
 		}
 
 	}
