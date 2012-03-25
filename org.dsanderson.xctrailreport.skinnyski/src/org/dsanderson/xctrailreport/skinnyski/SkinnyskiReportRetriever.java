@@ -65,7 +65,10 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 					while (scanner.scanRegion()) {
 						TrailReport newTrailReport = scanner.getTrailReport();
 						TrailInfo newTrailInfo = scanner.getTrailInfo();
+						SkinnyskiSpecificInfo newSkinnyskiInfo = scanner
+								.getSkinnyskiSpecificInfo();
 
+						newTrailInfo.addSourceSpecificInfo(newSkinnyskiInfo);
 						newTrailInfo = trailInfos.mergeIntoList(newTrailInfo);
 
 						newTrailReport.setTrailInfo(newTrailInfo);

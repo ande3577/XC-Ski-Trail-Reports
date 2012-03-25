@@ -37,6 +37,7 @@ import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class xctrailreportActivity extends ListActivity {
 
@@ -117,7 +118,7 @@ public class xctrailreportActivity extends ListActivity {
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
 
-		TrailReport report = determineListItemFromMenuInfo((AdapterView.AdapterContextMenuInfo) menuInfo);
+		TrailReport report = getObjectFromMenuItemInfo((AdapterView.AdapterContextMenuInfo) menuInfo);
 		if (report != null) {
 			menu.add(Menu.NONE, R.id.openMapMenu, Menu.NONE, "Open Map");
 			ISourceSpecificTrailInfo skinnyskiInfo = report.getTrailInfo()
@@ -136,7 +137,7 @@ public class xctrailreportActivity extends ListActivity {
 
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
-		TrailReport trailReport = determineListItemFromMenuInfo((AdapterView.AdapterContextMenuInfo) item
+		TrailReport trailReport = getObjectFromMenuItemInfo((AdapterView.AdapterContextMenuInfo) item
 				.getMenuInfo());
 		if (trailReport != null) {
 			switch (item.getItemId()) {
@@ -177,10 +178,9 @@ public class xctrailreportActivity extends ListActivity {
 		return super.onContextItemSelected(item);
 	}
 
-	private TrailReport determineListItemFromMenuInfo(
-			AdapterView.AdapterContextMenuInfo info) {
+	private TrailReport getObjectFromMenuItemInfo(AdapterContextMenuInfo info) {
 		if (trailReports.size() > 0) {
-			return trailReports.get(info.position);
+			return (TrailReport) trailReports.getById(info.id);
 		} else {
 			return null;
 		}
