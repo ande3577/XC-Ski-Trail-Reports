@@ -1,6 +1,5 @@
 package org.dsanderson.xctrailreport;
 
-import java.util.Date;
 import java.util.List;
 
 import org.dsanderson.xctrailreport.R;
@@ -9,24 +8,17 @@ import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
-import org.dsanderson.xctrailreport.core.android.TrailInfoList;
-import org.dsanderson.xctrailreport.core.android.TrailReportAdapter;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory;
 
-import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
-import android.database.Cursor;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.format.Time;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
@@ -42,7 +34,6 @@ public class xctrailreportActivity extends ListActivity {
 	private TrailReportList trailReports;
 	private TrailReportFactory factory = new TrailReportFactory(this);
 	ReportListCreator listCreator = new ReportListCreator(factory);
-	boolean forcedRefresh = false;
 	private String appName;
 	private TrailReportPrinter printer;
 
@@ -268,7 +259,7 @@ public class xctrailreportActivity extends ListActivity {
 	}
 
 	private void refresh(boolean forced) {
-		forcedRefresh = forced;
+		factory.getUserSettings().setForcedRefresh(forced);
 
 		if (factory.getUserSettings().getLocationEnabled())
 			factory.getLocationSource().updateLocation();

@@ -27,7 +27,6 @@ import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ITrailInfoList;
 import org.dsanderson.xctrailreport.core.ITrailReportList;
-import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.UserSettings;
 import org.dsanderson.xctrailreport.core.UserSettings.AutoRefreshMode;
 
@@ -87,8 +86,6 @@ public class ReportListCreator {
 	private void loadSavedReports(ITrailReportList trailReports,
 			ITrailInfoList trailInfos, boolean refreshNeeded) throws Exception {
 		// always load the included trail infos
-		TrailInfoParser parser = factory.newTrailInfoParser();
-
 		try {
 			trailInfos.load();
 		} catch (Exception e) {
