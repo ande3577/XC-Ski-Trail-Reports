@@ -54,6 +54,7 @@ import org.dsanderson.xctrailreport.core.UserSettings;
 import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
 import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
 import org.dsanderson.xctrailreport.decorators.DateDecorator;
+import org.dsanderson.xctrailreport.decorators.TimeDecorator;
 import org.dsanderson.xctrailreport.decorators.DetailedReportDecorator;
 import org.dsanderson.xctrailreport.decorators.DistanceDecorator;
 import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
@@ -175,6 +176,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	public TrailReportDecorator getTrailReportDecorators() {
 		if (reportDecorator == null) {
 			reportDecorator = new DateDecorator();
+			reportDecorator.add(new TimeDecorator());
 			reportDecorator.add(new SummaryDecorator());
 			reportDecorator.add(new DetailedReportDecorator());
 			reportDecorator.add(new AuthorDecorator());
