@@ -48,7 +48,7 @@ public class MorcParser implements ISourceSpecificInfoParser {
 		if ((url = parser.getValue(SHORT_TRAIL_INFO_URL_KEY)) != null)
 			info.setTrailInfoShortUrl(url);
 		if ((url = parser.getValue(SHORT_COMPOSE_URL_KEY)) != null)
-			info.setTrailComposeShortUrl(url);
+			info.setComposeShortUrl(url);
 		if ((url = parser.getValue(SHORT_ALL_REPORT_URL_KEY)) != null)
 			info.setAllReportShortUrl(url);
 		
@@ -69,7 +69,7 @@ public class MorcParser implements ISourceSpecificInfoParser {
 		MorcSpecificTrailInfo morcInfo = (MorcSpecificTrailInfo) info;
 		CompoundXmlParser parser = parserFactory.newParser(MorcFactory.XML_TAG);
 		parser.addParser(SHORT_TRAIL_INFO_URL_KEY, morcInfo.getTrailInfoShortUrl());
-		parser.addParser(SHORT_COMPOSE_URL_KEY, morcInfo.getTrailComposeShortUrl());
+		parser.addParser(SHORT_COMPOSE_URL_KEY, morcInfo.getComposeShortUrl());
 		parser.addParser(SHORT_ALL_REPORT_URL_KEY, morcInfo.getAllReportShortUrl());
 		return parser;
 	}

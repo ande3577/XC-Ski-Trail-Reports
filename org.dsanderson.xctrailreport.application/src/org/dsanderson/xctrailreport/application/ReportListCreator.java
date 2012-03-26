@@ -124,7 +124,7 @@ public class ReportListCreator {
 
 			trailInfos.updateDistances(distanceSource, destinations);
 		} catch (Exception e) {
-			System.err.println(e);
+			e.printStackTrace();
 		}
 	}
 

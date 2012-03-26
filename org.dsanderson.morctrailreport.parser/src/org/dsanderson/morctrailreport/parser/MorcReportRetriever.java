@@ -25,6 +25,8 @@ import java.util.List;
 import org.dsanderson.util.INetConnection;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
+import org.dsanderson.xctrailreport.core.ITrailInfoList;
+import org.dsanderson.xctrailreport.core.ITrailReportList;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 
@@ -46,13 +48,9 @@ public class MorcReportRetriever implements IReportRetriever {
 	 * 
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
-	public void getReports(List<TrailReport> trailReports,
-			List<TrailInfo> trailInfos) throws Exception {
-		parseHtml(trailReports, trailInfos);
-	}
-
-	private void parseHtml(List<TrailReport> trailReports,
-			List<TrailInfo> trailInfos) throws Exception {
+	@Override
+	public void getReports(ITrailReportList trailReports,
+			ITrailInfoList trailInfos) throws Exception {
 		INetConnection netConnection = factory.getNetConnection();
 		try {
 			netConnection
@@ -71,48 +69,22 @@ public class MorcReportRetriever implements IReportRetriever {
 						TrailInfo newTrailInfo = scanner.getTrailInfo();
 						MorcSpecificTrailInfo newMorcInfo = scanner.getMorcSpecificInfo();
 
-						boolean existingTrail = false;
-						boolean existingSkinnyskiTrail = false;
-						TrailInfo trailInfo = null;
-						for (TrailInfo info : trailInfos) {
-							if (newTrailInfo.getName()
-									.compareTo(info.getName()) == 0) {
-								existingTrail = true;
-								if (info.getSourceSpecificInfo(MorcFactory.SOURCE_NAME) == null)
-									info.addSourceSpecificInfo(newMorcInfo);
-								else
-									existingSkinnyskiTrail = true;
-								trailInfo = info;
-							}
-						}
+						newTrailInfo.addSourceSpecificInfo(newMorcInfo);
+						newTrailInfo = trailInfos.mergeIntoList(newTrailInfo);
 
-						if (!existingTrail) {
-							newTrailInfo.setLocation(factory.getLocationCoder()
-									.getLocation(
-											newTrailInfo.getName() + ", "
-													+ newTrailInfo.getCity()
-													+ ", "
-													+ newTrailInfo.getState()));
-
-							trailInfos.add(newTrailInfo);
-							trailInfo = trailInfos.get(trailInfos.size() - 1);
-							trailInfo.addSourceSpecificInfo(newMorcInfo);
-						} else {
-							factory.getTrailInfoPool().deleteItem(newTrailInfo);
-							if (!existingSkinnyskiTrail)
-								morcFactory.getTrailInfoPool().deleteItem(
-										newMorcInfo);
-						}
-
-						newTrailReport.setTrailInfo(trailInfo);
+						newTrailReport.setTrailInfo(newTrailInfo);
 						newTrailReport.setSource(MorcFactory.SOURCE_NAME);
-
 						trailReports.add(newTrailReport);
+						
+						factory.getTrailReportPool().deleteItem(newTrailReport);
+						factory.getTrailInfoPool().deleteItem(newTrailInfo);
+						morcFactory.getTrailInfoPool().deleteItem(newMorcInfo);
 					}
 				}
 			}
 		} finally {
 			netConnection.disconnect();
 		}
-	} // parseHtml
+	}
+
 }

@@ -20,6 +20,7 @@
 package org.dsanderson.morctrailreport.parser;
 
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
+import org.dsanderson.xctrailreport.core.Merge;
 
 /**
  * 
@@ -81,11 +82,11 @@ public class MorcSpecificTrailInfo implements ISourceSpecificTrailInfo {
 		return shortAllReportUrl;
 	}
 
-	public void setTrailComposeShortUrl(String url) {
+	public void setComposeShortUrl(String url) {
 		shortComposeUrl = url;
 	}
 
-	public String getTrailComposeShortUrl() {
+	public String getComposeShortUrl() {
 		return shortComposeUrl;
 	}
 
@@ -118,6 +119,70 @@ public class MorcSpecificTrailInfo implements ISourceSpecificTrailInfo {
 			return shortTrailInfoUrl;
 		else
 			return TRAIL_INFO_PREFIX + shortTrailInfoUrl;
+	}
+
+	public void setShortTrailInfoUrl(String shortTrailInfoUrl) {
+		this.shortTrailInfoUrl = shortTrailInfoUrl;
+	}
+
+	public String getShortTrailInfoUrl() {
+		return shortTrailInfoUrl;
+	}
+
+	public void setShortComposeUrl(String shortComposeUrl) {
+		this.shortComposeUrl = shortComposeUrl;
+	}
+
+	public String getShortComposeUrl() {
+		return shortComposeUrl;
+	}
+
+	public void setShortAllReportUrl(String shortAllReportUrl) {
+		this.shortAllReportUrl = shortAllReportUrl;
+	}
+
+	public String getShortAllReportUrl() {
+		return shortAllReportUrl;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo#merge(org.
+	 * dsanderson.xctrailreport.core.ISourceSpecificTrailInfo)
+	 */
+	@Override
+	public void merge(ISourceSpecificTrailInfo newInfo) {
+		MorcSpecificTrailInfo morcSpecific = (MorcSpecificTrailInfo) newInfo;
+		shortTrailInfoUrl = Merge.merge(shortTrailInfoUrl,
+				morcSpecific.shortTrailInfoUrl);
+		shortComposeUrl = Merge.merge(shortComposeUrl,
+				morcSpecific.shortComposeUrl);
+		shortAllReportUrl = Merge.merge(shortAllReportUrl,
+				morcSpecific.shortAllReportUrl);
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo#newItem()
+	 */
+	@Override
+	public ISourceSpecificTrailInfo newItem() {
+		return MorcFactory.getInstance().getTrailInfoPool().newItem();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo#deleteItem()
+	 */
+	@Override
+	public void deleteItem() {
+		MorcFactory.getInstance().getTrailInfoPool().deleteItem(this);
 	}
 
 }

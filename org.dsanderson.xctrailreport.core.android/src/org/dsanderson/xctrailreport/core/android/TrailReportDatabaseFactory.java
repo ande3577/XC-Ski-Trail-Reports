@@ -57,7 +57,6 @@ public class TrailReportDatabaseFactory implements IDatabaseObjectFactory {
 	private final TrailInfoDatabaseFactory trailInfoFactory;
 
 	public static final String DATABASE_NAME = "trail_report_database.db";
-	public static final int DATABASE_VERSION = 1;
 	public static final String TABLE_TEST = "trail_report";
 
 	/**

@@ -338,7 +338,9 @@ public class TrailReportFactory implements IAbstractFactory {
 		if (trailReportList == null) {
 			trailReportList = new TrailReportList(context,
 					new TrailReportDatabaseFactory(getTrailReportPool(),
-							getTrailInfoDatabaseFactory()));
+							getTrailInfoDatabaseFactory()),
+					Integer.parseInt(context
+							.getString(R.integer.databaseVersion)));
 			try {
 				trailReportList.open();
 			} catch (Exception e) {
@@ -359,13 +361,15 @@ public class TrailReportFactory implements IAbstractFactory {
 		if (trailInfoList == null)
 			trailInfoList = new TrailInfoList(
 					(TrailReportList) getTrailReportList(),
-					getTrailReportPool(), getTrailInfoPool(), getDefaultTrailInfoList());
+					getTrailReportPool(), getTrailInfoPool(),
+					getDefaultTrailInfoList());
 		return trailInfoList;
 	}
-	
+
 	public ITrailInfoList getDefaultTrailInfoList() {
 		if (defaultTrailInfoList == null) {
-			defaultTrailInfoList = new DefaultTrailInfoList(this, getReportReaderFactory());
+			defaultTrailInfoList = new DefaultTrailInfoList(this,
+					getReportReaderFactory());
 		}
 		return defaultTrailInfoList;
 	}
@@ -382,12 +386,12 @@ public class TrailReportFactory implements IAbstractFactory {
 		}
 		return trailInfoDatabaseFactory;
 	}
-	
+
 	private TrailReportReaderFactory getReportReaderFactory() {
 		if (trailReportReaderFactory == null) {
 			trailReportReaderFactory = new TrailReportReaderFactory(context);
 		}
 		return trailReportReaderFactory;
 	}
-	
+
 }

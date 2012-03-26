@@ -25,6 +25,8 @@ import java.util.List;
 import org.dsanderson.android.util.CompoundXmlPullParserFactory;
 import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.DistanceSource;
+import org.dsanderson.android.util.GenericDatabase;
+import org.dsanderson.android.util.IDatabaseObjectFactory;
 import org.dsanderson.android.util.LocationCoder;
 import org.dsanderson.android.util.LocationSource;
 import org.dsanderson.android.util.UrlConnection;
@@ -37,11 +39,14 @@ import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.INetConnection;
 import org.dsanderson.xctrailreport.application.CompoundFilter;
 import org.dsanderson.xctrailreport.application.DateFilter;
+import org.dsanderson.xctrailreport.application.DefaultTrailInfoList;
 import org.dsanderson.xctrailreport.application.DistanceFilter;
 import org.dsanderson.xctrailreport.application.DurationFilter;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportFilter;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
+import org.dsanderson.xctrailreport.core.ITrailInfoList;
+import org.dsanderson.xctrailreport.core.ITrailReportList;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfoParser;
@@ -58,6 +63,10 @@ import org.dsanderson.xctrailreport.decorators.DistanceDecorator;
 import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
 import org.dsanderson.xctrailreport.core.TrailReportPool;
+import org.dsanderson.xctrailreport.core.android.TrailInfoDatabaseFactory;
+import org.dsanderson.xctrailreport.core.android.TrailInfoList;
+import org.dsanderson.xctrailreport.core.android.TrailReportDatabaseFactory;
+import org.dsanderson.xctrailreport.core.android.TrailReportList;
 
 import android.content.Context;
 
@@ -77,6 +86,12 @@ public class TrailReportFactory implements IAbstractFactory {
 	LocationCoder locationCoder = null;
 	TrailReportPool trailReportPool = null;
 	TrailInfoPool trailInfoPool = null;
+	GenericDatabase database = null;
+	TrailReportList trailReportList = null;
+	TrailInfoList trailInfoList = null;
+	TrailInfoDatabaseFactory trailInfoDatabaseFactory = null;
+	DefaultTrailInfoList defaultTrailInfoList = null;
+	TrailReportReaderFactory trailReportReaderFactory = null;
 
 	public TrailReportFactory(Context context) {
 		assert (factory == null);
@@ -309,20 +324,69 @@ public class TrailReportFactory implements IAbstractFactory {
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailReportList()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailReportList()
 	 */
-	public IList<DatabaseObject> getTrailReportList() {
-		// TODO Auto-generated method stub
-		return null;
+	public ITrailReportList getTrailReportList() {
+		if (trailReportList == null) {
+			trailReportList = new TrailReportList(context,
+					new TrailReportDatabaseFactory(
+							factory.getTrailReportPool(),
+							getTrailInfoDatabaseFactory()),
+					Integer.parseInt(context
+							.getString(R.integer.databaseVersion)));
+			try {
+				trailReportList.open();
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+		}
+		return (ITrailReportList) trailReportList;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoList()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoList()
 	 */
-	public IList<DatabaseObject> getTrailInfoList() {
-		// TODO Auto-generated method stub
-		return null;
+	public ITrailInfoList getTrailInfoList() {
+		if (trailInfoList == null)
+			trailInfoList = new TrailInfoList(
+					(TrailReportList) getTrailReportList(),
+					getTrailReportPool(), getTrailInfoPool(),
+					getDefaultTrailInfoList());
+		return trailInfoList;
+	}
+
+	public ITrailInfoList getDefaultTrailInfoList() {
+		if (defaultTrailInfoList == null) {
+			defaultTrailInfoList = new DefaultTrailInfoList(this,
+					getReportReaderFactory());
+		}
+		return defaultTrailInfoList;
+	}
+
+	private TrailInfoDatabaseFactory getTrailInfoDatabaseFactory() {
+		if (trailInfoDatabaseFactory == null) {
+			List<IDatabaseObjectFactory> sourceSpecificFactories = new ArrayList<IDatabaseObjectFactory>();
+			sourceSpecificFactories.add(new MorcDatabaseFactory(
+					morcAndroidFactory));
+			trailInfoDatabaseFactory = new TrailInfoDatabaseFactory(
+					factory.getTrailInfoPool(), sourceSpecificFactories);
+		}
+		return trailInfoDatabaseFactory;
+	}
+
+	private TrailReportReaderFactory getReportReaderFactory() {
+		if (trailReportReaderFactory == null) {
+			trailReportReaderFactory = new TrailReportReaderFactory(context);
+		}
+		return trailReportReaderFactory;
 	}
 
 }

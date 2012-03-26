@@ -27,7 +27,7 @@ public abstract class Pool<T> {
 	private boolean discardedAvailable = false;
 	
 	public T newItem() {
-		if (!discardedAvailable)
+		if (!discardedAvailable || discardedItem == null)
 			return createItem();
 		else {
 			discardedAvailable = false;

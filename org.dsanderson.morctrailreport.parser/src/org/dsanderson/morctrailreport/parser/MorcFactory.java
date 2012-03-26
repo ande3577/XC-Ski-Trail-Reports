@@ -31,6 +31,7 @@ import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 public abstract class MorcFactory implements ISourceSpecificFactory {
 	public static final String SOURCE_NAME = "MORC";
 	public static final String XML_TAG = "morc";
+	private static MorcFactory instance = null;
 
 	private boolean enabled = true;
 
@@ -38,15 +39,23 @@ public abstract class MorcFactory implements ISourceSpecificFactory {
 	private MorcParser parser = null;
 	private MorcInfoPool pool = null;
 	private RegionManager regions = null;
+	
 
 	/**
 	 * 
 	 */
 	public MorcFactory(IAbstractFactory factory) {
+		assert(instance == null);
+		instance = this;
 		pool = new MorcInfoPool();
 		retriever = new MorcReportRetriever(factory, this);
 		parser = new MorcParser();
 		regions = new RegionManager();
+	}
+	
+	public static MorcFactory getInstance() {
+		assert(instance != null);
+		return instance;
 	}
 
 	/*

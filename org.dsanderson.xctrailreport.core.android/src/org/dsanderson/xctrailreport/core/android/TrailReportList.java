@@ -35,11 +35,11 @@ import android.content.Context;
 public class TrailReportList extends GenericDatabase implements
 		ITrailReportList {
 
-	public TrailReportList(Context context, TrailReportDatabaseFactory factory) {
+	public TrailReportList(Context context, TrailReportDatabaseFactory factory,
+			int databaseVersion) {
 		super(context, TrailReportDatabaseFactory.DATABASE_NAME,
-				TrailReportDatabaseFactory.DATABASE_VERSION,
-				TrailReportDatabaseFactory.TABLE_TEST, factory,
-				TrailInfoDatabaseFactory.COLUMN_NAME);
+				databaseVersion, TrailReportDatabaseFactory.TABLE_TEST,
+				factory, TrailInfoDatabaseFactory.COLUMN_NAME);
 	}
 
 	/*
