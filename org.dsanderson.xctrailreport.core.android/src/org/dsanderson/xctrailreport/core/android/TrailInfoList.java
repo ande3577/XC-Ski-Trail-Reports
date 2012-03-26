@@ -24,6 +24,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.dsanderson.util.IDistanceSource;
+import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.ITrailInfoList;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfoPool;
@@ -224,6 +225,10 @@ public class TrailInfoList implements ITrailInfoList {
 				}
 				reportList.update(report);
 				reportPool.deleteItem(report);
+				
+				for (ISourceSpecificTrailInfo specificInfo : info.getSourceSpecificInfos()) {
+					specificInfo.deleteItem();
+				}
 				infoPool.deleteItem(info);
 			} while (cursor.moveToNext());
 		}

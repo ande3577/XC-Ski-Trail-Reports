@@ -8,6 +8,7 @@ import org.dsanderson.xctrailreport.R;
 import org.dsanderson.xctrailreport.application.ReportListCreator;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
+import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.android.TrailInfoList;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
@@ -424,6 +425,12 @@ public class xctrailreportActivity extends ListActivity {
 							.compareTo(currentReport.getTrailInfo().getName()) != 0) {
 						newTrail = true;
 					}
+					TrailInfo previousInfo = previousReport.getTrailInfo();
+					for (ISourceSpecificTrailInfo specificInfo : previousInfo.getSourceSpecificInfos()) {
+						specificInfo.deleteItem();
+					}
+					factory.getTrailInfoPool().deleteItem(previousInfo);
+					factory.getTrailReportPool().deleteItem(previousReport);
 				} else {
 					newTrail = true;
 				}
@@ -436,6 +443,13 @@ public class xctrailreportActivity extends ListActivity {
 						listEntry);
 
 				listEntry.draw();
+				
+				TrailInfo currentInfo = currentReport.getTrailInfo();
+				for (ISourceSpecificTrailInfo specificInfo : currentInfo.getSourceSpecificInfos()) {
+					specificInfo.deleteItem();
+				}
+				factory.getTrailInfoPool().deleteItem(currentInfo);
+				factory.getTrailReportPool().deleteItem(currentReport);
 			}
 		}
 

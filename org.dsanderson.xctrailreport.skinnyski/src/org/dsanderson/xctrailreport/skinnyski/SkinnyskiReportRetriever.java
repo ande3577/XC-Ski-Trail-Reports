@@ -80,6 +80,10 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 						newTrailReport
 								.setSource(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME);
 						trailReports.add(newTrailReport);
+						
+						factory.getTrailReportPool().deleteItem(newTrailReport);
+						factory.getTrailInfoPool().deleteItem(newTrailInfo);
+						skinnySkiFactory.getTrailInfoPool().deleteItem(newSkinnyskiInfo);
 					}
 				}
 			}

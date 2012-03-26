@@ -65,6 +65,9 @@ public class ThreeRiversReportRetriever implements IReportRetriever {
 				newTrailReport.setTrailInfo(newTrailInfo);
 				newTrailReport.setSource(ThreeRiversFactory.SOURCE_NAME);
 				trailReports.add(newTrailReport);
+
+				factory.getTrailReportPool().deleteItem(newTrailReport);
+				factory.getTrailInfoPool().deleteItem(newTrailInfo);
 			}
 		} finally {
 			netConnection.disconnect();
