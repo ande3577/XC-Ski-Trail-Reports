@@ -50,6 +50,10 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 	 */
 	public void getReports(ITrailReportList trailReports,
 			ITrailInfoList trailInfos) throws Exception {
+
+		if (skinnySkiFactory.getRegions().getRegions().isEmpty())
+			throw new Exception("No regions enabled.");
+
 		INetConnection netConnection = factory.getNetConnection();
 		try {
 			netConnection.connect("http://skinnyski.com/trails/reports.asp");
@@ -80,10 +84,11 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 						newTrailReport
 								.setSource(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME);
 						trailReports.add(newTrailReport);
-						
+
 						factory.getTrailReportPool().deleteItem(newTrailReport);
 						factory.getTrailInfoPool().deleteItem(newTrailInfo);
-						skinnySkiFactory.getTrailInfoPool().deleteItem(newSkinnyskiInfo);
+						skinnySkiFactory.getTrailInfoPool().deleteItem(
+								newSkinnyskiInfo);
 					}
 				}
 			}
@@ -91,5 +96,4 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 			netConnection.disconnect();
 		}
 	}
-
 }

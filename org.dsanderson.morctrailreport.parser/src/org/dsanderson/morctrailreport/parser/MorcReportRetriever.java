@@ -20,7 +20,6 @@
 package org.dsanderson.morctrailreport.parser;
 
 import java.io.BufferedInputStream;
-import java.util.List;
 
 import org.dsanderson.util.INetConnection;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
@@ -67,7 +66,8 @@ public class MorcReportRetriever implements IReportRetriever {
 					while (scanner.scanRegion()) {
 						TrailReport newTrailReport = scanner.getTrailReport();
 						TrailInfo newTrailInfo = scanner.getTrailInfo();
-						MorcSpecificTrailInfo newMorcInfo = scanner.getMorcSpecificInfo();
+						MorcSpecificTrailInfo newMorcInfo = scanner
+								.getMorcSpecificInfo();
 
 						newTrailInfo.addSourceSpecificInfo(newMorcInfo);
 						newTrailInfo = trailInfos.mergeIntoList(newTrailInfo);
@@ -75,7 +75,7 @@ public class MorcReportRetriever implements IReportRetriever {
 						newTrailReport.setTrailInfo(newTrailInfo);
 						newTrailReport.setSource(MorcFactory.SOURCE_NAME);
 						trailReports.add(newTrailReport);
-						
+
 						factory.getTrailReportPool().deleteItem(newTrailReport);
 						factory.getTrailInfoPool().deleteItem(newTrailInfo);
 						morcFactory.getTrailInfoPool().deleteItem(newMorcInfo);

@@ -1,6 +1,5 @@
 package org.dsanderson.morctrailreport;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,7 +37,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
-import android.widget.ArrayAdapter;
 import android.widget.CursorAdapter;
 import android.widget.LinearLayout;
 

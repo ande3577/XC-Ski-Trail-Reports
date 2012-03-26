@@ -3,15 +3,16 @@ package org.dsanderson.xctrailreport;
 import java.util.Date;
 import java.util.List;
 
-import org.dsanderson.android.util.ListEntry;
 import org.dsanderson.xctrailreport.R;
 import org.dsanderson.xctrailreport.application.ReportListCreator;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
-import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
 import org.dsanderson.xctrailreport.core.android.TrailInfoList;
+import org.dsanderson.xctrailreport.core.android.TrailReportAdapter;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
+import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory;
 
 import android.app.AlertDialog;
@@ -28,35 +29,35 @@ import android.preference.PreferenceManager;
 import android.text.format.Time;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.CursorAdapter;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class xctrailreportActivity extends ListActivity {
 
 	private TrailReportList trailReports;
-	private TrailInfoList trailInfos;
 	private TrailReportFactory factory = new TrailReportFactory(this);
 	ReportListCreator listCreator = new ReportListCreator(factory);
 	boolean forcedRefresh = false;
+	private String appName;
+	private TrailReportPrinter printer;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		appName = getString(R.string.app_name);
+		printer = new TrailReportPrinter(this, factory,
+				appName, R.layout.row);
 
 		registerForContextMenu(getListView());
 
 		trailReports = (TrailReportList) factory.getTrailReportList();
-		trailInfos = (TrailInfoList) factory.getTrailInfoList();
 
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
@@ -77,38 +78,6 @@ public class xctrailreportActivity extends ListActivity {
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
-	}
-
-	private void loadTrailReports() throws Exception {
-
-		try {
-			listCreator
-					.getTrailReports(trailReports, trailInfos, forcedRefresh);
-		} catch (Exception e) {
-			System.err.println(e);
-			trailReports.clear();
-			throw e;
-		} finally {
-			forcedRefresh = false;
-		}
-	}
-
-	private void printTrailReports() throws Exception {
-		Date lastRefreshDate = trailReports.getTimestamp();
-		String titleString = getString(R.string.app_name);
-		if (lastRefreshDate != null) {
-			Time time = new Time();
-			time.set(lastRefreshDate.getTime());
-			titleString += time.format(" (%b %e, %r)");
-		}
-		setTitle(titleString);
-
-		trailReports.filter(factory.getUserSettings());
-		trailReports.sort(factory.getUserSettings());
-
-		Cursor cursor = ((TrailReportList) trailReports).getCursor();
-		this.setListAdapter(new TrailInfoAdapter(this, R.layout.row, cursor));
-		factory.getUserSettings().setRedrawNeeded(false);
 	}
 
 	@Override
@@ -291,7 +260,7 @@ public class xctrailreportActivity extends ListActivity {
 		try {
 			if (hasFocus && trailReports != null
 					&& factory.getUserSettings().getRedrawNeeded())
-				printTrailReports();
+				printer.printTrailReports();
 		} catch (Exception e) {
 			e.printStackTrace();
 			factory.newDialog(e);
@@ -307,152 +276,7 @@ public class xctrailreportActivity extends ListActivity {
 			factory.getLocationSource().setLocation(
 					factory.getUserSettings().getDefaultLocation());
 
-		new LoadReportsTask(this).execute();
-	}
-
-	private class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
-
-		Context context = null;
-		AlertDialog dialog = null;
-		Exception e = null;
-
-		/**
- * 
- */
-		public LoadReportsTask(Context context) {
-			this.context = context;
-		}
-
-		@Override
-		protected void onPreExecute() {
-			dialog = new AlertDialog.Builder(context).create();
-			dialog.setMessage("Loading trail reports...");
-			dialog.show();
-			e = null;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see android.os.AsyncTask#doInBackground(Params[])
-		 */
-		@Override
-		protected Integer doInBackground(Integer... params) {
-			Integer size = null;
-			try {
-				if (((SkinnyskiFactory) factory
-						.getSourceSpecificFactory(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME))
-						.getRegions().getRegions().isEmpty())
-					throw new Exception("No regions enabled.");
-
-				loadTrailReports();
-				size = trailReports.size();
-				if (size == 0)
-					throw new Exception("No reports found.");
-			} catch (Exception e) {
-				this.e = e;
-			}
-			return size;
-		}
-
-		@Override
-		protected void onPostExecute(Integer result) {
-			if (dialog != null && dialog.isShowing())
-				dialog.dismiss();
-
-			try {
-				if (e == null)
-					printTrailReports();
-			} catch (Exception e) {
-				e.printStackTrace();
-				e = this.e;
-			} finally {
-				if (e != null) {
-					e.printStackTrace();
-					factory.newDialog(e).show();
-				}
-			}
-		}
-	}
-
-	private class TrailInfoAdapter extends CursorAdapter {
-
-		/**
-		 * @param context
-		 * @param textViewResourceId
-		 * @param objects
-		 */
-		public TrailInfoAdapter(Context context, int textViewResourceId,
-				Cursor cursor) {
-			super(context, cursor);
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see android.widget.CursorAdapter#newView(android.content.Context,
-		 * android.database.Cursor, android.view.ViewGroup)
-		 */
-		@Override
-		public View newView(Context context, Cursor cursor, ViewGroup parent) {
-
-			final LayoutInflater inflater = LayoutInflater.from(context);
-			View layout = inflater.inflate(R.layout.row, parent, false);
-
-			return layout;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see android.widget.CursorAdapter#bindView(android.view.View,
-		 * android.content.Context, android.database.Cursor)
-		 */
-		@Override
-		public void bindView(View view, Context context, Cursor cursor) {
-			TrailReport currentReport = (TrailReport) trailReports.get(cursor);
-
-			if (currentReport != null) {
-				ListEntry listEntry = new ListEntry((LinearLayout) view,
-						context);
-
-				boolean newTrail = false;
-				if (cursor.moveToPrevious()) {
-					TrailReport previousReport = (TrailReport) trailReports
-							.get(cursor);
-
-					if (previousReport.getTrailInfo().getName()
-							.compareTo(currentReport.getTrailInfo().getName()) != 0) {
-						newTrail = true;
-					}
-					TrailInfo previousInfo = previousReport.getTrailInfo();
-					for (ISourceSpecificTrailInfo specificInfo : previousInfo.getSourceSpecificInfos()) {
-						specificInfo.deleteItem();
-					}
-					factory.getTrailInfoPool().deleteItem(previousInfo);
-					factory.getTrailReportPool().deleteItem(previousReport);
-				} else {
-					newTrail = true;
-				}
-
-				if (newTrail)
-					factory.getTrailInfoDecorators().decorate(currentReport,
-							listEntry);
-
-				factory.getTrailReportDecorators().decorate(currentReport,
-						listEntry);
-
-				listEntry.draw();
-				
-				TrailInfo currentInfo = currentReport.getTrailInfo();
-				for (ISourceSpecificTrailInfo specificInfo : currentInfo.getSourceSpecificInfos()) {
-					specificInfo.deleteItem();
-				}
-				factory.getTrailInfoPool().deleteItem(currentInfo);
-				factory.getTrailReportPool().deleteItem(currentReport);
-			}
-		}
-
+		new LoadReportsTask(this, factory, listCreator, printer).execute();
 	}
 
 }

@@ -44,6 +44,7 @@ public class UserSettings {
 	private boolean redrawNeeded = false;
 	private AutoRefreshMode autoRefreshMode = AutoRefreshMode.IF_OUT_OF_DATE;
 	private long autoRefreshCutoff = Units.hoursToMilliseconds(2);
+	private boolean forcedRefresh = false;
 
 	public void setLocationEnabled(boolean locationEnabled) {
 		this.locationEnabled = locationEnabled;
@@ -155,6 +156,14 @@ public class UserSettings {
 
 	public boolean getRedrawNeeded() {
 		return this.redrawNeeded;
+	}
+	
+	public void setForcedRefresh(boolean forcedRefresh) {
+		this.forcedRefresh = forcedRefresh;
+	}
+	
+	public boolean getForcedRefresh() {
+		return forcedRefresh;
 	}
 	
 }
