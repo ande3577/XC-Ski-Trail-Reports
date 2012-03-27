@@ -334,6 +334,7 @@ public class TrailReportFactory implements IAbstractFactory {
 					new TrailReportDatabaseFactory(
 							factory.getTrailReportPool(),
 							getTrailInfoDatabaseFactory()),
+					TrailReportDatabaseFactory.DATABASE_NAME,
 					Integer.parseInt(context
 							.getString(R.integer.databaseVersion)));
 			try {

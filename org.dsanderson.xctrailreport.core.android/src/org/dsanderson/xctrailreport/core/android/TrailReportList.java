@@ -36,10 +36,10 @@ public class TrailReportList extends GenericDatabase implements
 		ITrailReportList {
 
 	public TrailReportList(Context context, TrailReportDatabaseFactory factory,
-			int databaseVersion) {
-		super(context, TrailReportDatabaseFactory.DATABASE_NAME,
-				databaseVersion, TrailReportDatabaseFactory.TABLE_TEST,
-				factory, TrailInfoDatabaseFactory.COLUMN_NAME);
+			String databaseName, int databaseVersion) {
+		super(context, databaseName, databaseVersion,
+				TrailReportDatabaseFactory.TABLE_TEST, factory,
+				TrailInfoDatabaseFactory.COLUMN_NAME);
 	}
 
 	/*

@@ -41,10 +41,9 @@ public class xctrailreportActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		appName = getString(R.string.app_name);
-		printer = new TrailReportPrinter(this, factory,
-				appName, R.layout.row);
+		printer = new TrailReportPrinter(this, factory, appName, R.layout.row);
 
 		registerForContextMenu(getListView());
 
@@ -267,7 +266,8 @@ public class xctrailreportActivity extends ListActivity {
 			factory.getLocationSource().setLocation(
 					factory.getUserSettings().getDefaultLocation());
 
-		new LoadReportsTask(this, factory, listCreator, printer).execute();
+		new LoadReportsTask(this, factory, listCreator, printer, trailReports,
+				factory.getTrailInfoList()).execute();
 	}
 
 }

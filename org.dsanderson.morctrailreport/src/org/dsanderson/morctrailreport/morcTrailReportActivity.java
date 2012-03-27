@@ -9,6 +9,7 @@ import org.dsanderson.morctrailreport.parser.MorcSpecificTrailInfo;
 
 import org.dsanderson.xctrailreport.application.ReportListCreator;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
+import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
@@ -31,7 +32,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class morcTrailReportActivity extends ListActivity {
-	
+
 	private TrailReportList trailReports;
 	private TrailReportFactory factory = new TrailReportFactory(this);
 	ReportListCreator listCreator = new ReportListCreator(factory);
@@ -42,10 +43,9 @@ public class morcTrailReportActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		appName = getString(R.string.app_name);
-		printer = new TrailReportPrinter(this, factory,
-				appName, R.layout.row);
+		printer = new TrailReportPrinter(this, factory, appName, R.layout.row);
 
 		registerForContextMenu(getListView());
 
@@ -123,7 +123,7 @@ public class morcTrailReportActivity extends ListActivity {
 							.getAllTrailReportUrl();
 					if (viewAllReportUrl != null
 							&& viewAllReportUrl.length() > 0)
-						launchIntent(viewAllReportUrl);
+						openAllReports(trailReport.getTrailInfo());
 				}
 			}
 				return true;
@@ -252,6 +252,12 @@ public class morcTrailReportActivity extends ListActivity {
 		startActivity(i);
 	}
 
+	// / Launch all reports activity
+	private void openAllReports(TrailInfo info) {
+		Intent i = new Intent(this, AllReportActivity.class);
+		startActivity(i);
+	}
+
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);
@@ -274,7 +280,8 @@ public class morcTrailReportActivity extends ListActivity {
 			factory.getLocationSource().setLocation(
 					factory.getUserSettings().getDefaultLocation());
 
-		new LoadReportsTask(this, factory, listCreator, printer).execute();
+		new LoadReportsTask(this, factory, listCreator, printer, trailReports,
+				factory.getTrailInfoList()).execute();
 	}
 
 }

@@ -19,8 +19,10 @@
  */
 package org.dsanderson.xctrailreport.core.android;
 
-import org.dsanderson.xctrailreport.application.ReportListCreator;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
+import org.dsanderson.xctrailreport.core.IReportListCreator;
+import org.dsanderson.xctrailreport.core.ITrailInfoList;
+import org.dsanderson.xctrailreport.core.ITrailReportList;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -33,9 +35,9 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 
 	private final ListActivity context;
 	private final IAbstractFactory factory;
-	private final TrailReportList trailReports;
-	private final TrailInfoList trailInfos;
-	private final ReportListCreator listCreator;
+	private final ITrailReportList trailReports;
+	private final ITrailInfoList trailInfos;
+	private final IReportListCreator listCreator;
 	private final TrailReportPrinter printer;
 	AlertDialog dialog = null;
 	Exception e = null;
@@ -44,14 +46,15 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 * 
 */
 	public LoadReportsTask(ListActivity context, IAbstractFactory factory,
-			ReportListCreator listCreator, TrailReportPrinter printer) {
+			IReportListCreator listCreator, TrailReportPrinter printer,
+			ITrailReportList trailReports, ITrailInfoList trailInfos) {
 		this.context = context;
 		this.factory = factory;
 		this.listCreator = listCreator;
 		this.printer = printer;
 
-		trailReports = (TrailReportList) factory.getTrailReportList();
-		trailInfos = (TrailInfoList) factory.getTrailInfoList();
+		this.trailReports = trailReports;
+		this.trailInfos = trailInfos;
 	}
 
 	@Override

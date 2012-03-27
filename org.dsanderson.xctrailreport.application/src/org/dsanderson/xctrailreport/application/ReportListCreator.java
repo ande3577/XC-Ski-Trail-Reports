@@ -24,6 +24,7 @@ import java.util.List;
 
 import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
+import org.dsanderson.xctrailreport.core.IReportListCreator;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ITrailInfoList;
 import org.dsanderson.xctrailreport.core.ITrailReportList;
@@ -33,7 +34,7 @@ import org.dsanderson.xctrailreport.core.UserSettings.AutoRefreshMode;
 /**
  * 
  */
-public class ReportListCreator {
+public class ReportListCreator implements IReportListCreator {
 	private final IAbstractFactory factory;
 	private final ITrailInfoList defaultTrailInfo;
 
