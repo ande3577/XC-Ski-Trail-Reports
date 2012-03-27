@@ -42,7 +42,6 @@ public class testActivity extends ListActivity {
 		try {
 			database.load();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

@@ -43,11 +43,12 @@ public class xctrailreportActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 
 		appName = getString(R.string.app_name);
-		printer = new TrailReportPrinter(this, factory, appName, R.layout.row);
 
 		registerForContextMenu(getListView());
 
 		trailReports = (TrailReportList) factory.getTrailReportList();
+		printer = new TrailReportPrinter(this, factory, trailReports, appName,
+				R.layout.row);
 
 		try {
 			factory.getUserSettingsSource().loadUserSettings();

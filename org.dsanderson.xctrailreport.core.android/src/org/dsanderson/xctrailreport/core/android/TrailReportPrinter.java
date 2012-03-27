@@ -31,21 +31,21 @@ import android.text.format.Time;
  * 
  */
 public class TrailReportPrinter {
-	
+
 	private final ListActivity context;
 	private final IAbstractFactory factory;
 	private final TrailReportList trailReports;
 	private final String appName;
 	private final int rowId;
-	
-	
-	public TrailReportPrinter(ListActivity context, IAbstractFactory factory, String appName, int rowId) {
+
+	public TrailReportPrinter(ListActivity context, IAbstractFactory factory,
+			TrailReportList trailReports, String appName, int rowId) {
 		this.context = context;
 		this.factory = factory;
 		this.appName = appName;
 		this.rowId = rowId;
-		
-		trailReports = (TrailReportList) factory.getTrailReportList();
+
+		this.trailReports = trailReports;
 	}
 
 	public void printTrailReports() throws Exception {
@@ -62,9 +62,9 @@ public class TrailReportPrinter {
 		trailReports.sort(factory.getUserSettings());
 
 		Cursor cursor = ((TrailReportList) trailReports).getCursor();
-		context.setListAdapter(new TrailReportAdapter(context, rowId,
-				cursor, factory, trailReports));
+		context.setListAdapter(new TrailReportAdapter(context, rowId, cursor,
+				factory, trailReports));
 		factory.getUserSettings().setRedrawNeeded(false);
 	}
-	
+
 }

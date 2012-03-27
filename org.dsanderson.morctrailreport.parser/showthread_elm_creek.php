@@ -16,7 +16,7 @@
 	<meta property="fb:app_id" content="137577686272683" />
 <meta property="og:site_name" content="Minnesota Off-Road Cyclists Discussion Forums" />
 <meta property="og:description" content="This is a discussion forum by the Minnesota Off-Road Cyclists club for discussion of mountain biking, riding, building trails and more!" />
-<meta property="og:url" content="http://www.morcmtb.org/forums/showthread.php?9180-Trail-Conditions-Lebanon-Hills" />
+<meta property="og:url" content="http://www.morcmtb.org/forums/showthread.php?28476-Trail-Conditions-Elm-Creek" />
 <meta property="og:type" content="article" />
 
 
@@ -36,7 +36,7 @@
 	var BBURL = "http://www.morcmtb.org/forums";
 	var LOGGEDIN = 0 > 0 ? true : false;
 	var THIS_SCRIPT = "showthread";
-	var RELPATH = "showthread.php?9180-Trail-Conditions-Lebanon-Hills";
+	var RELPATH = "showthread.php?28476-Trail-Conditions-Elm-Creek";
 	var PATHS = {
 		forum : "",
 		cms   : "",
@@ -51,7 +51,7 @@
 
 	<link rel="alternate" type="application/rss+xml" title="Minnesota Off-Road Cyclists Discussion Forums RSS Feed" href="http://www.morcmtb.org/forums/external.php?type=RSS2" />
 	
-		<link rel="alternate" type="application/rss+xml" title="Minnesota Off-Road Cyclists Discussion Forums - Lebanon Hills - RSS Feed" href="http://www.morcmtb.org/forums/external.php?type=RSS2&amp;forumids=24" />
+		<link rel="alternate" type="application/rss+xml" title="Minnesota Off-Road Cyclists Discussion Forums - Elm Creek Park Reserve - RSS Feed" href="http://www.morcmtb.org/forums/external.php?type=RSS2&amp;forumids=54" />
 	
 
 
@@ -65,13 +65,13 @@
 
 <script type="text/javascript" src="mobiquo/tapatalkdetect.js"></script>
 
-	<meta name="keywords" content="hills, lebanon, conditions, trail" />
-	<meta name="description" content="WARNING. If you are reading this, you are reading the first post in a long thread of trail condition updates.   You need to view the last post in order to get the most up-to-date conditions. 
+	<meta name="keywords" content="conditions, post, trail, thread, reading, view, order, click, newest, latest, up-to-date, long, warning, creek, updates, condition, possibly" />
+	<meta name="description" content="WARNING. If you are reading this, you are reading the first post in a (possibly) long thread of trail condition updates.   You need to view the last post in order to get the most up-to-date conditions. 
   
-Click &lt;a href=&quot;http://www.morcmtb.org/forums/showthread.php?t=9180&amp;page=9999999#lastpostbit&quot;&gt;here&lt;/a&gt; to go to the newest post in this thread and get the latest conditions." />
+Click &lt;a href=&quot;http://www.morcmtb.org/forums/showthread.php?t=311845&amp;page=9999999#lastpostbit&quot;&gt;here&lt;/a&gt; to go to the newest post in this thread and get the latest conditions." />
 
-	<title> Trail Conditions - Lebanon Hills</title>
-	<link rel="canonical" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills" />
+	<title> Trail Conditions - Elm Creek</title>
+	<link rel="canonical" href="showthread.php?28476-Trail-Conditions-Elm-Creek" />
 	
 	
 	
@@ -80,6 +80,8 @@ Click &lt;a href=&quot;http://www.morcmtb.org/forums/showthread.php?t=9180&amp;p
 	
 	
 	
+	
+		<script type="text/javascript" src="clientscript/vbulletin_lightbox.js?v=419"></script>
 	
 
 	
@@ -371,17 +373,17 @@ vbphrase['ncode_imageresizer_warning_fullsize'] = 'Click this bar to view the sm
 
 	<li class="navbit"><a href="forumdisplay.php?23-Twin-Cities-Metro-Area-Trails">Twin Cities Metro Area Trails</a></li>
 
-	<li class="navbit"><a href="forumdisplay.php?24-Lebanon-Hills">Lebanon Hills</a></li>
+	<li class="navbit"><a href="forumdisplay.php?54-Elm-Creek-Park-Reserve">Elm Creek Park Reserve</a></li>
 
 		
-	<li class="navbit lastnavbit"><span> Trail Conditions - Lebanon Hills</span></li>
+	<li class="navbit lastnavbit"><span> Trail Conditions - Elm Creek</span></li>
 
 	</ul>
 	<hr />
 </div>
 
  
-<div id="ad_global_below_navbar"><center><a href="http://www.facebook.com/lebanonhills"  target="_blank"><img src="http://www.morcmtb.org/images/banners/FollowLebFacebook.png"></a></center></div> 
+<div id="ad_global_below_navbar"></div> 
 
 
 	<form action="profile.php?do=dismissnotice" method="post" id="notices" class="notices">
@@ -431,20 +433,20 @@ vbphrase['ncode_imageresizer_warning_fullsize'] = 'Click this bar to view the sm
 	
 	<td width="10%" align="center" bordercolor="#e1e1e2"><font face="tahoma">
 
-		Closed <img src="../images/conditionicons/closed.gif" width="12" height="15">
+		Wet <img src="../images/conditionicons/wet.gif" width="12" height="15">
 </font>
 	</td>
 		
 	<td width="10%" align="center">
 
 
-<a href="member.php?u=1" title="MORC Dirt Boss"><b><font color="orange">gopherhockey</a></b></font>
+<a href="member.php?u=192" title="MORC Dirt Boss"><b><font color="orange">JayT</a></b></font>
 
 
 	</td>
 	
 	<td width="15%" align="center">
-		03-26-2012, 01:29 PM
+		03-26-2012, 07:20 AM
 	</td>
 	
 
@@ -481,27 +483,27 @@ Get mobile trail condition updates!  Click <a href="http://www.morcmtb.org/forum
 
 	<div id="above_postlist" class="above_postlist">
 		
-			<a href="newreply.php?p=441800&amp;noquote=1" class="newcontent_textcontrol" id="newreplylink_top">Closed Thread</a>
+			<a href="newreply.php?p=443005&amp;noquote=1" class="newcontent_textcontrol" id="newreplylink_top"><span>+</span> Reply to Thread</a>
 			<img style="display:none" id="progress_newreplylink_top" src="images/misc/progress.gif" alt="" />
 		
 		<div id="pagination_top" class="pagination_top">
 		
-			<form action="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page101" method="get" class="pagination popupmenu nohovermenu">
-<input type="hidden" name="t" value="9180" />
+			<form action="showthread.php?28476-Trail-Conditions-Elm-Creek/page11" method="get" class="pagination popupmenu nohovermenu">
+<input type="hidden" name="t" value="28476" />
 	
-		<span><a href="javascript://" class="popupctrl">Page 1 of 291</a></span>
+		<span><a href="javascript://" class="popupctrl">Page 1 of 12</a></span>
 		
 		
 		
-		<span class="selected"><a href="javascript://" title="Results 1 to 15 of 4,358">1</a></span><span><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page2" title="Show results 16 to 30 of 4,358">2</a></span><span><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page3" title="Show results 31 to 45 of 4,358">3</a></span><span><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page11" title="Show results 151 to 165 of 4,358"><!--+10-->11</a></span><span><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page51" title="Show results 751 to 765 of 4,358"><!--+50-->51</a></span><span><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page101" title="Show results 1,501 to 1,515 of 4,358"><!--+100-->101</a></span>
+		<span class="selected"><a href="javascript://" title="Results 1 to 15 of 169">1</a></span><span><a href="showthread.php?28476-Trail-Conditions-Elm-Creek/page2" title="Show results 16 to 30 of 169">2</a></span><span><a href="showthread.php?28476-Trail-Conditions-Elm-Creek/page3" title="Show results 31 to 45 of 169">3</a></span><span><a href="showthread.php?28476-Trail-Conditions-Elm-Creek/page11" title="Show results 151 to 165 of 169"><!--+10-->11</a></span>
 		
 		<span class="separator">...</span>
 		
 		
-		<span class="prev_next"><a rel="next" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page2" title="Next Page - Results 16 to 30 of 4,358"><img src="images/pagination/next-right.png" alt="Next" /></a></span>
+		<span class="prev_next"><a rel="next" href="showthread.php?28476-Trail-Conditions-Elm-Creek/page2" title="Next Page - Results 16 to 30 of 169"><img src="images/pagination/next-right.png" alt="Next" /></a></span>
 		
 		
-		<span class="first_last"><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page291" title="Last Page - Results 4,351 to 4,358 of 4,358">Last<img src="images/pagination/last-right.png" alt="Last" /></a></span>
+		<span class="first_last"><a href="showthread.php?28476-Trail-Conditions-Elm-Creek/page12" title="Last Page - Results 166 to 169 of 169">Last<img src="images/pagination/last-right.png" alt="Last" /></a></span>
 		
 	
 	<ul class="popupbody popuphover">
@@ -510,36 +512,34 @@ Get mobile trail condition updates!  Click <a href="http://www.morcmtb.org/forum
 </form>
 		
 			<div id="postpagestats_above" class="postpagestats">
-				Results 1 to 15 of 4358
+				Results 1 to 15 of 169
 			</div>
 		</div>
 	</div>
 	<div id="pagetitle" class="pagetitle">
 		<h1>
-			Thread: <span class="threadtitle"><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills" title="Reload this Page">Trail Conditions - Lebanon Hills</a></span>
+			Thread: <span class="threadtitle"><a href="showthread.php?28476-Trail-Conditions-Elm-Creek" title="Reload this Page">Trail Conditions - Elm Creek</a></span>
 		</h1>
 		
 			
-<fb:like href="http://www.morcmtb.org/forums/showthread.php?9180-Trail-Conditions-Lebanon-Hills" font="tahoma" layout="standard" show_faces="false" width="260" action="like" colorscheme="light"></fb:like>
+<fb:like href="http://www.morcmtb.org/forums/showthread.php?28476-Trail-Conditions-Elm-Creek" font="tahoma" layout="standard" show_faces="false" width="260" action="like" colorscheme="light"></fb:like>
 		
 	</div>
 	<div id="thread_controls" class="thread_controls toolsmenu">
 		<div>
 		<ul id="postlist_popups" class="postlist_popups popupgroup">
 			
-			<li class="popupmenu"><h6><a class="firstunread" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills#post444752">View First Unread </a></h6></li>
-			
 			
 			<li class="popupmenu" id="threadtools">
 				<h6><a class="popupctrl" href="javascript://">Thread Tools</a></h6>
 				<ul class="popupbody popuphover">
-					<li><a href="printthread.php?t=9180&amp;pp=15&amp;page=1" accesskey="3" rel="nofollow">Show Printable Version</a></li>
+					<li><a href="printthread.php?t=28476&amp;pp=15&amp;page=1" accesskey="3" rel="nofollow">Show Printable Version</a></li>
 					
-						<li><a href="sendmessage.php?do=sendtofriend&amp;t=9180" rel="nofollow">Email this Page&hellip;</a></li>
+						<li><a href="sendmessage.php?do=sendtofriend&amp;t=28476" rel="nofollow">Email this Page&hellip;</a></li>
 					
 					<li>
 						
-							<a href="subscription.php?do=addsubscription&amp;t=9180" rel="nofollow">Subscribe to this Thread&hellip;</a>
+							<a href="subscription.php?do=addsubscription&amp;t=28476" rel="nofollow">Subscribe to this Thread&hellip;</a>
 						
 					</li>
 					
@@ -557,8 +557,8 @@ Get mobile trail condition updates!  Click <a href="http://www.morcmtb.org/forum
 					<h6><a class="popupctrl" href="javascript://">Display</a></h6>
 					<ul class="popupbody popuphover">
 						<li><label>Linear Mode</label></li>
-						<li><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;mode=hybrid"> Switch to Hybrid Mode</a></li>
-						<li><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=444752&amp;mode=threaded#post444752"> Switch to Threaded Mode</a></li>
+						<li><a href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;mode=hybrid"> Switch to Hybrid Mode</a></li>
+						<li><a href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=444707&amp;mode=threaded#post444707"> Switch to Threaded Mode</a></li>
 					</ul>
 				</li>
 			
@@ -574,18 +574,18 @@ Get mobile trail condition updates!  Click <a href="http://www.morcmtb.org/forum
 	
 		<ol id="posts" class="posts" start="1">
 			
-<li class="postbitlegacy postbitim postcontainer new" id="post_444752">
+<li class="postbitlegacy postbitim postcontainer old" id="post_444707">
 <!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
 
 	<div class="posthead">
-			<span class="postdate new">
+			<span class="postdate old">
 				
-					<span class="date">Today,&nbsp;<span class="time">01:29 PM</span></span>
+					<span class="date">Today,&nbsp;<span class="time">07:20 AM</span></span>
 				
 			</span>
 			<span class="nodecontrols">
 				
-					<a name="post444752" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=444752&amp;viewfull=1#post444752" class="postcounter">#4358</a><a id="postcount444752" name="4358"></a>
+					<a name="post444707" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=444707&amp;viewfull=1#post444707" class="postcounter">#169</a><a id="postcount444707" name="169"></a>
 				
 				
 				
@@ -594,22 +594,22 @@ Get mobile trail condition updates!  Click <a href="http://www.morcmtb.org/forum
 	<div class="postdetails">
 		<div class="userinfo">
 			<div class="username_container">
-			 <font size="2pt"><b>John Lundell</b><br></font>
+			 <font size="2pt"><b>Jay Thompson</b><br></font>
 
 			
 				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?1-gopherhockey" title="gopherhockey is offline"><strong>gopherhockey</strong></a>
+	<a class="username offline popupctrl" href="member.php?192-JayT" title="JayT is offline"><strong>JayT</strong></a>
 	<ul class="popupbody popuphover memberaction_body">
 		<li class="left">
 			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?1-gopherhockey">
+			<a href="member.php?192-JayT">
 				View Profile
 			</a>
 		</li>
 		
 		<li class="right">
 			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=1&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+			<a href="search.php?do=finduser&amp;userid=192&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
 				View Forum Posts
 			</a>
 		</li>
@@ -619,19 +619,12 @@ Get mobile trail condition updates!  Click <a href="http://www.morcmtb.org/forum
 		
 		<li class="right">
 			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=1" rel="nofollow">
+			<a href="blog.php?u=192" rel="nofollow">
 				View Blog Entries
 			</a>
 		</li>
 		
 		
-		
-		<li class="left">
-			<img src="images/site_icons/homepage.png" alt="" />
-			<a href="http://www.morcmtb.org" rel="nofollow">
-				Visit Homepage
-			</a>
-		</li>
 		
 		
 		
@@ -643,12 +636,12 @@ Get mobile trail condition updates!  Click <a href="http://www.morcmtb.org/forum
 	</ul>
 </div>
 
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="gopherhockey is offline" border="0" />
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="JayT is offline" border="0" />
 
 			
 			</div>
 			<span class="usertitle">
-				MORC Lifetime Achievement Winner
+				MORC Board Member
 			</span>
 			
 			
@@ -657,59 +650,35 @@ Get mobile trail condition updates!  Click <a href="http://www.morcmtb.org/forum
 <a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
 <a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
 
-<a href="http://www.morcmtb.org/subpages/gnomeclub.html"><img src="images/ranks/gnome.gif" border="0" alt="Gnome Club"></a>
-<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
+
+
 </div>
 			
-				<span class="postbit_reputation" id="repdisplay_444752_1" title="gopherhockey has much to be proud of">
+				<span class="postbit_reputation" id="repdisplay_444707_192" title="JayT 10 or more points">
 					
 						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
 					
 				</span>
 			
-			
-			<a class="postuseravatar" href="member.php?1-gopherhockey" title="gopherhockey is offline">
-				<img src="customavatars/avatar1_14.gif" alt="gopherhockey's Avatar" title="gopherhockey's Avatar" />
-			</a>
 			 
 			
 				<hr />
 				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>Nov 2002</dd>
-					<dt>Location</dt> <dd>Rosemount</dd>
+					<dt>Join Date</dt> <dd>Apr 2003</dd>
+					<dt>Location</dt> <dd>Osseo/MG</dd>
 					
-					<dt>Posts</dt> <dd>15,165</dd>	
-					<dt>Blog Entries</dt><dd><a href="blog.php?1">1</a></dd>
+					<dt>Posts</dt> <dd>286</dd>	
+					
 				</dl>
 				
 				
 				<div class="imlinks">
-					  <a href="javascript://" onclick="imwindow('msn', '1', 440, 270); return false;"><img src="images/misc/im_msn.gif" alt="Send a message via MSN to gopherhockey" /></a>  
+					    
 				</div>
 			
 		</div>
 		<div class="postbody">
-			<div class="postrow has_after_content">
+			<div class="postrow">
 				
 				
 
@@ -720,7 +689,7 @@ Get mobile trail condition updates!  Click <a href="http://www.morcmtb.org/forum
 						
 						
 				<div class="content">
-					<div id="post_message_444752">
+					<div id="post_message_444707">
 
 
 
@@ -730,33 +699,20 @@ Get mobile trail condition updates!  Click <a href="http://www.morcmtb.org/forum
 
 
 
-<b>Trail Condition: </b>Closed
+<b>Trail Condition: </b>Wet
 
 
 <br>
-<B>Date Posted: </b>Today @ 01:29 PM
+<B>Date Posted: </b>Today @ 07:20 AM
 <br><BR>
 <b>Details:&nbsp</b>
-Still closed, but we are going to start clearing the trail tomorrow in order to prepare for opening.  Our target is later this week pending rain.    Stay tuned for more details.
+Monday Mar. 26 Update: The Elm Creek area is getting some rain so the trail is wet.  Stay clear for now.
 
 
 					</div>
 
 					
 				</div>
-			</div>
-			
-			<div class="after_content">
-				
-				
-				
-					 
-				
-				
-					<blockquote class="signature restore"><div class="signaturecontainer"><font size="1">Leb on Facebook:  <a href="http://www.facebook.com/lebanonhills" target="_blank">www.facebook.com/lebanonhills</a></font><br />
-<font size="1">MORC Webmaster / Lebanon Hills Dirt Boss / Leb Mafia</font></div></blockquote>
-				
-				
 			</div>
 			
 			<div class="cleardiv"></div>
@@ -766,8 +722,11 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 			<!-- <div class="postfoot_container"> -->
 			<div class="textcontrols floatcontainer">
 				<span class="postcontrols">
-					<img style="display:none" id="progress_444752" src="images/misc/progress.gif" alt="" />
+					<img style="display:none" id="progress_444707" src="images/misc/progress.gif" alt="" />
 					
+					
+					
+						<a id="qrwq_444707" class="newreply" href="newreply.php?do=newreply&amp;p=444707" rel="nofollow" title="Reply With Quote"><img id="quoteimg_444707" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
 					
 					
 					
@@ -797,18 +756,18 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 	<hr />
 </li>
 
-<li class="postbitlegacy postbitim postcontainer new" id="post_444108">
+<li class="postbitlegacy postbitim postcontainer old" id="post_444671">
 <!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
 
 	<div class="posthead">
-			<span class="postdate new">
+			<span class="postdate old">
 				
-					<span class="date">03-15-2012,&nbsp;<span class="time">01:50 PM</span></span>
+					<span class="date">Yesterday,&nbsp;<span class="time">02:34 PM</span></span>
 				
 			</span>
 			<span class="nodecontrols">
 				
-					<a name="post444108" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=444108&amp;viewfull=1#post444108" class="postcounter">#4357</a><a id="postcount444108" name="4357"></a>
+					<a name="post444671" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=444671&amp;viewfull=1#post444671" class="postcounter">#168</a><a id="postcount444671" name="168"></a>
 				
 				
 				
@@ -817,22 +776,22 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 	<div class="postdetails">
 		<div class="userinfo">
 			<div class="username_container">
-			 <font size="2pt"><b>John Lundell</b><br></font>
+			 <font size="2pt"><b>Jay Thompson</b><br></font>
 
 			
 				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?1-gopherhockey" title="gopherhockey is offline"><strong>gopherhockey</strong></a>
+	<a class="username offline popupctrl" href="member.php?192-JayT" title="JayT is offline"><strong>JayT</strong></a>
 	<ul class="popupbody popuphover memberaction_body">
 		<li class="left">
 			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?1-gopherhockey">
+			<a href="member.php?192-JayT">
 				View Profile
 			</a>
 		</li>
 		
 		<li class="right">
 			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=1&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+			<a href="search.php?do=finduser&amp;userid=192&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
 				View Forum Posts
 			</a>
 		</li>
@@ -842,19 +801,12 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 		
 		<li class="right">
 			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=1" rel="nofollow">
+			<a href="blog.php?u=192" rel="nofollow">
 				View Blog Entries
 			</a>
 		</li>
 		
 		
-		
-		<li class="left">
-			<img src="images/site_icons/homepage.png" alt="" />
-			<a href="http://www.morcmtb.org" rel="nofollow">
-				Visit Homepage
-			</a>
-		</li>
 		
 		
 		
@@ -866,12 +818,12 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 	</ul>
 </div>
 
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="gopherhockey is offline" border="0" />
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="JayT is offline" border="0" />
 
 			
 			</div>
 			<span class="usertitle">
-				MORC Lifetime Achievement Winner
+				MORC Board Member
 			</span>
 			
 			
@@ -880,59 +832,35 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 <a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
 <a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
 
-<a href="http://www.morcmtb.org/subpages/gnomeclub.html"><img src="images/ranks/gnome.gif" border="0" alt="Gnome Club"></a>
-<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
+
+
 </div>
 			
-				<span class="postbit_reputation" id="repdisplay_444108_1" title="gopherhockey has much to be proud of">
+				<span class="postbit_reputation" id="repdisplay_444671_192" title="JayT 10 or more points">
 					
 						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
 					
 				</span>
 			
-			
-			<a class="postuseravatar" href="member.php?1-gopherhockey" title="gopherhockey is offline">
-				<img src="customavatars/avatar1_14.gif" alt="gopherhockey's Avatar" title="gopherhockey's Avatar" />
-			</a>
 			 
 			
 				<hr />
 				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>Nov 2002</dd>
-					<dt>Location</dt> <dd>Rosemount</dd>
+					<dt>Join Date</dt> <dd>Apr 2003</dd>
+					<dt>Location</dt> <dd>Osseo/MG</dd>
 					
-					<dt>Posts</dt> <dd>15,165</dd>	
-					<dt>Blog Entries</dt><dd><a href="blog.php?1">1</a></dd>
+					<dt>Posts</dt> <dd>286</dd>	
+					
 				</dl>
 				
 				
 				<div class="imlinks">
-					  <a href="javascript://" onclick="imwindow('msn', '1', 440, 270); return false;"><img src="images/misc/im_msn.gif" alt="Send a message via MSN to gopherhockey" /></a>  
+					    
 				</div>
 			
 		</div>
 		<div class="postbody">
-			<div class="postrow has_after_content">
+			<div class="postrow">
 				
 				
 
@@ -940,7 +868,7 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 						
 						
 				<div class="content">
-					<div id="post_message_444108">
+					<div id="post_message_444671">
 
 
 
@@ -950,35 +878,20 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 
 
 
-<b>Trail Condition: </b>Closed
+<b>Trail Condition: </b>Tacky
 
 
 <br>
-<B>Date Posted: </b>03-15-2012 @ 01:50 PM
+<B>Date Posted: </b>Yesterday @ 02:34 PM
 <br><BR>
 <b>Details:&nbsp</b>
-<font color="#333333">Closed and nowhere near opening. Please don't let recent above normal temps fool you, there is still snow and ice on the ground out in the woods. Its going to take a few more weeks. Trails won't open until all areas are ready. If we get ruts, trails won't open until all damage is fixed.</font><br />
-<br />
-<font color="#333333">Heck, I still have exposed snow out on our street... not sure why people think trails would be ready yet.</font><br />
-<br />
-<font color="#333333">PLEASE pass this along to your riding friends...</font>
+Pssst..  Elm Creek is OPEN!
 
 
 					</div>
 
 					
 				</div>
-			</div>
-			
-			<div class="after_content">
-				
-				
-				
-				
-					<blockquote class="signature restore"><div class="signaturecontainer"><font size="1">Leb on Facebook:  <a href="http://www.facebook.com/lebanonhills" target="_blank">www.facebook.com/lebanonhills</a></font><br />
-<font size="1">MORC Webmaster / Lebanon Hills Dirt Boss / Leb Mafia</font></div></blockquote>
-				
-				
 			</div>
 			
 			<div class="cleardiv"></div>
@@ -988,8 +901,11 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 			<!-- <div class="postfoot_container"> -->
 			<div class="textcontrols floatcontainer">
 				<span class="postcontrols">
-					<img style="display:none" id="progress_444108" src="images/misc/progress.gif" alt="" />
+					<img style="display:none" id="progress_444671" src="images/misc/progress.gif" alt="" />
 					
+					
+					
+						<a id="qrwq_444671" class="newreply" href="newreply.php?do=newreply&amp;p=444671" rel="nofollow" title="Reply With Quote"><img id="quoteimg_444671" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
 					
 					
 					
@@ -1019,18 +935,18 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 	<hr />
 </li>
 
-<li class="postbitlegacy postbitim postcontainer new" id="post_443388">
+<li class="postbitlegacy postbitim postcontainer old" id="post_444523">
 <!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
 
 	<div class="posthead">
-			<span class="postdate new">
+			<span class="postdate old">
 				
-					<span class="date">02-29-2012,&nbsp;<span class="time">04:24 PM</span></span>
+					<span class="date">03-22-2012,&nbsp;<span class="time">12:45 PM</span></span>
 				
 			</span>
 			<span class="nodecontrols">
 				
-					<a name="post443388" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=443388&amp;viewfull=1#post443388" class="postcounter">#4356</a><a id="postcount443388" name="4356"></a>
+					<a name="post444523" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=444523&amp;viewfull=1#post444523" class="postcounter">#167</a><a id="postcount444523" name="167"></a>
 				
 				
 				
@@ -1039,22 +955,22 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 	<div class="postdetails">
 		<div class="userinfo">
 			<div class="username_container">
-			 <font size="2pt"><b>Bob Shepherd</b><br></font>
+			 <font size="2pt"><b>Ryan Lieske</b><br></font>
 
 			
 				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?936-bigwheel" title="bigwheel is offline"><strong>bigwheel</strong></a>
+	<a class="username offline popupctrl" href="member.php?81-ryno-lite" title="ryno lite is offline"><strong>ryno lite</strong></a>
 	<ul class="popupbody popuphover memberaction_body">
 		<li class="left">
 			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?936-bigwheel">
+			<a href="member.php?81-ryno-lite">
 				View Profile
 			</a>
 		</li>
 		
 		<li class="right">
 			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=936&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+			<a href="search.php?do=finduser&amp;userid=81&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
 				View Forum Posts
 			</a>
 		</li>
@@ -1064,7 +980,7 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 		
 		<li class="right">
 			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=936" rel="nofollow">
+			<a href="blog.php?u=81" rel="nofollow">
 				View Blog Entries
 			</a>
 		</li>
@@ -1081,12 +997,12 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 	</ul>
 </div>
 
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="bigwheel is offline" border="0" />
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="ryno lite is offline" border="0" />
 
 			
 			</div>
 			<span class="usertitle">
-				Dirt Boss - Lebanon Hills
+				MORC Chair
 			</span>
 			
 			
@@ -1099,7 +1015,7 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 <a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
 </div>
 			
-				<span class="postbit_reputation" id="repdisplay_443388_936" title="bigwheel has much to be proud of">
+				<span class="postbit_reputation" id="repdisplay_444523_81" title="ryno lite has much to be proud of">
 					
 						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
 					
@@ -1126,17 +1042,773 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 				</span>
 			
 			
-			<a class="postuseravatar" href="member.php?936-bigwheel" title="bigwheel is offline">
-				<img src="customavatars/avatar936_1.gif" alt="bigwheel's Avatar" title="bigwheel's Avatar" />
+			<a class="postuseravatar" href="member.php?81-ryno-lite" title="ryno lite is offline">
+				<img src="customavatars/avatar81_1.gif" alt="ryno lite's Avatar" title="ryno lite's Avatar" />
 			</a>
 			 
 			
 				<hr />
 				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>Jul 2004</dd>
-					<dt>Location</dt> <dd>Eagan, MN</dd>
+					<dt>Join Date</dt> <dd>Feb 2003</dd>
+					<dt>Location</dt> <dd>Minneapolis</dd>
 					
-					<dt>Posts</dt> <dd>7,795</dd>	
+					<dt>Posts</dt> <dd>6,393</dd>	
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_444523">
+
+
+
+<!-- Trail Condition Block -->
+
+
+
+
+
+<b>Trail Condition: </b>Closed
+
+
+<br>
+<B>Date Posted: </b>03-22-2012 @ 12:45 PM
+<br><BR>
+<b>Details:&nbsp</b>
+Elm Creek is still closed.  The rain this week has delayed our trail cleanup schedule and delayed opening the trail.  3RPD will be monitoring the trail and deciding on the final opening date.  All opening date information will be posted as soon as we know.
+
+
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols floatcontainer">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_444523" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+						<a id="qrwq_444523" class="newreply" href="newreply.php?do=newreply&amp;p=444523" rel="nofollow" title="Reply With Quote"><img id="quoteimg_444523" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+
+<li class="postbitlegacy postbitim postcontainer old" id="post_444222">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+			<span class="postdate old">
+				
+					<span class="date">03-17-2012,&nbsp;<span class="time">09:49 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+				
+					<a name="post444222" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=444222&amp;viewfull=1#post444222" class="postcounter">#166</a><a id="postcount444222" name="166"></a>
+				
+				
+				
+			</span>
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			 <font size="2pt"><b>Jay Thompson</b><br></font>
+
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?192-JayT" title="JayT is offline"><strong>JayT</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<img src="images/site_icons/profile.png" alt="" />
+			<a href="member.php?192-JayT">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<img src="images/site_icons/forum.png" alt="" />
+			<a href="search.php?do=finduser&amp;userid=192&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		<li class="right">
+			<img src="images/site_icons/blog.png" alt="" />
+			<a href="blog.php?u=192" rel="nofollow">
+				View Blog Entries
+			</a>
+		</li>
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="JayT is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				MORC Board Member
+			</span>
+			
+			
+
+<div>
+<a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
+<a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
+
+
+
+</div>
+			
+				<span class="postbit_reputation" id="repdisplay_444222_192" title="JayT 10 or more points">
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+				</span>
+			
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Apr 2003</dd>
+					<dt>Location</dt> <dd>Osseo/MG</dd>
+					
+					<dt>Posts</dt> <dd>286</dd>	
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_444222">
+
+
+
+<!-- Trail Condition Block -->
+
+
+
+
+
+<b>Trail Condition: </b>Closed
+
+
+<br>
+<B>Date Posted: </b>03-17-2012 @ 09:49 PM
+<br><BR>
+<b>Details:&nbsp</b>
+Still closed.  Waiting for soft areas to firm-up.  <br />
+<br />
+Check out the <b><a href="http://www.facebook.com/pages/Elm-Creek-Singletrack/160358193993657" target="_blank">Elm Creek Singletrack Facebook page</a></b> for news &amp; updates.
+
+
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols floatcontainer">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_444222" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+						<a id="qrwq_444222" class="newreply" href="newreply.php?do=newreply&amp;p=444222" rel="nofollow" title="Reply With Quote"><img id="quoteimg_444222" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+
+<li class="postbitlegacy postbitim postcontainer old" id="post_444103">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+			<span class="postdate old">
+				
+					<span class="date">03-15-2012,&nbsp;<span class="time">01:29 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+				
+					<a name="post444103" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=444103&amp;viewfull=1#post444103" class="postcounter">#165</a><a id="postcount444103" name="165"></a>
+				
+				
+				
+			</span>
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			 <font size="2pt"><b>Ryan Lieske</b><br></font>
+
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?81-ryno-lite" title="ryno lite is offline"><strong>ryno lite</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<img src="images/site_icons/profile.png" alt="" />
+			<a href="member.php?81-ryno-lite">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<img src="images/site_icons/forum.png" alt="" />
+			<a href="search.php?do=finduser&amp;userid=81&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		<li class="right">
+			<img src="images/site_icons/blog.png" alt="" />
+			<a href="blog.php?u=81" rel="nofollow">
+				View Blog Entries
+			</a>
+		</li>
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="ryno lite is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				MORC Chair
+			</span>
+			
+			
+
+<div>
+<a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
+<a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
+
+
+<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
+</div>
+			
+				<span class="postbit_reputation" id="repdisplay_444103_81" title="ryno lite has much to be proud of">
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
+					
+				</span>
+			
+			
+			<a class="postuseravatar" href="member.php?81-ryno-lite" title="ryno lite is offline">
+				<img src="customavatars/avatar81_1.gif" alt="ryno lite's Avatar" title="ryno lite's Avatar" />
+			</a>
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Feb 2003</dd>
+					<dt>Location</dt> <dd>Minneapolis</dd>
+					
+					<dt>Posts</dt> <dd>6,393</dd>	
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_444103">
+
+
+
+<!-- Trail Condition Block -->
+
+
+
+
+
+<b>Trail Condition: </b>Closed
+
+
+<br>
+<B>Date Posted: </b>03-15-2012 @ 01:29 PM
+<br><BR>
+<b>Details:&nbsp</b>
+Elm Creek is still closed.  Many sections of the trail are still thawing out and too wet to ride.  Keep an eye on the trail conditions.  When the trails finally open, we will update trail conditions immediately.
+
+
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols floatcontainer">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_444103" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+						<a id="qrwq_444103" class="newreply" href="newreply.php?do=newreply&amp;p=444103" rel="nofollow" title="Reply With Quote"><img id="quoteimg_444103" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+
+<li class="postbitlegacy postbitim postcontainer old" id="post_443575">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+			<span class="postdate old">
+				
+					<span class="date">03-04-2012,&nbsp;<span class="time">09:42 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+				
+					<a name="post443575" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=443575&amp;viewfull=1#post443575" class="postcounter">#164</a><a id="postcount443575" name="164"></a>
+				
+				
+				
+			</span>
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			 <font size="2pt"><b>Jay Thompson</b><br></font>
+
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?192-JayT" title="JayT is offline"><strong>JayT</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<img src="images/site_icons/profile.png" alt="" />
+			<a href="member.php?192-JayT">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<img src="images/site_icons/forum.png" alt="" />
+			<a href="search.php?do=finduser&amp;userid=192&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		<li class="right">
+			<img src="images/site_icons/blog.png" alt="" />
+			<a href="blog.php?u=192" rel="nofollow">
+				View Blog Entries
+			</a>
+		</li>
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="JayT is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				MORC Board Member
+			</span>
+			
+			
+
+<div>
+<a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
+<a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
+
+
+
+</div>
+			
+				<span class="postbit_reputation" id="repdisplay_443575_192" title="JayT 10 or more points">
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+				</span>
+			
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Apr 2003</dd>
+					<dt>Location</dt> <dd>Osseo/MG</dd>
+					
+					<dt>Posts</dt> <dd>286</dd>	
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_443575">
+
+
+
+<!-- Trail Condition Block -->
+
+
+
+
+
+<b>Trail Condition: </b>Closed
+
+
+<br>
+<B>Date Posted: </b>03-04-2012 @ 09:42 PM
+<br><BR>
+<b>Details:&nbsp</b>
+Elm Creek Singletrack closed for the spring thaw.<br />
+<br />
+Three Rivers Park District will close the Elm Creek Singletrack starting Monday March 5th.  IT will remain closed until the trail is melted, thawed, and dried out.<br />
+<br />
+It's that time of year when the trails are very vulnerable to damage.  The trail surface is never softer than when the snow melts and the frost starts to come out.  This goes for trails everywhere!<br />
+ <br />
+Please stay clear of the trails until they're ready to go for the summer season.<br />
+<br />
+For updates watch here on the MORC Trail Conditions forums, OR...<br />
+<br />
+For updates on Elm Creek check out <a href="http://www.facebook.com/pages/Elm-Creek-Singletrack/160358193993657" target="_blank">Elm Creek Singletrack</a> on facebook.
+
+
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols floatcontainer">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_443575" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+						<a id="qrwq_443575" class="newreply" href="newreply.php?do=newreply&amp;p=443575" rel="nofollow" title="Reply With Quote"><img id="quoteimg_443575" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+
+<li class="postbitlegacy postbitim postcontainer old" id="post_443570">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+			<span class="postdate old">
+				
+					<span class="date">03-04-2012,&nbsp;<span class="time">08:22 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+				
+					<a name="post443570" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=443570&amp;viewfull=1#post443570" class="postcounter">#163</a><a id="postcount443570" name="163"></a>
+				
+				
+				
+			</span>
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			 <font size="2pt"><b>Mike Loerzel</b><br></font>
+
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?503-SprocketHead" title="SprocketHead is offline"><strong>SprocketHead</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<img src="images/site_icons/profile.png" alt="" />
+			<a href="member.php?503-SprocketHead">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<img src="images/site_icons/forum.png" alt="" />
+			<a href="search.php?do=finduser&amp;userid=503&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		<li class="right">
+			<img src="images/site_icons/blog.png" alt="" />
+			<a href="blog.php?u=503" rel="nofollow">
+				View Blog Entries
+			</a>
+		</li>
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="SprocketHead is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				Big Air
+			</span>
+			
+			
+
+<div>
+<a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
+<a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
+
+
+
+</div>
+			
+				<span class="postbit_reputation" id="repdisplay_443570_503" title="SprocketHead 10 or more points">
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+				</span>
+			
+			
+			<a class="postuseravatar" href="member.php?503-SprocketHead" title="SprocketHead is offline">
+				<img src="customavatars/avatar503_1.gif" alt="SprocketHead's Avatar" title="SprocketHead's Avatar" />
+			</a>
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Sep 2003</dd>
+					<dt>Location</dt> <dd>Blaine</dd>
+					
+					<dt>Posts</dt> <dd>585</dd>	
 					
 				</dl>
 				
@@ -1155,7 +1827,7 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 						
 						
 				<div class="content">
-					<div id="post_message_443388">
+					<div id="post_message_443570">
 
 
 
@@ -1165,18 +1837,16 @@ Still closed, but we are going to start clearing the trail tomorrow in order to 
 
 
 
-<b>Trail Condition: </b>Closed
+<b>Trail Condition: </b>Perfectly Groomed
 
 
 <br>
-<B>Date Posted: </b>02-29-2012 @ 04:24 PM
+<B>Date Posted: </b>03-04-2012 @ 08:22 PM
 <br><BR>
 <b>Details:&nbsp</b>
-Unless a miracle happens, Leb is closed for the season.<br />
+Well, at least is <u>was</u>... I left there around 11:30. By that time the Prairie had mud every couple hundred feet. Was able to ride around most of them, but it's thawing FAST! <br />
 <br />
-We just got a dump of rain and slush on top of already iffy conditions.  Eagan is a swamp, and the forecast is for more warm weather.<br />
-<br />
-Normal opening is end of April.  Let's hope we can do it earlier this year.
+Wooded sections were still perfect at that time. I'd recommend avoiding the prairies, the woods might be ok tomorrow morning. With the warm sun, it's not going to take long for thawing there too... Please avoid the mud holes, we gotta fix those!
 
 
 					</div>
@@ -1190,7 +1860,7 @@ Normal opening is end of April.  Let's hope we can do it earlier this year.
 				
 				
 				
-					<blockquote class="signature restore"><div class="signaturecontainer">Leb borgata capodecina</div></blockquote>
+					<blockquote class="signature restore"><div class="signaturecontainer">Life is too Serious to be taken Seriously!</div></blockquote>
 				
 				
 			</div>
@@ -1202,8 +1872,11 @@ Normal opening is end of April.  Let's hope we can do it earlier this year.
 			<!-- <div class="postfoot_container"> -->
 			<div class="textcontrols floatcontainer">
 				<span class="postcontrols">
-					<img style="display:none" id="progress_443388" src="images/misc/progress.gif" alt="" />
+					<img style="display:none" id="progress_443570" src="images/misc/progress.gif" alt="" />
 					
+					
+					
+						<a id="qrwq_443570" class="newreply" href="newreply.php?do=newreply&amp;p=443570" rel="nofollow" title="Reply With Quote"><img id="quoteimg_443570" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
 					
 					
 					
@@ -1233,18 +1906,18 @@ Normal opening is end of April.  Let's hope we can do it earlier this year.
 	<hr />
 </li>
 
-<li class="postbitlegacy postbitim postcontainer new" id="post_442917">
+<li class="postbitlegacy postbitim postcontainer old" id="post_443527">
 <!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
 
 	<div class="posthead">
-			<span class="postdate new">
+			<span class="postdate old">
 				
-					<span class="date">02-21-2012,&nbsp;<span class="time">08:41 AM</span></span>
+					<span class="date">03-03-2012,&nbsp;<span class="time">01:27 PM</span></span>
 				
 			</span>
 			<span class="nodecontrols">
 				
-					<a name="post442917" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=442917&amp;viewfull=1#post442917" class="postcounter">#4355</a><a id="postcount442917" name="4355"></a>
+					<a name="post443527" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=443527&amp;viewfull=1#post443527" class="postcounter">#162</a><a id="postcount443527" name="162"></a>
 				
 				
 				
@@ -1253,22 +1926,22 @@ Normal opening is end of April.  Let's hope we can do it earlier this year.
 	<div class="postdetails">
 		<div class="userinfo">
 			<div class="username_container">
-			 <font size="2pt"><b>John Lundell</b><br></font>
+			 <font size="2pt"><b>Mike Loerzel</b><br></font>
 
 			
 				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?1-gopherhockey" title="gopherhockey is offline"><strong>gopherhockey</strong></a>
+	<a class="username offline popupctrl" href="member.php?503-SprocketHead" title="SprocketHead is offline"><strong>SprocketHead</strong></a>
 	<ul class="popupbody popuphover memberaction_body">
 		<li class="left">
 			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?1-gopherhockey">
+			<a href="member.php?503-SprocketHead">
 				View Profile
 			</a>
 		</li>
 		
 		<li class="right">
 			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=1&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+			<a href="search.php?do=finduser&amp;userid=503&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
 				View Forum Posts
 			</a>
 		</li>
@@ -1278,19 +1951,12 @@ Normal opening is end of April.  Let's hope we can do it earlier this year.
 		
 		<li class="right">
 			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=1" rel="nofollow">
+			<a href="blog.php?u=503" rel="nofollow">
 				View Blog Entries
 			</a>
 		</li>
 		
 		
-		
-		<li class="left">
-			<img src="images/site_icons/homepage.png" alt="" />
-			<a href="http://www.morcmtb.org" rel="nofollow">
-				Visit Homepage
-			</a>
-		</li>
 		
 		
 		
@@ -1302,12 +1968,12 @@ Normal opening is end of April.  Let's hope we can do it earlier this year.
 	</ul>
 </div>
 
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="gopherhockey is offline" border="0" />
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="SprocketHead is offline" border="0" />
 
 			
 			</div>
 			<span class="usertitle">
-				MORC Lifetime Achievement Winner
+				Big Air
 			</span>
 			
 			
@@ -1316,54 +1982,34 @@ Normal opening is end of April.  Let's hope we can do it earlier this year.
 <a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
 <a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
 
-<a href="http://www.morcmtb.org/subpages/gnomeclub.html"><img src="images/ranks/gnome.gif" border="0" alt="Gnome Club"></a>
-<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
+
+
 </div>
 			
-				<span class="postbit_reputation" id="repdisplay_442917_1" title="gopherhockey has much to be proud of">
+				<span class="postbit_reputation" id="repdisplay_443527_503" title="SprocketHead 10 or more points">
 					
 						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
 					
 				</span>
 			
 			
-			<a class="postuseravatar" href="member.php?1-gopherhockey" title="gopherhockey is offline">
-				<img src="customavatars/avatar1_14.gif" alt="gopherhockey's Avatar" title="gopherhockey's Avatar" />
+			<a class="postuseravatar" href="member.php?503-SprocketHead" title="SprocketHead is offline">
+				<img src="customavatars/avatar503_1.gif" alt="SprocketHead's Avatar" title="SprocketHead's Avatar" />
 			</a>
 			 
 			
 				<hr />
 				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>Nov 2002</dd>
-					<dt>Location</dt> <dd>Rosemount</dd>
+					<dt>Join Date</dt> <dd>Sep 2003</dd>
+					<dt>Location</dt> <dd>Blaine</dd>
 					
-					<dt>Posts</dt> <dd>15,165</dd>	
-					<dt>Blog Entries</dt><dd><a href="blog.php?1">1</a></dd>
+					<dt>Posts</dt> <dd>585</dd>	
+					
 				</dl>
 				
 				
 				<div class="imlinks">
-					  <a href="javascript://" onclick="imwindow('msn', '1', 440, 270); return false;"><img src="images/misc/im_msn.gif" alt="Send a message via MSN to gopherhockey" /></a>  
+					    
 				</div>
 			
 		</div>
@@ -1376,7 +2022,7 @@ Normal opening is end of April.  Let's hope we can do it earlier this year.
 						
 						
 				<div class="content">
-					<div id="post_message_442917">
+					<div id="post_message_443527">
 
 
 
@@ -1386,16 +2032,16 @@ Normal opening is end of April.  Let's hope we can do it earlier this year.
 
 
 
-<b>Trail Condition: </b>Closed
+<b>Trail Condition: </b>Deep Snow - Needs Packing
 
 
 <br>
-<B>Date Posted: </b>02-21-2012 @ 08:41 AM
+<B>Date Posted: </b>03-03-2012 @ 01:27 PM
 <br><BR>
 <b>Details:&nbsp</b>
-With temps still well above normal its not clear if re-opening will happen so for now things are still closed.   Like with other trails, if we get a stretch of colder weather and more snow we might see things open.    (it will take a long stretch of forecasted cold)<br />
+Some of the trail is actually in pretty good Fat Bike riding condition:  From the entrance to the farm and the MORC section. Parts of the prairie  are tough. There are a few puddles, not a big deal, but we  should attempt to ride around them.<br />
 <br />
-Bummer to see the new snow and not be able to ride the trail.
+Get out there EARLY Sunday morning kids!, likely the last ride of the season.
 
 
 					</div>
@@ -1409,8 +2055,7 @@ Bummer to see the new snow and not be able to ride the trail.
 				
 				
 				
-					<blockquote class="signature restore"><div class="signaturecontainer"><font size="1">Leb on Facebook:  <a href="http://www.facebook.com/lebanonhills" target="_blank">www.facebook.com/lebanonhills</a></font><br />
-<font size="1">MORC Webmaster / Lebanon Hills Dirt Boss / Leb Mafia</font></div></blockquote>
+					<blockquote class="signature restore"><div class="signaturecontainer">Life is too Serious to be taken Seriously!</div></blockquote>
 				
 				
 			</div>
@@ -1422,8 +2067,11 @@ Bummer to see the new snow and not be able to ride the trail.
 			<!-- <div class="postfoot_container"> -->
 			<div class="textcontrols floatcontainer">
 				<span class="postcontrols">
-					<img style="display:none" id="progress_442917" src="images/misc/progress.gif" alt="" />
+					<img style="display:none" id="progress_443527" src="images/misc/progress.gif" alt="" />
 					
+					
+					
+						<a id="qrwq_443527" class="newreply" href="newreply.php?do=newreply&amp;p=443527" rel="nofollow" title="Reply With Quote"><img id="quoteimg_443527" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
 					
 					
 					
@@ -1453,18 +2101,18 @@ Bummer to see the new snow and not be able to ride the trail.
 	<hr />
 </li>
 
-<li class="postbitlegacy postbitim postcontainer new" id="post_442600">
+<li class="postbitlegacy postbitim postcontainer old" id="post_443516">
 <!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
 
 	<div class="posthead">
-			<span class="postdate new">
+			<span class="postdate old">
 				
-					<span class="date">02-13-2012,&nbsp;<span class="time">07:25 PM</span></span>
+					<span class="date">03-02-2012,&nbsp;<span class="time">09:52 PM</span></span>
 				
 			</span>
 			<span class="nodecontrols">
 				
-					<a name="post442600" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=442600&amp;viewfull=1#post442600" class="postcounter">#4354</a><a id="postcount442600" name="4354"></a>
+					<a name="post443516" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=443516&amp;viewfull=1#post443516" class="postcounter">#161</a><a id="postcount443516" name="161"></a>
 				
 				
 				
@@ -1473,22 +2121,22 @@ Bummer to see the new snow and not be able to ride the trail.
 	<div class="postdetails">
 		<div class="userinfo">
 			<div class="username_container">
-			 <font size="2pt"><b>John Lundell</b><br></font>
+			 <font size="2pt"><b>John Smith</b><br></font>
 
 			
 				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?1-gopherhockey" title="gopherhockey is offline"><strong>gopherhockey</strong></a>
+	<a class="username offline popupctrl" href="member.php?7125-Superfly" title="Superfly is offline"><strong>Superfly</strong></a>
 	<ul class="popupbody popuphover memberaction_body">
 		<li class="left">
 			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?1-gopherhockey">
+			<a href="member.php?7125-Superfly">
 				View Profile
 			</a>
 		</li>
 		
 		<li class="right">
 			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=1&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+			<a href="search.php?do=finduser&amp;userid=7125&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
 				View Forum Posts
 			</a>
 		</li>
@@ -1498,19 +2146,12 @@ Bummer to see the new snow and not be able to ride the trail.
 		
 		<li class="right">
 			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=1" rel="nofollow">
+			<a href="blog.php?u=7125" rel="nofollow">
 				View Blog Entries
 			</a>
 		</li>
 		
 		
-		
-		<li class="left">
-			<img src="images/site_icons/homepage.png" alt="" />
-			<a href="http://www.morcmtb.org" rel="nofollow">
-				Visit Homepage
-			</a>
-		</li>
 		
 		
 		
@@ -1522,12 +2163,560 @@ Bummer to see the new snow and not be able to ride the trail.
 	</ul>
 </div>
 
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="gopherhockey is offline" border="0" />
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="Superfly is offline" border="0" />
 
 			
 			</div>
 			<span class="usertitle">
-				MORC Lifetime Achievement Winner
+				Beginner Trail
+			</span>
+			
+			
+
+<div>
+
+
+
+
+
+</div>
+			
+				<span class="postbit_reputation" id="repdisplay_443516_7125" title="Superfly 10 or more points">
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+				</span>
+			
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Jan 2010</dd>
+					<dt>Location</dt> <dd>Dayton</dd>
+					
+					<dt>Posts</dt> <dd>9</dd>	
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_443516">
+
+
+
+<!-- Trail Condition Block -->
+
+
+
+
+
+<b>Trail Condition: </b>Deep Snow - Needs Packing
+
+
+<br>
+<B>Date Posted: </b>03-02-2012 @ 09:52 PM
+<br><BR>
+<b>Details:&nbsp</b>
+sevenpedaler<div style="margin-left:40px">"I rode today @ 1pm."<br />
+<br />
+John<br />
+<br />
+"I would think it will get too soft in the afternoon"  <img src="images/smilies/mad2.gif" border="0" alt="" title="HeadWall" class="inlineimg" /><br />
+</div>
+
+
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols floatcontainer">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_443516" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+						<a id="qrwq_443516" class="newreply" href="newreply.php?do=newreply&amp;p=443516" rel="nofollow" title="Reply With Quote"><img id="quoteimg_443516" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+
+<li class="postbitlegacy postbitim postcontainer old" id="post_443508">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+			<span class="postdate old">
+				
+					<span class="date">03-02-2012,&nbsp;<span class="time">04:38 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+				
+					<a name="post443508" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=443508&amp;viewfull=1#post443508" class="postcounter">#160</a><a id="postcount443508" name="160"></a>
+				
+				
+				
+			</span>
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			 <font size="2pt"><b>Steve Schneider</b><br></font>
+
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?6338-sevenpedaler" title="sevenpedaler is offline"><strong>sevenpedaler</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<img src="images/site_icons/profile.png" alt="" />
+			<a href="member.php?6338-sevenpedaler">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<img src="images/site_icons/forum.png" alt="" />
+			<a href="search.php?do=finduser&amp;userid=6338&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		<li class="right">
+			<img src="images/site_icons/blog.png" alt="" />
+			<a href="blog.php?u=6338" rel="nofollow">
+				View Blog Entries
+			</a>
+		</li>
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="sevenpedaler is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				Singlespeed
+			</span>
+			
+			
+
+<div>
+
+
+
+
+
+</div>
+			
+				<span class="postbit_reputation" id="repdisplay_443508_6338" title="sevenpedaler 10 or more points">
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+				</span>
+			
+			
+			<a class="postuseravatar" href="member.php?6338-sevenpedaler" title="sevenpedaler is offline">
+				<img src="customavatars/avatar6338_1.gif" alt="sevenpedaler's Avatar" title="sevenpedaler's Avatar" />
+			</a>
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>May 2009</dd>
+					<dt>Location</dt> <dd>Maple Grove, MN</dd>
+					
+					<dt>Posts</dt> <dd>208</dd>	
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_443508">
+
+
+
+<!-- Trail Condition Block -->
+
+
+
+
+
+<b>Trail Condition: </b>Snow - Fat Tires Needed
+
+
+<br>
+<B>Date Posted: </b>03-02-2012 @ 04:38 PM
+<br><BR>
+<b>Details:&nbsp</b>
+I rode today @ 1pm.  I would have to disagree with John's post.  I was following his tracks and I was falling through and washing out quite a bit.  The sun has turned much of the prairie and south and west facing sections sloppy and slushy.  It isn't supposed to get as cold tonight as they had predicted earlier so I doubt it will refreeze enough for anything other than fatbikes.  Even fat guys are going to find some sections tough as the bottom is gives out in many areas.  Skinnies should stay off and fats only.  Next week is supposed to get real warm so this weekend may be it for a while.
+
+
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols floatcontainer">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_443508" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+						<a id="qrwq_443508" class="newreply" href="newreply.php?do=newreply&amp;p=443508" rel="nofollow" title="Reply With Quote"><img id="quoteimg_443508" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+
+<li class="postbitlegacy postbitim postcontainer old" id="post_443494">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+			<span class="postdate old">
+				
+					<span class="date">03-02-2012,&nbsp;<span class="time">12:43 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+				
+					<a name="post443494" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=443494&amp;viewfull=1#post443494" class="postcounter">#159</a><a id="postcount443494" name="159"></a>
+				
+				
+				
+			</span>
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			 <font size="2pt"><b>John Smith</b><br></font>
+
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?7125-Superfly" title="Superfly is offline"><strong>Superfly</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<img src="images/site_icons/profile.png" alt="" />
+			<a href="member.php?7125-Superfly">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<img src="images/site_icons/forum.png" alt="" />
+			<a href="search.php?do=finduser&amp;userid=7125&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		<li class="right">
+			<img src="images/site_icons/blog.png" alt="" />
+			<a href="blog.php?u=7125" rel="nofollow">
+				View Blog Entries
+			</a>
+		</li>
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="Superfly is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				Beginner Trail
+			</span>
+			
+			
+
+<div>
+
+
+
+
+
+</div>
+			
+				<span class="postbit_reputation" id="repdisplay_443494_7125" title="Superfly 10 or more points">
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+				</span>
+			
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Jan 2010</dd>
+					<dt>Location</dt> <dd>Dayton</dd>
+					
+					<dt>Posts</dt> <dd>9</dd>	
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_443494">
+
+
+
+<!-- Trail Condition Block -->
+
+
+
+
+
+<b>Trail Condition: </b>Deep Snow - Needs Packing
+
+
+<br>
+<B>Date Posted: </b>03-02-2012 @ 12:43 PM
+<br><BR>
+<b>Details:&nbsp</b>
+Rode almost the whole loop in the AM today. <br />
+I would think it will get too soft in the afternoon... however, a good freeze tonight and <br />
+high of 30 tomorrow should make for some real good trail Saturday &amp; Sunday. I wouldn't be afraid to ride 2"+ tire tomorrow.
+
+
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols floatcontainer">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_443494" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+						<a id="qrwq_443494" class="newreply" href="newreply.php?do=newreply&amp;p=443494" rel="nofollow" title="Reply With Quote"><img id="quoteimg_443494" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+
+<li class="postbitlegacy postbitim postcontainer old" id="post_443407">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+			<span class="postdate old">
+				
+					<span class="date">03-01-2012,&nbsp;<span class="time">09:52 AM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+				
+					<a name="post443407" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=443407&amp;viewfull=1#post443407" class="postcounter">#158</a><a id="postcount443407" name="158"></a>
+				
+				
+				
+			</span>
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			 <font size="2pt"><b>Jay Thompson</b><br></font>
+
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?192-JayT" title="JayT is offline"><strong>JayT</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<img src="images/site_icons/profile.png" alt="" />
+			<a href="member.php?192-JayT">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<img src="images/site_icons/forum.png" alt="" />
+			<a href="search.php?do=finduser&amp;userid=192&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		<li class="right">
+			<img src="images/site_icons/blog.png" alt="" />
+			<a href="blog.php?u=192" rel="nofollow">
+				View Blog Entries
+			</a>
+		</li>
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="JayT is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				MORC Board Member
 			</span>
 			
 			
@@ -1536,59 +2725,35 @@ Bummer to see the new snow and not be able to ride the trail.
 <a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
 <a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
 
-<a href="http://www.morcmtb.org/subpages/gnomeclub.html"><img src="images/ranks/gnome.gif" border="0" alt="Gnome Club"></a>
-<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
+
+
 </div>
 			
-				<span class="postbit_reputation" id="repdisplay_442600_1" title="gopherhockey has much to be proud of">
+				<span class="postbit_reputation" id="repdisplay_443407_192" title="JayT 10 or more points">
 					
 						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
 					
 				</span>
 			
-			
-			<a class="postuseravatar" href="member.php?1-gopherhockey" title="gopherhockey is offline">
-				<img src="customavatars/avatar1_14.gif" alt="gopherhockey's Avatar" title="gopherhockey's Avatar" />
-			</a>
 			 
 			
 				<hr />
 				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>Nov 2002</dd>
-					<dt>Location</dt> <dd>Rosemount</dd>
+					<dt>Join Date</dt> <dd>Apr 2003</dd>
+					<dt>Location</dt> <dd>Osseo/MG</dd>
 					
-					<dt>Posts</dt> <dd>15,165</dd>	
-					<dt>Blog Entries</dt><dd><a href="blog.php?1">1</a></dd>
+					<dt>Posts</dt> <dd>286</dd>	
+					
 				</dl>
 				
 				
 				<div class="imlinks">
-					  <a href="javascript://" onclick="imwindow('msn', '1', 440, 270); return false;"><img src="images/misc/im_msn.gif" alt="Send a message via MSN to gopherhockey" /></a>  
+					    
 				</div>
 			
 		</div>
 		<div class="postbody">
-			<div class="postrow has_after_content">
+			<div class="postrow">
 				
 				
 
@@ -1596,7 +2761,7 @@ Bummer to see the new snow and not be able to ride the trail.
 						
 						
 				<div class="content">
-					<div id="post_message_442600">
+					<div id="post_message_443407">
 
 
 
@@ -1606,39 +2771,24 @@ Bummer to see the new snow and not be able to ride the trail.
 
 
 
-<b>Trail Condition: </b>
+<b>Trail Condition: </b>Deep Snow - Needs Packing
 
 
 <br>
-<B>Date Posted: </b>02-13-2012 @ 07:25 PM
+<B>Date Posted: </b>03-01-2012 @ 09:52 AM
 <br><BR>
 <b>Details:&nbsp</b>
-Trail is closed and will remain closed as long as temps are going above and below freezing.   With the warmup and the sun getting stronger, not all spots are solid.   This means the trail takes damage.    Gates and fences are up and unless we get a string of below freezing (as in a few days with 24 hours below freezing) and a forecast for the same things are going to stay closed.    Sorry but metro trails have already taken a beating from people thinking they know when its appropriate to ride and when its not. <br />
-  <br />
-The last 2-3 days might have been ok to ride, but it was warm before that and warm coming up this week.  Its just too much work to re-open then re-close the trail for just a few days.  (especially since we're installing the gates out on the trail)<br />
+Elm Creek is open, but is mostly un-ridable. <br />
 <br />
-Please remember this thread is for condition reports only and the discussion thread is where you post questions.  Thanks.<br />
+If you go to Elm Creek you'll encounter diffecult snow and low hanging branches &amp; trees. Rideable conditions might not return before it's time to close for the spring thaw. <br />
 <br />
-Forecast:<br />
-<br />
-<img src="http://d.pr/6HZC+" border="0" alt="" onload="NcodeImageResizer.createOn(this);" />
+The Park District just closed Murphy-Hanrehan, expect EC to be closing down soon as well.
 
 
 					</div>
 
 					
 				</div>
-			</div>
-			
-			<div class="after_content">
-				
-				
-				
-				
-					<blockquote class="signature restore"><div class="signaturecontainer"><font size="1">Leb on Facebook:  <a href="http://www.facebook.com/lebanonhills" target="_blank">www.facebook.com/lebanonhills</a></font><br />
-<font size="1">MORC Webmaster / Lebanon Hills Dirt Boss / Leb Mafia</font></div></blockquote>
-				
-				
 			</div>
 			
 			<div class="cleardiv"></div>
@@ -1648,8 +2798,11 @@ Forecast:<br />
 			<!-- <div class="postfoot_container"> -->
 			<div class="textcontrols floatcontainer">
 				<span class="postcontrols">
-					<img style="display:none" id="progress_442600" src="images/misc/progress.gif" alt="" />
+					<img style="display:none" id="progress_443407" src="images/misc/progress.gif" alt="" />
 					
+					
+					
+						<a id="qrwq_443407" class="newreply" href="newreply.php?do=newreply&amp;p=443407" rel="nofollow" title="Reply With Quote"><img id="quoteimg_443407" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
 					
 					
 					
@@ -1679,18 +2832,18 @@ Forecast:<br />
 	<hr />
 </li>
 
-<li class="postbitlegacy postbitim postcontainer new" id="post_442591">
+<li class="postbitlegacy postbitim postcontainer old" id="post_443382">
 <!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
 
 	<div class="posthead">
-			<span class="postdate new">
+			<span class="postdate old">
 				
-					<span class="date">02-13-2012,&nbsp;<span class="time">04:49 PM</span></span>
+					<span class="date">02-29-2012,&nbsp;<span class="time">02:29 PM</span></span>
 				
 			</span>
 			<span class="nodecontrols">
 				
-					<a name="post442591" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=442591&amp;viewfull=1#post442591" class="postcounter">#4353</a><a id="postcount442591" name="4353"></a>
+					<a name="post443382" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=443382&amp;viewfull=1#post443382" class="postcounter">#157</a><a id="postcount443382" name="157"></a>
 				
 				
 				
@@ -1699,22 +2852,22 @@ Forecast:<br />
 	<div class="postdetails">
 		<div class="userinfo">
 			<div class="username_container">
-			 <font size="2pt"><b>Jean-Paul Rasschaert</b><br></font>
+			 <font size="2pt"><b>Ryan Lieske</b><br></font>
 
 			
 				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?9320-Jean-Paul" title="Jean-Paul is offline"><strong>Jean-Paul</strong></a>
+	<a class="username offline popupctrl" href="member.php?81-ryno-lite" title="ryno lite is offline"><strong>ryno lite</strong></a>
 	<ul class="popupbody popuphover memberaction_body">
 		<li class="left">
 			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?9320-Jean-Paul">
+			<a href="member.php?81-ryno-lite">
 				View Profile
 			</a>
 		</li>
 		
 		<li class="right">
 			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=9320&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+			<a href="search.php?do=finduser&amp;userid=81&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
 				View Forum Posts
 			</a>
 		</li>
@@ -1724,7 +2877,7 @@ Forecast:<br />
 		
 		<li class="right">
 			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=9320" rel="nofollow">
+			<a href="blog.php?u=81" rel="nofollow">
 				View Blog Entries
 			</a>
 		</li>
@@ -1741,7 +2894,391 @@ Forecast:<br />
 	</ul>
 </div>
 
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="Jean-Paul is offline" border="0" />
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="ryno lite is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				MORC Chair
+			</span>
+			
+			
+
+<div>
+<a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
+<a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
+
+
+<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
+</div>
+			
+				<span class="postbit_reputation" id="repdisplay_443382_81" title="ryno lite has much to be proud of">
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
+					
+						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
+					
+				</span>
+			
+			
+			<a class="postuseravatar" href="member.php?81-ryno-lite" title="ryno lite is offline">
+				<img src="customavatars/avatar81_1.gif" alt="ryno lite's Avatar" title="ryno lite's Avatar" />
+			</a>
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Feb 2003</dd>
+					<dt>Location</dt> <dd>Minneapolis</dd>
+					
+					<dt>Posts</dt> <dd>6,393</dd>	
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_443382">
+
+
+
+<!-- Trail Condition Block -->
+
+
+
+
+
+<b>Trail Condition: </b>Deep Snow - Needs Packing
+
+
+<br>
+<B>Date Posted: </b>02-29-2012 @ 02:29 PM
+<br><BR>
+<b>Details:&nbsp</b>
+Just got off the phone with Jay at 3RPD and I hear Elm Creek is a mess right now.  The snow is deep and wet and will be very tough to groom in if it is melting or if it freezes.  There also are a lot of branches down and low hanging branches due to the snow and ice on the trees.  The staff will be watching this trail closely over the next few days.  With the forecast showing warm weather, expect a closing soon.  This will be the final closing of the winter.  Once it closes, it will not open up until Spring riding.
+
+
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols floatcontainer">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_443382" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+						<a id="qrwq_443382" class="newreply" href="newreply.php?do=newreply&amp;p=443382" rel="nofollow" title="Reply With Quote"><img id="quoteimg_443382" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+
+<li class="postbitlegacy postbitim postcontainer old" id="post_443132">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+			<span class="postdate old">
+				
+					<span class="date">02-24-2012,&nbsp;<span class="time">11:38 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+				
+					<a name="post443132" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=443132&amp;viewfull=1#post443132" class="postcounter">#156</a><a id="postcount443132" name="156"></a>
+				
+				
+				
+			</span>
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			 <font size="2pt"><b>Jay Thompson</b><br></font>
+
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?192-JayT" title="JayT is offline"><strong>JayT</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<img src="images/site_icons/profile.png" alt="" />
+			<a href="member.php?192-JayT">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<img src="images/site_icons/forum.png" alt="" />
+			<a href="search.php?do=finduser&amp;userid=192&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		<li class="right">
+			<img src="images/site_icons/blog.png" alt="" />
+			<a href="blog.php?u=192" rel="nofollow">
+				View Blog Entries
+			</a>
+		</li>
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="JayT is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				MORC Board Member
+			</span>
+			
+			
+
+<div>
+<a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
+<a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
+
+
+
+</div>
+			
+				<span class="postbit_reputation" id="repdisplay_443132_192" title="JayT 10 or more points">
+					
+						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
+					
+				</span>
+			
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Apr 2003</dd>
+					<dt>Location</dt> <dd>Osseo/MG</dd>
+					
+					<dt>Posts</dt> <dd>286</dd>	
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_443132">
+
+
+
+<!-- Trail Condition Block -->
+
+
+
+
+
+<b>Trail Condition: </b>Perfectly Groomed
+
+
+<br>
+<B>Date Posted: </b>02-24-2012 @ 11:38 PM
+<br><BR>
+<b>Details:&nbsp</b>
+<b>Sat. Feb. 25 Update:</b> Don't know how it happened, but the trail is in nearly perfect condition for the Frozen Fatbike Forty.  Get out and ride Elm Creek NOW!  Trail conditions change hourly this time of year.  <br />
+<br />
+The next trail closure is most likely going to be the *spring clamp-down*.  That is, once it closes Elm Creek will not re-open until it's thawed &amp; dried out and ready for the summer season.
+
+
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols floatcontainer">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_443132" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+						<a id="qrwq_443132" class="newreply" href="newreply.php?do=newreply&amp;p=443132" rel="nofollow" title="Reply With Quote"><img id="quoteimg_443132" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+
+<li class="postbitlegacy postbitim postcontainer old" id="post_443005">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+			<span class="postdate old">
+				
+					<span class="date">02-22-2012,&nbsp;<span class="time">08:44 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+				
+					<a name="post443005" href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;p=443005&amp;viewfull=1#post443005" class="postcounter">#155</a><a id="postcount443005" name="155"></a>
+				
+				
+				
+			</span>
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			 <font size="2pt"><b>Dave Hoglund</b><br></font>
+
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?1902-DaveH" title="DaveH is offline"><strong>DaveH</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<img src="images/site_icons/profile.png" alt="" />
+			<a href="member.php?1902-DaveH">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<img src="images/site_icons/forum.png" alt="" />
+			<a href="search.php?do=finduser&amp;userid=1902&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		<li class="right">
+			<img src="images/site_icons/blog.png" alt="" />
+			<a href="blog.php?u=1902" rel="nofollow">
+				View Blog Entries
+			</a>
+		</li>
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="DaveH is offline" border="0" />
 
 			
 			</div>
@@ -1759,7 +3296,7 @@ Forecast:<br />
 
 </div>
 			
-				<span class="postbit_reputation" id="repdisplay_442591_9320" title="Jean-Paul 10 or more points">
+				<span class="postbit_reputation" id="repdisplay_443005_1902" title="DaveH 10 or more points">
 					
 						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
 					
@@ -1769,10 +3306,10 @@ Forecast:<br />
 			
 				<hr />
 				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>May 2011</dd>
-					<dt>Location</dt> <dd>MN</dd>
+					<dt>Join Date</dt> <dd>Sep 2005</dd>
+					<dt>Location</dt> <dd>Champlin</dd>
 					
-					<dt>Posts</dt> <dd>3</dd>	
+					<dt>Posts</dt> <dd>16</dd>	
 					
 				</dl>
 				
@@ -1784,1842 +3321,6 @@ Forecast:<br />
 		</div>
 		<div class="postbody">
 			<div class="postrow">
-				
-				
-
-
-						
-						
-				<div class="content">
-					<div id="post_message_442591">
-
-
-
-<!-- Trail Condition Block -->
-
-
-
-
-
-<b>Trail Condition: </b>Closed
-
-
-<br>
-<B>Date Posted: </b>02-13-2012 @ 04:49 PM
-<br><BR>
-<b>Details:&nbsp</b>
-Hi guys,  how come the trail is still closed. The ground is harder than concrete, we would only erode our tires...and this since more 2 weeks...
-
-
-					</div>
-
-					
-				</div>
-			</div>
-			
-			<div class="cleardiv"></div>
-		</div>
-	</div>
-		<div class="postfoot">
-			<!-- <div class="postfoot_container"> -->
-			<div class="textcontrols floatcontainer">
-				<span class="postcontrols">
-					<img style="display:none" id="progress_442591" src="images/misc/progress.gif" alt="" />
-					
-					
-					
-					
-				</span>
-				<span class="postlinking">
-					
-						
-					
-
-					
-					
-					
-					
-
-					
-					
-
-					
-					
-					
-					
-					
-				</span>
-			<!-- </div> -->
-			</div>
-		</div>
-	<hr />
-</li>
-
-<li class="postbitlegacy postbitim postcontainer old" id="post_442128">
-<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
-
-	<div class="posthead">
-			<span class="postdate old">
-				
-					<span class="date">01-31-2012,&nbsp;<span class="time">07:52 PM</span></span>
-				
-			</span>
-			<span class="nodecontrols">
-				
-					<a name="post442128" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=442128&amp;viewfull=1#post442128" class="postcounter">#4352</a><a id="postcount442128" name="4352"></a>
-				
-				
-				
-			</span>
-	</div>
-	<div class="postdetails">
-		<div class="userinfo">
-			<div class="username_container">
-			 <font size="2pt"><b>John Lundell</b><br></font>
-
-			
-				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?1-gopherhockey" title="gopherhockey is offline"><strong>gopherhockey</strong></a>
-	<ul class="popupbody popuphover memberaction_body">
-		<li class="left">
-			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?1-gopherhockey">
-				View Profile
-			</a>
-		</li>
-		
-		<li class="right">
-			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=1&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
-				View Forum Posts
-			</a>
-		</li>
-		
-		
-		
-		
-		<li class="right">
-			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=1" rel="nofollow">
-				View Blog Entries
-			</a>
-		</li>
-		
-		
-		
-		<li class="left">
-			<img src="images/site_icons/homepage.png" alt="" />
-			<a href="http://www.morcmtb.org" rel="nofollow">
-				Visit Homepage
-			</a>
-		</li>
-		
-		
-		
-
-		
-
-		
-		
-	</ul>
-</div>
-
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="gopherhockey is offline" border="0" />
-
-			
-			</div>
-			<span class="usertitle">
-				MORC Lifetime Achievement Winner
-			</span>
-			
-			
-
-<div>
-<a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
-<a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
-
-<a href="http://www.morcmtb.org/subpages/gnomeclub.html"><img src="images/ranks/gnome.gif" border="0" alt="Gnome Club"></a>
-<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
-</div>
-			
-				<span class="postbit_reputation" id="repdisplay_442128_1" title="gopherhockey has much to be proud of">
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-				</span>
-			
-			
-			<a class="postuseravatar" href="member.php?1-gopherhockey" title="gopherhockey is offline">
-				<img src="customavatars/avatar1_14.gif" alt="gopherhockey's Avatar" title="gopherhockey's Avatar" />
-			</a>
-			 
-			
-				<hr />
-				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>Nov 2002</dd>
-					<dt>Location</dt> <dd>Rosemount</dd>
-					
-					<dt>Posts</dt> <dd>15,165</dd>	
-					<dt>Blog Entries</dt><dd><a href="blog.php?1">1</a></dd>
-				</dl>
-				
-				
-				<div class="imlinks">
-					  <a href="javascript://" onclick="imwindow('msn', '1', 440, 270); return false;"><img src="images/misc/im_msn.gif" alt="Send a message via MSN to gopherhockey" /></a>  
-				</div>
-			
-		</div>
-		<div class="postbody">
-			<div class="postrow has_after_content">
-				
-				
-
-
-						
-						
-				<div class="content">
-					<div id="post_message_442128">
-
-
-
-<!-- Trail Condition Block -->
-
-
-
-
-
-<b>Trail Condition: </b>Closed
-
-
-<br>
-<B>Date Posted: </b>01-31-2012 @ 07:52 PM
-<br><BR>
-<b>Details:&nbsp</b>
-Trail is now closed officially.   Its in really bad shape, under no circumstance should anyone be out there until we get an extended freeze and more snow.<br />
-<br />
-Please stay tuned.  Pass the word along.
-
-
-					</div>
-
-					
-				</div>
-			</div>
-			
-			<div class="after_content">
-				
-				
-				
-				
-					<blockquote class="signature restore"><div class="signaturecontainer"><font size="1">Leb on Facebook:  <a href="http://www.facebook.com/lebanonhills" target="_blank">www.facebook.com/lebanonhills</a></font><br />
-<font size="1">MORC Webmaster / Lebanon Hills Dirt Boss / Leb Mafia</font></div></blockquote>
-				
-				
-			</div>
-			
-			<div class="cleardiv"></div>
-		</div>
-	</div>
-		<div class="postfoot">
-			<!-- <div class="postfoot_container"> -->
-			<div class="textcontrols floatcontainer">
-				<span class="postcontrols">
-					<img style="display:none" id="progress_442128" src="images/misc/progress.gif" alt="" />
-					
-					
-					
-					
-				</span>
-				<span class="postlinking">
-					
-						
-					
-
-					
-					
-					
-					
-
-					
-					
-
-					
-					
-					
-					
-					
-				</span>
-			<!-- </div> -->
-			</div>
-		</div>
-	<hr />
-</li>
-
-<li class="postbitlegacy postbitim postcontainer old" id="post_442093">
-<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
-
-	<div class="posthead">
-			<span class="postdate old">
-				
-					<span class="date">01-31-2012,&nbsp;<span class="time">06:18 AM</span></span>
-				
-			</span>
-			<span class="nodecontrols">
-				
-					<a name="post442093" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=442093&amp;viewfull=1#post442093" class="postcounter">#4351</a><a id="postcount442093" name="4351"></a>
-				
-				
-				
-			</span>
-	</div>
-	<div class="postdetails">
-		<div class="userinfo">
-			<div class="username_container">
-			 <font size="2pt"><b>John Lundell</b><br></font>
-
-			
-				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?1-gopherhockey" title="gopherhockey is offline"><strong>gopherhockey</strong></a>
-	<ul class="popupbody popuphover memberaction_body">
-		<li class="left">
-			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?1-gopherhockey">
-				View Profile
-			</a>
-		</li>
-		
-		<li class="right">
-			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=1&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
-				View Forum Posts
-			</a>
-		</li>
-		
-		
-		
-		
-		<li class="right">
-			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=1" rel="nofollow">
-				View Blog Entries
-			</a>
-		</li>
-		
-		
-		
-		<li class="left">
-			<img src="images/site_icons/homepage.png" alt="" />
-			<a href="http://www.morcmtb.org" rel="nofollow">
-				Visit Homepage
-			</a>
-		</li>
-		
-		
-		
-
-		
-
-		
-		
-	</ul>
-</div>
-
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="gopherhockey is offline" border="0" />
-
-			
-			</div>
-			<span class="usertitle">
-				MORC Lifetime Achievement Winner
-			</span>
-			
-			
-
-<div>
-<a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
-<a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
-
-<a href="http://www.morcmtb.org/subpages/gnomeclub.html"><img src="images/ranks/gnome.gif" border="0" alt="Gnome Club"></a>
-<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
-</div>
-			
-				<span class="postbit_reputation" id="repdisplay_442093_1" title="gopherhockey has much to be proud of">
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-				</span>
-			
-			
-			<a class="postuseravatar" href="member.php?1-gopherhockey" title="gopherhockey is offline">
-				<img src="customavatars/avatar1_14.gif" alt="gopherhockey's Avatar" title="gopherhockey's Avatar" />
-			</a>
-			 
-			
-				<hr />
-				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>Nov 2002</dd>
-					<dt>Location</dt> <dd>Rosemount</dd>
-					
-					<dt>Posts</dt> <dd>15,165</dd>	
-					<dt>Blog Entries</dt><dd><a href="blog.php?1">1</a></dd>
-				</dl>
-				
-				
-				<div class="imlinks">
-					  <a href="javascript://" onclick="imwindow('msn', '1', 440, 270); return false;"><img src="images/misc/im_msn.gif" alt="Send a message via MSN to gopherhockey" /></a>  
-				</div>
-			
-		</div>
-		<div class="postbody">
-			<div class="postrow has_after_content">
-				
-				
-
-
-						
-						
-				<div class="content">
-					<div id="post_message_442093">
-
-
-
-<!-- Trail Condition Block -->
-
-
-
-
-
-<b>Trail Condition: </b>Melting
-
-
-<br>
-<B>Date Posted: </b>01-31-2012 @ 06:18 AM
-<br><BR>
-<b>Details:&nbsp</b>
-We checked the trail out last night and its still in decent shape but melting fast.   We are delaying the close by 24 hours, so you now have Tuesday to ride.    Trail will likely close Wed. morning but stay tuned.
-
-
-					</div>
-
-					
-				</div>
-			</div>
-			
-			<div class="after_content">
-				
-				
-				
-				
-					<blockquote class="signature restore"><div class="signaturecontainer"><font size="1">Leb on Facebook:  <a href="http://www.facebook.com/lebanonhills" target="_blank">www.facebook.com/lebanonhills</a></font><br />
-<font size="1">MORC Webmaster / Lebanon Hills Dirt Boss / Leb Mafia</font></div></blockquote>
-				
-				
-			</div>
-			
-			<div class="cleardiv"></div>
-		</div>
-	</div>
-		<div class="postfoot">
-			<!-- <div class="postfoot_container"> -->
-			<div class="textcontrols floatcontainer">
-				<span class="postcontrols">
-					<img style="display:none" id="progress_442093" src="images/misc/progress.gif" alt="" />
-					
-					
-					
-					
-				</span>
-				<span class="postlinking">
-					
-						
-					
-
-					
-					
-					
-					
-
-					
-					
-
-					
-					
-					
-					
-					
-				</span>
-			<!-- </div> -->
-			</div>
-		</div>
-	<hr />
-</li>
-
-<li class="postbitlegacy postbitim postcontainer old" id="post_442075">
-<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
-
-	<div class="posthead">
-			<span class="postdate old">
-				
-					<span class="date">01-30-2012,&nbsp;<span class="time">03:48 PM</span></span>
-				
-			</span>
-			<span class="nodecontrols">
-				
-					<a name="post442075" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=442075&amp;viewfull=1#post442075" class="postcounter">#4350</a><a id="postcount442075" name="4350"></a>
-				
-				
-				
-			</span>
-	</div>
-	<div class="postdetails">
-		<div class="userinfo">
-			<div class="username_container">
-			 <font size="2pt"><b>John Lundell</b><br></font>
-
-			
-				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?1-gopherhockey" title="gopherhockey is offline"><strong>gopherhockey</strong></a>
-	<ul class="popupbody popuphover memberaction_body">
-		<li class="left">
-			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?1-gopherhockey">
-				View Profile
-			</a>
-		</li>
-		
-		<li class="right">
-			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=1&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
-				View Forum Posts
-			</a>
-		</li>
-		
-		
-		
-		
-		<li class="right">
-			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=1" rel="nofollow">
-				View Blog Entries
-			</a>
-		</li>
-		
-		
-		
-		<li class="left">
-			<img src="images/site_icons/homepage.png" alt="" />
-			<a href="http://www.morcmtb.org" rel="nofollow">
-				Visit Homepage
-			</a>
-		</li>
-		
-		
-		
-
-		
-
-		
-		
-	</ul>
-</div>
-
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="gopherhockey is offline" border="0" />
-
-			
-			</div>
-			<span class="usertitle">
-				MORC Lifetime Achievement Winner
-			</span>
-			
-			
-
-<div>
-<a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
-<a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
-
-<a href="http://www.morcmtb.org/subpages/gnomeclub.html"><img src="images/ranks/gnome.gif" border="0" alt="Gnome Club"></a>
-<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
-</div>
-			
-				<span class="postbit_reputation" id="repdisplay_442075_1" title="gopherhockey has much to be proud of">
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-				</span>
-			
-			
-			<a class="postuseravatar" href="member.php?1-gopherhockey" title="gopherhockey is offline">
-				<img src="customavatars/avatar1_14.gif" alt="gopherhockey's Avatar" title="gopherhockey's Avatar" />
-			</a>
-			 
-			
-				<hr />
-				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>Nov 2002</dd>
-					<dt>Location</dt> <dd>Rosemount</dd>
-					
-					<dt>Posts</dt> <dd>15,165</dd>	
-					<dt>Blog Entries</dt><dd><a href="blog.php?1">1</a></dd>
-				</dl>
-				
-				
-				<div class="imlinks">
-					  <a href="javascript://" onclick="imwindow('msn', '1', 440, 270); return false;"><img src="images/misc/im_msn.gif" alt="Send a message via MSN to gopherhockey" /></a>  
-				</div>
-			
-		</div>
-		<div class="postbody">
-			<div class="postrow has_after_content">
-				
-				
-
-
-						
-						
-				<div class="content">
-					<div id="post_message_442075">
-
-
-
-<!-- Trail Condition Block -->
-
-
-
-
-
-<b>Trail Condition: </b>Closed
-
-
-<br>
-<B>Date Posted: </b>01-30-2012 @ 03:48 PM
-<br><BR>
-<b>Details:&nbsp</b>
-Trails are closed as of Tuesday, Jan 31.   (including the parking lot)   Under no circumstance should anyone be on the trails until we have a hard freeze and possibly snow.<br />
-<br />
-This could be a long term closing that may last into spring unless the long term forcast changes.   Temps look to hover well above average for the next few weeks.    Even if we rebound back below freezing we need an extended period before its worth re-opening.<br />
-<br />
-Get your ride in Monday night, then plan on other activities.   Stay tuned.<br />
-<br />
-BTW: gates and new extra wide wood fences will be up this time.
-
-
-					</div>
-
-					
-				</div>
-			</div>
-			
-			<div class="after_content">
-				
-				
-				
-				
-					<blockquote class="signature restore"><div class="signaturecontainer"><font size="1">Leb on Facebook:  <a href="http://www.facebook.com/lebanonhills" target="_blank">www.facebook.com/lebanonhills</a></font><br />
-<font size="1">MORC Webmaster / Lebanon Hills Dirt Boss / Leb Mafia</font></div></blockquote>
-				
-				
-			</div>
-			
-			<div class="cleardiv"></div>
-		</div>
-	</div>
-		<div class="postfoot">
-			<!-- <div class="postfoot_container"> -->
-			<div class="textcontrols floatcontainer">
-				<span class="postcontrols">
-					<img style="display:none" id="progress_442075" src="images/misc/progress.gif" alt="" />
-					
-					
-					
-					
-				</span>
-				<span class="postlinking">
-					
-						
-					
-
-					
-					
-					
-					
-
-					
-					
-
-					
-					
-					
-					
-					
-				</span>
-			<!-- </div> -->
-			</div>
-		</div>
-	<hr />
-</li>
-
-<li class="postbitlegacy postbitim postcontainer old" id="post_442051">
-<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
-
-	<div class="posthead">
-			<span class="postdate old">
-				
-					<span class="date">01-30-2012,&nbsp;<span class="time">09:15 AM</span></span>
-				
-			</span>
-			<span class="nodecontrols">
-				
-					<a name="post442051" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=442051&amp;viewfull=1#post442051" class="postcounter">#4349</a><a id="postcount442051" name="4349"></a>
-				
-				
-				
-			</span>
-	</div>
-	<div class="postdetails">
-		<div class="userinfo">
-			<div class="username_container">
-			 <font size="2pt"><b>G@ry Underd@hl</b><br></font>
-
-			
-				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?1621-HairyGary" title="HairyGary is offline"><strong>HairyGary</strong></a>
-	<ul class="popupbody popuphover memberaction_body">
-		<li class="left">
-			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?1621-HairyGary">
-				View Profile
-			</a>
-		</li>
-		
-		<li class="right">
-			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=1621&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
-				View Forum Posts
-			</a>
-		</li>
-		
-		
-		
-		
-		<li class="right">
-			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=1621" rel="nofollow">
-				View Blog Entries
-			</a>
-		</li>
-		
-		
-		
-		
-		
-
-		
-
-		
-		
-	</ul>
-</div>
-
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="HairyGary is offline" border="0" />
-
-			
-			</div>
-			<span class="usertitle">
-				Dirt Spanker
-			</span>
-			
-			
-
-<div>
-
-
-
-
-<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
-</div>
-			
-				<span class="postbit_reputation" id="repdisplay_442051_1621" title="HairyGary 10 or more points">
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-				</span>
-			
-			
-			<a class="postuseravatar" href="member.php?1621-HairyGary" title="HairyGary is offline">
-				<img src="customavatars/avatar1621_3.gif" alt="HairyGary's Avatar" title="HairyGary's Avatar" />
-			</a>
-			 
-			
-				<hr />
-				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>Jun 2005</dd>
-					<dt>Location</dt> <dd>Eagan</dd>
-					
-					<dt>Posts</dt> <dd>752</dd>	
-					
-				</dl>
-				
-				
-				<div class="imlinks">
-					    
-				</div>
-			
-		</div>
-		<div class="postbody">
-			<div class="postrow">
-				
-				
-
-
-						
-						
-				<div class="content">
-					<div id="post_message_442051">
-
-
-
-<!-- Trail Condition Block -->
-
-
-
-
-
-<b>Trail Condition: </b>Perfectly Groomed
-
-
-<br>
-<B>Date Posted: </b>01-30-2012 @ 09:15 AM
-<br><BR>
-<b>Details:&nbsp</b>
-Rode this morning and pretty good conditions.  However, while you can ride most of the trail with fatties and skinnies, the hills and some corners are chewed up from wash outs and footprints.  Only fatties in those spots.  Getting looser.  With the warm temps, I would bet today might be the last day to ride this week. <img src="images/smilies/mad2.gif" border="0" alt="" title="HeadWall" class="inlineimg" />  Just a hunch.  Get out and ride while you can!
-
-
-					</div>
-
-					
-				</div>
-			</div>
-			
-			<div class="cleardiv"></div>
-		</div>
-	</div>
-		<div class="postfoot">
-			<!-- <div class="postfoot_container"> -->
-			<div class="textcontrols floatcontainer">
-				<span class="postcontrols">
-					<img style="display:none" id="progress_442051" src="images/misc/progress.gif" alt="" />
-					
-					
-					
-					
-				</span>
-				<span class="postlinking">
-					
-						
-					
-
-					
-					
-					
-					
-
-					
-					
-
-					
-					
-					
-					
-					
-				</span>
-			<!-- </div> -->
-			</div>
-		</div>
-	<hr />
-</li>
-
-<li class="postbitlegacy postbitim postcontainer old" id="post_441956">
-<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
-
-	<div class="posthead">
-			<span class="postdate old">
-				
-					<span class="date">01-28-2012,&nbsp;<span class="time">07:38 AM</span></span>
-				
-			</span>
-			<span class="nodecontrols">
-				
-					<a name="post441956" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=441956&amp;viewfull=1#post441956" class="postcounter">#4348</a><a id="postcount441956" name="4348"></a>
-				
-				
-				
-			</span>
-	</div>
-	<div class="postdetails">
-		<div class="userinfo">
-			<div class="username_container">
-			 <font size="2pt"><b>Bob Shepherd</b><br></font>
-
-			
-				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?936-bigwheel" title="bigwheel is offline"><strong>bigwheel</strong></a>
-	<ul class="popupbody popuphover memberaction_body">
-		<li class="left">
-			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?936-bigwheel">
-				View Profile
-			</a>
-		</li>
-		
-		<li class="right">
-			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=936&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
-				View Forum Posts
-			</a>
-		</li>
-		
-		
-		
-		
-		<li class="right">
-			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=936" rel="nofollow">
-				View Blog Entries
-			</a>
-		</li>
-		
-		
-		
-		
-		
-
-		
-
-		
-		
-	</ul>
-</div>
-
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="bigwheel is offline" border="0" />
-
-			
-			</div>
-			<span class="usertitle">
-				Dirt Boss - Lebanon Hills
-			</span>
-			
-			
-
-<div>
-<a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
-<a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
-
-
-<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
-</div>
-			
-				<span class="postbit_reputation" id="repdisplay_441956_936" title="bigwheel has much to be proud of">
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-				</span>
-			
-			
-			<a class="postuseravatar" href="member.php?936-bigwheel" title="bigwheel is offline">
-				<img src="customavatars/avatar936_1.gif" alt="bigwheel's Avatar" title="bigwheel's Avatar" />
-			</a>
-			 
-			
-				<hr />
-				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>Jul 2004</dd>
-					<dt>Location</dt> <dd>Eagan, MN</dd>
-					
-					<dt>Posts</dt> <dd>7,795</dd>	
-					
-				</dl>
-				
-				
-				<div class="imlinks">
-					    
-				</div>
-			
-		</div>
-		<div class="postbody">
-			<div class="postrow has_after_content">
-				
-				
-
-
-						
-						
-				<div class="content">
-					<div id="post_message_441956">
-
-
-
-<!-- Trail Condition Block -->
-
-
-
-
-
-<b>Trail Condition: </b>Perfectly Groomed
-
-
-<br>
-<B>Date Posted: </b>01-28-2012 @ 07:38 AM
-<br><BR>
-<b>Details:&nbsp</b>
-Word from the trail this morning is:  All hardpack, no ice, no studs needed.
-
-
-					</div>
-
-					
-				</div>
-			</div>
-			
-			<div class="after_content">
-				
-				
-				
-				
-					<blockquote class="signature restore"><div class="signaturecontainer">Leb borgata capodecina</div></blockquote>
-				
-				
-			</div>
-			
-			<div class="cleardiv"></div>
-		</div>
-	</div>
-		<div class="postfoot">
-			<!-- <div class="postfoot_container"> -->
-			<div class="textcontrols floatcontainer">
-				<span class="postcontrols">
-					<img style="display:none" id="progress_441956" src="images/misc/progress.gif" alt="" />
-					
-					
-					
-					
-				</span>
-				<span class="postlinking">
-					
-						
-					
-
-					
-					
-					
-					
-
-					
-					
-
-					
-					
-					
-					
-					
-				</span>
-			<!-- </div> -->
-			</div>
-		</div>
-	<hr />
-</li>
-
-<li class="postbitlegacy postbitim postcontainer old" id="post_441888">
-<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
-
-	<div class="posthead">
-			<span class="postdate old">
-				
-					<span class="date">01-26-2012,&nbsp;<span class="time">08:25 PM</span></span>
-				
-			</span>
-			<span class="nodecontrols">
-				
-					<a name="post441888" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=441888&amp;viewfull=1#post441888" class="postcounter">#4347</a><a id="postcount441888" name="4347"></a>
-				
-				
-				
-			</span>
-	</div>
-	<div class="postdetails">
-		<div class="userinfo">
-			<div class="username_container">
-			 <font size="2pt"><b>Bob Shepherd</b><br></font>
-
-			
-				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?936-bigwheel" title="bigwheel is offline"><strong>bigwheel</strong></a>
-	<ul class="popupbody popuphover memberaction_body">
-		<li class="left">
-			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?936-bigwheel">
-				View Profile
-			</a>
-		</li>
-		
-		<li class="right">
-			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=936&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
-				View Forum Posts
-			</a>
-		</li>
-		
-		
-		
-		
-		<li class="right">
-			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=936" rel="nofollow">
-				View Blog Entries
-			</a>
-		</li>
-		
-		
-		
-		
-		
-
-		
-
-		
-		
-	</ul>
-</div>
-
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="bigwheel is offline" border="0" />
-
-			
-			</div>
-			<span class="usertitle">
-				Dirt Boss - Lebanon Hills
-			</span>
-			
-			
-
-<div>
-<a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
-<a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
-
-
-<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
-</div>
-			
-				<span class="postbit_reputation" id="repdisplay_441888_936" title="bigwheel has much to be proud of">
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-				</span>
-			
-			
-			<a class="postuseravatar" href="member.php?936-bigwheel" title="bigwheel is offline">
-				<img src="customavatars/avatar936_1.gif" alt="bigwheel's Avatar" title="bigwheel's Avatar" />
-			</a>
-			 
-			
-				<hr />
-				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>Jul 2004</dd>
-					<dt>Location</dt> <dd>Eagan, MN</dd>
-					
-					<dt>Posts</dt> <dd>7,795</dd>	
-					
-				</dl>
-				
-				
-				<div class="imlinks">
-					    
-				</div>
-			
-		</div>
-		<div class="postbody">
-			<div class="postrow has_after_content">
-				
-				
-
-
-						
-						
-				<div class="content">
-					<div id="post_message_441888">
-
-
-
-<!-- Trail Condition Block -->
-
-
-
-
-
-<b>Trail Condition: </b>Perfectly Groomed
-
-
-<br>
-<B>Date Posted: </b>01-26-2012 @ 08:25 PM
-<br><BR>
-<b>Details:&nbsp</b>
-Generally good condition.  Mostly pug-packed snow that's easy to ride.   There are a handful of south-facing spots that will be wet when temps are above freezing, and then a bit icy (but not bad) when temps fall.   Try to get in your rides when temps are below freezing, and you'll have loads of fun.  Studs are not necessary.
-
-
-					</div>
-
-					
-				</div>
-			</div>
-			
-			<div class="after_content">
-				
-				
-				
-				
-					<blockquote class="signature restore"><div class="signaturecontainer">Leb borgata capodecina</div></blockquote>
-				
-				
-			</div>
-			
-			<div class="cleardiv"></div>
-		</div>
-	</div>
-		<div class="postfoot">
-			<!-- <div class="postfoot_container"> -->
-			<div class="textcontrols floatcontainer">
-				<span class="postcontrols">
-					<img style="display:none" id="progress_441888" src="images/misc/progress.gif" alt="" />
-					
-					
-					
-					
-				</span>
-				<span class="postlinking">
-					
-						
-					
-
-					
-					
-					
-					
-
-					
-					
-
-					
-					
-					
-					
-					
-				</span>
-			<!-- </div> -->
-			</div>
-		</div>
-	<hr />
-</li>
-
-<li class="postbitlegacy postbitim postcontainer old" id="post_441820">
-<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
-
-	<div class="posthead">
-			<span class="postdate old">
-				
-					<span class="date">01-25-2012,&nbsp;<span class="time">10:41 AM</span></span>
-				
-			</span>
-			<span class="nodecontrols">
-				
-					<a name="post441820" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=441820&amp;viewfull=1#post441820" class="postcounter">#4346</a><a id="postcount441820" name="4346"></a>
-				
-				
-				
-			</span>
-	</div>
-	<div class="postdetails">
-		<div class="userinfo">
-			<div class="username_container">
-			 <font size="2pt"><b>G@ry Underd@hl</b><br></font>
-
-			
-				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?1621-HairyGary" title="HairyGary is offline"><strong>HairyGary</strong></a>
-	<ul class="popupbody popuphover memberaction_body">
-		<li class="left">
-			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?1621-HairyGary">
-				View Profile
-			</a>
-		</li>
-		
-		<li class="right">
-			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=1621&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
-				View Forum Posts
-			</a>
-		</li>
-		
-		
-		
-		
-		<li class="right">
-			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=1621" rel="nofollow">
-				View Blog Entries
-			</a>
-		</li>
-		
-		
-		
-		
-		
-
-		
-
-		
-		
-	</ul>
-</div>
-
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="HairyGary is offline" border="0" />
-
-			
-			</div>
-			<span class="usertitle">
-				Dirt Spanker
-			</span>
-			
-			
-
-<div>
-
-
-
-
-<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
-</div>
-			
-				<span class="postbit_reputation" id="repdisplay_441820_1621" title="HairyGary 10 or more points">
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-				</span>
-			
-			
-			<a class="postuseravatar" href="member.php?1621-HairyGary" title="HairyGary is offline">
-				<img src="customavatars/avatar1621_3.gif" alt="HairyGary's Avatar" title="HairyGary's Avatar" />
-			</a>
-			 
-			
-				<hr />
-				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>Jun 2005</dd>
-					<dt>Location</dt> <dd>Eagan</dd>
-					
-					<dt>Posts</dt> <dd>752</dd>	
-					
-				</dl>
-				
-				
-				<div class="imlinks">
-					    
-				</div>
-			
-		</div>
-		<div class="postbody">
-			<div class="postrow">
-				
-				
-
-
-						
-						
-				<div class="content">
-					<div id="post_message_441820">
-
-
-
-<!-- Trail Condition Block -->
-
-
-
-
-
-<b>Trail Condition: </b>Snow - Fat Tires Needed
-
-
-<br>
-<B>Date Posted: </b>01-25-2012 @ 10:41 AM
-<br><BR>
-<b>Details:&nbsp</b>
-Rode this a.m. and agree with Bob.  But it was getting a little soft in a few spots.  If it stays cold then primo but with the warm temps tires will start to chew up the tracks some.
-
-
-					</div>
-
-					
-				</div>
-			</div>
-			
-			<div class="cleardiv"></div>
-		</div>
-	</div>
-		<div class="postfoot">
-			<!-- <div class="postfoot_container"> -->
-			<div class="textcontrols floatcontainer">
-				<span class="postcontrols">
-					<img style="display:none" id="progress_441820" src="images/misc/progress.gif" alt="" />
-					
-					
-					
-					
-				</span>
-				<span class="postlinking">
-					
-						
-					
-
-					
-					
-					
-					
-
-					
-					
-
-					
-					
-					
-					
-					
-				</span>
-			<!-- </div> -->
-			</div>
-		</div>
-	<hr />
-</li>
-
-<li class="postbitlegacy postbitim postcontainer old" id="post_441808">
-<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
-
-	<div class="posthead">
-			<span class="postdate old">
-				
-					<span class="date">01-24-2012,&nbsp;<span class="time">08:12 PM</span></span>
-				
-			</span>
-			<span class="nodecontrols">
-				
-					<a name="post441808" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=441808&amp;viewfull=1#post441808" class="postcounter">#4345</a><a id="postcount441808" name="4345"></a>
-				
-				
-				
-			</span>
-	</div>
-	<div class="postdetails">
-		<div class="userinfo">
-			<div class="username_container">
-			 <font size="2pt"><b>Bob Shepherd</b><br></font>
-
-			
-				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?936-bigwheel" title="bigwheel is offline"><strong>bigwheel</strong></a>
-	<ul class="popupbody popuphover memberaction_body">
-		<li class="left">
-			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?936-bigwheel">
-				View Profile
-			</a>
-		</li>
-		
-		<li class="right">
-			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=936&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
-				View Forum Posts
-			</a>
-		</li>
-		
-		
-		
-		
-		<li class="right">
-			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=936" rel="nofollow">
-				View Blog Entries
-			</a>
-		</li>
-		
-		
-		
-		
-		
-
-		
-
-		
-		
-	</ul>
-</div>
-
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="bigwheel is offline" border="0" />
-
-			
-			</div>
-			<span class="usertitle">
-				Dirt Boss - Lebanon Hills
-			</span>
-			
-			
-
-<div>
-<a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
-<a href="http://www.morcmtb.org/subpages/dirtboss.html"><img src="images/ranks/dirtbossicon.gif" border="0" alt="Dirt Boss"></a>
-
-
-<a href="http://www.morcmtb.org/subpages/snowclub.html"><img src="images/ranks/snowbikeicon.png" border="0" alt="Snowride Club"></a>
-</div>
-			
-				<span class="postbit_reputation" id="repdisplay_441808_936" title="bigwheel has much to be proud of">
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_highpos.png" alt="" />
-					
-				</span>
-			
-			
-			<a class="postuseravatar" href="member.php?936-bigwheel" title="bigwheel is offline">
-				<img src="customavatars/avatar936_1.gif" alt="bigwheel's Avatar" title="bigwheel's Avatar" />
-			</a>
-			 
-			
-				<hr />
-				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>Jul 2004</dd>
-					<dt>Location</dt> <dd>Eagan, MN</dd>
-					
-					<dt>Posts</dt> <dd>7,795</dd>	
-					
-				</dl>
-				
-				
-				<div class="imlinks">
-					    
-				</div>
-			
-		</div>
-		<div class="postbody">
-			<div class="postrow has_after_content">
-				
-				
-
-
-						
-						
-				<div class="content">
-					<div id="post_message_441808">
-
-
-
-<!-- Trail Condition Block -->
-
-
-
-
-
-<b>Trail Condition: </b>Snow - Fat Tires Needed
-
-
-<br>
-<B>Date Posted: </b>01-24-2012 @ 08:12 PM
-<br><BR>
-<b>Details:&nbsp</b>
-Good conditions for fat tires.  2, maybe 3 inches of easy snow.  Enough snow to make it fun, but little enough that you can recover from bad driving without a dab.  Should be okay (but not great) on 2.* MTB tires.  Outer loop is well packed. (Thanks, Jessica)  X is decent. XX wasn't as well-traveled.   I think mine was the third set of XX tracks.  Looks like most people took the Sally shortcut rather than the final climb, although the climb wasn't that bad.
-
-
-					</div>
-
-					
-				</div>
-			</div>
-			
-			<div class="after_content">
-				
-				
-				
-				
-					<blockquote class="signature restore"><div class="signaturecontainer">Leb borgata capodecina</div></blockquote>
-				
-				
-			</div>
-			
-			<div class="cleardiv"></div>
-		</div>
-	</div>
-		<div class="postfoot">
-			<!-- <div class="postfoot_container"> -->
-			<div class="textcontrols floatcontainer">
-				<span class="postcontrols">
-					<img style="display:none" id="progress_441808" src="images/misc/progress.gif" alt="" />
-					
-					
-					
-					
-				</span>
-				<span class="postlinking">
-					
-						
-					
-
-					
-					
-					
-					
-
-					
-					
-
-					
-					
-					
-					
-					
-				</span>
-			<!-- </div> -->
-			</div>
-		</div>
-	<hr />
-</li>
-
-<li class="postbitlegacy postbitim postcontainer old" id="post_441800">
-<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
-
-	<div class="posthead">
-			<span class="postdate old">
-				
-					<span class="date">01-24-2012,&nbsp;<span class="time">03:51 PM</span></span>
-				
-			</span>
-			<span class="nodecontrols">
-				
-					<a name="post441800" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;p=441800&amp;viewfull=1#post441800" class="postcounter">#4344</a><a id="postcount441800" name="4344"></a>
-				
-				
-				
-			</span>
-	</div>
-	<div class="postdetails">
-		<div class="userinfo">
-			<div class="username_container">
-			 <font size="2pt"><b>Jessica Redenius</b><br></font>
-
-			
-				<div class="popupmenu memberaction">
-	<a class="username offline popupctrl" href="member.php?5123-Jessica" title="Jessica is offline"><strong>Jessica</strong></a>
-	<ul class="popupbody popuphover memberaction_body">
-		<li class="left">
-			<img src="images/site_icons/profile.png" alt="" />
-			<a href="member.php?5123-Jessica">
-				View Profile
-			</a>
-		</li>
-		
-		<li class="right">
-			<img src="images/site_icons/forum.png" alt="" />
-			<a href="search.php?do=finduser&amp;userid=5123&amp;contenttype=vBForum_Post&amp;showposts=1" rel="nofollow">
-				View Forum Posts
-			</a>
-		</li>
-		
-		
-		
-		
-		<li class="right">
-			<img src="images/site_icons/blog.png" alt="" />
-			<a href="blog.php?u=5123" rel="nofollow">
-				View Blog Entries
-			</a>
-		</li>
-		
-		
-		
-		
-		
-
-		
-
-		
-		
-	</ul>
-</div>
-
-				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="Jessica is offline" border="0" />
-
-			
-			</div>
-			<span class="usertitle">
-				Trail Rider
-			</span>
-			
-			
-
-<div>
-<a href="http://www.morcmtb.org/subpages/morcicon.html"><img src="http://www.morcmtb.org/forums/images/ranks/morcmember.gif" border="0" alt="MORC Member"></a>
-
-<a href="http://www.morcmtb.org/subpages/trailpatrol.html"><img src="images/ranks/bikepatrolicon.gif" border="0" alt="Bike Patrol"></a>
-
-
-</div>
-			
-				<span class="postbit_reputation" id="repdisplay_441800_5123" title="Jessica 250 or more points">
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-						<img class="repimg" src="images/reputation/reputation_pos.png" alt="" />
-					
-				</span>
-			
-			
-			<a class="postuseravatar" href="member.php?5123-Jessica" title="Jessica is offline">
-				<img src="customavatars/avatar5123_8.gif" alt="Jessica's Avatar" title="Jessica's Avatar" />
-			</a>
-			 
-			
-				<hr />
-				<dl class="userinfo_extra">
-					<dt>Join Date</dt> <dd>May 2008</dd>
-					<dt>Location</dt> <dd>SLP</dd>
-					
-					<dt>Posts</dt> <dd>387</dd>	
-					
-				</dl>
-				
-				
-				<div class="imlinks">
-					    
-				</div>
-			
-		</div>
-		<div class="postbody">
-			<div class="postrow has_after_content">
 				
 				
 
@@ -3629,7 +3330,7 @@ Good conditions for fat tires.  2, maybe 3 inches of easy snow.  Enough snow to 
 							
 						
 				<div class="content">
-					<div id="post_message_441800">
+					<div id="post_message_443005">
 
 
 
@@ -3643,28 +3344,21 @@ Good conditions for fat tires.  2, maybe 3 inches of easy snow.  Enough snow to 
 
 
 <br>
-<B>Date Posted: </b>01-24-2012 @ 03:51 PM
+<B>Date Posted: </b>02-22-2012 @ 08:44 PM
 <br><BR>
 <b>Details:&nbsp</b>
-I stomped most of the Intermediate this afternoon.  I saw tracks from a few snow bikes and 2 2.something bikes.  The snow bikes looked like they did ok, but I could still see some struggling.  The first non snow bike (didn't see the tracks all that often, snow bikes had been through since) didn't appear to have a problem.  The second non snow bike must have been the last one to go through before me and walked ~70% of the trail.  I also saw boot tracks from 2 separate hikers on the single track, one of whom was out walking his dog and took off through the woods when he saw me.<br />
-<br />
-Overall, I would say it could use more snow shoe traffic and snow bikes.  A little more packing and it should be awesome for everyone.
+Wow!  That was tough, but it got easier....  just let your 9 other buddies break trail for you!  We had 10 total tonight.  8 Fatbikes and 2 "chainsaws".  Nice to be back on the single-track.  Trail should keep gettin' better and better.  (Maybe Fat tires not required, but very helpful).<a href="http://www.morcmtb.org/forums/attachment.php?attachmentid=6241&amp;d=1329968618" id="attachment6241" rel="Lightbox_443005" target="_blank" ><img src="http://www.morcmtb.org/forums/attachment.php?attachmentid=6241&amp;d=1329968618&amp;thumb=1" border="0" alt="Click image for larger version
+
+Name:	DSCN4146.jpg
+Views:	109
+Size:	82.5 KB
+ID:	6241" class="thumbnail" style="float:CONFIG" /></a>
 
 
 					</div>
 
 					
 				</div>
-			</div>
-			
-			<div class="after_content">
-				
-				
-				
-				
-					<blockquote class="signature restore"><div class="signaturecontainer">.....</div></blockquote>
-				
-				
 			</div>
 			
 			<div class="cleardiv"></div>
@@ -3674,8 +3368,11 @@ Overall, I would say it could use more snow shoe traffic and snow bikes.  A litt
 			<!-- <div class="postfoot_container"> -->
 			<div class="textcontrols floatcontainer">
 				<span class="postcontrols">
-					<img style="display:none" id="progress_441800" src="images/misc/progress.gif" alt="" />
+					<img style="display:none" id="progress_443005" src="images/misc/progress.gif" alt="" />
 					
+					
+					
+						<a id="qrwq_443005" class="newreply" href="newreply.php?do=newreply&amp;p=443005" rel="nofollow" title="Reply With Quote"><img id="quoteimg_443005" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
 					
 					
 					
@@ -3717,26 +3414,26 @@ Overall, I would say it could use more snow shoe traffic and snow bikes.  A litt
 
 <div id="below_postlist" class="noinlinemod below_postlist">
 	
-		<a href="newreply.php?p=441800&amp;noquote=1"class="newcontent_textcontrol" id="newreplylink_bottom">Closed Thread</a>
+		<a href="newreply.php?p=443005&amp;noquote=1"class="newcontent_textcontrol" id="newreplylink_bottom"><span>+</span> Reply to Thread</a>
 	
 	<div id="pagination_bottom" class="pagination_bottom">
 	
-		<form action="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page101" method="get" class="pagination popupmenu nohovermenu">
-<input type="hidden" name="t" value="9180" />
+		<form action="showthread.php?28476-Trail-Conditions-Elm-Creek/page11" method="get" class="pagination popupmenu nohovermenu">
+<input type="hidden" name="t" value="28476" />
 	
-		<span><a href="javascript://" class="popupctrl">Page 1 of 291</a></span>
+		<span><a href="javascript://" class="popupctrl">Page 1 of 12</a></span>
 		
 		
 		
-		<span class="selected"><a href="javascript://" title="Results 1 to 15 of 4,358">1</a></span><span><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page2" title="Show results 16 to 30 of 4,358">2</a></span><span><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page3" title="Show results 31 to 45 of 4,358">3</a></span><span><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page11" title="Show results 151 to 165 of 4,358"><!--+10-->11</a></span><span><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page51" title="Show results 751 to 765 of 4,358"><!--+50-->51</a></span><span><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page101" title="Show results 1,501 to 1,515 of 4,358"><!--+100-->101</a></span>
+		<span class="selected"><a href="javascript://" title="Results 1 to 15 of 169">1</a></span><span><a href="showthread.php?28476-Trail-Conditions-Elm-Creek/page2" title="Show results 16 to 30 of 169">2</a></span><span><a href="showthread.php?28476-Trail-Conditions-Elm-Creek/page3" title="Show results 31 to 45 of 169">3</a></span><span><a href="showthread.php?28476-Trail-Conditions-Elm-Creek/page11" title="Show results 151 to 165 of 169"><!--+10-->11</a></span>
 		
 		<span class="separator">...</span>
 		
 		
-		<span class="prev_next"><a rel="next" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page2" title="Next Page - Results 16 to 30 of 4,358"><img src="images/pagination/next-right.png" alt="Next" /></a></span>
+		<span class="prev_next"><a rel="next" href="showthread.php?28476-Trail-Conditions-Elm-Creek/page2" title="Next Page - Results 16 to 30 of 169"><img src="images/pagination/next-right.png" alt="Next" /></a></span>
 		
 		
-		<span class="first_last"><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills/page291" title="Last Page - Results 4,351 to 4,358 of 4,358">Last<img src="images/pagination/last-right.png" alt="Last" /></a></span>
+		<span class="first_last"><a href="showthread.php?28476-Trail-Conditions-Elm-Creek/page12" title="Last Page - Results 166 to 169 of 169">Last<img src="images/pagination/last-right.png" alt="Last" /></a></span>
 		
 	
 	<ul class="popupbody popuphover">
@@ -3748,8 +3445,8 @@ Overall, I would say it could use more snow shoe traffic and snow bikes.  A litt
 <div class="navpopupmenu popupmenu nohovermenu" id="showthread_navpopup">
 	
 		<span class="shade">Quick Navigation</span>
-		<a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills" class="popupctrl"><span class="ctrlcontainer">Lebanon Hills</span></a>
-		<a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills#top" class="textcontrol" onclick="document.location.hash='top';return false;">Top</a>
+		<a href="showthread.php?28476-Trail-Conditions-Elm-Creek" class="popupctrl"><span class="ctrlcontainer">Elm Creek Park Reserve</span></a>
+		<a href="showthread.php?28476-Trail-Conditions-Elm-Creek#top" class="textcontrol" onclick="document.location.hash='top';return false;">Top</a>
 	
 	<ul class="navpopupbody popupbody popuphover">
 		
@@ -4072,9 +3769,9 @@ Overall, I would say it could use more snow shoe traffic and snow bikes.  A litt
 	<div class="navlinks">
 		
 			<strong>&laquo;</strong>
-			<a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;goto=nextoldest" rel="nofollow">Previous Thread</a>
+			<a href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;goto=nextoldest" rel="nofollow">Previous Thread</a>
 			|
-			<a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills&amp;goto=nextnewest" rel="nofollow">Next Thread</a>
+			<a href="showthread.php?28476-Trail-Conditions-Elm-Creek&amp;goto=nextnewest" rel="nofollow">Next Thread</a>
 			<strong>&raquo;</strong>
 		
 	</div>
@@ -4087,7 +3784,7 @@ Overall, I would say it could use more snow shoe traffic and snow bikes.  A litt
 		<div class="inner_block">
 			<h5>Users Browsing this Thread</h5>
 			<div>
-				<p>There are currently 3 users browsing this thread. <span class="shade">(0 members and 3 guests)</span></p>
+				<p>There are currently 2 users browsing this thread. <span class="shade">(0 members and 2 guests)</span></p>
 				<ol class="commalist">
 					
 				</ol>
@@ -4102,65 +3799,75 @@ Overall, I would say it could use more snow shoe traffic and snow bikes.  A litt
 			<ol class="similar_threads">
 			<li class="floatcontainer">
   <div class="titleblock">
-    <h6><a href="showthread.php?29883-Trail-Discussion-Lebanon-Hills" title="This thread is an ongoing discussion of Lebanon Hills trail conditions and related topics.  Feel free to post questions and comments here, but please keep it friendly and reasonably on topic. 
- 
-&lt;a href=&quot;http://www.morcmtb.org/forums/showthread.php?t=9180&quot;&gt;For the latest Leb conditions, click...">Trail Discussion - Lebanon Hills</a></h6>
-    <div class="starter_forum">
-       By bigwheel in forum Lebanon Hills
-    </div>
-  </div>
-  <div class="dateblock">
-    <span class="shade">Replies:</span> 2149
-      <div class="starter_forum">
-        <span class="shade">Last Post:</span> 03-17-2012, <span class="time">06:35 PM</span>
-      </div>
-  </div>
-</li><li class="floatcontainer">
-  <div class="titleblock">
-    <h6><a href="showthread.php?52-An-open-letter-to-cyclists-re-illegal-trail-work" title="FYI 
-============================================== 
- 
-All,  
-The following letter is one that I posted to a number of BB lists and sent directly to individuals throughout the Midwest in response to a case of trail sanitation in Kansas City.  
-A number of people responded to me and suggested that I...">An open letter to cyclists re: illegal trail work</a></h6>
-    <div class="starter_forum">
-       By mtnbykr in forum General Discussion
-    </div>
-  </div>
-  <div class="dateblock">
-    <span class="shade">Replies:</span> 5
-      <div class="starter_forum">
-        <span class="shade">Last Post:</span> 07-28-2007, <span class="time">03:50 AM</span>
-      </div>
-  </div>
-</li><li class="floatcontainer">
-  <div class="titleblock">
-    <h6><a href="showthread.php?17248-New-Trail-OPEN-at-Lebanon-Hills-Stooge-s-Run" title="Thanks to the excellent work by the Leb crew we are happy to announce another new trail that just opened up at Lebanon Hills! 
+    <h6><a href="showthread.php?13038-Trail-Conditions-Battle-Creek" title="WARNING. If you are reading this, you are reading the first post in a long thread of trail condition updates.   You need to view the last post in order to get the most up-to-date conditions. 
   
-We are calling this the Lower Bypass (for now).  (Scratch that - now called Stooge's Run) The bypass trail is the one that is a real slow climb up after you ride a real...">New Trail OPEN at Lebanon Hills - Stooge's Run</a></h6>
+Click &lt;a href=&quot;http://www.morcmtb.org/forums/showthread.php?t=13038&amp;page=9999999#lastpostbit&quot;&gt;here&lt;/a&gt;...">Trail Conditions - Battle Creek</a></h6>
     <div class="starter_forum">
-       By gopherhockey in forum Lebanon Hills
+       By pefozzy in forum Battle Creek
     </div>
   </div>
   <div class="dateblock">
-    <span class="shade">Replies:</span> 37
+    <span class="shade">Replies:</span> 526
       <div class="starter_forum">
-        <span class="shade">Last Post:</span> 07-17-2006, <span class="time">09:06 AM</span>
+        <span class="shade">Last Post:</span> 03-16-2012, <span class="time">07:48 AM</span>
       </div>
   </div>
 </li><li class="floatcontainer">
   <div class="titleblock">
-    <h6><a href="showthread.php?9130-REI-Trail-Day-Lebanon-Hills-June-21" title="REI and MORC will be holding the annual REI Trail Day at Lebanon Hills on June 21, 2003. 
- 
-In the past this event has had a great showing of volunteers.  Last year we placed the bridges in the warm-up (beginner) loop, and did some trimming on the Intermediate trail.  REI provided lunch and...">REI Trail Day @ Lebanon Hills - June 21</a></h6>
+    <h6><a href="showthread.php?35235-Conditions-at-Plumb-Creek-River-Bluffs-trail" title="I rode 4 laps around PLumb Creek today and conditions are, Tacky to Dry there were a few greasy spots but nothing too bad. :banana::jumpy::banana: 
+  
+http://www.midmncyclingclub.blogspot.com/">Conditions at Plumb Creek / River Bluffs trail</a></h6>
     <div class="starter_forum">
-       By gopherhockey in forum Lebanon Hills
+       By Grass Rider in forum Northwestern/Central Minnesota Trails
+    </div>
+  </div>
+  <div class="dateblock">
+    <span class="shade">Replies:</span> 0
+      <div class="starter_forum">
+        <span class="shade">Last Post:</span> 03-24-2010, <span class="time">02:10 PM</span>
+      </div>
+  </div>
+</li><li class="floatcontainer">
+  <div class="titleblock">
+    <h6><a href="showthread.php?31174-Reminder-trail-conditions-threads-are-for-TRAIL-CONDITIONS-ONLY" title="Just a friendly reminder before the moderators get rightfully belligerent... trail conditions threads are for updates on conditions only.    Not to discuss your next ride or your new bike or ask questions of trail stewards etc. etc. 
+  
+People depend on the most recent post being a trail condition....">Reminder: trail conditions threads are for TRAIL CONDITIONS ONLY</a></h6>
+    <div class="starter_forum">
+       By gopherhockey in forum Twin Cities Metro Area Trails
     </div>
   </div>
   <div class="dateblock">
     <span class="shade">Replies:</span> 1
       <div class="starter_forum">
-        <span class="shade">Last Post:</span> 05-28-2003, <span class="time">03:28 PM</span>
+        <span class="shade">Last Post:</span> 04-24-2009, <span class="time">09:03 AM</span>
+      </div>
+  </div>
+</li><li class="floatcontainer">
+  <div class="titleblock">
+    <h6><a href="showthread.php?26521-Trail-Conditions" title="It looks like we have some rain on it's way. It looks like it might be one of those questionable rains where we can't easily determine if trails will be wet for long or not. 
+ 
+This year we really want to stay on top of trail conditions in both the trail threads and on the &quot;Trail Conditions&quot; page...">Trail Conditions</a></h6>
+    <div class="starter_forum">
+       By guest_s in forum General Discussion
+    </div>
+  </div>
+  <div class="dateblock">
+    <span class="shade">Replies:</span> 0
+      <div class="starter_forum">
+        <span class="shade">Last Post:</span> 05-19-2008, <span class="time">12:44 PM</span>
+      </div>
+  </div>
+</li><li class="floatcontainer">
+  <div class="titleblock">
+    <h6><a href="showthread.php?9062-Trail-conditions" title="04/25/2003:  Trail conditions were excellent today. Very dry everywhere. The only ruts were on the open path out of the upper parking lot by the rec centre where someone had ridden when it was still wet (stupid). Otherwise it was clear sailing, although it seemed like there was a lot of small...">Trail conditions</a></h6>
+    <div class="starter_forum">
+       By Hardtailforever in forum Battle Creek
+    </div>
+  </div>
+  <div class="dateblock">
+    <span class="shade">Replies:</span> 20
+      <div class="starter_forum">
+        <span class="shade">Last Post:</span> 08-04-2003, <span class="time">01:21 PM</span>
       </div>
   </div>
 </li>
@@ -4179,31 +3886,31 @@ In the past this event has had a great showing of volunteers.  Last year we plac
 				<h5 class="blocksubhead">Social Bookmarks</h5>
 				<ul class="icon_list"><li class="smallfont">
 	
-		<a href="http://digg.com/submit?phrase=2&amp;url=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D9180&amp;title=Trail+Conditions+-+Lebanon+Hills" target="socialbookmark"><img src="images/misc/bookmarksite_digg.gif" alt="Submit to Digg" /></a>
+		<a href="http://digg.com/submit?phrase=2&amp;url=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D28476&amp;title=Trail+Conditions+-+Elm+Creek" target="socialbookmark"><img src="images/misc/bookmarksite_digg.gif" alt="Submit to Digg" /></a>
 	
-	<a href="http://digg.com/submit?phrase=2&amp;url=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D9180&amp;title=Trail+Conditions+-+Lebanon+Hills" target="socialbookmark">Digg</a>
+	<a href="http://digg.com/submit?phrase=2&amp;url=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D28476&amp;title=Trail+Conditions+-+Elm+Creek" target="socialbookmark">Digg</a>
 </li><li class="smallfont">
 	
-		<a href="http://del.icio.us/post?url=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D9180&amp;title=Trail+Conditions+-+Lebanon+Hills" target="socialbookmark"><img src="images/misc/bookmarksite_delicious.gif" alt="Submit to del.icio.us" /></a>
+		<a href="http://del.icio.us/post?url=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D28476&amp;title=Trail+Conditions+-+Elm+Creek" target="socialbookmark"><img src="images/misc/bookmarksite_delicious.gif" alt="Submit to del.icio.us" /></a>
 	
-	<a href="http://del.icio.us/post?url=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D9180&amp;title=Trail+Conditions+-+Lebanon+Hills" target="socialbookmark">del.icio.us</a>
+	<a href="http://del.icio.us/post?url=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D28476&amp;title=Trail+Conditions+-+Elm+Creek" target="socialbookmark">del.icio.us</a>
 </li><li class="smallfont">
 	
-		<a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D9180&amp;title=Trail+Conditions+-+Lebanon+Hills" target="socialbookmark"><img src="images/misc/bookmarksite_stumbleupon.gif" alt="Submit to StumbleUpon" /></a>
+		<a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D28476&amp;title=Trail+Conditions+-+Elm+Creek" target="socialbookmark"><img src="images/misc/bookmarksite_stumbleupon.gif" alt="Submit to StumbleUpon" /></a>
 	
-	<a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D9180&amp;title=Trail+Conditions+-+Lebanon+Hills" target="socialbookmark">StumbleUpon</a>
+	<a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D28476&amp;title=Trail+Conditions+-+Elm+Creek" target="socialbookmark">StumbleUpon</a>
 </li><li class="smallfont">
 	
-		<a href="http://www.google.com/bookmarks/mark?op=edit&amp;output=popup&amp;bkmk=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D9180&amp;title=Trail+Conditions+-+Lebanon+Hills" target="socialbookmark"><img src="images/misc/bookmarksite_google.gif" alt="Submit to Google" /></a>
+		<a href="http://www.google.com/bookmarks/mark?op=edit&amp;output=popup&amp;bkmk=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D28476&amp;title=Trail+Conditions+-+Elm+Creek" target="socialbookmark"><img src="images/misc/bookmarksite_google.gif" alt="Submit to Google" /></a>
 	
-	<a href="http://www.google.com/bookmarks/mark?op=edit&amp;output=popup&amp;bkmk=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D9180&amp;title=Trail+Conditions+-+Lebanon+Hills" target="socialbookmark">Google</a>
+	<a href="http://www.google.com/bookmarks/mark?op=edit&amp;output=popup&amp;bkmk=http%3A%2F%2Fwww.morcmtb.org%2Fforums%2Fshowthread.php%3Ft%3D28476&amp;title=Trail+Conditions+-+Elm+Creek" target="socialbookmark">Google</a>
 </li></ul>
 			</div>
 		</div>
 		
 		<div class="options_block">
 			<h4 class="collapse blockhead">
-				<a class="collapse" id="collapse_posting_rules" href="showthread.php?9180-Trail-Conditions-Lebanon-Hills#top"><img src="images/buttons/collapse_40b.png" alt="" /></a>
+				<a class="collapse" id="collapse_posting_rules" href="showthread.php?28476-Trail-Conditions-Elm-Creek#top"><img src="images/buttons/collapse_40b.png" alt="" /></a>
 				Posting Permissions
 			</h4>
 			<div id="posting_rules" class="thread_info_block blockbody formcontrols floatcontainer">
@@ -4237,6 +3944,14 @@ In the past this event has had a great showing of volunteers.  Last year we plac
 
 
 
+<!-- lightbox scripts -->
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
 
 
 
@@ -4264,7 +3979,7 @@ In the past this event has had a great showing of volunteers.  Last year we plac
 		
 		
 		
-		<li><a href="showthread.php?9180-Trail-Conditions-Lebanon-Hills#top" onclick="document.location.hash='top'; return false;">Top</a></li>
+		<li><a href="showthread.php?28476-Trail-Conditions-Elm-Creek#top" onclick="document.location.hash='top'; return false;">Top</a></li>
 	</ul>
 	
 	
@@ -4301,7 +4016,7 @@ In the past this event has had a great showing of volunteers.  Last year we plac
 
 
 <div class="below_body">
-<div id="footer_time" class="shade footer_time">All times are GMT -6. The time now is <span class="time">10:18 PM</span>.</div>
+<div id="footer_time" class="shade footer_time">All times are GMT -6. The time now is <span class="time">10:41 PM</span>.</div>
 
 <div id="footer_copyright" class="shade footer_copyright">
 	<!-- Do not remove this copyright notice -->

@@ -45,11 +45,11 @@ public class morcTrailReportActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 
 		appName = getString(R.string.app_name);
-		printer = new TrailReportPrinter(this, factory, appName, R.layout.row);
-
 		registerForContextMenu(getListView());
 
 		trailReports = (TrailReportList) factory.getTrailReportList();
+		printer = new TrailReportPrinter(this, factory, trailReports, appName,
+				R.layout.row);
 
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
@@ -254,6 +254,7 @@ public class morcTrailReportActivity extends ListActivity {
 
 	// / Launch all reports activity
 	private void openAllReports(TrailInfo info) {
+		MorcFactory.getInstance().setAllReportsInfo(info);
 		Intent i = new Intent(this, AllReportActivity.class);
 		startActivity(i);
 	}

@@ -89,6 +89,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	TrailInfoDatabaseFactory trailInfoDatabaseFactory = null;
 	DefaultTrailInfoList defaultTrailInfoList = null;
 	TrailReportReaderFactory trailReportReaderFactory = null;
+	TrailReportDatabaseFactory trailReportDatabaseFactory = null;
 
 	public TrailReportFactory(Context context) {
 		assert (factory == null);
@@ -386,6 +387,15 @@ public class TrailReportFactory implements IAbstractFactory {
 			trailReportReaderFactory = new TrailReportReaderFactory(context);
 		}
 		return trailReportReaderFactory;
+	}
+
+	public TrailReportDatabaseFactory getTrailReportDatabaseFactory() {
+		if (trailReportDatabaseFactory == null) {
+			trailReportDatabaseFactory = new TrailReportDatabaseFactory(
+					getTrailReportPool(), getTrailInfoDatabaseFactory());
+		}
+		return trailReportDatabaseFactory;
+
 	}
 
 }

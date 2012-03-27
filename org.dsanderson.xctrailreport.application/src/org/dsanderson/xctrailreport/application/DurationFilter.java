@@ -33,7 +33,6 @@ public class DurationFilter implements IReportFilter {
 	 * 
 	 */
 	public DurationFilter() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public DurationFilter(int cutoff) {

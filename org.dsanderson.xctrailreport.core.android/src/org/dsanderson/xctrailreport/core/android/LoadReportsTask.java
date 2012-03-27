@@ -109,7 +109,7 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 			listCreator.getTrailReports(trailReports, trailInfos, factory
 					.getUserSettings().getForcedRefresh());
 		} catch (Exception e) {
-			System.err.println(e);
+			e.printStackTrace();
 			trailReports.clear();
 			throw e;
 		} finally {

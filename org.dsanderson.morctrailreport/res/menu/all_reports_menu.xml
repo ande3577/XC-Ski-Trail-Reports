@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/allReportRefresh" android:title="Refresh" android:icon="@drawable/ic_menu_refresh"></item>
+    
+    <item android:id="@+id/allReportsMap" android:title="Open Map" android:icon="@drawable/ic_menu_mapmode"></item><item android:id="@+id/allReportsTrailInfo" android:title="Trail Info" android:icon="@drawable/ic_menu_view"></item><item android:id="@+id/allReportCompose" android:title="Compose" android:icon="@drawable/ic_menu_compose"></item>
+    
+    
+
+</menu>

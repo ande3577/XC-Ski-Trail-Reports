@@ -24,6 +24,7 @@ import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificInfoParser;
 import org.dsanderson.xctrailreport.core.IUserSettingsSource;
+import org.dsanderson.xctrailreport.core.TrailInfo;
 
 /**
  * 
@@ -39,22 +40,22 @@ public abstract class MorcFactory implements ISourceSpecificFactory {
 	private MorcParser parser = null;
 	private MorcInfoPool pool = null;
 	private RegionManager regions = null;
-	
+	private TrailInfo singleReportInfo;
 
 	/**
 	 * 
 	 */
 	public MorcFactory(IAbstractFactory factory) {
-		assert(instance == null);
+		assert (instance == null);
 		instance = this;
 		pool = new MorcInfoPool();
 		retriever = new MorcReportRetriever(factory, this);
 		parser = new MorcParser();
 		regions = new RegionManager();
 	}
-	
+
 	public static MorcFactory getInstance() {
-		assert(instance != null);
+		assert (instance != null);
 		return instance;
 	}
 
@@ -162,8 +163,15 @@ public abstract class MorcFactory implements ISourceSpecificFactory {
 	 * @return
 	 */
 	public IUserSettingsSource getUserSettingsSource() {
-		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void setAllReportsInfo(TrailInfo singleReportInfo) {
+		this.singleReportInfo = singleReportInfo;
+	}
+
+	public TrailInfo getAllReportsInfo() {
+		return singleReportInfo;
 	}
 
 }

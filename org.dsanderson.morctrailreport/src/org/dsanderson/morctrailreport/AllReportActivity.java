@@ -3,40 +3,34 @@ package org.dsanderson.morctrailreport;
 import java.util.List;
 
 import org.dsanderson.morctrailreport.R;
-import org.dsanderson.morctrailreport.AboutActivity;
+import org.dsanderson.morctrailreport.parser.MorcAllReportListCreator;
 import org.dsanderson.morctrailreport.parser.MorcFactory;
 import org.dsanderson.morctrailreport.parser.MorcSpecificTrailInfo;
+import org.dsanderson.morctrailreport.parser.SingleTrailInfoList;
 
-import org.dsanderson.xctrailreport.application.ReportListCreator;
-import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
-import org.dsanderson.xctrailreport.core.android.TrailInfoList;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
 
 import android.app.ListActivity;
 import android.content.Intent;
-import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.view.ContextMenu;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class AllReportActivity extends ListActivity {
 
-	private TrailReportList trailReports;
-	private TrailReportFactory factory = new TrailReportFactory(this);
-	ReportListCreator listCreator = new ReportListCreator(factory);
+	private final String databaseName = "all_reports_database";
+
+	private TrailReportList trailReports = null;
+	private SingleTrailInfoList trailInfos = null;
+	private TrailReportFactory factory = TrailReportFactory.getInstance();
+	MorcAllReportListCreator listCreator = new MorcAllReportListCreator(factory);
 	private TrailReportPrinter printer;
 	String appName;
 	private TrailInfo info;
@@ -48,9 +42,23 @@ public class AllReportActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 
 		appName = getString(R.string.app_name);
-		printer = new TrailReportPrinter(this, factory, appName, R.layout.row);
 
-		trailReports = (TrailReportList) factory.getTrailReportList();
+		if (trailReports == null) {
+			trailReports = new TrailReportList(this,
+					factory.getTrailReportDatabaseFactory(), databaseName,
+					R.integer.databaseVersion);
+			try {
+				trailReports.open();
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+		}
+		printer = new TrailReportPrinter(this, factory, trailReports, appName,
+				R.layout.row);
+
+		if (trailInfos == null)
+			trailInfos = new SingleTrailInfoList();
 
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
@@ -131,8 +139,12 @@ public class AllReportActivity extends ListActivity {
 			factory.getLocationSource().setLocation(
 					factory.getUserSettings().getDefaultLocation());
 
+		info = MorcFactory.getInstance().getAllReportsInfo();
+		morcInfo = (MorcSpecificTrailInfo) info
+				.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
+		trailInfos.add(info);
 		new LoadReportsTask(this, factory, listCreator, printer, trailReports,
-				factory.getTrailInfoList()).execute();
+				trailInfos).execute();
 	}
 
 	private void launchIntent(String uriString) {

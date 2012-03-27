@@ -54,11 +54,16 @@ public class ReportListCreator implements IReportListCreator {
 
 		if (!refreshNeeded
 				&& settings.getAutoRefreshMode() == AutoRefreshMode.IF_OUT_OF_DATE) {
-			Date lastModified = trailReports.getTimestamp();
-			if (lastModified == null
-					|| (new Date()).getTime() - lastModified.getTime() > factory
-							.getUserSettings().getAutoRefreshCutoff())
+			try {
+				Date lastModified = trailReports.getTimestamp();
+				if (lastModified == null
+						|| (new Date()).getTime() - lastModified.getTime() > factory
+								.getUserSettings().getAutoRefreshCutoff())
+					refreshNeeded = true;
+			} catch (Exception e) {
 				refreshNeeded = true;
+				e.printStackTrace();
+			}
 		}
 
 		try {
