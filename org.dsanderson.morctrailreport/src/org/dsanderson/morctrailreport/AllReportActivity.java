@@ -112,6 +112,12 @@ public class AllReportActivity extends ListActivity {
 					launchIntent(trailInfoUrl);
 			}
 			return true;
+		case R.id.openInBrowser:
+			if (morcInfo != null) {
+				String allReportUrl = morcInfo.getAllTrailReportUrl();
+				if (allReportUrl != null && allReportUrl.length() > 0)
+					launchIntent(allReportUrl);
+			}
 		default:
 			return super.onContextItemSelected(item);
 		}
