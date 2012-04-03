@@ -154,6 +154,7 @@ public class MorcAllReportScanner {
 		detailString = detailString.replace("<br />", "\n");
 		detailString = detailString.replace("\n\n", "\n");
 		detailString = detailString.replace("\n \n", "\n");
+		detailString = removeImage(detailString);
 		trailReport.setDetail(detailString.trim());
 	}
 
@@ -182,6 +183,10 @@ public class MorcAllReportScanner {
 
 	private boolean findNext(String pattern) {
 		return scanner.findWithinHorizon(pattern, 0) != null;
+	}
+
+	private String removeImage(String htmlString) {
+		return htmlString.replaceAll("\\Q<img\\E.*\\Q>\\E", "");
 	}
 
 }

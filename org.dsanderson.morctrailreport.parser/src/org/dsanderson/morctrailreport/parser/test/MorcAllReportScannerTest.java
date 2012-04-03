@@ -40,7 +40,7 @@ public class MorcAllReportScannerTest {
 		try {
 			TrailReportPool trailReportPool = new TrailReportPool();
 
-			fileStream = new FileInputStream("showthread_elm_creek.php");
+			fileStream = new FileInputStream("showthread_battle_creek.php");
 
 			MorcAllReportScanner morcScanner = new MorcAllReportScanner(
 					fileStream, trailReportPool);
