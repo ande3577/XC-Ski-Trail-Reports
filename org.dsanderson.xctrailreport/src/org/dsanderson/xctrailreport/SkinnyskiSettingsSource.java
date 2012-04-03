@@ -38,7 +38,7 @@ public class SkinnyskiSettingsSource implements IUserSettingsSource {
 	public static final String regionKeys[] = { "mnMetro", "mnNortheast",
 			"mnNorthwest", "mnCentral", "mnSouthern", "wiNorthwest",
 			"wiNortheast", "wiSouthwest", "wiSouthwest", "miUP", "ia", "ca",
-			"il", "nd", "us" };
+			"il", "nd", "us", "intl" };
 
 	public SkinnyskiSettingsSource(Context context, SkinnyskiFactory factory) {
 		this.factory = factory;

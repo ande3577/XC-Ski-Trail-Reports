@@ -32,10 +32,10 @@ public class RegionManager {
 			"Minnesota Southern", "Wisconsin Northwest", "Wisconsin Northeast",
 			"Wisconsin Southwest", "Wisconsin Southeast",
 			"Michigan Upper Peninsula", "Iowa", "Canada", "Illinois",
-			"North Dakota", "United States" };
+			"North Dakota", "United States", "International" };
 
 	private static final String regionStates[] = { "MN", "MN", "MN", "MN",
-			"MN", "WI", "WI", "WI", "WI", "MI", "IA", "", "IL", "ND", "" };
+			"MN", "WI", "WI", "WI", "WI", "MI", "IA", "", "IL", "ND", "", "" };
 
 	private List<String> regions = new ArrayList<String>();
 

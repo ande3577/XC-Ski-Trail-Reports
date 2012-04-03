@@ -15,6 +15,7 @@
     <CheckBoxPreference android:title="Illinois" android:key="il" android:defaultValue="false"/>
     <CheckBoxPreference android:title="North Dakota" android:key="nd" android:defaultValue="false"/>
     <CheckBoxPreference android:title="United States" android:key="us" android:defaultValue="false"/>
+    <CheckBoxPreference android:key="intl" android:title="International" android:defaultValue="false"/>
     
 
 </PreferenceScreen>
