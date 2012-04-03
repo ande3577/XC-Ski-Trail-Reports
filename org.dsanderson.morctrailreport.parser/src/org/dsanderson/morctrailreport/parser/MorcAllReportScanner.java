@@ -148,8 +148,15 @@ public class MorcAllReportScanner {
 		scanner.nextLine();
 		String detailString = "";
 		String lineString;
-		while (!(lineString = scanner.nextLine()).contains("</div>")) {
-			detailString += lineString;
+		while (scanner.hasNextLine()) {
+			lineString = scanner.nextLine();
+			if (lineString.contains("<div class=\"bbcode_container\">")) {
+				detailString += scanQuote();
+			} else if (lineString.contains("</div>")) {
+				break;
+			} else {
+				detailString += lineString;
+			}
 		}
 		detailString = detailString.replace("<br />", "\n");
 		detailString = detailString.replace("\n\n", "\n");
@@ -189,4 +196,29 @@ public class MorcAllReportScanner {
 		return htmlString.replaceAll("\\Q<img\\E.*\\Q>\\E", "");
 	}
 
+	private String scanQuote() {
+		if (!findNext("\\QOriginally Posted by <strong>\\E"))
+			return "";
+		String quoteAuthor = scan("", "\\Q</strong>\\E", ".*");
+		scanner.nextLine();
+		String urlString = scan("\\Q<a href=\"\\E", "[\"]", ".*");
+
+		if (!findNext("\\Q<div class=\"message\">\\E"))
+			return "";
+		String quoteText = scan("", "\\Q</div>\\E", ".*");
+		// need to close 3 /div tags
+		for (int i = 0; i < 3; i++) {
+			if (!findNext("\\Q</div>\\E"))
+				return "";
+		}
+
+		String returnString = "\"" + quoteText + "\"" + "<br>";
+		if (urlString != null) {
+			returnString += "<a href=\"" + MorcSpecificTrailInfo.FORUM_PREFIX
+					+ urlString + "\">" + quoteAuthor + "</a><br>";
+		} else {
+			returnString += "<b>" + quoteAuthor + "</b><br>";
+		}
+		return returnString;
+	}
 }

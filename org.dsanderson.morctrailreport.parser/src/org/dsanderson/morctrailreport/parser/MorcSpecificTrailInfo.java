@@ -26,8 +26,9 @@ import org.dsanderson.xctrailreport.core.Merge;
  * 
  */
 public class MorcSpecificTrailInfo implements ISourceSpecificTrailInfo {
-	private static final String ALL_REPORT_PREFIX = "http://www.morcmtb.org/forums/showthread.php?";
-	private static final String TRAIL_COMPOSE_PREFIX = "http://www.morcmtb.org/forums/newreply.php?p=";
+	public static final String FORUM_PREFIX = "http://www.morcmtb.org/forums/";
+	private static final String ALL_REPORT_PREFIX = FORUM_PREFIX + "showthread.php?";
+	private static final String TRAIL_COMPOSE_PREFIX = FORUM_PREFIX + "newreply.php?p=";
 	private static final String TRAIL_COMPOSE_SUFFIX = "&noquote=1";
 	private static final String TRAIL_INFO_PREFIX = "http://www.morcmtb.org/wiki/index.php?title=";
 
