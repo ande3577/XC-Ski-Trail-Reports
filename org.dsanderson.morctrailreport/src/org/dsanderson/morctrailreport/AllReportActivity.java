@@ -7,7 +7,6 @@ import org.dsanderson.android.util.ListEntry;
 import org.dsanderson.morctrailreport.R;
 import org.dsanderson.morctrailreport.parser.MorcAllReportListCreator;
 import org.dsanderson.morctrailreport.parser.MorcFactory;
-import org.dsanderson.morctrailreport.parser.MorcReportRetriever;
 import org.dsanderson.morctrailreport.parser.MorcSpecificTrailInfo;
 import org.dsanderson.morctrailreport.parser.SingleTrailInfoList;
 
@@ -16,7 +15,6 @@ import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
-import org.dsanderson.xctrailreport.core.android.TrailReportAdapter;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
 
