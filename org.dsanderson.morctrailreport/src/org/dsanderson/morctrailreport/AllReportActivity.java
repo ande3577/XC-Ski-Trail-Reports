@@ -1,7 +1,9 @@
 package org.dsanderson.morctrailreport;
 
+import java.util.Date;
 import java.util.List;
 
+import org.dsanderson.android.util.ListEntry;
 import org.dsanderson.morctrailreport.R;
 import org.dsanderson.morctrailreport.parser.MorcAllReportListCreator;
 import org.dsanderson.morctrailreport.parser.MorcFactory;
@@ -10,20 +12,30 @@ import org.dsanderson.morctrailreport.parser.MorcSpecificTrailInfo;
 import org.dsanderson.morctrailreport.parser.SingleTrailInfoList;
 
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
+import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
+import org.dsanderson.xctrailreport.core.android.TrailReportAdapter;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.format.Time;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CursorAdapter;
+import android.widget.LinearLayout;
 
 public class AllReportActivity extends ListActivity {
 
@@ -33,10 +45,12 @@ public class AllReportActivity extends ListActivity {
 	private SingleTrailInfoList trailInfos = null;
 	private TrailReportFactory factory = TrailReportFactory.getInstance();
 	MorcAllReportListCreator listCreator = new MorcAllReportListCreator(factory);
-	private TrailReportPrinter printer;
+	private AllTrailReportPrinter printer;
 	String appName;
 	private TrailInfo info;
 	MorcSpecificTrailInfo morcInfo;
+	boolean redraw = true;
+	private AllTrailReportAdapter adapter;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -56,26 +70,30 @@ public class AllReportActivity extends ListActivity {
 				throw new RuntimeException(e);
 			}
 		}
-		printer = new TrailReportPrinter(this, factory, trailReports, appName,
-				R.layout.row);
 
 		if (trailInfos == null)
 			trailInfos = new SingleTrailInfoList();
+
+		info = trailInfos.get(0);
+
+		printer = new AllTrailReportPrinter(this, factory, trailReports,
+				appName, R.layout.row);
 
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
 
 			@SuppressWarnings("unchecked")
 			final List<TrailReport> savedTrailReports = (List<TrailReport>) getLastNonConfigurationInstance();
-			if (savedTrailReports == null)
+			if (savedTrailReports == null) {
+				redraw = true;
 				refresh(false, 1);
+			}
 
 		} catch (Exception e) {
 			System.err.println(e);
 			factory.newDialog(e).show();
 		}
 
-		// refresh();
 	}
 
 	@Override
@@ -96,6 +114,7 @@ public class AllReportActivity extends ListActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.allReportRefresh:
+			redraw = true;
 			refresh(true, 1);
 			return true;
 		case R.id.allReportCompose: {
@@ -119,11 +138,6 @@ public class AllReportActivity extends ListActivity {
 				String allReportUrl = morcInfo.getAllTrailReportUrl();
 				if (allReportUrl != null && allReportUrl.length() > 0)
 					launchIntent(allReportUrl);
-			}
-			return true;
-		case R.id.nextPage:
-			if (morcInfo != null && (listCreator.getPage() < listCreator.getLastPage())) {
-				refresh(true, listCreator.getPage() + 1);
 			}
 			return true;
 		default:
@@ -168,5 +182,146 @@ public class AllReportActivity extends ListActivity {
 		startActivity(intent);
 	}
 
-}
+	private class AllTrailReportPrinter extends TrailReportPrinter {
 
+		private final ListActivity context;
+		private final IAbstractFactory factory;
+		private final TrailReportList trailReports;
+		private final int rowId;
+
+		public AllTrailReportPrinter(ListActivity context,
+				IAbstractFactory factory, TrailReportList trailReports,
+				String appName, int rowId) {
+			super(context, factory, trailReports, appName, rowId);
+			this.context = context;
+			this.factory = factory;
+			this.rowId = rowId;
+
+			this.trailReports = trailReports;
+		}
+
+		public void printTrailReports() throws Exception {
+			Date lastRefreshDate = trailReports.getTimestamp();
+			String titleString = info.getName();
+			if (lastRefreshDate != null && lastRefreshDate.getTime() != 0) {
+				Time time = new Time();
+				time.set(lastRefreshDate.getTime());
+				titleString += time.format(" (%b %e, %r)");
+			}
+			context.setTitle(titleString);
+
+			trailReports.filter(factory.getUserSettings());
+			trailReports.sort(factory.getUserSettings());
+
+			Cursor cursor = ((TrailReportList) trailReports).getCursor();
+			if (redraw || (adapter == null)) {
+				adapter = new AllTrailReportAdapter(context, rowId, cursor,
+						factory, trailReports);
+				context.setListAdapter(adapter);
+			} else {
+				adapter.changeCursor(cursor);
+			}
+
+			factory.getUserSettings().setRedrawNeeded(false);
+		}
+
+	}
+
+	private class AllTrailReportAdapter extends CursorAdapter {
+
+		private final IAbstractFactory factory;
+		private final TrailReportList trailReports;
+		private final int textViewResourceId;
+
+		/**
+		 * @param context
+		 * @param textViewResourceId
+		 * @param objects
+		 */
+		public AllTrailReportAdapter(Context context, int textViewResourceId,
+				Cursor cursor, IAbstractFactory factory,
+				TrailReportList trailReports) {
+			super(context, cursor);
+			this.factory = factory;
+			this.trailReports = trailReports;
+			this.textViewResourceId = textViewResourceId;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see android.widget.CursorAdapter#newView(android.content.Context,
+		 * android.database.Cursor, android.view.ViewGroup)
+		 */
+		@Override
+		public View newView(Context context, Cursor cursor, ViewGroup parent) {
+
+			final LayoutInflater inflater = LayoutInflater.from(context);
+			View layout = inflater.inflate(textViewResourceId, parent, false);
+
+			return layout;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see android.widget.CursorAdapter#bindView(android.view.View,
+		 * android.content.Context, android.database.Cursor)
+		 */
+		@Override
+		public void bindView(View view, Context context, Cursor cursor) {
+			TrailReport currentReport = (TrailReport) trailReports.get(cursor);
+
+			if (currentReport != null) {
+				ListEntry listEntry = new ListEntry((LinearLayout) view,
+						context);
+
+				boolean newTrail = false;
+				boolean last = cursor.isLast();
+				if (cursor.moveToPrevious()) {
+					TrailReport previousReport = (TrailReport) trailReports
+							.get(cursor);
+
+					if (previousReport.getTrailInfo().getName()
+							.compareTo(currentReport.getTrailInfo().getName()) != 0) {
+						newTrail = true;
+					}
+					TrailInfo previousInfo = previousReport.getTrailInfo();
+					for (ISourceSpecificTrailInfo specificInfo : previousInfo
+							.getSourceSpecificInfos()) {
+						specificInfo.deleteItem();
+					}
+					factory.getTrailInfoPool().deleteItem(previousInfo);
+					factory.getTrailReportPool().deleteItem(previousReport);
+				} else {
+					newTrail = true;
+				}
+
+				if (newTrail)
+					factory.getTrailInfoDecorators().decorate(currentReport,
+							listEntry);
+
+				factory.getTrailReportDecorators().decorate(currentReport,
+						listEntry);
+
+				listEntry.draw();
+
+				TrailInfo currentInfo = currentReport.getTrailInfo();
+				for (ISourceSpecificTrailInfo specificInfo : currentInfo
+						.getSourceSpecificInfos()) {
+					specificInfo.deleteItem();
+				}
+				factory.getTrailInfoPool().deleteItem(currentInfo);
+				factory.getTrailReportPool().deleteItem(currentReport);
+
+				// if on last entry and we have another page
+				if (last && (listCreator.getPage() < listCreator.getLastPage())) {
+					redraw = false;
+					refresh(true, listCreator.getPage() + 1);
+				}
+			}
+		}
+
+	}
+
+}

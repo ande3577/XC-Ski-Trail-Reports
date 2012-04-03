@@ -40,6 +40,7 @@ public class testActivity extends ListActivity {
 
 		database = new TestDataBase(this);
 		try {
+			database.open();
 			database.load();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -47,7 +48,7 @@ public class testActivity extends ListActivity {
 
 		database.getAllObjects();
 
-		fillData();
+		fillData(true);
 		registerForContextMenu(getListView());
 	}
 
@@ -88,7 +89,7 @@ public class testActivity extends ListActivity {
 		default:
 			return super.onOptionsItemSelected(item);
 		}
-		fillData();
+		fillData(true);
 		return true;
 	}
 
@@ -122,7 +123,7 @@ public class testActivity extends ListActivity {
 		default:
 			return super.onContextItemSelected(item);
 		}
-		fillData();
+		fillData(false);
 		return true;
 	}
 
@@ -148,14 +149,13 @@ public class testActivity extends ListActivity {
 				Cursor cursor = database.getCursor();
 				if (cursor.moveToFirst())
 					database.remove(cursor);
-				cursor.close();
 			}
 			break;
 		}
-		fillData();
+		fillData(false);
 	}
 
-	private void fillData() {
+	private void fillData(boolean newAdapter) {
 
 		TextView dateView = (TextView) findViewById(R.id.dateString);
 
@@ -178,11 +178,14 @@ public class testActivity extends ListActivity {
 		// Fields on the UI to which we map
 		int[] to = new int[] { R.id.name, R.id.value };
 
-		if (cursor != null && !cursor.isClosed())
-			cursor.close();
 		cursor = database.getCursor();
-		adapter = new SimpleCursorAdapter(this, R.layout.row, cursor, from, to);
-		setListAdapter(adapter);
+		if (newAdapter) {
+			adapter = new SimpleCursorAdapter(this, R.layout.row, cursor, from, to);
+			setListAdapter(adapter);
+		}
+		else {
+			adapter.changeCursor(cursor);
+		}
 	}
 
 	@Override
