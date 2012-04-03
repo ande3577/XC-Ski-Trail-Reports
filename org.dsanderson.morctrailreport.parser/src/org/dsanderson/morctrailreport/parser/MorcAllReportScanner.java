@@ -51,6 +51,16 @@ public class MorcAllReportScanner {
 		return trailReport;
 	}
 
+	public int findLastPage() {
+		if (findNext("\\Q<span class=\"first_last\"><a href=\"\\E.*\\Q/page\\E")) {
+			String lastPageString = scan("", "\\Q\"\\E", ".*");
+			if (lastPageString != null && !lastPageString.isEmpty()) {
+				return Integer.parseInt(lastPageString);
+			}
+		}
+		return 1;
+	}
+
 	public boolean findStartOfReports() {
 		return findNext("\\Q<ol id=\"posts\" class=\"posts\" start=\"1\">\\E");
 	}

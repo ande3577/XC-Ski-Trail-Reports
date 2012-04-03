@@ -39,12 +39,27 @@ import org.dsanderson.xctrailreport.core.UserSettings.AutoRefreshMode;
 public class MorcAllReportListCreator implements IReportListCreator {
 
 	private final IAbstractFactory factory;
+	private int page = 1;
+	private int lastPage = 1;
+	private MorcAllReportScanner scanner;
 
 	/**
 	 * 
 	 */
 	public MorcAllReportListCreator(IAbstractFactory factory) {
 		this.factory = factory;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public int getLastPage() {
+		return lastPage;
 	}
 
 	/*
@@ -91,14 +106,19 @@ public class MorcAllReportListCreator implements IReportListCreator {
 		}
 
 		TrailInfo info = trailInfos.get(0);
-		if (refreshNeeded || (trailReports.size() == 0)
-				|| !info.getName().equals(trailReports.get(0).getTrailInfo().getName())) {
+		if (refreshNeeded
+				|| (trailReports.size() == 0)
+				|| !info.getName().equals(
+						trailReports.get(0).getTrailInfo().getName())) {
 			refreshNeeded = true;
 		}
 
 		if (refreshNeeded) {
-			// start by clearing out the existing trail reports
-			trailReports.clear();
+			// start by clearing out the existing trail reports, if downloading
+			// first page
+			if (page <= 1)
+				trailReports.clear();
+
 			downloadTrailReports(trailReports, info);
 			trailReports.save();
 		}
@@ -114,11 +134,14 @@ public class MorcAllReportListCreator implements IReportListCreator {
 		INetConnection netConnection = factory.getNetConnection();
 
 		try {
-			netConnection.connect(morcSpecific.getAllTrailReportUrl());
+			netConnection.connect(morcSpecific.getAllTrailReportUrl() + "/page"
+					+ Integer.toString(page));
 			BufferedInputStream stream = new BufferedInputStream(
 					netConnection.getStream());
-			MorcAllReportScanner scanner = new MorcAllReportScanner(stream,
+			scanner = new MorcAllReportScanner(stream,
 					factory.getTrailReportPool());
+
+			lastPage = scanner.findLastPage();
 
 			if (scanner.findStartOfReports()) {
 				while (scanner.scanReports()) {

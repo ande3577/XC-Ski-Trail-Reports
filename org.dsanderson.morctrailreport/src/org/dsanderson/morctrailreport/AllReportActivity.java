@@ -5,9 +5,11 @@ import java.util.List;
 import org.dsanderson.morctrailreport.R;
 import org.dsanderson.morctrailreport.parser.MorcAllReportListCreator;
 import org.dsanderson.morctrailreport.parser.MorcFactory;
+import org.dsanderson.morctrailreport.parser.MorcReportRetriever;
 import org.dsanderson.morctrailreport.parser.MorcSpecificTrailInfo;
 import org.dsanderson.morctrailreport.parser.SingleTrailInfoList;
 
+import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
@@ -66,7 +68,7 @@ public class AllReportActivity extends ListActivity {
 			@SuppressWarnings("unchecked")
 			final List<TrailReport> savedTrailReports = (List<TrailReport>) getLastNonConfigurationInstance();
 			if (savedTrailReports == null)
-				refresh(false);
+				refresh(false, 1);
 
 		} catch (Exception e) {
 			System.err.println(e);
@@ -94,7 +96,7 @@ public class AllReportActivity extends ListActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.allReportRefresh:
-			refresh(true);
+			refresh(true, 1);
 			return true;
 		case R.id.allReportCompose: {
 			String composeUrl = morcInfo.getComposeUrl();
@@ -118,6 +120,12 @@ public class AllReportActivity extends ListActivity {
 				if (allReportUrl != null && allReportUrl.length() > 0)
 					launchIntent(allReportUrl);
 			}
+			return true;
+		case R.id.nextPage:
+			if (morcInfo != null && (listCreator.getPage() < listCreator.getLastPage())) {
+				refresh(true, listCreator.getPage() + 1);
+			}
+			return true;
 		default:
 			return super.onContextItemSelected(item);
 		}
@@ -136,7 +144,7 @@ public class AllReportActivity extends ListActivity {
 		}
 	}
 
-	private void refresh(boolean forced) {
+	private void refresh(boolean forced, int page) {
 		factory.getUserSettings().setForcedRefresh(forced);
 
 		if (factory.getUserSettings().getLocationEnabled())
@@ -149,6 +157,7 @@ public class AllReportActivity extends ListActivity {
 		morcInfo = (MorcSpecificTrailInfo) info
 				.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
 		trailInfos.add(info);
+		listCreator.setPage(page);
 		new LoadReportsTask(this, factory, listCreator, printer, trailReports,
 				trailInfos).execute();
 	}
@@ -160,3 +169,4 @@ public class AllReportActivity extends ListActivity {
 	}
 
 }
+

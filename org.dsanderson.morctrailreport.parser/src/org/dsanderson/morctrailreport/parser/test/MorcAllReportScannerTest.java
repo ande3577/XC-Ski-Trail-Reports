@@ -45,6 +45,8 @@ public class MorcAllReportScannerTest {
 			MorcAllReportScanner morcScanner = new MorcAllReportScanner(
 					fileStream, trailReportPool);
 
+			System.out.println("LastPage: " + morcScanner.findLastPage());
+
 			if (morcScanner.findStartOfReports()) {
 				while (morcScanner.scanReports()) {
 					printReportInfo(morcScanner);
