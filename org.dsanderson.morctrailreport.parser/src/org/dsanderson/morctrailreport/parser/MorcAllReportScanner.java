@@ -52,17 +52,7 @@ public class MorcAllReportScanner {
 
 	public int findLastPage() {
 		if (findNext("\\Q<span class=\"first_last\">\\E")) {
-			String lastPageString = scanner.nextLine();
-			if (lastPageString == null || lastPageString.isEmpty())
-				return 1;
-			String split[] = lastPageString.split("[\"\\&]");
-			if (split.length <= 3)
-				return 1;
-			split = split[1].split("\\Qpage\\E");
-			if (split.length < 2)
-				return 1;
-			lastPageString = split[1];
-			
+			String lastPageString = scan("\\Qpage\\E", "[\"\\&]", ".*");
 			if (lastPageString != null && !lastPageString.isEmpty()) {
 				return Integer.parseInt(lastPageString);
 			}
