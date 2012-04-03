@@ -265,6 +265,7 @@ public class GenericDatabase extends SQLiteOpenHelper {
 		object.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
 		object.setTimestamp(cursor.getLong(cursor
 				.getColumnIndex(COLUMN_TIMESTAMP)));
+		cursor.close();
 		return object;
 	}
 
