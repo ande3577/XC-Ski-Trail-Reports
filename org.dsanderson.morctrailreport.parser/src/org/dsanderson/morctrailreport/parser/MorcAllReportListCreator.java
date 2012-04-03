@@ -41,7 +41,6 @@ public class MorcAllReportListCreator implements IReportListCreator {
 	private final IAbstractFactory factory;
 	private int page = 1;
 	private int lastPage = 1;
-	private MorcAllReportScanner scanner;
 
 	/**
 	 * 
@@ -138,7 +137,7 @@ public class MorcAllReportListCreator implements IReportListCreator {
 					+ Integer.toString(page));
 			BufferedInputStream stream = new BufferedInputStream(
 					netConnection.getStream());
-			scanner = new MorcAllReportScanner(stream,
+			MorcAllReportScanner scanner = new MorcAllReportScanner(stream,
 					factory.getTrailReportPool());
 
 			lastPage = scanner.findLastPage();
