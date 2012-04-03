@@ -35,6 +35,8 @@ public class MorcSpecificTrailInfo implements ISourceSpecificTrailInfo {
 	private String shortAllReportUrl = null;
 	private String shortComposeUrl = null;
 
+	private int lastPage = 1;
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -98,9 +100,18 @@ public class MorcSpecificTrailInfo implements ISourceSpecificTrailInfo {
 		return shortTrailInfoUrl;
 	}
 
+	public void setLastPage(int lastPage) {
+		this.lastPage = lastPage;
+	}
+
+	public int getLastPage() {
+		return lastPage;
+	}
+
 	public MorcSpecificTrailInfo reset() {
 		shortAllReportUrl = null;
 		shortComposeUrl = null;
+		lastPage = 1;
 		return this;
 	}
 
@@ -161,6 +172,9 @@ public class MorcSpecificTrailInfo implements ISourceSpecificTrailInfo {
 				morcSpecific.shortComposeUrl);
 		shortAllReportUrl = Merge.merge(shortAllReportUrl,
 				morcSpecific.shortAllReportUrl);
+		if (lastPage <= 1) {
+			lastPage = morcSpecific.getLastPage();
+		}
 
 	}
 

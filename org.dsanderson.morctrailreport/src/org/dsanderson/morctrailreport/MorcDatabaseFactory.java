@@ -41,14 +41,17 @@ public class MorcDatabaseFactory implements IDatabaseObjectFactory {
 	private static final String TYPE_INFO_URL = "text not null";
 
 	public static final String COLUMN_ALL_REPORTS_URL = PREFIX
-			+ "all_resports_url";
+			+ "all_reports_url";
 	private static final String TYPE_ALL_REPORTS_URL = "text not null";
 
-	public static final String COLUMN_COMPOSE_URL = PREFIX + "compuse_url";
+	public static final String COLUMN_COMPOSE_URL = PREFIX + "compose_url";
 	private static final String TYPE_COMPOSE_URL = "text not null";
 
+	public static final String COLUMN_LAST_PAGE = PREFIX + "last_page";
+	private static final String TYPE_LAST_PAGE = "integer not null";
+
 	private final MorcFactory factory;
-	
+
 	MorcDatabaseFactory(MorcFactory factory) {
 		this.factory = factory;
 	}
@@ -64,6 +67,7 @@ public class MorcDatabaseFactory implements IDatabaseObjectFactory {
 		database.addColumn(COLUMN_INFO_URL, TYPE_INFO_URL);
 		database.addColumn(COLUMN_ALL_REPORTS_URL, TYPE_ALL_REPORTS_URL);
 		database.addColumn(COLUMN_COMPOSE_URL, TYPE_COMPOSE_URL);
+		database.addColumn(COLUMN_LAST_PAGE, TYPE_LAST_PAGE);
 	}
 
 	/*
@@ -82,8 +86,12 @@ public class MorcDatabaseFactory implements IDatabaseObjectFactory {
 			values.put(COLUMN_INFO_URL, morcInfo.getTrailInfoShortUrl());
 			values.put(COLUMN_ALL_REPORTS_URL, morcInfo.getAllReportShortUrl());
 			values.put(COLUMN_COMPOSE_URL, morcInfo.getComposeShortUrl());
+			values.put(COLUMN_LAST_PAGE, morcInfo.getLastPage());
 		} else {
 			values.put(COLUMN_INFO_URL, "");
+			values.put(COLUMN_ALL_REPORTS_URL, "");
+			values.put(COLUMN_COMPOSE_URL, "");
+			values.put(COLUMN_LAST_PAGE, 1);
 		}
 	}
 
@@ -111,6 +119,8 @@ public class MorcDatabaseFactory implements IDatabaseObjectFactory {
 				.getColumnIndex(COLUMN_COMPOSE_URL)));
 		morcInfo.setAllReportShortUrl(cursor.getString(cursor
 				.getColumnIndex(COLUMN_ALL_REPORTS_URL)));
+		morcInfo.setLastPage(cursor.getInt(cursor
+				.getColumnIndex(COLUMN_LAST_PAGE)));
 
 		if (!existing)
 			info.addSourceSpecificInfo(morcInfo);

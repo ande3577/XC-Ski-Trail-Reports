@@ -110,6 +110,16 @@ public class MorcAllReportListCreator implements IReportListCreator {
 				|| !info.getName().equals(
 						trailReports.get(0).getTrailInfo().getName())) {
 			refreshNeeded = true;
+		} else {
+			ISourceSpecificTrailInfo specificInfo = trailReports.get(0)
+					.getTrailInfo()
+					.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
+			if (specificInfo != null) {
+				MorcSpecificTrailInfo morcInfo = (MorcSpecificTrailInfo) specificInfo;
+				lastPage = morcInfo.getLastPage();
+			} else {
+				lastPage = 1;
+			}
 		}
 
 		if (refreshNeeded) {
@@ -141,6 +151,7 @@ public class MorcAllReportListCreator implements IReportListCreator {
 					factory.getTrailReportPool());
 
 			lastPage = scanner.findLastPage();
+			morcSpecific.setLastPage(lastPage);
 
 			if (scanner.findStartOfReports()) {
 				while (scanner.scanReports()) {

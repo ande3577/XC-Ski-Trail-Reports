@@ -48,7 +48,7 @@ public class AllReportActivity extends ListActivity {
 		if (trailReports == null) {
 			trailReports = new TrailReportList(this,
 					factory.getTrailReportDatabaseFactory(), databaseName,
-					R.integer.databaseVersion);
+					Integer.parseInt(getString(R.integer.databaseVersion)));
 			try {
 				trailReports.open();
 			} catch (Exception e) {
