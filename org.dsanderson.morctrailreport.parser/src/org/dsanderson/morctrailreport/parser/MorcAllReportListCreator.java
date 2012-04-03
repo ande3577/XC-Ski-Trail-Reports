@@ -150,7 +150,9 @@ public class MorcAllReportListCreator implements IReportListCreator {
 			MorcAllReportScanner scanner = new MorcAllReportScanner(stream,
 					factory.getTrailReportPool());
 
-			lastPage = scanner.findLastPage();
+			if (page == 1)
+				lastPage = scanner.findLastPage();
+			
 			morcSpecific.setLastPage(lastPage);
 
 			if (scanner.findStartOfReports()) {
