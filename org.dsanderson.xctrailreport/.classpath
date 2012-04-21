@@ -7,7 +7,6 @@
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.xctrailreport.skinnyski"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.xctrailreport.threerivers"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.util"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.xctrailreport.application"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.xctrailreport.core"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="output" path="bin/classes"/>
