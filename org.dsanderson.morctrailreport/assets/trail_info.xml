@@ -5,6 +5,7 @@
 		<city>Afton</city>
 		<state>MN</state>
 		<location>44.8507,-92.7883</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Afton_Alps</trailInfo>
 			<compose>421356</compose>
@@ -16,6 +17,7 @@
 		<city>St. Paul</city>
 		<state>MN</state>
 		<location>44.9371,-92.9985</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Battle_Creek</trailInfo>
 			<compose>432407</compose>
@@ -27,6 +29,7 @@
 		<city>Woodbury</city>
 		<state>MN</state>
 		<location>44.9038,-92.9801</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Carver_Lake</trailInfo>
 			<compose>441735</compose>
@@ -38,6 +41,7 @@
 		<city>Maple Grove</city>
 		<state>MN</state>
 		<location>45.1808,-93.416</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Elm_Creek</trailInfo>
 			<compose>442458</compose>
@@ -49,6 +53,7 @@
 		<city>Elk River</city>
 		<state>MN</state>
 		<location>45.2993,-93.5394</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Hillside_Park</trailInfo>
 			<compose>442007</compose>
@@ -60,6 +65,7 @@
 		<city>Rockford</city>
 		<state>MN</state>
 		<location>45.071770,-93.757332</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Lake_Rebecca</trailInfo>
 			<compose>427134</compose>
@@ -71,6 +77,7 @@
 		<city>Eagan</city>
 		<state>MN</state>
 		<location>44.7827,-93.1889</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Lebanon_Hills</trailInfo>
 			<compose>441749</compose>
@@ -82,6 +89,7 @@
 		<city>Chaska</city>
 		<state>MN</state>
 		<location>44.8311,-93.6099</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo></trailInfo>
 			<compose>426133</compose>
@@ -93,6 +101,7 @@
 		<city>Bloomington</city>
 		<state>MN</state>
 		<location>44.7996,-93.387</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Minnesota_River_Bottom</trailInfo>
 			<compose>441637</compose>
@@ -103,7 +112,8 @@
 		<name>Monticello</name>
 		<city>Monticello</city>
 		<state>MN</state>
-		<location>Monticello, MN</location>
+		<location>45.300556,-93.796667</location>
+		<specificLocation>false</specificLocation>		
 		<morc>
 			<trailInfo></trailInfo>
 			<compose>419497</compose>
@@ -115,6 +125,7 @@
 		<city>Savage</city>
 		<state>MN</state>
 		<location>44.724,-93.3487</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Murphy-Hanrehan</trailInfo>
 			<compose>441925</compose>
@@ -126,6 +137,7 @@
 		<city>Inver Grove Heights</city>
 		<state>MN</state>
 		<location>44.8655,-93.0735</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Salem_Hills</trailInfo>
 			<compose>433800</compose>
@@ -137,6 +149,7 @@
 		<city>Burnsville</city>
 		<state>MN</state>
 		<location>44.7745,-93.2388</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Terrace Oaks</trailInfo>
 			<compose>426625</compose>
@@ -148,6 +161,7 @@
 		<city>Golden Valley</city>
 		<state>MN</state>
 		<location>44.9848,-93.3285</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Theodore_Wirth_Park</trailInfo>
 			<compose>441748</compose>
@@ -162,6 +176,7 @@
 		<city>St. Peter</city>
 		<state>MN</state>
 		<location>44.26567,-94.035766</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo></trailInfo>
 			<compose>387379</compose>
@@ -173,6 +188,7 @@
 		<city>Wells</city>
 		<state>MN</state>
 		<location>43.761847,-93.787811</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Grandma's_Trail</trailInfo>
 			<compose>373624</compose>
@@ -184,6 +200,7 @@
 		<city>Winona</city>
 		<state>MN</state>
 		<location>44.041314,-91.662158</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Holzinger_Lodge</trailInfo>
 			<compose>352844</compose>
@@ -195,6 +212,7 @@
 		<city>Mankato</city>
 		<state>MN</state>
 		<location>44.1336,-94.0349</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Mount_Kato</trailInfo>
 			<compose>390858</compose>
@@ -206,6 +224,7 @@
 		<city>Red Wing</city>
 		<state>MN</state>
 		<location>44.561,-92.5172</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Memorial_Trail</trailInfo>
 			<compose>427087</compose>
@@ -217,6 +236,7 @@
 		<city>St. Clound</city>
 		<state>MN</state>
 		<location>45.543749,-94.130688</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Jail_Trail</trailInfo>
 			<compose>424511</compose>
@@ -228,6 +248,7 @@
 		<city>Milaca</city>
 		<state>MN</state>
 		<location>45.75530752680575,-93.66050720214844</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Milaca</trailInfo>
 			<compose>390227</compose>
@@ -239,6 +260,7 @@
 		<city>Crosby</city>
 		<state>MN</state>
 		<location>46.4841,-93.9931</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Cuyuna_Trail</trailInfo>
 			<compose>429452</compose>
@@ -249,7 +271,8 @@
 		<name>Grand Rapids</name>
 		<city>Grand Rapids</city>
 		<state>MN</state>
-		<location>Grand Rapids, MN</location>
+		<location>47.233333,-93.529167</location>
+		<specificLocation>false</specificLocation>
 		<morc>
 			<trailInfo></trailInfo>
 			<compose>389524</compose>
@@ -261,6 +284,7 @@
 		<city>Duluth</city>
 		<state>MN</state>
 		<location>46.8383,-92.0819</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Hartley_Park</trailInfo>
 			<compose>411204</compose>
@@ -272,6 +296,7 @@
 		<city>Duluth</city>
 		<state>MN</state>
 		<location>46.7745,-92.1574</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>Piedmont</trailInfo>
 			<compose>389665</compose>
@@ -283,6 +308,7 @@
 		<city>Neillsville</city>
 		<state>WI</state>
 		<location>44.4764,-90.7242</location>
+		<specificLocation>true</specificLocation>
 		<morc>
 			<trailInfo>http://www.morcmtb.org/trailreviews/outofstate/Wisconsin/levis.html</trailInfo>
 			<compose>394581</compose>

@@ -17,11 +17,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.util;
+package org.dsanderson.android.util;
+
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 
 /**
  * 
  */
-public interface ILocationCoder {
-	TrailLocationInfo getLocation(String locationName) throws Exception;
+public class AndroidIntent {
+
+	public static void launchIntent(String uriString, Context context) {
+		Uri uri = Uri.parse(uriString);
+		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+		context.startActivity(intent);
+	}
+	
 }

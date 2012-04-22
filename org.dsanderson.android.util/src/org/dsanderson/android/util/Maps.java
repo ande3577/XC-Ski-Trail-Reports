@@ -17,11 +17,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.util;
+package org.dsanderson.android.util;
+
+import android.content.Context;
+import android.net.Uri;
 
 /**
  * 
  */
-public interface ILocationCoder {
-	TrailLocationInfo getLocation(String locationName) throws Exception;
+public class Maps {
+
+	public static void launchMap(String location, String label, boolean marker,
+			Context context) {
+
+		String uriString = "geo:" + location;
+		if (marker) {
+			uriString += "?q=";
+			String query = location + "(" + label + ")";
+			String encodedQuery = Uri.encode(query);
+			uriString += encodedQuery;
+		} else {
+			uriString += "?z=14";
+		}
+
+		AndroidIntent.launchIntent(uriString, context);
+	}
+
 }

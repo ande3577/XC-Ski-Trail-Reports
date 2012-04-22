@@ -20,6 +20,7 @@ public class TrailInfoParser {
 	static final String CITY = "city";
 	static final String STATE = "state";
 	static final String LOCATION = "location";
+	static final String SPECIFIC_LOCATION = "specificLocation";
 	static final String DISTANCE = "distance";
 	static final String DURATION = "duration";
 	static final String DISTANCE_VALID = "distanceValid";
@@ -67,6 +68,8 @@ public class TrailInfoParser {
 					info.setState(parserOutput);
 				if ((parserOutput = parser.getValue(LOCATION)) != null)
 					info.setLocation(parserOutput);
+				if ((parserOutput = parser.getValue(SPECIFIC_LOCATION)) != null)
+					info.setSpecificLocation(parserOutput.equals("true"));
 				if ((parserOutput = parser.getValue(DISTANCE)) != null) {
 					if (parserOutput.length() > 0)
 						info.setDistance(Integer.parseInt(parserOutput));
@@ -166,6 +169,8 @@ public class TrailInfoParser {
 				if (current.getLocation() == null
 						|| current.getLocation().isEmpty())
 					current.setLocation(newInfo.getLocation());
+				if (!current.getSpecificLocation())
+					current.setSpecificLocation(newInfo.specificLocation);
 				for (ISourceSpecificTrailInfo sourceSpecific : newInfo
 						.getSourceSpecificInfos()) {
 					if (current.getSourceSpecificInfo(sourceSpecific

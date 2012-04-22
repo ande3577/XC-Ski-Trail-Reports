@@ -22,6 +22,15 @@ package org.dsanderson.util;
 /**
  * 
  */
-public interface ILocationCoder {
-	TrailLocationInfo getLocation(String locationName) throws Exception;
+public class TrailLocationInfo {
+	public String location = "";
+	public boolean specificLocation = false;
+	
+	public TrailLocationInfo() {
+	}
+	
+	public TrailLocationInfo(String location, boolean specificLocation) {
+		this.location = location;
+		this.specificLocation = specificLocation;
+	}
 }

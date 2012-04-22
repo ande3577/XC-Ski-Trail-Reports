@@ -50,6 +50,9 @@ public class TrailInfoDatabaseFactory implements IDatabaseObjectFactory {
 	public static final String COLUMN_LOCATION = "location";
 	private static final String TYPE_LOCATION = "text not null";
 
+	public static final String COLUMN_SPECIFIC_LOCATION = "specificLocation";
+	private static final String TYPE_SPECIFIC_LOCATION = "integer not null";
+
 	public static final String COLUMN_DISTANCE = "distance";
 	private static final String TYPE_DISTANCE = "integer not null";
 
@@ -74,6 +77,7 @@ public class TrailInfoDatabaseFactory implements IDatabaseObjectFactory {
 				.addColumn(COLUMN_CITY, TYPE_CITY) //
 				.addColumn(COLUMN_STATE, TYPE_STATE) //
 				.addColumn(COLUMN_LOCATION, TYPE_LOCATION) //
+				.addColumn(COLUMN_SPECIFIC_LOCATION, TYPE_SPECIFIC_LOCATION) //
 				.addColumn(COLUMN_DISTANCE, TYPE_DISTANCE) //
 				.addColumn(COLUMN_DURATION, TYPE_DURATION);
 
@@ -94,6 +98,7 @@ public class TrailInfoDatabaseFactory implements IDatabaseObjectFactory {
 		values.put(COLUMN_CITY, info.getCity());
 		values.put(COLUMN_STATE, info.getState());
 		values.put(COLUMN_LOCATION, info.getLocation());
+		values.put(COLUMN_SPECIFIC_LOCATION, info.getSpecificLocation());
 
 		int distance, duration;
 		if (info.getDistanceValid()) {
@@ -121,12 +126,14 @@ public class TrailInfoDatabaseFactory implements IDatabaseObjectFactory {
 		TrailInfo info = (TrailInfo) object;
 		if (object == null)
 			info = pool.newItem();
-		
+
 		info.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)));
 		info.setCity(cursor.getString(cursor.getColumnIndex(COLUMN_CITY)));
 		info.setState(cursor.getString(cursor.getColumnIndex(COLUMN_STATE)));
 		info.setLocation(cursor.getString(cursor
 				.getColumnIndex(COLUMN_LOCATION)));
+		info.setSpecificLocation(cursor.getInt(cursor
+				.getColumnIndex(COLUMN_SPECIFIC_LOCATION)) != 0);
 		info.setDistance(cursor.getInt(cursor.getColumnIndex(COLUMN_DISTANCE)));
 		info.setDuration(cursor.getInt(cursor.getColumnIndex(COLUMN_DURATION)));
 		if (info.getDistance() != Integer.MAX_VALUE

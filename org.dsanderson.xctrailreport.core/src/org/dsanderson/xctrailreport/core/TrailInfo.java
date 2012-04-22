@@ -32,10 +32,13 @@ public class TrailInfo extends DatabaseObject {
 	String city = "";
 	String state = "MN";
 	String location = "";
+	boolean specificLocation = false;
 	int distance = 0;
 	int travelTime = 0;
 	boolean directionsValid = false;
 	List<ISourceSpecificTrailInfo> sourceSpecificInfo = new ArrayList<ISourceSpecificTrailInfo>();
+	
+	
 
 	public TrailInfo() {
 		reset();
@@ -95,6 +98,14 @@ public class TrailInfo extends DatabaseObject {
 			return "";
 		else
 			return location;
+	}
+	
+	public void setSpecificLocation(boolean specificLocation) {
+		this.specificLocation = specificLocation;
+	}
+	
+	public boolean getSpecificLocation() {
+		return specificLocation;
 	}
 
 	public void setDistance(int distance) {

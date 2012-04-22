@@ -14,6 +14,8 @@ import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
+import org.dsanderson.android.util.AndroidIntent;
+import org.dsanderson.android.util.Maps;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -112,12 +114,14 @@ public class morcTrailReportActivity extends ListActivity {
 	public boolean onContextItemSelected(MenuItem item) {
 		TrailReport trailReport = getObjectFromMenuItemInfo((AdapterView.AdapterContextMenuInfo) item
 				.getMenuInfo());
+
 		if (trailReport != null) {
+			TrailInfo info = trailReport.getTrailInfo();
+
 			switch (item.getItemId()) {
 			case R.id.viewAllReports: {
-				ISourceSpecificTrailInfo sourceSpecific = trailReport
-						.getTrailInfo().getSourceSpecificInfo(
-								MorcFactory.SOURCE_NAME);
+				ISourceSpecificTrailInfo sourceSpecific = info
+						.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
 				if (sourceSpecific != null) {
 					String viewAllReportUrl = ((MorcSpecificTrailInfo) sourceSpecific)
 							.getAllTrailReportUrl();
@@ -129,28 +133,26 @@ public class morcTrailReportActivity extends ListActivity {
 				return true;
 
 			case R.id.trailInfoMenu: {
-				ISourceSpecificTrailInfo sourceSpecific = trailReport
-						.getTrailInfo().getSourceSpecificInfo(
-								MorcFactory.SOURCE_NAME);
+				ISourceSpecificTrailInfo sourceSpecific = info
+						.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
 				if (sourceSpecific != null) {
 					String trailInfoUrl = sourceSpecific.getTrailInfoUrl();
 					if (trailInfoUrl != null && trailInfoUrl.length() > 0)
-						launchIntent(trailInfoUrl);
+						AndroidIntent.launchIntent(trailInfoUrl, this);
 				}
 			}
 				return true;
 			case R.id.openMapMenu:
-				launchIntent("geo:" + trailReport.getTrailInfo().getLocation()
-						+ "?z=14");
+				Maps.launchMap(info.getLocation(), info.getName(),
+						info.getSpecificLocation(), this);
 				return true;
 			case R.id.composeReportItem: {
-				ISourceSpecificTrailInfo sourceSpecific = trailReport
-						.getTrailInfo().getSourceSpecificInfo(
-								MorcFactory.SOURCE_NAME);
+				ISourceSpecificTrailInfo sourceSpecific = info
+						.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
 				if (sourceSpecific != null) {
 					String composeUrl = sourceSpecific.getComposeUrl();
 					if (composeUrl != null && composeUrl.length() > 0)
-						launchIntent(composeUrl);
+						AndroidIntent.launchIntent(composeUrl, this);
 				}
 			}
 				return true;
@@ -168,12 +170,6 @@ public class morcTrailReportActivity extends ListActivity {
 		} else {
 			return null;
 		}
-	}
-
-	private void launchIntent(String uriString) {
-		Uri uri = Uri.parse(uriString);
-		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-		startActivity(intent);
 	}
 
 	@Override
