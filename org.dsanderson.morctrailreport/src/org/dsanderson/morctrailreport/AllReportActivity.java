@@ -17,6 +17,8 @@ import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
+import org.dsanderson.android.util.AndroidIntent;
+import org.dsanderson.android.util.Maps;
 
 import android.app.ListActivity;
 import android.content.Context;
@@ -118,24 +120,24 @@ public class AllReportActivity extends ListActivity {
 		case R.id.allReportCompose: {
 			String composeUrl = morcInfo.getComposeUrl();
 			if (composeUrl != null && composeUrl.length() > 0)
-				launchIntent(composeUrl);
+				AndroidIntent.launchIntent(composeUrl, this);
 		}
 			return true;
 		case R.id.allReportsMap:
-			launchIntent("geo:" + info.getLocation() + "?z=14");
+			Maps.launchMap(info.getLocation(), info.getName(), info.getSpecificLocation(), this);
 			return true;
 		case R.id.allReportsTrailInfo:
 			if (morcInfo != null) {
 				String trailInfoUrl = morcInfo.getTrailInfoUrl();
 				if (trailInfoUrl != null && trailInfoUrl.length() > 0)
-					launchIntent(trailInfoUrl);
+					AndroidIntent.launchIntent(trailInfoUrl, this);
 			}
 			return true;
 		case R.id.openInBrowser:
 			if (morcInfo != null) {
 				String allReportUrl = morcInfo.getAllTrailReportUrl();
 				if (allReportUrl != null && allReportUrl.length() > 0)
-					launchIntent(allReportUrl);
+					AndroidIntent.launchIntent(allReportUrl, this);
 			}
 			return true;
 		default:
@@ -172,12 +174,6 @@ public class AllReportActivity extends ListActivity {
 		listCreator.setPage(page);
 		new LoadReportsTask(this, factory, listCreator, printer, trailReports,
 				trailInfos).execute();
-	}
-
-	private void launchIntent(String uriString) {
-		Uri uri = Uri.parse(uriString);
-		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-		startActivity(intent);
 	}
 
 	private class AllTrailReportPrinter extends TrailReportPrinter {

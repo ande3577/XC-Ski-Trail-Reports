@@ -21,7 +21,6 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.ContextMenu;
