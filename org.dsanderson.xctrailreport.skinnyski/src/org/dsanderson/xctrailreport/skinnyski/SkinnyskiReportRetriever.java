@@ -22,6 +22,7 @@ package org.dsanderson.xctrailreport.skinnyski;
 import java.io.BufferedInputStream;
 
 import org.dsanderson.util.INetConnection;
+import org.dsanderson.util.IProgressBar;
 import org.dsanderson.util.TrailLocationInfo;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
@@ -50,7 +51,8 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
 	public void getReports(ITrailReportList trailReports,
-			ITrailInfoList trailInfos) throws Exception {
+			ITrailInfoList trailInfos, IProgressBar progressBar)
+			throws Exception {
 
 		if (skinnySkiFactory.getRegions().getRegions().isEmpty())
 			throw new Exception("No regions enabled.");
@@ -58,8 +60,10 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 		INetConnection netConnection = factory.getNetConnection();
 		try {
 			netConnection.connect("http://skinnyski.com/trails/reports.asp");
+			progressBar.incrementProgress();
 			BufferedInputStream stream = new BufferedInputStream(
 					netConnection.getStream());
+			progressBar.incrementProgress();
 			SkinnyskiScanner scanner = new SkinnyskiScanner(stream,
 					factory.getTrailReportPool(), factory.getTrailInfoPool(),
 					skinnySkiFactory.getTrailInfoPool());
@@ -68,19 +72,21 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 
 				if (scanner.findRegion(region)) {
 					while (scanner.scanRegion()) {
+						progressBar.incrementProgress();
 						TrailReport newTrailReport = scanner.getTrailReport();
 						TrailInfo newTrailInfo = scanner.getTrailInfo();
 						SkinnyskiSpecificInfo newSkinnyskiInfo = scanner
 								.getSkinnyskiSpecificInfo();
 
 						newTrailInfo.addSourceSpecificInfo(newSkinnyskiInfo);
-						TrailLocationInfo locationInfo = factory.getLocationCoder()
-								.getLocation(
+						TrailLocationInfo locationInfo = factory
+								.getLocationCoder().getLocation(
 										newTrailInfo.getName() + ", "
 												+ newTrailInfo.getCity() + ", "
 												+ newTrailInfo.getState());
 						newTrailInfo.setLocation(locationInfo.location);
-						newTrailInfo.setSpecificLocation(locationInfo.specificLocation);
+						newTrailInfo
+								.setSpecificLocation(locationInfo.specificLocation);
 						newTrailInfo = trailInfos.mergeIntoList(newTrailInfo);
 
 						newTrailReport.setTrailInfo(newTrailInfo);

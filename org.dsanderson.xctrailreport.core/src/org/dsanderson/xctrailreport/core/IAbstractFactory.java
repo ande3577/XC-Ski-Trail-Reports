@@ -26,6 +26,7 @@ import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.ILocationCoder;
 import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.INetConnection;
+import org.dsanderson.util.IProgressBar;
 
 /**
  * 
@@ -71,5 +72,7 @@ public interface IAbstractFactory {
 	public ITrailInfoList getTrailInfoList();
 	
 	public ITrailInfoList getDefaultTrailInfoList();
+	
+	public IProgressBar newProgressBar();
 
 }

@@ -22,6 +22,7 @@ package org.dsanderson.xctrailreport.threerivers;
 import java.io.BufferedInputStream;
 
 import org.dsanderson.util.INetConnection;
+import org.dsanderson.util.IProgressBar;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.ITrailInfoList;
@@ -46,17 +47,21 @@ public class ThreeRiversReportRetriever implements IReportRetriever {
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
 	public void getReports(ITrailReportList trailReports,
-			ITrailInfoList trailInfos) throws Exception {
+			ITrailInfoList trailInfos, IProgressBar progressBar)
+			throws Exception {
 		INetConnection netConnection = factory.getNetConnection();
+		progressBar.incrementProgress();
 		try {
 			netConnection
 					.connect("http://www.threeriversparks.org/news/news/cc-ski-trail-conditions.aspx");
+			progressBar.incrementProgress();
 			BufferedInputStream stream = new BufferedInputStream(
 					netConnection.getStream());
 			ThreeRiversScanner scanner = new ThreeRiversScanner(stream,
 					factory.getTrailReportPool(), factory.getTrailInfoPool());
 
 			while (scanner.scanRegion()) {
+				progressBar.incrementProgress();
 				TrailReport newTrailReport = scanner.getTrailReport();
 				TrailInfo newTrailInfo = scanner.getTrailInfo();
 

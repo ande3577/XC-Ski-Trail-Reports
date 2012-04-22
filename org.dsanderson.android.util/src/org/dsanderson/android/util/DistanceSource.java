@@ -25,6 +25,7 @@ import java.util.List;
 import org.dsanderson.util.CompoundXmlParser;
 import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.INetConnection;
+import org.dsanderson.util.IProgressBar;
 
 /**
  * 
@@ -52,8 +53,8 @@ public class DistanceSource implements IDistanceSource {
 	 * org.dsanderson.xctrailreport.core.IDirectionsSource#updateDirections(
 	 * java.lang.String, java.lang.String)
 	 */
-	public void updateDistances(String src, List<String> dests)
-			throws Exception {
+	public void updateDistances(String src, List<String> dests,
+			IProgressBar progressBar) throws Exception {
 
 		if (src.length() == 0 || getMaxStringLength(dests) == 0)
 			return;
@@ -85,7 +86,11 @@ public class DistanceSource implements IDistanceSource {
 
 			try {
 				netConnection.connect(url);
+				if (progressBar != null)
+					progressBar.incrementProgress();
 				parseXmlResponse(netConnection);
+				if (progressBar != null)
+					progressBar.incrementProgress();
 				if (index < dests.size() && index - startingIndex == 99) {
 					// delay so I can use google distance API again
 					Thread.sleep(11000);

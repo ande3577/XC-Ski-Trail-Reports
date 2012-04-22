@@ -19,6 +19,7 @@
  */
 package org.dsanderson.xctrailreport.core.android;
 
+import org.dsanderson.util.IProgressBar;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportListCreator;
 import org.dsanderson.xctrailreport.core.ITrailInfoList;
@@ -33,13 +34,12 @@ import android.os.AsyncTask;
  */
 public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 
-	private final ListActivity context;
 	private final IAbstractFactory factory;
 	private final ITrailReportList trailReports;
 	private final ITrailInfoList trailInfos;
 	private final IReportListCreator listCreator;
 	private final TrailReportPrinter printer;
-	AlertDialog dialog = null;
+	IProgressBar progressBar = null;
 	Exception e = null;
 
 	/**
@@ -48,7 +48,6 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 	public LoadReportsTask(ListActivity context, IAbstractFactory factory,
 			IReportListCreator listCreator, TrailReportPrinter printer,
 			ITrailReportList trailReports, ITrailInfoList trailInfos) {
-		this.context = context;
 		this.factory = factory;
 		this.listCreator = listCreator;
 		this.printer = printer;
@@ -59,9 +58,9 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 
 	@Override
 	protected void onPreExecute() {
-		dialog = new AlertDialog.Builder(context).create();
-		dialog.setMessage("Loading trail reports...");
-		dialog.show();
+		progressBar = factory.newProgressBar();
+		progressBar.setMessage("Loading trail reports...");
+		progressBar.show();
 		e = null;
 	}
 
@@ -86,8 +85,8 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 
 	@Override
 	protected void onPostExecute(Integer result) {
-		if (dialog != null && dialog.isShowing())
-			dialog.dismiss();
+		if (progressBar != null)
+			progressBar.close();
 
 		try {
 			if (e == null)
@@ -107,7 +106,7 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 
 		try {
 			listCreator.getTrailReports(trailReports, trailInfos, factory
-					.getUserSettings().getForcedRefresh());
+					.getUserSettings().getForcedRefresh(), progressBar);
 		} catch (Exception e) {
 			e.printStackTrace();
 			trailReports.clear();

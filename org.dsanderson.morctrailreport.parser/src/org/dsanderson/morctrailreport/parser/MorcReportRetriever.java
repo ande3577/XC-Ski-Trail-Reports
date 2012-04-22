@@ -22,6 +22,7 @@ package org.dsanderson.morctrailreport.parser;
 import java.io.BufferedInputStream;
 
 import org.dsanderson.util.INetConnection;
+import org.dsanderson.util.IProgressBar;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.ITrailInfoList;
@@ -49,11 +50,13 @@ public class MorcReportRetriever implements IReportRetriever {
 	 */
 	@Override
 	public void getReports(ITrailReportList trailReports,
-			ITrailInfoList trailInfos) throws Exception {
+			ITrailInfoList trailInfos, IProgressBar progressBar) throws Exception {
 		INetConnection netConnection = factory.getNetConnection();
+		progressBar.incrementProgress();
 		try {
 			netConnection
 					.connect("http://www.morcmtb.org/forums/trailconditions.php");
+			progressBar.incrementProgress();
 			BufferedInputStream stream = new BufferedInputStream(
 					netConnection.getStream());
 			MorcScanner scanner = new MorcScanner(stream,
@@ -64,6 +67,7 @@ public class MorcReportRetriever implements IReportRetriever {
 
 				if (scanner.findRegion(region)) {
 					while (scanner.scanRegion()) {
+						progressBar.incrementProgress();
 						TrailReport newTrailReport = scanner.getTrailReport();
 						TrailInfo newTrailInfo = scanner.getTrailInfo();
 						MorcSpecificTrailInfo newMorcInfo = scanner

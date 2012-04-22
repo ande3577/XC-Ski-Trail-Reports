@@ -23,6 +23,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.dsanderson.util.IDistanceSource;
+import org.dsanderson.util.IProgressBar;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportListCreator;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
@@ -44,7 +45,7 @@ public class ReportListCreator implements IReportListCreator {
 	}
 
 	public void getTrailReports(ITrailReportList trailReports,
-			ITrailInfoList trailInfos, boolean forced) throws Exception {
+			ITrailInfoList trailInfos, boolean forced, IProgressBar progressBar) throws Exception {
 		boolean refreshNeeded = forced;
 
 		UserSettings settings = factory.getUserSettings();
@@ -80,12 +81,13 @@ public class ReportListCreator implements IReportListCreator {
 					.getSourceSpecificFactories()) {
 				if (source.getEnabled())
 					source.getReportRetriever().getReports(trailReports,
-							trailInfos);
+							trailInfos, progressBar);
 			}
-
-			getDistances(trailReports, trailInfos);
+			
+			getDistances(trailReports, trailInfos, progressBar);
 
 			trailReports.save();
+			progressBar.close();
 		}
 	}
 
@@ -113,14 +115,14 @@ public class ReportListCreator implements IReportListCreator {
 	}
 
 	private void getDistances(ITrailReportList trailReports,
-			ITrailInfoList trailInfos) {
+			ITrailInfoList trailInfos, IProgressBar progressBar) {
 		String location = factory.getLocationSource().getLocation();
 		IDistanceSource distanceSource = factory.getDistanceSource();
 
 		List<String> destinations = trailInfos.getAllLocations();
 
 		try {
-			distanceSource.updateDistances(location, destinations);
+			distanceSource.updateDistances(location, destinations, progressBar);
 
 			trailInfos.updateDistances(distanceSource, destinations);
 		} catch (Exception e) {

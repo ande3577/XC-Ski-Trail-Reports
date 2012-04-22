@@ -22,6 +22,7 @@ package org.dsanderson.morctrailreport;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dsanderson.android.util.AndroidProgressBar;
 import org.dsanderson.android.util.CompoundXmlPullParserFactory;
 import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.DistanceSource;
@@ -35,6 +36,7 @@ import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.ILocationCoder;
 import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.INetConnection;
+import org.dsanderson.util.IProgressBar;
 import org.dsanderson.xctrailreport.application.CompoundFilter;
 import org.dsanderson.xctrailreport.application.DateFilter;
 import org.dsanderson.xctrailreport.application.DefaultTrailInfoList;
@@ -396,6 +398,13 @@ public class TrailReportFactory implements IAbstractFactory {
 		}
 		return trailReportDatabaseFactory;
 
+	}
+
+	/* (non-Javadoc)
+	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getProgressBar()
+	 */
+	public IProgressBar newProgressBar() {
+		return new AndroidProgressBar(context);
 	}
 
 }

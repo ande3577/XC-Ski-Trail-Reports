@@ -9,5 +9,7 @@
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.util"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.xctrailreport.core"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="/org.dsanderson.android.util"/>
+	<classpathentry exported="true" kind="lib" path="/home/dsanderson/git/xc-trail-report/org.dsanderson.android.util/bin/org.dsanderson.android.util.jar" sourcepath="/org.dsanderson.android.util/src"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

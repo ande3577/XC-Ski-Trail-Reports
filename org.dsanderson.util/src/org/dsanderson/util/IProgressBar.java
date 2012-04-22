@@ -17,14 +17,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.core;
-
-import org.dsanderson.util.IProgressBar;
+package org.dsanderson.util;
 
 /**
  * 
  */
-public interface IReportRetriever {
-	abstract void getReports(ITrailReportList trailReports,
-			ITrailInfoList trailInfos, IProgressBar progressBar) throws Exception;
+public interface IProgressBar {
+	
+	public abstract void show();
+	
+	public abstract void close();
+	
+	public abstract void setMessage(String message);
+	
+	public abstract void setProgress(int progress);
+	
+	public abstract void incrementProgress();
 }

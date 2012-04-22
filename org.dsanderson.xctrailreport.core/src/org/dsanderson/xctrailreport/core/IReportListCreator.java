@@ -19,10 +19,12 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import org.dsanderson.util.IProgressBar;
+
 /**
  * 
  */
 public interface IReportListCreator {
 	void getTrailReports(ITrailReportList trailReports,
-			ITrailInfoList trailInfos, boolean forced) throws Exception;
+			ITrailInfoList trailInfos, boolean forced, IProgressBar progressBar) throws Exception;
 }

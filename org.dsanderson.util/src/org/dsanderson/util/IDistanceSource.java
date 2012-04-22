@@ -25,13 +25,14 @@ import java.util.List;
  * 
  */
 public interface IDistanceSource {
-	
-	void updateDistances(String src, List<String> dest) throws Exception;
-	
+
+	void updateDistances(String src, List<String> dest, IProgressBar progressBar)
+			throws Exception;
+
 	List<Integer> getDistances();
-	
+
 	List<Integer> getDurations();
-	
+
 	List<Boolean> getValids();
-	
+
 }

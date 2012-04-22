@@ -23,6 +23,7 @@ import java.io.BufferedInputStream;
 import java.util.Date;
 
 import org.dsanderson.util.INetConnection;
+import org.dsanderson.util.IProgressBar;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportListCreator;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
@@ -71,7 +72,7 @@ public class MorcAllReportListCreator implements IReportListCreator {
 	 */
 	@Override
 	public void getTrailReports(ITrailReportList trailReports,
-			ITrailInfoList trailInfos, boolean forced) throws Exception {
+			ITrailInfoList trailInfos, boolean forced, IProgressBar progressBar) throws Exception {
 		assert (trailInfos.size() == 1);
 
 		boolean refreshNeeded = forced;
@@ -128,12 +129,12 @@ public class MorcAllReportListCreator implements IReportListCreator {
 			if (page <= 1)
 				trailReports.clear();
 
-			downloadTrailReports(trailReports, info);
+			downloadTrailReports(trailReports, info, progressBar);
 			trailReports.save();
 		}
 	}
 
-	void downloadTrailReports(ITrailReportList trailReports, TrailInfo trailInfo)
+	void downloadTrailReports(ITrailReportList trailReports, TrailInfo trailInfo, IProgressBar progressBar)
 			throws Exception {
 		ISourceSpecificTrailInfo sourceSpecific = trailInfo
 				.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
@@ -145,8 +146,10 @@ public class MorcAllReportListCreator implements IReportListCreator {
 		try {
 			netConnection.connect(morcSpecific.getAllTrailReportUrl() + "/page"
 					+ Integer.toString(page));
+			progressBar.incrementProgress();
 			BufferedInputStream stream = new BufferedInputStream(
 					netConnection.getStream());
+			progressBar.incrementProgress();
 			MorcAllReportScanner scanner = new MorcAllReportScanner(stream,
 					factory.getTrailReportPool());
 
@@ -157,6 +160,7 @@ public class MorcAllReportListCreator implements IReportListCreator {
 
 			if (scanner.findStartOfReports()) {
 				while (scanner.scanReports()) {
+					progressBar.incrementProgress();
 					TrailReport newTrailReport = scanner.getTrailReport();
 
 					newTrailReport.setTrailInfo(trailInfo);
