@@ -2,6 +2,7 @@ package org.dsanderson.xctrailreport;
 
 import java.util.List;
 
+import org.dsanderson.android.util.AndroidProgressBar;
 import org.dsanderson.xctrailreport.R;
 import org.dsanderson.xctrailreport.application.ReportListCreator;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
@@ -268,7 +269,7 @@ public class xctrailreportActivity extends ListActivity {
 					factory.getUserSettings().getDefaultLocation());
 
 		new LoadReportsTask(this, factory, listCreator, printer, trailReports,
-				factory.getTrailInfoList()).execute();
+				factory.getTrailInfoList(), new AndroidProgressBar(this)).execute();
 	}
 
 }

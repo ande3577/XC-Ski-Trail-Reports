@@ -25,7 +25,6 @@ import org.dsanderson.xctrailreport.core.IReportListCreator;
 import org.dsanderson.xctrailreport.core.ITrailInfoList;
 import org.dsanderson.xctrailreport.core.ITrailReportList;
 
-import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.os.AsyncTask;
 
@@ -39,7 +38,7 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 	private final ITrailInfoList trailInfos;
 	private final IReportListCreator listCreator;
 	private final TrailReportPrinter printer;
-	IProgressBar progressBar = null;
+	private final IProgressBar progressBar;
 	Exception e = null;
 
 	/**
@@ -47,18 +46,18 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 */
 	public LoadReportsTask(ListActivity context, IAbstractFactory factory,
 			IReportListCreator listCreator, TrailReportPrinter printer,
-			ITrailReportList trailReports, ITrailInfoList trailInfos) {
+			ITrailReportList trailReports, ITrailInfoList trailInfos,
+			IProgressBar progressBar) {
 		this.factory = factory;
 		this.listCreator = listCreator;
 		this.printer = printer;
-
 		this.trailReports = trailReports;
 		this.trailInfos = trailInfos;
+		this.progressBar = progressBar;
 	}
 
 	@Override
 	protected void onPreExecute() {
-		progressBar = factory.newProgressBar();
 		progressBar.setMessage("Loading trail reports...");
 		progressBar.show();
 		e = null;

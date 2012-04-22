@@ -70,7 +70,6 @@ import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.application.PhotosetFilter;
 
 import android.content.Context;
-import android.widget.ProgressBar;
 
 /**
  * 

@@ -34,7 +34,7 @@ public class AndroidProgressBar implements IProgressBar {
 		if (progressDialog == null)
 			progressDialog = new ProgressDialog(context);
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 

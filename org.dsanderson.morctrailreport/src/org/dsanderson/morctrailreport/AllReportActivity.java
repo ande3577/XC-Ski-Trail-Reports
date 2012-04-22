@@ -18,6 +18,7 @@ import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
 import org.dsanderson.android.util.AndroidIntent;
+import org.dsanderson.android.util.AndroidProgressBar;
 import org.dsanderson.android.util.Maps;
 
 import android.app.ListActivity;
@@ -171,7 +172,7 @@ public class AllReportActivity extends ListActivity {
 		trailInfos.add(info);
 		listCreator.setPage(page);
 		new LoadReportsTask(this, factory, listCreator, printer, trailReports,
-				trailInfos).execute();
+				trailInfos, new AndroidProgressBar(this)).execute();
 	}
 
 	private class AllTrailReportPrinter extends TrailReportPrinter {
