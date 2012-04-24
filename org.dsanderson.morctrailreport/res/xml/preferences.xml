@@ -18,6 +18,16 @@
                 <CheckBoxPreference android:title="Enabled" android:key="durationFilterEnabled" android:defaultValue="false"/>
                 <EditTextPreference android:title="Max Drive Time (minutes)" android:key="durationFilterCutoff"  android:numeric="integer" android:inputType="number" android:defaultValue="60"/>
                 
+            </PreferenceCategory><PreferenceCategory android:title="Condition Filter">
+                <CheckBoxPreference android:title="Enabled" android:key="conditionFilterEnabled" android:defaultValue="false"/>
+                <PreferenceScreen android:title="Condition Filter Options" android:key="conditionFilterOptions" android:summary="Select which trail conditions to display.">
+                    <CheckBoxPreference android:title="Dry" android:key="dryEnabled" android:defaultValue="true"/>
+                    <CheckBoxPreference android:title="Tacky" android:key="tackyEnabled" android:defaultValue="true"/>
+                    <CheckBoxPreference android:title="Damp" android:key="dampEnabled" android:defaultValue="true"/>
+                    <CheckBoxPreference android:title="Wet" android:key="wetEnabled" android:defaultValue="true"/>
+                    <CheckBoxPreference android:title="Closed" android:defaultValue="true" android:key="closedEnabled"/>
+                    <CheckBoxPreference android:title="Other" android:key="otherEnabled" android:defaultValue="true"/>
+                </PreferenceScreen>
             </PreferenceCategory>
             <PreferenceCategory android:title="Refresh on startup">
                 <ListPreference android:entryValues="@array/autoRefreshValues" android:entries="@array/autoRefreshTitles" android:defaultValue="ifOutOfDate" android:dialogTitle="Refresh Mode" android:title="Auto Refresh Mode" android:key="autoRefreshMode"/>
@@ -25,6 +35,7 @@
             </PreferenceCategory>
             <PreferenceCategory android:title="Restore Defaults"><Preference android:title="Restore Factory Defaults" android:shouldDisableView="false" android:key="restoreDefaults" android:summary="Revert all configuration options to preconfigured values." />
 </PreferenceCategory>
+            
             
     
 

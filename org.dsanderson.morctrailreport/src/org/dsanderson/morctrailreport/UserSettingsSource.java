@@ -41,13 +41,16 @@ public class UserSettingsSource implements IUserSettingsSource {
 	SharedPreferences preference;
 	UserSettings settings;
 	IAbstractFactory factory;
+	MorcSpecificSettings morcSpecificSettings;
 
-	public UserSettingsSource(Context context, IAbstractFactory factory) {
+	public UserSettingsSource(Context context, IAbstractFactory factory,
+			MorcSpecificSettings morcSpecificSettings) {
 		preference = PreferenceManager.getDefaultSharedPreferences(context);
 		preference
 				.registerOnSharedPreferenceChangeListener(preferenceChangedListener);
 		this.settings = factory.getUserSettings();
 		this.factory = factory;
+		this.morcSpecificSettings = morcSpecificSettings;
 	}
 
 	private OnSharedPreferenceChangeListener preferenceChangedListener = new OnSharedPreferenceChangeListener() {
@@ -91,7 +94,36 @@ public class UserSettingsSource implements IUserSettingsSource {
 								.getDurationCutoff()));
 				settings.setDurationCutoff(Units
 						.minutesToSeconds(cutoffMinutes));
-			} else if (key.equals("autoRefreshMode")) {
+			} else if (key.equals("conditionFilterEnabled")) {
+				morcSpecificSettings
+						.setConditionsFilterEnabled(sharedPreferences
+								.getBoolean(key, morcSpecificSettings
+										.getConditionsFilterEnabled()));
+			} else if (key.equals("dryEnabled")) {
+				morcSpecificSettings.setDryEnabled(sharedPreferences
+						.getBoolean(key, morcSpecificSettings.getDryEnabled()));
+			} else if (key.equals("tackyEnabled")) {
+				morcSpecificSettings
+						.setTackyEnabled(sharedPreferences.getBoolean(key,
+								morcSpecificSettings.getTackyEnabled()));
+			} else if (key.equals("dampEnabled")) {
+				morcSpecificSettings
+						.setDampEnabled(sharedPreferences.getBoolean(key,
+								morcSpecificSettings.getDampEnabled()));
+			} else if (key.equals("wetEnabled")) {
+				morcSpecificSettings.setWetEnabled(sharedPreferences
+						.getBoolean(key, morcSpecificSettings.getWetEnabled()));
+			} else if (key.equals("closedEnabled")) {
+				morcSpecificSettings.setClosedEnabled(sharedPreferences
+						.getBoolean(key,
+								morcSpecificSettings.getClosedEnabled()));
+			} else if (key.equals("otherEnabled")) {
+				morcSpecificSettings
+						.setOtherEnabled(sharedPreferences.getBoolean(key,
+								morcSpecificSettings.getOtherEnabled()));
+			}
+
+			else if (key.equals("autoRefreshMode")) {
 				settings.setAutoRefreshMode(stringToAutoRefreshMode(sharedPreferences
 						.getString(key, autoRefreshModeToString(settings
 								.getAutoRefreshMode()))));
@@ -138,6 +170,22 @@ public class UserSettingsSource implements IUserSettingsSource {
 		settings.setAutoRefreshCutoff(Units.hoursToMilliseconds(getDouble(
 				preference, "autoRefreshCutoff",
 				Units.millisecondsToHours(settings.getAutoRefreshCutoff()))));
+
+		morcSpecificSettings.setConditionsFilterEnabled(preference.getBoolean(
+				"conditionFilterEnabled",
+				morcSpecificSettings.getConditionsFilterEnabled()));
+		morcSpecificSettings.setDryEnabled(preference.getBoolean("dryEnabled",
+				morcSpecificSettings.getDryEnabled()));
+		morcSpecificSettings.setTackyEnabled(preference.getBoolean(
+				"tackyEnabled", morcSpecificSettings.getTackyEnabled()));
+		morcSpecificSettings.setDampEnabled(preference.getBoolean(
+				"dampEnabled", morcSpecificSettings.getDampEnabled()));
+		morcSpecificSettings.setWetEnabled(preference.getBoolean("wetEnabled",
+				morcSpecificSettings.getWetEnabled()));
+		morcSpecificSettings.setClosedEnabled(preference.getBoolean(
+				"closedEnabled", morcSpecificSettings.getClosedEnabled()));
+		morcSpecificSettings.setOtherEnabled(preference.getBoolean(
+				"otherEnabled", morcSpecificSettings.getOtherEnabled()));
 
 		ISourceSpecificFactory morcSource = factory
 				.getSourceSpecificFactory(MorcFactory.SOURCE_NAME);

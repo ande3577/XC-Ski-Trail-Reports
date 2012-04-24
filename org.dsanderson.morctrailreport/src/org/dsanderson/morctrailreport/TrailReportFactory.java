@@ -35,13 +35,8 @@ import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.ILocationCoder;
 import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.INetConnection;
-import org.dsanderson.xctrailreport.application.CompoundFilter;
-import org.dsanderson.xctrailreport.application.DateFilter;
 import org.dsanderson.xctrailreport.application.DefaultTrailInfoList;
-import org.dsanderson.xctrailreport.application.DistanceFilter;
-import org.dsanderson.xctrailreport.application.DurationFilter;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
-import org.dsanderson.xctrailreport.core.IReportFilter;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ITrailInfoList;
 import org.dsanderson.xctrailreport.core.ITrailReportList;
@@ -91,6 +86,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	DefaultTrailInfoList defaultTrailInfoList = null;
 	TrailReportReaderFactory trailReportReaderFactory = null;
 	TrailReportDatabaseFactory trailReportDatabaseFactory = null;
+	MorcSpecificSettings morcSpecificSettings = null;
 
 	public TrailReportFactory(Context context) {
 		assert (factory == null);
@@ -163,7 +159,8 @@ public class TrailReportFactory implements IAbstractFactory {
 	 */
 	public IUserSettingsSource getUserSettingsSource() {
 		if (settingsSource == null) {
-			settingsSource = new UserSettingsSource(context, this);
+			settingsSource = new UserSettingsSource(context, this,
+					getMorcSpecificSettings());
 		}
 		return settingsSource;
 	}
@@ -243,22 +240,6 @@ public class TrailReportFactory implements IAbstractFactory {
 		}
 
 		return userSettings;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getFilter()
-	 */
-	public IReportFilter newFilter() {
-		CompoundFilter filter = new CompoundFilter();
-		if (userSettings.getDistanceFilterEnabled())
-			filter.add(new DistanceFilter(userSettings.getFilterDistance()));
-		if (userSettings.getDurationFilterEnabled())
-			filter.add(new DurationFilter(userSettings.getDurationCutoff()));
-		if (userSettings.getDateFilterEnabled())
-			filter.add(new DateFilter(userSettings.getFilterAge()));
-		return filter;
 	}
 
 	/*
@@ -398,6 +379,63 @@ public class TrailReportFactory implements IAbstractFactory {
 		}
 		return trailReportDatabaseFactory;
 
+	}
+
+	public MorcSpecificSettings getMorcSpecificSettings() {
+		if (morcSpecificSettings == null)
+			morcSpecificSettings = new MorcSpecificSettings();
+		return morcSpecificSettings;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#filterReports(org.
+	 * dsanderson.xctrailreport.core.ITrailReportList)
+	 */
+	public void filterReports(ITrailReportList trailReports) {
+
+		TrailReportList reports = (TrailReportList) trailReports;
+		// apply default filters
+		reports.filter(getUserSettings());
+
+		MorcSpecificSettings morcSettings = getMorcSpecificSettings();
+		if (morcSettings.getConditionsFilterEnabled()) {
+			String filterString = "";
+			if (morcSettings.getDryEnabled())
+				filterString += "(" + TrailReportDatabaseFactory.COLUMN_SUMMARY
+						+ "=='Dry')";
+			if (morcSettings.getTackyEnabled())
+				filterString = addOrString(filterString, "("
+						+ TrailReportDatabaseFactory.COLUMN_SUMMARY
+						+ "=='Tacky')");
+			if (morcSettings.getDampEnabled())
+				filterString = addOrString(filterString, "("
+						+ TrailReportDatabaseFactory.COLUMN_SUMMARY + "=='Damp')");
+			if (morcSettings.getWetEnabled())
+				filterString = addOrString(filterString, "("
+						+ TrailReportDatabaseFactory.COLUMN_SUMMARY + "=='Wet')");
+			if (morcSettings.getClosedEnabled())
+				filterString = addOrString(filterString, "("
+						+ TrailReportDatabaseFactory.COLUMN_SUMMARY
+						+ "==Closed)");
+			if (morcSettings.getOtherEnabled())
+				filterString = addOrString(filterString, "("
+						+ TrailReportDatabaseFactory.COLUMN_SUMMARY + "=='')");
+
+			if (filterString.length() > 0)
+				reports.addFilter("(" + filterString + ")");
+		}
+
+	}
+
+	private String addOrString(String string1, String string2) {
+		String stringOut = string1;
+		if (stringOut.length() > 0)
+			stringOut += "||";
+		stringOut += string2;
+		return stringOut;
 	}
 
 }

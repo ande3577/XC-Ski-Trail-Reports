@@ -59,7 +59,7 @@ public interface IAbstractFactory {
 
 	public UserSettings getUserSettings();
 
-	public IReportFilter newFilter();
+	public void filterReports(ITrailReportList trailReports);
 
 	public ILocationCoder getLocationCoder();
 
