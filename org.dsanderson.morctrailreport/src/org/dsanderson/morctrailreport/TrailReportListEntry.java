@@ -121,7 +121,7 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 	public ITextItem getDetailedConditionsTextItem() {
 		if (detailedItem == null)
 			detailedItem = new TextItem(
-					(TextView) viewGroup.findViewById(R.id.detailedView));
+					(TextView) viewGroup.findViewById(R.id.detailedConditionsView));
 		return detailedItem;
 	}
 

@@ -49,7 +49,7 @@ public class ListEntryFactory implements IAbstractListEntryFactory {
 	 */
 	public View inflate(Context context, ViewGroup parent) {
 		final LayoutInflater inflater = LayoutInflater.from(context);
-		View layout = inflater.inflate(R.layout.row, parent, false);
+		View layout = inflater.inflate(R.layout.relativerow, parent, false);
 		return layout;
 	}
 
