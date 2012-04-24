@@ -37,25 +37,17 @@
         android:id="@+id/dateView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/titleGroup"
-        android:layout_toLeftOf="@+id/conditionImageView"
+        android:layout_toRightOf="@+id/conditionImageView"
         android:text="Date - Time"
         android:textColor="@color/dateTextColor" />
-
-    <ImageView
-        android:id="@+id/conditionImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/dateView"
-        android:src="@drawable/presence_online" />
 
     <TextView
         android:id="@+id/briefConditionsView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignLeft="@+id/dateView"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/dateView"
         android:text="Conditions: Brief"
@@ -65,7 +57,7 @@
         android:id="@+id/detailedConditionsView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignLeft="@+id/briefConditionsView"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/briefConditionsView"
         android:text="Detailed Description"
@@ -75,10 +67,18 @@
         android:id="@+id/authorView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignLeft="@+id/detailedConditionsView"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/detailedConditionsView"
         android:text="Author (Source)"
         android:textColor="@color/textColor" />
+
+    <ImageView
+        android:id="@+id/conditionImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/briefConditionsView"
+        android:src="@drawable/presence_online" />
 
 </RelativeLayout>
