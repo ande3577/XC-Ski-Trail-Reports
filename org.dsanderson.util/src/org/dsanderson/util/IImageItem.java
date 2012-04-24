@@ -17,34 +17,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.decorators;
-
-import org.dsanderson.util.IImageItem;
-import org.dsanderson.util.ITextItem;
+package org.dsanderson.util;
 
 /**
  * 
  */
-public interface ITrailReportListEntry {
+public interface IImageItem {
+	void setImage(String imageName);
 	
 	void draw();
-	
-	void setTitleGroupVisible(boolean visible);
-	
-	ITextItem getTrailNameTextItem();
-	
-	ITextItem getTrailLocationTextItem();
-	
-	ITextItem getDateTextItem();
-	
-	ITextItem getBriefConditionsTextItem();
-	
-	ITextItem getDetailedConditionsTextItem();
-	
-	ITextItem getAuthorTextItem();
-	
-	ITextItem getPhotosetTextItem();
-	
-	IImageItem getConditionsImageItem();
-
 }

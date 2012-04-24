@@ -52,6 +52,7 @@ import org.dsanderson.xctrailreport.core.TrailReportParser;
 import org.dsanderson.xctrailreport.core.UserSettings;
 import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
 import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
+import org.dsanderson.xctrailreport.decorators.ConditionsImageDecorator;
 import org.dsanderson.xctrailreport.decorators.DateDecorator;
 import org.dsanderson.xctrailreport.decorators.TimeDecorator;
 import org.dsanderson.xctrailreport.decorators.DetailedReportDecorator;
@@ -179,6 +180,7 @@ public class TrailReportFactory implements IAbstractFactory {
 			reportDecorator = new DateDecorator();
 			reportDecorator.add(new TimeDecorator());
 			reportDecorator.add(new SummaryDecorator());
+			reportDecorator.add(new ConditionsImageDecorator());
 			reportDecorator.add(new DetailedReportDecorator());
 			reportDecorator.add(new AuthorDecorator());
 		}
@@ -397,6 +399,5 @@ public class TrailReportFactory implements IAbstractFactory {
 		return trailReportDatabaseFactory;
 
 	}
-
 
 }

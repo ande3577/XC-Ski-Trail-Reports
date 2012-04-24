@@ -20,11 +20,13 @@
 package org.dsanderson.morctrailreport;
 
 import org.dsanderson.android.util.TextItem;
+import org.dsanderson.util.IImageItem;
 import org.dsanderson.util.ITextItem;
 import org.dsanderson.xctrailreport.decorators.ITrailReportListEntry;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -38,6 +40,7 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 	TextItem briefItem = null;
 	TextItem detailedItem = null;
 	TextItem authorItem = null;
+	ConditionsImageItem imageItem = null;
 
 	public TrailReportListEntry(ViewGroup viewGroup) {
 		this.viewGroup = viewGroup;
@@ -51,6 +54,7 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 	public void draw() {
 		getTrailNameTextItem().draw();
 		getTrailLocationTextItem().draw();
+		getConditionsImageItem().draw();
 		getDateTextItem().draw();
 		getBriefConditionsTextItem().draw();
 		getDetailedConditionsTextItem().draw();
@@ -121,7 +125,8 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 	public ITextItem getDetailedConditionsTextItem() {
 		if (detailedItem == null)
 			detailedItem = new TextItem(
-					(TextView) viewGroup.findViewById(R.id.detailedConditionsView));
+					(TextView) viewGroup
+							.findViewById(R.id.detailedConditionsView));
 		return detailedItem;
 	}
 
@@ -161,4 +166,16 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 		viewGroup.findViewById(R.id.titleGroup).setVisibility(visibility);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.xctrailreport.decorators.ITrailReportListEntry#
+	 * getConditionsImageItem()
+	 */
+	public IImageItem getConditionsImageItem() {
+		if (imageItem == null)
+			imageItem = new ConditionsImageItem(
+					(ImageView) viewGroup.findViewById(R.id.conditionImageView));
+		return imageItem;
+	}
 }
