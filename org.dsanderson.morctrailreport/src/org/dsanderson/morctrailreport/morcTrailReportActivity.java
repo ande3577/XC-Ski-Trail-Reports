@@ -51,7 +51,7 @@ public class morcTrailReportActivity extends ListActivity {
 
 		trailReports = (TrailReportList) factory.getTrailReportList();
 		printer = new TrailReportPrinter(this, factory, trailReports, appName,
-				R.layout.row);
+				ListEntryFactory.getInstance());
 
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
@@ -278,7 +278,8 @@ public class morcTrailReportActivity extends ListActivity {
 					factory.getUserSettings().getDefaultLocation());
 
 		new LoadReportsTask(this, factory, listCreator, printer, trailReports,
-				factory.getTrailInfoList(), new AndroidProgressBar(this)).execute();
+				factory.getTrailInfoList(), new AndroidProgressBar(this))
+				.execute();
 	}
 
 }

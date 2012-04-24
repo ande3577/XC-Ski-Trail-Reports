@@ -23,7 +23,6 @@ import org.dsanderson.util.IListEntry;
 import org.dsanderson.util.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
-import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 
 /**
  * 
@@ -39,10 +38,9 @@ public class TrailNameDecorator extends TrailReportDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(TrailReport trailReport, IListEntry listEntry) {
+	public void decorate(TrailReport trailReport, ITrailReportListEntry listEntry) {
 		TrailInfo trailInfo = trailReport.getTrailInfo();
-		ITextItem newTextItem = listEntry.newTextItem();
-		newTextItem.setStyle(ITextItem.FieldId_t.NAME);
+		ITextItem newTextItem = listEntry.getTrailNameTextItem();
 		newTextItem.setText(trailInfo.getName());
 
 		if (next() != null) {

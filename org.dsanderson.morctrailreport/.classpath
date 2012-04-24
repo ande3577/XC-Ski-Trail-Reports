@@ -8,5 +8,6 @@
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.xctrailreport.core"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="/org.dsanderson.android.util"/>
+	<classpathentry kind="src" path="/org.dsanderson.xctrailreport.core.android"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

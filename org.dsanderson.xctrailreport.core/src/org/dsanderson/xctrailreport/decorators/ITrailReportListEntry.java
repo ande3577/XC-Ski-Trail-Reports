@@ -19,33 +19,29 @@
  */
 package org.dsanderson.xctrailreport.decorators;
 
-import org.dsanderson.util.IListEntry;
 import org.dsanderson.util.ITextItem;
-import org.dsanderson.xctrailreport.core.TrailReport;
 
 /**
  * 
  */
-public class PhotosetDecorator extends TrailReportDecorator {
+public interface ITrailReportListEntry {
+	
+	abstract void draw();
+	
+	abstract void setTitleGroupVisible(boolean visible);
+	
+	abstract ITextItem getTrailNameTextItem();
+	
+	abstract ITextItem getTrailLocationTextItem();
+	
+	abstract ITextItem getDateTextItem();
+	
+	abstract ITextItem getBriefConditionsTextItem();
+	
+	abstract ITextItem getDetailedConditionsTextItem();
+	
+	abstract ITextItem getAuthorTextItem();
+	
+	abstract ITextItem getPhotosetTextItem();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.xctrailreport.core.TrailReportDecorator#decorate(org.
-	 * dsanderson.xctrailreport.core.TrailReport,
-	 * org.dsanderson.xctrailreport.core.IListEntry)
-	 */
-	@Override
-	public void decorate(TrailReport trailReport,
-			ITrailReportListEntry listEntry) {
-		if (trailReport.getPhotosetUrl().length() > 0) {
-			ITextItem newTextItem = listEntry.getPhotosetTextItem();
-			if (newTextItem != null)
-				newTextItem.setText("<a href=\"" + trailReport.getPhotosetUrl()
-						+ "\">Photos</a>");
-		}
-
-		if (next() != null)
-			next().decorate(trailReport, listEntry);
-	}
 }

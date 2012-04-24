@@ -3,7 +3,6 @@ package org.dsanderson.morctrailreport;
 import java.util.Date;
 import java.util.List;
 
-import org.dsanderson.android.util.ListEntry;
 import org.dsanderson.morctrailreport.R;
 import org.dsanderson.morctrailreport.parser.MorcAllReportListCreator;
 import org.dsanderson.morctrailreport.parser.MorcFactory;
@@ -14,9 +13,11 @@ import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.core.android.IAbstractListEntryFactory;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
+import org.dsanderson.xctrailreport.decorators.ITrailReportListEntry;
 import org.dsanderson.android.util.AndroidIntent;
 import org.dsanderson.android.util.AndroidProgressBar;
 import org.dsanderson.android.util.Maps;
@@ -27,14 +28,12 @@ import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.format.Time;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
-import android.widget.LinearLayout;
 
 public class AllReportActivity extends ListActivity {
 
@@ -76,7 +75,7 @@ public class AllReportActivity extends ListActivity {
 		info = trailInfos.get(0);
 
 		printer = new AllTrailReportPrinter(this, factory, trailReports,
-				appName, R.layout.row);
+				appName, ListEntryFactory.getInstance());
 
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
@@ -123,7 +122,8 @@ public class AllReportActivity extends ListActivity {
 		}
 			return true;
 		case R.id.allReportsMap:
-			Maps.launchMap(info.getLocation(), info.getName(), info.getSpecificLocation(), this);
+			Maps.launchMap(info.getLocation(), info.getName(),
+					info.getSpecificLocation(), this);
 			return true;
 		case R.id.allReportsTrailInfo:
 			if (morcInfo != null) {
@@ -180,17 +180,18 @@ public class AllReportActivity extends ListActivity {
 		private final ListActivity context;
 		private final IAbstractFactory factory;
 		private final TrailReportList trailReports;
-		private final int rowId;
+		private final IAbstractListEntryFactory listEntryFactory;
 
 		public AllTrailReportPrinter(ListActivity context,
 				IAbstractFactory factory, TrailReportList trailReports,
-				String appName, int rowId) {
-			super(context, factory, trailReports, appName, rowId);
+				String appName, IAbstractListEntryFactory listEntryFactory) {
+			super(context, factory, trailReports, appName, listEntryFactory);
 			this.context = context;
 			this.factory = factory;
-			this.rowId = rowId;
 
 			this.trailReports = trailReports;
+			this.listEntryFactory = listEntryFactory;
+
 		}
 
 		public void printTrailReports() throws Exception {
@@ -208,8 +209,8 @@ public class AllReportActivity extends ListActivity {
 
 			Cursor cursor = ((TrailReportList) trailReports).getCursor();
 			if (redraw || (adapter == null)) {
-				adapter = new AllTrailReportAdapter(context, rowId, cursor,
-						factory, trailReports);
+				adapter = new AllTrailReportAdapter(context, cursor, factory,
+						trailReports, listEntryFactory);
 				context.setListAdapter(adapter);
 			} else {
 				adapter.changeCursor(cursor);
@@ -224,20 +225,20 @@ public class AllReportActivity extends ListActivity {
 
 		private final IAbstractFactory factory;
 		private final TrailReportList trailReports;
-		private final int textViewResourceId;
+		private final IAbstractListEntryFactory listEntryFactory;
 
 		/**
 		 * @param context
 		 * @param textViewResourceId
 		 * @param objects
 		 */
-		public AllTrailReportAdapter(Context context, int textViewResourceId,
-				Cursor cursor, IAbstractFactory factory,
-				TrailReportList trailReports) {
+		public AllTrailReportAdapter(Context context, Cursor cursor,
+				IAbstractFactory factory, TrailReportList trailReports,
+				IAbstractListEntryFactory listEntryFactory) {
 			super(context, cursor);
 			this.factory = factory;
 			this.trailReports = trailReports;
-			this.textViewResourceId = textViewResourceId;
+			this.listEntryFactory = listEntryFactory;
 		}
 
 		/*
@@ -248,11 +249,7 @@ public class AllReportActivity extends ListActivity {
 		 */
 		@Override
 		public View newView(Context context, Cursor cursor, ViewGroup parent) {
-
-			final LayoutInflater inflater = LayoutInflater.from(context);
-			View layout = inflater.inflate(textViewResourceId, parent, false);
-
-			return layout;
+			return listEntryFactory.inflate(context, parent);
 		}
 
 		/*
@@ -266,8 +263,8 @@ public class AllReportActivity extends ListActivity {
 			TrailReport currentReport = (TrailReport) trailReports.get(cursor);
 
 			if (currentReport != null) {
-				ListEntry listEntry = new ListEntry((LinearLayout) view,
-						context);
+				ITrailReportListEntry listEntry = listEntryFactory
+						.newListEntry(view);
 
 				boolean newTrail = false;
 				boolean last = cursor.isLast();
@@ -289,6 +286,8 @@ public class AllReportActivity extends ListActivity {
 				} else {
 					newTrail = true;
 				}
+
+				listEntry.setTitleGroupVisible(newTrail);
 
 				if (newTrail)
 					factory.getTrailInfoDecorators().decorate(currentReport,

@@ -23,7 +23,6 @@ import org.dsanderson.util.IListEntry;
 import org.dsanderson.util.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
-import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 
 /**
  * 
@@ -39,9 +38,9 @@ public class CityStateDecorator extends TrailReportDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(TrailReport trailReport, IListEntry listEntry) {
+	public void decorate(TrailReport trailReport, ITrailReportListEntry listEntry) {
 		TrailInfo trailInfo = trailReport.getTrailInfo();
-		ITextItem newTextItem = listEntry.newTextItem();
+		ITextItem newTextItem = listEntry.getTrailLocationTextItem();
 		String text = "";
 		text += trailInfo.getCity();
 		if (trailInfo.getState().length() > 0
@@ -50,7 +49,6 @@ public class CityStateDecorator extends TrailReportDecorator {
 		text += trailInfo.getState();
 
 		newTextItem.setText(text);
-		newTextItem.setStyle(ITextItem.FieldId_t.LOCATION);
 
 		if (next() != null) {
 			next().decorate(trailReport, listEntry);

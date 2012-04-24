@@ -26,6 +26,8 @@ import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.ILocationCoder;
 import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.INetConnection;
+import org.dsanderson.xctrailreport.decorators.ITrailReportListEntry;
+import org.dsanderson.xctrailreport.decorators.TrailReportDecorator;
 
 /**
  * 

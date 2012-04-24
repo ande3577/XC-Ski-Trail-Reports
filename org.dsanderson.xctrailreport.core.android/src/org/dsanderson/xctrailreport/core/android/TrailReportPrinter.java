@@ -36,14 +36,15 @@ public class TrailReportPrinter {
 	private final IAbstractFactory factory;
 	private final TrailReportList trailReports;
 	private final String appName;
-	private final int rowId;
+	private final IAbstractListEntryFactory listEntryFactory;
 
 	public TrailReportPrinter(ListActivity context, IAbstractFactory factory,
-			TrailReportList trailReports, String appName, int rowId) {
+			TrailReportList trailReports, String appName,
+			IAbstractListEntryFactory listEntryFactory) {
 		this.context = context;
 		this.factory = factory;
 		this.appName = appName;
-		this.rowId = rowId;
+		this.listEntryFactory = listEntryFactory;
 
 		this.trailReports = trailReports;
 	}
@@ -62,8 +63,8 @@ public class TrailReportPrinter {
 		trailReports.sort(factory.getUserSettings());
 
 		Cursor cursor = ((TrailReportList) trailReports).getCursor();
-		context.setListAdapter(new TrailReportAdapter(context, rowId, cursor,
-				factory, trailReports));
+		context.setListAdapter(new TrailReportAdapter(context, cursor,
+				factory, trailReports, listEntryFactory));
 		factory.getUserSettings().setRedrawNeeded(false);
 	}
 

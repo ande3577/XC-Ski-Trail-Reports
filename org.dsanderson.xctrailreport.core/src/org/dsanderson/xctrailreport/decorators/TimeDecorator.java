@@ -24,7 +24,6 @@ import java.text.SimpleDateFormat;
 import org.dsanderson.util.IListEntry;
 import org.dsanderson.util.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailReport;
-import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 
 /**
  * 
@@ -39,8 +38,8 @@ public class TimeDecorator extends TrailReportDecorator {
 	 * org.dsanderson.util.IListEntry)
 	 */
 	@Override
-	public void decorate(TrailReport trailReport, IListEntry listEntry) {
-		ITextItem textItem = listEntry.getTextItem();
+	public void decorate(TrailReport trailReport, ITrailReportListEntry listEntry) {
+		ITextItem textItem = listEntry.getDateTextItem();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("h:mm a");
 		String timeString = " - "
 				+ dateFormat.format(trailReport.getDate().getDate());

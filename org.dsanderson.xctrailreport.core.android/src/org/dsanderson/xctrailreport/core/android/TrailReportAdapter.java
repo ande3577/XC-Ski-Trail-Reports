@@ -19,19 +19,17 @@
  */
 package org.dsanderson.xctrailreport.core.android;
 
-import org.dsanderson.android.util.ListEntry;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.decorators.ITrailReportListEntry;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
-import android.widget.LinearLayout;
 
 /**
  * 
@@ -40,20 +38,20 @@ public class TrailReportAdapter extends CursorAdapter {
 
 	private final IAbstractFactory factory;
 	private final TrailReportList trailReports;
-	private final int textViewResourceId;
+	private final IAbstractListEntryFactory listEntryFactory;
 
 	/**
 	 * @param context
 	 * @param textViewResourceId
 	 * @param objects
 	 */
-	public TrailReportAdapter(Context context, int textViewResourceId,
-			Cursor cursor, IAbstractFactory factory,
-			TrailReportList trailReports) {
+	public TrailReportAdapter(Context context, Cursor cursor,
+			IAbstractFactory factory, TrailReportList trailReports,
+			IAbstractListEntryFactory listEntryFactory) {
 		super(context, cursor);
 		this.factory = factory;
 		this.trailReports = trailReports;
-		this.textViewResourceId = textViewResourceId;
+		this.listEntryFactory = listEntryFactory;
 	}
 
 	/*
@@ -65,10 +63,14 @@ public class TrailReportAdapter extends CursorAdapter {
 	@Override
 	public View newView(Context context, Cursor cursor, ViewGroup parent) {
 
+		return listEntryFactory.inflate(context, parent);
+		
+		/*
 		final LayoutInflater inflater = LayoutInflater.from(context);
 		View layout = inflater.inflate(textViewResourceId, parent, false);
 
 		return layout;
+		*/
 	}
 
 	/*
@@ -82,8 +84,8 @@ public class TrailReportAdapter extends CursorAdapter {
 		TrailReport currentReport = (TrailReport) trailReports.get(cursor);
 
 		if (currentReport != null) {
-			ListEntry listEntry = new ListEntry((LinearLayout) view, context);
-
+			ITrailReportListEntry listEntry = listEntryFactory.newListEntry(view);
+			
 			boolean newTrail = false;
 			if (cursor.moveToPrevious()) {
 				TrailReport previousReport = (TrailReport) trailReports
@@ -104,7 +106,8 @@ public class TrailReportAdapter extends CursorAdapter {
 				newTrail = true;
 			}
 
-			if (newTrail)
+			listEntry.setTitleGroupVisible(newTrail);
+			if (newTrail) 
 				factory.getTrailInfoDecorators().decorate(currentReport,
 						listEntry);
 

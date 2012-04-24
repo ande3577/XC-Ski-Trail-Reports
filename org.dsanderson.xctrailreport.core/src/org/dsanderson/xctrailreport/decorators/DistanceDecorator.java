@@ -25,7 +25,6 @@ import org.dsanderson.util.IListEntry;
 import org.dsanderson.util.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
-import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 import org.dsanderson.xctrailreport.core.Units;
 
 /**
@@ -42,15 +41,12 @@ public class DistanceDecorator extends TrailReportDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(TrailReport trailReportIter, IListEntry listEntry) {
+	public void decorate(TrailReport trailReportIter, ITrailReportListEntry listEntry) {
 		TrailInfo trailInfo = trailReportIter.getTrailInfo();
 
 		if (trailInfo.getDistanceValid()) {
 			// add to end of previous (City, State)
-			ITextItem textItem = listEntry.getTextItem();
-			if (textItem == null) {
-				textItem = listEntry.newTextItem();
-			}
+			ITextItem textItem = listEntry.getTrailLocationTextItem();
 
 			DecimalFormat formatter = new DecimalFormat("0.0");
 

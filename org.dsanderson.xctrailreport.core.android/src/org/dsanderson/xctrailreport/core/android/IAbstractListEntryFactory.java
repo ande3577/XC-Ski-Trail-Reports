@@ -17,33 +17,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.decorators;
+package org.dsanderson.xctrailreport.core.android;
 
-import org.dsanderson.util.IListEntry;
-import org.dsanderson.util.ITextItem;
-import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.decorators.ITrailReportListEntry;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 
 /**
  * 
  */
-public class DateDecorator extends TrailReportDecorator {
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.xctrailreport.core.TrailReportDecorator#decorate(org.
-	 * dsanderson.xctrailreport.core.TrailReport,
-	 * org.dsanderson.xctrailreport.core.IListEntry)
-	 */
-	@Override
-	public void decorate(TrailReport trailReport, ITrailReportListEntry listEntry) {
-		ITextItem newTextItem = listEntry.getDateTextItem();
-
-		newTextItem.setText(trailReport.getDate().formatDate());
-
-		if (next() != null) {
-			next().decorate(trailReport, listEntry);
-		}
-	}
+public interface IAbstractListEntryFactory {
+	
+	public View inflate(Context context, ViewGroup parent);
+	
+	public ITrailReportListEntry newListEntry(View view);
 
 }

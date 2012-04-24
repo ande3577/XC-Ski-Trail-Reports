@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/descriptionBackgroundColor"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/titleGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/titleBackgroundColor"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/trailNameView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="Trail Name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/trailNameTextColor" />
+
+        <TextView
+            android:id="@+id/trailLocationView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="City, State (distance, duration)"
+            android:textColor="@color/trailLocationTextColor" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dateView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Date, Time"
+        android:textColor="@color/dateTextColor" />
+
+    <TextView
+        android:id="@+id/briefConditionsView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Conditions: Brief"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/detailedView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detailed conditions"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/authorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Author (Source)"
+        android:textColor="@color/textColor" />
 
 </LinearLayout>

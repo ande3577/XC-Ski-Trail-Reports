@@ -17,9 +17,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.xctrailreport.core;
+package org.dsanderson.xctrailreport.decorators;
 
 import org.dsanderson.util.IListEntry;
+import org.dsanderson.xctrailreport.core.TrailReport;
 
 /**
  * 
@@ -45,6 +46,6 @@ public abstract class TrailReportDecorator {
 	 * @param trailReportIter
 	 * @param listEntry
 	 */
-	abstract public void decorate(TrailReport trailReport, IListEntry listEntry);
+	abstract public void decorate(TrailReport trailReport, ITrailReportListEntry listEntry);
 
 }

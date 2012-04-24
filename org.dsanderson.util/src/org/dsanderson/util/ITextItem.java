@@ -24,18 +24,10 @@ package org.dsanderson.util;
  */
 public interface ITextItem {
 
-	public enum FieldId_t {
-		NAME, LOCATION, DATE, SUMMARY, DETAIL, AUTHOR
-	};
-
 	String getText();
 
 	void setText(String text);
-
-	void setStyle(FieldId_t fieldId);
-
-	int getTitleBackgroundColor();
-
+	
 	void draw();
 
 }

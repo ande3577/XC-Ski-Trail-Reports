@@ -22,7 +22,6 @@ package org.dsanderson.xctrailreport.decorators;
 import org.dsanderson.util.IListEntry;
 import org.dsanderson.util.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailReport;
-import org.dsanderson.xctrailreport.core.TrailReportDecorator;
 
 /**
  * 
@@ -37,10 +36,10 @@ public class DetailedReportDecorator extends TrailReportDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(TrailReport trailReport, IListEntry listEntry) {
+	public void decorate(TrailReport trailReport, ITrailReportListEntry listEntry) {
 
 		if (trailReport.getDetail().length() > 0) {
-			ITextItem newTextItem = listEntry.newTextItem();
+			ITextItem newTextItem = listEntry.getDetailedConditionsTextItem();
 			newTextItem.setText(trailReport.getDetail());
 		}
 
