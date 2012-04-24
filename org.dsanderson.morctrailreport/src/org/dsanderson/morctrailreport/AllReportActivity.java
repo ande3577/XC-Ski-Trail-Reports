@@ -205,7 +205,7 @@ public class AllReportActivity extends ListActivity {
 			context.setTitle(titleString);
 
 			factory.filterReports(trailReports);
-			trailReports.sort(factory.getUserSettings());
+			factory.sortReports(trailReports);
 
 			Cursor cursor = ((TrailReportList) trailReports).getCursor();
 			if (redraw || (adapter == null)) {

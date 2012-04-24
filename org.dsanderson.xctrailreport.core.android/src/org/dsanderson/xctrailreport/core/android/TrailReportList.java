@@ -77,9 +77,15 @@ public class TrailReportList extends GenericDatabase implements
 	public void remove(TrailReport arg0) {
 		super.remove(arg0);
 	}
-
+	
 	public void sort(UserSettings settings) {
-		clearSortOrder();
+		sort(settings, true);
+	}
+
+	public void sort(UserSettings settings, boolean clear) {
+		if (clear)
+			clearSortOrder();
+		
 		switch (settings.getSortMethod()) {
 		case SORT_BY_DATE:
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);

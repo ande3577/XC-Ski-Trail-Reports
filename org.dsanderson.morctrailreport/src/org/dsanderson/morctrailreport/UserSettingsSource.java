@@ -156,8 +156,6 @@ public class UserSettingsSource implements IUserSettingsSource {
 		settings.setFilterAge(getInt(preference, "filterAge",
 				settings.getFilterAge()));
 		settings.setSortMethod(stringToSortMethod(preference.getString(
-				"filterMethod", sortMethodToString(settings.getSortMethod()))));
-		settings.setSortMethod(stringToSortMethod(preference.getString(
 				"sortMethod", sortMethodToString(settings.getSortMethod()))));
 		settings.setDurationFilterEnabled(preference.getBoolean(
 				"durationFilterEnabled", settings.getDurationFilterEnabled()));

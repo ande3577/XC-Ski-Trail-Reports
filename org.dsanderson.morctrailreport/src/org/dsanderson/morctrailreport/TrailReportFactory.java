@@ -451,17 +451,22 @@ public class TrailReportFactory implements IAbstractFactory {
 	public void sortReports(ITrailReportList trailReports) {
 		UserSettings settings = getUserSettings();
 		TrailReportList reports = (TrailReportList) trailReports;
-		
+
 		if (settings.getSortMethod() == SortMethod.SORT_BY_CONDITION) {
-			reports.addSortOrder(TrailReportDatabaseFactory.COLUMN_SUMMARY, true);
+			final String[] summarySortOrder = { "Dry", "Tacky", "Damp", "Wet",
+					"Closed", "" };
+			reports.addArbitrarySortOrder(
+					TrailReportDatabaseFactory.COLUMN_SUMMARY, summarySortOrder);
 			reports.addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
-			reports.addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, false);
-			reports.addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, false);
+			reports.addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION,
+					false);
+			reports.addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE,
+					false);
 			reports.addSortOrder(TrailInfoDatabaseFactory.COLUMN_NAME, true);
-			reports.addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET, false);
+			reports.addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET,
+					false);
 		} else {
-			trailReports.sort(getUserSettings());
+			trailReports.sort(settings);
 		}
 	}
-
 }

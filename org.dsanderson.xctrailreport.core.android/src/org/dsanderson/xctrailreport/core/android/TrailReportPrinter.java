@@ -60,7 +60,7 @@ public class TrailReportPrinter {
 		context.setTitle(titleString);
 
 		factory.filterReports(trailReports);
-		trailReports.sort(factory.getUserSettings());
+		factory.sortReports(trailReports);
 
 		Cursor cursor = ((TrailReportList) trailReports).getCursor();
 		context.setListAdapter(new TrailReportAdapter(context, cursor,
