@@ -56,6 +56,7 @@ import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailReportDecorator;
 import org.dsanderson.xctrailreport.core.TrailReportPool;
+import org.dsanderson.xctrailreport.core.UserSettings.SortMethod;
 import org.dsanderson.xctrailreport.core.android.TrailInfoDatabaseFactory;
 import org.dsanderson.xctrailreport.core.android.TrailInfoList;
 import org.dsanderson.xctrailreport.core.android.TrailReportDatabaseFactory;
@@ -412,10 +413,12 @@ public class TrailReportFactory implements IAbstractFactory {
 						+ "=='Tacky')");
 			if (morcSettings.getDampEnabled())
 				filterString = addOrString(filterString, "("
-						+ TrailReportDatabaseFactory.COLUMN_SUMMARY + "=='Damp')");
+						+ TrailReportDatabaseFactory.COLUMN_SUMMARY
+						+ "=='Damp')");
 			if (morcSettings.getWetEnabled())
 				filterString = addOrString(filterString, "("
-						+ TrailReportDatabaseFactory.COLUMN_SUMMARY + "=='Wet')");
+						+ TrailReportDatabaseFactory.COLUMN_SUMMARY
+						+ "=='Wet')");
 			if (morcSettings.getClosedEnabled())
 				filterString = addOrString(filterString, "("
 						+ TrailReportDatabaseFactory.COLUMN_SUMMARY
@@ -436,6 +439,29 @@ public class TrailReportFactory implements IAbstractFactory {
 			stringOut += "||";
 		stringOut += string2;
 		return stringOut;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#sortReports(org.dsanderson
+	 * .xctrailreport.core.ITrailReportList)
+	 */
+	public void sortReports(ITrailReportList trailReports) {
+		UserSettings settings = getUserSettings();
+		TrailReportList reports = (TrailReportList) trailReports;
+		
+		if (settings.getSortMethod() == SortMethod.SORT_BY_CONDITION) {
+			reports.addSortOrder(TrailReportDatabaseFactory.COLUMN_SUMMARY, true);
+			reports.addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
+			reports.addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, false);
+			reports.addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, false);
+			reports.addSortOrder(TrailInfoDatabaseFactory.COLUMN_NAME, true);
+			reports.addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET, false);
+		} else {
+			trailReports.sort(getUserSettings());
+		}
 	}
 
 }

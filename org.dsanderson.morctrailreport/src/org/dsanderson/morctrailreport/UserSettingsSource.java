@@ -212,6 +212,8 @@ public class UserSettingsSource implements IUserSettingsSource {
 			return "sortByDistance";
 		case SORT_BY_DURATION:
 			return "sortByDuration";
+		case SORT_BY_CONDITION:
+			return "sortByCondition";
 		}
 		return null;
 	}
@@ -223,6 +225,8 @@ public class UserSettingsSource implements IUserSettingsSource {
 			return SortMethod.SORT_BY_DATE;
 		else if (string.equals("sortByDuration"))
 			return SortMethod.SORT_BY_DURATION;
+		else if (string.equals("sortByCondition"))
+			return SortMethod.SORT_BY_CONDITION;
 		else
 			return SortMethod.SORT_BY_DATE;
 	}

@@ -4,13 +4,13 @@
         <item >sortByDistance</item>
         <item >sortByDate</item>
         <item >sortByDuration</item>
-        <item >sortByPhotoset</item>
+        <item >sortByCondition</item>
     </string-array>
     <string-array name="sortMethodNames">
         <item >Sort by Distance</item>
         <item >Sort by Date</item>
         <item >Sort By Drive Time</item>
-        <item >Sort By Photos</item>
+        <item >Sort By Condition</item>
     </string-array>
     
 </resources>

@@ -4,6 +4,7 @@
         <item android:id="@+id/sortByDistance" android:title="Sort by Distance" android:checkable="true"/>
         <item android:id="@+id/sortByDate" android:title="Sort by Date" android:checkable="true"/>
         <item android:id="@+id/sortByDuration" android:title="Sort by Drive Time" android:checkable="true"/>
+        <item android:id="@+id/sortByCondition" android:title="Sort By Condition"/>
     </menu>
 </item><item android:id="@+id/refresh" android:title="Refresh" android:icon="@drawable/ic_menu_refresh"></item><item android:id="@+id/aboutMenuItem" android:title="About" android:icon="@drawable/ic_menu_info_details"></item><item android:id="@+id/preferencesMenuItem" android:title="Settings" android:icon="@drawable/ic_menu_preferences"></item>
 

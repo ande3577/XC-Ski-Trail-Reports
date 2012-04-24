@@ -211,6 +211,7 @@ public class morcTrailReportActivity extends ListActivity {
 		case R.id.sortByDuration:
 		case R.id.sortByDate:
 		case R.id.sortByDistance:
+		case R.id.sortByCondition:
 
 			String sortMethodString = "";
 
@@ -223,6 +224,9 @@ public class morcTrailReportActivity extends ListActivity {
 				break;
 			case R.id.sortByDistance:
 				sortMethodString = "sortByDistance";
+				break;
+			case R.id.sortByCondition:
+				sortMethodString = "sortByCondition";
 				break;
 			}
 

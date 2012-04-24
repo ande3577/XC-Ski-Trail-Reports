@@ -24,7 +24,7 @@ package org.dsanderson.xctrailreport.core;
  */
 public class UserSettings {
 	public enum SortMethod {
-		SORT_BY_DISTANCE, SORT_BY_DATE, SORT_BY_DURATION, SORT_BY_PHOTOSET
+		SORT_BY_DISTANCE, SORT_BY_DATE, SORT_BY_DURATION, SORT_BY_PHOTOSET, SORT_BY_CONDITION
 	}
 
 	public enum AutoRefreshMode {
@@ -115,12 +115,12 @@ public class UserSettings {
 	public int getDurationCutoff() {
 		return durationCutoff;
 	}
-	
+
 	public void setPhotsetFilterEnabled(boolean photosetFilterEnabled) {
 		this.photosetFilterEnabled = photosetFilterEnabled;
 		redrawNeeded = true;
 	}
-	
+
 	public boolean getPhotosetFilterEnabled() {
 		return photosetFilterEnabled;
 	}
@@ -157,13 +157,13 @@ public class UserSettings {
 	public boolean getRedrawNeeded() {
 		return this.redrawNeeded;
 	}
-	
+
 	public void setForcedRefresh(boolean forcedRefresh) {
 		this.forcedRefresh = forcedRefresh;
 	}
-	
+
 	public boolean getForcedRefresh() {
 		return forcedRefresh;
 	}
-	
+
 }

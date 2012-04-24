@@ -60,6 +60,8 @@ public interface IAbstractFactory {
 	public UserSettings getUserSettings();
 
 	public void filterReports(ITrailReportList trailReports);
+	
+	public void sortReports(ITrailReportList trailReports);
 
 	public ILocationCoder getLocationCoder();
 
