@@ -39,12 +39,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/titleGroup"
-        android:layout_toLeftOf="@+id/imageView1"
+        android:layout_toLeftOf="@+id/conditionImageView"
         android:text="Date - Time"
         android:textColor="@color/dateTextColor" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/conditionImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
