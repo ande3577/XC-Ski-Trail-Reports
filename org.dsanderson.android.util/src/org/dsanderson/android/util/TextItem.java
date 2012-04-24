@@ -21,15 +21,9 @@ package org.dsanderson.android.util;
 
 import org.dsanderson.util.ITextItem;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**

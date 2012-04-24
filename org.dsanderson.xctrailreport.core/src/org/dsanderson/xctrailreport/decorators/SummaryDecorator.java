@@ -19,7 +19,6 @@
  */
 package org.dsanderson.xctrailreport.decorators;
 
-import org.dsanderson.util.IListEntry;
 import org.dsanderson.util.ITextItem;
 import org.dsanderson.xctrailreport.core.TrailReport;
 
