@@ -30,8 +30,12 @@ public class MorcSpecificSettings {
 	boolean wetEnabled = true;
 	boolean closedEnabled = true;
 	boolean otherEnabled = true;
+	static final TrailReportFactory factory = TrailReportFactory.getInstance();
+	
+	
 	
 	public void setConditionsFilterEnabled(boolean conditionsFilterEnabled) {
+		factory.getUserSettings().setRedrawNeeded(true);
 		this.conditionsFilterEnabled = conditionsFilterEnabled;
 	}
 	
@@ -40,6 +44,7 @@ public class MorcSpecificSettings {
 	}
 	
 	public void setDryEnabled(boolean dryEnabled) {
+		factory.getUserSettings().setRedrawNeeded(true);
 		this.dryEnabled = dryEnabled;
 	}
 	
@@ -48,6 +53,7 @@ public class MorcSpecificSettings {
 	}
 	
 	public void setTackyEnabled(boolean tackyEnabled) {
+		factory.getUserSettings().setRedrawNeeded(true);
 		this.tackyEnabled = tackyEnabled;
 	}
 	
@@ -56,6 +62,7 @@ public class MorcSpecificSettings {
 	}
 	
 	public void setDampEnabled(boolean dampEnabled) {
+		factory.getUserSettings().setRedrawNeeded(true);
 		this.dampEnabled = dampEnabled;
 	}
 	
@@ -64,6 +71,7 @@ public class MorcSpecificSettings {
 	}
 	
 	public void setWetEnabled(boolean wetEnabled) {
+		factory.getUserSettings().setRedrawNeeded(true);
 		this.wetEnabled = wetEnabled;
 	}
 	
@@ -72,6 +80,7 @@ public class MorcSpecificSettings {
 	}
 	
 	public void setClosedEnabled(boolean closedEnabled) {
+		factory.getUserSettings().setRedrawNeeded(true);
 		this.closedEnabled = closedEnabled;
 	}
 	
@@ -80,6 +89,7 @@ public class MorcSpecificSettings {
 	}
 	
 	public void setOtherEnabled(boolean otherEnabled) {
+		factory.getUserSettings().setRedrawNeeded(true);
 		this.otherEnabled = otherEnabled;
 	}
 	
