@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="titleBackgroundColor">#2F4F4F</color>
+    <color name="titleBackgroundColor">#50749E</color>
     <color name="trailNameTextColor">#FFFFFF</color>
     <color name="trailLocationTextColor">#FFFFFF</color>
     <color name="descriptionBackgroundColor">#FFFFFF</color>
