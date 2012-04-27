@@ -29,6 +29,7 @@ import org.dsanderson.android.util.GenericDatabase;
 import org.dsanderson.android.util.IDatabaseObjectFactory;
 import org.dsanderson.android.util.LocationCoder;
 import org.dsanderson.android.util.LocationSource;
+import org.dsanderson.android.util.QuickDistanceSource;
 import org.dsanderson.android.util.UrlConnection;
 import org.dsanderson.util.IDialog;
 import org.dsanderson.util.IDistanceSource;
@@ -198,6 +199,7 @@ public class TrailReportFactory implements IAbstractFactory {
 		case FULL:
 			return new DistanceSource(getNetConnection());
 		case QUICK:
+			return new QuickDistanceSource((LocationCoder) getLocationCoder());
 		case DISABLED:
 			return null;
 		}

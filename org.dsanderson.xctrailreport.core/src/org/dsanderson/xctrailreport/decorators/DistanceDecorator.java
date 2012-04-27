@@ -57,7 +57,7 @@ public class DistanceDecorator extends TrailReportDecorator {
 
 			if (distanceValid)
 				text += formatter.format(Units.metersToMiles(trailInfo
-						.getDistance())) + "mi";
+						.getDistance())) + " mi";
 
 			if (distanceValid && durationValid)
 				text += ", ";

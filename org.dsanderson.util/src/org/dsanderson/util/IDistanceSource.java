@@ -26,7 +26,7 @@ import java.util.List;
  */
 public interface IDistanceSource {
 
-	void updateDistances(String src, List<String> dest, IProgressBar progressBar)
+	void updateDistances(String src, List<String> dests, IProgressBar progressBar)
 			throws Exception;
 
 	List<Integer> getDistances();
