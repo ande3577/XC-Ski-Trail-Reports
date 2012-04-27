@@ -30,6 +30,10 @@ public class UserSettings {
 	public enum AutoRefreshMode {
 		ALWAYS, NEVER, IF_OUT_OF_DATE
 	}
+	
+	public enum DistanceMode {
+		FULL, QUICK, DISABLED
+	}
 
 	private SortMethod sortMethod = SortMethod.SORT_BY_DATE;
 	private boolean locationEnabled = false;
@@ -45,6 +49,7 @@ public class UserSettings {
 	private AutoRefreshMode autoRefreshMode = AutoRefreshMode.IF_OUT_OF_DATE;
 	private long autoRefreshCutoff = Units.hoursToMilliseconds(2);
 	private boolean forcedRefresh = false;
+	private DistanceMode distanceMode = DistanceMode.FULL;
 
 	public void setLocationEnabled(boolean locationEnabled) {
 		this.locationEnabled = locationEnabled;
@@ -164,6 +169,14 @@ public class UserSettings {
 	
 	public boolean getForcedRefresh() {
 		return forcedRefresh;
+	}
+	
+	public void setDistanceMode(DistanceMode distanceMode) {
+		this.distanceMode = distanceMode;
+	}
+	
+	public DistanceMode getDistanceMode() {
+		return distanceMode;
 	}
 	
 }
