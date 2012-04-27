@@ -199,7 +199,7 @@ public class TrailReportFactory implements IAbstractFactory {
 		case FULL:
 			return new DistanceSource(getNetConnection());
 		case QUICK:
-			return new QuickDistanceSource((LocationCoder) getLocationCoder());
+			return new QuickDistanceSource();
 		case DISABLED:
 			return null;
 		}

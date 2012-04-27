@@ -40,10 +40,8 @@ public class QuickDistanceSource implements IDistanceSource {
 	List<Boolean> distanceValids = new ArrayList<Boolean>();
 	List<Integer> durations = new ArrayList<Integer>();
 	List<Boolean> durationValids = new ArrayList<Boolean>();
-	private final LocationCoder coder;
 
-	public QuickDistanceSource(LocationCoder coder) {
-		this.coder = coder;
+	public QuickDistanceSource() {
 	}
 
 	/*
@@ -58,18 +56,22 @@ public class QuickDistanceSource implements IDistanceSource {
 		if (src.length() == 0 || getMaxStringLength(dests) == 0)
 			return;
 
-		coder.getLocation(src);
-		Address sourceAddress = coder.getAddress();
+		String srcCoords[] = src.split("\\,");
 
 		for (String dest : dests) {
-			coder.getLocation(dest);
-			Address destAddress = coder.getAddress();
-			float distance[] = { 0 };
-			Location.distanceBetween(sourceAddress.getLatitude(),
-					sourceAddress.getLongitude(), destAddress.getLatitude(),
-					destAddress.getLongitude(), distance);
-			distances.add((int) distance[0]);
-			distanceValids.add(true);
+			String destCoords[] = dest.split("\\,");
+			if (srcCoords.length == 2 && destCoords.length == 2) {
+				float distance[] = { 0 };
+				Location.distanceBetween(Double.parseDouble(srcCoords[0]),
+						Double.parseDouble(srcCoords[1]),
+						Double.parseDouble(destCoords[0]),
+						Double.parseDouble(destCoords[1]), distance);
+				distances.add((int) distance[0]);
+				distanceValids.add(true);
+			} else {
+				distances.add(0);
+				distanceValids.add(false);
+			}
 			durations.add(0);
 			durationValids.add(false);
 		}
