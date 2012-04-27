@@ -121,7 +121,7 @@ public class DistanceSource implements IDistanceSource {
 		return durations;
 	}
 
-	public List<Boolean> getValids() {
+	public List<Boolean> getDistanceValids() {
 		return valids;
 	}
 
@@ -163,5 +163,12 @@ public class DistanceSource implements IDistanceSource {
 			}
 		}
 
+	}
+
+	/* (non-Javadoc)
+	 * @see org.dsanderson.util.IDistanceSource#getDurationValids()
+	 */
+	public List<Boolean> getDurationValids() {
+		return getDistanceValids();
 	}
 }

@@ -23,7 +23,7 @@ import java.io.BufferedInputStream;
 
 import org.dsanderson.util.INetConnection;
 import org.dsanderson.util.IProgressBar;
-import org.dsanderson.util.TrailLocationInfo;
+import org.dsanderson.util.LocationInfo;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.ITrailInfoList;
@@ -79,7 +79,7 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 								.getSkinnyskiSpecificInfo();
 
 						newTrailInfo.addSourceSpecificInfo(newSkinnyskiInfo);
-						TrailLocationInfo locationInfo = factory
+						LocationInfo locationInfo = factory
 								.getLocationCoder().getLocation(
 										newTrailInfo.getName() + ", "
 												+ newTrailInfo.getCity() + ", "

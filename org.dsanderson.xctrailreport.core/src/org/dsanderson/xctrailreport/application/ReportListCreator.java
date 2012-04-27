@@ -45,7 +45,8 @@ public class ReportListCreator implements IReportListCreator {
 	}
 
 	public void getTrailReports(ITrailReportList trailReports,
-			ITrailInfoList trailInfos, boolean forced, IProgressBar progressBar) throws Exception {
+			ITrailInfoList trailInfos, boolean forced, IProgressBar progressBar)
+			throws Exception {
 		boolean refreshNeeded = forced;
 
 		UserSettings settings = factory.getUserSettings();
@@ -83,7 +84,7 @@ public class ReportListCreator implements IReportListCreator {
 					source.getReportRetriever().getReports(trailReports,
 							trailInfos, progressBar);
 			}
-			
+
 			getDistances(trailReports, trailInfos, progressBar);
 
 			trailReports.save();
@@ -121,12 +122,15 @@ public class ReportListCreator implements IReportListCreator {
 
 		List<String> destinations = trailInfos.getAllLocations();
 
-		try {
-			distanceSource.updateDistances(location, destinations, progressBar);
+		if (distanceSource != null) {
+			try {
+				distanceSource.updateDistances(location, destinations,
+						progressBar);
 
-			trailInfos.updateDistances(distanceSource, destinations);
-		} catch (Exception e) {
-			e.printStackTrace();
+				trailInfos.updateDistances(distanceSource, destinations);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

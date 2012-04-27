@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.dsanderson.util.ILocationCoder;
-import org.dsanderson.util.TrailLocationInfo;
+import org.dsanderson.util.LocationInfo;
 
 import android.content.Context;
 import android.location.Address;
@@ -50,10 +50,10 @@ public class LocationCoder implements ILocationCoder {
 	 * org.dsanderson.xctrailreport.core.ILocationCoder#getLocation(java.lang
 	 * .String)
 	 */
-	public TrailLocationInfo getLocation(String locationName) throws Exception {
+	public LocationInfo getLocation(String locationName) throws Exception {
 		// geocoder unavailable in emulator
 		if (Build.FINGERPRINT.startsWith("generic"))
-			return new TrailLocationInfo(locationName, false);
+			return new LocationInfo(locationName, false);
 		
 		// return empty string if cannot parse to valid location
 		String location = "";
@@ -74,8 +74,12 @@ public class LocationCoder implements ILocationCoder {
 			address = addresses.get(0);
 			location = address.getLatitude() + "," + address.getLongitude();
 		}
-		return new TrailLocationInfo(location, specificLocation);
+		return new LocationInfo(location, specificLocation);
 		
+	}
+	
+	public Address getAddress() {
+		return address;
 	}
 
 	private String lessSpecific(String locationName) {

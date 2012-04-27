@@ -33,14 +33,14 @@ public class DurationComparator  implements Comparator<TrailReport> {
 	 */
 	@Override
 	public int compare(TrailReport arg0, TrailReport arg1) {
-		if (arg0.getTrailInfo().getDistanceValid()
-				&& arg1.getTrailInfo().getDistanceValid()) {
+		if (arg0.getTrailInfo().getDurationValid()
+				&& arg1.getTrailInfo().getDurationValid()) {
 			Integer duration0 = arg0.getTrailInfo().getDuration();
 			Integer duration1 = arg1.getTrailInfo().getDuration();
 			return duration0.compareTo(duration1);
-		} else if (arg0.getTrailInfo().getDistanceValid()) {
+		} else if (arg0.getTrailInfo().getDurationValid()) {
 			return -1;
-		} else if (arg1.getTrailInfo().getDistanceValid()) {
+		} else if (arg1.getTrailInfo().getDurationValid()) {
 			return 1;
 		} else {
 			return 0;

@@ -53,7 +53,7 @@ public class DurationFilter implements IReportFilter {
 	@Override
 	public boolean filterReport(TrailReport report) {
 		return report.getTrailInfo().getDuration() <= cutoff
-				&& report.getTrailInfo().getDistanceValid();
+				&& report.getTrailInfo().getDurationValid();
 	}
 
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="distanceModes">
+        <item >distanceModeFull</item>
+        <item >distanceModeQuick</item>
+        <item >distanceModeDisabled</item>
+    </string-array>
+    <string-array name="distanceModeStrings">
+        <item >Full</item>
+        <item >Quick</item>
+        <item >Disabled</item>
+    </string-array>
+    
+</resources>

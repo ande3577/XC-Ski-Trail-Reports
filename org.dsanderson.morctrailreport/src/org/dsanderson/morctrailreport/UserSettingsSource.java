@@ -27,11 +27,13 @@ import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.Units;
 import org.dsanderson.xctrailreport.core.UserSettings;
 import org.dsanderson.xctrailreport.core.UserSettings.AutoRefreshMode;
+import org.dsanderson.xctrailreport.core.UserSettings.DistanceMode;
 import org.dsanderson.xctrailreport.core.UserSettings.SortMethod;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.content.res.Resources;
 import android.preference.PreferenceManager;
 
 /**
@@ -39,9 +41,10 @@ import android.preference.PreferenceManager;
  */
 public class UserSettingsSource implements IUserSettingsSource {
 	SharedPreferences preference;
-	UserSettings settings;
-	IAbstractFactory factory;
-	MorcSpecificSettings morcSpecificSettings;
+	final UserSettings settings;
+	final IAbstractFactory factory;
+	final MorcSpecificSettings morcSpecificSettings;
+	final Context context;
 
 	public UserSettingsSource(Context context, IAbstractFactory factory,
 			MorcSpecificSettings morcSpecificSettings) {
@@ -51,6 +54,7 @@ public class UserSettingsSource implements IUserSettingsSource {
 		this.settings = factory.getUserSettings();
 		this.factory = factory;
 		this.morcSpecificSettings = morcSpecificSettings;
+		this.context = context;
 	}
 
 	private OnSharedPreferenceChangeListener preferenceChangedListener = new OnSharedPreferenceChangeListener() {
@@ -121,9 +125,7 @@ public class UserSettingsSource implements IUserSettingsSource {
 				morcSpecificSettings
 						.setOtherEnabled(sharedPreferences.getBoolean(key,
 								morcSpecificSettings.getOtherEnabled()));
-			}
-
-			else if (key.equals("autoRefreshMode")) {
+			} else if (key.equals("autoRefreshMode")) {
 				settings.setAutoRefreshMode(stringToAutoRefreshMode(sharedPreferences
 						.getString(key, autoRefreshModeToString(settings
 								.getAutoRefreshMode()))));
@@ -131,6 +133,9 @@ public class UserSettingsSource implements IUserSettingsSource {
 				settings.setAutoRefreshCutoff(Units
 						.hoursToMilliseconds(getDouble(sharedPreferences, key,
 								settings.getAutoRefreshCutoff())));
+			} else if (key.equals("distanceMode")) {
+				settings.setDistanceMode(stringToDistanceMode(sharedPreferences
+						.getString(key, distanceModeToString(DistanceMode.FULL))));
 			}
 		}
 
@@ -168,6 +173,8 @@ public class UserSettingsSource implements IUserSettingsSource {
 		settings.setAutoRefreshCutoff(Units.hoursToMilliseconds(getDouble(
 				preference, "autoRefreshCutoff",
 				Units.millisecondsToHours(settings.getAutoRefreshCutoff()))));
+		settings.setDistanceMode(stringToDistanceMode(preference.getString(
+				"distanceMode", distanceModeToString(DistanceMode.FULL))));
 
 		morcSpecificSettings.setConditionsFilterEnabled(preference.getBoolean(
 				"conditionFilterEnabled",
@@ -248,6 +255,31 @@ public class UserSettingsSource implements IUserSettingsSource {
 			return AutoRefreshMode.NEVER;
 		else
 			return AutoRefreshMode.IF_OUT_OF_DATE;
+	}
+
+	private DistanceMode stringToDistanceMode(String string) {
+		Resources res = context.getResources();
+		String distanceModes[] = res.getStringArray(R.array.distanceModes);
+		if (string.equals(distanceModes[1]))
+			return DistanceMode.QUICK;
+		else if (string.equals(distanceModes[2]))
+			return DistanceMode.DISABLED;
+		else
+			return DistanceMode.FULL;
+	}
+
+	private String distanceModeToString(DistanceMode distanceMode) {
+		Resources res = context.getResources();
+		String distanceModes[] = res.getStringArray(R.array.distanceModes);
+		switch (distanceMode) {
+		default:
+		case FULL:
+			return distanceModes[0];
+		case QUICK:
+			return distanceModes[1];
+		case DISABLED:
+			return distanceModes[2];
+		}
 	}
 
 	private double getDouble(SharedPreferences preference, String key,

@@ -29,6 +29,7 @@ import org.dsanderson.android.util.GenericDatabase;
 import org.dsanderson.android.util.IDatabaseObjectFactory;
 import org.dsanderson.android.util.LocationCoder;
 import org.dsanderson.android.util.LocationSource;
+import org.dsanderson.android.util.QuickDistanceSource;
 import org.dsanderson.android.util.UrlConnection;
 import org.dsanderson.util.IDialog;
 import org.dsanderson.util.IDistanceSource;
@@ -45,6 +46,7 @@ import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.TrailInfoPool;
 import org.dsanderson.xctrailreport.core.TrailReportParser;
 import org.dsanderson.xctrailreport.core.UserSettings;
+import org.dsanderson.xctrailreport.core.UserSettings.DistanceMode;
 import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
 import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
 import org.dsanderson.xctrailreport.decorators.ConditionsImageDecorator;
@@ -193,7 +195,15 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getDirectionsSource()
 	 */
 	public IDistanceSource getDistanceSource() {
-		return new DistanceSource(getNetConnection());
+		switch (getUserSettings().getDistanceMode()) {
+		default:
+		case FULL:
+			return new DistanceSource(getNetConnection());
+		case QUICK:
+			return new QuickDistanceSource();
+		case DISABLED:
+			return null;
+		}
 	}
 
 	/*

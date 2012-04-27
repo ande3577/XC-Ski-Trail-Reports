@@ -34,8 +34,10 @@ public class TrailInfo extends DatabaseObject {
 	String location = "";
 	boolean specificLocation = false;
 	int distance = 0;
-	int travelTime = 0;
-	boolean directionsValid = false;
+	boolean distanceValid = false;
+	int duration = 0;
+	boolean durationValid = false;
+	
 	List<ISourceSpecificTrailInfo> sourceSpecificInfo = new ArrayList<ISourceSpecificTrailInfo>();
 	
 	
@@ -50,8 +52,8 @@ public class TrailInfo extends DatabaseObject {
 		state = null;
 		location = null;
 		distance = 0;
-		travelTime = 0;
-		directionsValid = false;
+		duration = 0;
+		distanceValid = false;
 		sourceSpecificInfo = new ArrayList<ISourceSpecificTrailInfo>();
 		return this;
 	}
@@ -117,19 +119,27 @@ public class TrailInfo extends DatabaseObject {
 	}
 
 	public void setDuration(int travelTime) {
-		this.travelTime = travelTime;
+		this.duration = travelTime;
 	}
 
 	public int getDuration() {
-		return travelTime;
+		return duration;
 	}
 
 	public void setDistanceValid(boolean directionsValid) {
-		this.directionsValid = directionsValid;
+		this.distanceValid = directionsValid;
 	}
 
 	public boolean getDistanceValid() {
-		return directionsValid;
+		return distanceValid;
+	}
+	
+	public void setDurationValid(boolean durationValid) {
+		this.durationValid = durationValid;
+	}
+	
+	public boolean getDurationValid() {
+		return durationValid;
 	}
 
 	public List<ISourceSpecificTrailInfo> getSourceSpecificInfos() {
@@ -154,10 +164,10 @@ public class TrailInfo extends DatabaseObject {
 		city = Merge.merge(city, newInfo.city);
 		state = Merge.merge(state, newInfo.state);
 		location = Merge.merge(location, newInfo.location);
-		if (!directionsValid && newInfo.directionsValid) {
-			directionsValid = newInfo.directionsValid;
+		if (!distanceValid && newInfo.distanceValid) {
+			distanceValid = newInfo.distanceValid;
 			distance = newInfo.distance;
-			travelTime = newInfo.travelTime;
+			duration = newInfo.duration;
 		}
 
 		for (ISourceSpecificTrailInfo newSpecific : newInfo.sourceSpecificInfo) {

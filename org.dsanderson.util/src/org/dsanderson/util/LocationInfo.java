@@ -22,14 +22,14 @@ package org.dsanderson.util;
 /**
  * 
  */
-public class TrailLocationInfo {
+public class LocationInfo {
 	public String location = "";
 	public boolean specificLocation = false;
 	
-	public TrailLocationInfo() {
+	public LocationInfo() {
 	}
 	
-	public TrailLocationInfo(String location, boolean specificLocation) {
+	public LocationInfo(String location, boolean specificLocation) {
 		this.location = location;
 		this.specificLocation = specificLocation;
 	}

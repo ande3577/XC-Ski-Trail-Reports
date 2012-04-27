@@ -24,6 +24,7 @@ public class TrailInfoParser {
 	static final String DISTANCE = "distance";
 	static final String DURATION = "duration";
 	static final String DISTANCE_VALID = "distanceValid";
+	static final String DURATION_VALID = "durationValid";
 
 	static final String SKINNYSKI_SEARCH_TERM = "skinnyskiSearchTerm";
 	static final String SKINNYSKI_TRAIL_INDEX = "skinnyskiTrailIndex";
@@ -83,6 +84,11 @@ public class TrailInfoParser {
 						info.setDistanceValid(Boolean
 								.parseBoolean(parserOutput));
 				}
+				if ((parserOutput = parser.getValue(DURATION_VALID)) != null) {
+					if (parserOutput.length() > 0)
+						info.setDurationValid(Boolean
+								.parseBoolean(parserOutput));
+				}
 
 				for (ISourceSpecificFactory source : sources) {
 					List<CompoundXmlParser> sourceSpecificParser = parser
@@ -130,6 +136,8 @@ public class TrailInfoParser {
 					Integer.toString(info.getDuration()));
 			infoBuilder.addParser(DISTANCE_VALID,
 					Boolean.toString(info.getDistanceValid()));
+			infoBuilder.addParser(DURATION_VALID,
+					Boolean.toString(info.getDurationValid()));
 			xmlBuilder.addParser(infoBuilder.copy());
 		}
 		xmlBuilder.write(writer);
@@ -179,10 +187,29 @@ public class TrailInfoParser {
 					}
 				}
 
-				if (!current.getDistanceValid()) {
+				if (!current.getDistanceValid() && !current.getDurationValid()) {
 					current.setDistanceValid(newInfo.getDistanceValid());
+					current.setDurationValid(newInfo.durationValid);
 					current.setDistance(newInfo.getDistance());
 					current.setDuration(newInfo.getDuration());
+				} else if (!current.getDurationValid()) { // distance is valid,
+															// duration isn't
+					if (newInfo.getDistanceValid()
+							&& newInfo.getDurationValid()) {
+						current.setDistanceValid(newInfo.getDistanceValid());
+						current.setDurationValid(newInfo.durationValid);
+						current.setDistance(newInfo.getDistance());
+						current.setDuration(newInfo.getDuration());
+					}
+				} else if (!current.getDistanceValid()) { // duration is valid,
+															// distance isn't
+					if (newInfo.getDistanceValid()
+							&& newInfo.getDurationValid()) {
+						current.setDistanceValid(newInfo.getDistanceValid());
+						current.setDurationValid(newInfo.durationValid);
+						current.setDistance(newInfo.getDistance());
+						current.setDuration(newInfo.getDuration());
+					}
 				}
 				break;
 			}
