@@ -45,6 +45,7 @@ import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.TrailInfoPool;
 import org.dsanderson.xctrailreport.core.TrailReportParser;
 import org.dsanderson.xctrailreport.core.UserSettings;
+import org.dsanderson.xctrailreport.core.UserSettings.DistanceMode;
 import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
 import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
 import org.dsanderson.xctrailreport.decorators.ConditionsImageDecorator;
@@ -192,7 +193,14 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getDirectionsSource()
 	 */
 	public IDistanceSource getDistanceSource() {
-		return new DistanceSource(getNetConnection());
+		switch (getUserSettings().getDistanceMode()) {
+		default:
+		case FULL:
+			return new DistanceSource(getNetConnection());
+		case QUICK:
+		case DISABLED:
+			return null;
+		}
 	}
 
 	/*
@@ -412,10 +420,12 @@ public class TrailReportFactory implements IAbstractFactory {
 						+ "=='Tacky')");
 			if (morcSettings.getDampEnabled())
 				filterString = addOrString(filterString, "("
-						+ TrailReportDatabaseFactory.COLUMN_SUMMARY + "=='Damp')");
+						+ TrailReportDatabaseFactory.COLUMN_SUMMARY
+						+ "=='Damp')");
 			if (morcSettings.getWetEnabled())
 				filterString = addOrString(filterString, "("
-						+ TrailReportDatabaseFactory.COLUMN_SUMMARY + "=='Wet')");
+						+ TrailReportDatabaseFactory.COLUMN_SUMMARY
+						+ "=='Wet')");
 			if (morcSettings.getClosedEnabled())
 				filterString = addOrString(filterString, "("
 						+ TrailReportDatabaseFactory.COLUMN_SUMMARY

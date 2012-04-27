@@ -101,12 +101,15 @@ public class TrailInfoDatabaseFactory implements IDatabaseObjectFactory {
 		values.put(COLUMN_SPECIFIC_LOCATION, info.getSpecificLocation());
 
 		int distance, duration;
-		if (info.getDistanceValid()) {
+		if (info.getDistanceValid())
 			distance = info.getDistance();
+		else
+			distance = Integer.MAX_VALUE;
+
+		if (info.getDurationValid())
 			duration = info.getDuration();
-		} else {
-			distance = duration = Integer.MAX_VALUE;
-		}
+		else
+			duration = Integer.MAX_VALUE;
 
 		values.put(COLUMN_DISTANCE, distance);
 		values.put(COLUMN_DURATION, duration);
@@ -136,11 +139,15 @@ public class TrailInfoDatabaseFactory implements IDatabaseObjectFactory {
 				.getColumnIndex(COLUMN_SPECIFIC_LOCATION)) != 0);
 		info.setDistance(cursor.getInt(cursor.getColumnIndex(COLUMN_DISTANCE)));
 		info.setDuration(cursor.getInt(cursor.getColumnIndex(COLUMN_DURATION)));
-		if (info.getDistance() != Integer.MAX_VALUE
-				&& info.getDuration() != Integer.MAX_VALUE)
+		if (info.getDistance() != Integer.MAX_VALUE)
 			info.setDistanceValid(true);
 		else
 			info.setDistanceValid(false);
+
+		if (info.getDuration() != Integer.MAX_VALUE)
+			info.setDurationValid(true);
+		else
+			info.setDurationValid(false);
 
 		for (IDatabaseObjectFactory factory : sourceSpecificFactories)
 			info = (TrailInfo) factory.getObject(cursor, info);

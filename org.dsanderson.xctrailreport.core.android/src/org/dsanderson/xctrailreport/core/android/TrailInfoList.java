@@ -207,7 +207,8 @@ public class TrailInfoList implements ITrailInfoList {
 
 		List<Integer> distances = distanceSource.getDistances();
 		List<Integer> durations = distanceSource.getDurations();
-		List<Boolean> valids = distanceSource.getValids();
+		List<Boolean> distanceValids = distanceSource.getDistanceValids();
+		List<Boolean> durationValids = distanceSource.getDurationValids();
 
 		if (distances.size() != locations.size())
 			return;
@@ -220,8 +221,9 @@ public class TrailInfoList implements ITrailInfoList {
 
 				int index = locations.indexOf(info.getLocation());
 				if (index >= 0) {
-					info.setDistanceValid(valids.get(index));
+					info.setDistanceValid(distanceValids.get(index));
 					info.setDistance(distances.get(index));
+					info.setDurationValid(durationValids.get(index));
 					info.setDuration(durations.get(index));
 				}
 				reportList.update(report);

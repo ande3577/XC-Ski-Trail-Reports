@@ -40,32 +40,44 @@ public class DistanceDecorator extends TrailReportDecorator {
 	 * org.dsanderson.xctrailreport.core.IListEntry)
 	 */
 	@Override
-	public void decorate(TrailReport trailReportIter, ITrailReportListEntry listEntry) {
+	public void decorate(TrailReport trailReportIter,
+			ITrailReportListEntry listEntry) {
 		TrailInfo trailInfo = trailReportIter.getTrailInfo();
 
-		if (trailInfo.getDistanceValid()) {
+		boolean distanceValid = trailInfo.getDistanceValid();
+		boolean durationValid = trailInfo.getDurationValid();
+
+		if (distanceValid || durationValid) {
 			// add to end of previous (City, State)
 			ITextItem textItem = listEntry.getTrailLocationTextItem();
 
 			DecimalFormat formatter = new DecimalFormat("0.0");
 
-			String text = textItem.getText()
-					+ " ("
-					+ formatter.format(Units.metersToMiles(trailInfo
-							.getDistance())) + "mi , ";
+			String text = textItem.getText() + " (";
 
-			int minutes = (int) (Units
-					.secondsToMinutes(trailInfo.getDuration()));
+			if (distanceValid)
+				text += formatter.format(Units.metersToMiles(trailInfo
+						.getDistance())) + "mi";
 
-			if (minutes > 60) {
-				text += (int) (minutes / 60) + " hrs ";
-				minutes %= 60;
+			if (distanceValid && durationValid)
+				text += ", ";
+
+			if (durationValid) {
+				int minutes = (int) (Units.secondsToMinutes(trailInfo
+						.getDuration()));
+
+				if (minutes > 60) {
+					text += (int) (minutes / 60) + " hrs ";
+					minutes %= 60;
+				}
+
+				text += (int) minutes + " min";
 			}
 
-			text += (int) minutes + " min)";
+			text += ")";
 
 			textItem.setText(text);
-		}
+		} // if (distanceValid || durationValid)
 
 		if (next() != null) {
 			next().decorate(trailReportIter, listEntry);

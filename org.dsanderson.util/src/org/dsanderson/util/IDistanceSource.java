@@ -33,6 +33,8 @@ public interface IDistanceSource {
 
 	List<Integer> getDurations();
 
-	List<Boolean> getValids();
+	List<Boolean> getDistanceValids();
+	
+	List<Boolean> getDurationValids();
 
 }
