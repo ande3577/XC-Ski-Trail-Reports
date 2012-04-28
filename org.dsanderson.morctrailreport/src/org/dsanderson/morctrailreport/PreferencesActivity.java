@@ -45,8 +45,10 @@ public class PreferencesActivity extends PreferenceActivity {
 	@Override
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
 			final Preference preference) {
+		
+		String key = preference.getKey();
 
-		if (preference.getKey().equals("restoreDefaults")) {
+		if (key.equals("restoreDefaults")) {
 
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -57,8 +59,12 @@ public class PreferencesActivity extends PreferenceActivity {
 
 			builder.show();
 
-		} else if (preference.getKey().equals("regions")) {
+		} else if (key.equals("regions")) {
 			Intent i = new Intent(getApplicationContext(), RegionActivity.class);
+			startActivity(i);
+			return false;
+		} else if (key.equals("conditionFilterOptions")) {
+			Intent i = new Intent(getApplicationContext(), ConditionFilterActivity.class);
 			startActivity(i);
 			return false;
 		}

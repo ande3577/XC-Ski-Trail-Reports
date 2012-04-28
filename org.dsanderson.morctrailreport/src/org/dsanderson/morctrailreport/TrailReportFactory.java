@@ -431,7 +431,7 @@ public class TrailReportFactory implements IAbstractFactory {
 			if (morcSettings.getClosedEnabled())
 				filterString = addOrString(filterString, "("
 						+ TrailReportDatabaseFactory.COLUMN_SUMMARY
-						+ "==Closed)");
+						+ "=='Closed')");
 			if (morcSettings.getOtherEnabled())
 				filterString = addOrString(filterString, "("
 						+ TrailReportDatabaseFactory.COLUMN_SUMMARY + "=='')");

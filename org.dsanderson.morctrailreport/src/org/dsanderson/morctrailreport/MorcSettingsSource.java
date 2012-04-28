@@ -38,6 +38,10 @@ public class MorcSettingsSource implements IUserSettingsSource {
 	public static final String regionKeys[] = { "metro", "southern",
 			"northwest", "northeast" };
 
+	public static final String conditionsKeys[] = { "dryEnabled",
+			"tackyEnabled", "dampEnabled", "wetEnabled", "closedEnabled",
+			"otherEnabled" };
+
 	public MorcSettingsSource(Context context, MorcFactory factory) {
 		this.factory = factory;
 		preference = PreferenceManager.getDefaultSharedPreferences(context);
