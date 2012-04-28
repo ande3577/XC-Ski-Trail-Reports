@@ -195,6 +195,7 @@ public class morcTrailReportActivity extends ListActivity {
 			MenuItem distance = item.getSubMenu().getItem(0).setChecked(false);
 			MenuItem date = item.getSubMenu().getItem(1).setChecked(false);
 			MenuItem duration = item.getSubMenu().getItem(2).setChecked(false);
+			MenuItem condition = item.getSubMenu().getItem(3).setChecked(false);
 
 			switch (factory.userSettings.getSortMethod()) {
 			case SORT_BY_DISTANCE:
@@ -205,6 +206,9 @@ public class morcTrailReportActivity extends ListActivity {
 				return true;
 			case SORT_BY_DURATION:
 				duration.setChecked(true);
+				return true;
+			case SORT_BY_CONDITION:
+				condition.setChecked(true);
 				return true;
 			}
 			return false;
