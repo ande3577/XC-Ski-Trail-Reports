@@ -33,6 +33,7 @@ public class TrailReport extends DatabaseObject {
 	private String photosetURL;
 	
 	private TrailInfo trailInfo;
+	private int summaryPriority = Integer.MAX_VALUE;
 
 	public TrailReport() {
 		reset();
@@ -118,6 +119,14 @@ public class TrailReport extends DatabaseObject {
 			return "";
 		else
 			return photosetURL;
+	}
+	
+	public void setSummaryPriority(int summaryPriority) {
+		this.summaryPriority = summaryPriority;
+	}
+	
+	public int getSummaryPriority() {
+		return summaryPriority;
 	}
 
 }

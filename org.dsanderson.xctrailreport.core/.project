@@ -3,6 +3,7 @@
 	<name>org.dsanderson.xctrailreport.core</name>
 	<comment></comment>
 	<projects>
+		<project>org.dsanderson.util</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

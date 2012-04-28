@@ -79,7 +79,6 @@ public class MorcAllReportScanner {
 
 	void scanSingleReport() {
 		trailReport = trailReportPool.newItem();
-
 		scanDate();
 		scanAuthor();
 		scanSummary();
@@ -137,8 +136,12 @@ public class MorcAllReportScanner {
 	private void scanSummary() {
 		if (!findNext("\\Q<!-- Trail Condition Block -->\\E"))
 			return;
-		if (findNext("\\Q<b>Trail Condition: </b>\\E"))
-			trailReport.setSummary(scanner.nextLine().trim());
+		if (findNext("\\Q<b>Trail Condition: </b>\\E")) {
+			String summary = scanner.nextLine().trim();
+			trailReport.setSummary(summary);
+			trailReport.setSummaryPriority(MorcScanner
+					.getConditionPriority(summary));
+		}
 	}
 
 	private void scanDetailed() {
@@ -221,4 +224,5 @@ public class MorcAllReportScanner {
 		}
 		return returnString;
 	}
+
 }

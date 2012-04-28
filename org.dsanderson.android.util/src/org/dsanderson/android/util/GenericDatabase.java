@@ -219,21 +219,6 @@ public class GenericDatabase extends SQLiteOpenHelper {
 		sortOrder = null;
 	}
 
-	public void addArbitrarySortOrder(String columnName, String[] sortStrings) {
-		if (sortStrings.length > 0) {
-			if (sortOrder == null)
-				sortOrder = "";
-			else
-				sortOrder += ", ";
-
-			sortOrder += "field (" + columnName;
-			for (String string : sortStrings) {
-				sortOrder += ",'" + string + "'";
-			}
-			sortOrder += ")";
-		}
-	}
-
 	public void addSortOrder(String columnName, boolean ascending) {
 		if (sortOrder == null)
 			sortOrder = "";

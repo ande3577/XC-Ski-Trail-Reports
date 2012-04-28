@@ -3,6 +3,8 @@
 	<name>org.dsanderson.morctrailreport.parser</name>
 	<comment></comment>
 	<projects>
+		<project>org.dsanderson.util</project>
+		<project>org.dsanderson.xctrailreport.core</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -41,6 +41,10 @@ public class MorcScanner {
 	private TrailInfo trailInfo;
 	private MorcSpecificTrailInfo morcInfo;
 
+	public final static String[] conditions = { "Dry", "Tacky", "Damp", "Wet",
+			"Closed" };
+	public final static int DEFAULT_CONDITIONS_INDEX = conditions.length;
+
 	public MorcScanner(InputStream stream, TrailReportPool reportPool,
 			TrailInfoPool infoPool, MorcInfoPool morcInfoPool) {
 		trailReportPool = reportPool;
@@ -113,13 +117,16 @@ public class MorcScanner {
 		scanner.nextLine();
 	}
 
+
 	private void scanSummary() {
 		if (!findNext("\\Q<a href=\"javascript:OpenWin\\E"))
 			return;
 		scanner.nextLine();
-		String summary = scan("", "\\Q</a>\\E", ".*");
-		if (summary != null)
-			trailReport.setSummary(summary.trim());
+		String summary = scan("", "\\Q</a>\\E", ".*").trim();
+		if (summary != null) {
+			trailReport.setSummary(summary);
+			trailReport.setSummaryPriority(getConditionPriority(summary));
+		}
 		scanner.nextLine();
 	}
 
@@ -163,7 +170,7 @@ public class MorcScanner {
 			return;
 
 		int month = Integer.parseInt(split[0]) - 1;
-		assert(month >= 0);
+		assert (month >= 0);
 		int day = Integer.parseInt(split[1]);
 		int year = Integer.parseInt(split[2].replace(",", ""));
 
@@ -211,5 +218,17 @@ public class MorcScanner {
 	private boolean findNext(String pattern) {
 		return scanner.findWithinHorizon(pattern, 0) != null;
 	}
+	
+	public static int getConditionPriority(String condition) {
+		int priority = DEFAULT_CONDITIONS_INDEX;
+		for (int i = 0; i < conditions.length; i++) {
+			if (conditions[i].equals(condition)) {
+				priority = i;
+				break;
+			}
+		}
+		return priority;
+	}
+
 
 }

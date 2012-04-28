@@ -46,7 +46,6 @@ import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.TrailInfoPool;
 import org.dsanderson.xctrailreport.core.TrailReportParser;
 import org.dsanderson.xctrailreport.core.UserSettings;
-import org.dsanderson.xctrailreport.core.UserSettings.DistanceMode;
 import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
 import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
 import org.dsanderson.xctrailreport.decorators.ConditionsImageDecorator;
@@ -463,10 +462,8 @@ public class TrailReportFactory implements IAbstractFactory {
 		TrailReportList reports = (TrailReportList) trailReports;
 
 		if (settings.getSortMethod() == SortMethod.SORT_BY_CONDITION) {
-			final String[] summarySortOrder = { "Dry", "Tacky", "Damp", "Wet",
-					"Closed", "" };
-			reports.addArbitrarySortOrder(
-					TrailReportDatabaseFactory.COLUMN_SUMMARY, summarySortOrder);
+			reports.clearSortOrder();
+			reports.addSortOrder(TrailReportDatabaseFactory.COLUMN_SUMMARY_PRIORITY, true);
 			reports.addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
 			reports.addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION,
 					false);

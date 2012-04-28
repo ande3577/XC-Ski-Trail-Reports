@@ -24,11 +24,7 @@ import java.util.List;
 
 import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.IProgressBar;
-import org.dsanderson.util.LocationInfo;
 
-import android.content.Context;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 
 /**

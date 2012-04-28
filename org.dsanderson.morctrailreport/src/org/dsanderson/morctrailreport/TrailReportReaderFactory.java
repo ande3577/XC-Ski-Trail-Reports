@@ -93,7 +93,8 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 			if (file != null) {
 				modifiedDate = new Date(file.lastModified());
 				return modifiedDate;
-			} else
+			} 
+			else 
 				return null;
 		}
 	}

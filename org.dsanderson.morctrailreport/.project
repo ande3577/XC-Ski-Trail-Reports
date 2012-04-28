@@ -3,6 +3,11 @@
 	<name>org.dsanderson.morctrailreport</name>
 	<comment></comment>
 	<projects>
+		<project>org.dsanderson.android.util</project>
+		<project>org.dsanderson.morctrailreport.parser</project>
+		<project>org.dsanderson.util</project>
+		<project>org.dsanderson.xctrailreport.core</project>
+		<project>org.dsanderson.xctrailreport.core.android</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

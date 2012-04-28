@@ -3,6 +3,7 @@
 	<name>org.dsanderson.android.util</name>
 	<comment></comment>
 	<projects>
+		<project>org.dsanderson.util</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

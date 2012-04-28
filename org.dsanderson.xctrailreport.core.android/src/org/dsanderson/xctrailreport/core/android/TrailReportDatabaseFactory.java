@@ -37,6 +37,9 @@ public class TrailReportDatabaseFactory implements IDatabaseObjectFactory {
 	public static final String COLUMN_SUMMARY = "summary";
 	private static final String TYPE_SUMMARY = "text not null";
 
+	public static final String COLUMN_SUMMARY_PRIORITY = "summaryPriority";
+	private static final String TYPE_SUMMARY_PRIORITY = "integer not null";
+
 	public static final String COLUMN_AUTHOR = "author";
 	private static final String TYPE_AUTHOR = "text not null";
 
@@ -81,7 +84,8 @@ public class TrailReportDatabaseFactory implements IDatabaseObjectFactory {
 				.addColumn(COLUMN_DATE, TYPE_DATE) //
 				.addColumn(COLUMN_DETAIL, TYPE_DETAIL) //
 				.addColumn(COLUMN_SOURCE, TYPE_SOURCE) //
-				.addColumn(COLUMN_PHOTOSET, TYPE_PHOTOSET);
+				.addColumn(COLUMN_PHOTOSET, TYPE_PHOTOSET) //
+				.addColumn(COLUMN_SUMMARY_PRIORITY, TYPE_SUMMARY_PRIORITY);
 
 		trailInfoFactory.registerColumns(database);
 
@@ -103,6 +107,7 @@ public class TrailReportDatabaseFactory implements IDatabaseObjectFactory {
 		values.put(COLUMN_DETAIL, report.getDetail());
 		values.put(COLUMN_SOURCE, report.getSource());
 		values.put(COLUMN_PHOTOSET, report.getPhotosetUrl());
+		values.put(COLUMN_SUMMARY_PRIORITY, report.getSummaryPriority());
 		trailInfoFactory.buildContentValues(report.getTrailInfo(), values);
 	}
 
@@ -125,6 +130,8 @@ public class TrailReportDatabaseFactory implements IDatabaseObjectFactory {
 		report.setSource(cursor.getString(cursor.getColumnIndex(COLUMN_SOURCE)));
 		report.setPhotosetUrl(cursor.getString(cursor
 				.getColumnIndex(COLUMN_PHOTOSET)));
+		report.setSummaryPriority(cursor.getInt(cursor
+				.getColumnIndex(COLUMN_SUMMARY_PRIORITY)));
 		report.setTrailInfo((TrailInfo) trailInfoFactory.getObject(cursor,
 				report.getTrailInfo()));
 		return report;
