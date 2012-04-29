@@ -69,7 +69,12 @@ public class AllReportActivity extends ListActivity {
 			}
 		}
 
-		if (trailReports.size() > 0)
+		TrailInfo allReportsInfo = MorcFactory.getInstance()
+				.getAllReportsInfo();
+		
+		if (allReportsInfo != null)
+			info = allReportsInfo;
+		else if (trailReports.size() > 0)
 			info = trailReports.get(0).getTrailInfo();
 
 		printer = new AllTrailReportPrinter(this, factory, trailReports,
@@ -156,10 +161,6 @@ public class AllReportActivity extends ListActivity {
 		morcInfo = (MorcSpecificTrailInfo) info
 				.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
 		listCreator.setPage(page);
-		
-		TrailInfo allReportsInfo = MorcFactory.getInstance().getAllReportsInfo();
-		if (allReportsInfo != null)
-			info = allReportsInfo;
 
 		SingleTrailInfoList trailInfos = new SingleTrailInfoList();
 		trailInfos.add(info);
