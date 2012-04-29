@@ -41,7 +41,6 @@ public class AllReportActivity extends ListActivity {
 	private final String databaseName = "all_reports_database";
 
 	private TrailReportList trailReports = null;
-	private SingleTrailInfoList trailInfos = null;
 	private TrailReportFactory factory = TrailReportFactory.getInstance();
 	MorcAllReportListCreator listCreator = new MorcAllReportListCreator(factory);
 	private AllTrailReportPrinter printer;
@@ -72,11 +71,6 @@ public class AllReportActivity extends ListActivity {
 
 		if (trailReports.size() > 0)
 			info = trailReports.get(0).getTrailInfo();
-		
-		if (trailInfos == null) {
-			trailInfos = new SingleTrailInfoList();
-			trailInfos.add(info);
-		}
 
 		printer = new AllTrailReportPrinter(this, factory, trailReports,
 				appName, ListEntryFactory.getInstance());
@@ -159,10 +153,17 @@ public class AllReportActivity extends ListActivity {
 
 		factory.getLocationSource().updateLocation();
 
-		info = MorcFactory.getInstance().getAllReportsInfo();
 		morcInfo = (MorcSpecificTrailInfo) info
 				.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
 		listCreator.setPage(page);
+		
+		TrailInfo allReportsInfo = MorcFactory.getInstance().getAllReportsInfo();
+		if (allReportsInfo != null)
+			info = allReportsInfo;
+
+		SingleTrailInfoList trailInfos = new SingleTrailInfoList();
+		trailInfos.add(info);
+
 		new LoadReportsTask(this, factory, listCreator, trailReports,
 				trailInfos, new AndroidProgressBar(this)).execute();
 	}
