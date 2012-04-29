@@ -250,8 +250,7 @@ public class xctrailreportActivity extends ListActivity {
 	public void onWindowFocusChanged(boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);
 		try {
-			if (hasFocus && trailReports != null
-					&& factory.getUserSettings().getRedrawNeeded())
+			if (hasFocus)
 				printer.printTrailReports();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -268,8 +267,9 @@ public class xctrailreportActivity extends ListActivity {
 			factory.getLocationSource().setLocation(
 					factory.getUserSettings().getDefaultLocation());
 
-		new LoadReportsTask(this, factory, listCreator, printer, trailReports,
-				factory.getTrailInfoList(), new AndroidProgressBar(this)).execute();
+		new LoadReportsTask(this, factory, listCreator, trailReports,
+				factory.getTrailInfoList(), new AndroidProgressBar(this))
+				.execute();
 	}
 
 }

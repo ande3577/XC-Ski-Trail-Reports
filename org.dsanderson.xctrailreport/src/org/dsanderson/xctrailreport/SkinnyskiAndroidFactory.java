@@ -19,8 +19,8 @@
  */
 package org.dsanderson.xctrailreport;
 
+import org.dsanderson.util.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
-import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory;
 
 import android.content.Context;

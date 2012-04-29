@@ -38,8 +38,6 @@ public class UserSettings {
 	}
 
 	private SortMethod sortMethod = SortMethod.SORT_BY_DATE;
-	private boolean locationEnabled = false;
-	private String defaultLocation = "Minneapolis, MN";
 	private boolean distanceFilterEnabled = false;
 	private int filterDistance = Units.milesToMeters(50);
 	private boolean dateFilterEnabled = false;
@@ -47,31 +45,13 @@ public class UserSettings {
 	private boolean durationFilterEnabled = false;
 	private int durationCutoff = 30;
 	private boolean photosetFilterEnabled = false;
-	private boolean redrawNeeded = false;
 	private AutoRefreshMode autoRefreshMode = AutoRefreshMode.IF_OUT_OF_DATE;
 	private long autoRefreshCutoff = Units.hoursToMilliseconds(2);
 	private boolean forcedRefresh = false;
 	private DistanceMode distanceMode = DistanceMode.FULL;
 
-	public void setLocationEnabled(boolean locationEnabled) {
-		this.locationEnabled = locationEnabled;
-	}
-
-	public boolean getLocationEnabled() {
-		return locationEnabled;
-	}
-
-	public void setDefaultLocation(String location) {
-		this.defaultLocation = location;
-	}
-
-	public String getDefaultLocation() {
-		return defaultLocation;
-	}
-
 	public void setDistanceFilterEnabled(boolean enabled) {
 		distanceFilterEnabled = enabled;
-		redrawNeeded = true;
 	}
 
 	public boolean getDistanceFilterEnabled() {
@@ -80,7 +60,6 @@ public class UserSettings {
 
 	public void setFilterDistance(int distance) {
 		filterDistance = distance;
-		redrawNeeded = true;
 	}
 
 	public int getFilterDistance() {
@@ -89,7 +68,6 @@ public class UserSettings {
 
 	public void setDateFilterEnabled(boolean enabled) {
 		dateFilterEnabled = enabled;
-		redrawNeeded = true;
 	}
 
 	public boolean getDateFilterEnabled() {
@@ -98,7 +76,6 @@ public class UserSettings {
 
 	public void setFilterAge(int age) {
 		filterAge = age;
-		redrawNeeded = true;
 	}
 
 	public int getFilterAge() {
@@ -107,7 +84,6 @@ public class UserSettings {
 
 	public void setDurationFilterEnabled(boolean durationFilterEnabled) {
 		this.durationFilterEnabled = durationFilterEnabled;
-		redrawNeeded = true;
 	}
 
 	public boolean getDurationFilterEnabled() {
@@ -116,7 +92,6 @@ public class UserSettings {
 
 	public void setDurationCutoff(int durationCutoff) {
 		this.durationCutoff = durationCutoff;
-		redrawNeeded = true;
 	}
 
 	public int getDurationCutoff() {
@@ -125,7 +100,6 @@ public class UserSettings {
 	
 	public void setPhotsetFilterEnabled(boolean photosetFilterEnabled) {
 		this.photosetFilterEnabled = photosetFilterEnabled;
-		redrawNeeded = true;
 	}
 	
 	public boolean getPhotosetFilterEnabled() {
@@ -133,7 +107,6 @@ public class UserSettings {
 	}
 
 	public void setSortMethod(SortMethod sortMethod) {
-		redrawNeeded = true;
 		this.sortMethod = sortMethod;
 	}
 
@@ -157,14 +130,6 @@ public class UserSettings {
 		return autoRefreshCutoff;
 	}
 
-	public void setRedrawNeeded(boolean redrawNeeded) {
-		this.redrawNeeded = redrawNeeded;
-	}
-
-	public boolean getRedrawNeeded() {
-		return this.redrawNeeded;
-	}
-	
 	public void setForcedRefresh(boolean forcedRefresh) {
 		this.forcedRefresh = forcedRefresh;
 	}

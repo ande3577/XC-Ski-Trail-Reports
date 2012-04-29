@@ -19,6 +19,7 @@
  */
 package org.dsanderson.xctrailreport.core.android;
 
+import org.dsanderson.android.util.Dialog;
 import org.dsanderson.util.IProgressBar;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportListCreator;
@@ -26,6 +27,8 @@ import org.dsanderson.xctrailreport.core.ITrailInfoList;
 import org.dsanderson.xctrailreport.core.ITrailReportList;
 
 import android.app.ListActivity;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 
 /**
@@ -37,7 +40,7 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 	private final ITrailReportList trailReports;
 	private final ITrailInfoList trailInfos;
 	private final IReportListCreator listCreator;
-	private final TrailReportPrinter printer;
+	private final ListActivity context;
 	private final IProgressBar progressBar;
 	Exception e = null;
 
@@ -45,19 +48,19 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 * 
 */
 	public LoadReportsTask(ListActivity context, IAbstractFactory factory,
-			IReportListCreator listCreator, TrailReportPrinter printer,
-			ITrailReportList trailReports, ITrailInfoList trailInfos,
-			IProgressBar progressBar) {
+			IReportListCreator listCreator, ITrailReportList trailReports,
+			ITrailInfoList trailInfos, IProgressBar progressBar) {
 		this.factory = factory;
 		this.listCreator = listCreator;
-		this.printer = printer;
 		this.trailReports = trailReports;
 		this.trailInfos = trailInfos;
+		this.context = context;
 		this.progressBar = progressBar;
 	}
 
 	@Override
 	protected void onPreExecute() {
+		LockScreenRotation();
 		progressBar.setMessage("Loading trail reports...");
 		progressBar.show();
 		e = null;
@@ -84,21 +87,13 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 
 	@Override
 	protected void onPostExecute(Integer result) {
-		if (progressBar != null)
-			progressBar.close();
-
-		try {
-			if (e == null)
-				printer.printTrailReports();
-		} catch (Exception e) {
+		progressBar.close();
+		if (e != null) {
 			e.printStackTrace();
-			e = this.e;
-		} finally {
-			if (e != null) {
-				e.printStackTrace();
-				factory.newDialog(e).show();
-			}
+			Dialog dialog = new Dialog(context, e);
+			dialog.show();
 		}
+		UnlockScreenRotation();
 	}
 
 	private void loadTrailReports() throws Exception {
@@ -113,6 +108,24 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 		} finally {
 			factory.getUserSettings().setForcedRefresh(false);
 		}
+	}
+
+	// Sets screen rotation as fixed to current rotation setting
+	private void LockScreenRotation() {
+		// Stop the screen orientation changing during an event
+		switch (context.getResources().getConfiguration().orientation) {
+		case Configuration.ORIENTATION_PORTRAIT:
+			context.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+			break;
+		case Configuration.ORIENTATION_LANDSCAPE:
+			context.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+			break;
+		}
+	}
+
+	private void UnlockScreenRotation() {
+		// allow screen rotations again
+		context.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 	}
 
 }

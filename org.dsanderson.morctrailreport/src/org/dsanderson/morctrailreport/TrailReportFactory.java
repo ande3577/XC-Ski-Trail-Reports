@@ -22,19 +22,19 @@ package org.dsanderson.morctrailreport;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dsanderson.android.util.CompoundLocationSource;
 import org.dsanderson.android.util.CompoundXmlPullParserFactory;
 import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.DistanceSource;
 import org.dsanderson.android.util.GenericDatabase;
 import org.dsanderson.android.util.IDatabaseObjectFactory;
 import org.dsanderson.android.util.LocationCoder;
-import org.dsanderson.android.util.LocationSource;
 import org.dsanderson.android.util.QuickDistanceSource;
 import org.dsanderson.android.util.UrlConnection;
+import org.dsanderson.util.ICompoundLocationSource;
 import org.dsanderson.util.IDialog;
 import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.ILocationCoder;
-import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.INetConnection;
 import org.dsanderson.util.IUserSettingsSource;
 import org.dsanderson.xctrailreport.application.DefaultTrailInfoList;
@@ -75,7 +75,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	UrlConnection netConnection = null;
 	TrailReportDecorator infoDecorator = null;
 	TrailReportDecorator reportDecorator = null;
-	LocationSource locationSource = null;
+	CompoundLocationSource locationSource = null;
 	UserSettings userSettings = null;
 	UserSettingsSource settingsSource = null;
 	LocationCoder locationCoder = null;
@@ -144,10 +144,10 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getLocation()
 	 */
-	public ILocationSource getLocationSource() {
+	public ICompoundLocationSource getLocationSource() {
 		if (locationSource == null) {
-			locationSource = new LocationSource(context,
-					userSettings.getDefaultLocation());
+			locationSource = new CompoundLocationSource(context, false,
+					"Minneapolis, MN");
 		}
 		return locationSource;
 	}
@@ -463,7 +463,8 @@ public class TrailReportFactory implements IAbstractFactory {
 
 		if (settings.getSortMethod() == SortMethod.SORT_BY_CONDITION) {
 			reports.clearSortOrder();
-			reports.addSortOrder(TrailReportDatabaseFactory.COLUMN_SUMMARY_PRIORITY, true);
+			reports.addSortOrder(
+					TrailReportDatabaseFactory.COLUMN_SUMMARY_PRIORITY, true);
 			reports.addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
 			reports.addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION,
 					false);

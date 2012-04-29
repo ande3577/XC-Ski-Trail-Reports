@@ -19,7 +19,7 @@
  */
 package org.dsanderson.xctrailreport;
 
-import org.dsanderson.xctrailreport.core.IUserSettingsSource;
+import org.dsanderson.util.IUserSettingsSource;
 import org.dsanderson.xctrailreport.skinnyski.RegionManager;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory;
 

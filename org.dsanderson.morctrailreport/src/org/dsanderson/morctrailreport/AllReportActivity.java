@@ -20,6 +20,7 @@ import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
 import org.dsanderson.xctrailreport.decorators.ITrailReportListEntry;
 import org.dsanderson.android.util.AndroidIntent;
 import org.dsanderson.android.util.AndroidProgressBar;
+import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.Maps;
 
 import android.app.ListActivity;
@@ -69,34 +70,29 @@ public class AllReportActivity extends ListActivity {
 			}
 		}
 
-		if (trailInfos == null)
+		if (trailReports.size() > 0)
+			info = trailReports.get(0).getTrailInfo();
+		
+		if (trailInfos == null) {
 			trailInfos = new SingleTrailInfoList();
-
-		info = trailInfos.get(0);
+			trailInfos.add(info);
+		}
 
 		printer = new AllTrailReportPrinter(this, factory, trailReports,
 				appName, ListEntryFactory.getInstance());
 
 		try {
 			factory.getUserSettingsSource().loadUserSettings();
-
-			@SuppressWarnings("unchecked")
-			final List<TrailReport> savedTrailReports = (List<TrailReport>) getLastNonConfigurationInstance();
-			if (savedTrailReports == null) {
-				redraw = true;
-				refresh(false, 1);
-			}
-
 		} catch (Exception e) {
 			System.err.println(e);
 			factory.newDialog(e).show();
 		}
 
-	}
+		if (savedInstanceState == null) {
+			redraw = true;
+			refresh(false, 1);
+		}
 
-	@Override
-	public void onConfigurationChanged(Configuration newConfig) {
-		super.onConfigurationChanged(newConfig);
 	}
 
 	@Override
@@ -147,31 +143,27 @@ public class AllReportActivity extends ListActivity {
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);
-		try {
-			if (hasFocus && trailReports != null
-					&& factory.getUserSettings().getRedrawNeeded())
+		if (hasFocus) {
+			try {
 				printer.printTrailReports();
-		} catch (Exception e) {
-			e.printStackTrace();
-			factory.newDialog(e);
+			} catch (Exception e) {
+				e.printStackTrace();
+				Dialog dialog = new Dialog(this, e);
+				dialog.show();
+			}
 		}
 	}
 
 	private void refresh(boolean forced, int page) {
 		factory.getUserSettings().setForcedRefresh(forced);
 
-		if (factory.getUserSettings().getLocationEnabled())
-			factory.getLocationSource().updateLocation();
-		else
-			factory.getLocationSource().setLocation(
-					factory.getUserSettings().getDefaultLocation());
+		factory.getLocationSource().updateLocation();
 
 		info = MorcFactory.getInstance().getAllReportsInfo();
 		morcInfo = (MorcSpecificTrailInfo) info
 				.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
-		trailInfos.add(info);
 		listCreator.setPage(page);
-		new LoadReportsTask(this, factory, listCreator, printer, trailReports,
+		new LoadReportsTask(this, factory, listCreator, trailReports,
 				trailInfos, new AndroidProgressBar(this)).execute();
 	}
 
@@ -196,7 +188,10 @@ public class AllReportActivity extends ListActivity {
 
 		public void printTrailReports() throws Exception {
 			Date lastRefreshDate = trailReports.getTimestamp();
-			String titleString = info.getName();
+			String titleString = appName;
+			if (info != null)
+				titleString = info.getName();
+
 			if (lastRefreshDate != null && lastRefreshDate.getTime() != 0) {
 				Time time = new Time();
 				time.set(lastRefreshDate.getTime());
@@ -215,8 +210,6 @@ public class AllReportActivity extends ListActivity {
 			} else {
 				adapter.changeCursor(cursor);
 			}
-
-			factory.getUserSettings().setRedrawNeeded(false);
 		}
 
 	}

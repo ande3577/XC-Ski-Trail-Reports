@@ -65,7 +65,6 @@ public class TrailReportPrinter {
 		Cursor cursor = ((TrailReportList) trailReports).getCursor();
 		context.setListAdapter(new TrailReportAdapter(context, cursor,
 				factory, trailReports, listEntryFactory));
-		factory.getUserSettings().setRedrawNeeded(false);
 	}
 
 }

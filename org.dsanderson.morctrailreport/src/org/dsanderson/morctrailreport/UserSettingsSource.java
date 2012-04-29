@@ -20,6 +20,7 @@
 package org.dsanderson.morctrailreport;
 
 import org.dsanderson.morctrailreport.parser.MorcFactory;
+import org.dsanderson.util.ICompoundLocationSource;
 import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.IUserSettingsSource;
 import org.dsanderson.util.Units;
@@ -45,6 +46,7 @@ public class UserSettingsSource implements IUserSettingsSource {
 	final IAbstractFactory factory;
 	final MorcSpecificSettings morcSpecificSettings;
 	final Context context;
+	final ICompoundLocationSource locationSource;
 
 	public UserSettingsSource(Context context, IAbstractFactory factory,
 			MorcSpecificSettings morcSpecificSettings) {
@@ -55,6 +57,7 @@ public class UserSettingsSource implements IUserSettingsSource {
 		this.factory = factory;
 		this.morcSpecificSettings = morcSpecificSettings;
 		this.context = context;
+		this.locationSource = factory.getLocationSource();
 	}
 
 	private OnSharedPreferenceChangeListener preferenceChangedListener = new OnSharedPreferenceChangeListener() {
@@ -63,12 +66,12 @@ public class UserSettingsSource implements IUserSettingsSource {
 				SharedPreferences sharedPreferences, String key) {
 			if (key.equals("enableLocation")) {
 				boolean value = sharedPreferences.getBoolean(key,
-						settings.getLocationEnabled());
-				settings.setLocationEnabled(value);
+						locationSource.getLocationEnabled());
+				locationSource.setLocationEnabled(value);
 			} else if (key.equals("defaultLocation")) {
 				String locationString = sharedPreferences.getString(key,
-						settings.getDefaultLocation());
-				settings.setDefaultLocation(locationString);
+						locationSource.getDefaultLocation());
+				locationSource.setDefaultLocation(locationString);
 				ILocationSource location = factory.getLocationSource();
 				if (!location.getHasNewLocation())
 					location.setLocation(locationString);
@@ -148,10 +151,10 @@ public class UserSettingsSource implements IUserSettingsSource {
 	 * org.dsanderson.xctrailreport.core.IUserSettingsSource#loadUserSettings()
 	 */
 	public void loadUserSettings() {
-		settings.setLocationEnabled(preference.getBoolean("enableLocation",
-				settings.getLocationEnabled()));
-		settings.setDefaultLocation(preference.getString("defaultLocation",
-				settings.getDefaultLocation()));
+		locationSource.setLocationEnabled(preference.getBoolean("enableLocation",
+				locationSource.getLocationEnabled()));
+		locationSource.setDefaultLocation(preference.getString("defaultLocation",
+				locationSource.getDefaultLocation()));
 		settings.setDistanceFilterEnabled(preference.getBoolean(
 				"distanceFilterEnabled", settings.getDistanceFilterEnabled()));
 		settings.setFilterDistance(Units.milesToMeters(getDouble(preference,
