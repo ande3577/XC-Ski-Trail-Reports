@@ -20,6 +20,7 @@ import org.dsanderson.android.util.Maps;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.ContextMenu;
@@ -248,8 +249,9 @@ public class morcTrailReportActivity extends ListActivity {
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);
-		if (hasFocus) {
+		if (hasFocus && factory.getUserSettings().getRedrawNeeded()) {
 			try {
+				factory.getUserSettings().setRedrawNeeded(false);
 				printer.printTrailReports();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -258,6 +260,13 @@ public class morcTrailReportActivity extends ListActivity {
 			}
 		}
 	}
+	
+	/// adding this to prevent rescrolling on orientation changed
+	@Override
+	public void onConfigurationChanged(Configuration config){
+	    super.onConfigurationChanged(config);
+	}
+
 
 	private void refresh(boolean forced) {
 		factory.getUserSettings().setForcedRefresh(forced);

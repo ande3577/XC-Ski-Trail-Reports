@@ -64,6 +64,8 @@ public class UserSettingsSource implements IUserSettingsSource {
 
 		public void onSharedPreferenceChanged(
 				SharedPreferences sharedPreferences, String key) {
+			settings.setRedrawNeeded(true);
+			
 			if (key.equals("enableLocation")) {
 				boolean value = sharedPreferences.getBoolean(key,
 						locationSource.getLocationEnabled());

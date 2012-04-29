@@ -87,6 +87,7 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 
 	@Override
 	protected void onPostExecute(Integer result) {
+		factory.getUserSettings().setRedrawNeeded(true);
 		progressBar.close();
 		if (e != null) {
 			e.printStackTrace();

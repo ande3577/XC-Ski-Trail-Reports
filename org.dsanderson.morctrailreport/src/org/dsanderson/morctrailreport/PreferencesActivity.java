@@ -45,7 +45,7 @@ public class PreferencesActivity extends PreferenceActivity {
 	@Override
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
 			final Preference preference) {
-		
+
 		String key = preference.getKey();
 
 		if (key.equals("restoreDefaults")) {
@@ -64,7 +64,8 @@ public class PreferencesActivity extends PreferenceActivity {
 			startActivity(i);
 			return false;
 		} else if (key.equals("conditionFilterOptions")) {
-			Intent i = new Intent(getApplicationContext(), ConditionFilterActivity.class);
+			Intent i = new Intent(getApplicationContext(),
+					ConditionFilterActivity.class);
 			startActivity(i);
 			return false;
 		}
@@ -75,13 +76,16 @@ public class PreferencesActivity extends PreferenceActivity {
 
 		public void onClick(DialogInterface dialog, int which) {
 			if (which == DialogInterface.BUTTON_POSITIVE) {
+				TrailReportFactory.getInstance().getUserSettings()
+						.setRedrawNeeded(true);
+
 				Editor editor = PreferenceManager.getDefaultSharedPreferences(
 						getApplication()).edit();
 				editor.clear();
 				editor.commit();
 				PreferenceManager.setDefaultValues(PreferencesActivity.this,
 						R.xml.preferences, true);
-				
+
 				PreferenceManager.setDefaultValues(PreferencesActivity.this,
 						R.xml.hidden_preferences, true);
 

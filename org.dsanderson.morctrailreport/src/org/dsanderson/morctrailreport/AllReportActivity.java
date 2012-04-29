@@ -71,7 +71,7 @@ public class AllReportActivity extends ListActivity {
 
 		TrailInfo allReportsInfo = MorcFactory.getInstance()
 				.getAllReportsInfo();
-		
+
 		if (allReportsInfo != null)
 			info = allReportsInfo;
 		else if (trailReports.size() > 0)
@@ -142,8 +142,9 @@ public class AllReportActivity extends ListActivity {
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);
-		if (hasFocus) {
+		if (hasFocus && factory.getUserSettings().getRedrawNeeded()) {
 			try {
+				factory.getUserSettings().setRedrawNeeded(false);
 				printer.printTrailReports();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -151,6 +152,12 @@ public class AllReportActivity extends ListActivity {
 				dialog.show();
 			}
 		}
+	}
+
+	// / adding this to prevent rescrolling on orientation changed
+	@Override
+	public void onConfigurationChanged(Configuration config) {
+		super.onConfigurationChanged(config);
 	}
 
 	private void refresh(boolean forced, int page) {

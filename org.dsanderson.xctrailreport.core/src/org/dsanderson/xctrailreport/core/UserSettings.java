@@ -45,6 +45,7 @@ public class UserSettings {
 	private boolean durationFilterEnabled = false;
 	private int durationCutoff = 30;
 	private boolean photosetFilterEnabled = false;
+	private boolean redrawNeeded = false;
 	private AutoRefreshMode autoRefreshMode = AutoRefreshMode.IF_OUT_OF_DATE;
 	private long autoRefreshCutoff = Units.hoursToMilliseconds(2);
 	private boolean forcedRefresh = false;
@@ -130,6 +131,14 @@ public class UserSettings {
 		return autoRefreshCutoff;
 	}
 
+	public void setRedrawNeeded(boolean redrawNeeded) {
+		this.redrawNeeded = redrawNeeded;
+	}
+
+	public boolean getRedrawNeeded() {
+		return this.redrawNeeded;
+	}
+	
 	public void setForcedRefresh(boolean forcedRefresh) {
 		this.forcedRefresh = forcedRefresh;
 	}
