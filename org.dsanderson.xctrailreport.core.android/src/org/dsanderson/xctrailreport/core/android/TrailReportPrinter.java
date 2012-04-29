@@ -30,7 +30,7 @@ import android.text.format.Time;
 /**
  * 
  */
-public class TrailReportPrinter {
+public class TrailReportPrinter implements IPrinter {
 
 	private final ListActivity context;
 	private final IAbstractFactory factory;

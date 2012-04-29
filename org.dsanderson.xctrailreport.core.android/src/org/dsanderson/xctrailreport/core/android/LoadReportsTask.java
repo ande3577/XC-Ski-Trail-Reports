@@ -42,6 +42,7 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 	private final IReportListCreator listCreator;
 	private final ListActivity context;
 	private final IProgressBar progressBar;
+	private final IPrinter printer;
 	Exception e = null;
 
 	/**
@@ -49,12 +50,14 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 */
 	public LoadReportsTask(ListActivity context, IAbstractFactory factory,
 			IReportListCreator listCreator, ITrailReportList trailReports,
-			ITrailInfoList trailInfos, IProgressBar progressBar) {
+			ITrailInfoList trailInfos, IPrinter printer,
+			IProgressBar progressBar) {
 		this.factory = factory;
 		this.listCreator = listCreator;
 		this.trailReports = trailReports;
 		this.trailInfos = trailInfos;
 		this.context = context;
+		this.printer = printer;
 		this.progressBar = progressBar;
 	}
 
@@ -87,8 +90,16 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 
 	@Override
 	protected void onPostExecute(Integer result) {
-		factory.getUserSettings().setRedrawNeeded(true);
 		progressBar.close();
+
+		if (e == null) {
+			try {
+				printer.printTrailReports();
+			} catch (Exception e) {
+				this.e = e;
+			}
+		}
+
 		if (e != null) {
 			e.printStackTrace();
 			Dialog dialog = new Dialog(context, e);

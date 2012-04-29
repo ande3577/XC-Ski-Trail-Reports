@@ -260,13 +260,12 @@ public class morcTrailReportActivity extends ListActivity {
 			}
 		}
 	}
-	
-	/// adding this to prevent rescrolling on orientation changed
-	@Override
-	public void onConfigurationChanged(Configuration config){
-	    super.onConfigurationChanged(config);
-	}
 
+	// / adding this to prevent rescrolling on orientation changed
+	@Override
+	public void onConfigurationChanged(Configuration config) {
+		super.onConfigurationChanged(config);
+	}
 
 	private void refresh(boolean forced) {
 		factory.getUserSettings().setForcedRefresh(forced);
@@ -274,8 +273,8 @@ public class morcTrailReportActivity extends ListActivity {
 		factory.getLocationSource().updateLocation();
 
 		new LoadReportsTask(this, factory, listCreator, trailReports,
-				factory.getTrailInfoList(), new AndroidProgressBar(this))
-				.execute();
+				factory.getTrailInfoList(), printer, new AndroidProgressBar(
+						this)).execute();
 	}
 
 }

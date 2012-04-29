@@ -14,6 +14,7 @@ import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.android.IAbstractListEntryFactory;
+import org.dsanderson.xctrailreport.core.android.IPrinter;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
@@ -173,10 +174,10 @@ public class AllReportActivity extends ListActivity {
 		trailInfos.add(info);
 
 		new LoadReportsTask(this, factory, listCreator, trailReports,
-				trailInfos, new AndroidProgressBar(this)).execute();
+				trailInfos, printer, new AndroidProgressBar(this)).execute();
 	}
 
-	private class AllTrailReportPrinter extends TrailReportPrinter {
+	private class AllTrailReportPrinter implements IPrinter {
 
 		private final ListActivity context;
 		private final IAbstractFactory factory;
@@ -186,7 +187,6 @@ public class AllReportActivity extends ListActivity {
 		public AllTrailReportPrinter(ListActivity context,
 				IAbstractFactory factory, TrailReportList trailReports,
 				String appName, IAbstractListEntryFactory listEntryFactory) {
-			super(context, factory, trailReports, appName, listEntryFactory);
 			this.context = context;
 			this.factory = factory;
 
