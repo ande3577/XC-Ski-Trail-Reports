@@ -49,6 +49,12 @@ public class QuickDistanceSource implements IDistanceSource {
 	 */
 	public void updateDistances(String src, List<String> dests,
 			IProgressBar progressBar) throws Exception {
+		
+		distances.clear();
+		distanceValids.clear();
+		durations.clear();
+		durationValids.clear();
+		
 		if (src.length() == 0 || getMaxStringLength(dests) == 0)
 			return;
 
@@ -116,6 +122,13 @@ public class QuickDistanceSource implements IDistanceSource {
 				length = str.length();
 		}
 		return length;
+	}
+	
+	public void updateDistance(String src, String dest, IProgressBar progressBar)
+			throws Exception {
+		List<String> dests = new ArrayList<String>();
+		dests.add(dest);
+		updateDistances(src, dests, progressBar);
 	}
 
 }

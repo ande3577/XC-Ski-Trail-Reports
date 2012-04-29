@@ -22,9 +22,9 @@ package org.dsanderson.xctrailreport.core.android;
 import java.util.Date;
 
 import org.dsanderson.android.util.GenericDatabase;
+import org.dsanderson.util.Units;
 import org.dsanderson.xctrailreport.core.ITrailReportList;
 import org.dsanderson.xctrailreport.core.TrailReport;
-import org.dsanderson.xctrailreport.core.Units;
 import org.dsanderson.xctrailreport.core.UserSettings;
 
 import android.content.Context;

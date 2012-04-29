@@ -20,8 +20,8 @@
 package org.dsanderson.morctrailreport;
 
 import org.dsanderson.morctrailreport.parser.MorcFactory;
+import org.dsanderson.util.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
-import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 
 import android.content.Context;
 

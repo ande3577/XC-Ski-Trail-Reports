@@ -163,6 +163,11 @@ public class GenericDatabase extends SQLiteOpenHelper {
 				null, sortOrder);
 	}
 
+	public Cursor getCursorWithCount(int Count) {
+		return database.query(tableName, columnArray, filterString, null, null,
+				null, sortOrder, Integer.toString(Count));
+	}
+
 	public Cursor getCursorById(long id) {
 		Cursor cursor = database.query(tableName, columnArray, COLUMN_ID
 				+ " = " + id, null, null, null, null);
@@ -204,11 +209,42 @@ public class GenericDatabase extends SQLiteOpenHelper {
 	}
 
 	public void update(DatabaseObject object) {
+		object.setTimestamp(new Date().getTime());
 		ContentValues values = new ContentValues();
 		objectFactory.buildContentValues(object, values);
 		long id = object.getId();
-		object.setTimestamp(new Date().getTime());
 		database.update(tableName, values, COLUMN_ID + " = " + id, null);
+	}
+	
+	public void update(DatabaseObject object, String column, String value) {
+		ContentValues values = new ContentValues();
+		values.put(COLUMN_TIMESTAMP, new Date().getTime());
+		values.put(column, value);
+		long id = object.getId();
+		database.update(tableName, values, COLUMN_ID + " = " + id, null);
+	}
+	
+	public void update(DatabaseObject object, String[] column, String[] value) {
+		ContentValues values = new ContentValues();
+		values.put(COLUMN_TIMESTAMP, new Date().getTime());
+		assert(column.length == value.length);
+		for (int i = 0; i < column.length; i++) {
+			values.put(column[i], value[i]);
+		}
+		long id = object.getId();
+		database.update(tableName, values, COLUMN_ID + " = " + id, null);
+	}
+	
+	public void update(DatabaseObject object, String column, long value) {
+		update(object, column, Long.toString(value));
+	}
+	
+	public void update(DatabaseObject object, String column, boolean value) {
+		update(object, column, Boolean.toString(value));
+	}
+	
+	public void update(DatabaseObject object, String column, int value) {
+		update(object, column, Integer.toString(value));
 	}
 
 	public void clear() {

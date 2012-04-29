@@ -21,7 +21,7 @@ package org.dsanderson.morctrailreport;
 
 import org.dsanderson.morctrailreport.parser.MorcFactory;
 import org.dsanderson.morctrailreport.parser.RegionManager;
-import org.dsanderson.xctrailreport.core.IUserSettingsSource;
+import org.dsanderson.util.IUserSettingsSource;
 
 import android.content.Context;
 import android.content.SharedPreferences;

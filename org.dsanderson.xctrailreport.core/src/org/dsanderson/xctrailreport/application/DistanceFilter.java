@@ -19,9 +19,9 @@
  */
 package org.dsanderson.xctrailreport.application;
 
+import org.dsanderson.util.Units;
 import org.dsanderson.xctrailreport.core.IReportFilter;
 import org.dsanderson.xctrailreport.core.TrailReport;
-import org.dsanderson.xctrailreport.core.Units;
 
 /**
  * 

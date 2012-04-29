@@ -19,11 +19,11 @@
  */
 package org.dsanderson.morctrailreport.parser;
 
+import org.dsanderson.util.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificInfoParser;
-import org.dsanderson.xctrailreport.core.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 
 /**

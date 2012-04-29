@@ -26,10 +26,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
+import org.dsanderson.util.Units;
 import org.dsanderson.xctrailreport.core.ReportDate;
 import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.TrailReportPool;
-import org.dsanderson.xctrailreport.core.Units;
 
 /**
  * 

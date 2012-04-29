@@ -21,10 +21,10 @@ package org.dsanderson.morctrailreport;
 
 import org.dsanderson.morctrailreport.parser.MorcFactory;
 import org.dsanderson.util.ILocationSource;
+import org.dsanderson.util.IUserSettingsSource;
+import org.dsanderson.util.Units;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
-import org.dsanderson.xctrailreport.core.IUserSettingsSource;
-import org.dsanderson.xctrailreport.core.Units;
 import org.dsanderson.xctrailreport.core.UserSettings;
 import org.dsanderson.xctrailreport.core.UserSettings.AutoRefreshMode;
 import org.dsanderson.xctrailreport.core.UserSettings.DistanceMode;

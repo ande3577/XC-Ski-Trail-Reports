@@ -56,12 +56,12 @@ public class DistanceSource implements IDistanceSource {
 	public void updateDistances(String src, List<String> dests,
 			IProgressBar progressBar) throws Exception {
 
-		if (src.length() == 0 || getMaxStringLength(dests) == 0)
-			return;
-
 		distances.clear();
 		durations.clear();
 		valids.clear();
+		
+		if (src.length() == 0 || getMaxStringLength(dests) == 0)
+			return;
 
 		int index = 0;
 		int startingIndex = 0;
@@ -170,5 +170,12 @@ public class DistanceSource implements IDistanceSource {
 	 */
 	public List<Boolean> getDurationValids() {
 		return getDistanceValids();
+	}
+
+	public void updateDistance(String src, String dest, IProgressBar progressBar)
+			throws Exception {
+		List<String> dests = new ArrayList<String>();
+		dests.add(dest);
+		updateDistances(src, dests, progressBar);
 	}
 }

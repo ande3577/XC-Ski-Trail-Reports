@@ -34,14 +34,18 @@ public class AndroidProgressBar implements IProgressBar {
 		if (progressDialog == null)
 			progressDialog = new ProgressDialog(context);
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see org.dsanderson.util.IProgressBar#show()
 	 */
 	public void show() {
-		progressDialog.show();
+		try {
+			progressDialog.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*
@@ -50,7 +54,11 @@ public class AndroidProgressBar implements IProgressBar {
 	 * @see org.dsanderson.util.IProgressBar#setMessage(java.lang.String)
 	 */
 	public void setMessage(String message) {
-		progressDialog.setMessage(message);
+		try {
+			progressDialog.setMessage(message);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*
@@ -59,7 +67,11 @@ public class AndroidProgressBar implements IProgressBar {
 	 * @see org.dsanderson.util.IProgressBar#setProgress(int)
 	 */
 	public void setProgress(int progress) {
-		progressDialog.setProgress(progress);
+		try {
+			progressDialog.setProgress(progress);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*
@@ -68,7 +80,11 @@ public class AndroidProgressBar implements IProgressBar {
 	 * @see org.dsanderson.util.IProgressBar#incrementProgress()
 	 */
 	public void incrementProgress() {
-		progressDialog.incrementProgressBy(1);
+		try {
+			progressDialog.incrementProgressBy(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*
@@ -77,8 +93,12 @@ public class AndroidProgressBar implements IProgressBar {
 	 * @see org.dsanderson.util.IProgressBar#close()
 	 */
 	public void close() {
-		if (progressDialog != null & progressDialog.isShowing())
-			progressDialog.dismiss();
+		try {
+			if (progressDialog != null & progressDialog.isShowing())
+				progressDialog.dismiss();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -22,9 +22,9 @@ package org.dsanderson.xctrailreport.decorators;
 import java.text.DecimalFormat;
 
 import org.dsanderson.util.ITextItem;
+import org.dsanderson.util.Units;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailReport;
-import org.dsanderson.xctrailreport.core.Units;
 
 /**
  * 
