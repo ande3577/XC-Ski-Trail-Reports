@@ -266,6 +266,13 @@ public class morcTrailReportActivity extends ListActivity {
 	public void onConfigurationChanged(Configuration config) {
 		super.onConfigurationChanged(config);
 	}
+	
+	@Override
+	protected void onDestroy ()
+	{
+		trailReports.close();
+		super.onDestroy();
+	}
 
 	private void refresh(boolean forced) {
 		factory.getUserSettings().setForcedRefresh(forced);

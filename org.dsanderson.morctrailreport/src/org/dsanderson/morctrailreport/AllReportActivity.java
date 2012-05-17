@@ -160,6 +160,13 @@ public class AllReportActivity extends ListActivity {
 	public void onConfigurationChanged(Configuration config) {
 		super.onConfigurationChanged(config);
 	}
+	
+	@Override
+	protected void onDestroy ()
+	{
+		trailReports.close();
+		super.onDestroy();
+	}
 
 	private void refresh(boolean forced, int page) {
 		factory.getUserSettings().setForcedRefresh(forced);
