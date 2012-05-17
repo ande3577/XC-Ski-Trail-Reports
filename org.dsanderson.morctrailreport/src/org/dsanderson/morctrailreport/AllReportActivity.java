@@ -24,6 +24,7 @@ import org.dsanderson.android.util.AndroidProgressBar;
 import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.Maps;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -50,6 +51,16 @@ public class AllReportActivity extends ListActivity {
 	MorcSpecificTrailInfo morcInfo;
 	boolean redraw = true;
 	private AllTrailReportAdapter adapter;
+	
+	@Override
+	protected void onStart() {
+		super.onStart();
+	    int versionNumber = Integer.valueOf(android.os.Build.VERSION.SDK_INT);
+	    if (versionNumber >= 11) {
+	        ActionBar actionBar = this.getActionBar();
+	        actionBar.setDisplayHomeAsUpEnabled(true);
+	    }
+	}
 
 	/** Called when the activity is first created. */
 	@Override

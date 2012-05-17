@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:id="@+id/allReportRefresh" android:title="Refresh" android:icon="@drawable/ic_menu_refresh"></item>
-    
-    <item android:id="@+id/allReportsMap" android:title="Open Map" android:icon="@drawable/ic_menu_mapmode"></item><item android:id="@+id/allReportsTrailInfo" android:title="Trail Info" android:icon="@drawable/ic_menu_view"></item><item android:id="@+id/allReportCompose" android:title="Compose" android:icon="@drawable/ic_menu_compose"></item>
-    <item android:id="@+id/openInBrowser" android:title="Open In Browser" android:icon="@drawable/ic_menu_goto"></item>
-    
-    
+
+    <item
+        android:id="@+id/allReportRefresh"
+        android:icon="@drawable/ic_menu_refresh"
+        android:title="Refresh"
+        android:showAsAction="always">
+    </item>
+    <item
+        android:id="@+id/allReportsMap"
+        android:icon="@drawable/ic_menu_mapmode"
+        android:title="Open Map"
+        android:showAsAction="ifRoom">
+    </item>
+    <item
+        android:id="@+id/allReportsTrailInfo"
+        android:icon="@drawable/ic_menu_view"
+        android:title="Trail Info"
+        android:showAsAction="ifRoom">
+    </item>
+    <item
+        android:id="@+id/allReportCompose"
+        android:icon="@drawable/ic_menu_compose"
+        android:title="Compose"
+        android:showAsAction="ifRoom">
+    </item>
+    <item
+        android:id="@+id/openInBrowser"
+        android:icon="@drawable/ic_menu_goto"
+        android:title="Open In Browser"
+        android:showAsAction="ifRoom">
+    </item>
 
 </menu>

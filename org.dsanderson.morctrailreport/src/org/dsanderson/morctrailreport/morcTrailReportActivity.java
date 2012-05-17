@@ -17,6 +17,7 @@ import org.dsanderson.android.util.AndroidProgressBar;
 import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.Maps;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
@@ -56,6 +57,17 @@ public class morcTrailReportActivity extends ListActivity {
 		if (savedInstanceState == null)
 			refresh(false);
 	}
+	
+	@Override
+	protected void onStart() {
+		super.onStart();
+	    int versionNumber = Integer.valueOf(android.os.Build.VERSION.SDK_INT);
+	    if (versionNumber >= 11) {
+	        ActionBar actionBar = this.getActionBar();
+	        actionBar.setDisplayHomeAsUpEnabled(true);
+	    }
+	}
+
 
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
