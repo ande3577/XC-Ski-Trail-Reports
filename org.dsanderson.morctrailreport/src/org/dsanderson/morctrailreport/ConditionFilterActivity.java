@@ -19,7 +19,6 @@
  */
 package org.dsanderson.morctrailreport;
 
-import org.dsanderson.xctrailreport.core.UserSettings;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

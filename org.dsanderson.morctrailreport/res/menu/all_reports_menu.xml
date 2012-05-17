@@ -8,28 +8,16 @@
         android:showAsAction="always">
     </item>
     <item
-        android:id="@+id/allReportsMap"
-        android:icon="@drawable/ic_menu_mapmode"
-        android:title="Open Map"
-        android:showAsAction="ifRoom">
-    </item>
-    <item
-        android:id="@+id/allReportsTrailInfo"
-        android:icon="@drawable/ic_menu_view"
-        android:title="Trail Info"
-        android:showAsAction="ifRoom">
-    </item>
-    <item
-        android:id="@+id/allReportCompose"
-        android:icon="@drawable/ic_menu_compose"
-        android:title="Compose"
-        android:showAsAction="ifRoom">
-    </item>
-    <item
         android:id="@+id/openInBrowser"
         android:icon="@drawable/ic_menu_goto"
         android:title="Open In Browser"
         android:showAsAction="ifRoom">
+    </item>
+    <item
+        android:id="@+id/aboutMenuItem"
+        android:icon="@drawable/ic_menu_info_details"
+        android:showAsAction="ifRoom"
+        android:title="About">
     </item>
 
 </menu>

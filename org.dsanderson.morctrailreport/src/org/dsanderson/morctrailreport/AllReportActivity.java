@@ -1,7 +1,6 @@
 package org.dsanderson.morctrailreport;
 
 import java.util.Date;
-import java.util.List;
 
 import org.dsanderson.morctrailreport.R;
 import org.dsanderson.morctrailreport.parser.MorcAllReportListCreator;
@@ -17,7 +16,6 @@ import org.dsanderson.xctrailreport.core.android.IAbstractListEntryFactory;
 import org.dsanderson.xctrailreport.core.android.IPrinter;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
-import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
 import org.dsanderson.xctrailreport.decorators.ITrailReportListEntry;
 import org.dsanderson.android.util.AndroidIntent;
 import org.dsanderson.android.util.AndroidProgressBar;
@@ -27,16 +25,21 @@ import org.dsanderson.android.util.Maps;
 import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.format.Time;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.widget.AdapterView;
 import android.widget.CursorAdapter;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class AllReportActivity extends ListActivity {
 
@@ -68,6 +71,8 @@ public class AllReportActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 
 		appName = getString(R.string.app_name);
+		
+		registerForContextMenu(getListView());
 
 		if (trailReports == null) {
 			trailReports = new TrailReportList(this,
@@ -110,8 +115,6 @@ public class AllReportActivity extends ListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.all_reports_menu, menu);
-		// TODO need to manually inflate this menu, so that I don't add trail
-		// info if not available
 		return true;
 	}
 
@@ -122,29 +125,15 @@ public class AllReportActivity extends ListActivity {
 			redraw = true;
 			refresh(true, 1);
 			return true;
-		case R.id.allReportCompose: {
-			String composeUrl = morcInfo.getComposeUrl();
-			if (composeUrl != null && composeUrl.length() > 0)
-				AndroidIntent.launchIntent(composeUrl, this);
-		}
-			return true;
-		case R.id.allReportsMap:
-			Maps.launchMap(info.getLocation(), info.getName(),
-					info.getSpecificLocation(), this);
-			return true;
-		case R.id.allReportsTrailInfo:
-			if (morcInfo != null) {
-				String trailInfoUrl = morcInfo.getTrailInfoUrl();
-				if (trailInfoUrl != null && trailInfoUrl.length() > 0)
-					AndroidIntent.launchIntent(trailInfoUrl, this);
-			}
-			return true;
 		case R.id.openInBrowser:
 			if (morcInfo != null) {
 				String allReportUrl = morcInfo.getAllTrailReportUrl();
 				if (allReportUrl != null && allReportUrl.length() > 0)
 					AndroidIntent.launchIntent(allReportUrl, this);
 			}
+			return true;
+		case R.id.aboutMenuItem:
+			openAbout();
 			return true;
 		default:
 			return super.onContextItemSelected(item);
@@ -177,6 +166,76 @@ public class AllReportActivity extends ListActivity {
 	{
 		trailReports.close();
 		super.onDestroy();
+	}
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+
+		TrailReport report = getObjectFromMenuItemInfo((AdapterView.AdapterContextMenuInfo) menuInfo);
+		if (report != null) {
+			menu.add(Menu.NONE, R.id.openMapMenu, Menu.NONE, "Open Map");
+			ISourceSpecificTrailInfo morcInfo = report.getTrailInfo()
+					.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
+
+			if (morcInfo != null) {
+
+				if (morcInfo.getComposeUrl() != null
+						&& morcInfo.getComposeUrl().length() != 0) {
+					menu.add(Menu.NONE, R.id.composeReportItem, Menu.NONE,
+							"Compose Report");
+				}
+
+				if (morcInfo.getTrailInfoUrl() != null
+						&& morcInfo.getTrailInfoUrl().length() != 0) {
+					menu.add(Menu.NONE, R.id.trailInfoMenu, Menu.NONE,
+							"Trail Info");
+				}
+			}
+		}
+	}
+
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		TrailReport trailReport = getObjectFromMenuItemInfo((AdapterView.AdapterContextMenuInfo) item
+				.getMenuInfo());
+
+		if (trailReport != null) {
+			TrailInfo info = trailReport.getTrailInfo();
+
+			switch (item.getItemId()) {
+
+			case R.id.trailInfoMenu: {
+				ISourceSpecificTrailInfo sourceSpecific = info
+						.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
+				if (sourceSpecific != null) {
+					String trailInfoUrl = sourceSpecific.getTrailInfoUrl();
+					if (trailInfoUrl != null && trailInfoUrl.length() > 0)
+						AndroidIntent.launchIntent(trailInfoUrl, this);
+				}
+			}
+				return true;
+			case R.id.openMapMenu:
+				Maps.launchMap(info.getLocation(), info.getName(),
+						info.getSpecificLocation(), this);
+				return true;
+			case R.id.composeReportItem: {
+				ISourceSpecificTrailInfo sourceSpecific = info
+						.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
+				if (sourceSpecific != null) {
+					String composeUrl = sourceSpecific.getComposeUrl();
+					if (composeUrl != null && composeUrl.length() > 0)
+						AndroidIntent.launchIntent(composeUrl, this);
+				}
+			}
+				return true;
+			default:
+				break;
+			}
+		}
+
+		return super.onContextItemSelected(item);
 	}
 
 	private void refresh(boolean forced, int page) {
@@ -331,6 +390,20 @@ public class AllReportActivity extends ListActivity {
 			}
 		}
 
+	}
+	
+	// / Launch about menu activity
+	private void openAbout() {
+		Intent i = new Intent(this, AboutActivity.class);
+		startActivity(i);
+	}
+	
+	private TrailReport getObjectFromMenuItemInfo(AdapterContextMenuInfo info) {
+		if (trailReports.size() > 0) {
+			return (TrailReport) trailReports.getById(info.id);
+		} else {
+			return null;
+		}
 	}
 
 }

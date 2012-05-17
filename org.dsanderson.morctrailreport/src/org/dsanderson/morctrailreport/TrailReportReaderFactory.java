@@ -85,6 +85,7 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 	 * @see org.dsanderson.xctrailreport.application.IReportReaderFactory#
 	 * getReportsRefreshedDate()
 	 */
+	@SuppressWarnings("unused")
 	public Date getReportsRefreshedDate() {
 		if (modifiedDate != null) {
 			return modifiedDate;
@@ -95,6 +96,7 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 				return modifiedDate;
 			} 
 			else 
+				/// \bug for some reason this is flagged as dead code
 				return null;
 		}
 	}
