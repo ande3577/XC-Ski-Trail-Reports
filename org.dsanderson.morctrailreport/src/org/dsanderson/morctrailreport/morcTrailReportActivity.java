@@ -22,6 +22,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.ContextMenu;
@@ -61,7 +62,7 @@ public class morcTrailReportActivity extends ListActivity {
 	protected void onStart() {
 		super.onStart();
 	    int versionNumber = Integer.valueOf(android.os.Build.VERSION.SDK_INT);
-	    if (versionNumber >= 11) {
+	    if (versionNumber >= Build.VERSION_CODES.HONEYCOMB) {
 	        ActionBar actionBar = this.getActionBar();
 	        actionBar.setDisplayHomeAsUpEnabled(true);
 	    }

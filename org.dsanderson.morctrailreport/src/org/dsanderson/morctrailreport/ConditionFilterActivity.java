@@ -20,9 +20,11 @@
 package org.dsanderson.morctrailreport;
 
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
@@ -45,6 +47,16 @@ public class ConditionFilterActivity extends PreferenceActivity {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.condition_filter_menu, menu);
 		return true;
+	}
+	
+	@Override
+	protected void onStart() {
+		super.onStart();
+	    int versionNumber = Integer.valueOf(android.os.Build.VERSION.SDK_INT);
+	    if (versionNumber >= Build.VERSION_CODES.HONEYCOMB) {
+	        ActionBar actionBar = this.getActionBar();
+	        actionBar.setDisplayHomeAsUpEnabled(true);
+	    }
 	}
 
 	@Override
