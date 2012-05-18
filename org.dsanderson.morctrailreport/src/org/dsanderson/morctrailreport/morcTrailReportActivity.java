@@ -54,8 +54,7 @@ public class morcTrailReportActivity extends ListActivity {
 				ListEntryFactory.getInstance());
 		factory.getUserSettingsSource().loadUserSettings();
 
-		if (savedInstanceState == null)
-			refresh(false);
+		refresh(false);
 	}
 	
 	@Override

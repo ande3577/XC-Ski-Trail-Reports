@@ -97,6 +97,10 @@ public class TrailReportFactory implements IAbstractFactory {
 		morcAndroidFactory = new MorcAndroidFactory(context, this);
 		morcAndroidFactory.setEnabled(true);
 	}
+	
+	static public boolean exists() {
+		return (factory != null);
+	}
 
 	static public TrailReportFactory getInstance() {
 		assert (factory != null);
@@ -331,13 +335,15 @@ public class TrailReportFactory implements IAbstractFactory {
 					TrailReportDatabaseFactory.DATABASE_NAME,
 					Integer.parseInt(context
 							.getString(R.integer.databaseVersion)));
-			try {
-				trailReportList.open();
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
 		}
+		
+		try {
+			trailReportList.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		
 		return (ITrailReportList) trailReportList;
 	}
 

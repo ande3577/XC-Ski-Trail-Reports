@@ -43,26 +43,24 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class AllReportActivity extends ListActivity {
 
-	private final String databaseName = "all_reports_database";
+	private static final String databaseName = "all_reports_database";
 
 	private TrailReportList trailReports = null;
-	private TrailReportFactory factory = TrailReportFactory.getInstance();
-	MorcAllReportListCreator listCreator = new MorcAllReportListCreator(factory);
+	private TrailReportFactory factory;
+	MorcAllReportListCreator listCreator;
 	private AllTrailReportPrinter printer;
 	String appName;
-	private TrailInfo info;
-	MorcSpecificTrailInfo morcInfo;
 	boolean redraw = true;
 	private AllTrailReportAdapter adapter;
-	
+
 	@Override
 	protected void onStart() {
 		super.onStart();
-	    int versionNumber = Integer.valueOf(android.os.Build.VERSION.SDK_INT);
-	    if (versionNumber >= 11) {
-	        ActionBar actionBar = this.getActionBar();
-	        actionBar.setDisplayHomeAsUpEnabled(true);
-	    }
+		int versionNumber = Integer.valueOf(android.os.Build.VERSION.SDK_INT);
+		if (versionNumber >= 11) {
+			ActionBar actionBar = this.getActionBar();
+			actionBar.setDisplayHomeAsUpEnabled(true);
+		}
 	}
 
 	/** Called when the activity is first created. */
@@ -71,44 +69,35 @@ public class AllReportActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 
 		appName = getString(R.string.app_name);
-		
+
 		registerForContextMenu(getListView());
+
+		if (TrailReportFactory.exists()) {
+			factory = TrailReportFactory.getInstance();
+		} else {
+			factory = new TrailReportFactory(getApplicationContext());
+		}
+
+		listCreator = new MorcAllReportListCreator(factory);
 
 		if (trailReports == null) {
 			trailReports = new TrailReportList(this,
 					factory.getTrailReportDatabaseFactory(), databaseName,
 					Integer.parseInt(getString(R.integer.databaseVersion)));
-			try {
-				trailReports.open();
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
 		}
 
-		TrailInfo allReportsInfo = MorcFactory.getInstance()
-				.getAllReportsInfo();
-
-		if (allReportsInfo != null)
-			info = allReportsInfo;
-		else if (trailReports.size() > 0)
-			info = trailReports.get(0).getTrailInfo();
+		try {
+			trailReports.open();
+			factory.getUserSettingsSource().loadUserSettings();
+		} catch (Exception e) {
+			System.err.println(e);
+		}
 
 		printer = new AllTrailReportPrinter(this, factory, trailReports,
 				appName, ListEntryFactory.getInstance());
 
-		try {
-			factory.getUserSettingsSource().loadUserSettings();
-		} catch (Exception e) {
-			System.err.println(e);
-			factory.newDialog(e).show();
-		}
-
-		if (savedInstanceState == null) {
-			redraw = true;
-			refresh(false, 1);
-		}
-
+		redraw = true;
+		refresh(false, 1);
 	}
 
 	@Override
@@ -125,12 +114,15 @@ public class AllReportActivity extends ListActivity {
 			redraw = true;
 			refresh(true, 1);
 			return true;
-		case R.id.openInBrowser:
+		case R.id.openInBrowser: {
+			MorcSpecificTrailInfo morcInfo = getMorcTrailInfo();
+
 			if (morcInfo != null) {
 				String allReportUrl = morcInfo.getAllTrailReportUrl();
 				if (allReportUrl != null && allReportUrl.length() > 0)
 					AndroidIntent.launchIntent(allReportUrl, this);
 			}
+		}
 			return true;
 		case R.id.aboutMenuItem:
 			openAbout();
@@ -160,14 +152,13 @@ public class AllReportActivity extends ListActivity {
 	public void onConfigurationChanged(Configuration config) {
 		super.onConfigurationChanged(config);
 	}
-	
+
 	@Override
-	protected void onDestroy ()
-	{
+	protected void onDestroy() {
 		trailReports.close();
 		super.onDestroy();
 	}
-	
+
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
@@ -240,11 +231,9 @@ public class AllReportActivity extends ListActivity {
 
 	private void refresh(boolean forced, int page) {
 		factory.getUserSettings().setForcedRefresh(forced);
-
 		factory.getLocationSource().updateLocation();
 
-		morcInfo = (MorcSpecificTrailInfo) info
-				.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
+		TrailInfo info = getTrailInfo();
 		listCreator.setPage(page);
 
 		SingleTrailInfoList trailInfos = new SingleTrailInfoList();
@@ -275,8 +264,13 @@ public class AllReportActivity extends ListActivity {
 		public void printTrailReports() throws Exception {
 			Date lastRefreshDate = trailReports.getTimestamp();
 			String titleString = appName;
-			if (info != null)
-				titleString = info.getName();
+
+			TrailInfo info = getTrailInfo();
+
+			if (info == null)
+				throw new Exception("Cannot get trail info.");
+
+			titleString = info.getName();
 
 			if (lastRefreshDate != null && lastRefreshDate.getTime() != 0) {
 				Time time = new Time();
@@ -295,6 +289,31 @@ public class AllReportActivity extends ListActivity {
 			}
 		}
 
+	}
+
+	private TrailInfo getTrailInfo() {
+		TrailInfo allReportsInfo = MorcFactory.getInstance()
+				.getAllReportsInfo();
+
+		if (allReportsInfo == null) {
+			try {
+				allReportsInfo = trailReports.get(0).getTrailInfo();
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		return allReportsInfo;
+	}
+
+	private MorcSpecificTrailInfo getMorcTrailInfo() {
+		MorcSpecificTrailInfo morcInfo = null;
+		try {
+			TrailInfo info = getTrailInfo();
+			morcInfo = (MorcSpecificTrailInfo) info
+					.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
+		} catch (Exception e) {
+		}
+		return morcInfo;
 	}
 
 	private class AllTrailReportAdapter extends CursorAdapter {
@@ -391,13 +410,13 @@ public class AllReportActivity extends ListActivity {
 		}
 
 	}
-	
+
 	// / Launch about menu activity
 	private void openAbout() {
 		Intent i = new Intent(this, AboutActivity.class);
 		startActivity(i);
 	}
-	
+
 	private TrailReport getObjectFromMenuItemInfo(AdapterContextMenuInfo info) {
 		if (trailReports.size() > 0) {
 			return (TrailReport) trailReports.getById(info.id);

@@ -72,8 +72,9 @@ public class MorcAllReportListCreator implements IReportListCreator {
 	 */
 	@Override
 	public void getTrailReports(ITrailReportList trailReports,
-			ITrailInfoList trailInfos, boolean forced, IProgressBar progressBar) throws Exception {
-		assert (trailInfos.size() == 1);
+			ITrailInfoList trailInfos, boolean forced, IProgressBar progressBar)
+			throws Exception {
+		assert (trailInfos.size() <= 1);
 
 		boolean refreshNeeded = forced;
 
@@ -96,7 +97,9 @@ public class MorcAllReportListCreator implements IReportListCreator {
 			}
 		}
 
-		if (!refreshNeeded) {
+		TrailInfo info = trailInfos.get(0);
+
+		if (!refreshNeeded || (info == null)) {
 			try {
 				trailReports.load();
 			} catch (Exception e) {
@@ -105,7 +108,17 @@ public class MorcAllReportListCreator implements IReportListCreator {
 			}
 		}
 
-		TrailInfo info = trailInfos.get(0);
+		if (info == null) {
+			try {
+				info = trailReports.get(0).getTrailInfo();
+			} catch (Exception e) {
+				info = null;
+			}
+			
+			if (info == null)
+				throw new Exception("Cannot load trail info.");
+		}
+
 		if (refreshNeeded
 				|| (trailReports.size() == 0)
 				|| !info.getName().equals(
@@ -134,8 +147,8 @@ public class MorcAllReportListCreator implements IReportListCreator {
 		}
 	}
 
-	void downloadTrailReports(ITrailReportList trailReports, TrailInfo trailInfo, IProgressBar progressBar)
-			throws Exception {
+	void downloadTrailReports(ITrailReportList trailReports,
+			TrailInfo trailInfo, IProgressBar progressBar) throws Exception {
 		ISourceSpecificTrailInfo sourceSpecific = trailInfo
 				.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
 		assert (sourceSpecific != null);
@@ -155,7 +168,7 @@ public class MorcAllReportListCreator implements IReportListCreator {
 
 			if (page == 1)
 				lastPage = scanner.findLastPage();
-			
+
 			morcSpecific.setLastPage(lastPage);
 
 			if (scanner.findStartOfReports()) {

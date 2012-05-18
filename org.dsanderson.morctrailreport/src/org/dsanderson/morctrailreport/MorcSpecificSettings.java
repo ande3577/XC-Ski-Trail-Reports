@@ -30,8 +30,6 @@ public class MorcSpecificSettings {
 	boolean wetEnabled = true;
 	boolean closedEnabled = true;
 	boolean otherEnabled = true;
-	static final TrailReportFactory factory = TrailReportFactory.getInstance();
-	
 	
 	
 	public void setConditionsFilterEnabled(boolean conditionsFilterEnabled) {
