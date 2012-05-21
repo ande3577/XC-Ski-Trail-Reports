@@ -8,6 +8,7 @@ import org.dsanderson.morctrailreport.parser.MorcFactory;
 import org.dsanderson.morctrailreport.parser.MorcSpecificTrailInfo;
 import org.dsanderson.morctrailreport.parser.SingleTrailInfoList;
 
+import org.dsanderson.util.IProgressBar;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfo;
@@ -20,6 +21,7 @@ import org.dsanderson.xctrailreport.decorators.ITrailReportListEntry;
 import org.dsanderson.android.util.AndroidIntent;
 import org.dsanderson.android.util.AndroidProgressBar;
 import org.dsanderson.android.util.Dialog;
+import org.dsanderson.android.util.EmbeddedProgressBar;
 import org.dsanderson.android.util.Maps;
 
 import android.app.ActionBar;
@@ -40,6 +42,8 @@ import android.view.ViewGroup;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.CursorAdapter;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class AllReportActivity extends ListActivity {
@@ -53,6 +57,7 @@ public class AllReportActivity extends ListActivity {
 	String appName;
 	boolean redraw = true;
 	private AllTrailReportAdapter adapter;
+	private View footerView = null;
 
 	@Override
 	protected void onStart() {
@@ -239,9 +244,21 @@ public class AllReportActivity extends ListActivity {
 
 		SingleTrailInfoList trailInfos = new SingleTrailInfoList();
 		trailInfos.add(info);
+		
+		IProgressBar progressBar;
+		if (page == 1)
+		{
+			progressBar = new AndroidProgressBar(this);
+		}
+		else
+		{
+			progressBar = new EmbeddedProgressBar(
+					(TextView) footerView.findViewById(R.id.progressLabel),
+					(ProgressBar) footerView.findViewById(R.id.embeddedProgressBar));
+		}
 
 		new LoadReportsTask(this, factory, listCreator, trailReports,
-				trailInfos, printer, new AndroidProgressBar(this)).execute();
+				trailInfos, printer, progressBar).execute();
 	}
 
 	private class AllTrailReportPrinter implements IPrinter {
@@ -280,6 +297,10 @@ public class AllReportActivity extends ListActivity {
 			}
 			context.setTitle(titleString);
 
+			footerView = getLayoutInflater().inflate(R.layout.footer_view, null);
+			getListView().removeFooterView(footerView);
+			getListView().addFooterView(footerView);
+			
 			Cursor cursor = ((TrailReportList) trailReports).getCursor();
 			if (redraw || (adapter == null)) {
 				adapter = new AllTrailReportAdapter(context, cursor, factory,
