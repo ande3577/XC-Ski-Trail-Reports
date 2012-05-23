@@ -178,4 +178,11 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 					(ImageView) viewGroup.findViewById(R.id.conditionImageView));
 		return imageItem;
 	}
+
+	/* (non-Javadoc)
+	 * @see org.dsanderson.xctrailreport.decorators.ITrailReportListEntry#getSourceTextItem()
+	 */
+	public ITextItem getSourceTextItem() {
+		return null;
+	}
 }

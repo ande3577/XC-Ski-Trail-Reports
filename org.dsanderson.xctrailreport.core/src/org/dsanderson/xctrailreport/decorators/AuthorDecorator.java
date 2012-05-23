@@ -38,14 +38,7 @@ public class AuthorDecorator extends TrailReportDecorator {
 	public void decorate(TrailReport trailReport,
 			ITrailReportListEntry listEntry) {
 		ITextItem newTextItem = listEntry.getAuthorTextItem();
-		String text = "";
-
-		if (trailReport.getAuthor().length() > 0) {
-			text = trailReport.getAuthor() + " (" + trailReport.getSource()
-					+ ")";
-		} else {
-			text = trailReport.getSource();
-		}
+		String text = trailReport.getAuthor();
 
 		newTextItem.setText(text);
 		if (next() != null)

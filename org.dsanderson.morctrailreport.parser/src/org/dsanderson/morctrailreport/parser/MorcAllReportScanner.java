@@ -129,6 +129,12 @@ public class MorcAllReportScanner {
 		scanner.nextLine();
 		String authorName = scan("\\Q<font size=\"2pt\"><b>\\E",
 				"\\Q</b><br></font>\\E", ".*");
+		findNext("\\Q<strong>\\E");
+		String nickName = scan("","\\Q</strong>\\E", ".*");
+		if ((authorName == null) || (authorName.length() == 0))
+			authorName = nickName;
+		else if ((nickName != null) && (nickName.length() != 0))
+			authorName += " (" + nickName + ")";
 		// / TODO parse author profile url
 		trailReport.setAuthor(authorName);
 	}

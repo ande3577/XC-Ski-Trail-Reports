@@ -19,34 +19,36 @@
  */
 package org.dsanderson.xctrailreport.decorators;
 
-import org.dsanderson.util.IImageItem;
 import org.dsanderson.util.ITextItem;
+import org.dsanderson.xctrailreport.core.TrailReport;
 
 /**
  * 
  */
-public interface ITrailReportListEntry {
-	
-	void draw();
-	
-	void setTitleGroupVisible(boolean visible);
-	
-	ITextItem getTrailNameTextItem();
-	
-	ITextItem getTrailLocationTextItem();
-	
-	ITextItem getDateTextItem();
-	
-	ITextItem getBriefConditionsTextItem();
-	
-	ITextItem getDetailedConditionsTextItem();
-	
-	ITextItem getAuthorTextItem();
-	
-	ITextItem getSourceTextItem();
-	
-	ITextItem getPhotosetTextItem();
-	
-	IImageItem getConditionsImageItem();
+public class SourceDecorator extends TrailReportDecorator {
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.decorators.TrailReportDecorator#decorate
+	 * (org.dsanderson.xctrailreport.core.TrailReport,
+	 * org.dsanderson.xctrailreport.decorators.ITrailReportListEntry)
+	 */
+	@Override
+	public void decorate(TrailReport trailReport,
+			ITrailReportListEntry listEntry) {
+		ITextItem newTextItem = listEntry.getSourceTextItem();
+		String text = "";
+
+		if (trailReport.getSource().length() > 0) {
+			text = "(" + trailReport.getSource() + ")";
+		} else {
+		}
+
+		newTextItem.setText(text);
+		if (next() != null)
+			next().decorate(trailReport, listEntry);
+	}
 
 }
