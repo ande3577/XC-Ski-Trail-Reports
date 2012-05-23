@@ -101,6 +101,9 @@ public class AllReportActivity extends ListActivity {
 
 		printer = new AllTrailReportPrinter(this, factory, trailReports,
 				appName, ListEntryFactory.getInstance());
+		
+		footerView = getLayoutInflater().inflate(R.layout.footer_view, null);
+		getListView().addFooterView(footerView);
 
 		redraw = true;
 		refresh(false, 1);
@@ -297,10 +300,6 @@ public class AllReportActivity extends ListActivity {
 			}
 			context.setTitle(titleString);
 
-			footerView = getLayoutInflater().inflate(R.layout.footer_view, null);
-			getListView().removeFooterView(footerView);
-			getListView().addFooterView(footerView);
-			
 			Cursor cursor = ((TrailReportList) trailReports).getCursor();
 			if (redraw || (adapter == null)) {
 				adapter = new AllTrailReportAdapter(context, cursor, factory,
