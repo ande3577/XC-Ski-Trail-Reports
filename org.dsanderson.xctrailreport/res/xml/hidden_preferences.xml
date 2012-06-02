@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-<PreferenceCategory android:title="Display Options"><ListPreference android:title="Sort By:" android:entryValues="@array/sortMethods" android:entries="@array/sortMethodNames" android:key="sortMethod" android:defaultValue="sortByDate" android:dialogTitle="Sort By:"/>
-
-</PreferenceCategory><CheckBoxPreference android:key="firstRun" android:title="First Run"/>
-
-</PreferenceScreen>
