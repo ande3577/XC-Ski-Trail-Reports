@@ -10,7 +10,7 @@
         android:background="@color/titleBackgroundColor" >
 
     <ImageButton
-        android:id="@+id/helpButton"
+        android:id="@+id/allReportsHelpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -19,31 +19,22 @@
         android:src="@drawable/ic_menu_help" />
 
     <ImageButton
-        android:id="@+id/refreshButton"
+        android:id="@+id/allReportsRefreshButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/helpButton"
+        android:layout_toLeftOf="@+id/allReportsHelpButton"
         android:onClick="onRefreshButtonClick"
         android:src="@drawable/ic_menu_refresh" />
 
     <ImageButton
-        android:id="@+id/settingsButton"
+        android:id="@+id/allReportsOpenInBrowserButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/refreshButton"
-        android:onClick="onSettingsButtonClick"
-        android:src="@drawable/ic_menu_preferences" />
-
-    <ImageButton
-        android:id="@+id/sortButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/settingsButton"
-        android:onClick="onSortButtonClick"
-        android:src="@drawable/ic_menu_sort_by_size" />
+        android:layout_toLeftOf="@+id/allReportsRefreshButton"
+        android:onClick="onOpenInBrowserClick"
+        android:src="@drawable/ic_menu_goto" />
     
     </RelativeLayout>
 

@@ -30,6 +30,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.opengl.Visibility;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.format.Time;
@@ -75,6 +76,8 @@ public class AllReportActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 
 		appName = getString(R.string.app_name);
+		
+		setContentView(R.layout.all_reports_view);
 
 		registerForContextMenu(getListView());
 
@@ -107,38 +110,6 @@ public class AllReportActivity extends ListActivity {
 
 		redraw = true;
 		refresh(false, 1);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.all_reports_menu, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.allReportRefresh:
-			redraw = true;
-			refresh(true, 1);
-			return true;
-		case R.id.openInBrowser: {
-			MorcSpecificTrailInfo morcInfo = getMorcTrailInfo();
-
-			if (morcInfo != null) {
-				String allReportUrl = morcInfo.getAllTrailReportUrl();
-				if (allReportUrl != null && allReportUrl.length() > 0)
-					AndroidIntent.launchIntent(allReportUrl, this);
-			}
-		}
-			return true;
-		case R.id.aboutMenuItem:
-			openAbout();
-			return true;
-		default:
-			return super.onContextItemSelected(item);
-		}
 	}
 
 	@Override
@@ -445,5 +416,24 @@ public class AllReportActivity extends ListActivity {
 			return null;
 		}
 	}
+	
+	public void onOpenInBrowserClick(View v) {
+		MorcSpecificTrailInfo morcInfo = getMorcTrailInfo();
 
+		if (morcInfo != null) {
+			String allReportUrl = morcInfo.getAllTrailReportUrl();
+			if (allReportUrl != null && allReportUrl.length() > 0)
+				AndroidIntent.launchIntent(allReportUrl, this);
+		}
+	}
+	
+	public void onRefreshButtonClick(View v) {
+		refresh(true, 1);
+	}
+	
+	public void onHelpButtonClick(View v) {
+		openAbout();
+	}
+
+	
 }

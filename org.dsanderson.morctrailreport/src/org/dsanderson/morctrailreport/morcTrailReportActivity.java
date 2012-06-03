@@ -18,7 +18,9 @@ import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.Maps;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
@@ -47,6 +49,8 @@ public class morcTrailReportActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		setContentView(R.layout.main);
+
 		appName = getString(R.string.app_name);
 		registerForContextMenu(getListView());
 
@@ -57,17 +61,16 @@ public class morcTrailReportActivity extends ListActivity {
 
 		refresh(false);
 	}
-	
+
 	@Override
 	protected void onStart() {
 		super.onStart();
-	    int versionNumber = Integer.valueOf(android.os.Build.VERSION.SDK_INT);
-	    if (versionNumber >= Build.VERSION_CODES.HONEYCOMB) {
-	        ActionBar actionBar = this.getActionBar();
-	        actionBar.setDisplayHomeAsUpEnabled(true);
-	    }
+		int versionNumber = Integer.valueOf(android.os.Build.VERSION.SDK_INT);
+		if (versionNumber >= Build.VERSION_CODES.HONEYCOMB) {
+			ActionBar actionBar = this.getActionBar();
+			actionBar.setDisplayHomeAsUpEnabled(true);
+		}
 	}
-
 
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
@@ -167,78 +170,6 @@ public class morcTrailReportActivity extends ListActivity {
 		}
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.mainmenu, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.preferencesMenuItem:
-			openPreferencesMenu();
-			return true;
-		case R.id.aboutMenuItem:
-			openAbout();
-			return true;
-		case R.id.refresh:
-			refresh(true);
-			return true;
-		case R.id.sortBy:
-			MenuItem distance = item.getSubMenu().getItem(0).setChecked(false);
-			MenuItem date = item.getSubMenu().getItem(1).setChecked(false);
-			MenuItem duration = item.getSubMenu().getItem(2).setChecked(false);
-			MenuItem condition = item.getSubMenu().getItem(3).setChecked(false);
-
-			switch (factory.userSettings.getSortMethod()) {
-			case SORT_BY_DISTANCE:
-				distance.setChecked(true);
-				return true;
-			case SORT_BY_DATE:
-				date.setChecked(true);
-				return true;
-			case SORT_BY_DURATION:
-				duration.setChecked(true);
-				return true;
-			case SORT_BY_CONDITION:
-				condition.setChecked(true);
-				return true;
-			}
-			return false;
-		case R.id.sortByDuration:
-		case R.id.sortByDate:
-		case R.id.sortByDistance:
-		case R.id.sortByCondition:
-
-			String sortMethodString = "";
-
-			switch (item.getItemId()) {
-			case R.id.sortByDuration:
-				sortMethodString = "sortByDuration";
-				break;
-			case R.id.sortByDate:
-				sortMethodString = "sortByDate";
-				break;
-			case R.id.sortByDistance:
-				sortMethodString = "sortByDistance";
-				break;
-			case R.id.sortByCondition:
-				sortMethodString = "sortByCondition";
-				break;
-			}
-
-			Editor edit = PreferenceManager.getDefaultSharedPreferences(
-					getApplication()).edit();
-			edit.putString("sortMethod", sortMethodString);
-			edit.commit();
-			return true;
-		default:
-			return super.onContextItemSelected(item);
-		}
-	}
-
 	// / Launch Preference activity
 	private void openPreferencesMenu() {
 		Intent i = new Intent(this, PreferencesActivity.class);
@@ -278,10 +209,9 @@ public class morcTrailReportActivity extends ListActivity {
 	public void onConfigurationChanged(Configuration config) {
 		super.onConfigurationChanged(config);
 	}
-	
+
 	@Override
-	protected void onDestroy ()
-	{
+	protected void onDestroy() {
 		trailReports.close();
 		super.onDestroy();
 	}
@@ -294,6 +224,64 @@ public class morcTrailReportActivity extends ListActivity {
 		new LoadReportsTask(this, factory, listCreator, trailReports,
 				factory.getTrailInfoList(), printer, new AndroidProgressBar(
 						this)).execute();
+	}
+
+	public void onSortButtonClick(View v) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("Sort Order");
+
+		String initialSortMethod = "";
+		switch (factory.userSettings.getSortMethod()) {
+		case SORT_BY_DISTANCE:
+			initialSortMethod = "sortByDistance";
+			break;
+		case SORT_BY_DATE:
+			initialSortMethod = "sortByDate";
+			break;
+		case SORT_BY_DURATION:
+			initialSortMethod = "sortByDuration";
+			break;
+		case SORT_BY_CONDITION:
+			initialSortMethod = "sortByCondition";
+			break;
+		}
+
+		String methods[] = getResources().getStringArray(R.array.sortMethods);
+		int methodIndex = -1;
+		for (int i = 0; i < methods.length; i++) {
+			if (initialSortMethod.equals(methods[i])) {
+				methodIndex = i;
+			}
+		}
+
+		builder.setSingleChoiceItems(R.array.sortMethodNames, methodIndex,
+				new DialogInterface.OnClickListener() {
+
+					public void onClick(DialogInterface dialog, int which) {
+						Editor edit = PreferenceManager
+								.getDefaultSharedPreferences(getApplication())
+								.edit();
+						String methods[] = getResources().getStringArray(
+								R.array.sortMethods);
+						String sortMethodString = methods[which];
+						edit.putString("sortMethod", sortMethodString);
+						edit.commit();
+						dialog.dismiss();
+					}
+				});
+		builder.show();
+	}
+
+	public void onSettingsButtonClick(View v) {
+		openPreferencesMenu();
+	}
+
+	public void onRefreshButtonClick(View v) {
+		refresh(true);
+	}
+
+	public void onHelpButtonClick(View v) {
+		openAbout();
 	}
 
 }
