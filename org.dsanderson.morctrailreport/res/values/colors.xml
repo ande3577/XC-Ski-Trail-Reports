@@ -6,5 +6,6 @@
     <color name="descriptionBackgroundColor">#FFFFFF</color>
     <color name="dateTextColor">#808080</color>
     <color name="textColor">#000000</color>
+    <color name="buttonLabelColor">#D3D3D3</color>
     
 </resources>

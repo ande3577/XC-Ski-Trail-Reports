@@ -44,6 +44,46 @@
         android:layout_toLeftOf="@+id/settingsButton"
         android:onClick="onSortButtonClick"
         android:src="@drawable/ic_menu_sort_by_size" />
+
+    <TextView
+        android:id="@+id/sortLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sortButton"
+        android:layout_below="@+id/sortButton"
+        android:text="Sort By"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/buttonLabelColor" />
+
+    <TextView
+        android:id="@+id/settingsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/settingsButton"
+        android:layout_below="@+id/settingsButton"
+        android:text="Settings"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/buttonLabelColor" />
+    
+    <TextView
+        android:id="@+id/refreshLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/refreshButton"
+        android:layout_below="@+id/refreshButton"
+        android:text="Refresh"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/buttonLabelColor" />
+    
+    <TextView
+        android:id="@+id/helpLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/helpButton"
+        android:layout_below="@+id/helpButton"
+        android:text="Help"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/buttonLabelColor" />
     
     </RelativeLayout>
 

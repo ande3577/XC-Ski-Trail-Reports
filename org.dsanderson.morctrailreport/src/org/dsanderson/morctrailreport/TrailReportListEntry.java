@@ -20,6 +20,7 @@
 package org.dsanderson.morctrailreport;
 
 import org.dsanderson.android.util.FixedImageItem;
+import org.dsanderson.android.util.LabelledFixedImage;
 import org.dsanderson.android.util.TextItem;
 import org.dsanderson.util.IImageItem;
 import org.dsanderson.util.ITextItem;
@@ -42,10 +43,10 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 	TextItem detailedItem = null;
 	TextItem authorItem = null;
 	ConditionsImageItem imageItem = null;
-	FixedImageItem allReportsImageItem = null;
-	FixedImageItem mapImageItem = null;
-	FixedImageItem composeImageItem = null;
-	FixedImageItem trailInfoImageItem = null;
+	LabelledFixedImage allReportsImageItem = null;
+	LabelledFixedImage mapImageItem = null;
+	LabelledFixedImage composeImageItem = null;
+	LabelledFixedImage trailInfoImageItem = null;
 
 	public TrailReportListEntry(ViewGroup viewGroup) {
 		this.viewGroup = viewGroup;
@@ -196,29 +197,34 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 
 	public IImageItem getAllReportsImageItem() {
 		if (allReportsImageItem == null)
-			allReportsImageItem = new FixedImageItem(
-					(ImageView) viewGroup.findViewById(R.id.allReportsButton));
+			allReportsImageItem = new LabelledFixedImage(
+					(ImageView) viewGroup.findViewById(R.id.allReportsButton),
+					(TextView) viewGroup
+							.findViewById(R.id.allReportsButtonLabel));
 		return allReportsImageItem;
 	}
 
 	public IImageItem getMapImageItem() {
 		if (mapImageItem == null)
-			mapImageItem = new FixedImageItem(
-					(ImageView) viewGroup.findViewById(R.id.mapButton));
+			mapImageItem = new LabelledFixedImage(
+					(ImageView) viewGroup.findViewById(R.id.mapButton),
+					(TextView) viewGroup.findViewById(R.id.mapButtonLabel));
 		return mapImageItem;
 	}
 
 	public IImageItem getComposeImageItem() {
 		if (composeImageItem == null)
-			composeImageItem = new FixedImageItem(
-					(ImageView) viewGroup.findViewById(R.id.composeButton));
+			composeImageItem = new LabelledFixedImage(
+					(ImageView) viewGroup.findViewById(R.id.composeButton),
+					(TextView) viewGroup.findViewById(R.id.composeLabel));
 		return composeImageItem;
 	}
 
 	public IImageItem getTrailInfoImageItem() {
 		if (trailInfoImageItem == null)
-			trailInfoImageItem = new FixedImageItem(
-					(ImageView) viewGroup.findViewById(R.id.trailInfoButton));
+			trailInfoImageItem = new LabelledFixedImage(
+					(ImageView) viewGroup.findViewById(R.id.trailInfoButton),
+					(TextView) viewGroup.findViewById(R.id.trailInfoLabel));
 		return trailInfoImageItem;
 	}
 }
