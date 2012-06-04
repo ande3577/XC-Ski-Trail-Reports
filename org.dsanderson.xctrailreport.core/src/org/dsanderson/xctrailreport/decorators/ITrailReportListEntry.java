@@ -48,5 +48,13 @@ public interface ITrailReportListEntry {
 	ITextItem getPhotosetTextItem();
 	
 	IImageItem getConditionsImageItem();
+	
+	IImageItem getAllReportsImageItem();
+	
+	IImageItem getMapImageItem();
+	
+	IImageItem getComposeImageItem();
+	
+	IImageItem getTrailInfoImageItem();
 
 }

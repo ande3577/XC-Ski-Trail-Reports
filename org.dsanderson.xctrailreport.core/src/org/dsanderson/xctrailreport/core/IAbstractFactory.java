@@ -27,7 +27,6 @@ import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.ILocationCoder;
 import org.dsanderson.util.INetConnection;
 import org.dsanderson.util.IUserSettingsSource;
-import org.dsanderson.xctrailreport.decorators.TrailReportDecorator;
 
 /**
  * 
@@ -47,10 +46,6 @@ public interface IAbstractFactory {
 	public ISourceSpecificFactory getSourceSpecificFactory(String SourceName);
 
 	public List<ISourceSpecificFactory> getSourceSpecificFactories();
-
-	public TrailReportDecorator getTrailInfoDecorators();
-
-	public TrailReportDecorator getTrailReportDecorators();
 
 	public IDistanceSource getDistanceSource();
 
