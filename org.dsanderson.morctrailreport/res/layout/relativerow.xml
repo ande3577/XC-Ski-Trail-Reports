@@ -20,6 +20,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:text="Trail Name"
+            android:visibility="gone"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -30,6 +31,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/trailNameView"
             android:text="City, State (distance, duration)"
+            android:visibility="gone"
             android:textColor="@color/trailLocationTextColor" />
 
         <ImageButton
@@ -40,7 +42,7 @@
             android:layout_below="@+id/trailLocationView"
             android:onClick="onAllReportsButtonClick"
             android:src="@drawable/ic_menu_goto"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/mapButton"
@@ -50,7 +52,7 @@
             android:layout_toRightOf="@+id/allReportsButton"
             android:onClick="onMapButtonClick"
             android:src="@drawable/ic_menu_mapmode"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/composeButton"
@@ -60,7 +62,7 @@
             android:layout_toRightOf="@+id/mapButton"
             android:onClick="onComposeButtonClick"
             android:src="@drawable/ic_menu_compose"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/trailInfoButton"
@@ -70,7 +72,7 @@
             android:layout_toRightOf="@+id/composeButton"
             android:onClick="onInfoButtonClick"
             android:src="@drawable/ic_menu_info_details"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/allReportsButtonLabel"
@@ -80,6 +82,7 @@
             android:layout_below="@+id/allReportsButton"
             android:text="View All"
             android:textAppearance="?android:attr/textAppearanceSmall"
+            android:visibility="gone"
             android:textColor="@color/buttonLabelColor" />
 
         <TextView
@@ -90,6 +93,7 @@
             android:layout_below="@+id/composeButton"
             android:text="Compose"
             android:textAppearance="?android:attr/textAppearanceSmall"
+            android:visibility="gone"
             android:textColor="@color/buttonLabelColor" />
 
         <TextView
@@ -101,6 +105,7 @@
             android:layout_alignLeft="@+id/mapButton"
             android:text="Map"
             android:textAppearance="?android:attr/textAppearanceSmall"
+            android:visibility="gone"
             android:textColor="@color/buttonLabelColor" />
 
         <TextView
@@ -111,6 +116,7 @@
             android:layout_below="@+id/trailInfoButton"
             android:text="Trail Info"
             android:textAppearance="?android:attr/textAppearanceSmall"
+            android:visibility="gone"
             android:textColor="@color/buttonLabelColor" />
 
     </RelativeLayout>
