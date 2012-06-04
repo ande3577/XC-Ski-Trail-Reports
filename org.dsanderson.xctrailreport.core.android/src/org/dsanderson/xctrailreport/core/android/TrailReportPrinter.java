@@ -22,6 +22,7 @@ package org.dsanderson.xctrailreport.core.android;
 import java.util.Date;
 
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
+import org.dsanderson.xctrailreport.core.IDecoratorFactory;
 
 import android.app.ListActivity;
 import android.database.Cursor;
@@ -34,15 +35,17 @@ public class TrailReportPrinter implements IPrinter {
 
 	private final ListActivity context;
 	private final IAbstractFactory factory;
+	private final IDecoratorFactory decoratorFactory;
 	private final TrailReportList trailReports;
 	private final String appName;
 	private final IAbstractListEntryFactory listEntryFactory;
 
 	public TrailReportPrinter(ListActivity context, IAbstractFactory factory,
-			TrailReportList trailReports, String appName,
-			IAbstractListEntryFactory listEntryFactory) {
+			IDecoratorFactory decoratorFactory, TrailReportList trailReports,
+			String appName, IAbstractListEntryFactory listEntryFactory) {
 		this.context = context;
 		this.factory = factory;
+		this.decoratorFactory = decoratorFactory;
 		this.appName = appName;
 		this.listEntryFactory = listEntryFactory;
 
@@ -63,8 +66,7 @@ public class TrailReportPrinter implements IPrinter {
 		factory.sortReports(trailReports);
 
 		Cursor cursor = ((TrailReportList) trailReports).getCursor();
-		context.setListAdapter(new TrailReportAdapter(context, cursor,
-				factory, trailReports, listEntryFactory));
+		context.setListAdapter(new TrailReportAdapter(context, cursor, factory,
+				decoratorFactory, trailReports, listEntryFactory));
 	}
-
 }
