@@ -46,16 +46,6 @@ import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.TrailInfoPool;
 import org.dsanderson.xctrailreport.core.TrailReportParser;
 import org.dsanderson.xctrailreport.core.UserSettings;
-import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
-import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
-import org.dsanderson.xctrailreport.decorators.ConditionsImageDecorator;
-import org.dsanderson.xctrailreport.decorators.DateDecorator;
-import org.dsanderson.xctrailreport.decorators.TimeDecorator;
-import org.dsanderson.xctrailreport.decorators.DetailedReportDecorator;
-import org.dsanderson.xctrailreport.decorators.DistanceDecorator;
-import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
-import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
-import org.dsanderson.xctrailreport.decorators.TrailReportDecorator;
 import org.dsanderson.xctrailreport.core.TrailReportPool;
 import org.dsanderson.xctrailreport.core.UserSettings.SortMethod;
 import org.dsanderson.xctrailreport.core.android.TrailInfoDatabaseFactory;
@@ -73,8 +63,6 @@ public class TrailReportFactory implements IAbstractFactory {
 	Context context;
 	MorcAndroidFactory morcAndroidFactory = null;
 	UrlConnection netConnection = null;
-	TrailReportDecorator infoDecorator = null;
-	TrailReportDecorator reportDecorator = null;
 	CompoundLocationSource locationSource = null;
 	UserSettings userSettings = null;
 	UserSettingsSource settingsSource = null;
@@ -175,26 +163,6 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoDecorators
-	 * ()
-	 */
-	public TrailReportDecorator getTrailReportDecorators() {
-		if (reportDecorator == null) {
-			reportDecorator = new DateDecorator();
-			reportDecorator.add(new TimeDecorator());
-			reportDecorator.add(new SummaryDecorator());
-			reportDecorator.add(new ConditionsImageDecorator());
-			reportDecorator.add(new DetailedReportDecorator());
-			reportDecorator.add(new AuthorDecorator());
-		}
-
-		return reportDecorator;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getDirectionsSource()
 	 */
 	public IDistanceSource getDistanceSource() {
@@ -207,23 +175,6 @@ public class TrailReportFactory implements IAbstractFactory {
 		case DISABLED:
 			return null;
 		}
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoDecorators
-	 * ()
-	 */
-	public TrailReportDecorator getTrailInfoDecorators() {
-		if (infoDecorator == null) {
-			infoDecorator = new TrailNameDecorator();
-			infoDecorator.add(new CityStateDecorator());
-			infoDecorator.add(new DistanceDecorator());
-		}
-
-		return infoDecorator;
 	}
 
 	/*

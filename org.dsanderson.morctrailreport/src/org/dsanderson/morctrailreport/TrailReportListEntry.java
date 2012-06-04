@@ -19,6 +19,7 @@
  */
 package org.dsanderson.morctrailreport;
 
+import org.dsanderson.android.util.FixedImageItem;
 import org.dsanderson.android.util.TextItem;
 import org.dsanderson.util.IImageItem;
 import org.dsanderson.util.ITextItem;
@@ -41,6 +42,10 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 	TextItem detailedItem = null;
 	TextItem authorItem = null;
 	ConditionsImageItem imageItem = null;
+	FixedImageItem allReportsImageItem = null;
+	FixedImageItem mapImageItem = null;
+	FixedImageItem composeImageItem = null;
+	FixedImageItem trailInfoImageItem = null;
 
 	public TrailReportListEntry(ViewGroup viewGroup) {
 		this.viewGroup = viewGroup;
@@ -179,10 +184,41 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 		return imageItem;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.decorators.ITrailReportListEntry#getSourceTextItem()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.dsanderson.xctrailreport.decorators.ITrailReportListEntry#
+	 * getSourceTextItem()
 	 */
 	public ITextItem getSourceTextItem() {
 		return null;
+	}
+
+	public IImageItem getAllReportsImageItem() {
+		if (allReportsImageItem == null)
+			allReportsImageItem = new FixedImageItem(
+					(ImageView) viewGroup.findViewById(R.id.allReportsButton));
+		return allReportsImageItem;
+	}
+
+	public IImageItem getMapImageItem() {
+		if (mapImageItem == null)
+			mapImageItem = new FixedImageItem(
+					(ImageView) viewGroup.findViewById(R.id.mapButton));
+		return mapImageItem;
+	}
+
+	public IImageItem getComposeImageItem() {
+		if (composeImageItem == null)
+			composeImageItem = new FixedImageItem(
+					(ImageView) viewGroup.findViewById(R.id.composeButton));
+		return composeImageItem;
+	}
+
+	public IImageItem getTrailInfoImageItem() {
+		if (trailInfoImageItem == null)
+			trailInfoImageItem = new FixedImageItem(
+					(ImageView) viewGroup.findViewById(R.id.trailInfoButton));
+		return trailInfoImageItem;
 	}
 }

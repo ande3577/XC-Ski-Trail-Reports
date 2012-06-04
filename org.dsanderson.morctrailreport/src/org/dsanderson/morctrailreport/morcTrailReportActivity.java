@@ -3,12 +3,10 @@ package org.dsanderson.morctrailreport;
 import org.dsanderson.morctrailreport.R;
 import org.dsanderson.morctrailreport.AboutActivity;
 import org.dsanderson.morctrailreport.parser.MorcFactory;
-import org.dsanderson.morctrailreport.parser.MorcSpecificTrailInfo;
 
 import org.dsanderson.xctrailreport.application.ReportListCreator;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfo;
-import org.dsanderson.xctrailreport.core.TrailReport;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
@@ -27,14 +25,9 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.ContextMenu;
-import android.view.ContextMenu.ContextMenuInfo;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class morcTrailReportActivity extends ListActivity {
 
@@ -55,7 +48,8 @@ public class morcTrailReportActivity extends ListActivity {
 		registerForContextMenu(getListView());
 
 		trailReports = (TrailReportList) factory.getTrailReportList();
-		printer = new TrailReportPrinter(this, factory, trailReports, appName,
+		printer = new TrailReportPrinter(this, factory,
+				ReportDecoratorFactory.getInstance(), trailReports, appName,
 				ListEntryFactory.getInstance());
 		factory.getUserSettingsSource().loadUserSettings();
 
@@ -69,104 +63,6 @@ public class morcTrailReportActivity extends ListActivity {
 		if (versionNumber >= Build.VERSION_CODES.HONEYCOMB) {
 			ActionBar actionBar = this.getActionBar();
 			actionBar.setDisplayHomeAsUpEnabled(true);
-		}
-	}
-
-	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v,
-			ContextMenuInfo menuInfo) {
-		super.onCreateContextMenu(menu, v, menuInfo);
-
-		TrailReport report = getObjectFromMenuItemInfo((AdapterView.AdapterContextMenuInfo) menuInfo);
-		if (report != null) {
-			menu.add(Menu.NONE, R.id.openMapMenu, Menu.NONE, "Open Map");
-			ISourceSpecificTrailInfo morcInfo = report.getTrailInfo()
-					.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
-
-			if (morcInfo != null) {
-
-				String allReportUrl = ((MorcSpecificTrailInfo) morcInfo)
-						.getAllTrailReportUrl();
-
-				if (allReportUrl != null && allReportUrl.length() != 0) {
-					menu.add(Menu.NONE, R.id.viewAllReports, Menu.NONE,
-							"View All Reports");
-				}
-
-				if (morcInfo.getComposeUrl() != null
-						&& morcInfo.getComposeUrl().length() != 0) {
-					menu.add(Menu.NONE, R.id.composeReportItem, Menu.NONE,
-							"Compose Report");
-				}
-
-				if (morcInfo.getTrailInfoUrl() != null
-						&& morcInfo.getTrailInfoUrl().length() != 0) {
-					menu.add(Menu.NONE, R.id.trailInfoMenu, Menu.NONE,
-							"Trail Info");
-				}
-			}
-		}
-	}
-
-	@Override
-	public boolean onContextItemSelected(MenuItem item) {
-		TrailReport trailReport = getObjectFromMenuItemInfo((AdapterView.AdapterContextMenuInfo) item
-				.getMenuInfo());
-
-		if (trailReport != null) {
-			TrailInfo info = trailReport.getTrailInfo();
-
-			switch (item.getItemId()) {
-			case R.id.viewAllReports: {
-				ISourceSpecificTrailInfo sourceSpecific = info
-						.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
-				if (sourceSpecific != null) {
-					String viewAllReportUrl = ((MorcSpecificTrailInfo) sourceSpecific)
-							.getAllTrailReportUrl();
-					if (viewAllReportUrl != null
-							&& viewAllReportUrl.length() > 0)
-						openAllReports(trailReport.getTrailInfo());
-				}
-			}
-				return true;
-
-			case R.id.trailInfoMenu: {
-				ISourceSpecificTrailInfo sourceSpecific = info
-						.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
-				if (sourceSpecific != null) {
-					String trailInfoUrl = sourceSpecific.getTrailInfoUrl();
-					if (trailInfoUrl != null && trailInfoUrl.length() > 0)
-						AndroidIntent.launchIntent(trailInfoUrl, this);
-				}
-			}
-				return true;
-			case R.id.openMapMenu:
-				Maps.launchMap(info.getLocation(), info.getName(),
-						info.getSpecificLocation(), this);
-				return true;
-			case R.id.composeReportItem: {
-				ISourceSpecificTrailInfo sourceSpecific = info
-						.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
-				if (sourceSpecific != null) {
-					String composeUrl = sourceSpecific.getComposeUrl();
-					if (composeUrl != null && composeUrl.length() > 0)
-						AndroidIntent.launchIntent(composeUrl, this);
-				}
-			}
-				return true;
-			default:
-				break;
-			}
-		}
-
-		return super.onContextItemSelected(item);
-	}
-
-	private TrailReport getObjectFromMenuItemInfo(AdapterContextMenuInfo info) {
-		if (trailReports.size() > 0) {
-			return (TrailReport) trailReports.getById(info.id);
-		} else {
-			return null;
 		}
 	}
 
@@ -272,6 +168,54 @@ public class morcTrailReportActivity extends ListActivity {
 		builder.show();
 	}
 
+	private TrailInfo infoFromButton(View view) {
+		ViewGroup parentView = (ViewGroup) view.getParent();
+		String trailName = ((TextView) parentView
+				.findViewById(R.id.trailNameView)).getText().toString();
+		return trailReports.find(trailName).getTrailInfo();
+	}
+
+	public void onAllReportsButtonClick(View view) {
+		TrailInfo info = infoFromButton(view);
+		if (info == null)
+			return;
+		openAllReports(info);
+	}
+
+	public void onMapButtonClick(View view) {
+		TrailInfo info = infoFromButton(view);
+		if (info == null)
+			return;
+		Maps.launchMap(info.getLocation(), info.getName(),
+				info.getSpecificLocation(), this);
+	}
+
+	public void onComposeButtonClick(View view) {
+		TrailInfo info = infoFromButton(view);
+		if (info == null)
+			return;
+		ISourceSpecificTrailInfo sourceSpecific = info
+				.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
+		if (sourceSpecific != null) {
+			String composeUrl = sourceSpecific.getComposeUrl();
+			if (composeUrl != null && composeUrl.length() > 0)
+				AndroidIntent.launchIntent(composeUrl, this);
+		}
+	}
+
+	public void onInfoButtonClick(View view) {
+		TrailInfo info = infoFromButton(view);
+		if (info == null)
+			return;
+		ISourceSpecificTrailInfo sourceSpecific = info
+				.getSourceSpecificInfo(MorcFactory.SOURCE_NAME);
+		if (sourceSpecific != null) {
+			String trailInfoUrl = sourceSpecific.getTrailInfoUrl();
+			if (trailInfoUrl != null && trailInfoUrl.length() > 0)
+				AndroidIntent.launchIntent(trailInfoUrl, this);
+		}
+	}
+	
 	public void onSettingsButtonClick(View v) {
 		openPreferencesMenu();
 	}

@@ -66,8 +66,6 @@ public class ConditionsImageItem implements IImageItem {
 	 * @see org.dsanderson.util.IImageItem#draw()
 	 */
 	public void draw() {
-		// TODO Auto-generated method stub
-
 	}
 
 }

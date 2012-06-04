@@ -31,6 +31,47 @@
             android:layout_below="@+id/trailNameView"
             android:text="City, State (distance, duration)"
             android:textColor="@color/trailLocationTextColor" />
+
+        <ImageButton
+            android:id="@+id/allReportsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/trailLocationView"
+            android:onClick="onAllReportsButtonClick"
+            android:src="@drawable/ic_menu_goto"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/mapButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trailLocationView"
+            android:layout_toRightOf="@+id/allReportsButton"
+            android:onClick="onMapButtonClick"
+            android:src="@drawable/ic_menu_mapmode"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/composeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trailLocationView"
+            android:layout_toRightOf="@+id/mapButton"
+            android:onClick="onComposeButtonClick"
+            android:src="@drawable/ic_menu_compose"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/trailInfoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trailLocationView"
+            android:layout_toRightOf="@+id/composeButton"
+            android:onClick="onInfoButtonClick"
+            android:src="@drawable/ic_menu_info_details"
+            android:visibility="gone" />
+
     </RelativeLayout>
 
     <TextView
