@@ -14,10 +14,9 @@ public class FixedImageItem implements IImageItem {
 
 	public void setImage(String imageName) {
 		if ((imageName == null) || (imageName.length() == 0)) {
-			imageView.setVisibility(View.GONE);
+			imageView.setVisibility(View.INVISIBLE);
 		} else {
-			imageView.setVisibility(View.VISIBLE);
-		}
+			imageView.setVisibility(View.VISIBLE);		}
 	}
 
 	public void draw() {

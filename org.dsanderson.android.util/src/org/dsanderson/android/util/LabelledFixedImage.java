@@ -18,7 +18,7 @@ public class LabelledFixedImage implements IImageItem {
 	public void setImage(String imageName) {
 		int visibility = View.VISIBLE;
 		if (imageName == null || imageName.length() == 0) {
-			visibility = View.GONE;
+			visibility = View.INVISIBLE;
 		}
 		imageView.setVisibility(visibility);
 		labelView.setVisibility(visibility);
