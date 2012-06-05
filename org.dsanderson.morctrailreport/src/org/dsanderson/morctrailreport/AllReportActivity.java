@@ -331,16 +331,12 @@ public class AllReportActivity extends ListActivity {
 		startActivity(i);
 	}
 
-	private TrailReport getObjectFromMenuItemInfo(AdapterContextMenuInfo info) {
-		if (trailReports.size() > 0) {
-			return (TrailReport) trailReports.getById(info.id);
-		} else {
-			return null;
-		}
-	}
-
 	private TrailInfo infoFromButton(View view) {
-		ViewGroup parentView = (ViewGroup) view.getParent();
+		ViewGroup linearLayout = (ViewGroup) view.getParent();
+		ViewGroup tableRow = (ViewGroup) linearLayout.getParent();
+		ViewGroup table = (ViewGroup) tableRow.getParent();
+		ViewGroup parentView = (ViewGroup) table.getParent();
+		
 		String trailName = ((TextView) parentView
 				.findViewById(R.id.trailNameView)).getText().toString();
 		return trailReports.find(trailName).getTrailInfo();

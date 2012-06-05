@@ -170,6 +170,7 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 		if (visible)
 			visibility = View.VISIBLE;
 		viewGroup.findViewById(R.id.titleGroup).setVisibility(visibility);
+		viewGroup.findViewById(R.id.titleButtonTable).setVisibility(visibility);
 	}
 
 	/*

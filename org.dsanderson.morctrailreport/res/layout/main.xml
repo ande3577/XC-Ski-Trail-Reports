@@ -2,90 +2,120 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical" >
 
-    <RelativeLayout
+    <TableLayout
+        android:id="@+id/TableLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/titleBackgroundColor" >
+        android:background="@color/titleBackgroundColor"
+        android:orientation="horizontal"
+        android:stretchColumns="0,1,2,3" >
 
-    <ImageButton
-        android:id="@+id/helpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:onClick="onHelpButtonClick"
-        android:src="@drawable/ic_menu_help" />
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal" >
 
-    <ImageButton
-        android:id="@+id/refreshButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/helpButton"
-        android:onClick="onRefreshButtonClick"
-        android:src="@drawable/ic_menu_refresh" />
+            <LinearLayout
+                android:id="@+id/sortByLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="center"
+                android:orientation="vertical" >
 
-    <ImageButton
-        android:id="@+id/settingsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/refreshButton"
-        android:onClick="onSettingsButtonClick"
-        android:src="@drawable/ic_menu_preferences" />
+                <ImageButton
+                    android:id="@+id/sortButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onSortButtonClick"
+                    android:src="@drawable/ic_menu_sort_by_size" />
 
-    <ImageButton
-        android:id="@+id/sortButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/settingsButton"
-        android:onClick="onSortButtonClick"
-        android:src="@drawable/ic_menu_sort_by_size" />
+                <TextView
+                    android:id="@+id/sortLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sort By"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/buttonLabelColor" />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/sortLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/sortButton"
-        android:layout_below="@+id/sortButton"
-        android:text="Sort By"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/buttonLabelColor" />
+            <LinearLayout
+                android:id="@+id/settingsLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:gravity="center"
+                android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/settingsLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/settingsButton"
-        android:layout_below="@+id/settingsButton"
-        android:text="Settings"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/buttonLabelColor" />
-    
-    <TextView
-        android:id="@+id/refreshLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/refreshButton"
-        android:layout_below="@+id/refreshButton"
-        android:text="Refresh"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/buttonLabelColor" />
-    
-    <TextView
-        android:id="@+id/helpLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/helpButton"
-        android:layout_below="@+id/helpButton"
-        android:text="Help"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/buttonLabelColor" />
-    
-    </RelativeLayout>
+                <ImageButton
+                    android:id="@+id/settingsButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onSettingsButtonClick"
+                    android:src="@drawable/ic_menu_preferences" />
+
+                <TextView
+                    android:id="@+id/settingsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Settings"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/buttonLabelColor" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/refreshLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/refreshButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRefreshButtonClick"
+                    android:src="@drawable/ic_menu_refresh" />
+
+                <TextView
+                    android:id="@+id/refreshLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Refresh"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/buttonLabelColor" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/helpLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/helpButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onHelpButtonClick"
+                    android:src="@drawable/ic_menu_help" />
+
+                <TextView
+                    android:id="@+id/helpLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Help"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/buttonLabelColor" />
+            </LinearLayout>
+        </TableRow>
+
+    </TableLayout>
 
     <ListView
         android:id="@+android:id/list"

@@ -45,7 +45,6 @@ public class morcTrailReportActivity extends ListActivity {
 		setContentView(R.layout.main);
 
 		appName = getString(R.string.app_name);
-		registerForContextMenu(getListView());
 
 		trailReports = (TrailReportList) factory.getTrailReportList();
 		printer = new TrailReportPrinter(this, factory,
@@ -169,7 +168,11 @@ public class morcTrailReportActivity extends ListActivity {
 	}
 
 	private TrailInfo infoFromButton(View view) {
-		ViewGroup parentView = (ViewGroup) view.getParent();
+		ViewGroup linearLayout = (ViewGroup) view.getParent();
+		ViewGroup tableRow = (ViewGroup) linearLayout.getParent();
+		ViewGroup table = (ViewGroup) tableRow.getParent();
+		ViewGroup parentView = (ViewGroup) table.getParent();
+		
 		String trailName = ((TextView) parentView
 				.findViewById(R.id.trailNameView)).getText().toString();
 		return trailReports.find(trailName).getTrailInfo();

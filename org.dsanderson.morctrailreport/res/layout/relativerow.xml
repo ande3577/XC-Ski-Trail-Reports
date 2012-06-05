@@ -20,8 +20,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:text="Trail Name"
-            android:visibility="gone"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/trailLocationView"
@@ -31,94 +31,142 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/trailNameView"
             android:text="City, State (distance, duration)"
-            android:visibility="gone"
-            android:textColor="@color/trailLocationTextColor" />
+            android:textColor="@color/trailLocationTextColor"
+            android:visibility="gone" />
 
-        <ImageButton
-            android:id="@+id/allReportsButton"
+        <TableLayout
+            android:id="@+id/titleButtonTable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_below="@+id/trailLocationView"
-            android:onClick="onAllReportsButtonClick"
-            android:src="@drawable/ic_menu_goto"
-            android:visibility="gone" />
+            android:orientation="horizontal"
+            android:shrinkColumns="0,1,2,3"
+            android:stretchColumns="0,1,2,3" 
+            android:visibility="gone">
 
-        <ImageButton
-            android:id="@+id/mapButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/trailLocationView"
-            android:layout_toRightOf="@+id/allReportsButton"
-            android:onClick="onMapButtonClick"
-            android:src="@drawable/ic_menu_mapmode"
-            android:visibility="gone" />
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:gravity="fill_horizontal">
 
-        <ImageButton
-            android:id="@+id/composeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/trailLocationView"
-            android:layout_toRightOf="@+id/mapButton"
-            android:onClick="onComposeButtonClick"
-            android:src="@drawable/ic_menu_compose"
-            android:visibility="gone" />
+                <LinearLayout
+                    android:id="@+id/allReportsLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical" >
 
-        <ImageButton
-            android:id="@+id/trailInfoButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/trailLocationView"
-            android:layout_toRightOf="@+id/composeButton"
-            android:onClick="onInfoButtonClick"
-            android:src="@drawable/ic_menu_info_details"
-            android:visibility="gone" />
+                    <ImageButton
+                        android:id="@+id/allReportsButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="onAllReportsButtonClick"
+                        android:src="@drawable/ic_menu_goto"
+                        android:visibility="invisible" />
 
-        <TextView
-            android:id="@+id/allReportsButtonLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/allReportsButton"
-            android:text="View All"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:visibility="gone"
-            android:textColor="@color/buttonLabelColor" />
+                    <TextView
+                        android:id="@+id/allReportsButtonLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="View All"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/buttonLabelColor"
+                        android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/composeLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/composeButton"
-            android:layout_below="@+id/composeButton"
-            android:text="Compose"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:visibility="gone"
-            android:textColor="@color/buttonLabelColor" />
+                </LinearLayout>
 
-        <TextView
-            android:id="@+id/mapButtonLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/composeLabel"
-            android:layout_alignBottom="@+id/composeLabel"
-            android:layout_alignLeft="@+id/mapButton"
-            android:text="Map"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:visibility="gone"
-            android:textColor="@color/buttonLabelColor" />
+                <LinearLayout
+                    android:id="@+id/mapLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/trailInfoLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/trailInfoButton"
-            android:layout_below="@+id/trailInfoButton"
-            android:text="Trail Info"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:visibility="gone"
-            android:textColor="@color/buttonLabelColor" />
+                    <ImageButton
+                        android:id="@+id/mapButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="onMapButtonClick"
+                        android:src="@drawable/ic_menu_mapmode"
+                        android:visibility="gone" />
 
+                    <TextView
+                        android:id="@+id/mapButtonLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Map"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/buttonLabelColor"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/composeLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:id="@+id/composeButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="onComposeButtonClick"
+                        android:src="@drawable/ic_menu_compose"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/composeLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Compose"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/buttonLabelColor"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/trailInfoLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:id="@+id/trailInfoButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="onInfoButtonClick"
+                        android:src="@drawable/ic_menu_info_details"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/trailInfoLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Trail Info"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/buttonLabelColor"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </TableRow>
+
+        </TableLayout>
     </RelativeLayout>
 
     <TextView

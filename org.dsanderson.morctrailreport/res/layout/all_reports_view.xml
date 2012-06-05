@@ -2,73 +2,97 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical" >
 
-    <RelativeLayout
+    <TableLayout
+        android:id="@+id/TableLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/titleBackgroundColor" >
+        android:background="@color/titleBackgroundColor"
+        android:stretchColumns="0,1,2,3" >
 
-        <ImageButton
-            android:id="@+id/allReportsHelpButton"
+        <TableRow
+            android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:onClick="onHelpButtonClick"
-            android:src="@drawable/ic_menu_help" />
+            android:layout_height="wrap_content" >
 
-        <ImageButton
-            android:id="@+id/allReportsRefreshButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/allReportsHelpButton"
-            android:onClick="onRefreshButtonClick"
-            android:src="@drawable/ic_menu_refresh" />
+            <LinearLayout
+                android:id="@+id/openInBrowserLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:gravity="center"
+                android:orientation="vertical" >
 
-        <ImageButton
-            android:id="@+id/allReportsOpenInBrowserButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/allReportsOpenInBrowserLabel"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/allReportsRefreshButton"
-            android:onClick="onOpenInBrowserClick"
-            android:src="@drawable/ic_menu_goto" />
+                <ImageButton
+                    android:id="@+id/allReportsOpenInBrowserButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onOpenInBrowserClick"
+                    android:src="@drawable/ic_menu_goto" />
 
-        <TextView
-            android:id="@+id/allReportsRefreshLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/allReportsRefreshButton"
-            android:layout_toRightOf="@+id/allReportsOpenInBrowserButton"
-            android:text="Refresh"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/buttonLabelColor" />
+                <TextView
+                    android:id="@+id/allReportsOpenInBrowserLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/allReportsRefreshLabel"
+                    android:layout_alignBottom="@+id/allReportsRefreshLabel"
+                    android:text="Browser"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/buttonLabelColor" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/allReportsOpenInBrowserLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/allReportsRefreshLabel"
-            android:layout_alignBottom="@+id/allReportsRefreshLabel"
-            android:layout_alignLeft="@+id/allReportsOpenInBrowserButton"
-            android:text="Browser"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/buttonLabelColor" />
+            <LinearLayout
+                android:id="@+id/allReportsRefreshLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:gravity="center"
+                android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/helpButtonLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/allReportsRefreshLabel"
-            android:layout_alignBottom="@+id/allReportsRefreshLabel"
-            android:layout_toRightOf="@+id/allReportsRefreshButton"
-            android:text="Help"
-            android:textColor="@color/buttonLabelColor" />
+                <ImageButton
+                    android:id="@+id/allReportsRefreshButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRefreshButtonClick"
+                    android:src="@drawable/ic_menu_refresh" />
 
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/allReportsRefreshLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Refresh"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/buttonLabelColor" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/allReportsHelpLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/allReportsHelpButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onHelpButtonClick"
+                    android:src="@drawable/ic_menu_help" />
+
+                <TextView
+                    android:id="@+id/helpButtonLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/allReportsRefreshLabel"
+                    android:layout_alignBottom="@+id/allReportsRefreshLabel"
+                    android:text="Help"
+                    android:textColor="@color/buttonLabelColor" />
+            </LinearLayout>
+        </TableRow>
+
+    </TableLayout>
 
     <ListView
         android:id="@+android:id/list"
