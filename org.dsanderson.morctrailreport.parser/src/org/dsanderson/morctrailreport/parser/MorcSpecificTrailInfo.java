@@ -112,6 +112,7 @@ public class MorcSpecificTrailInfo implements ISourceSpecificTrailInfo {
 	public MorcSpecificTrailInfo reset() {
 		shortAllReportUrl = null;
 		shortComposeUrl = null;
+		shortTrailInfoUrl = null;
 		lastPage = 1;
 		return this;
 	}
