@@ -24,13 +24,15 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:gravity="center"
+                android:onClick="onSortButtonClick"
+                android:clickable="true"
+                android:background="@drawable/button_selector"
                 android:orientation="vertical" >
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/sortButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onSortButtonClick"
                     android:src="@drawable/ic_menu_sort_by_size" />
 
                 <TextView
@@ -48,13 +50,15 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:gravity="center"
+                android:onClick="onSettingsButtonClick"
+                android:clickable="true"
+                android:background="@drawable/button_selector"
                 android:orientation="vertical" >
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/settingsButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onSettingsButtonClick"
                     android:src="@drawable/ic_menu_preferences" />
 
                 <TextView
@@ -72,13 +76,15 @@
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:gravity="center"
+                android:onClick="onRefreshButtonClick"
+                android:clickable="true"
+                android:background="@drawable/button_selector"
                 android:orientation="vertical" >
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/refreshButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onRefreshButtonClick"
                     android:src="@drawable/ic_menu_refresh" />
 
                 <TextView
@@ -96,13 +102,15 @@
                 android:layout_height="wrap_content"
                 android:layout_column="3"
                 android:gravity="center"
+                android:onClick="onHelpButtonClick"
+                android:clickable="true"
+                android:background="@drawable/button_selector"
                 android:orientation="vertical" >
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/helpButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onHelpButtonClick"
                     android:src="@drawable/ic_menu_help" />
 
                 <TextView

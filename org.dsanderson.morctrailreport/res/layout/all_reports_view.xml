@@ -22,13 +22,16 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:gravity="center"
+                android:onClick="onOpenInBrowserClick"
+                android:clickable="true"
+       			android:background="@drawable/button_selector"
                 android:orientation="vertical" >
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/allReportsOpenInBrowserButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onOpenInBrowserClick"
+                    android:layout_gravity="center"
                     android:src="@drawable/ic_menu_goto" />
 
                 <TextView
@@ -48,13 +51,16 @@
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:gravity="center"
+                android:onClick="onRefreshButtonClick"
+                android:clickable="true"
+       			android:background="@drawable/button_selector"
                 android:orientation="vertical" >
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/allReportsRefreshButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onRefreshButtonClick"
+                    android:layout_gravity="center"
                     android:src="@drawable/ic_menu_refresh" />
 
                 <TextView
@@ -72,13 +78,16 @@
                 android:layout_height="wrap_content"
                 android:layout_column="3"
                 android:gravity="center"
+                android:onClick="onHelpButtonClick"
+                android:clickable="true"
+       			android:background="@drawable/button_selector"
                 android:orientation="vertical" >
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/allReportsHelpButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onHelpButtonClick"
+                    android:layout_gravity="center"
                     android:src="@drawable/ic_menu_help" />
 
                 <TextView

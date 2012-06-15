@@ -7,5 +7,6 @@
     <color name="dateTextColor">#808080</color>
     <color name="textColor">#000000</color>
     <color name="buttonLabelColor">#D3D3D3</color>
+    <color name="buttonClickedBackgroundColor">#FFD700</color>
     
 </resources>

@@ -59,13 +59,16 @@
                     android:layout_height="wrap_content"
                     android:layout_column="0"
                     android:layout_gravity="center_horizontal"
+                    android:onClick="onAllReportsButtonClick"
+                    android:clickable="true"
+        			android:background="@drawable/button_selector"
                     android:orientation="vertical" >
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/allReportsButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onClick="onAllReportsButtonClick"
+                        android:layout_gravity="center"
                         android:src="@drawable/ic_menu_goto"
                         android:visibility="invisible" />
 
@@ -87,13 +90,16 @@
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_gravity="center_horizontal"
+                    android:onClick="onMapButtonClick"
+                    android:clickable="true"
+        			android:background="@drawable/button_selector"
                     android:orientation="vertical" >
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/mapButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onClick="onMapButtonClick"
+                        android:layout_gravity="center"
                         android:src="@drawable/ic_menu_mapmode"
                         android:visibility="gone" />
 
@@ -115,13 +121,16 @@
                     android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_gravity="center_horizontal"
+                    android:onClick="onComposeButtonClick"
+                    android:clickable="true"
+        			android:background="@drawable/button_selector"
                     android:orientation="vertical" >
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/composeButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onClick="onComposeButtonClick"
+                        android:layout_gravity="center"
                         android:src="@drawable/ic_menu_compose"
                         android:visibility="gone" />
 
@@ -143,13 +152,16 @@
                     android:layout_height="wrap_content"
                     android:layout_column="3"
                     android:layout_gravity="center_horizontal"
+                    android:onClick="onInfoButtonClick"
+                    android:clickable="true"
+        			android:background="@drawable/button_selector"
                     android:orientation="vertical" >
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/trailInfoButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onClick="onInfoButtonClick"
+                        android:layout_gravity="center"
                         android:src="@drawable/ic_menu_info_details"
                         android:visibility="gone" />
 
