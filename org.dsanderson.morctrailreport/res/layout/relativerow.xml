@@ -36,13 +36,10 @@
 
         <TableLayout
             android:id="@+id/titleButtonTable"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
             android:layout_below="@+id/trailLocationView"
             android:orientation="horizontal"
-            android:shrinkColumns="0,1,2,3"
             android:stretchColumns="0,1,2,3" 
             android:visibility="gone">
 
@@ -50,15 +47,14 @@
                 android:id="@+id/tableRow1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
-                android:gravity="fill_horizontal">
+                android:layout_gravity="fill_horizontal">
 
                 <LinearLayout
                     android:id="@+id/allReportsLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="0"
-                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
                     android:onClick="onAllReportsButtonClick"
                     android:clickable="true"
         			android:background="@drawable/button_selector"
@@ -68,7 +64,6 @@
                         android:id="@+id/allReportsButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:src="@drawable/ic_menu_goto"
                         android:visibility="invisible" />
 
@@ -89,7 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
-                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
                     android:onClick="onMapButtonClick"
                     android:clickable="true"
         			android:background="@drawable/button_selector"
@@ -120,7 +115,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
-                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
                     android:onClick="onComposeButtonClick"
                     android:clickable="true"
         			android:background="@drawable/button_selector"
@@ -151,7 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="3"
-                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
                     android:onClick="onInfoButtonClick"
                     android:clickable="true"
         			android:background="@drawable/button_selector"
