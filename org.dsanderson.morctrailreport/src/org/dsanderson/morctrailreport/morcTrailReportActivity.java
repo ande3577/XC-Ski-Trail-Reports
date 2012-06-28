@@ -80,6 +80,7 @@ public class morcTrailReportActivity extends ListActivity {
 	// / Launch all reports activity
 	private void openAllReports(TrailInfo info) {
 		MorcFactory.getInstance().setAllReportsInfo(info);
+		MorcFactory.getInstance().setAllReportsDate(trailReports.getTimestamp());
 		Intent i = new Intent(this, AllReportActivity.class);
 		startActivity(i);
 	}

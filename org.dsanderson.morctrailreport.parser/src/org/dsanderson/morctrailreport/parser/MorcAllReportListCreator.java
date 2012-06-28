@@ -122,7 +122,9 @@ public class MorcAllReportListCreator implements IReportListCreator {
 		if (refreshNeeded
 				|| (trailReports.size() == 0)
 				|| !info.getName().equals(
-						trailReports.get(0).getTrailInfo().getName())) {
+						trailReports.get(0).getTrailInfo().getName())
+				|| MorcFactory.getInstance().getAllReportsDate().getTime() > trailReports
+						.getTimestamp().getTime()) {
 			refreshNeeded = true;
 		} else {
 			ISourceSpecificTrailInfo specificInfo = trailReports.get(0)
@@ -149,7 +151,7 @@ public class MorcAllReportListCreator implements IReportListCreator {
 				trailReports.endTransaction();
 			} catch (Exception e) {
 				trailReports.cancelTransaction();
-				throw(e);
+				throw (e);
 			}
 		}
 	}

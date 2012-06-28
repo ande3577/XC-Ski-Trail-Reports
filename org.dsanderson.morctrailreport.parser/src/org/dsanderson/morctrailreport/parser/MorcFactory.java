@@ -19,6 +19,8 @@
  */
 package org.dsanderson.morctrailreport.parser;
 
+import java.util.Date;
+
 import org.dsanderson.util.IUserSettingsSource;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IReportRetriever;
@@ -41,6 +43,7 @@ public abstract class MorcFactory implements ISourceSpecificFactory {
 	private MorcInfoPool pool = null;
 	private RegionManager regions = null;
 	private TrailInfo singleReportInfo;
+	private Date singleReportDate;
 
 	/**
 	 * 
@@ -172,6 +175,14 @@ public abstract class MorcFactory implements ISourceSpecificFactory {
 
 	public TrailInfo getAllReportsInfo() {
 		return singleReportInfo;
+	}
+	
+	public void setAllReportsDate(Date date) {
+		this.singleReportDate = date;
+	}
+	
+	public Date getAllReportsDate() {
+		return singleReportDate;
 	}
 
 }
