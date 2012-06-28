@@ -114,7 +114,7 @@ public class MorcAllReportListCreator implements IReportListCreator {
 			} catch (Exception e) {
 				info = null;
 			}
-			
+
 			if (info == null)
 				throw new Exception("Cannot load trail info.");
 		}
@@ -142,8 +142,15 @@ public class MorcAllReportListCreator implements IReportListCreator {
 			if (page <= 1)
 				trailReports.clear();
 
-			downloadTrailReports(trailReports, info, progressBar);
-			trailReports.save();
+			trailReports.beginTransaction();
+			try {
+				downloadTrailReports(trailReports, info, progressBar);
+				trailReports.save();
+				trailReports.endTransaction();
+			} catch (Exception e) {
+				trailReports.cancelTransaction();
+				throw(e);
+			}
 		}
 	}
 

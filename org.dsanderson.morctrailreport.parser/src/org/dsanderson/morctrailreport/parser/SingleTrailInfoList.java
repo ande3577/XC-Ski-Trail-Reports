@@ -191,4 +191,19 @@ public class SingleTrailInfoList implements ITrailInfoList {
 			List<String> locations) {
 	}
 
+	@Override
+	public void beginTransaction() {
+		// nothing to do here since not stored in database
+	}
+
+	@Override
+	public void endTransaction() {
+		// nothing to do here since not stored in database
+	}
+
+	@Override
+	public void cancelTransaction() {
+		// nothing to do here since not stored in database
+	}
+
 }
