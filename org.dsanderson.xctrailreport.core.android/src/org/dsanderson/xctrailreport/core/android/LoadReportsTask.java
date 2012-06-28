@@ -115,7 +115,6 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 					.getUserSettings().getForcedRefresh(), progressBar);
 		} catch (Exception e) {
 			e.printStackTrace();
-			trailReports.cancelTransaction();
 			trailReports.clear();
 			throw e;
 		} finally {
