@@ -28,6 +28,7 @@ public class MorcSpecificSettings {
 	boolean tackyEnabled = true;
 	boolean dampEnabled = true;
 	boolean wetEnabled = true;
+	boolean wetDoNotRideEnabled = true;
 	boolean closedEnabled = true;
 	boolean otherEnabled = true;
 	
@@ -70,6 +71,14 @@ public class MorcSpecificSettings {
 	
 	public boolean getWetEnabled() {
 		return wetEnabled;
+	}
+	
+	public void setWetDoNotRideEnabled(boolean wetDoNotRideEnabled) {
+		this.wetDoNotRideEnabled = wetDoNotRideEnabled;
+	}
+	
+	public boolean getWetDoNotRideEnabled() {
+		return wetDoNotRideEnabled;
 	}
 	
 	public void setClosedEnabled(boolean closedEnabled) {

@@ -4,6 +4,7 @@
 	<CheckBoxPreference android:title="Tacky" android:key="tackyEnabled" android:defaultValue="true"/>
 	<CheckBoxPreference android:title="Damp" android:key="dampEnabled" android:defaultValue="true"/>
 	<CheckBoxPreference android:title="Wet" android:key="wetEnabled" android:defaultValue="true"/>
-	<CheckBoxPreference android:title="Closed" android:defaultValue="true" android:key="closedEnabled"/>
+	<CheckBoxPreference android:title="Wet Do Not Ride" android:key="wetDoNotRideEnabled" android:defaultValue="true"/><CheckBoxPreference android:title="Closed" android:defaultValue="true" android:key="closedEnabled"/>
 	<CheckBoxPreference android:title="Other" android:key="otherEnabled" android:defaultValue="true"/>
+	
 </PreferenceScreen>

@@ -41,7 +41,7 @@ public class MorcScanner {
 	private TrailInfo trailInfo;
 	private MorcSpecificTrailInfo morcInfo;
 
-	public final static String[] conditions = { "Dry", "Tacky", "Damp", "Wet",
+	public final static String[] conditions = { "Dry", "Tacky", "Damp", "Wet", "Wet Do Not Ride",
 			"Closed" };
 	public final static int DEFAULT_CONDITIONS_INDEX = conditions.length;
 

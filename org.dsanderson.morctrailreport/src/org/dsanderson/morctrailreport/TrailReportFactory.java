@@ -385,6 +385,10 @@ public class TrailReportFactory implements IAbstractFactory {
 				filterString = addOrString(filterString, "("
 						+ TrailReportDatabaseFactory.COLUMN_SUMMARY
 						+ "=='Wet')");
+			if (morcSettings.getWetDoNotRideEnabled())
+				filterString = addOrString(filterString, "("
+						+ TrailReportDatabaseFactory.COLUMN_SUMMARY
+						+ "=='Wet Do Not Ride')");
 			if (morcSettings.getClosedEnabled())
 				filterString = addOrString(filterString, "("
 						+ TrailReportDatabaseFactory.COLUMN_SUMMARY

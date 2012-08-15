@@ -122,6 +122,9 @@ public class UserSettingsSource implements IUserSettingsSource {
 			} else if (key.equals("wetEnabled")) {
 				morcSpecificSettings.setWetEnabled(sharedPreferences
 						.getBoolean(key, morcSpecificSettings.getWetEnabled()));
+			} else if (key.equals("wetDoNotRideEnabled")) {
+				morcSpecificSettings.setWetDoNotRideEnabled(sharedPreferences
+						.getBoolean(key, morcSpecificSettings.getWetDoNotRideEnabled()));
 			} else if (key.equals("closedEnabled")) {
 				morcSpecificSettings.setClosedEnabled(sharedPreferences
 						.getBoolean(key,
@@ -192,6 +195,8 @@ public class UserSettingsSource implements IUserSettingsSource {
 				"dampEnabled", morcSpecificSettings.getDampEnabled()));
 		morcSpecificSettings.setWetEnabled(preference.getBoolean("wetEnabled",
 				morcSpecificSettings.getWetEnabled()));
+		morcSpecificSettings.setWetDoNotRideEnabled(preference.getBoolean("wetDoNotRideEnabled",
+				morcSpecificSettings.getWetDoNotRideEnabled()));
 		morcSpecificSettings.setClosedEnabled(preference.getBoolean(
 				"closedEnabled", morcSpecificSettings.getClosedEnabled()));
 		morcSpecificSettings.setOtherEnabled(preference.getBoolean(

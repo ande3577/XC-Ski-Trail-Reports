@@ -36,7 +36,7 @@ public class ConditionsImageDecorator extends TrailReportDecorator {
 		IImageItem imageItem = listEntry.getConditionsImageItem();
 		String summary = trailReport.getSummary();
 		String imageString = "";
-		if (summary.equals("Closed") || summary.equals("Wet"))
+		if (summary.equals("Closed") || summary.equals("Wet") || summary.equals("Wet Do Not Ride"))
 			imageString = "closed";
 		else if (summary.equals("Damp"))
 			imageString = "marginal";

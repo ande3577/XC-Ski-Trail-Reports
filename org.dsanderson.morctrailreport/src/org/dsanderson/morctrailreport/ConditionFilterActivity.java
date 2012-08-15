@@ -20,6 +20,7 @@
 package org.dsanderson.morctrailreport;
 
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -49,6 +50,7 @@ public class ConditionFilterActivity extends PreferenceActivity {
 		return true;
 	}
 	
+	@SuppressLint("NewApi")
 	@Override
 	protected void onStart() {
 		super.onStart();

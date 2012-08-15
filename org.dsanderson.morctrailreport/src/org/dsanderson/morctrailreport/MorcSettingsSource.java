@@ -39,7 +39,7 @@ public class MorcSettingsSource implements IUserSettingsSource {
 			"northwest", "northeast" };
 
 	public static final String conditionsKeys[] = { "dryEnabled",
-			"tackyEnabled", "dampEnabled", "wetEnabled", "closedEnabled",
+			"tackyEnabled", "dampEnabled", "wetEnabled", "wetDoNotRideEnabled", "closedEnabled",
 			"otherEnabled" };
 
 	public MorcSettingsSource(Context context, MorcFactory factory) {
