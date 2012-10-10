@@ -213,27 +213,34 @@ public class TrailInfoList implements ITrailInfoList {
 		if (distances.size() != locations.size())
 			return;
 
-		Cursor cursor = reportList.getUnfilteredCursor();
-		if (cursor.moveToFirst()) {
-			do {
-				TrailReport report = (TrailReport) reportList.get(cursor);
-				TrailInfo info = report.getTrailInfo();
+		reportList.beginTransaction();
+		try {
+			Cursor cursor = reportList.getUnfilteredCursor();
+			if (cursor.moveToFirst()) {
+				do {
+					TrailReport report = (TrailReport) reportList.get(cursor);
+					TrailInfo info = report.getTrailInfo();
 
-				int index = locations.indexOf(info.getLocation());
-				if (index >= 0) {
-					info.setDistanceValid(distanceValids.get(index));
-					info.setDistance(distances.get(index));
-					info.setDurationValid(durationValids.get(index));
-					info.setDuration(durations.get(index));
-				}
-				reportList.update(report);
-				reportPool.deleteItem(report);
-				
-				for (ISourceSpecificTrailInfo specificInfo : info.getSourceSpecificInfos()) {
-					specificInfo.deleteItem();
-				}
-				infoPool.deleteItem(info);
-			} while (cursor.moveToNext());
+					int index = locations.indexOf(info.getLocation());
+					if (index >= 0) {
+						info.setDistanceValid(distanceValids.get(index));
+						info.setDistance(distances.get(index));
+						info.setDurationValid(durationValids.get(index));
+						info.setDuration(durations.get(index));
+					}
+					reportList.update(report);
+					reportPool.deleteItem(report);
+
+					for (ISourceSpecificTrailInfo specificInfo : info
+							.getSourceSpecificInfos()) {
+						specificInfo.deleteItem();
+					}
+					infoPool.deleteItem(info);
+				} while (cursor.moveToNext());
+			}
+			reportList.endTransaction();
+		} catch (Exception e) {
+			reportList.cancelTransaction();
 		}
 
 	}
@@ -247,7 +254,8 @@ public class TrailInfoList implements ITrailInfoList {
 	 */
 	public TrailInfo mergeIntoList(TrailInfo newInfo) {
 		TrailReport existingReport = reportList.find(newInfo.getName());
-		// if a past report has already used this trail info, then me merge and readd
+		// if a past report has already used this trail info, then me merge and
+		// readd
 		if (existingReport != null) {
 			TrailInfo existingInfo = existingReport.getTrailInfo();
 			existingInfo.merge(newInfo);
@@ -255,7 +263,8 @@ public class TrailInfoList implements ITrailInfoList {
 			infoPool.deleteItem(newInfo);
 			return existingInfo;
 		} else {
-			// if this is present in default info, then we merge together and add
+			// if this is present in default info, then we merge together and
+			// add
 			TrailInfo existingInfo = defaultTrailInfo.find(newInfo.getName());
 			if (existingInfo != null) {
 				existingInfo.merge(newInfo);
@@ -267,5 +276,17 @@ public class TrailInfoList implements ITrailInfoList {
 		// do nothing else here, do not actually store an instance of a trail
 		// info list
 		return newInfo;
+	}
+
+	public void beginTransaction() {
+		reportList.beginTransaction();
+	}
+
+	public void endTransaction() {
+		reportList.endTransaction();
+	}
+
+	public void cancelTransaction() {
+		reportList.cancelTransaction();
 	}
 }

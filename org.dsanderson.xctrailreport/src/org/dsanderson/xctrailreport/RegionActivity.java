@@ -19,9 +19,11 @@
  */
 package org.dsanderson.xctrailreport;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
@@ -37,6 +39,16 @@ public class RegionActivity extends PreferenceActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.region_preferences);
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		int versionNumber = Integer.valueOf(android.os.Build.VERSION.SDK_INT);
+		if (versionNumber >= Build.VERSION_CODES.HONEYCOMB) {
+			ActionBar actionBar = this.getActionBar();
+			actionBar.setDisplayHomeAsUpEnabled(true);
+		}
 	}
 
 	@Override

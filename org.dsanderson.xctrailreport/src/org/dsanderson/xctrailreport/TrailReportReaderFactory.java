@@ -34,7 +34,6 @@ import java.util.Date;
 import org.dsanderson.xctrailreport.application.IReportReaderFactory;
 
 import android.content.Context;
-import android.os.Environment;
 
 /**
  * 
@@ -46,8 +45,6 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 
 	private Date modifiedDate = null;
 
-	private boolean externalStorage;
-
 	public TrailReportReaderFactory(Context context) {
 		assert (instance == null);
 		this.context = context;
@@ -56,10 +53,6 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 	public static TrailReportReaderFactory getInstance() {
 		assert (instance != null);
 		return instance;
-	}
-
-	public void setExternalStorage(boolean externalStorage) {
-		this.externalStorage = externalStorage;
 	}
 
 	public Reader newDefaultTrailInfoReader() throws Exception {
@@ -86,68 +79,45 @@ public class TrailReportReaderFactory implements IReportReaderFactory {
 		return newWriter("saved_trail_reports.xml");
 	}
 
-	private boolean externalReadAccess() {
-		String state = Environment.getExternalStorageState();
-		return Environment.MEDIA_MOUNTED.equals(state)
-				|| Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
-	}
-
-	private boolean externalWriteAccess() {
-		String state = Environment.getExternalStorageState();
-		return Environment.MEDIA_MOUNTED.equals(state);
-
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see org.dsanderson.xctrailreport.application.IReportReaderFactory#
 	 * getReportsRefreshedDate()
 	 */
+	@SuppressWarnings("unused")
 	public Date getReportsRefreshedDate() {
 		if (modifiedDate != null) {
 			return modifiedDate;
 		} else {
-			if (!externalStorage || externalReadAccess()) {
 				File file = new File(getDir() + "saved_trail_reports.xml");
 				if (file != null) {
 					modifiedDate = new Date(file.lastModified());
 					return modifiedDate;
+			} 
+			else 
+				/// \bug for some reason this is flagged as dead code
+				return null;
 				}
 			}
-		}
-		return null;
-	}
 
 	public void setReportsRefreshedDate(Date date) {
 		this.modifiedDate = date;
 	}
 
 	private Reader newReader(String filename) throws Exception {
-		if (!externalStorage || externalReadAccess()) {
 			FileInputStream trailInfoStream = new FileInputStream(getDir()
 					+ filename);
 			return new BufferedReader(new InputStreamReader(trailInfoStream));
-		} else {
-			return null;
-		}
 	}
 
 	private Writer newWriter(String filename) throws Exception {
-		if (!externalStorage || externalWriteAccess()) {
 			FileOutputStream trailInfoStream = new FileOutputStream(getDir()
 					+ filename);
 			return new BufferedWriter(new OutputStreamWriter(trailInfoStream));
-		} else {
-			return null;
-		}
 	}
 
 	private String getDir() {
-		if (externalStorage) {
-			return context.getExternalCacheDir() + "/";
-		} else {
 			return context.getCacheDir() + "/";
-		}
 	}
 }

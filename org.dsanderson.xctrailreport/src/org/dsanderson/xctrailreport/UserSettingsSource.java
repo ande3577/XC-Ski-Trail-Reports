@@ -19,6 +19,7 @@
  */
 package org.dsanderson.xctrailreport;
 
+import org.dsanderson.util.ICompoundLocationSource;
 import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.IUserSettingsSource;
 import org.dsanderson.util.Units;
@@ -26,6 +27,7 @@ import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.UserSettings;
 import org.dsanderson.xctrailreport.core.UserSettings.AutoRefreshMode;
+import org.dsanderson.xctrailreport.core.UserSettings.DistanceMode;
 import org.dsanderson.xctrailreport.core.UserSettings.SortMethod;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory;
 import org.dsanderson.xctrailreport.threerivers.ThreeRiversFactory;
@@ -33,6 +35,7 @@ import org.dsanderson.xctrailreport.threerivers.ThreeRiversFactory;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.content.res.Resources;
 import android.preference.PreferenceManager;
 
 /**
@@ -42,6 +45,8 @@ public class UserSettingsSource implements IUserSettingsSource {
 	SharedPreferences preference;
 	UserSettings settings;
 	IAbstractFactory factory;
+	final Context context;
+	final ICompoundLocationSource locationSource;
 
 	public UserSettingsSource(Context context, IAbstractFactory factory) {
 		preference = PreferenceManager.getDefaultSharedPreferences(context);
@@ -49,20 +54,24 @@ public class UserSettingsSource implements IUserSettingsSource {
 				.registerOnSharedPreferenceChangeListener(preferenceChangedListener);
 		this.settings = factory.getUserSettings();
 		this.factory = factory;
+		this.context = context;
+		this.locationSource = factory.getLocationSource();
 	}
 
 	private OnSharedPreferenceChangeListener preferenceChangedListener = new OnSharedPreferenceChangeListener() {
 
 		public void onSharedPreferenceChanged(
 				SharedPreferences sharedPreferences, String key) {
+			settings.setRedrawNeeded(true);
+			
 			if (key.equals("enableLocation")) {
 				boolean value = sharedPreferences.getBoolean(key,
-						settings.getLocationEnabled());
-				settings.setLocationEnabled(value);
+						locationSource.getLocationEnabled());
+				locationSource.setLocationEnabled(value);
 			} else if (key.equals("defaultLocation")) {
 				String locationString = sharedPreferences.getString(key,
-						settings.getDefaultLocation());
-				settings.setDefaultLocation(locationString);
+						locationSource.getDefaultLocation());
+				locationSource.setDefaultLocation(locationString);
 				ILocationSource location = factory.getLocationSource();
 				if (!location.getHasNewLocation())
 					location.setLocation(locationString);
@@ -121,10 +130,10 @@ public class UserSettingsSource implements IUserSettingsSource {
 	 * org.dsanderson.xctrailreport.core.IUserSettingsSource#loadUserSettings()
 	 */
 	public void loadUserSettings() {
-		settings.setLocationEnabled(preference.getBoolean("enableLocation",
-				settings.getLocationEnabled()));
-		settings.setDefaultLocation(preference.getString("defaultLocation",
-				settings.getDefaultLocation()));
+		locationSource.setLocationEnabled(preference.getBoolean("enableLocation",
+				locationSource.getLocationEnabled()));
+		locationSource.setDefaultLocation(preference.getString("defaultLocation",
+				locationSource.getDefaultLocation()));
 		settings.setDistanceFilterEnabled(preference.getBoolean(
 				"distanceFilterEnabled", settings.getDistanceFilterEnabled()));
 		settings.setFilterDistance(Units.milesToMeters(getDouble(preference,
@@ -148,6 +157,8 @@ public class UserSettingsSource implements IUserSettingsSource {
 		settings.setAutoRefreshCutoff(Units.hoursToMilliseconds(getDouble(
 				preference, "autoRefreshCutoff",
 				Units.millisecondsToHours(settings.getAutoRefreshCutoff()))));
+		settings.setDistanceMode(stringToDistanceMode(preference.getString(
+				"distanceMode", distanceModeToString(DistanceMode.FULL))));
 
 		ISourceSpecificFactory threeRiversSource = factory
 				.getSourceSpecificFactory(ThreeRiversFactory.SOURCE_NAME);
@@ -218,6 +229,31 @@ public class UserSettingsSource implements IUserSettingsSource {
 			return AutoRefreshMode.NEVER;
 		else
 			return AutoRefreshMode.IF_OUT_OF_DATE;
+	}
+
+	private DistanceMode stringToDistanceMode(String string) {
+		Resources res = context.getResources();
+		String distanceModes[] = res.getStringArray(R.array.distanceModes);
+		if (string.equals(distanceModes[1]))
+			return DistanceMode.QUICK;
+		else if (string.equals(distanceModes[2]))
+			return DistanceMode.DISABLED;
+		else
+			return DistanceMode.FULL;
+	}
+
+	private String distanceModeToString(DistanceMode distanceMode) {
+		Resources res = context.getResources();
+		String distanceModes[] = res.getStringArray(R.array.distanceModes);
+		switch (distanceMode) {
+		default:
+		case FULL:
+			return distanceModes[0];
+		case QUICK:
+			return distanceModes[1];
+		case DISABLED:
+			return distanceModes[2];
+		}
 	}
 
 	private double getDouble(SharedPreferences preference, String key,

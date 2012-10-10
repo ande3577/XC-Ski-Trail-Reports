@@ -22,29 +22,23 @@ package org.dsanderson.xctrailreport;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.dsanderson.android.util.AndroidProgressBar;
+import org.dsanderson.android.util.CompoundLocationSource;
 import org.dsanderson.android.util.CompoundXmlPullParserFactory;
 import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.DistanceSource;
 import org.dsanderson.android.util.GenericDatabase;
 import org.dsanderson.android.util.IDatabaseObjectFactory;
 import org.dsanderson.android.util.LocationCoder;
-import org.dsanderson.android.util.LocationSource;
+import org.dsanderson.android.util.QuickDistanceSource;
 import org.dsanderson.android.util.UrlConnection;
+import org.dsanderson.util.ICompoundLocationSource;
 import org.dsanderson.util.IDialog;
 import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.ILocationCoder;
-import org.dsanderson.util.ILocationSource;
 import org.dsanderson.util.INetConnection;
-import org.dsanderson.util.IProgressBar;
 import org.dsanderson.util.IUserSettingsSource;
-import org.dsanderson.xctrailreport.application.CompoundFilter;
-import org.dsanderson.xctrailreport.application.DateFilter;
 import org.dsanderson.xctrailreport.application.DefaultTrailInfoList;
-import org.dsanderson.xctrailreport.application.DistanceFilter;
-import org.dsanderson.xctrailreport.application.DurationFilter;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
-import org.dsanderson.xctrailreport.core.IReportFilter;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ITrailInfoList;
 import org.dsanderson.xctrailreport.core.ITrailReportList;
@@ -52,22 +46,12 @@ import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.TrailInfoPool;
 import org.dsanderson.xctrailreport.core.TrailReportParser;
 import org.dsanderson.xctrailreport.core.UserSettings;
-import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
-import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
-import org.dsanderson.xctrailreport.decorators.DateDecorator;
-import org.dsanderson.xctrailreport.decorators.DetailedReportDecorator;
-import org.dsanderson.xctrailreport.decorators.DistanceDecorator;
-import org.dsanderson.xctrailreport.decorators.PhotosetDecorator;
-import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
-import org.dsanderson.xctrailreport.decorators.TrailNameDecorator;
-import org.dsanderson.xctrailreport.decorators.TrailReportDecorator;
-import org.dsanderson.xctrailreport.threerivers.ThreeRiversFactory;
 import org.dsanderson.xctrailreport.core.TrailReportPool;
 import org.dsanderson.xctrailreport.core.android.TrailInfoDatabaseFactory;
 import org.dsanderson.xctrailreport.core.android.TrailInfoList;
 import org.dsanderson.xctrailreport.core.android.TrailReportDatabaseFactory;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
-import org.dsanderson.xctrailreport.application.PhotosetFilter;
+import org.dsanderson.xctrailreport.threerivers.ThreeRiversFactory;
 
 import android.content.Context;
 
@@ -80,9 +64,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	SkinnyskiAndroidFactory skinnyskiFactory = null;
 	ThreeRiversFactory threeRiversFactory = null;
 	UrlConnection netConnection = null;
-	TrailReportDecorator infoDecorator = null;
-	TrailReportDecorator reportDecorator = null;
-	LocationSource locationSource = null;
+	CompoundLocationSource locationSource = null;
 	UserSettings userSettings = null;
 	UserSettingsSource settingsSource = null;
 	LocationCoder locationCoder = null;
@@ -94,6 +76,7 @@ public class TrailReportFactory implements IAbstractFactory {
 	TrailInfoDatabaseFactory trailInfoDatabaseFactory = null;
 	DefaultTrailInfoList defaultTrailInfoList = null;
 	TrailReportReaderFactory trailReportReaderFactory = null;
+	TrailReportDatabaseFactory trailReportDatabaseFactory = null;
 
 	public TrailReportFactory(Context context) {
 		assert (factory == null);
@@ -149,10 +132,10 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * 
 	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getLocation()
 	 */
-	public ILocationSource getLocationSource() {
+	public ICompoundLocationSource getLocationSource() {
 		if (locationSource == null) {
-			locationSource = new LocationSource(context,
-					userSettings.getDefaultLocation());
+			locationSource = new CompoundLocationSource(context, false,
+					"Minneapolis, MN");
 		}
 		return locationSource;
 	}
@@ -175,46 +158,18 @@ public class TrailReportFactory implements IAbstractFactory {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoDecorators
-	 * ()
-	 */
-	public TrailReportDecorator getTrailReportDecorators() {
-		if (reportDecorator == null) {
-			reportDecorator = new DateDecorator();
-			reportDecorator.add(new SummaryDecorator());
-			reportDecorator.add(new DetailedReportDecorator());
-			reportDecorator.add(new PhotosetDecorator());
-			reportDecorator.add(new AuthorDecorator());
-		}
-
-		return reportDecorator;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
 	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getDirectionsSource()
 	 */
 	public IDistanceSource getDistanceSource() {
-		return new DistanceSource(getNetConnection());
+		switch (getUserSettings().getDistanceMode()) {
+		default:
+		case FULL:
+			return new DistanceSource(getNetConnection());
+		case QUICK:
+			return new QuickDistanceSource();
+		case DISABLED:
+			return null;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.dsanderson.xctrailreport.core.IAbstractFactory#getTrailInfoDecorators
-	 * ()
-	 */
-	public TrailReportDecorator getTrailInfoDecorators() {
-		if (infoDecorator == null) {
-			infoDecorator = new TrailNameDecorator();
-			infoDecorator.add(new CityStateDecorator());
-			infoDecorator.add(new DistanceDecorator());
-		}
-
-		return infoDecorator;
 	}
 
 	/*
@@ -245,24 +200,6 @@ public class TrailReportFactory implements IAbstractFactory {
 		}
 
 		return userSettings;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getFilter()
-	 */
-	public IReportFilter newFilter() {
-		CompoundFilter filter = new CompoundFilter();
-		if (userSettings.getDistanceFilterEnabled())
-			filter.add(new DistanceFilter(userSettings.getFilterDistance()));
-		if (userSettings.getDurationFilterEnabled())
-			filter.add(new DurationFilter(userSettings.getDurationCutoff()));
-		if (userSettings.getDateFilterEnabled())
-			filter.add(new DateFilter(userSettings.getFilterAge()));
-		if (userSettings.getPhotosetFilterEnabled())
-			filter.add(new PhotosetFilter());
-		return filter;
 	}
 
 	/*
@@ -339,18 +276,21 @@ public class TrailReportFactory implements IAbstractFactory {
 	public ITrailReportList getTrailReportList() {
 		if (trailReportList == null) {
 			trailReportList = new TrailReportList(context,
-					new TrailReportDatabaseFactory(getTrailReportPool(),
+					new TrailReportDatabaseFactory(
+							factory.getTrailReportPool(),
 							getTrailInfoDatabaseFactory()),
 					TrailReportDatabaseFactory.DATABASE_NAME,
 					Integer.parseInt(context
 							.getString(R.integer.databaseVersion)));
+		}
+		
 			try {
 				trailReportList.open();
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new RuntimeException(e);
 			}
-		}
+		
 		return (ITrailReportList) trailReportList;
 	}
 
@@ -385,7 +325,7 @@ public class TrailReportFactory implements IAbstractFactory {
 			sourceSpecificFactories.add(new ThreeriversDatabaseFactory(
 					threeRiversFactory));
 			trailInfoDatabaseFactory = new TrailInfoDatabaseFactory(
-					getTrailInfoPool(), sourceSpecificFactories);
+					factory.getTrailInfoPool(), sourceSpecificFactories);
 		}
 		return trailInfoDatabaseFactory;
 	}
@@ -397,13 +337,37 @@ public class TrailReportFactory implements IAbstractFactory {
 		return trailReportReaderFactory;
 	}
 
+	public TrailReportDatabaseFactory getTrailReportDatabaseFactory() {
+		if (trailReportDatabaseFactory == null) {
+			trailReportDatabaseFactory = new TrailReportDatabaseFactory(
+					getTrailReportPool(), getTrailInfoDatabaseFactory());
+		}
+		return trailReportDatabaseFactory;
+
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.dsanderson.xctrailreport.core.IAbstractFactory#getProgressBar()
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#filterReports(org.
+	 * dsanderson.xctrailreport.core.ITrailReportList)
 	 */
-	public IProgressBar newProgressBar() {
-		return new AndroidProgressBar(context);
+	public void filterReports(ITrailReportList trailReports) {
+		TrailReportList reports = (TrailReportList) trailReports;
+		// apply default filters
+		reports.filter(getUserSettings());
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.IAbstractFactory#sortReports(org.dsanderson
+	 * .xctrailreport.core.ITrailReportList)
+	 */
+	public void sortReports(ITrailReportList trailReports) {
+		UserSettings settings = getUserSettings();
+		trailReports.sort(settings);
+	}
 }

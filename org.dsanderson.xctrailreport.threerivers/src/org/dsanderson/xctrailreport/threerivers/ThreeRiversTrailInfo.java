@@ -51,7 +51,7 @@ public class ThreeRiversTrailInfo implements ISourceSpecificTrailInfo {
 	 */
 	@Override
 	public String getTrailInfoUrl() {
-		if (trailInfoUrl == null)
+		if ((trailInfoUrl == null) || (trailInfoUrl.length() == 0))
 			return "";
 		else
 			return TRAIL_URL_PREFIX + trailInfoUrl + TRAIL_URL_EXTENSION;

@@ -78,17 +78,25 @@ public class ReportListCreator implements IReportListCreator {
 		if (refreshNeeded) {
 			// start by clearing out the existing trail reports
 			trailReports.clear();
-			for (ISourceSpecificFactory source : factory
-					.getSourceSpecificFactories()) {
-				if (source.getEnabled())
-					source.getReportRetriever().getReports(trailReports,
-							trailInfos, progressBar);
+			trailReports.beginTransaction();
+			try {
+				for (ISourceSpecificFactory source : factory
+						.getSourceSpecificFactories()) {
+					if (source.getEnabled())
+						source.getReportRetriever().getReports(trailReports,
+								trailInfos, progressBar);
+				}
+
+				getDistances(trailReports, trailInfos, progressBar);
+
+				trailReports.endTransaction();
+				trailReports.save();
+			} catch (Exception e) {
+				trailReports.cancelTransaction();
+				throw (e);
+			} finally {
+				progressBar.close();
 			}
-
-			getDistances(trailReports, trailInfos, progressBar);
-
-			trailReports.save();
-			progressBar.close();
 		}
 	}
 

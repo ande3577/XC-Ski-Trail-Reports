@@ -46,4 +46,10 @@ public interface IList<T> {
 	void clear();
 	
 	int size();
+	
+	void beginTransaction();
+	
+	void endTransaction();
+	
+	void cancelTransaction();
 }

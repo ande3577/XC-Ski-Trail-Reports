@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/descriptionBackgroundColor" >
+
+    <RelativeLayout
+        android:id="@+id/titleGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/titleBackgroundColor" >
+
+        <TextView
+            android:id="@+id/trailNameView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:text="Trail Name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/trailLocationView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/trailNameView"
+            android:text="City, State (distance, duration)"
+            android:textColor="@color/trailLocationTextColor"
+            android:visibility="visible" />
+
+        <TableLayout
+            android:id="@+id/titleButtonTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trailLocationView"
+            android:orientation="horizontal"
+            android:stretchColumns="0,1,2"
+            android:visibility="visible" >
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/mapLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@drawable/button_selector"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="onMapButtonClick"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:id="@+id/mapButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_menu_mapmode"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/mapButtonLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Map"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/buttonLabelColor"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/composeLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:background="@drawable/button_selector"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="onComposeButtonClick"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:id="@+id/composeButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_menu_compose"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/composeLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Compose"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/buttonLabelColor"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/trailInfoLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:background="@drawable/button_selector"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="onInfoButtonClick"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:id="@+id/trailInfoButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_menu_info_details"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/trailInfoLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Trail Info"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/buttonLabelColor"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/dateView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/titleGroup"
+        android:text="Date - Time"
+        android:textColor="@color/dateTextColor" />
+
+    <TextView
+        android:id="@+id/briefConditionsView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dateView"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/dateView"
+        android:text="Conditions: Brief"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/photosetView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/briefConditionsView"
+        android:text="Photoset: "
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/detailedConditionsView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/photosetView"
+        android:text="Detailed Description"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/authorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/detailedConditionsView"
+        android:text="Author (Source)"
+        android:textColor="@color/textColor" />
+
+</RelativeLayout>

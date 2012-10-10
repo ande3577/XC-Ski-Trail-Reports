@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="Region Select">
-    <CheckBoxPreference android:title="Metro Area" android:key="metro" android:defaultValue="true"/>
-    <CheckBoxPreference android:title="Southern" android:key="southern" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="Northwest" android:key="northwest" android:defaultValue="false"/>
-    <CheckBoxPreference android:title="Northeast" android:key="northeast" android:defaultValue="false"/>
-</PreferenceScreen>

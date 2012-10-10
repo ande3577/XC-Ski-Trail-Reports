@@ -56,8 +56,8 @@ public class AboutActivity extends Activity {
 					readmeText,
 					"version",
 					getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
-			readmeText = replaceVariable(readmeText, "copyright",
-					ProgramInfo.copyright);
+			readmeText = replaceVariable(readmeText, "app_name",
+					getString(R.string.app_name));
 			textView.setText(Html.fromHtml(readmeText));
 			textView.setMovementMethod(LinkMovementMethod.getInstance());
 		} catch (Exception e) {

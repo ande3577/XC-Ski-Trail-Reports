@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="src" path="assets"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.util"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.android.util"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.xctrailreport.core"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.xctrailreport.core.android"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.xctrailreport.skinnyski"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.xctrailreport.threerivers"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.util"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.xctrailreport.core"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="/org.dsanderson.android.util"/>
-	<classpathentry exported="true" kind="lib" path="/home/dsanderson/git/xc-trail-report/org.dsanderson.android.util/bin/org.dsanderson.android.util.jar" sourcepath="/org.dsanderson.android.util/src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="src" path="assets"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

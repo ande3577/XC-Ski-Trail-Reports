@@ -209,13 +209,19 @@ public class GenericDatabase extends SQLiteOpenHelper {
 	}
 
 	public void update(DatabaseObject object) {
-		object.setTimestamp(new Date().getTime());
-		ContentValues values = new ContentValues();
-		objectFactory.buildContentValues(object, values);
-		long id = object.getId();
-		database.update(tableName, values, COLUMN_ID + " = " + id, null);
+		beginTransaction();
+		try {
+			object.setTimestamp(new Date().getTime());
+			ContentValues values = new ContentValues();
+			objectFactory.buildContentValues(object, values);
+			long id = object.getId();
+			database.update(tableName, values, COLUMN_ID + " = " + id, null);
+			endTransaction();
+		} catch (Exception e) {
+			cancelTransaction();
+		}
 	}
-	
+
 	public void update(DatabaseObject object, String column, String value) {
 		ContentValues values = new ContentValues();
 		values.put(COLUMN_TIMESTAMP, new Date().getTime());
@@ -223,26 +229,26 @@ public class GenericDatabase extends SQLiteOpenHelper {
 		long id = object.getId();
 		database.update(tableName, values, COLUMN_ID + " = " + id, null);
 	}
-	
+
 	public void update(DatabaseObject object, String[] column, String[] value) {
 		ContentValues values = new ContentValues();
 		values.put(COLUMN_TIMESTAMP, new Date().getTime());
-		assert(column.length == value.length);
+		assert (column.length == value.length);
 		for (int i = 0; i < column.length; i++) {
 			values.put(column[i], value[i]);
 		}
 		long id = object.getId();
 		database.update(tableName, values, COLUMN_ID + " = " + id, null);
 	}
-	
+
 	public void update(DatabaseObject object, String column, long value) {
 		update(object, column, Long.toString(value));
 	}
-	
+
 	public void update(DatabaseObject object, String column, boolean value) {
 		update(object, column, Boolean.toString(value));
 	}
-	
+
 	public void update(DatabaseObject object, String column, int value) {
 		update(object, column, Integer.toString(value));
 	}
@@ -398,6 +404,19 @@ public class GenericDatabase extends SQLiteOpenHelper {
 
 	public SQLiteDatabase getDatabase() {
 		return database;
+	}
+
+	public void beginTransaction() {
+		database.beginTransaction();
+	}
+
+	public void endTransaction() {
+		database.setTransactionSuccessful();
+		database.endTransaction();
+	}
+
+	public void cancelTransaction() {
+		database.endTransaction();
 	}
 
 }
