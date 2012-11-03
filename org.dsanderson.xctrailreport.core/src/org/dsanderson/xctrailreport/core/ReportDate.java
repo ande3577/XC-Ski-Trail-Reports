@@ -29,8 +29,9 @@ import java.util.Scanner;
  */
 public class ReportDate implements Comparable<ReportDate> {
 	Date date;
+	boolean timeValid = true;
 
-	final String monthStrings[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+	final static String monthStrings[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
 			"Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 
 	/**
@@ -40,11 +41,16 @@ public class ReportDate implements Comparable<ReportDate> {
 		date = new Date();
 	}
 
-	/**
-	 * @brief Creates a new date object based on string of format "MM d"
-	 * @param dateString
-	 */
-	public ReportDate(String dateString) throws Exception {
+	public ReportDate(long timestamp) {
+		date = new Date(timestamp);
+	}
+	
+	public ReportDate(long timestamp, boolean timeValid) {
+		date = new Date(timestamp);
+		this.timeValid = timeValid;  
+	}
+
+	public static long stringToDate(String dateString) throws Exception {
 		Scanner scanner = new Scanner(dateString);
 		String month;
 		if (scanner.hasNext())
@@ -71,23 +77,20 @@ public class ReportDate implements Comparable<ReportDate> {
 		calendar.set(Calendar.MINUTE, 59);
 		calendar.set(Calendar.SECOND, 59);
 		calendar.set(Calendar.MILLISECOND, 0);
-		date = calendar.getTime();
+		return calendar.getTime().getTime();
 	}
 
-	public ReportDate(long timestamp) {
-		date = new Date(timestamp);
-	}
-
+	
 	/**
 	 * @brief Creates a new date object with a given date/time
 	 * @param month
 	 * @param day
 	 * @param year
 	 */
-	public ReportDate(String month, int day, int year) throws Exception {
+	public static long monthDayYearToTime(String month, int day, int year) throws Exception {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(year, lookupMonth(month), day);
-		date = calendar.getTime();
+		return calendar.getTime().getTime();
 	}
 	
 	public ReportDate(Date date) {
@@ -113,7 +116,7 @@ public class ReportDate implements Comparable<ReportDate> {
 		return date.compareTo(o.getDate());
 	}
 
-	private int lookupMonth(String month) throws Exception {
+	private static int lookupMonth(String month) throws Exception {
 		Integer monthInt = null;
 		int i = 0;
 		for (String str : monthStrings) {
@@ -128,6 +131,14 @@ public class ReportDate implements Comparable<ReportDate> {
 			throw new Exception("Invalid month: " + month);
 		}
 		return monthInt;
+	}
+	
+	public void setTimeValid(boolean timeValid) {
+		this.timeValid = timeValid;
+	}
+	
+	public boolean getTimeValid() {
+		return timeValid;
 	}
 
 }

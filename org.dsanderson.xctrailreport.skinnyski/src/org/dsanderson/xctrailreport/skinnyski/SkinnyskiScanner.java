@@ -120,7 +120,7 @@ public class SkinnyskiScanner {
 			scanner.nextLine();
 
 		if (date != null)
-			trailReport.setDate(new ReportDate(date.trim()));
+			trailReport.setDate(new ReportDate(ReportDate.stringToDate(date.trim()), false));
 	}
 
 	private void scanUrl() {

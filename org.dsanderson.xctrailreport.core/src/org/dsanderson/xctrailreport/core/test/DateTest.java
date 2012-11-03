@@ -37,11 +37,11 @@ public class DateTest {
 
 		try {
 			List<ReportDate> dates = new ArrayList<ReportDate>();
-			dates.add(new ReportDate("Mar", 6, 2012));
+			dates.add(new ReportDate(ReportDate.monthDayYearToTime("Mar", 6, 2012)));
 			dates.add(new ReportDate());
-			dates.add(new ReportDate("Feb", 4, 2012));
-			dates.add(new ReportDate("May", 23, 2011));
-			dates.add(new ReportDate("Mar 23"));
+			dates.add(new ReportDate(ReportDate.monthDayYearToTime("Feb", 4, 2012)));
+			dates.add(new ReportDate(ReportDate.monthDayYearToTime("May", 23, 2011)));
+			dates.add(new ReportDate(ReportDate.stringToDate("Mar 23")));
 			Collections.sort(dates);
 
 			for (ReportDate date : dates)

@@ -39,10 +39,12 @@ public class TimeDecorator extends TrailReportDecorator {
 	@Override
 	public void decorate(TrailReport trailReport, ITrailReportListEntry listEntry) {
 		ITextItem textItem = listEntry.getDateTextItem();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("h:mm a");
-		String timeString = " - "
-				+ dateFormat.format(trailReport.getDate().getDate());
-		textItem.setText(textItem.getText() + timeString);
+		if(trailReport.getDate().getTimeValid()) {
+			SimpleDateFormat dateFormat = new SimpleDateFormat("h:mm a");
+			String timeString = " - "
+					+ dateFormat.format(trailReport.getDate().getDate());
+			textItem.setText(textItem.getText() + timeString);
+		}
 		
 		if (next() != null) {
 			next().decorate(trailReport, listEntry);

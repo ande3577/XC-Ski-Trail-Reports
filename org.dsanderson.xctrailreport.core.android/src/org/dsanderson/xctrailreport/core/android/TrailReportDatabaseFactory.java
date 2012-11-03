@@ -54,6 +54,9 @@ public class TrailReportDatabaseFactory implements IDatabaseObjectFactory {
 
 	public static final String COLUMN_PHOTOSET = "photosetURL";
 	private static final String TYPE_PHOTOSET = "text not null";
+	
+	public static final String COLUMN_TIME_VALID = "timeValid";
+	public static final String TYPE_TIME_VALID = "integer not null";
 
 	private final TrailReportPool pool;
 
@@ -85,7 +88,8 @@ public class TrailReportDatabaseFactory implements IDatabaseObjectFactory {
 				.addColumn(COLUMN_DETAIL, TYPE_DETAIL) //
 				.addColumn(COLUMN_SOURCE, TYPE_SOURCE) //
 				.addColumn(COLUMN_PHOTOSET, TYPE_PHOTOSET) //
-				.addColumn(COLUMN_SUMMARY_PRIORITY, TYPE_SUMMARY_PRIORITY);
+				.addColumn(COLUMN_SUMMARY_PRIORITY, TYPE_SUMMARY_PRIORITY)
+				.addColumn(COLUMN_TIME_VALID, TYPE_TIME_VALID);
 
 		trailInfoFactory.registerColumns(database);
 
@@ -108,6 +112,7 @@ public class TrailReportDatabaseFactory implements IDatabaseObjectFactory {
 		values.put(COLUMN_SOURCE, report.getSource());
 		values.put(COLUMN_PHOTOSET, report.getPhotosetUrl());
 		values.put(COLUMN_SUMMARY_PRIORITY, report.getSummaryPriority());
+		values.put(COLUMN_TIME_VALID, report.getDate().getTimeValid());
 		trailInfoFactory.buildContentValues(report.getTrailInfo(), values);
 	}
 
@@ -134,6 +139,8 @@ public class TrailReportDatabaseFactory implements IDatabaseObjectFactory {
 				.getColumnIndex(COLUMN_SUMMARY_PRIORITY)));
 		report.setTrailInfo((TrailInfo) trailInfoFactory.getObject(cursor,
 				report.getTrailInfo()));
+		report.getDate().setTimeValid(cursor.getInt(cursor
+				.getColumnIndex(COLUMN_TIME_VALID)) != 0);
 		return report;
 	}
 
