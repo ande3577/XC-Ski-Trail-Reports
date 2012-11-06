@@ -118,6 +118,9 @@ public class UserSettingsSource implements IUserSettingsSource {
 				if (threeRiversSource != null)
 					threeRiversSource.setEnabled(sharedPreferences.getBoolean(
 							key, threeRiversSource.getEnabled()));
+			} else if (key.equals("distanceMode")) {
+				settings.setDistanceMode(stringToDistanceMode(preference.getString(
+						"distanceMode", distanceModeToString(DistanceMode.FULL))));
 			}
 		}
 
