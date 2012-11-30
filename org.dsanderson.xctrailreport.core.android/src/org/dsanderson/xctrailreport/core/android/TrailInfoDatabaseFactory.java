@@ -38,6 +38,8 @@ public class TrailInfoDatabaseFactory implements IDatabaseObjectFactory {
 	private final List<IDatabaseObjectFactory> sourceSpecificFactories;
 	GenericDatabase database = null;
 
+	public static final String TABLE_TEST = "trail_info";
+	
 	public static final String COLUMN_NAME = "name";
 	private static final String TYPE_NAME = "text not null";
 

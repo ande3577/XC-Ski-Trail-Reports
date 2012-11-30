@@ -65,6 +65,8 @@ public class CompoundReportComparator implements Comparator<TrailReport> {
 			comparators.add(new DurationComparator());
 			comparators.add(new TrailNameComparator());
 			break;
+		default:
+			break;
 			
 		}
 

@@ -21,7 +21,6 @@ package org.dsanderson.xctrailreport.core;
 
 import java.util.List;
 
-import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.IList;
 
 /**
@@ -31,8 +30,5 @@ public interface ITrailInfoList extends IList<TrailInfo> {
 	TrailInfo mergeIntoList(TrailInfo info);
 
 	public List<String> getAllLocations();
-
-	public void updateDistances(IDistanceSource distanceSource,
-			List<String> locations);
 
 }

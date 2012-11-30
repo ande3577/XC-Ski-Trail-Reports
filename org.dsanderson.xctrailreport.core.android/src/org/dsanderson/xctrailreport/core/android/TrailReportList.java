@@ -20,14 +20,22 @@
 package org.dsanderson.xctrailreport.core.android;
 
 import java.util.Date;
+import java.util.List;
 
 import org.dsanderson.android.util.GenericDatabase;
+import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.Units;
+import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
+import org.dsanderson.xctrailreport.core.ITrailInfoList;
 import org.dsanderson.xctrailreport.core.ITrailReportList;
+import org.dsanderson.xctrailreport.core.TrailInfo;
+import org.dsanderson.xctrailreport.core.TrailInfoPool;
 import org.dsanderson.xctrailreport.core.TrailReport;
+import org.dsanderson.xctrailreport.core.TrailReportPool;
 import org.dsanderson.xctrailreport.core.UserSettings;
 
 import android.content.Context;
+import android.database.Cursor;
 
 /**
  * 
@@ -35,11 +43,18 @@ import android.content.Context;
 public class TrailReportList extends GenericDatabase implements
 		ITrailReportList {
 
+	private final TrailReportPool reportPool;
+	private final TrailInfoPool infoPool;
+
 	public TrailReportList(Context context, TrailReportDatabaseFactory factory,
-			String databaseName, int databaseVersion) {
+			TrailReportPool reportPool, TrailInfoPool infoPool,
+			String databaseName, int databaseVersion,
+			ITrailInfoList trailInfoList) {
 		super(context, databaseName, databaseVersion,
 				TrailReportDatabaseFactory.TABLE_TEST, factory,
 				TrailInfoDatabaseFactory.COLUMN_NAME);
+		this.reportPool = reportPool;
+		this.infoPool = infoPool;
 	}
 
 	/*
@@ -77,7 +92,7 @@ public class TrailReportList extends GenericDatabase implements
 	public void remove(TrailReport arg0) {
 		super.remove(arg0);
 	}
-	
+
 	public void sort(UserSettings settings) {
 		sort(settings, true);
 	}
@@ -85,7 +100,7 @@ public class TrailReportList extends GenericDatabase implements
 	public void sort(UserSettings settings, boolean clear) {
 		if (clear)
 			clearSortOrder();
-		
+
 		switch (settings.getSortMethod()) {
 		case SORT_BY_DATE:
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
@@ -114,6 +129,8 @@ public class TrailReportList extends GenericDatabase implements
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, true);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, true);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_NAME, true);
+			break;
+		default:
 			break;
 		}
 		// always use the order added as a last tiebreaker
@@ -157,4 +174,54 @@ public class TrailReportList extends GenericDatabase implements
 			addFilter(TrailReportDatabaseFactory.COLUMN_PHOTOSET + "!=''");
 		}
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ITrailInfoList#updateDistances(org.
+	 * dsanderson.util.IDistanceSource, java.util.List)
+	 */
+	public void updateDistances(IDistanceSource distanceSource,
+			List<String> locations) {
+
+		List<Integer> distances = distanceSource.getDistances();
+		List<Integer> durations = distanceSource.getDurations();
+		List<Boolean> distanceValids = distanceSource.getDistanceValids();
+		List<Boolean> durationValids = distanceSource.getDurationValids();
+
+		if (distances.size() != locations.size())
+			return;
+
+		beginTransaction();
+		try {
+			Cursor cursor = getUnfilteredCursor();
+			if (cursor.moveToFirst()) {
+				do {
+					TrailReport report = (TrailReport) get(cursor);
+					TrailInfo info = report.getTrailInfo();
+
+					int index = locations.indexOf(info.getLocation());
+					if (index >= 0) {
+						info.setDistanceValid(distanceValids.get(index));
+						info.setDistance(distances.get(index));
+						info.setDurationValid(durationValids.get(index));
+						info.setDuration(durations.get(index));
+					}
+					update(report);
+					reportPool.deleteItem(report);
+
+					for (ISourceSpecificTrailInfo specificInfo : info
+							.getSourceSpecificInfos()) {
+						specificInfo.deleteItem();
+					}
+					infoPool.deleteItem(info);
+				} while (cursor.moveToNext());
+			}
+			endTransaction();
+		} catch (Exception e) {
+			cancelTransaction();
+		}
+	}
+
 }

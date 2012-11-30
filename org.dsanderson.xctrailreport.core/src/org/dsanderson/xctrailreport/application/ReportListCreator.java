@@ -37,11 +37,9 @@ import org.dsanderson.xctrailreport.core.UserSettings.AutoRefreshMode;
  */
 public class ReportListCreator implements IReportListCreator {
 	private final IAbstractFactory factory;
-	private final ITrailInfoList defaultTrailInfo;
 
 	public ReportListCreator(IAbstractFactory factory) {
 		this.factory = factory;
-		defaultTrailInfo = factory.getDefaultTrailInfoList();
 	}
 
 	public void getTrailReports(ITrailReportList trailReports,
@@ -109,15 +107,6 @@ public class ReportListCreator implements IReportListCreator {
 			trailInfos.clear();
 		}
 
-		try {
-			defaultTrailInfo.load();
-		} catch (Exception e) {
-			// if included trail infos creates error, we abort
-			trailInfos.clear();
-			trailReports.clear();
-			throw (e);
-		}
-
 		if (!refreshNeeded) {
 			trailReports.load();
 		}
@@ -135,7 +124,7 @@ public class ReportListCreator implements IReportListCreator {
 				distanceSource.updateDistances(location, destinations,
 						progressBar);
 
-				trailInfos.updateDistances(distanceSource, destinations);
+				trailReports.updateDistances(distanceSource, destinations);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

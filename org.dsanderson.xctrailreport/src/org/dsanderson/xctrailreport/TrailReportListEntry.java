@@ -19,7 +19,6 @@
  */
 package org.dsanderson.xctrailreport;
 
-import org.dsanderson.android.util.FixedImageItem;
 import org.dsanderson.android.util.LabelledFixedImage;
 import org.dsanderson.android.util.TextItem;
 import org.dsanderson.util.IImageItem;

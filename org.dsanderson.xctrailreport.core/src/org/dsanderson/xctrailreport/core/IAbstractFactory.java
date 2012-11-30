@@ -69,6 +69,4 @@ public interface IAbstractFactory {
 
 	public ITrailInfoList getTrailInfoList();
 	
-	public ITrailInfoList getDefaultTrailInfoList();
-	
 }

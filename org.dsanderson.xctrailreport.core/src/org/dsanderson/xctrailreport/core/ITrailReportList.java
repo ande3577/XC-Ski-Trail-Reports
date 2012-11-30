@@ -19,6 +19,9 @@
  */
 package org.dsanderson.xctrailreport.core;
 
+import java.util.List;
+
+import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.IList;
 
 /**
@@ -29,5 +32,8 @@ public interface ITrailReportList extends IList<TrailReport> {
 	public void sort(UserSettings settings);
 
 	public void filter(UserSettings settings);
+
+	public void updateDistances(IDistanceSource distanceSource,
+			List<String> locations);
 
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item format="integer" name="databaseVersion" type="integer">6</item>
+    <item format="integer" name="databaseVersion" type="integer">7</item>
     
 </resources>

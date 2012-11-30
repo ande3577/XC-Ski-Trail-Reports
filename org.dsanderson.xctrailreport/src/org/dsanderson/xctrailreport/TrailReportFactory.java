@@ -37,7 +37,6 @@ import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.ILocationCoder;
 import org.dsanderson.util.INetConnection;
 import org.dsanderson.util.IUserSettingsSource;
-import org.dsanderson.xctrailreport.application.DefaultTrailInfoList;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ITrailInfoList;
@@ -74,7 +73,6 @@ public class TrailReportFactory implements IAbstractFactory {
 	TrailReportList trailReportList = null;
 	TrailInfoList trailInfoList = null;
 	TrailInfoDatabaseFactory trailInfoDatabaseFactory = null;
-	DefaultTrailInfoList defaultTrailInfoList = null;
 	TrailReportReaderFactory trailReportReaderFactory = null;
 	TrailReportDatabaseFactory trailReportDatabaseFactory = null;
 
@@ -169,7 +167,7 @@ public class TrailReportFactory implements IAbstractFactory {
 			return new QuickDistanceSource();
 		case DISABLED:
 			return null;
-	}
+		}
 	}
 
 	/*
@@ -279,18 +277,20 @@ public class TrailReportFactory implements IAbstractFactory {
 					new TrailReportDatabaseFactory(
 							factory.getTrailReportPool(),
 							getTrailInfoDatabaseFactory()),
+					factory.getTrailReportPool(), factory.getTrailInfoPool(),
 					TrailReportDatabaseFactory.DATABASE_NAME,
 					Integer.parseInt(context
-							.getString(R.integer.databaseVersion)));
+							.getString(R.integer.databaseVersion)),
+					factory.getTrailInfoList());
 		}
-		
-			try {
-				trailReportList.open();
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
-		
+
+		try {
+			trailReportList.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
 		return (ITrailReportList) trailReportList;
 	}
 
@@ -302,19 +302,20 @@ public class TrailReportFactory implements IAbstractFactory {
 	 */
 	public ITrailInfoList getTrailInfoList() {
 		if (trailInfoList == null)
-			trailInfoList = new TrailInfoList(
-					(TrailReportList) getTrailReportList(),
-					getTrailReportPool(), getTrailInfoPool(),
-					getDefaultTrailInfoList());
-		return trailInfoList;
-	}
+			trailInfoList = new TrailInfoList(context, factory,
+					getTrailInfoDatabaseFactory(), getReportReaderFactory(),
+					getTrailInfoPool(), TrailInfoDatabaseFactory.TABLE_TEST,
+					Integer.parseInt(context
+							.getString(R.integer.databaseVersion)));
 
-	public ITrailInfoList getDefaultTrailInfoList() {
-		if (defaultTrailInfoList == null) {
-			defaultTrailInfoList = new DefaultTrailInfoList(this,
-					getReportReaderFactory());
+		try {
+			trailInfoList.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
-		return defaultTrailInfoList;
+
+		return trailInfoList;
 	}
 
 	private TrailInfoDatabaseFactory getTrailInfoDatabaseFactory() {

@@ -19,38 +19,52 @@
  */
 package org.dsanderson.xctrailreport.core.android;
 
+import java.io.Reader;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import org.dsanderson.util.IDistanceSource;
-import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
+import org.dsanderson.android.util.GenericDatabase;
+import org.dsanderson.xctrailreport.application.IReportReaderFactory;
+import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.ITrailInfoList;
 import org.dsanderson.xctrailreport.core.TrailInfo;
+import org.dsanderson.xctrailreport.core.TrailInfoParser;
 import org.dsanderson.xctrailreport.core.TrailInfoPool;
-import org.dsanderson.xctrailreport.core.TrailReport;
-import org.dsanderson.xctrailreport.core.android.TrailReportList;
-import org.dsanderson.xctrailreport.core.TrailReportPool;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
  * 
  */
-public class TrailInfoList implements ITrailInfoList {
-	private final TrailReportList reportList;
-	private final TrailReportPool reportPool;
+public class TrailInfoList extends GenericDatabase implements ITrailInfoList {
 	private final TrailInfoPool infoPool;
-	private final ITrailInfoList defaultTrailInfo;
+	private final IAbstractFactory factory;
+	private final IReportReaderFactory readerFactory;
 
-	public TrailInfoList(TrailReportList reportList,
-			TrailReportPool reportPool, TrailInfoPool infoPool,
-			ITrailInfoList defaultTrailInfo) {
-		this.reportList = reportList;
-		this.reportPool = reportPool;
+	public TrailInfoList(Context context, IAbstractFactory factory,
+			TrailInfoDatabaseFactory databasefactory,
+			IReportReaderFactory readerFactory, TrailInfoPool infoPool,
+			String databaseName, int databaseVersion) {
+		super(context, databaseName, databaseVersion,
+				TrailInfoDatabaseFactory.TABLE_TEST, databasefactory,
+				TrailInfoDatabaseFactory.COLUMN_NAME);
 		this.infoPool = infoPool;
-		this.defaultTrailInfo = defaultTrailInfo;
+		this.factory = factory;
+		this.readerFactory = readerFactory;
+	}
+
+	public void open() throws Exception {
+		super.open();
+
+		Reader reader = readerFactory.newDefaultTrailInfoReader();
+		TrailInfoParser parser = factory.newTrailInfoParser();
+
+		parser.parse(reader);
+		for (TrailInfo info : parser.getTrailInfo()) {
+			addIfNew(info);
+		}
 	}
 
 	/*
@@ -60,6 +74,7 @@ public class TrailInfoList implements ITrailInfoList {
 	 * xctrailreport.core.TrailInfo)
 	 */
 	public void add(TrailInfo info) {
+		super.add(info);
 	}
 
 	/*
@@ -68,7 +83,7 @@ public class TrailInfoList implements ITrailInfoList {
 	 * @see org.dsanderson.xctrailreport.core.ITrailInfoList#get(int)
 	 */
 	public TrailInfo get(int index) {
-		return null;
+		return (TrailInfo) super.get(index);
 	}
 
 	/*
@@ -78,7 +93,7 @@ public class TrailInfoList implements ITrailInfoList {
 	 * org.dsanderson.xctrailreport.core.ITrailInfoList#find(java.lang.String)
 	 */
 	public TrailInfo find(String name) {
-		return ((TrailReport) reportList.find(name)).getTrailInfo();
+		return (TrailInfo) super.find(name);
 	}
 
 	/*
@@ -87,77 +102,7 @@ public class TrailInfoList implements ITrailInfoList {
 	 * @see org.dsanderson.util.IList#remove(java.lang.Object)
 	 */
 	public void remove(TrailInfo arg0) {
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.util.IList#clear()
-	 */
-	public void clear() {
-		// do nothing here, rely on the report list to clear
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.util.IList#close()
-	 */
-	public void close() {
-		// do nothing here, rely on the report list to close
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.util.IList#getTimestamp()
-	 */
-	public Date getTimestamp() {
-		return reportList.getTimestamp();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.util.IList#load()
-	 */
-	public void load() throws Exception {
-		reportList.load();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.util.IList#remove(int)
-	 */
-	public void remove(int arg0) {
-		reportList.remove(arg0);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.util.IList#save()
-	 */
-	public void save() throws Exception {
-		reportList.save();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.dsanderson.util.IList#size()
-	 */
-	public int size() {
-		SQLiteDatabase database = reportList.getDatabase();
-
-		String[] column = { TrailInfoDatabaseFactory.COLUMN_NAME };
-		Cursor cursor = database.query(true,
-				TrailReportDatabaseFactory.TABLE_TEST, column, null, null,
-				null, null, null, null);
-		int size = cursor.getCount();
-		cursor.close();
-		return size;
+		super.remove(arg0);
 	}
 
 	/*
@@ -168,7 +113,8 @@ public class TrailInfoList implements ITrailInfoList {
 	 * .xctrailreport.core.TrailInfo)
 	 */
 	public void addIfNew(TrailInfo info) {
-		// only add trail infos if they have a corresponding report
+		if (find(info.getName()) == null)
+			super.add(info);
 	}
 
 	/*
@@ -177,12 +123,12 @@ public class TrailInfoList implements ITrailInfoList {
 	 * @see org.dsanderson.xctrailreport.core.ITrailInfoList#getAllLocations()
 	 */
 	public List<String> getAllLocations() {
-		SQLiteDatabase database = reportList.getDatabase();
+		SQLiteDatabase database = getDatabase();
 
 		String[] column = { TrailInfoDatabaseFactory.COLUMN_LOCATION };
 		Cursor cursor = database.query(true,
-				TrailReportDatabaseFactory.TABLE_TEST, column, null, null,
-				null, null, null, null);
+				TrailInfoDatabaseFactory.TABLE_TEST, column, null, null, null,
+				null, null, null);
 		List<String> locations = new ArrayList<String>();
 		if (cursor.moveToFirst()) {
 			do {
@@ -199,94 +145,22 @@ public class TrailInfoList implements ITrailInfoList {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.dsanderson.xctrailreport.core.ITrailInfoList#updateDistances(org.
-	 * dsanderson.util.IDistanceSource, java.util.List)
-	 */
-	public void updateDistances(IDistanceSource distanceSource,
-			List<String> locations) {
-
-		List<Integer> distances = distanceSource.getDistances();
-		List<Integer> durations = distanceSource.getDurations();
-		List<Boolean> distanceValids = distanceSource.getDistanceValids();
-		List<Boolean> durationValids = distanceSource.getDurationValids();
-
-		if (distances.size() != locations.size())
-			return;
-
-		reportList.beginTransaction();
-		try {
-			Cursor cursor = reportList.getUnfilteredCursor();
-			if (cursor.moveToFirst()) {
-				do {
-					TrailReport report = (TrailReport) reportList.get(cursor);
-					TrailInfo info = report.getTrailInfo();
-
-					int index = locations.indexOf(info.getLocation());
-					if (index >= 0) {
-						info.setDistanceValid(distanceValids.get(index));
-						info.setDistance(distances.get(index));
-						info.setDurationValid(durationValids.get(index));
-						info.setDuration(durations.get(index));
-					}
-					reportList.update(report);
-					reportPool.deleteItem(report);
-
-					for (ISourceSpecificTrailInfo specificInfo : info
-							.getSourceSpecificInfos()) {
-						specificInfo.deleteItem();
-					}
-					infoPool.deleteItem(info);
-				} while (cursor.moveToNext());
-			}
-			reportList.endTransaction();
-		} catch (Exception e) {
-			reportList.cancelTransaction();
-		}
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
 	 * org.dsanderson.xctrailreport.core.ITrailInfoList#mergeIntoList(org.dsanderson
 	 * .xctrailreport.core.TrailInfo)
 	 */
 	public TrailInfo mergeIntoList(TrailInfo newInfo) {
-		TrailReport existingReport = reportList.find(newInfo.getName());
+		TrailInfo existingInfo = find(newInfo.getName());
 		// if a past report has already used this trail info, then me merge and
 		// readd
-		if (existingReport != null) {
-			TrailInfo existingInfo = existingReport.getTrailInfo();
+		if (existingInfo != null) {
 			existingInfo.merge(newInfo);
-			reportPool.deleteItem(existingReport);
 			infoPool.deleteItem(newInfo);
 			return existingInfo;
 		} else {
-			// if this is present in default info, then we merge together and
-			// add
-			TrailInfo existingInfo = defaultTrailInfo.find(newInfo.getName());
-			if (existingInfo != null) {
-				existingInfo.merge(newInfo);
-				reportPool.deleteItem(existingReport);
-				infoPool.deleteItem(newInfo);
-				return existingInfo;
-			}
+			// otherwise add the new item to the list
+			add(newInfo);
 		}
-		// do nothing else here, do not actually store an instance of a trail
-		// info list
 		return newInfo;
 	}
 
-	public void beginTransaction() {
-		reportList.beginTransaction();
-	}
-
-	public void endTransaction() {
-		reportList.endTransaction();
-	}
-
-	public void cancelTransaction() {
-		reportList.cancelTransaction();
-	}
 }

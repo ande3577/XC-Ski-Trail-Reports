@@ -196,6 +196,8 @@ public class UserSettingsSource implements IUserSettingsSource {
 			return "sortByDuration";
 		case SORT_BY_PHOTOSET:
 			return "sortByPhotoset";
+		default:
+			break;
 		}
 		return null;
 	}
