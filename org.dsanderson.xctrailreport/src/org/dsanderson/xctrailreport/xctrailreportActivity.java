@@ -16,6 +16,7 @@ import org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.AlertDialog;
+import android.app.LauncherActivity;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,6 +27,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.TextView;
 
 public class xctrailreportActivity extends ListActivity {
@@ -192,9 +194,10 @@ public class xctrailreportActivity extends ListActivity {
 				AndroidIntent.launchIntent(composeUrl, this);
 		}
 	}
-	
+
 	public void onComposeMainButtonClick(View view) {
-		AndroidIntent.launchIntent(factory.skinnyskiFactory.getDefaultComposeUrl(), this);
+		AndroidIntent.launchIntent(
+				factory.skinnyskiFactory.getDefaultComposeUrl(), this);
 	}
 
 	public void onInfoButtonClick(View view) {
@@ -220,6 +223,15 @@ public class xctrailreportActivity extends ListActivity {
 
 	public void onHelpButtonClick(View v) {
 		openAbout();
+	}
+
+	public void onPhotosetImageClick(View v) {
+		ViewGroup parent = (ViewGroup) v.getParent();
+		TextView photosetTextView = (TextView) parent
+				.findViewById(R.id.photosetView);
+		String url = (String) photosetTextView.getText();
+		AndroidIntent.launchIntent(url, this);
+
 	}
 
 }

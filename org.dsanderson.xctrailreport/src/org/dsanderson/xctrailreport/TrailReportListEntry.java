@@ -19,6 +19,8 @@
  */
 package org.dsanderson.xctrailreport;
 
+import org.dsanderson.android.util.FixedImageItem;
+import org.dsanderson.android.util.HiddenTextField;
 import org.dsanderson.android.util.LabelledFixedImage;
 import org.dsanderson.android.util.TextItem;
 import org.dsanderson.util.IImageItem;
@@ -41,11 +43,12 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 	TextItem briefItem = null;
 	TextItem detailedItem = null;
 	TextItem authorItem = null;
-	TextItem photosetItem = null;
+	HiddenTextField photosetItem = null;
 	LabelledFixedImage allReportsImageItem = null;
 	LabelledFixedImage mapImageItem = null;
 	LabelledFixedImage composeImageItem = null;
 	LabelledFixedImage trailInfoImageItem = null;
+	FixedImageItem photosetImageItem = null;
 
 	public TrailReportListEntry(ViewGroup viewGroup) {
 		this.viewGroup = viewGroup;
@@ -156,9 +159,18 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 	 */
 	public ITextItem getPhotosetTextItem() {
 		if (photosetItem == null)
-			photosetItem = new TextItem(
+			photosetItem = new HiddenTextField(
 					(TextView) viewGroup.findViewById(R.id.photosetView));
 		return photosetItem;
+	}
+
+	public IImageItem getPhotosetImageItem() {
+		if (photosetImageItem == null) {
+			photosetImageItem = new FixedImageItem(
+					(ImageView) viewGroup.findViewById(R.id.photoSetImageView));
+			photosetImageItem.setGoneWhenHidden(true);
+		}
+		return photosetImageItem;
 	}
 
 	/*

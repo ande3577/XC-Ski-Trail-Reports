@@ -158,7 +158,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/dateView"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/dateView"
+        android:layout_below="@+id/photoSetImageView"
         android:text="Conditions: Brief"
         android:textColor="@color/textColor" />
 
@@ -169,14 +169,15 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/briefConditionsView"
         android:text="Photoset: "
-        android:textColor="@color/textColor" />
+        android:textColor="@color/textColor"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/detailedConditionsView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/photosetView"
+        android:layout_below="@+id/briefConditionsView"
         android:text="Detailed Description"
         android:textColor="@color/textColor" />
 
@@ -188,5 +189,16 @@
         android:layout_below="@+id/detailedConditionsView"
         android:text="Author (Source)"
         android:textColor="@color/textColor" />
+
+    <ImageView
+        android:id="@+id/photoSetImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/dateView"
+        android:clickable="true"
+        android:onClick="onPhotosetImageClick"
+        android:background="@drawable/button_light_background"
+        android:src="@drawable/ic_menu_camera" />
 
 </RelativeLayout>

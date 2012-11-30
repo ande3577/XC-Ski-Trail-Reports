@@ -19,6 +19,7 @@
  */
 package org.dsanderson.xctrailreport.decorators;
 
+import org.dsanderson.util.IImageItem;
 import org.dsanderson.util.ITextItem;
 import org.dsanderson.xctrailreport.TrailReportListEntry;
 import org.dsanderson.xctrailreport.core.TrailReport;
@@ -40,13 +41,21 @@ public class PhotosetDecorator extends TrailReportDecorator {
 			ITrailReportListEntry listEntry) {
 		ITextItem newTextItem = ((TrailReportListEntry) listEntry)
 				.getPhotosetTextItem();
+
 		if (newTextItem != null) {
 			if (trailReport.getPhotosetUrl().length() > 0) {
-				newTextItem.setText("<a href=\"" + trailReport.getPhotosetUrl()
-						+ "\">Photos</a>");
+				newTextItem.setText(trailReport.getPhotosetUrl());
 			} else {
 				newTextItem.setText("");
 			}
+		}
+
+		IImageItem newImageItem = ((TrailReportListEntry) listEntry)
+				.getPhotosetImageItem();
+		if (trailReport.getPhotosetUrl().length() > 0) {
+			newImageItem.setImage("PhotosetImage");
+		} else {
+			newImageItem.setImage("");
 		}
 
 		if (next() != null)
