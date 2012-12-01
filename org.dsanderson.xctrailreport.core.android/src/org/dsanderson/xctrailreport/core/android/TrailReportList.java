@@ -105,7 +105,7 @@ public class TrailReportList extends GenericDatabase implements
 		case SORT_BY_DATE:
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, false);
-			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, false);
+			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, true);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_NAME, true);
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET, false);
 			break;
