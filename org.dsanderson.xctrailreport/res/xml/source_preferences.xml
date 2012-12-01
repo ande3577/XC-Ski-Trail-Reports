@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="Report Source Select">
     <CheckBoxPreference android:title="Skinnyski.com" android:key="skinnyskiEnabled" android:defaultValue="true"/>
-    <CheckBoxPreference android:key="threeRiversEnabled" android:title="Three Rivers Park District" android:defaultValue="true"/>
+    <CheckBoxPreference android:key="threeRiversEnabled" android:title="Three Rivers Park District" android:defaultValue="false"/>
     
 
 </PreferenceScreen>
