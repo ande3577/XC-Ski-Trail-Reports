@@ -74,6 +74,7 @@ public class ReportListCreator implements IReportListCreator {
 		}
 
 		if (refreshNeeded) {
+			Boolean sourceFound = false;
 			// start by clearing out the existing trail reports
 			trailReports.clear();
 			trailReports.beginTransaction();
@@ -81,9 +82,15 @@ public class ReportListCreator implements IReportListCreator {
 				for (ISourceSpecificFactory source : factory
 						.getSourceSpecificFactories()) {
 					if (source.getEnabled())
+					{
 						source.getReportRetriever().getReports(trailReports,
 								trailInfos, progressBar);
+						sourceFound = true;
+					}
 				}
+				
+				if(!sourceFound)
+					throw new Exception("No sources enabled.");
 
 				getDistances(trailReports, trailInfos, progressBar);
 

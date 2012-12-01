@@ -84,6 +84,12 @@ public class PreferencesActivity extends PreferenceActivity {
 						R.xml.preferences, true);
 				
 				PreferenceManager.setDefaultValues(PreferencesActivity.this,
+						R.xml.region_preferences, true);
+				
+				PreferenceManager.setDefaultValues(PreferencesActivity.this,
+						R.xml.source_preferences, true);
+				
+				PreferenceManager.setDefaultValues(PreferencesActivity.this,
 						R.xml.hidden_preferences, true);
 
 				TrailReportFactory.getInstance().getUserSettingsSource()

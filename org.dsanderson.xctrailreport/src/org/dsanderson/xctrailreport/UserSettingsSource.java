@@ -56,6 +56,14 @@ public class UserSettingsSource implements IUserSettingsSource {
 		this.factory = factory;
 		this.context = context;
 		this.locationSource = factory.getLocationSource();
+
+		PreferenceManager.setDefaultValues(context, R.xml.preferences, true);
+		PreferenceManager.setDefaultValues(context, R.xml.region_preferences,
+				true);
+		PreferenceManager.setDefaultValues(context, R.xml.hidden_preferences,
+				true);
+		PreferenceManager.setDefaultValues(context, R.xml.source_preferences,
+				true);
 	}
 
 	private OnSharedPreferenceChangeListener preferenceChangedListener = new OnSharedPreferenceChangeListener() {
@@ -63,7 +71,7 @@ public class UserSettingsSource implements IUserSettingsSource {
 		public void onSharedPreferenceChanged(
 				SharedPreferences sharedPreferences, String key) {
 			settings.setRedrawNeeded(true);
-			
+
 			if (key.equals("enableLocation")) {
 				boolean value = sharedPreferences.getBoolean(key,
 						locationSource.getLocationEnabled());
@@ -112,6 +120,12 @@ public class UserSettingsSource implements IUserSettingsSource {
 				settings.setAutoRefreshCutoff(Units
 						.hoursToMilliseconds(getDouble(sharedPreferences, key,
 								settings.getAutoRefreshCutoff())));
+			} else if (key.equals("skinnyskiEnabled")) {
+				ISourceSpecificFactory skinnyskiSource = factory
+						.getSourceSpecificFactory(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME);
+				if (skinnyskiSource != null)
+					skinnyskiSource.setEnabled(sharedPreferences.getBoolean(
+							key, skinnyskiSource.getEnabled()));
 			} else if (key.equals("threeRiversEnabled")) {
 				ISourceSpecificFactory threeRiversSource = factory
 						.getSourceSpecificFactory(ThreeRiversFactory.SOURCE_NAME);
@@ -119,8 +133,9 @@ public class UserSettingsSource implements IUserSettingsSource {
 					threeRiversSource.setEnabled(sharedPreferences.getBoolean(
 							key, threeRiversSource.getEnabled()));
 			} else if (key.equals("distanceMode")) {
-				settings.setDistanceMode(stringToDistanceMode(preference.getString(
-						"distanceMode", distanceModeToString(DistanceMode.FULL))));
+				settings.setDistanceMode(stringToDistanceMode(preference
+						.getString("distanceMode",
+								distanceModeToString(DistanceMode.FULL))));
 			}
 		}
 
@@ -133,10 +148,11 @@ public class UserSettingsSource implements IUserSettingsSource {
 	 * org.dsanderson.xctrailreport.core.IUserSettingsSource#loadUserSettings()
 	 */
 	public void loadUserSettings() {
-		locationSource.setLocationEnabled(preference.getBoolean("enableLocation",
-				locationSource.getLocationEnabled()));
-		locationSource.setDefaultLocation(preference.getString("defaultLocation",
-				locationSource.getDefaultLocation()));
+
+		locationSource.setLocationEnabled(preference.getBoolean(
+				"enableLocation", locationSource.getLocationEnabled()));
+		locationSource.setDefaultLocation(preference.getString(
+				"defaultLocation", locationSource.getDefaultLocation()));
 		settings.setDistanceFilterEnabled(preference.getBoolean(
 				"distanceFilterEnabled", settings.getDistanceFilterEnabled()));
 		settings.setFilterDistance(Units.milesToMeters(getDouble(preference,
