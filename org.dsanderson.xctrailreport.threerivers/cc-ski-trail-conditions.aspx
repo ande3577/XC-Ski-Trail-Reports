@@ -1,12 +1,14 @@
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Three Rivers Park District : Cross-country Ski Trail Conditions</title><meta name="keywords" content="Three Rivers,cross-country,trail conditions,ski trails,cc ski,xc ski" /><meta name="description" content="Check cross-country ski trail conditions before heading out to the parks." />
+<title>Three Rivers Park District : Cross-country Ski Trail Conditions</title><meta name="keywords" content="" /><meta name="description" content="" />
 
 
 <link href="/styles/master.css" rel="stylesheet" type="text/css" />
+<link href="/styles/banner.css" rel="Stylesheet" type="text/css" />
 <link href="/styles/jquery.jcarousel.css" rel="stylesheet" type="text/css" />
 <link href="/styles/jquery.cluetip.css" rel="stylesheet" type="text/css" />
 <!--[if lt IE 7]>
@@ -15,8 +17,7 @@
 <![endif]-->
 <link href="/styles/print.css" rel="stylesheet" type="text/css" media="print" />
 <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
-<script type="text/javascript" src="/scripts/jquery-1.3.2.min.js"></script>
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="/scripts/swfobject.js"></script>
 <script type="text/javascript" src="/scripts/jquery.jcarousel.pack.js"></script>
 <script type="text/javascript" src="/scripts/jquery.cluetip.js"></script>
@@ -50,8 +51,7 @@
 	<div id="container">
 		<form name="form1" method="post" action="/news/news/cc-ski-trail-conditions.aspx" id="form1">
 <div>
-
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTQ0ODE0MjAxNg9kFgZmD2QWAmYPZBYCZg9kFgJmDxYCHgRUZXh0BaQCPHRpdGxlPlRocmVlIFJpdmVycyBQYXJrIERpc3RyaWN0IDogQ3Jvc3MtY291bnRyeSBTa2kgVHJhaWwgQ29uZGl0aW9uczwvdGl0bGU+PG1ldGEgbmFtZT0ia2V5d29yZHMiIGNvbnRlbnQ9IlRocmVlIFJpdmVycyxjcm9zcy1jb3VudHJ5LHRyYWlsIGNvbmRpdGlvbnMsc2tpIHRyYWlscyxjYyBza2kseGMgc2tpIiAvPjxtZXRhIG5hbWU9ImRlc2NyaXB0aW9uIiBjb250ZW50PSJDaGVjayBjcm9zcy1jb3VudHJ5IHNraSB0cmFpbCBjb25kaXRpb25zIGJlZm9yZSBoZWFkaW5nIG91dCB0byB0aGUgcGFya3MuIiAvPmQCARBkZBYCAgcPZBYCZg9kFgJmD2QWAgIDD2QWAmYPZBYCZg9kFggCAQ8WAh8AZWQCBQ8WAh8AZWQCBw8WAh8AZWQCCQ9kFgJmD2QWAmYPZBYOAgEPFgIfAAVPPGgxPkNyb3NzLWNvdW50cnkgU2tpIFRyYWlsIENvbmRpdGlvbnM8YnIgLz48c3Bhbj5GZWJydWFyeSAyOSwgMjAxMjwvc3Bhbj48L2gxPmQCAw9kFgJmD2QWAmYPZBYCZg9kFgICAQ8WAh8AZWQCBQ8WAh8ABZMSDQoJCTxwPlBhcmsgaG91cnMgYXJlIDU6MDAgQU3igJMxMDowMCBQTS4gRmFjaWxpdHkgaG91cnMgdmFyeTsgc2VlIGluZGl2aWR1YWwgbGlzdGluZ3MuIEZvciBhZGRpdGlvbmFsIGluZm9ybWF0aW9uLCBjYWxsIHRoZSBUcmFpbCBIb3RsaW5lIGF0IDc2My41NTkuNjc3OC4gPC9wPg0KICAgIDxwPg0KICAgICAgPGltZyB3aWR0aD0iMTAiIGhlaWdodD0iMTIiIGFsdD0iYXJyb3cgZ3JhcGhpYyIgc3JjPSJ+L21lZGlhL0ltYWdlcy9ub3RjaC1ibHVlLmFzaHg/dz0xMCZhbXA7aD0xMiZhbXA7YXM9MSIgLz7CoFNraSB0cmFpbCBtYXBzIGFyZSBhdmFpbGFibGUgb24gZWFjaCBwYXJrIHBhZ2UuPC9wPg0KICAgIDxoNT5CYWtlciBQYXJrIFJlc2VydmU8L2g1Pg0KICAgIDxwPlRyYWlscyBhcmUgbm90wqBwYWNrZWQgb3IgdHJhY2tlZCwgYW5kIGluIFBPT1IgY29uZGl0aW9uLiBObyByZW50YWxzIGF2YWlsYWJsZS7CoCBVcGRhdGVkIDIvMjkvMTI8L3A+DQogICAgPGg1PkNhcnZlciBQYXJrIFJlc2VydmU8L2g1Pg0KICAgIDxwPlRyYWlscyBhcmXCoG5vdCBwYWNrZWQgb3IgdHJhY2tlZCzCoGFuZCBpbiBQT09SIGNvbmRpdGlvbi7CoMKgTm8gcmVudGFscyBhdmFpbGFibGUuwqAgVXBkYXRlZCAyLzI5LzEyPC9wPg0KICAgIDxoNT5DbGVhcnkgTGFrZSBSZWdpb25hbCBQYXJrPC9oNT4NCiAgICA8cD5UaGUgUG9wbGFyIGFuZCBMYWtlc2lkZSB0cmFpbHMgYXJlIG5vdCBwYWNrZWTCoG9yIHRyYWNrZWQsIGFuZCBpbsKgUG9vciBjb25kaXRpb24uIExpZ2h0cyBhcmUgb24uIE5vIHJlbnRhbHMgYXZhaWxhYmxlLiBWaXNpdG9yIENlbnRlciBvcGVuIHVudGlsIDU6MDAgUE0uwqBVcGRhdGVkIDIvMjkvMTI8L3A+DQogICAgPGg1PkVhZ2xlIExha2UgUmVnaW9uYWwgUGFyazwvaDU+DQogICAgPHA+Q3Jvc3MtY291bnRyeSBza2kgdHJhaWxzIGFyZcKgQ0xPU0VELiBVcGRhdGVkIDIvMjkvMTI8L3A+DQogICAgPGg1PkVsbSBDcmVlayBQYXJrIFJlc2VydmU8L2g1Pg0KICAgIDxwPlRoZSBWYWxsZXkgdHJhaWwgYW5kIExlc3NvbiBhcmVhIGFyZSBwYWNrZWQsIHRyYWNrZWQgYW5kIGluIEdPT0QgY29uZGl0aW9uIGZvciBib3RoIHNrYXRpbmcgYW5kIHRyYWRpdGlvbmFsLiBPdXRlciB0cmFpbHPCoG1heSBiZSBwYWNrZWQgbGF0ZXIgdG9uaWdodC4gwqBMaWdodHMgYXJlIG9uLiBSZW50YWxzIGFyZSBhdmFpbGFibGUuIENoYWxldCBpcyBvcGVuwqBmcm9tIDk6MDAgQU0gdG8gOTowMCBQTS7CoCBVcGRhdGVkIDIvMjkvMTI8L3A+DQogICAgPGg1PkZyZW5jaCBSZWdpb25hbCBQYXJrPC9oNT4NCiAgICA8cD5UcmFpbHMgYXJlIG5vdMKgcGFja2VkIG9yIHRyYWNrZWQswqBhbmQgaW4gUE9PUiBjb25kaXRpb24uwqBTbGlkaW5nIGhpbGwgaXMgQ0xPU0VELiBMaWdodHMgYXJlIG9uLiBWaXNpdG9yIENlbnRlciBpcyBvcGVuIHVudGlsIDU6MDAgUE0uwqAgTm8gcmVudGFscyBhdmFpbGFibGUuwqBVcGRhdGVkIDIvMjkvMTI8L3A+DQogICAgPGg1PkdsZW4gTGFrZSBHb2xmIENlbnRlcjwvaDU+DQogICAgPHA+Q3Jvc3MtY291bnRyeSBza2kgdHJhaWwgaXMgQ0xPU0VELsKgVXBkYXRlZCAyLzI5LzEyPC9wPg0KICAgIDxoNT5IeWxhbmQgTGFrZSBQYXJrIFJlc2VydmU8L2g1Pg0KICAgIDxwPkNyb3NzLWNvdW50cnkgc2tpIHRyYWlscyBhcmXCoENMT1NFRC4gU2xpZGluZyBIaWxsIENMT1NFRC7CoExpZ2h0cyBhcmUgb2ZmLiBWaXNpdG9yIENlbnRlciBpcyBvcGVuIHVudGlsIDU6MDAgUE0uwqBVcGRhdGVkIDIvMjkvMTIuwqAgPC9wPg0KICAgIDxwPg0KICAgICAgPGVtPk5vdGU6IENyb3NzLWNvdW50cnkgc2tpaW5nIGF0IEh5bGFuZCBTa2kgJmFtcDsgU25vd2JvYXJkIEFyZWEgaXPCoG9wZW4gNzowMCBBTSB0byAxMDowMCBBTSBNb25kYXkgdGhyb3VnaCBGcmlkYXksIGFuZCA3OjAwIEFNIHRvIDk6MDAgQU0gd2Vla2VuZHMuPC9lbT4gPC9wPg0KICAgIDxoNT5NdXJwaHktSGFucmVoYW4gUGFyayBSZXNlcnZlPC9oNT4NCiAgICA8cD5Dcm9zcy1jb3VudHJ5IHNraSB0cmFpbHMgYXJlwqBDTE9TRUQuwqBVcGRhdGVkIDIvMjkvMTI8YnIgLz7CoDwvcD4NCiAgICA8cD4NCiAgICAgIDxzdHJvbmc+DQogICAgICAgIDxpbWcgd2lkdGg9IjEwIiBoZWlnaHQ9IjEyIiBhbHQ9ImFycm93IGdyYXBoaWMiIHNyYz0ifi9tZWRpYS9JbWFnZXMvbm90Y2gtYmx1ZS5hc2h4P3c9MTAmYW1wO2g9MTImYW1wO2FzPTEiIC8+wqBVcGNvbWluZyBTa2kgTWVldHM6PC9zdHJvbmc+IDwvcD4NCiAgICA8cD5UaGVyZSBhcmUgbm8gZnVydGhlciBIaWdoIFNjaG9vbCByYWNlcyBzY2hlZHVsZWQgZm9yIHRoZSBzZWFzb24uPC9wPmQCBw8WAh8ABRc8aDM+UGFya3MgJiBUcmFpbHM8L2gzPmQCCQ8WAh8ABYUGPGRpdiBjbGFzcz0iYmxvY2tfYm94Ij48dWwgY2xhc3M9InRleHRfbGlzdCI+PGxpPjxhIGhyZWY9Ii9wYXJrcy9iYWtlci1wYXJrLmFzcHgiPkJha2VyIFBhcmsgUmVzZXJ2ZTwvYT48L2xpPjxsaT48YSBocmVmPSIvcGFya3MvZWFnbGUtbGFrZS1wYXJrLmFzcHgiPkVhZ2xlIExha2UgUmVnaW9uYWwgUGFyazwvYT48L2xpPjxsaT48YSBocmVmPSIvcGFya3MvZ2xlbi1sYWtlLWdvbGYuYXNweCI+R2xlbiBMYWtlIEdvbGYgJiBQcmFjdGljZSBDZW50ZXI8L2E+PC9saT48L3VsPjx1bCBjbGFzcz0idGV4dF9saXN0Ij48bGk+PGEgaHJlZj0iL3BhcmtzL2NhcnZlci1wYXJrLmFzcHgiPkNhcnZlciBQYXJrIFJlc2VydmU8L2E+PC9saT48bGk+PGEgaHJlZj0iL3BhcmtzL2VsbS1jcmVlay1wYXJrLmFzcHgiPkVsbSBDcmVlayBQYXJrIFJlc2VydmU8L2E+PC9saT48bGk+PGEgaHJlZj0iL3BhcmtzL2h5bGFuZC1sYWtlLXBhcmsuYXNweCI+SHlsYW5kIExha2UgUGFyayBSZXNlcnZlPC9hPjwvbGk+PC91bD48dWwgY2xhc3M9InRleHRfbGlzdCI+PGxpPjxhIGhyZWY9Ii9wYXJrcy9jbGVhcnktbGFrZS1wYXJrLmFzcHgiPkNsZWFyeSBMYWtlIFJlZ2lvbmFsIFBhcms8L2E+PC9saT48bGk+PGEgaHJlZj0iL3BhcmtzL2ZyZW5jaC1wYXJrLmFzcHgiPkZyZW5jaCBSZWdpb25hbCBQYXJrPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9wYXJrcy9tdXJwaHktaGFucmVoYW4tcGFyay5hc3B4Ij5NdXJwaHktSGFucmVoYW4gUGFyayBSZXNlcnZlPC9hPjwvbGk+PC91bD48L2Rpdj5kAgsPFgIfAAUTPGgzPkFjdGl2aXRpZXM8L2gzPmQCDQ8WAh8ABYcCPGRpdiBjbGFzcz0iYmxvY2tfYm94Ij48dWwgY2xhc3M9Imljb25fbGlzdCI+PGxpPjxhIGhyZWY9Ii9hY3Rpdml0aWVzL2Nyb3NzLWNvdW50cnktc2tpaW5nLmFzcHgiPjxpbWcgc3JjPSJ+L21lZGlhL0FjdGl2aXR5IEljb25zL3gtY291bnRyeV9za2lpbmdfMjBweC5hc2h4IiBhbHQ9ImNyb3NzIGNvdW50cnkgc2tpaW5nIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIC8+PHNwYW4+Q3Jvc3MtY291bnRyeSBTa2lpbmc8L3NwYW4+PC9hPjwvbGk+PC91bD48L2Rpdj5kAgIPFgIfAAWRAlRoZSBQYXJrIERpc3RyaWN0J3MgZ29hbCBpcyB0byBtYWtlIGl0IHBvc3NpYmxlIGZvciBldmVyeW9uZSwgaW5jbHVkaW5nIHBlcnNvbnMgd2l0aCBkaXNhYmlsaXRpZXMsIHRvIHRha2UgYWR2YW50YWdlIG9mIHRoZSBQYXJrIERpc3RyaWN0IGFuZCBpdHMgb2ZmZXJpbmdzLiBGb3IgaW5mb3JtYXRpb24gYWJvdXQgdGhlIG1vc3QgYWNjZXNzaWJsZSBhcmVhcyBvciBmYWNpbGl0aWVzLCBjYWxsIDc2My41NTkuOTAwMCBvciA3NjMuNTU5LjY3MTkgKFRUWS9UREQpIHdlZWtkYXlzLmRkdfuveappEDpSW9YdFijQI3Ghf+Y=" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY4MzU1MDM0Nw9kFgZmD2QWAmYPZBYCZg9kFgJmDxYCHgRUZXh0BZcBPHRpdGxlPlRocmVlIFJpdmVycyBQYXJrIERpc3RyaWN0IDogQ3Jvc3MtY291bnRyeSBTa2kgVHJhaWwgQ29uZGl0aW9uczwvdGl0bGU+PG1ldGEgbmFtZT0ia2V5d29yZHMiIGNvbnRlbnQ9IiIgLz48bWV0YSBuYW1lPSJkZXNjcmlwdGlvbiIgY29udGVudD0iIiAvPmQCARBkZBYCAgcPZBYCZg9kFgJmD2QWAgIDD2QWAmYPZBYCZg9kFggCAQ8WAh8AZWQCBQ8WAh8AZWQCBw8WAh8AZWQCCQ9kFgJmD2QWAmYPZBYOAgEPFgIfAAVPPGgxPkNyb3NzLWNvdW50cnkgU2tpIFRyYWlsIENvbmRpdGlvbnM8YnIgLz48c3Bhbj5Ob3ZlbWJlciAzMCwgMjAxMjwvc3Bhbj48L2gxPmQCAw9kFgJmD2QWAmYPZBYCZg9kFgICAQ8WAh8AZWQCBQ8WAh8ABd8JDQoJCTxwPlBhcmsgaG91cnMgYXJlIDU6MDAgQU3igJMxMDowMCBQTS4gRmFjaWxpdHkgaG91cnMgdmFyeTsgc2VlIGluZGl2aWR1YWwgbGlzdGluZ3MuIEZvciBhZGRpdGlvbmFsIGluZm9ybWF0aW9uLCBjYWxsIHRoZSBUcmFpbCBIb3RsaW5lIGF0IDc2My41NTkuNjc3OC4gPC9wPg0KICAgIDxwPg0KICAgICAgPGltZyB3aWR0aD0iMTAiIGhlaWdodD0iMTIiIGFsdD0iYXJyb3cgZ3JhcGhpYyIgc3JjPSJ+L21lZGlhL0ltYWdlcy9ub3RjaC1ibHVlLmFzaHg/dz0xMCZhbXA7aD0xMiZhbXA7YXM9MSIgLz4gU2tpIHRyYWlsIG1hcHMgYXJlIGF2YWlsYWJsZSBvbiBlYWNoIHBhcmsgcGFnZS48L3A+DQogICAgPGg1PkJha2VyIFBhcmsgUmVzZXJ2ZTwvaDU+DQogICAgPHA+Q3Jvc3MtY291bnRyeSBza2kgdHJhaWxzIGFyZSBDTE9TRUQuIDwvcD4NCiAgICA8aDU+Q2FydmVyIFBhcmsgUmVzZXJ2ZTwvaDU+DQogICAgPHA+Q3Jvc3MtY291bnRyeSBza2kgdHJhaWxzIGFyZSBDTE9TRUQuIDwvcD4NCiAgICA8aDU+Q2xlYXJ5IExha2UgUmVnaW9uYWwgUGFyazwvaDU+DQogICAgPHA+Q3Jvc3MtY291bnRyeSBza2kgdHJhaWxzIGFyZSBDTE9TRUQuIDwvcD4NCiAgICA8aDU+RWFnbGUgTGFrZSBSZWdpb25hbCBQYXJrPC9oNT4NCiAgICA8cD5Dcm9zcy1jb3VudHJ5IHNraSB0cmFpbHMgYXJlIENMT1NFRC4gPC9wPg0KICAgIDxoNT5FbG0gQ3JlZWsgUGFyayBSZXNlcnZlPC9oNT4NCiAgICA8cD5BIHBvcnRpb24gb2YgdGhlIFZhbGxleSBUcmFpbMKgaXMgT1BFTiBmb3Igc2thdGUgYW5kIGNsYXNzaWMgc2tpaW5nIGFuZCBpcyBpbiBHT09EIGNvbmRpdGlvbi4gVGhlIGNoYWxldCB3aWxsIGJlIG9wZW4gZGFpbHnCoHN0YXJ0aW5nIERlYy4gMS4gVXBkYXRlZCAxMS8zMC8xMi48L3A+DQogICAgPGg1PkZyZW5jaCBSZWdpb25hbCBQYXJrPC9oNT4NCiAgICA8cD5Dcm9zcy1jb3VudHJ5IHNraSB0cmFpbHMgYXJlIENMT1NFRC4gPC9wPg0KICAgIDxoNT5HbGVuIExha2UgR29sZiBDZW50ZXI8L2g1Pg0KICAgIDxwPkNyb3NzIENvdW50cnkgc2tpIHRyYWlsIGlzIENMT1NFRC4gPC9wPg0KICAgIDxoNT5IeWxhbmQgTGFrZSBQYXJrIFJlc2VydmU8L2g1Pg0KICAgIDxwPkNyb3NzLWNvdW50cnkgc2tpIHRyYWlscyBhcmUgQ0xPU0VELiAuIDwvcD4NCiAgICA8aDU+TXVycGh5LUhhbnJlaGFuIFBhcmsgUmVzZXJ2ZTwvaDU+DQogICAgPHA+Q3Jvc3MtY291bnRyeSBza2kgdHJhaWxzIGFyZSBDTE9TRUQuIDwvcD5kAgcPFgIfAAUXPGgzPlBhcmtzICYgVHJhaWxzPC9oMz5kAgkPFgIfAAXuBjxkaXYgY2xhc3M9ImJsb2NrX2JveCI+PHVsIGNsYXNzPSJ0ZXh0X2xpc3QiPjxsaT48YSBocmVmPSIvcGFya3MvYmFrZXItcGFyay5hc3B4Ij5CYWtlciBQYXJrIFJlc2VydmU8L2E+PC9saT48bGk+PGEgaHJlZj0iL3BhcmtzL2VhZ2xlLWxha2UtcGFyay5hc3B4Ij5FYWdsZSBMYWtlIFJlZ2lvbmFsIFBhcms8L2E+PC9saT48bGk+PGEgaHJlZj0iL3BhcmtzL2dsZW4tbGFrZS1nb2xmLmFzcHgiPkdsZW4gTGFrZSBHb2xmICYgUHJhY3RpY2UgQ2VudGVyPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9wYXJrcy9lbG0tY3JlZWstcGFyay93aW50ZXItcmVjcmVhdGlvbi1hcmVhLmFzcHgiPkVsbSBDcmVlayBXaW50ZXIgUmVjcmVhdGlvbiBBcmVhPC9hPjwvbGk+PC91bD48dWwgY2xhc3M9InRleHRfbGlzdCI+PGxpPjxhIGhyZWY9Ii9wYXJrcy9jYXJ2ZXItcGFyay5hc3B4Ij5DYXJ2ZXIgUGFyayBSZXNlcnZlPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9wYXJrcy9lbG0tY3JlZWstcGFyay5hc3B4Ij5FbG0gQ3JlZWsgUGFyayBSZXNlcnZlPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9wYXJrcy9oeWxhbmQtbGFrZS1wYXJrLmFzcHgiPkh5bGFuZCBMYWtlIFBhcmsgUmVzZXJ2ZTwvYT48L2xpPjwvdWw+PHVsIGNsYXNzPSJ0ZXh0X2xpc3QiPjxsaT48YSBocmVmPSIvcGFya3MvY2xlYXJ5LWxha2UtcGFyay5hc3B4Ij5DbGVhcnkgTGFrZSBSZWdpb25hbCBQYXJrPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9wYXJrcy9mcmVuY2gtcGFyay5hc3B4Ij5GcmVuY2ggUmVnaW9uYWwgUGFyazwvYT48L2xpPjxsaT48YSBocmVmPSIvcGFya3MvbXVycGh5LWhhbnJlaGFuLXBhcmsuYXNweCI+TXVycGh5LUhhbnJlaGFuIFBhcmsgUmVzZXJ2ZTwvYT48L2xpPjwvdWw+PC9kaXY+ZAILDxYCHwAFEzxoMz5BY3Rpdml0aWVzPC9oMz5kAg0PFgIfAAWHAjxkaXYgY2xhc3M9ImJsb2NrX2JveCI+PHVsIGNsYXNzPSJpY29uX2xpc3QiPjxsaT48YSBocmVmPSIvYWN0aXZpdGllcy9jcm9zcy1jb3VudHJ5LXNraWluZy5hc3B4Ij48aW1nIHNyYz0ifi9tZWRpYS9BY3Rpdml0eSBJY29ucy94LWNvdW50cnlfc2tpaW5nXzIwcHguYXNoeCIgYWx0PSJjcm9zcyBjb3VudHJ5IHNraWluZyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiAvPjxzcGFuPkNyb3NzLWNvdW50cnkgU2tpaW5nPC9zcGFuPjwvYT48L2xpPjwvdWw+PC9kaXY+ZAICDxYCHwAFkQJUaGUgUGFyayBEaXN0cmljdCdzIGdvYWwgaXMgdG8gbWFrZSBpdCBwb3NzaWJsZSBmb3IgZXZlcnlvbmUsIGluY2x1ZGluZyBwZXJzb25zIHdpdGggZGlzYWJpbGl0aWVzLCB0byB0YWtlIGFkdmFudGFnZSBvZiB0aGUgUGFyayBEaXN0cmljdCBhbmQgaXRzIG9mZmVyaW5ncy4gRm9yIGluZm9ybWF0aW9uIGFib3V0IHRoZSBtb3N0IGFjY2Vzc2libGUgYXJlYXMgb3IgZmFjaWxpdGllcywgY2FsbCA3NjMuNTU5LjkwMDAgb3IgNzYzLjU1OS42NzE5IChUVFkvVEREKSB3ZWVrZGF5cy5kZPEUF59Y6GWmUWoKO2Sum8xeBFgs" />
 </div>
 
 			<div id="skip"><a href="#skipcontent">Skip to Content</a></div>
@@ -59,7 +59,6 @@
 			<div id="header">
 				<div id="logo"><a href="/"><img width="145" height="74" alt="Three Rivers Park District" src="/assets/logo.gif" /></a></div>
 				<div id="header_links"><a href="/account.aspx">Your Account</a> | <a href="/newsletters.aspx">Newsletters</a> | <a href="/help.aspx">Help</a><br />
-
 				<div id="LoginHeaderPanel">
 	
 					<span id="webtrac_name"></span> <a id="webtrac_login" onclick="onIntegrationClick('wb1000');">Login</a> or <a onclick="onRegisterIntegrationClick('wbsa0100');">Create an Account</a></div>
@@ -69,14 +68,12 @@
 				<div id="globalsearch">
 					<span class="formlabel">Search</span>
 					<input class="inputbox" id="search" type="text" value="keyword or event ID" name="search" />
-
 					<img src="/assets/go_btn.jpg" alt="Go" width="32" height="31" class="gobutton" />
 				</div>
 				<div id="nav">
 					<ul>
 	<li><a class="navfirst" href="/">Home</a></li><li><a href="/parks.aspx">Parks & Trails</a></li><li><a href="/activities.aspx">Activities</a></li><li><a class="navlast" href="/events.aspx">Events</a></li><li><a class="navcart" onclick="onIntegrationClick('wbsa0300');">My Cart</a></li>
 </ul>
-
 				</div>
 			</div>
 			<!-- end of header -->
@@ -85,7 +82,6 @@
 				
 <div id="breadcrumbs">
 	<a href="/">Home</a>&nbsp;:&nbsp;<a href="/news.aspx">News</a>&nbsp;:&nbsp;Cross-country Ski Trail Conditions
-
 </div>
 <div id="content">
 	
@@ -101,9 +97,8 @@
 		
 	</div>
 	
-
 <div class="news_article">
-	<h1>Cross-country Ski Trail Conditions<br /><span>February 29, 2012</span></h1>
+	<h1>Cross-country Ski Trail Conditions<br /><span>November 30, 2012</span></h1>
 	<div class="imageR">
 		<div id="content_0_genericsublayoutcontent_0_contentstandard_0_mediaitems_0_MediaPanel">
 	
@@ -193,44 +188,32 @@
 </div>
 
 	</div>
-
 	
 		<p>Park hours are 5:00 AM–10:00 PM. Facility hours vary; see individual listings. For additional information, call the Trail Hotline at 763.559.6778. </p>
     <p>
       <img width="10" height="12" alt="arrow graphic" src="~/media/Images/notch-blue.ashx?w=10&amp;h=12&amp;as=1" /> Ski trail maps are available on each park page.</p>
     <h5>Baker Park Reserve</h5>
-    <p>Trails are not packed or tracked, and in POOR condition. No rentals available.  Updated 2/29/12</p>
+    <p>Cross-country ski trails are CLOSED. </p>
     <h5>Carver Park Reserve</h5>
-
-    <p>Trails are not packed or tracked, and in POOR condition.  No rentals available.  Updated 2/29/12</p>
+    <p>Cross-country ski trails are CLOSED. </p>
     <h5>Cleary Lake Regional Park</h5>
-    <p>The Poplar and Lakeside trails are not packed or tracked, and in Poor condition. Lights are on. No rentals available. Visitor Center open until 5:00 PM. Updated 2/29/12</p>
+    <p>Cross-country ski trails are CLOSED. </p>
     <h5>Eagle Lake Regional Park</h5>
-    <p>Cross-country ski trails are CLOSED. Updated 2/29/12</p>
+    <p>Cross-country ski trails are CLOSED. </p>
     <h5>Elm Creek Park Reserve</h5>
-
-    <p>The Valley trail and Lesson area are packed, tracked and in GOOD condition for both skating and traditional. Outer trails may be packed later tonight.  Lights are on. Rentals are available. Chalet is open from 9:00 AM to 9:00 PM.  Updated 2/29/12</p>
+    <p>A portion of the Valley Trail is OPEN for skate and classic skiing and is in GOOD condition. The chalet will be open daily starting Dec. 1. Updated 11/30/12.</p>
     <h5>French Regional Park</h5>
-    <p>Trails are not packed or tracked, and in POOR condition. Sliding hill is CLOSED. Lights are on. Visitor Center is open until 5:00 PM.  No rentals available. Updated 2/29/12</p>
+    <p>Cross-country ski trails are CLOSED. </p>
     <h5>Glen Lake Golf Center</h5>
-    <p>Cross-country ski trail is CLOSED. Updated 2/29/12</p>
+    <p>Cross Country ski trail is CLOSED. </p>
     <h5>Hyland Lake Park Reserve</h5>
-
-    <p>Cross-country ski trails are CLOSED. Sliding Hill CLOSED. Lights are off. Visitor Center is open until 5:00 PM. Updated 2/29/12.  </p>
-    <p>
-      <em>Note: Cross-country skiing at Hyland Ski &amp; Snowboard Area is open 7:00 AM to 10:00 AM Monday through Friday, and 7:00 AM to 9:00 AM weekends.</em> </p>
+    <p>Cross-country ski trails are CLOSED. . </p>
     <h5>Murphy-Hanrehan Park Reserve</h5>
-    <p>Cross-country ski trails are CLOSED. Updated 2/29/12<br /> </p>
-
-    <p>
-      <strong>
-        <img width="10" height="12" alt="arrow graphic" src="~/media/Images/notch-blue.ashx?w=10&amp;h=12&amp;as=1" /> Upcoming Ski Meets:</strong> </p>
-    <p>There are no further High School races scheduled for the season.</p>
+    <p>Cross-country ski trails are CLOSED. </p>
 </div>
 <div class="clear"></div>
 <h3>Parks & Trails</h3>
-<div class="block_box"><ul class="text_list"><li><a href="/parks/baker-park.aspx">Baker Park Reserve</a></li><li><a href="/parks/eagle-lake-park.aspx">Eagle Lake Regional Park</a></li><li><a href="/parks/glen-lake-golf.aspx">Glen Lake Golf & Practice Center</a></li></ul><ul class="text_list"><li><a href="/parks/carver-park.aspx">Carver Park Reserve</a></li><li><a href="/parks/elm-creek-park.aspx">Elm Creek Park Reserve</a></li><li><a href="/parks/hyland-lake-park.aspx">Hyland Lake Park Reserve</a></li></ul><ul class="text_list"><li><a href="/parks/cleary-lake-park.aspx">Cleary Lake Regional Park</a></li><li><a href="/parks/french-park.aspx">French Regional Park</a></li><li><a href="/parks/murphy-hanrehan-park.aspx">Murphy-Hanrehan Park Reserve</a></li></ul></div>
-
+<div class="block_box"><ul class="text_list"><li><a href="/parks/baker-park.aspx">Baker Park Reserve</a></li><li><a href="/parks/eagle-lake-park.aspx">Eagle Lake Regional Park</a></li><li><a href="/parks/glen-lake-golf.aspx">Glen Lake Golf & Practice Center</a></li><li><a href="/parks/elm-creek-park/winter-recreation-area.aspx">Elm Creek Winter Recreation Area</a></li></ul><ul class="text_list"><li><a href="/parks/carver-park.aspx">Carver Park Reserve</a></li><li><a href="/parks/elm-creek-park.aspx">Elm Creek Park Reserve</a></li><li><a href="/parks/hyland-lake-park.aspx">Hyland Lake Park Reserve</a></li></ul><ul class="text_list"><li><a href="/parks/cleary-lake-park.aspx">Cleary Lake Regional Park</a></li><li><a href="/parks/french-park.aspx">French Regional Park</a></li><li><a href="/parks/murphy-hanrehan-park.aspx">Murphy-Hanrehan Park Reserve</a></li></ul></div>
 <h3>Activities</h3>
 <div class="block_box"><ul class="icon_list"><li><a href="/activities/cross-country-skiing.aspx"><img src="~/media/Activity Icons/x-country_skiing_20px.ashx" alt="cross country skiing" width="20" height="20" /><span>Cross-country Skiing</span></a></li></ul></div>
 </div>
@@ -241,7 +224,6 @@
 			<div class="clear"></div>
 		</form>
 	</div>
-
 	<!-- end of container -->
 	<!-- start of footer -->
 	<div id="print_footer">
@@ -249,22 +231,20 @@
 		<p>The Park District's goal is to make it possible for everyone, including persons with disabilities, to take advantage of the Park District and its offerings. For information about the most accessible areas or facilities, call 763.559.9000 or 763.559.6719 (TTY/TDD) weekdays.</p>
 	</div>
 	<div id="footer">
-		<div id="footer_content"><a href="/about.aspx">About</a> | <a href="/news.aspx">News</a> | <a href="/natural-resources.aspx">Natural Resources</a> | <a href="/employment.aspx">Employment</a> | <a href="/volunteer.aspx">Volunteer</a> | <a href="/group-gathering-places.aspx">Gathering Places</a> | <a href="/contact.aspx">Contact</a>
-
+		<div id="footer_content"><a href="/about.aspx">About Us</a> | <a href="/news.aspx">News</a> | <a href="/natural-resources.aspx">Natural Resources</a> | <a href="/employment.aspx">Employment</a> | <a href="/volunteer.aspx">Volunteer</a> | <a href="/group-gathering-places.aspx">Gathering Places</a> | <a href="/contact.aspx">Contact</a>
 			<div class="copyright">&copy;2012 Three Rivers Parks. All Rights Reserved.</div>
 		</div>
 		
 	</div>
 	<!-- end of footer -->
 	
-	<script type="text/javascript" src="/scripts/common.js"></script>
-	<script type="text/javascript" src="/scripts/sitecore.js"></script>
+	<script type="text/javascript" src="/scripts/common.js?20120910b"></script>
+	<script type="text/javascript" src="/scripts/sitecore.js?20120910b"></script>
 
 	<script type="text/javascript">
 	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 	</script>
-
 	<script type="text/javascript">
 	try {
 	var pageTracker = _gat._getTracker("UA-9116076-1");

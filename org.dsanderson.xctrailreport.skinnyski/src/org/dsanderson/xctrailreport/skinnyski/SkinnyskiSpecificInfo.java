@@ -72,6 +72,14 @@ public class SkinnyskiSpecificInfo implements ISourceSpecificTrailInfo {
 					+ trailIndex;
 	}
 
+	public String getRequestUrl() {
+		if (trailIndex < 0)
+			return null;
+		else
+			return "http://www.skinnyski.com/trails/trailreportrequest.asp?trailId="
+					+ trailIndex;
+	}
+
 	public void setTrailIndex(int index) {
 		trailIndex = index;
 	}
@@ -98,7 +106,9 @@ public class SkinnyskiSpecificInfo implements ISourceSpecificTrailInfo {
 			trailIndex = ((SkinnyskiSpecificInfo) newInfo).getTrailIndex();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo#newItem()
 	 */
 	@Override
@@ -106,8 +116,12 @@ public class SkinnyskiSpecificInfo implements ISourceSpecificTrailInfo {
 		return SkinnyskiFactory.getInstance().getTrailInfoPool().newItem();
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo#recycleItem(org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo#recycleItem
+	 * (org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo)
 	 */
 	@Override
 	public void deleteItem() {

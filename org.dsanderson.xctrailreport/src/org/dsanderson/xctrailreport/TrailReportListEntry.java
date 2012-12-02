@@ -21,7 +21,6 @@ package org.dsanderson.xctrailreport;
 
 import org.dsanderson.android.util.FixedImageItem;
 import org.dsanderson.android.util.HiddenTextField;
-import org.dsanderson.android.util.LabelledFixedImage;
 import org.dsanderson.android.util.TextItem;
 import org.dsanderson.util.IImageItem;
 import org.dsanderson.util.ITextItem;
@@ -44,11 +43,11 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 	TextItem detailedItem = null;
 	TextItem authorItem = null;
 	HiddenTextField photosetItem = null;
-	LabelledFixedImage allReportsImageItem = null;
-	LabelledFixedImage mapImageItem = null;
-	LabelledFixedImage composeImageItem = null;
-	LabelledFixedImage trailInfoImageItem = null;
+	TextItem sourceItem = null;
+	FixedImageItem mapImageItem = null;
+	FixedImageItem moreImageItem = null;
 	FixedImageItem photosetImageItem = null;
+	FixedImageItem trailInfoImageItem = null;
 
 	public TrailReportListEntry(ViewGroup viewGroup) {
 		this.viewGroup = viewGroup;
@@ -67,6 +66,8 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 		getDetailedConditionsTextItem().draw();
 		getAuthorTextItem().draw();
 		getPhotosetTextItem().draw();
+		getSourceTextItem().draw();
+		getPhotosetImageItem().draw();
 	}
 
 	/*
@@ -184,7 +185,6 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 		if (visible)
 			visibility = View.VISIBLE;
 		viewGroup.findViewById(R.id.titleGroup).setVisibility(visibility);
-		viewGroup.findViewById(R.id.titleButtonTable).setVisibility(visibility);
 	}
 
 	/*
@@ -194,30 +194,37 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 	 * getSourceTextItem()
 	 */
 	public ITextItem getSourceTextItem() {
-		return null;
+		if (sourceItem == null) {
+			sourceItem = new TextItem(
+					(TextView) viewGroup.findViewById(R.id.sourceView));
+		}
+		return sourceItem;
 	}
 
 	public IImageItem getMapImageItem() {
 		if (mapImageItem == null)
-			mapImageItem = new LabelledFixedImage(
-					(ImageView) viewGroup.findViewById(R.id.mapButton),
-					(TextView) viewGroup.findViewById(R.id.mapButtonLabel));
+			mapImageItem = new FixedImageItem(
+					(ImageView) viewGroup.findViewById(R.id.mapButton));
+
+		mapImageItem.setGoneWhenHidden(true);
+
 		return mapImageItem;
 	}
 
-	public IImageItem getComposeImageItem() {
-		if (composeImageItem == null)
-			composeImageItem = new LabelledFixedImage(
-					(ImageView) viewGroup.findViewById(R.id.composeButton),
-					(TextView) viewGroup.findViewById(R.id.composeLabel));
-		return composeImageItem;
+	public IImageItem getMoreImageItem() {
+		if (moreImageItem == null)
+			moreImageItem = new FixedImageItem(
+					(ImageView) viewGroup.findViewById(R.id.reportMoreButton));
+
+		moreImageItem.setGoneWhenHidden(true);
+		return moreImageItem;
 	}
 
 	public IImageItem getTrailInfoImageItem() {
 		if (trailInfoImageItem == null)
-			trailInfoImageItem = new LabelledFixedImage(
-					(ImageView) viewGroup.findViewById(R.id.trailInfoButton),
-					(TextView) viewGroup.findViewById(R.id.trailInfoLabel));
+			trailInfoImageItem = new FixedImageItem(
+					(ImageView) viewGroup.findViewById(R.id.infoButton));
+		trailInfoImageItem.setGoneWhenHidden(true);
 		return trailInfoImageItem;
 	}
 }

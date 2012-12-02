@@ -47,7 +47,7 @@ public interface ITrailReportListEntry {
 	
 	IImageItem getMapImageItem();
 	
-	IImageItem getComposeImageItem();
+	IImageItem getMoreImageItem();
 	
 	IImageItem getTrailInfoImageItem();
 

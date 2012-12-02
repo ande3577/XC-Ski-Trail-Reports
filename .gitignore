@@ -1,4 +1,4 @@
 *.apk
 /bin/
 *.class
-
+bin

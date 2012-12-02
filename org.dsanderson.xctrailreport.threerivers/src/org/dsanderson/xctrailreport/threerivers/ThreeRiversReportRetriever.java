@@ -65,7 +65,7 @@ public class ThreeRiversReportRetriever implements IReportRetriever {
 				TrailReport newTrailReport = scanner.getTrailReport();
 				TrailInfo newTrailInfo = scanner.getTrailInfo();
 
-				trailInfos.mergeIntoList(newTrailInfo);
+				newTrailInfo = trailInfos.mergeIntoList(newTrailInfo);
 
 				newTrailReport.setTrailInfo(newTrailInfo);
 				newTrailReport.setSource(ThreeRiversFactory.SOURCE_NAME);

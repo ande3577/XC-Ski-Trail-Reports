@@ -27,6 +27,7 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 
 /**
@@ -73,8 +74,9 @@ public class LocationSource implements ILocationSource {
 
 		// Register the listener with the Location Manager to receive location
 		// updates
-		locationManager.requestLocationUpdates(
-				LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+		if (!Build.FINGERPRINT.startsWith("generic"))
+			locationManager.requestLocationUpdates(
+					LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
 
 		List<String> providers = locationManager.getProviders(true);
 
@@ -114,8 +116,12 @@ public class LocationSource implements ILocationSource {
 		return hasNewLocation;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dsanderson.xctrailreport.core.ILocationSource#setLocation(java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dsanderson.xctrailreport.core.ILocationSource#setLocation(java.lang
+	 * .String)
 	 */
 	public void setLocation(String location) {
 		this.location = location;

@@ -3,12 +3,13 @@ package org.dsanderson.xctrailreport;
 import org.dsanderson.xctrailreport.core.IDecoratorFactory;
 import org.dsanderson.xctrailreport.decorators.AuthorDecorator;
 import org.dsanderson.xctrailreport.decorators.CityStateDecorator;
-import org.dsanderson.xctrailreport.decorators.ComposeButtonDecorator;
 import org.dsanderson.xctrailreport.decorators.DateDecorator;
 import org.dsanderson.xctrailreport.decorators.DetailedReportDecorator;
 import org.dsanderson.xctrailreport.decorators.DistanceDecorator;
 import org.dsanderson.xctrailreport.decorators.MapButtonDecorator;
+import org.dsanderson.xctrailreport.decorators.MoreButtonDecorator;
 import org.dsanderson.xctrailreport.decorators.PhotosetDecorator;
+import org.dsanderson.xctrailreport.decorators.SourceDecorator;
 import org.dsanderson.xctrailreport.decorators.SummaryDecorator;
 import org.dsanderson.xctrailreport.decorators.TimeDecorator;
 import org.dsanderson.xctrailreport.decorators.TrailInfoButtonDecorator;
@@ -19,17 +20,14 @@ public class ReportDecoratorFactory implements IDecoratorFactory {
 	static ReportDecoratorFactory instance = null;
 	TrailReportDecorator infoDecorator = null;
 	TrailReportDecorator reportDecorator = null;
-	
-	private ReportDecoratorFactory() {
-	}
-	
+
 	static public ReportDecoratorFactory getInstance() {
 		if (instance == null)
 			instance = new ReportDecoratorFactory();
-		
+
 		return instance;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -43,8 +41,8 @@ public class ReportDecoratorFactory implements IDecoratorFactory {
 			infoDecorator.add(new CityStateDecorator());
 			infoDecorator.add(new DistanceDecorator());
 			infoDecorator.add(new MapButtonDecorator());
-			infoDecorator.add(new ComposeButtonDecorator());
-			infoDecorator.add(new TrailInfoButtonDecorator());
+			infoDecorator.add(new MoreButtonDecorator());
+			infoDecorator.add(new TrailInfoButtonDecorator(TrailReportFactory.getInstance()));
 		}
 
 		return infoDecorator;
@@ -65,6 +63,7 @@ public class ReportDecoratorFactory implements IDecoratorFactory {
 			reportDecorator.add(new DetailedReportDecorator());
 			reportDecorator.add(new AuthorDecorator());
 			reportDecorator.add(new PhotosetDecorator());
+			reportDecorator.add(new SourceDecorator());
 		}
 
 		return reportDecorator;

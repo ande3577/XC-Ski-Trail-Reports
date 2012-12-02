@@ -42,7 +42,7 @@ public class SourceDecorator extends TrailReportDecorator {
 		String text = "";
 
 		if (trailReport.getSource().length() > 0) {
-			text = "(" + trailReport.getSource() + ")";
+			text = " (" + trailReport.getSource() + ")";
 		} else {
 		}
 

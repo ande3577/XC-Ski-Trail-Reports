@@ -30,6 +30,7 @@ import org.dsanderson.android.util.GenericDatabase;
 import org.dsanderson.android.util.IDatabaseObjectFactory;
 import org.dsanderson.android.util.LocationCoder;
 import org.dsanderson.android.util.QuickDistanceSource;
+import org.dsanderson.android.util.TextItem;
 import org.dsanderson.android.util.UrlConnection;
 import org.dsanderson.util.ICompoundLocationSource;
 import org.dsanderson.util.IDialog;
@@ -52,14 +53,14 @@ import org.dsanderson.xctrailreport.core.android.TrailReportDatabaseFactory;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.threerivers.ThreeRiversFactory;
 
-import android.content.Context;
+import android.app.Activity;
 
 /**
  * 
  */
 public class TrailReportFactory implements IAbstractFactory {
 	static TrailReportFactory factory = null;
-	Context context;
+	Activity context;
 	SkinnyskiAndroidFactory skinnyskiFactory = null;
 	ThreeRiversFactory threeRiversFactory = null;
 	UrlConnection netConnection = null;
@@ -75,8 +76,9 @@ public class TrailReportFactory implements IAbstractFactory {
 	TrailInfoDatabaseFactory trailInfoDatabaseFactory = null;
 	TrailReportReaderFactory trailReportReaderFactory = null;
 	TrailReportDatabaseFactory trailReportDatabaseFactory = null;
+	TextItem dateText = null;
 
-	public TrailReportFactory(Context context) {
+	public TrailReportFactory(Activity context) {
 		assert (factory == null);
 		factory = this;
 		this.context = context;
@@ -371,4 +373,5 @@ public class TrailReportFactory implements IAbstractFactory {
 		UserSettings settings = getUserSettings();
 		trailReports.sort(settings);
 	}
+
 }

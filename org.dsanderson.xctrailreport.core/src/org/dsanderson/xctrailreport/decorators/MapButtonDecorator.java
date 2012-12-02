@@ -12,7 +12,7 @@ public class MapButtonDecorator extends ButtonDecorator {
 		if (info == null)
 			return false;
 		String location = info.getLocation();
-		return (location != null) && (location.length() > 0);
+		return (location != null) && (location.length() > 0) && info.getSpecificLocation();
 	}
 
 	@Override

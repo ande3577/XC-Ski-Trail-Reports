@@ -179,5 +179,5 @@ public class TrailInfo extends DatabaseObject {
 				existingSpecific.merge(newSpecific);
 		}
 	}
-
+	
 }

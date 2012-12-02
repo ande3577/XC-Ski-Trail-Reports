@@ -53,6 +53,7 @@ public class ScannerTest {
 			}
 		} catch (Exception e) {
 			System.err.println(e);
+			e.printStackTrace(System.err);
 		} finally {
 			try {
 				fileStream.close();

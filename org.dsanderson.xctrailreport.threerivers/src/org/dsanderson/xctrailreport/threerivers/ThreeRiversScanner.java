@@ -19,10 +19,15 @@
  */
 package org.dsanderson.xctrailreport.threerivers;
 
+import java.io.Console;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
+import java.util.concurrent.locks.ReentrantReadWriteLock.ReadLock;
 
 import org.dsanderson.xctrailreport.core.ReportDate;
 import org.dsanderson.xctrailreport.core.TrailInfo;
@@ -36,16 +41,18 @@ import org.dsanderson.xctrailreport.core.TrailReportPool;
 public class ThreeRiversScanner {
 	private final TrailReportPool trailReportPool;
 	private final TrailInfoPool trailInfoPool;
-	private final SimpleDateFormat dateFormat = new SimpleDateFormat("M/d/yy");
+	private final SimpleDateFormat dateFormat = new SimpleDateFormat("MMMMMMMMM dd, yyyy");
 	private Scanner scanner;
 	private TrailReport trailReport;
 	private TrailInfo trailInfo;
+	private ReportDate reportDate;
 
 	public ThreeRiversScanner(InputStream stream, TrailReportPool reportPool,
-			TrailInfoPool infoPool) {
+			TrailInfoPool infoPool) throws ParseException {
 		trailReportPool = reportPool;
 		trailInfoPool = infoPool;
 		scanner = new Scanner(stream);
+		scanDate();
 	}
 
 	public TrailReport getTrailReport() {
@@ -54,6 +61,22 @@ public class ThreeRiversScanner {
 
 	public TrailInfo getTrailInfo() {
 		return trailInfo;
+	}
+
+	private void scanDate() throws ParseException {
+		String dateString = scanner.findWithinHorizon(
+				"\\Q<h1>Cross-country Ski Trail Conditions<br /><span>\\E", 0);
+		if (dateString != null) {
+			dateString = scanner.nextLine();
+			dateString = dateString.split("\\Q</span></h1>\\E")[0];
+		}
+		System.out.println("dateString = " + dateString);
+		Date date = dateFormat.parse(dateString);
+		date.setHours(23);
+		date.setMinutes(59);
+		date.setSeconds(59);
+		reportDate = new ReportDate(date);
+		reportDate.setTimeValid(false);
 	}
 
 	public boolean scanRegion() throws Exception {
@@ -82,7 +105,7 @@ public class ThreeRiversScanner {
 		trailInfo = trailInfoPool.newItem();
 
 		scanName();
-		scanSummaryAndDate();
+		scanSummary();
 		// scanDetailed();
 	}
 
@@ -93,7 +116,8 @@ public class ThreeRiversScanner {
 			trailInfo.setName(split[0].trim());
 	}
 
-	private void scanSummaryAndDate() {
+	private void scanSummary() {
+		trailReport.setDate(reportDate);
 		String line;
 		do {
 			line = scanner.nextLine();
@@ -104,19 +128,6 @@ public class ThreeRiversScanner {
 		split = split[1].split("\\QUpdated \\E");
 		if (split.length > 0)
 			trailReport.setSummary(split[0]);
-		if (split.length > 1) {
-			split = split[1].split("\\Q</p>\\E");
-			if (split.length > 0) {
-				try {
-					Date date = dateFormat.parse(split[0]);
-					if (date != null)
-						trailReport.setDate(new ReportDate(date.getTime()));
-				} catch (Exception e) {
-					System.err.println(e);
-				}
-			}
-		}
-
 	}
 
 	private void scanDetailed() {

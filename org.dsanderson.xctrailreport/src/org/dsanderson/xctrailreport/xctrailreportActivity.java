@@ -1,9 +1,14 @@
 package org.dsanderson.xctrailreport;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.dsanderson.xctrailreport.R;
 import org.dsanderson.xctrailreport.application.ReportListCreator;
+import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfo;
+import org.dsanderson.xctrailreport.core.TrailInfoSources;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
@@ -12,25 +17,27 @@ import org.dsanderson.android.util.AndroidProgressBar;
 import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.Maps;
 import org.dsanderson.xctrailreport.skinnyski.SkinnyskiFactory;
+import org.dsanderson.xctrailreport.skinnyski.SkinnyskiSpecificInfo;
 
-import android.annotation.TargetApi;
-import android.app.ActionBar;
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
 import android.app.AlertDialog;
-import android.app.LauncherActivity;
-import android.app.ListActivity;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class xctrailreportActivity extends ListActivity {
+public class xctrailreportActivity extends SherlockListActivity {
 
 	private TrailReportList trailReports;
 	private TrailReportFactory factory = new TrailReportFactory(this);
@@ -56,15 +63,96 @@ public class xctrailreportActivity extends ListActivity {
 		refresh(false);
 	}
 
-	@TargetApi(11)
 	@Override
-	protected void onStart() {
-		super.onStart();
-		int versionNumber = Integer.valueOf(android.os.Build.VERSION.SDK_INT);
-		if (versionNumber >= Build.VERSION_CODES.HONEYCOMB) {
-			ActionBar actionBar = this.getActionBar();
-			actionBar.setDisplayHomeAsUpEnabled(true);
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getSherlock().getMenuInflater();
+		inflater.inflate(R.menu.mainmenu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.preferencesMenuItem: {
+			openPreferencesMenu();
 		}
+			break;
+		case R.id.refresh:
+			refresh(true);
+			break;
+		case R.id.aboutMenuItem: {
+			openAbout();
+		}
+			break;
+		case R.id.composeMain: {
+			ISourceSpecificFactory skinnyskiFactory = factory
+					.getSourceSpecificFactory("Skinnyski");
+			if (skinnyskiFactory != null)
+				launchUrl(skinnyskiFactory.getDefaultComposeUrl());
+		}
+			break;
+		case R.id.request: {
+			ISourceSpecificFactory skinnyskiFactory = factory
+					.getSourceSpecificFactory("Skinnyski");
+			if (skinnyskiFactory != null)
+				launchUrl(skinnyskiFactory.getDefaultRequestUrl());
+		}
+			break;
+		case R.id.sortBy:
+			MenuItem distance = item.getSubMenu().getItem(0).setChecked(false);
+			MenuItem date = item.getSubMenu().getItem(1).setChecked(false);
+			MenuItem duration = item.getSubMenu().getItem(2).setChecked(false);
+			MenuItem photoset = item.getSubMenu().getItem(3).setChecked(false);
+
+			switch (factory.userSettings.getSortMethod()) {
+			case SORT_BY_DISTANCE:
+				distance.setChecked(true);
+				break;
+			case SORT_BY_DATE:
+				date.setChecked(true);
+				break;
+			case SORT_BY_DURATION:
+				duration.setChecked(true);
+				break;
+			case SORT_BY_PHOTOSET:
+				photoset.setChecked(true);
+				break;
+			default:
+				break;
+			}
+			break;
+		case R.id.sortByDuration:
+		case R.id.sortByDate:
+		case R.id.sortByDistance:
+		case R.id.sortByPhotoset:
+
+			String sortMethodString = "";
+
+			switch (item.getItemId()) {
+			case R.id.sortByDuration:
+				sortMethodString = "sortByDuration";
+				break;
+			case R.id.sortByDate:
+				sortMethodString = "sortByDate";
+				break;
+			case R.id.sortByDistance:
+				sortMethodString = "sortByDistance";
+				break;
+			case R.id.sortByPhotoset:
+				sortMethodString = "sortByPhotoset";
+				break;
+			}
+
+			Editor edit = PreferenceManager.getDefaultSharedPreferences(
+					getApplication()).edit();
+			edit.putString("sortMethod", sortMethodString);
+			edit.commit();
+			break;
+		default:
+			Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+			break;
+		}
+		return true;
 	}
 
 	// / Launch Preference activity
@@ -116,58 +204,9 @@ public class xctrailreportActivity extends ListActivity {
 						this)).execute();
 	}
 
-	public void onSortButtonClick(View v) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("Sort Order");
-
-		String initialSortMethod = "";
-		switch (factory.userSettings.getSortMethod()) {
-		case SORT_BY_DISTANCE:
-			initialSortMethod = "sortByDistance";
-			break;
-		default:
-		case SORT_BY_DATE:
-			initialSortMethod = "sortByDate";
-			break;
-		case SORT_BY_DURATION:
-			initialSortMethod = "sortByDuration";
-			break;
-		case SORT_BY_PHOTOSET:
-			initialSortMethod = "sortByPhotoset";
-			break;
-		}
-
-		String methods[] = getResources().getStringArray(R.array.sortMethods);
-		int methodIndex = -1;
-		for (int i = 0; i < methods.length; i++) {
-			if (initialSortMethod.equals(methods[i])) {
-				methodIndex = i;
-			}
-		}
-
-		builder.setSingleChoiceItems(R.array.sortMethodNames, methodIndex,
-				new DialogInterface.OnClickListener() {
-
-					public void onClick(DialogInterface dialog, int which) {
-						Editor edit = PreferenceManager
-								.getDefaultSharedPreferences(getApplication())
-								.edit();
-						String methods[] = getResources().getStringArray(
-								R.array.sortMethods);
-						String sortMethodString = methods[which];
-						edit.putString("sortMethod", sortMethodString);
-						edit.commit();
-						dialog.dismiss();
-					}
-				});
-		builder.show();
-	}
-
 	private TrailInfo infoFromButton(View view) {
-		ViewGroup linearLayout = (ViewGroup) view.getParent();
-		ViewGroup tableRow = (ViewGroup) linearLayout.getParent();
-		ViewGroup table = (ViewGroup) tableRow.getParent();
-		ViewGroup parentView = (ViewGroup) table.getParent();
+		ViewGroup buttonLayout = (ViewGroup) view.getParent();
+		ViewGroup parentView = (ViewGroup) buttonLayout.getParent();
 
 		String trailName = ((TextView) parentView
 				.findViewById(R.id.trailNameView)).getText().toString();
@@ -195,34 +234,93 @@ public class xctrailreportActivity extends ListActivity {
 		}
 	}
 
-	public void onComposeMainButtonClick(View view) {
-		AndroidIntent.launchIntent(
-				factory.skinnyskiFactory.getDefaultComposeUrl(), this);
-	}
-
 	public void onInfoButtonClick(View view) {
 		TrailInfo info = infoFromButton(view);
 		if (info == null)
 			return;
-		ISourceSpecificTrailInfo sourceSpecific = info
-				.getSourceSpecificInfo(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME);
-		if (sourceSpecific != null) {
-			String trailInfoUrl = sourceSpecific.getTrailInfoUrl();
+
+		final TrailInfoSources trailInfoSources = new TrailInfoSources(factory,
+				info);
+		if (trailInfoSources.isEmpty())
+			return;
+
+		final String[] sourceNames = trailInfoSources.getTrailInfoSources();
+
+		if (trailInfoSources.size() == 1) {
+			String trailInfoUrl = trailInfoSources
+					.getTrailInfoUrl(sourceNames[0]);
 			if (trailInfoUrl != null && trailInfoUrl.length() > 0)
-				AndroidIntent.launchIntent(trailInfoUrl, this);
+				launchUrl(trailInfoUrl);
+		} else {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle(info.getName() + " Trail Info");
+			builder.setItems(sourceNames, new OnClickListener() {
+
+				public void onClick(DialogInterface dialog, int which) {
+					if (which >= sourceNames.length)
+						return;
+
+					launchUrl(trailInfoSources
+							.getTrailInfoUrl(sourceNames[which]));
+
+					dialog.dismiss();
+				}
+			});
+			builder.show();
 		}
 	}
 
-	public void onSettingsButtonClick(View v) {
-		openPreferencesMenu();
-	}
+	public void onReportMoreButtonClick(final View v) {
+		final TrailInfo info = infoFromButton(v);
 
-	public void onRefreshButtonClick(View v) {
-		refresh(true);
-	}
+		ISourceSpecificTrailInfo sourceSpecificTrailInfo = info
+				.getSourceSpecificInfo(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME);
 
-	public void onHelpButtonClick(View v) {
-		openAbout();
+		if (sourceSpecificTrailInfo == null)
+			return;
+
+		SkinnyskiSpecificInfo skinnyskiInfo = (SkinnyskiSpecificInfo) sourceSpecificTrailInfo;
+
+		final List<String> options = new ArrayList<String>();
+
+		final String composeUrl = skinnyskiInfo.getComposeUrl();
+		if (composeUrl != null && composeUrl.length() > 0)
+			options.add("Compose Report");
+
+		final String requestUrl = skinnyskiInfo.getRequestUrl();
+		if (requestUrl != null && requestUrl.length() > 0)
+			options.add("Request a Report");
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(info.getName());
+		String[] optionsArray = new String[options.size()];
+		for (int i = 0; i < options.size(); i++) {
+			optionsArray[i] = options.get(i);
+		}
+		builder.setItems(optionsArray, new OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				if (which >= options.size())
+					return;
+
+				String url = null;
+				String option = (String) options.get(which);
+				if (option.equals("Compose Report")) {
+					url = composeUrl;
+				} else if (option.equals("Request a Report")) {
+					url = requestUrl;
+				} else {
+					Toast.makeText(getApplicationContext(),
+							(CharSequence) "Invalid selection: " + option,
+							Toast.LENGTH_SHORT).show();
+				}
+				dialog.dismiss();
+				if (url != null)
+					launchUrl(url);
+			}
+		});
+		builder.show();
+
 	}
 
 	public void onPhotosetImageClick(View v) {
@@ -230,8 +328,12 @@ public class xctrailreportActivity extends ListActivity {
 		TextView photosetTextView = (TextView) parent
 				.findViewById(R.id.photosetView);
 		String url = (String) photosetTextView.getText();
-		AndroidIntent.launchIntent(url, this);
+		launchUrl(url);
 
+	}
+
+	private void launchUrl(String url) {
+		AndroidIntent.launchIntent(url, this);
 	}
 
 }

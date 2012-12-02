@@ -5,6 +5,7 @@
 		<city>Minneapolis</city>
 		<state>MN</state>
 		<location>44.9795,-93.322</location>
+		<specificLocation>true</specificLocation>
 		<skinnyski>
 			<index>448</index>
 		</skinnyski>
@@ -15,6 +16,7 @@
 		<city>Golden Valley</city>
 		<state>MN</state>
 		<location>44.992,-93.3222</location>
+		<specificLocation>true</specificLocation>
 		<skinnyski>
 			<index>97</index>
 		</skinnyski>
@@ -24,6 +26,7 @@
 		<city>Maple Plain</city>
 		<state>MN</state>
 		<location>45.032,-93.6044</location>
+		<specificLocation>true</specificLocation>
 		<skinnyski>
 			<index>93</index>
 		</skinnyski>
@@ -36,6 +39,7 @@
 		<city>Victoria</city>
 		<state>MN</state>
 		<location>44.8836,-93.7031</location>
+		<specificLocation>true</specificLocation>
 		<skinnyski>
 			<index>90</index>
 		</skinnyski>
@@ -48,6 +52,7 @@
 		<city>Prior Lake</city>
 		<state>MN</state>
 		<location>44.6866,-93.3793</location>
+		<specificLocation>true</specificLocation>
 		<skinnyski>
 			<index>303</index>
 		</skinnyski>
@@ -60,6 +65,7 @@
 		<city>Plymouth</city>
 		<state>MN</state>
 		<location>45.0585,-93.4205</location>
+		<specificLocation>true</specificLocation>
 		<skinnyski>
 			<index>330</index>
 		</skinnyski>
@@ -72,6 +78,7 @@
 		<city>Maple Grove</city>
 		<state>MN</state>
 		<location>45.1335,-93.441</location>
+		<specificLocation>true</specificLocation>
 		<skinnyski>
 			<index>98</index>
 		</skinnyski>
@@ -84,6 +91,7 @@
 		<city>Plymouth</city>
 		<state>MN</state>
 		<location>45.0279,-93.438</location>
+		<specificLocation>true</specificLocation>
 		<skinnyski>
 			<index>99</index>
 		</skinnyski>
@@ -96,6 +104,7 @@
 		<city>Minnetonka</city>
 		<state>MN</state>
 		<location>44.8922325,-93.4603828</location>
+		<specificLocation>true</specificLocation>
 		<threeRivers>
 			<infoUrl>glen-lake-golf</infoUrl>
 		</threeRivers>
@@ -105,6 +114,7 @@
 		<city>Bloomington</city>
 		<state>MN</state>
 		<location>44.8243,-93.3769</location>
+		<specificLocation>true</specificLocation>
 		<skinnyski>
 			<index>84</index>
 		</skinnyski>
@@ -117,6 +127,7 @@
 		<city>Burnsville</city>
 		<state>MN</state>
 		<location>44.7238,-93.3483</location>
+		<specificLocation>true</specificLocation>
 		<skinnyski>
 			<index>85</index>
 		</skinnyski>

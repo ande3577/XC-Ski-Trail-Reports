@@ -24,7 +24,8 @@ import java.util.Date;
 import org.dsanderson.xctrailreport.core.IAbstractFactory;
 import org.dsanderson.xctrailreport.core.IDecoratorFactory;
 
-import android.app.ListActivity;
+import com.actionbarsherlock.app.SherlockListActivity;
+
 import android.database.Cursor;
 import android.text.format.Time;
 
@@ -33,20 +34,18 @@ import android.text.format.Time;
  */
 public class TrailReportPrinter implements IPrinter {
 
-	private final ListActivity context;
+	private final SherlockListActivity context;
 	private final IAbstractFactory factory;
 	private final IDecoratorFactory decoratorFactory;
 	private final TrailReportList trailReports;
-	private final String appName;
 	private final IAbstractListEntryFactory listEntryFactory;
 
-	public TrailReportPrinter(ListActivity context, IAbstractFactory factory,
+	public TrailReportPrinter(SherlockListActivity context, IAbstractFactory factory,
 			IDecoratorFactory decoratorFactory, TrailReportList trailReports,
 			String appName, IAbstractListEntryFactory listEntryFactory) {
 		this.context = context;
 		this.factory = factory;
 		this.decoratorFactory = decoratorFactory;
-		this.appName = appName;
 		this.listEntryFactory = listEntryFactory;
 
 		this.trailReports = trailReports;
@@ -54,13 +53,13 @@ public class TrailReportPrinter implements IPrinter {
 
 	public void printTrailReports() throws Exception {
 		Date lastRefreshDate = trailReports.getTimestamp();
-		String titleString = appName;
+		String dateString = "";
 		if (lastRefreshDate != null && lastRefreshDate.getTime() != 0) {
 			Time time = new Time();
 			time.set(lastRefreshDate.getTime());
-			titleString += time.format(" (%b %e, %r)");
+			dateString += time.format("%b %e, %r");
 		}
-		context.setTitle(titleString);
+		context.getSupportActionBar().setSubtitle(dateString);
 
 		factory.filterReports(trailReports);
 		factory.sortReports(trailReports);
