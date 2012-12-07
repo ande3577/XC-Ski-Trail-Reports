@@ -117,7 +117,8 @@ public class GenericDatabase extends SQLiteOpenHelper {
 	}
 
 	public void close() {
-		database.close();
+		if (database.isOpen())
+			database.close();
 	}
 
 	public void remove(Cursor cursor) {
@@ -411,12 +412,15 @@ public class GenericDatabase extends SQLiteOpenHelper {
 	}
 
 	public void endTransaction() {
-		database.setTransactionSuccessful();
-		database.endTransaction();
+		if (database.inTransaction()) {
+			database.setTransactionSuccessful();
+			database.endTransaction();
+		}
 	}
 
 	public void cancelTransaction() {
-		database.endTransaction();
+		if (database.inTransaction())
+			database.endTransaction();
 	}
 
 }
