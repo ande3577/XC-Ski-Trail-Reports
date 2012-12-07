@@ -39,6 +39,7 @@ public class TrailReportPrinter implements IPrinter {
 	private final IDecoratorFactory decoratorFactory;
 	private final TrailReportList trailReports;
 	private final IAbstractListEntryFactory listEntryFactory;
+	private Cursor cursor = null;
 
 	public TrailReportPrinter(SherlockListActivity context, IAbstractFactory factory,
 			IDecoratorFactory decoratorFactory, TrailReportList trailReports,
@@ -63,8 +64,11 @@ public class TrailReportPrinter implements IPrinter {
 
 		factory.filterReports(trailReports);
 		factory.sortReports(trailReports);
+		
+		if(cursor != null && !cursor.isClosed())
+			cursor.close();
 
-		Cursor cursor = ((TrailReportList) trailReports).getCursor();
+		cursor = ((TrailReportList) trailReports).getCursor();
 		context.setListAdapter(new TrailReportAdapter(context, cursor, factory,
 				decoratorFactory, trailReports, listEntryFactory));
 	}
