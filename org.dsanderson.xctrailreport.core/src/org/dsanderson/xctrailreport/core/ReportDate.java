@@ -22,6 +22,7 @@ package org.dsanderson.xctrailreport.core;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 /**
@@ -76,6 +77,7 @@ public class ReportDate implements Comparable<ReportDate> {
 		calendar.set(Calendar.HOUR, 11);
 		calendar.set(Calendar.MINUTE, 59);
 		calendar.set(Calendar.SECOND, 59);
+		calendar.set(Calendar.AM_PM, Calendar.PM);
 		calendar.set(Calendar.MILLISECOND, 0);
 		return calendar.getTime().getTime();
 	}
@@ -139,6 +141,18 @@ public class ReportDate implements Comparable<ReportDate> {
 	
 	public boolean getTimeValid() {
 		return timeValid;
+	}
+	
+	public void fillTime() {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		// set it to midnight, so it shows up longest in age filter
+		calendar.set(Calendar.HOUR, 11);
+		calendar.set(Calendar.MINUTE, 59);
+		calendar.set(Calendar.SECOND, 59);
+		calendar.set(Calendar.MILLISECOND, 0);
+		calendar.set(Calendar.AM_PM, Calendar.PM);
+		date = calendar.getTime();
 	}
 
 }

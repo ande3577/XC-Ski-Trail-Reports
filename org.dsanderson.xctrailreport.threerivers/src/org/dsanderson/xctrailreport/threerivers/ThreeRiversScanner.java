@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
@@ -41,7 +42,10 @@ import org.dsanderson.xctrailreport.core.TrailReportPool;
 public class ThreeRiversScanner {
 	private final TrailReportPool trailReportPool;
 	private final TrailInfoPool trailInfoPool;
-	private final SimpleDateFormat dateFormat = new SimpleDateFormat("MMMMMMMMM dd, yyyy");
+	private final SimpleDateFormat dateFormat = new SimpleDateFormat(
+			"MMMMMMMMM dd, yyyy");
+	private final SimpleDateFormat reportDateFormat = new SimpleDateFormat(
+			"M/d/y");
 	private Scanner scanner;
 	private TrailReport trailReport;
 	private TrailInfo trailInfo;
@@ -72,17 +76,13 @@ public class ThreeRiversScanner {
 		}
 		System.out.println("dateString = " + dateString);
 		Date date = dateFormat.parse(dateString);
-		date.setHours(23);
-		date.setMinutes(59);
-		date.setSeconds(59);
 		reportDate = new ReportDate(date);
 		reportDate.setTimeValid(false);
 	}
 
 	public boolean scanRegion() throws Exception {
 		if (!endOfRegion()) {
-			scanSingleReport();
-			return true;
+			return scanSingleReport();
 		} else {
 			return false;
 		}
@@ -100,12 +100,18 @@ public class ThreeRiversScanner {
 		return true;
 	}
 
-	private void scanSingleReport() throws Exception {
+	private boolean scanSingleReport() throws Exception {
 		trailReport = trailReportPool.newItem();
 		trailInfo = trailInfoPool.newItem();
 
 		scanName();
-		scanSummary();
+		if (scanSummary()) {
+			// adjust time
+			trailReport.getDate().fillTime();
+			return true;
+		} else {
+			return false;
+		}
 		// scanDetailed();
 	}
 
@@ -116,18 +122,40 @@ public class ThreeRiversScanner {
 			trailInfo.setName(split[0].trim());
 	}
 
-	private void scanSummary() {
+	private boolean scanSummary() {
+		if (trailInfo.getName().equals("CROSS COUNTRY SKI RACES"))
+			return false;
+		
 		trailReport.setDate(reportDate);
-		String line;
+		scanner.findWithinHorizon("\\Q<p\\E", 0);
+		scanner.findWithinHorizon("\\>", 0);
+		String line = "";
 		do {
-			line = scanner.nextLine();
-		} while (!line.contains("<p>"));
-		String split[] = line.split("\\Q<p>\\E");
-		if (split.length < 2)
-			return;
-		split = split[1].split("\\QUpdated \\E");
-		if (split.length > 0)
-			trailReport.setSummary(split[0]);
+			line += scanner.nextLine();
+		} while (scanner.hasNextLine() && !line.contains("</p>"));
+
+		line = line.replace("</p>", "");
+		String[] split = line.split("Updated");
+
+		trailReport.setSummary(split[0]);
+
+		if (split.length > 1) {
+			String dateString = split[1].trim();
+
+			try {
+				Date date = reportDateFormat.parse(dateString);
+				if (date != null) {
+					ReportDate reportDate = new ReportDate(date);
+					reportDate.setTimeValid(false);
+					trailReport.setDate(reportDate);
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return true;
 	}
 
 	private void scanDetailed() {

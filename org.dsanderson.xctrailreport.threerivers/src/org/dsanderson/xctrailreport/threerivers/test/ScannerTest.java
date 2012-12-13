@@ -43,7 +43,7 @@ public class ScannerTest {
 			TrailReportPool trailReportPool = new TrailReportPool();
 			TrailInfoPool trailInfoPool = new TrailInfoPool();
 
-			fileStream = new FileInputStream("cc-ski-trail-conditions.aspx");
+			fileStream = new FileInputStream("cc-ski-trail-conditions.aspx.html");
 
 			ThreeRiversScanner threeRiversScanner = new ThreeRiversScanner(
 					fileStream, trailReportPool, trailInfoPool);
