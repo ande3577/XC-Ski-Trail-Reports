@@ -19,11 +19,13 @@
  */
 package org.dsanderson.xctrailreport.core.android;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.dsanderson.android.util.GenericDatabase;
 import org.dsanderson.util.IDistanceSource;
+import org.dsanderson.util.IProgressBar;
 import org.dsanderson.util.Units;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.ITrailInfoList;
@@ -175,14 +177,31 @@ public class TrailReportList extends GenericDatabase implements
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.dsanderson.xctrailreport.core.ITrailInfoList#updateDistances(org.
-	 * dsanderson.util.IDistanceSource, java.util.List)
-	 */
-	public void updateDistances(IDistanceSource distanceSource,
+	public void updateDistances(String location,
+			IDistanceSource distanceSource, IProgressBar progressBar)
+			throws Exception {
+		List<String> trailLocations = getAllLocations();
+		distanceSource.updateDistances(location, trailLocations, progressBar);
+		updateDistances(distanceSource, trailLocations);
+	}
+
+	private List<String> getAllLocations() {
+		Cursor cursor = getDatabase().query(true,
+				TrailReportDatabaseFactory.TABLE_TEST, new String[] {TrailInfoDatabaseFactory.COLUMN_LOCATION}, null, null, null,
+				null, null, null);
+		int columnIndex = cursor
+				.getColumnIndex(TrailInfoDatabaseFactory.COLUMN_LOCATION);
+		List<String> locations = new ArrayList<String>(cursor.getCount());
+		if (cursor.moveToFirst()) {
+			do {
+				locations.add(cursor.getString(columnIndex));
+			} while (cursor.moveToNext());
+		}
+		cursor.close();
+		return locations;
+	}
+
+	private void updateDistances(IDistanceSource distanceSource,
 			List<String> locations) {
 
 		List<Integer> distances = distanceSource.getDistances();
@@ -219,6 +238,7 @@ public class TrailReportList extends GenericDatabase implements
 				} while (cursor.moveToNext());
 			}
 			endTransaction();
+			cursor.close();
 		} catch (Exception e) {
 			cancelTransaction();
 		}

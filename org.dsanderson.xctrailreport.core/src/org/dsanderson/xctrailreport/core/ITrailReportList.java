@@ -19,10 +19,9 @@
  */
 package org.dsanderson.xctrailreport.core;
 
-import java.util.List;
-
 import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.IList;
+import org.dsanderson.util.IProgressBar;
 
 /**
  * 
@@ -33,7 +32,8 @@ public interface ITrailReportList extends IList<TrailReport> {
 
 	public void filter(UserSettings settings);
 
-	public void updateDistances(IDistanceSource distanceSource,
-			List<String> locations);
+	public void updateDistances(String location,
+			IDistanceSource distanceSource, IProgressBar progressBar)
+			throws Exception;
 
 }

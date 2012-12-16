@@ -20,7 +20,6 @@
 package org.dsanderson.xctrailreport.application;
 
 import java.util.Date;
-import java.util.List;
 
 import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.IProgressBar;
@@ -81,18 +80,17 @@ public class ReportListCreator implements IReportListCreator {
 			try {
 				for (ISourceSpecificFactory source : factory
 						.getSourceSpecificFactories()) {
-					if (source.getEnabled())
-					{
+					if (source.getEnabled()) {
 						source.getReportRetriever().getReports(trailReports,
 								trailInfos, progressBar);
 						sourceFound = true;
 					}
 				}
-				
-				if(!sourceFound)
+
+				if (!sourceFound)
 					throw new Exception("No sources enabled.");
 
-				getDistances(trailReports, trailInfos, progressBar);
+				getDistances(trailReports, progressBar);
 
 				trailReports.endTransaction();
 				trailReports.save();
@@ -120,22 +118,17 @@ public class ReportListCreator implements IReportListCreator {
 	}
 
 	private void getDistances(ITrailReportList trailReports,
-			ITrailInfoList trailInfos, IProgressBar progressBar) {
+			IProgressBar progressBar) {
 		String location = factory.getLocationSource().getLocation();
 		IDistanceSource distanceSource = factory.getDistanceSource();
 
-		List<String> destinations = trailInfos.getAllLocations();
-
 		if (distanceSource != null) {
 			try {
-				distanceSource.updateDistances(location, destinations,
+				trailReports.updateDistances(location, distanceSource,
 						progressBar);
-
-				trailReports.updateDistances(distanceSource, destinations);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 	}
-
 }
