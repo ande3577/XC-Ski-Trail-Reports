@@ -210,7 +210,7 @@ public class SkinnyskiScanner {
 
 		result = scanner.findInLine(start + target + end);
 		if (result != null) {
-			if (start != null && !start.isEmpty()) {
+			if (start != null && !(start.length() == 0)) {
 				String results[] = result.split(start, 2);
 				if (results.length < 2)
 					return null;
@@ -218,7 +218,7 @@ public class SkinnyskiScanner {
 				result = results[1];
 			}
 
-			if (end != null && !end.isEmpty()) {
+			if (end != null && !(end.length() == 0)) {
 				String results[] = result.split(end, 2);
 				if (results.length < 1)
 					return null;

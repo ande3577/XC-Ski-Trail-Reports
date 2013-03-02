@@ -170,12 +170,12 @@ public class TrailInfoParser {
 		for (TrailInfo current : currentInfos) {
 			if (current.getName().equals(newInfo.getName())) {
 				found = true;
-				if (current.getCity() == null || current.getState().isEmpty())
+				if (current.getCity() == null || (current.getState().length() == 0))
 					current.setCity(newInfo.getCity());
-				if (current.getState() == null || current.getState().isEmpty())
+				if (current.getState() == null || (current.getState().length() == 0))
 					current.setState(newInfo.getState());
 				if (current.getLocation() == null
-						|| current.getLocation().isEmpty())
+						|| (current.getLocation().length() == 0))
 					current.setLocation(newInfo.getLocation());
 				if (!current.getSpecificLocation())
 					current.setSpecificLocation(newInfo.specificLocation);
