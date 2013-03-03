@@ -20,6 +20,7 @@
 package org.dsanderson.xctrailreport;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -29,11 +30,14 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+import android.provider.SearchRecentSuggestions;
+import android.widget.Toast;
 
 /**
  * 
  */
 public class PreferencesActivity extends PreferenceActivity {
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -65,6 +69,15 @@ public class PreferencesActivity extends PreferenceActivity {
 			Intent i = new Intent(getApplicationContext(), RegionActivity.class);
 			startActivity(i);
 			return false;
+		} else if (preference.getKey().equals("clearSearchHistory")) {
+
+			SearchRecentSuggestions suggestions = new SearchRecentSuggestions(
+					this, SuggestionProvider.AUTHORITY,
+					SuggestionProvider.MODE);
+			suggestions.clearHistory();
+			
+			Toast.makeText(this, "Search history cleared.", Toast.LENGTH_SHORT).show();
+
 		}
 		return true;
 	}
@@ -82,13 +95,13 @@ public class PreferencesActivity extends PreferenceActivity {
 				editor.commit();
 				PreferenceManager.setDefaultValues(PreferencesActivity.this,
 						R.xml.preferences, true);
-				
+
 				PreferenceManager.setDefaultValues(PreferencesActivity.this,
 						R.xml.region_preferences, true);
-				
+
 				PreferenceManager.setDefaultValues(PreferencesActivity.this,
 						R.xml.source_preferences, true);
-				
+
 				PreferenceManager.setDefaultValues(PreferencesActivity.this,
 						R.xml.hidden_preferences, true);
 

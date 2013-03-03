@@ -39,7 +39,6 @@ public class RegexTest {
 		String patternArray[] = {"", ",", ".*"};
 		
 		String pattern = patternArray[0] + patternArray[2] + patternArray[1];
-		Scanner scanner = new Scanner(input);
 		String result = input;
 		if (scanner.findInLine(pattern) != null)
 			result += " contains ";

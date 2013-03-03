@@ -53,16 +53,21 @@ public class ReportDate implements Comparable<ReportDate> {
 	public static long stringToDate(String dateString) throws Exception {
 		Scanner scanner = new Scanner(dateString);
 		String month;
-		if (scanner.hasNext())
+		if (scanner.hasNext()) {
 			month = scanner.next();
-		else
+		} else {
+			scanner.close();
 			throw new Exception("Invalid date string: " + dateString);
+		}
 
 		int day;
-		if (scanner.hasNextInt())
+		if (scanner.hasNextInt()) {
 			day = scanner.nextInt();
-		else
+		} else {
+			scanner.close();
 			throw new Exception("Invalid date string: " + dateString);
+		}
+		scanner.close();
 
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(Calendar.MONTH, lookupMonth(month));

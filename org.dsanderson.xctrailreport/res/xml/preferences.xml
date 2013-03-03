@@ -27,6 +27,7 @@
                 <EditTextPreference android:defaultValue="2" android:title="Valid Age Cutoff (hours)" android:numeric="decimal" android:inputType="numberDecimal" android:summary="Will not download reports on startup if cache is newer than this." android:key="autoRefreshCutoff"/>
             </PreferenceCategory>
             <PreferenceCategory android:title="Restore Defaults"><Preference android:title="Restore Factory Defaults" android:shouldDisableView="false" android:key="restoreDefaults" android:summary="Revert all configuration options to preconfigured values." />
+            <Preference android:key="clearSearchHistory" android:title="Clear Search History" android:shouldDisableView="false"/>
 </PreferenceCategory>
             
     

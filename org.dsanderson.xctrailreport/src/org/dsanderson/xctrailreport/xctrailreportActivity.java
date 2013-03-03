@@ -25,6 +25,7 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
 import android.app.AlertDialog;
+import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -32,6 +33,7 @@ import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.SearchRecentSuggestions;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -59,6 +61,17 @@ public class xctrailreportActivity extends SherlockListActivity {
 				ReportDecoratorFactory.getInstance(), trailReports, appName,
 				ListEntryFactory.getInstance());
 		factory.getUserSettingsSource().loadUserSettings();
+
+		String query = null;
+		// Get the intent, verify the action and get the query
+		Intent intent = getIntent();
+		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+			query = intent.getStringExtra(SearchManager.QUERY);
+			SearchRecentSuggestions suggestions = new SearchRecentSuggestions(
+					this, SuggestionProvider.AUTHORITY, SuggestionProvider.MODE);
+			suggestions.saveRecentQuery(query.trim(), null);
+		}
+		trailReports.searchString(query);
 
 		refresh(false);
 	}
@@ -147,6 +160,9 @@ public class xctrailreportActivity extends SherlockListActivity {
 					getApplication()).edit();
 			edit.putString("sortMethod", sortMethodString);
 			edit.commit();
+			break;
+		case R.id.search:
+			onSearchRequested();
 			break;
 		default:
 			Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();

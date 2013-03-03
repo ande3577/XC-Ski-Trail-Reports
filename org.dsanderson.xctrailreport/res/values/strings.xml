@@ -2,5 +2,6 @@
 <resources>
 
     <string name="app_name">XC Trail Reports</string>
+    <string name="search_hint">Enter trail name...</string>
 
 </resources>

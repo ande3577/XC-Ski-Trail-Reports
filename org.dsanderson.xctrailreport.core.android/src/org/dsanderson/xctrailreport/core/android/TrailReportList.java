@@ -47,6 +47,7 @@ public class TrailReportList extends GenericDatabase implements
 
 	private final TrailReportPool reportPool;
 	private final TrailInfoPool infoPool;
+	String searchString = null;
 
 	public TrailReportList(Context context, TrailReportDatabaseFactory factory,
 			TrailReportPool reportPool, TrailInfoPool infoPool,
@@ -175,6 +176,12 @@ public class TrailReportList extends GenericDatabase implements
 		if (settings.getPhotosetFilterEnabled()) {
 			addFilter(TrailReportDatabaseFactory.COLUMN_PHOTOSET + "!=''");
 		}
+		if (searchString != null) {
+			addFilter(TrailInfoDatabaseFactory.COLUMN_NAME + " LIKE '%"
+					+ searchString.trim() + "%' OR "
+					+ TrailInfoDatabaseFactory.COLUMN_CITY + " LIKE '%"
+					+ searchString.trim() + "%'");
+		}
 	}
 
 	public void updateDistances(String location,
@@ -187,8 +194,9 @@ public class TrailReportList extends GenericDatabase implements
 
 	private List<String> getAllLocations() {
 		Cursor cursor = getDatabase().query(true,
-				TrailReportDatabaseFactory.TABLE_TEST, new String[] {TrailInfoDatabaseFactory.COLUMN_LOCATION}, null, null, null,
-				null, null, null);
+				TrailReportDatabaseFactory.TABLE_TEST,
+				new String[] { TrailInfoDatabaseFactory.COLUMN_LOCATION },
+				null, null, null, null, null, null);
 		int columnIndex = cursor
 				.getColumnIndex(TrailInfoDatabaseFactory.COLUMN_LOCATION);
 		List<String> locations = new ArrayList<String>(cursor.getCount());
@@ -242,6 +250,14 @@ public class TrailReportList extends GenericDatabase implements
 		} catch (Exception e) {
 			cancelTransaction();
 		}
+	}
+
+	public void searchString(String searchString) {
+		this.searchString = searchString;
+	}
+
+	public String searchString() {
+		return this.searchString;
 	}
 
 }

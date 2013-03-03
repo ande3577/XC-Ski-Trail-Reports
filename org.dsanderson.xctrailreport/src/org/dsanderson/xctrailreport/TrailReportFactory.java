@@ -373,5 +373,5 @@ public class TrailReportFactory implements IAbstractFactory {
 		UserSettings settings = getUserSettings();
 		trailReports.sort(settings);
 	}
-
+	
 }
