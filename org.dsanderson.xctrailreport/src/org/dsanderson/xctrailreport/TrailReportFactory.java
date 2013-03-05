@@ -282,7 +282,7 @@ public class TrailReportFactory implements IAbstractFactory {
 					factory.getTrailReportPool(), factory.getTrailInfoPool(),
 					TrailReportDatabaseFactory.DATABASE_NAME,
 					Integer.parseInt(context
-							.getString(R.integer.databaseVersion)),
+							.getString(R.integer.reportDatabaseVersion)),
 					factory.getTrailInfoList());
 		}
 
@@ -308,7 +308,7 @@ public class TrailReportFactory implements IAbstractFactory {
 					getTrailInfoDatabaseFactory(), getReportReaderFactory(),
 					getTrailInfoPool(), TrailInfoDatabaseFactory.TABLE_TEST,
 					Integer.parseInt(context
-							.getString(R.integer.databaseVersion)));
+							.getString(R.integer.trailInfoDatabaseVersion)));
 
 		try {
 			trailInfoList.open();

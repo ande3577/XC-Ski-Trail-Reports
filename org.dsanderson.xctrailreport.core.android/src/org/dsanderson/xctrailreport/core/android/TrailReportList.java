@@ -110,24 +110,24 @@ public class TrailReportList extends GenericDatabase implements
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, true);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, true);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_NAME, true);
-			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET, false);
+			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET_PRESENT, false);
 			break;
 		case SORT_BY_DISTANCE:
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, true);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, true);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_NAME, true);
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
-			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET, false);
+			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET_PRESENT, false);
 			break;
 		case SORT_BY_DURATION:
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, true);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, true);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_NAME, true);
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
-			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET, false);
+			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET_PRESENT, false);
 			break;
 		case SORT_BY_PHOTOSET:
-			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET, false);
+			addSortOrder(TrailReportDatabaseFactory.COLUMN_PHOTOSET_PRESENT, false);
 			addSortOrder(TrailReportDatabaseFactory.COLUMN_DATE, false);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DURATION, true);
 			addSortOrder(TrailInfoDatabaseFactory.COLUMN_DISTANCE, true);

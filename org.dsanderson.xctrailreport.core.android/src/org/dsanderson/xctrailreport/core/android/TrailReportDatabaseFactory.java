@@ -55,6 +55,9 @@ public class TrailReportDatabaseFactory implements IDatabaseObjectFactory {
 	public static final String COLUMN_PHOTOSET = "photosetURL";
 	private static final String TYPE_PHOTOSET = "text not null";
 	
+	public static final String COLUMN_PHOTOSET_PRESENT = "photosetPresent";
+	private static final String TYPE_PHOTOSET_PRESENT = "integer not null";
+	
 	public static final String COLUMN_TIME_VALID = "timeValid";
 	public static final String TYPE_TIME_VALID = "integer not null";
 
@@ -88,6 +91,7 @@ public class TrailReportDatabaseFactory implements IDatabaseObjectFactory {
 				.addColumn(COLUMN_DETAIL, TYPE_DETAIL) //
 				.addColumn(COLUMN_SOURCE, TYPE_SOURCE) //
 				.addColumn(COLUMN_PHOTOSET, TYPE_PHOTOSET) //
+				.addColumn(COLUMN_PHOTOSET_PRESENT, TYPE_PHOTOSET_PRESENT) //
 				.addColumn(COLUMN_SUMMARY_PRIORITY, TYPE_SUMMARY_PRIORITY)
 				.addColumn(COLUMN_TIME_VALID, TYPE_TIME_VALID);
 
@@ -111,6 +115,7 @@ public class TrailReportDatabaseFactory implements IDatabaseObjectFactory {
 		values.put(COLUMN_DETAIL, report.getDetail());
 		values.put(COLUMN_SOURCE, report.getSource());
 		values.put(COLUMN_PHOTOSET, report.getPhotosetUrl());
+		values.put(COLUMN_PHOTOSET_PRESENT, report.getPhotosetUrl().length() != 0);
 		values.put(COLUMN_SUMMARY_PRIORITY, report.getSummaryPriority());
 		values.put(COLUMN_TIME_VALID, report.getDate().getTimeValid());
 		trailInfoFactory.buildContentValues(report.getTrailInfo(), values);
@@ -133,14 +138,10 @@ public class TrailReportDatabaseFactory implements IDatabaseObjectFactory {
 				.getColumnIndex(COLUMN_DATE))));
 		report.setDetail(cursor.getString(cursor.getColumnIndex(COLUMN_DETAIL)));
 		report.setSource(cursor.getString(cursor.getColumnIndex(COLUMN_SOURCE)));
-		report.setPhotosetUrl(cursor.getString(cursor
-				.getColumnIndex(COLUMN_PHOTOSET)));
-		report.setSummaryPriority(cursor.getInt(cursor
-				.getColumnIndex(COLUMN_SUMMARY_PRIORITY)));
-		report.setTrailInfo((TrailInfo) trailInfoFactory.getObject(cursor,
-				report.getTrailInfo()));
-		report.getDate().setTimeValid(cursor.getInt(cursor
-				.getColumnIndex(COLUMN_TIME_VALID)) != 0);
+		report.setPhotosetUrl(cursor.getString(cursor.getColumnIndex(COLUMN_PHOTOSET)));
+		report.setSummaryPriority(cursor.getInt(cursor.getColumnIndex(COLUMN_SUMMARY_PRIORITY)));
+		report.setTrailInfo((TrailInfo) trailInfoFactory.getObject(cursor, report.getTrailInfo()));
+		report.getDate().setTimeValid(cursor.getInt(cursor.getColumnIndex(COLUMN_TIME_VALID)) != 0);
 		return report;
 	}
 
