@@ -9,6 +9,7 @@ import org.dsanderson.xctrailreport.core.ISourceSpecificFactory;
 import org.dsanderson.xctrailreport.core.ISourceSpecificTrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfo;
 import org.dsanderson.xctrailreport.core.TrailInfoSources;
+import org.dsanderson.xctrailreport.core.UserSettings.DistanceMode;
 import org.dsanderson.xctrailreport.core.android.LoadReportsTask;
 import org.dsanderson.xctrailreport.core.android.TrailReportList;
 import org.dsanderson.xctrailreport.core.android.TrailReportPrinter;
@@ -80,7 +81,17 @@ public class xctrailreportActivity extends SherlockListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getSherlock().getMenuInflater();
 		inflater.inflate(R.menu.mainmenu, menu);
+		menu.findItem(R.id.sortByDistance).setVisible(showSortByDistanceMenu());
+		menu.findItem(R.id.sortByDuration).setVisible(showSortByDurationMenu());
 		return true;
+	}
+	
+	private boolean showSortByDistanceMenu() {
+		return factory.getUserSettings().getDistanceMode() != DistanceMode.DISABLED;
+	}
+	
+	private boolean showSortByDurationMenu() {
+		return factory.getUserSettings().getDistanceMode() == DistanceMode.FULL;
 	}
 
 	@Override
