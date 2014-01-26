@@ -38,9 +38,9 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 
 	private final IAbstractFactory factory;
 	private final SkinnyskiFactory skinnySkiFactory;
+	
 
-	public SkinnyskiReportRetriever(IAbstractFactory factory,
-			SkinnyskiFactory skinnyskiFactory) {
+	public SkinnyskiReportRetriever(IAbstractFactory factory, SkinnyskiFactory skinnyskiFactory) {
 		this.factory = factory;
 		this.skinnySkiFactory = skinnyskiFactory;
 	}
@@ -50,62 +50,74 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 	 * 
 	 * @see org.dsanderson.IReportRetriever#getReports(org.dsanderson.TrailInfo)
 	 */
-	public void getReports(ITrailReportList trailReports,
-			ITrailInfoList trailInfos, IProgressBar progressBar)
-			throws Exception {
+	public void getReports(ITrailReportList trailReports, ITrailInfoList trailInfos, IProgressBar progressBar) throws Exception {
 
 		if (skinnySkiFactory.getRegions().getRegions().isEmpty())
 			throw new Exception("No regions enabled.");
 
 		INetConnection netConnection = factory.getNetConnection();
+		retrieveTrailInfo(netConnection, trailInfos, progressBar);
+		retrieveReports(netConnection, trailReports, trailInfos, progressBar);
+	}
+	
+	private void retrieveTrailInfo(INetConnection netConnection, ITrailInfoList trailInfos, IProgressBar progressBar) throws Exception {
+		TrailInfo info;
+		SkinnyskiSpecificInfo skinnyskiInfo;
+		try {
+			netConnection.connect("http://www.skinnyski.com/trails/ski/listings.asp?region=all#");
+			progressBar.incrementProgress();
+			BufferedInputStream stream = new BufferedInputStream(netConnection.getStream());
+			progressBar.incrementProgress();
+			
+			SkinnyskiTrailInfoScanner scanner = new SkinnyskiTrailInfoScanner(stream);
+			info = factory.getTrailInfoPool().newItem();
+			skinnyskiInfo = skinnySkiFactory.getTrailInfoPool().newItem();
+
+			while(scanner.scan(info, skinnyskiInfo)) {
+				info.addSourceSpecificInfo(skinnyskiInfo);
+				info = trailInfos.mergeIntoList(info);
+			}
+			
+			factory.getTrailInfoPool().deleteItem(info);
+			skinnySkiFactory.getTrailInfoPool().deleteItem(skinnyskiInfo);
+		} finally {
+			netConnection.disconnect();
+		}
+	}
+	
+	private void retrieveReports(INetConnection netConnection, ITrailReportList trailReports, ITrailInfoList trailInfos, IProgressBar progressBar) throws Exception {
 		try {
 			netConnection.connect("http://skinnyski.com/trails/reports.asp");
 			progressBar.incrementProgress();
-			BufferedInputStream stream = new BufferedInputStream(
-					netConnection.getStream());
+			BufferedInputStream stream = new BufferedInputStream(netConnection.getStream());
 			progressBar.incrementProgress();
-			SkinnyskiScanner scanner = new SkinnyskiScanner(stream,
-					factory.getTrailReportPool(), factory.getTrailInfoPool(),
-					skinnySkiFactory.getTrailInfoPool());
+			SkinnyskiScanner scanner = new SkinnyskiScanner(stream, factory.getTrailReportPool(), factory.getTrailInfoPool(), skinnySkiFactory.getTrailInfoPool());
 
 			for (String region : skinnySkiFactory.getRegions().getRegions()) {
-
 				if (scanner.findRegion(region)) {
 					while (scanner.scanRegion()) {
 						progressBar.incrementProgress();
 						TrailReport newTrailReport = scanner.getTrailReport();
 						TrailInfo newTrailInfo = scanner.getTrailInfo();
-						SkinnyskiSpecificInfo newSkinnyskiInfo = scanner
-								.getSkinnyskiSpecificInfo();
-
+						SkinnyskiSpecificInfo newSkinnyskiInfo = scanner.getSkinnyskiSpecificInfo();
 						newTrailInfo.addSourceSpecificInfo(newSkinnyskiInfo);
 
-						TrailInfo existingInfo = trailInfos.find(newTrailInfo
-								.getName());
-
+						TrailInfo existingInfo = trailInfos.find(newTrailInfo.getName());
 						if (existingInfo == null) {
-							LocationInfo locationInfo = factory
-									.getLocationCoder().getLocation(
-											newTrailInfo.getName() + ", "
-													+ newTrailInfo.getCity()
-													+ ", "
-													+ newTrailInfo.getState());
+							LocationInfo locationInfo = factory.getLocationCoder().getLocation(newTrailInfo.getName() + ", "+ newTrailInfo.getCity() + ", " + newTrailInfo.getState());
 							newTrailInfo.setLocation(locationInfo.location);
-							newTrailInfo
-									.setSpecificLocation(locationInfo.specificLocation);
+							newTrailInfo.setSpecificLocation(locationInfo.specificLocation);
 						}
 
 						newTrailInfo = trailInfos.mergeIntoList(newTrailInfo);
 
 						newTrailReport.setTrailInfo(newTrailInfo);
-						newTrailReport
-								.setSource(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME);
+						newTrailReport.setSource(SkinnyskiFactory.SKINNYSKI_SOURCE_NAME);
 						trailReports.add(newTrailReport);
 
 						factory.getTrailReportPool().deleteItem(newTrailReport);
 						factory.getTrailInfoPool().deleteItem(newTrailInfo);
-						skinnySkiFactory.getTrailInfoPool().deleteItem(
-								newSkinnyskiInfo);
+						skinnySkiFactory.getTrailInfoPool().deleteItem(newSkinnyskiInfo);
 					}
 				}
 			}
