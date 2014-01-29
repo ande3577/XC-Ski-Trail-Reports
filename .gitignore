@@ -4,3 +4,4 @@ bin
 gen
 *.bak
 *.orig
+*.tar.gz

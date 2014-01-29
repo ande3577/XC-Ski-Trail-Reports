@@ -39,10 +39,10 @@ public class SourceDecorator extends TrailReportDecorator {
 	public void decorate(TrailReport trailReport,
 			ITrailReportListEntry listEntry) {
 		ITextItem newTextItem = listEntry.getSourceTextItem();
-		String text = "";
+		String text = newTextItem.getText();
 
 		if (trailReport.getSource().length() > 0) {
-			text = " (" + trailReport.getSource() + ")";
+			text += " (" + trailReport.getSource() + ")";
 		} else {
 		}
 

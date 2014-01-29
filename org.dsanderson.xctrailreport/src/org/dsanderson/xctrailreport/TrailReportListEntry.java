@@ -43,7 +43,6 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 	TextItem detailedItem = null;
 	TextItem authorItem = null;
 	HiddenTextField photosetItem = null;
-	TextItem sourceItem = null;
 	FixedImageItem mapImageItem = null;
 	FixedImageItem moreImageItem = null;
 	FixedImageItem photosetImageItem = null;
@@ -194,11 +193,12 @@ public class TrailReportListEntry implements ITrailReportListEntry {
 	 * getSourceTextItem()
 	 */
 	public ITextItem getSourceTextItem() {
-		if (sourceItem == null) {
-			sourceItem = new TextItem(
-					(TextView) viewGroup.findViewById(R.id.sourceView));
+		// source is added to the author view
+		if (authorItem == null) {
+			authorItem = new TextItem(
+					(TextView) viewGroup.findViewById(R.id.authorView));
 		}
-		return sourceItem;
+		return authorItem;
 	}
 
 	public IImageItem getMapImageItem() {
