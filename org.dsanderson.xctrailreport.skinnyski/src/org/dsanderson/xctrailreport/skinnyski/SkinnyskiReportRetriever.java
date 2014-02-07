@@ -76,6 +76,8 @@ public class SkinnyskiReportRetriever implements IReportRetriever {
 			while(scanner.scan(info, skinnyskiInfo)) {
 				info.addSourceSpecificInfo(skinnyskiInfo);
 				info = trailInfos.mergeIntoList(info);
+				info.reset();
+				skinnyskiInfo.reset();
 			}
 			
 			factory.getTrailInfoPool().deleteItem(info);

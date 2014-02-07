@@ -30,7 +30,7 @@ import org.dsanderson.util.DatabaseObject;
 public class TrailInfo extends DatabaseObject {
 	String name = "";
 	String city = "";
-	String state = "MN";
+	String state = "";
 	String location = "";
 	boolean specificLocation = false;
 	int distance = 0;
@@ -39,8 +39,6 @@ public class TrailInfo extends DatabaseObject {
 	boolean durationValid = false;
 	
 	List<ISourceSpecificTrailInfo> sourceSpecificInfo = new ArrayList<ISourceSpecificTrailInfo>();
-	
-	
 
 	public TrailInfo() {
 		reset();
