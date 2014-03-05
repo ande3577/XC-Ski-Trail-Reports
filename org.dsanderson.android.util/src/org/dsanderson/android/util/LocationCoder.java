@@ -61,13 +61,17 @@ public class LocationCoder implements ILocationCoder {
 		boolean specificLocation = true;
 
 		while (locationName.length() > 0) {
-			addresses = coder.getFromLocationName(locationName, 1);
-			if (addresses.size() == 0) {
+			try {
+				addresses = coder.getFromLocationName(locationName, 1);
+				if (addresses.size() == 0) {
+					throw new Exception("Address not found");
+				} else {
+					break;
+				}
+			} catch (Exception ex) {
 				locationName = lessSpecific(locationName);
 				specificLocation = false;
 			}
-			else
-				break;
 		}
 
 		if (addresses.size() > 0) {
