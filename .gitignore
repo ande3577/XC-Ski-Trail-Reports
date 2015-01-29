@@ -5,3 +5,4 @@ gen
 *.bak
 *.orig
 *.tar.gz
+.metadata

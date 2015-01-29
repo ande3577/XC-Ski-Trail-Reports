@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="res"/>
-	<classpathentry kind="lib" path="C:/Users/dsanderson/android-sdks/platforms/android-17/android.jar"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.dsanderson.util"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="src" path="gen"/>

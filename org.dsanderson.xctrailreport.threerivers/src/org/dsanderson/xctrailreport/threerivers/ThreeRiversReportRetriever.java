@@ -53,7 +53,7 @@ public class ThreeRiversReportRetriever implements IReportRetriever {
 		progressBar.incrementProgress();
 		try {
 			netConnection
-					.connect("http://www.threeriversparks.org/news/news/cc-ski-trail-conditions.aspx");
+					.connect("http://www.threeriversparks.org/news/news/ski-trail-conditions.aspx");
 			progressBar.incrementProgress();
 			BufferedInputStream stream = new BufferedInputStream(
 					netConnection.getStream());
