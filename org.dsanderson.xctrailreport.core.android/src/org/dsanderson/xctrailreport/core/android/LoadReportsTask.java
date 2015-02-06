@@ -30,6 +30,7 @@ import android.app.ListActivity;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
+import android.os.Parcelable;
 
 /**
  * 
@@ -43,6 +44,8 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 	private final ListActivity context;
 	private final IProgressBar progressBar;
 	private final IPrinter printer;
+	private final Parcelable state;
+	private boolean newReports = false;
 	Exception e = null;
 
 	/**
@@ -51,7 +54,7 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 	public LoadReportsTask(ListActivity context, IAbstractFactory factory,
 			IReportListCreator listCreator, ITrailReportList trailReports,
 			ITrailInfoList trailInfos, IPrinter printer,
-			IProgressBar progressBar) {
+			IProgressBar progressBar, Parcelable state) {
 		this.factory = factory;
 		this.listCreator = listCreator;
 		this.trailReports = trailReports;
@@ -59,6 +62,7 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 		this.context = context;
 		this.printer = printer;
 		this.progressBar = progressBar;
+		this.state = state;
 	}
 
 	@Override
@@ -95,6 +99,9 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 		if (e == null) {
 			try {
 				printer.printTrailReports();
+				if ((state != null) && !newReports) {
+					context.getListView().onRestoreInstanceState(state);
+				}
 			} catch (Exception e) {
 				this.e = e;
 			}
@@ -111,8 +118,8 @@ public class LoadReportsTask extends AsyncTask<Integer, Integer, Integer> {
 	private void loadTrailReports() throws Exception {
 
 		try {
-			listCreator.getTrailReports(trailReports, trailInfos, factory
-					.getUserSettings().getForcedRefresh(), progressBar);
+			newReports = listCreator.getTrailReports(trailReports, trailInfos,
+					factory.getUserSettings().getForcedRefresh(), progressBar);
 		} catch (Exception e) {
 			e.printStackTrace();
 			trailReports.clear();

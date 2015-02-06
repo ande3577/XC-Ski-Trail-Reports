@@ -31,8 +31,8 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
-import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.provider.SearchRecentSuggestions;
 import android.view.View;
@@ -47,6 +47,7 @@ public class xctrailreportActivity extends SherlockListActivity {
 	ReportListCreator listCreator = new ReportListCreator(factory);
 	private String appName;
 	private TrailReportPrinter printer;
+	private Parcelable state = null;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -74,6 +75,12 @@ public class xctrailreportActivity extends SherlockListActivity {
 		}
 		trailReports.searchString(query);
 
+		if (savedInstanceState == null) {
+			state = null;
+		} else {
+			state = savedInstanceState.getParcelable("REPORTS_SCROLL_POSITION");
+		}
+
 		refresh(false);
 	}
 
@@ -85,11 +92,11 @@ public class xctrailreportActivity extends SherlockListActivity {
 		menu.findItem(R.id.sortByDuration).setVisible(showSortByDurationMenu());
 		return true;
 	}
-	
+
 	private boolean showSortByDistanceMenu() {
 		return factory.getUserSettings().getDistanceMode() != DistanceMode.DISABLED;
 	}
-	
+
 	private boolean showSortByDurationMenu() {
 		return factory.getUserSettings().getDistanceMode() == DistanceMode.FULL;
 	}
@@ -209,10 +216,11 @@ public class xctrailreportActivity extends SherlockListActivity {
 		}
 	}
 
-	// / adding this to prevent rescrolling on orientation changed
 	@Override
-	public void onConfigurationChanged(Configuration config) {
-		super.onConfigurationChanged(config);
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		final Parcelable state = getListView().onSaveInstanceState();
+		outState.putParcelable("REPORTS_SCROLL_POSITION", state);
 	}
 
 	@Override
@@ -228,7 +236,7 @@ public class xctrailreportActivity extends SherlockListActivity {
 
 		new LoadReportsTask(this, factory, listCreator, trailReports,
 				factory.getTrailInfoList(), printer, new AndroidProgressBar(
-						this)).execute();
+						this), state).execute();
 	}
 
 	private TrailInfo infoFromButton(View view) {

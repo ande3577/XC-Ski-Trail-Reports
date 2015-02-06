@@ -25,7 +25,7 @@ import org.dsanderson.util.IProgressBar;
  * 
  */
 public interface IReportListCreator {
-	void getTrailReports(ITrailReportList trailReports,
+	boolean getTrailReports(ITrailReportList trailReports,
 			ITrailInfoList trailInfos, boolean forced, IProgressBar progressBar)
 			throws Exception;
 }

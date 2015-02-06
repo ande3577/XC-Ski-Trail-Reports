@@ -41,7 +41,7 @@ public class ReportListCreator implements IReportListCreator {
 		this.factory = factory;
 	}
 
-	public void getTrailReports(ITrailReportList trailReports,
+	public boolean getTrailReports(ITrailReportList trailReports,
 			ITrailInfoList trailInfos, boolean forced, IProgressBar progressBar)
 			throws Exception {
 		boolean refreshNeeded = forced;
@@ -101,6 +101,7 @@ public class ReportListCreator implements IReportListCreator {
 				progressBar.close();
 			}
 		}
+		return refreshNeeded;
 	}
 
 	private void loadSavedReports(ITrailReportList trailReports,
